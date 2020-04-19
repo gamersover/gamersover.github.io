@@ -1,6 +1,6 @@
 ---
-title: tags
+title: 标签
 date: 2019-11-02 12:10:32
-category: "AI"
+type: "tags"
 comments: false
 ---

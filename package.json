@@ -12,14 +12,18 @@
     "version": "4.0.0"
   },
   "dependencies": {
+    "@1v9/hexo-next-nightmode": "github:1v9/hexo-next-nightmode",
     "hexo": "^4.0.0",
+    "hexo-deployer-git": "^2.1.0",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
     "hexo-generator-index": "^1.0.0",
+    "hexo-generator-search": "^2.4.0",
     "hexo-generator-tag": "^1.0.0",
     "hexo-renderer-ejs": "^1.0.0",
-    "hexo-renderer-stylus": "^1.1.0",
     "hexo-renderer-marked": "^2.0.0",
-    "hexo-server": "^1.0.0"
+    "hexo-renderer-stylus": "^1.1.0",
+    "hexo-server": "^1.0.0",
+    "hexo-symbols-count-time": "^0.7.0"
   }
 }

@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: cetrol's blog
+title: 尘雨尘风
 subtitle: '数学与编程的爱好者'
 description: '没有伟大，没有渺小，只有平凡'
 keywords:
@@ -95,4 +95,22 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: ''
+  type: 'git'
+  repo: git@github.com:gamersover/gamersover.github.io.git
+  branch: master
+
+
+symbols_count_time:
+ # 文章内是否显示
+  symbols: true
+  time: true
+ # 网页底部是否显示
+  total_symbols: true
+  total_time: true
+
+# Search 
+search:
+  path: ./public/search.xml
+  field: post
+  format: html
+  limit: 10000
