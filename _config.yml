@@ -47,7 +47,7 @@ highlight:
   enable: true
   line_number: true
   auto_detect: true
-  tab_replace: ''
+  tab_replace: '    '
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -114,3 +114,12 @@ search:
   field: post
   format: html
   limit: 10000
+
+# backup setting
+backup:
+  type: git
+  theme: next
+  message: Back up my blog
+  repository:
+    github: git@github.com:gamersover/gamersover.github.io.git,backup
+    coding: git@github.com:gamersover/gamersover.github.io.git,backup
