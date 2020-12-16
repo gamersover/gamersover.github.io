@@ -8,13 +8,13 @@ tags:
 categories: vim 
 ---
 
-## Vim逻辑
+## 1 Vim逻辑
 
 > Vim命令逻辑为operation + motion的方式，首先输入主要操作（命令），然后可以输入行为，比如输入c，然后输入5→表示修改右边5个字符
 
 <!--more-->
 
-## 快捷键
+## 2 快捷键
 
 * 普通模式
 
@@ -60,7 +60,7 @@ categories: vim
 |   :s    |        |                                     替换                                     |
 |   :!    |        |                                执行shell命令                                 |
 
-## 搜索与替换
+## 3 搜索与替换
 
 * `/`搜索模式下，从光标开始往后搜索
 
@@ -80,7 +80,7 @@ categories: vim
   | `:1,4s/a/b/g` |     1-4行的a换成b      |
   |  `:%s/a/b/g`  |      全文的a换成b      |
 
-## vim基础配置
+## 4 vim基础配置
 
 > 1. home目录下新建.vim目录
 > 2. 在.vim下新建vimrc文件
@@ -111,14 +111,14 @@ noremap K 5k		# 大K快捷键映射为光标向上移动5行
 color slate			# vim配色改为slate
 ```
 
-## vim插件安装
+## 5 vim插件安装
 
-### 插件安装步骤
+### 5.1 插件安装步骤
 
 1. 找到插件的github地址，然后clone下来放到`~/.vim/bundle`目录下
 2. 在`~/.vimrc`中写入`Plugin 'plugname'`，其中plugname为github中的项目名字
 
-### 例子（安装vim-airline插件）
+### 5.2 例子（安装vim-airline插件）
 
 ```shell
 cd ~/.vim/bundle
@@ -131,12 +131,12 @@ Plugin 'vim-airline/vim-airline'
 
 > 也可以先安装vundle（插件管理工具）插件，只需要按照vundle的语法在vimrc中编辑语句后，执行PluginInstall可以自动下载插件，具体可以看vundle的github文档
 
-### vim主题安装
+### 5.3 vim主题安装
 
 1. 下载相应的themename.vim到`~/.vim/colors`目录下
 2. 然后在`~/.vimrc`中写入`color themename`即可
 
-## 附录（.vimrc文件）
+## 6 附录（.vimrc文件）
 
 ```vim
 let mapleader=" "

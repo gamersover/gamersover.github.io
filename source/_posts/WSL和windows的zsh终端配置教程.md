@@ -10,30 +10,30 @@ tags:
 categories: 技术
 ---
 
-## WSL终端配置
-
-### 更换配色
+## 1 WSL终端配置
+---
+### 1.1 更换配色
 
 背景rgb（0，43，53），文字rgb(147,161,161)
 
-### 下载并安装字体FiraCode，右键属性选择字体为FiraCode
+### 1.2 下载并安装字体FiraCode，右键属性选择字体为FiraCode
 
 <!-- more -->
 
-### 下载zsh
+### 1.3 下载zsh
 ```shell
 sudo apt-get update
 sudo apt-get install zsh
 ```
 
 
-### 重启wsl安装zsh
+### 1.4 重启wsl安装zsh
 
 ```shell
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-### 配置
+### 1.5 配置
 
 ```shell
 # 自定义主题
@@ -52,21 +52,21 @@ ZSH_THEME="agnoster_wsl"
 DEFAULTUSER='cetrol
 ```
 
-## powershell终端配置
-
-### 管理员运行powershell
+## 2 powershell终端配置
+---
+### 2.1 管理员运行powershell
 ```powershell
 # 允许powershell运行任何脚本
 Set-ExecutionPolicy Bypass
 ```
 
-### 下载chocolatey安装包管理工具
+### 2.2 下载chocolatey安装包管理工具
 
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
 
-### 安装colortools修改配色
+### 2.3 安装colortools修改配色
 
 ```powershell
 choco install colortool
@@ -76,14 +76,14 @@ colortool -s
 colortool 配色名字
 ```
 
-### 安装oh-my-posh
+### 2.4 安装oh-my-posh
 
 ```powershell
 Install-Module posh-git -Scope CurrentUser
 Install-Module oh-my-posh -Scope CurrentUser
 ```
 
-### 设置主题（熟悉的用户直接到第7步即可）
+### 2.5 设置主题（熟悉的用户直接到第7步即可）
 
 ```powershell
 Import-Module posh-git
@@ -91,13 +91,13 @@ Import-Module oh-my-posh
 Set-Theme Agnoster
 ```
 
-### 隐藏用户名主机名
+### 2.6 隐藏用户名主机名
 
 ```powershell
 $DefaultUser = 'cetrol'
 ```
 
-### 配置字体
+### 2.7 配置字体
 
 * 下载[powerline字体](https://github.com/powerline/fonts/tree/master/DejaVuSansMono)并安装
 
@@ -208,7 +208,7 @@ if (Test-Path($ChocolateyProfile)) {
 ```
 
 
-## Vscode终端配置
-
+## 3 Vscode终端配置
+---
 * 设置->用户->功能->终端  设置可以正确显示Agnoster的字体，比如fira code retina字体
 
