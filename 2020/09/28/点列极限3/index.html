@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="对于任意给定的数列$\{a_n\}$，如果$\{a_n\}$有界，由列紧性可知，必然存在收敛子列，如果$\{a_n\}$无解，则总可以找到一个子列趋向于$-\infty$或$+\infty$。我们把数列$\{a_n\}$的收敛子列的极限称为$\{a_n\}$的一个极限点，若还有趋于$-\infty$或$+\infty$的子列，也将$-\infty$或$+\infty$称为$\{a_n\}$的一个极">
+<meta name="keywords" content="数学分析,点列极限">
+<meta property="og:type" content="article">
+<meta property="og:title" content="点列极限三：数列极限的上极限与下极限，Stolz定理">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;09&#x2F;28&#x2F;%E7%82%B9%E5%88%97%E6%9E%81%E9%99%903&#x2F;index.html">
+<meta property="og:site_name" content="尘雨尘风">
+<meta property="og:description" content="对于任意给定的数列$\{a_n\}$，如果$\{a_n\}$有界，由列紧性可知，必然存在收敛子列，如果$\{a_n\}$无解，则总可以找到一个子列趋向于$-\infty$或$+\infty$。我们把数列$\{a_n\}$的收敛子列的极限称为$\{a_n\}$的一个极限点，若还有趋于$-\infty$或$+\infty$的子列，也将$-\infty$或$+\infty$称为$\{a_n\}$的一个极">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-12-16T12:23:48.873Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/09/28/%E7%82%B9%E5%88%97%E6%9E%81%E9%99%903/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>点列极限三：数列极限的上极限与下极限，Stolz定理 | 尘雨尘风</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">尘雨尘风</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">数学与编程的爱好者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">48</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">17</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/28/%E7%82%B9%E5%88%97%E6%9E%81%E9%99%903/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          点列极限三：数列极限的上极限与下极限，Stolz定理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-28 20:35:28" itemprop="dateCreated datePublished" datetime="2020-09-28T20:35:28+08:00">2020-09-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-16 20:23:48" itemprop="dateModified" datetime="2020-12-16T20:23:48+08:00">2020-12-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>对于任意给定的数列$\{a_n\}$，如果$\{a_n\}$有界，由列紧性可知，必然存在收敛子列，如果$\{a_n\}$无解，则总可以找到一个子列趋向于$-\infty$或$+\infty$。我们把数列$\{a_n\}$的收敛子列的极限称为$\{a_n\}$的一个极限点，若还有趋于$-\infty$或$+\infty$的子列，也将$-\infty$或$+\infty$称为$\{a_n\}$的一个极限点。</p>
+<a id="more"></a>
+<h4 id="定义1：上极限与下极限"><a href="#定义1：上极限与下极限" class="headerlink" title="定义1：上极限与下极限"></a><span id="define1">定义1：上极限与下极限<span></h4><blockquote>
+<p>设$\{a_n\}$是一个数列，$E$是由$\{a_n\}$的全部极限点构成的集合，记</p>
+<script type="math/tex; mode=display">
+    a^* = \sup E, \quad a_*=\inf E</script><p>则$a^{*}$和$a_{*}$分别称为数列$\{a_n\}$的<strong>上极限</strong>和<strong>下极限</strong>，记为</p>
+<script type="math/tex; mode=display">
+    a^* = \limsup \limits_{n\to\infty} a_n, \quad a_* = \liminf \limits_{n\to\infty} a_n</script></blockquote>
+<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a><span id="theorem1">定理1<span></h4><blockquote>
+<p>设$\{a_n\}$是一个数列，$E$与$a^*$的含义与<a href="#define1">定义1</a>中一样，那么<br>（1）$a^* \in E$; <br/><br>（2）若$x&gt;a^*$，则存在$N&gt;\mathbb{N^{*}}$，当$n \ge N$时，有$a_n &lt; x$; <br/><br>（3）$a^*$是满足前两条性质的唯一的数。即由（1）（2）也可以定理上极限。</p>
+</blockquote>
+<p>证：（1）若$a^*=+\infty$，则$E$无上界，可知$\{a_n\}$也没有上界，所以必然可以从$\{a_n\}$中选取一个趋于$+\infty$的子列，即$a^* \in E$，<br>如果$a^*=-\infty$，则$E={-\infty}$，显然由$a^* \in E$<br>如果$a^*$是一个有限数，由于$a^*=\sup E$，从而必存在$l_1\in E$，使得</p>
+<script type="math/tex; mode=display">
+    a^* - 1 < l_1 < a^* + 1</script><p>又由于$l_1$是$\{a_n\}$某个子列的极限，则一定存在正整数$k_1$，使得</p>
+<script type="math/tex; mode=display">
+    a^* - 1 < a_{k_1} < a^* + 1</script><p>同理，存在$l_2 \in E$，使得</p>
+<script type="math/tex; mode=display">
+    a^* - \frac{1}{2} < l_2 < a^* + \frac{1}{2}</script><p>$l_2$是$\{a_n\}$的某个子列的极限，则一定存在正整数$k_2 &gt; k_1$，使得</p>
+<script type="math/tex; mode=display">
+    a^* - \frac{1}{2} < a_{k_2} < a^* + \frac{1}{2}</script><p>归纳可得，对任何$n \in \mathbb{N^*}$，存在$k_n$，满足$k_n&gt;k_{n-1}&gt;\cdots&gt;k_1$，使得</p>
+<script type="math/tex; mode=display">
+    a^* - \frac{1}{n} < a_{k_n} < a^* + \frac{1}{n}</script><p>所以有$\lim \limits_{n \to \infty}a_{k_n} = a^*$，即找到了$\{a_n\}$的一个子列收敛于$a^*$，所以$a^* \in E$。<br/><br>（2）反证法。假设存在无穷多个$n$，满足$a_n \ge x$，则存在一个$y \in E$，使得$y \ge x &gt; a^*$，这与$a^*$是$E$的上确界矛盾。<br/><br>（3）反证法。假设存在两个不同的数$p，q$同时满足（1）（2），不妨设$p&lt;q$，取$x$，使得$p&lt;x&lt;q$，由（2）可知，存在$N \in \mathbb{N^*}$，使得当$n \ge N$时，有$a_n &lt; x$，易知$E$中的点不可能超过$x$，这是$q$不能满足（1）。  </p>
+<p>Q.E.D.</p>
+<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
+<p>设$\{a_n\}$是一个数列，$E$与$a_*$的含义与<a href="#define1">定义1</a>中一样，那么<br>（1）$a_* \in E$; <br/><br>（2）若$x &lt; a_*$，则存在$N&gt;\mathbb{N^{*}}$，当$n \ge N$时，有$a_n &gt; x$; <br/><br>（3）$a_*$是满足前两条性质的唯一的数。即由（1）（2）也可以定理下极限。</p>
+</blockquote>
+<p>证法与<a href="#theorem1">定理1</a>的证明方法几乎一样（从略）。</p>
+<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
+<p>设$\{a_n\},\{b_n\}$是两个数列，<br/><br>（1）$\liminf \limits_{n \to \infty}a_n \le \limsup \limits_{n \to \infty}a_n$ <br/><br>（2）$\lim \limits_{n \to \infty}a_n = a$当且仅当$\liminf \limits_{n \to \infty}a_n = \limsup \limits_{n \to \infty}a_n = a$ <br/><br>（3）若$N$是某个正整数，当$n&gt;N$时，有$a_n \le b_n$，那么</p>
+<script type="math/tex; mode=display">
+    \liminf \limits_{n \to \infty}a_n \le \liminf \limits_{n \to \infty}b_n，\quad \limsup \limits_{n \to \infty}a_n \le \limsup \limits_{n \to \infty}b_n</script></blockquote>
+<p>证：（1）（2）显然，下面只证（3）的右边等式，左边等式可以相似的证明。记</p>
+<script type="math/tex; mode=display">
+    \limsup \limits_{n \to \infty}a_n = a^*, \quad \limsup \limits_{n \to \infty}b_n = b^*</script><p>若$b^*=+\infty$，不等式自然成立；当$a^*=+\infty$，存在子列$a_{k_n} \to +\infty (n \to \infty)$，这时也有$b_{k_n} \to +\infty (n \to \infty)$，从而有$b^* = +\infty$，不等式等号成立；同样若$a^*$与$b^*$中有一个为$-\infty$时，结论也成立。现在设$a^*$与$b^*$都是有限数，采用反证法，假设$b^* &lt; a^*$，取$x$，使得$b^* &lt; x &lt; a^*$，由<a href="#theorem1">定理1</a>（2）可知，存在正整数$N_1$，使得当$n&gt;N_1$时，有$b_n &lt; x$，取$n&gt;\max(N, N_1)$时，有</p>
+<script type="math/tex; mode=display">
+    a_n \le b_n < x < a^*</script><p>这与$a^*$的定义矛盾。</p>
+<p>（3）也可以不采用反证法。由$a^*$的性质可知，可从$\{a_n\}$中取出一个子列$\{a_{k_n}\}$，使得$\lim \limits_{n \to \infty}a_{k_n} = a^*$，又当$k_n \ge n &gt; N$，$a_{k_n} \le b_{k_n}$，这时可以从$b_{k_n}$中取出一个收敛子列$\{b_{i_{k_{n}}}\}$，相应的$\{a_{k_n}\}$的子列为$\{a_{i_{k_{n}}}\}$，由$\lim \limits_{n \to \infty}a_{k_n} = a^*$，可得</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{n \to \infty}a_{i_{k_n}} = a^*</script><p>又由$a_{i_{k_{n}}} \le b_{i_{k_{n}}}$，可得</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{n \to \infty}b_{i_{k_n}} \ge a^*</script><p>而$\{b_{i_{k_{n}}}\}$显然也是$\{b_n\}$的子列，从而有</p>
+<script type="math/tex; mode=display">
+    b^* \ge \lim \limits_{n \to \infty}b_{i_{k_n}} \ge a^*</script><p>Q.E.D.</p>
+<h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><blockquote>
+<p>对数列$\{a_n\}$，定义$\alpha_n=\inf \limits_{k \ge n}a_k，\beta_n = \sup \limits_{k \ge n}a_k$，那么 <br/><br>（1）$\{\alpha_n\}$是递增数列，$\{\beta_n\}$是递减数列； </br><br>（2）$\lim \limits_{n \to \infty} \alpha_n = a_*，\lim \limits_{n \to\infty} \beta_n =a^*$。 </p>
+</blockquote>
+<p>证：（1）按定义，有$\alpha_n = \inf\{a_n,a_{n+1},\cdots\}, \quad \alpha_{n+1}=\inf\{a_{n+1}, a_{n+2}, \cdots\}$，显然有$\alpha_n \le \alpha_{n+1}$，同理可得$\beta_n \ge \beta_{n+1}$。<br>（2）这里只证明右边等式，左边等式的证明是类似的。<br>（a）先设$a^*$是一个有限数，由<a href="#theorem1">定理1</a>（1）可知$a^* \in E$，所以存在$\{a_n\}$的一个子列$\{a_{k_n}\}$，使得$\lim \limits_{n \to \infty}a_{k_n} = a^*$，而$k_n \ge n$，所以$a_{k_n} \le \sup\{a_n,a_{n+1},\cdots\}=\beta_n$，从而有</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{n \to \infty}a_{k_n} \le \lim \limits_{n \to \infty}\beta_n \Rightarrow a^* \le \lim \limits_{n \to \infty}\beta_n \tag 1</script><p>对任意的$\varepsilon&gt;0$，由<a href="#theorem1">定理1</a>（2）可知，存在$n_0 \in N^*$，当$n \ge n_0$时，有$a_n \le a^* + \varepsilon$，因此$\sup \limits_{k \ge n_0}a_n \le a^* + \varepsilon$，即$\beta_{n_0} \le a^* + \varepsilon$<br>，又由于$\{\beta_n\}$是递减的，所以当$n&gt;n_0$时，$\beta_n \le \beta_{n_0} \le a^* + \varepsilon$，再令$\varepsilon \to 0$，从而有$\lim \limits_{n \to \infty}\beta_n \le a^* + \varepsilon$，得</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{n \to \infty}\beta_n \le a^* \tag 2</script><p>由（1）（2）可得$\lim \limits_{n \to \infty}\beta_n = a^*$<br>（b）设$a^* = +\infty$，则有一子列趋于$+\infty$，从而有</p>
+<script type="math/tex; mode=display">
+    \beta_n = \sup\{a_n, a_{n+1},\cdots\} = +\infty</script><p>从而有$\lim \limits_{n \to \infty}\beta_n = +\infty$。</p>
+<p>Q.E.D.</p>
+<h4 id="定理5：Stolz定理"><a href="#定理5：Stolz定理" class="headerlink" title="定理5：Stolz定理"></a>定理5：Stolz定理</h4><blockquote>
+<p>设$\{b_n\}$是严格递增且趋于$+\infty$的数列，如果</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{n \to \infty}\frac{a_n - a_{n-1}}{b_n - b_{n-1}}=A</script><p>那么</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{n \to \infty}\frac{a_n}{b_n} = A</script><p>其中$A$可以是$+\infty,-\infty$或有限数。</p>
+</blockquote>
+<p>证：（a）先设$A$是有限数，由极限定义可知，对任意$\varepsilon&gt;0$，存在$n_0 \in \mathbb{N^*}$，使得当$n \ge n_0$时，有</p>
+<script type="math/tex; mode=display">
+    A-\varepsilon < \frac{a_n-a_{n-1}}{b_n-b_{n-1}} < A+\varepsilon</script><p>从而有</p>
+<script type="math/tex; mode=display">
+    A-\varepsilon < \frac{a_{n_0}-a_{n_0-1}}{b_{n_0}-b_{n_0-1}} < A+\varepsilon \Rightarrow (A-\varepsilon)(b_{n_0}-b_{n_0-1}) < a_{n_0} - a_{n_0-1} < (A+\varepsilon)(b_{n_0}-b_{n_0}-1) \\
+    A-\varepsilon < \frac{a_{n_0+1}-a_{n_0}}{b_{n_0+1}-b_{n_0}} < A+\varepsilon \Rightarrow (A-\varepsilon)(b_{n_0+1}-b_{n_0}) < a_{n_0+1} - a_{n_0} < (A+\varepsilon)(b_{n_0+1}-b_{n_0}) \\
+    \cdots \\
+    A-\varepsilon < \frac{a_{n}-a_{n-1}}{b_{n}-b_{n-1}} < A+\varepsilon \Rightarrow (A-\varepsilon)(b_{n}-b_{n-1}) < a_{n} - a_{n-1} < (A+\varepsilon)(b_{n}-b_{n-1})</script><p>得</p>
+<script type="math/tex; mode=display">
+    (A-\varepsilon)(b_n - b_{n_0-1}) < a_n - a_{n_0-1} < (A+\varepsilon)(b_n - b_{n_0-1}) \Rightarrow A-\varepsilon < \frac{a_n - a_{n_0-1}}{b_n - b_{n_0-1}} < A+\varepsilon</script><p>即</p>
+<script type="math/tex; mode=display">
+    A-\varepsilon < \frac{\frac{a_n}{b_n} - \frac{a_{n_0-1}}{b_n}}{1-\frac{b_{n_0-1}}{b_n}} < A+\varepsilon</script><p>于是得</p>
+<script type="math/tex; mode=display">
+    (A-\varepsilon)(1-\frac{b_{n_0-1}}{b_n}) + \frac{a_{n_0-1}}{b_n} < \frac{a_n}{b_n} < (A+\varepsilon)(1-\frac{b_{n_0-1}}{b_n}) + \frac{a_{n_0-1}}{b_n}</script><p>从而得</p>
+<script type="math/tex; mode=display">
+    A - \varepsilon \le \liminf \limits_{n\to\infty} \frac{a_n}{b_n} \le \limsup \limits_{n\to\infty} \frac{a_n}{b_n} \le A + \varepsilon</script><p>此时令$\varepsilon \to 0$，即得</p>
+<script type="math/tex; mode=display">
+    \liminf \limits_{n\to\infty} \frac{a_n}{b_n} = \limsup \limits_{n\to\infty} \frac{a_n}{b_n} = A</script><p>所以</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{n\to\infty} \frac{a_n}{b_n} = A</script><p>（b）设$A=+\infty$，当$n$充分大时，$a_n - a_{n-1} &gt; b_n - b_{n-1} &gt; 0$，所以$\{a_n\}$从某项开始也是严格递增且趋于$+\infty$，从而有</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{n \to \infty}\frac{b_n - b_{n-1}}{a_n - a_{n-1}}=0</script><p>由（a）可知，$\lim \limits_{n\to\infty} \frac{b_n}{a_n} = 0$，从而有$\lim \limits_{n\to\infty} \frac{a_n}{b_n} = +\infty$；</p>
+<p>（c）设$A=-\infty$，设$c_n = -a_n$，可知</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{n \to \infty}\frac{c_n - c_{n-1}}{b_n - b_{n-1}} = - \lim \limits_{n \to \infty}\frac{a_n - a_{n-1}}{b_n - b_{n-1}}=+\infty</script><p>由（b）可知，有$\lim \limits_{n\to\infty} \frac{c_n}{b_n} = +\infty$，从而有$\lim \limits_{n\to\infty} \frac{a_n}{b_n} = -\infty$   </p>
+<p>Q.E.D.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 数学分析</a>
+              <a href="/tags/%E7%82%B9%E5%88%97%E6%9E%81%E9%99%90/" rel="tag"><i class="fa fa-tag"></i> 点列极限</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/24/%E7%82%B9%E5%88%97%E6%9E%81%E9%99%902/" rel="prev" title="点列极限二：实数连续性">
+      <i class="fa fa-chevron-left"></i> 点列极限二：实数连续性
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/10/09/%E7%82%B9%E5%88%97%E6%9E%81%E9%99%904/" rel="next" title="点列极限四：欧式空间中的点列极限">
+      点列极限四：欧式空间中的点列极限 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1：上极限与下极限"><span class="nav-text">定义1：上极限与下极限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5：Stolz定理"><span class="nav-text">定理5：Stolz定理</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="陈华杰"
+      src="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+  <p class="site-author-name" itemprop="name">陈华杰</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gamersover" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gamersover" rel="noopener" target="_blank"><i class="github fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈华杰</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">75k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:08</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'default',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '2b5e8584032528a65176',
+      clientSecret: '4a98c67c6337be0cd82b30d04699a4dcef47307c',
+      repo        : 'gamersover.github.io',
+      owner       : 'gamersover',
+      admin       : ['gamersover'],
+      id          : '881e51b30cf7c8db166e54c82662f757',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
