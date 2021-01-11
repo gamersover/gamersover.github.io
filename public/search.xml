@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>leetcode题解11</title>
+      <link href="/2021/01/11/leetcode%E9%A2%98%E8%A7%A311/"/>
+      <url>/2021/01/11/leetcode%E9%A2%98%E8%A7%A311/</url>
+      
+        <content type="html"><![CDATA[<p>该题来自于力扣<a href="https://leetcode-cn.com/problems/container-with-most-water/" target="_blank" rel="noopener">第11题</a></p><p>给你<code>n</code>个非负整数<code>a1，a2，...，an</code>，每个数代表坐标中的一个点<code>(i, ai)</code>。在坐标内画<code>n</code>条垂直线，垂直线<code>i</code>的两个端点分别为<code>(i, ai)</code>和<code>(i, 0)</code>。找出其中的两条线，使得它们与<code>x</code>轴共同构成的容器可以容纳最多的水。</p><p>说明：你不能倾斜容器。</p><p>示例 1：</p><blockquote><p>输入：[1,8,6,2,5,4,8,3,7]<br>输出：49<br>解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p></blockquote><p>示例 2：</p><blockquote><p>输入：height = [1,1]<br>输出：1</p></blockquote><p>示例 3：</p><blockquote><p>输入：height = [4,3,2,1,4]<br>输出：16</p></blockquote><p>示例 4：</p><blockquote><p>输入：height = [1,2,1]<br>输出：2</p></blockquote><p>提示：</p><ul><li><code>n = height.length</code></li><li><code>2 &lt;= n &lt;= 3 * 104</code></li><li><code>0 &lt;= height[i] &lt;= 3 * 104</code></li></ul><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>给定横坐标<code>i,j</code>，则<code>(i,height[i])</code>与<code>(j,height[j])</code>构成的容器能容纳水的量为<code>min(height[i],height[j])*(j-i+1)</code>，记<code>k = min(height[i], height[j])</code>，<code>l = j-i+1</code>，目标使得<code>k * l</code>最大；<code>k</code>物理意义就是两个端点的小的那个，<code>l</code>的物理意义就是两个端点的距离，所以如果距离<code>l</code>减少的同时，<code>k</code>也在减少，那么目标值肯定变少了。根据该现象优化：</p><ol><li>首先选取最左与最右两个端点，此时<code>l</code>是最大的</li><li>比较两个端点的高度，如果比较高的那个往内移动，这时<code>k</code>要么不改变，要么减少，而<code>l</code>也再减少，所以<code>k*l</code>只会变少</li><li>由第2点可知，比较高的端点移动只会减少目标值，所以只需要移动低的那个端点即可</li></ol><h3 id="最终算法"><a href="#最终算法" class="headerlink" title="最终算法"></a>最终算法</h3><p>显然采用双指针法，一个初始为指向最左，一个初始为指向最右：</p><ol><li>初始化<code>i=0,j=n-1</code>，及目标最大值为<code>m=min(height[i],height[j])*(j-i+1)</code></li><li>如果<code>height[i] &lt; height[j]</code>，则左端点向内移动即<code>i++</code>；</li><li>否则，右端点向内移动即<code>j--</code></li><li>重新计算当前容纳水的值<code>cm</code>，如果<code>cm &gt; m</code>，更新目标最大值<code>m = cm</code></li><li>重复步骤2</li></ol><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><details open><summary>python3</summary><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxArea</span><span class="params">(self, height)</span>:</span></span><br><span class="line">        n = len(height)</span><br><span class="line">        i, j = <span class="number">0</span>, n<span class="number">-1</span></span><br><span class="line">        m = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; j:</span><br><span class="line">            m = max(m, min(height[j], height[i]) * (j - i))</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> height[i] &lt; height[j]:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                j -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> m</span><br></pre></td></tr></table></figure></details><details><summary>c++</summary><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = height.size();</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j) &#123;</span><br><span class="line">            <span class="keyword">int</span> cm = min(height[i], height[j]) * (j - i);</span><br><span class="line">            m = cm &gt; m ? cm : m;</span><br><span class="line">            <span class="keyword">if</span> (height[i] &lt; height[j])&#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></details><details><summary>java</summary><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j = height.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j)&#123;</span><br><span class="line">            m = Math.max(m, Math.min(height[i], height[j]) * (j - i));</span><br><span class="line">            <span class="keyword">if</span>(height[i] &lt; height[j]) i++;</span><br><span class="line">            <span class="keyword">else</span> j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>函数极限三：连续函数与一致连续函数</title>
       <link href="/2020/12/08/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%903/"/>
       <url>/2020/12/08/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%903/</url>
@@ -484,9 +513,9 @@
             
             <tag> shell </tag>
             
-            <tag> linux </tag>
-            
             <tag> vim </tag>
+            
+            <tag> linux </tag>
             
         </tags>
       
