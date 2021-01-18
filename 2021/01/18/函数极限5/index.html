@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定义1 设$D \subset \mathbb{R^n}$，那么映射$f: D \to \mathbb{R}$称为一个$n$元函数，其中$D$称为函数$f$的定义域，而$f(D) \subset \mathbb{R}$称为$f$的值域。  定义2 设$D \subset \mathbb{R^n}$，$f: D \to \mathbb{R}$，点$\boldsymbol{a} \in \mathbb">
+  <meta name="description" content="定义1 设$D \subset \mathbb{R^n}$，那么映射$f: D \to \mathbb{R}$称为一个$n$元函数，其中$D$称为函数$f$的定义域，而$f(D) \subset \mathbb{R}$称为$f$的值域。">
 <meta name="keywords" content="函数极限,数学分析,连续函数,多变量函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数极限五：多变量函数的极限与连续性">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;01&#x2F;18&#x2F;%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%905&#x2F;index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定义1 设$D \subset \mathbb{R^n}$，那么映射$f: D \to \mathbb{R}$称为一个$n$元函数，其中$D$称为函数$f$的定义域，而$f(D) \subset \mathbb{R}$称为$f$的值域。  定义2 设$D \subset \mathbb{R^n}$，$f: D \to \mathbb{R}$，点$\boldsymbol{a} \in \mathbb">
+<meta property="og:description" content="定义1 设$D \subset \mathbb{R^n}$，那么映射$f: D \to \mathbb{R}$称为一个$n$元函数，其中$D$称为函数$f$的定义域，而$f(D) \subset \mathbb{R}$称为$f$的值域。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-01-18T15:08:54.560Z">
+<meta property="og:updated_time" content="2021-01-18T15:12:43.851Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/01/18/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%905/">
@@ -214,7 +214,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-01-18 21:13:19 / 修改时间：23:08:54" itemprop="dateCreated datePublished" datetime="2021-01-18T21:13:19+08:00">2021-01-18</time>
+              <time title="创建时间：2021-01-18 21:13:19 / 修改时间：23:12:43" itemprop="dateCreated datePublished" datetime="2021-01-18T21:13:19+08:00">2021-01-18</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,6 +261,7 @@
         <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
 <p>设$D \subset \mathbb{R^n}$，那么映射$f: D \to \mathbb{R}$称为一个$n$元函数，其中$D$称为函数$f$的定义域，而$f(D) \subset \mathbb{R}$称为$f$的值域。</p>
 </blockquote>
+<a id="more"></a>
 <h4 id="定义2"><a href="#定义2" class="headerlink" title="定义2"></a>定义2</h4><blockquote>
 <p>设$D \subset \mathbb{R^n}$，$f: D \to \mathbb{R}$，点$\boldsymbol{a} \in \mathbb{R^n}$是$D$的一个凝聚点（即$\boldsymbol{a} \in D^\prime$），又设$l$是一个实数。如果对任意给定的$\varepsilon &gt; 0$，存在$\delta &gt; 0$，当$0 &lt; \Vert \boldsymbol{x} - \boldsymbol{a} \Vert &lt; \delta$时，有</p>
 <script type="math/tex; mode=display">
