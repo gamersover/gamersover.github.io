@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="尘雨尘风">
 <meta property="og:description" content="定义1 设$D \subset \mathbb{R^n}$，那么映射$f: D \to \mathbb{R}$称为一个$n$元函数，其中$D$称为函数$f$的定义域，而$f(D) \subset \mathbb{R}$称为$f$的值域。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-01-18T15:12:43.851Z">
+<meta property="og:updated_time" content="2021-01-19T14:09:13.384Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/01/18/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%905/">
@@ -212,10 +212,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-01-18 21:13:19 / 修改时间：23:12:43" itemprop="dateCreated datePublished" datetime="2021-01-18T21:13:19+08:00">2021-01-18</time>
+              <time title="创建时间：2021-01-18 21:13:19" itemprop="dateCreated datePublished" datetime="2021-01-18T21:13:19+08:00">2021-01-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-19 22:09:13" itemprop="dateModified" datetime="2021-01-19T22:09:13+08:00">2021-01-19</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -239,14 +245,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
+              <span>4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -279,12 +285,34 @@
 <p>证：必要性。有函数极限定义可知，对$\forall \varepsilon &gt; 0$，存在$\delta &gt; 0$，使得当$0 &lt; \Vert \boldsymbol{x} - \boldsymbol{a} \Vert &lt; \delta$时，有$|f(\boldsymbol{x}) - f(\boldsymbol{a})| &lt; \varepsilon$；由于$\boldsymbol{x}_i \to \boldsymbol{a} (i \to \infty)$，从而对于给定的$\delta$，存在$N \in \mathbb{N^*}$，使得当$i &gt; N$时，有$0 &lt; \Vert \boldsymbol{x}_i - \boldsymbol{a}| &lt; \delta$，从而$|f(\boldsymbol{x}_i) - f(\boldsymbol{a})| &lt; \varepsilon$，即$\lim \limits_{i \to \infty} f(\boldsymbol{x}_i) = l$</p>
 <p>充分性。反证法。假设$f$在$\boldsymbol{a}$处不以$l$为极限，则存在$\varepsilon_0 &gt; 0$，使得对任意的$i \in \mathbb{N^*}$，可以取出一个点$\boldsymbol{x}_i \in D$，使得当$|\boldsymbol{x}_i - \boldsymbol{a}| &lt; 1/i$时，有$|f(\boldsymbol{x}_i) - f(\boldsymbol{a})| \ge \varepsilon_0$，这时点列$\{\boldsymbol{x}_i\} \subset D$，且$\boldsymbol{x}_i \to \boldsymbol{a} (i \to \infty)$，但是数列$\{f(\boldsymbol{x}_i)\}$显然不以$l$为极限，矛盾。</p>
 <p>Q.E.D.</p>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
+<h4 id="定理2：函数极限的四则运算"><a href="#定理2：函数极限的四则运算" class="headerlink" title="定理2：函数极限的四则运算"></a>定理2：函数极限的四则运算</h4><blockquote>
 <p>设$D \subset \mathbb{R^n}$，$f,g: D \to \mathbb{R}$，点$\boldsymbol{a} \in D^\prime$。如果$f,g$存在着有限的极限：</p>
 <script type="math/tex; mode=display">
     \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} f(\boldsymbol{x}) = l, \qquad \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} g(\boldsymbol{x}) = m</script><p>那么有：<br>（1）$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} (f \pm g)(\boldsymbol{x}) = l \pm m$；<br/><br>（2）$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} fg(\boldsymbol{x}) = lm$；<br/><br>（3）$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} (\frac{f}{g})(\boldsymbol{x}) = \frac{l}{m}$，其中$m \ne 0$。</p>
 </blockquote>
-<p>证：</p>
+<p>证：证明方法与单变量极限四则运算几乎一样。参考<a href="https://gamersover.github.io/2020/11/17/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%901/" target="_blank" rel="noopener">函数极限一定理4</a>。</p>
+<p>Q.E.D.</p>
+<h4 id="定理3：复合函数极限"><a href="#定理3：复合函数极限" class="headerlink" title="定理3：复合函数极限"></a>定理3：复合函数极限</h4><blockquote>
+<p>设函数$f$在以$\boldsymbol{a} \in \mathbb{R}^n$为球心，$\boldsymbol{r}$为半径的某个空心球$B_{\boldsymbol{r}}(\check \boldsymbol{a})$上有定义，且$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} f(\boldsymbol{x}) = l$；一元函数$\varphi$在以$l$为球心的空心球$U = \{t: 0&lt;|t - l| &lt; \delta \}$上有定义，且$\lim \limits_{t \to l} \varphi(t) = m$。再设$$<br>    f(B_{\boldsymbol{r}}(\check \boldsymbol{a})) \in U</p>
+<script type="math/tex; mode=display">
+那么就有</script><pre><code>\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} \varphi(f(\boldsymbol{x})) = m
+</code></pre><p>$$</p>
+</blockquote>
+<p>证：与单变量复合函数极限证明方法一样。参考<a href="https://gamersover.github.io/2020/11/17/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%901/" target="_blank" rel="noopener">函数极限一定理8</a>。</p>
+<p>Q.E.D.</p>
+<h4 id="定理4：Cauchy收敛原理"><a href="#定理4：Cauchy收敛原理" class="headerlink" title="定理4：Cauchy收敛原理"></a>定理4：Cauchy收敛原理</h4><blockquote>
+<p>设$D \in \mathbb{R}^n$，$\boldsymbol{a} \in D^\prime$，$f: D \to \mathbb{R}$。那么极限$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}}f(\boldsymbol{x})$存在的充分必要条件是，对任意给定的$\varepsilon &gt; 0$，存在$\delta &gt; 0$，使得当$\boldsymbol{x}^\prime,\boldsymbol{x}^{\prime\prime} \in D$且</p>
+<script type="math/tex; mode=display">
+    0 < \Vert \boldsymbol{x}^\prime - \boldsymbol{a} \Vert < \delta \quad 0 < \Vert \boldsymbol{x}^{\prime\prime} - \boldsymbol{a} \Vert < \delta</script><p>同时成立时，一定有$|f(\boldsymbol{x}^\prime) - f(\boldsymbol{x}^{\prime\prime})| &lt; \varepsilon$。</p>
+</blockquote>
+<p>证：与证明单变量的Cauchy收敛原理类似。参考<a href="https://gamersover.github.io/2020/11/17/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%901/" target="_blank" rel="noopener">函数极限一定理8</a>。</p>
+<p>Q.E.D.</p>
+<h4 id="定义3"><a href="#定义3" class="headerlink" title="定义3"></a>定义3</h4><blockquote>
+<p>设$D \subset \mathbb{R}^n$，$f: D \to \mathbb{R}$，$\boldsymbol{a} \in D$。如果对$\forall \varepsilon &gt; 0$，$\exists \delta &gt; 0$，使得当$\boldsymbol{x} \in D \cap B_\delta(\boldsymbol{a})$，有</p>
+<script type="math/tex; mode=display">
+    |f(\boldsymbol{x}) - f(\boldsymbol{a})| < \varepsilon</script><p>则称函数$f$在点$\boldsymbol{a}$处连续，$\boldsymbol{a}$称为$f$的一个连续点，$D$中$f$的非连续点称为$f$的间断点。如果$f$在$D$中的每个点上都连续，则称$f$在$D$上连续。</p>
+</blockquote>
+<font color=#774455>注：设$D=\{\boldsymbol{p}_1,\boldsymbol{p}_2,\cdots,\boldsymbol{p}_m \}$，定义函数$f: D \to \mathbb{R}$为$f(\boldsymbol{p}_i) = \lambda_i (i=1,2,\cdots,m)$，这里$\lambda_1,\lambda_2,\cdots,\lambda_m$是任意给定的数，那么根据定义3，$f$在$D$上连续。对于单变量函数也成立，比如定义域$D=\{a\}$，且$f(a)$存在，这时$f$在$D$内连续。这与[函数极限三的定义1](https://gamersover.github.io/2020/12/08/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%903/)不矛盾，单变量点连续定义的时候$D$为非单点闭区间，且极限值等于函数值，这种定义不包含孤立点的情况，所以单变量连续函数的真正定义也囊括在本章的定义3中。</font>
 
     </div>
 
@@ -370,7 +398,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2：函数极限的四则运算"><span class="nav-text">定理2：函数极限的四则运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3：复合函数极限"><span class="nav-text">定理3：复合函数极限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4：Cauchy收敛原理"><span class="nav-text">定理4：Cauchy收敛原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义3"><span class="nav-text">定义3</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -441,13 +469,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">84k</span>
+    <span title="站点总字数">86k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:16</span>
+    <span title="站点阅读时长">1:18</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
