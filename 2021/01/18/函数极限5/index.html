@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="尘雨尘风">
 <meta property="og:description" content="定义1 设$D \subset \mathbb{R^n}$，那么映射$f: D \to \mathbb{R}$称为一个$n$元函数，其中$D$称为函数$f$的定义域，而$f(D) \subset \mathbb{R}$称为$f$的值域。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-01-19T14:09:13.384Z">
+<meta property="og:updated_time" content="2021-01-19T14:16:49.199Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/01/18/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%905/">
@@ -220,7 +220,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-19 22:09:13" itemprop="dateModified" datetime="2021-01-19T22:09:13+08:00">2021-01-19</time>
+                <time title="修改时间：2021-01-19 22:16:49" itemprop="dateModified" datetime="2021-01-19T22:16:49+08:00">2021-01-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -245,7 +245,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4k</span>
+              <span>3.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -293,11 +293,11 @@
 <p>证：证明方法与单变量极限四则运算几乎一样。参考<a href="https://gamersover.github.io/2020/11/17/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%901/" target="_blank" rel="noopener">函数极限一定理4</a>。</p>
 <p>Q.E.D.</p>
 <h4 id="定理3：复合函数极限"><a href="#定理3：复合函数极限" class="headerlink" title="定理3：复合函数极限"></a>定理3：复合函数极限</h4><blockquote>
-<p>设函数$f$在以$\boldsymbol{a} \in \mathbb{R}^n$为球心，$\boldsymbol{r}$为半径的某个空心球$B_{\boldsymbol{r}}(\check \boldsymbol{a})$上有定义，且$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} f(\boldsymbol{x}) = l$；一元函数$\varphi$在以$l$为球心的空心球$U = \{t: 0&lt;|t - l| &lt; \delta \}$上有定义，且$\lim \limits_{t \to l} \varphi(t) = m$。再设$$<br>    f(B_{\boldsymbol{r}}(\check \boldsymbol{a})) \in U</p>
+<p>设函数$f$在以$\boldsymbol{a} \in \mathbb{R}^n$为球心，$\boldsymbol{r}$为半径的某个空心球$B_{\boldsymbol{r}}(\boldsymbol{\check a})$上有定义，且$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} f(\boldsymbol{x}) = l$；一元函数$\varphi$在以$l$为球心的空心球$U = \{t: 0&lt;|t - l| &lt; \delta \}$上有定义，且$\lim \limits_{t \to l} \varphi(t) = m$。再设</p>
 <script type="math/tex; mode=display">
-那么就有</script><pre><code>\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} \varphi(f(\boldsymbol{x})) = m
-</code></pre><p>$$</p>
-</blockquote>
+    f(B_{\boldsymbol{r}}(\boldsymbol{\check a})) \in U</script><p>那么就有</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} \varphi(f(\boldsymbol{x})) = m</script></blockquote>
 <p>证：与单变量复合函数极限证明方法一样。参考<a href="https://gamersover.github.io/2020/11/17/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%901/" target="_blank" rel="noopener">函数极限一定理8</a>。</p>
 <p>Q.E.D.</p>
 <h4 id="定理4：Cauchy收敛原理"><a href="#定理4：Cauchy收敛原理" class="headerlink" title="定理4：Cauchy收敛原理"></a>定理4：Cauchy收敛原理</h4><blockquote>
@@ -312,7 +312,7 @@
 <script type="math/tex; mode=display">
     |f(\boldsymbol{x}) - f(\boldsymbol{a})| < \varepsilon</script><p>则称函数$f$在点$\boldsymbol{a}$处连续，$\boldsymbol{a}$称为$f$的一个连续点，$D$中$f$的非连续点称为$f$的间断点。如果$f$在$D$中的每个点上都连续，则称$f$在$D$上连续。</p>
 </blockquote>
-<font color=#774455>注：设$D=\{\boldsymbol{p}_1,\boldsymbol{p}_2,\cdots,\boldsymbol{p}_m \}$，定义函数$f: D \to \mathbb{R}$为$f(\boldsymbol{p}_i) = \lambda_i (i=1,2,\cdots,m)$，这里$\lambda_1,\lambda_2,\cdots,\lambda_m$是任意给定的数，那么根据定义3，$f$在$D$上连续。对于单变量函数也成立，比如定义域$D=\{a\}$，且$f(a)$存在，这时$f$在$D$内连续。这与[函数极限三的定义1](https://gamersover.github.io/2020/12/08/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%903/)不矛盾，单变量点连续定义的时候$D$为非单点闭区间，且极限值等于函数值，这种定义不包含孤立点的情况，所以单变量连续函数的真正定义也囊括在本章的定义3中。</font>
+<p>注：设$D=\{\boldsymbol{p}_1,\boldsymbol{p}_2,\cdots,\boldsymbol{p}_m \}$，定义函数$f: D \to \mathbb{R}$为$f(\boldsymbol{p}_i) = \lambda_i (i=1,2,\cdots,m)$，这里$\lambda_1,\lambda_2,\cdots,\lambda_m$是任意给定的数，那么根据定义3，$f$在$D$上连续。对于单变量函数也成立，比如定义域$D=\{a\}$，且$f(a)$存在，这时$f$在$D$内连续。这与<a href="https://gamersover.github.io/2020/12/08/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%903" target="_blank" rel="noopener">函数极限三的定义1</a>不矛盾，单变量点连续定义的时候$D$为非单点闭区间，且极限值等于函数值，这种定义不包含孤立点的情况，所以单变量连续函数的真正定义也囊括在本章的定义3中。</p>
 
     </div>
 
