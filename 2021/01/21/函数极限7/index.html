@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="题目描述该题来自于力扣第五题 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。">
-<meta name="keywords" content="leetcode,字符串,动态规划">
+  <meta name="description" content="定义1：向量值函数 设$D \subset \mathbb{R}^n$，定义$\boldsymbol{f}: D \to \mathbb{R}^m$为向量值函数，其中$D$称为$\boldsymbol{f}$定义域，$f(D)$称为值域。当用$\boldsymbol{y} = \boldsymbol{f}(\boldsymbol{x})(\boldsymbol{x} \in D)$来表示这种映射时">
+<meta name="keywords" content="函数极限,数学分析,一致连续函数,向量值函数,连续映射">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode题解5：最长回文子串">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;11&#x2F;21&#x2F;leetcode%E9%A2%98%E8%A7%A35&#x2F;index.html">
+<meta property="og:title" content="函数极限七：向量值函数的连续与一直连续">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;01&#x2F;21&#x2F;%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%907&#x2F;index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="题目描述该题来自于力扣第五题 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。">
+<meta property="og:description" content="定义1：向量值函数 设$D \subset \mathbb{R}^n$，定义$\boldsymbol{f}: D \to \mathbb{R}^m$为向量值函数，其中$D$称为$\boldsymbol{f}$定义域，$f(D)$称为值域。当用$\boldsymbol{y} = \boldsymbol{f}(\boldsymbol{x})(\boldsymbol{x} \in D)$来表示这种映射时">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-14T13:03:28.624Z">
+<meta property="og:updated_time" content="2021-01-21T15:01:37.641Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/11/21/leetcode%E9%A2%98%E8%A7%A35/">
+<link rel="canonical" href="http://yoursite.com/2021/01/21/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%907/">
 
 
 <script id="page-configurations">
@@ -44,7 +44,7 @@
   };
 </script>
 
-  <title>leetcode题解5：最长回文子串 | 尘雨尘风</title>
+  <title>函数极限七：向量值函数的连续与一直连续 | 尘雨尘风</title>
   
 
 
@@ -190,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/21/leetcode%E9%A2%98%E8%A7%A35/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%907/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
@@ -203,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          leetcode题解5：最长回文子串
+          函数极限七：向量值函数的连续与一直连续
         </h1>
 
         <div class="post-meta">
@@ -212,23 +212,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-11-21 14:50:53" itemprop="dateCreated datePublished" datetime="2020-11-21T14:50:53+08:00">2020-11-21</time>
+              <time title="创建时间：2021-01-21 21:02:57 / 修改时间：23:01:37" itemprop="dateCreated datePublished" datetime="2021-01-21T21:02:57+08:00">2021-01-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-14 21:03:28" itemprop="dateModified" datetime="2020-12-14T21:03:28+08:00">2020-12-14</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
                 </span>
             </span>
 
@@ -245,14 +239,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
+              <span>5.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -264,37 +258,82 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>该题来自于<a href="https://leetcode-cn.com/problems/longest-palindromic-substring" target="_blank" rel="noopener">力扣第五题</a></p>
-<p>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。</p>
+        <h4 id="定义1：向量值函数"><a href="#定义1：向量值函数" class="headerlink" title="定义1：向量值函数"></a>定义1：向量值函数</h4><blockquote>
+<p>设$D \subset \mathbb{R}^n$，定义$\boldsymbol{f}: D \to \mathbb{R}^m$为向量值函数，其中$D$称为$\boldsymbol{f}$定义域，$f(D)$称为值域。当用$\boldsymbol{y} = \boldsymbol{f}(\boldsymbol{x})(\boldsymbol{x} \in D)$来表示这种映射时，$\boldsymbol{x} \in \mathbb{R}^n, \boldsymbol{y} \in \mathbb{R}^m$。按分量形式写出$\boldsymbol{x} = (x_1,x_2,\cdots,x_n), \boldsymbol{y}=(y_1,y_2,\cdots,y_m)$，那么该映射函数相当于给定了$m$个$n$元函数：</p>
+<script type="math/tex; mode=display">
+\left\{
+    \begin{aligned}
+        & y_1 = f_1(x_1,x_2,\cdots,x_n) \\
+        & y_2 = f_2(x_1,x_2,\cdots,x_n) \quad (x_1,x_2,\cdots,x_n) \in D \subset \mathbb{R}^n \\
+        & \cdots \\
+        & y_m = f_m(x_1,x_2,\cdots,x_n)
+    \end{aligned}
+\right.</script><p>反过来也成立。也就是说，如果给定了$m$个定义在$D \subset \mathbb{R}^n$上的函数，就相当于给定了定义在$D$上，映射到$\mathbb{R}^m$中的一个映射，或者说在$D$上定义了一个在$\mathbb{R}^m$中取值的向量值函数。这一事实表示为</p>
+<script type="math/tex; mode=display">
+    \boldsymbol{f} = (f_1,f_2,\cdots,f_m)</script><p>其中$f_i: D \to \mathbb{R}$称为$\boldsymbol{f}$的第$i$个分量函数$(i=1,2,\cdots,m)$</p>
+</blockquote>
 <a id="more"></a>
-<p>示例 1：</p>
-<blockquote>
-<p>输入: “babad”<br>输出: “bab”<br>注意: “aba” 也是一个有效答案。</p>
+<h4 id="定义2"><a href="#定义2" class="headerlink" title="定义2"></a>定义2</h4><blockquote>
+<p>设$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m$，又设$\boldsymbol{a} \in D^\prime, \boldsymbol{p}\in \mathbb{R}^m$。如果$\forall \varepsilon &gt; 0$，$\exists \delta &gt; 0$，使得当$\boldsymbol{x} \in D$且$0 &lt; \Vert \boldsymbol{x} - \boldsymbol{a} \Vert &lt; \delta$时，有</p>
+<script type="math/tex; mode=display">
+    \Vert \boldsymbol{f}(\boldsymbol{x}) - \boldsymbol{p} \Vert < \varepsilon</script><p>则称映射$f$在点$\boldsymbol{a}$处有极限$p$，记为</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} \boldsymbol{f}(\boldsymbol{x}) = \boldsymbol{p}</script><p>也可以简记为</p>
+<script type="math/tex; mode=display">
+    \boldsymbol{f}(\boldsymbol{x}) \to \boldsymbol{p} \quad (\boldsymbol{x} \to \boldsymbol{a})</script></blockquote>
+<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
+<p>设$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m,\boldsymbol{a} \in D^\prime, \boldsymbol{p}=(p_1,p_2,\cdots,p_m)\in \mathbb{R}^m, \boldsymbol{f} = (f_1,f_2,\cdots,f_m)$。那么</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} \boldsymbol{f}(\boldsymbol{x}) = \boldsymbol{p}</script><p>当且仅当</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} f_i(\boldsymbol{x}) = p_i \quad (i=1,2,\cdots,m)</script></blockquote>
+<p>证：必要性。因为$\Vert f_i(\boldsymbol{x}) - p_i \Vert \le \Vert \boldsymbol{f}(\boldsymbol{x}) - \boldsymbol{p} \Vert \quad (i=1,2,\cdots,m)$，所以$\forall \varepsilon &gt; 0$，$\exists \delta &gt; 0$，使得当$\boldsymbol{x} \in D$且$0 &lt; \Vert \boldsymbol{x} - \boldsymbol{a} \Vert &lt; \delta$时，有</p>
+<script type="math/tex; mode=display">
+    | f_i(\boldsymbol{x}) - p_i | \le \Vert \boldsymbol{f}(\boldsymbol{x}) - \boldsymbol{p} \Vert < \varepsilon</script><p>这就表明</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} f_i(\boldsymbol{x}) = p_i \quad (i=1,2,\cdots,m)</script><p>充分性。因为</p>
+<script type="math/tex; mode=display">
+    \Vert \boldsymbol{f}(\boldsymbol{x}) - \boldsymbol{p} \Vert \le \sum_{i=1}^m |f_i(\boldsymbol{x}) - p_i|</script><p>对$\varepsilon &gt; 0$，$\exists \delta &gt; 0$，使得当$0 &lt; \Vert \boldsymbol{x} - \boldsymbol{a} \Vert &lt; \delta$时，有$|f(\boldsymbol{x}_i) - p_i| &lt; \varepsilon / m \quad(i=1,2,\cdots,m)$，所以</p>
+<script type="math/tex; mode=display">
+    \Vert \boldsymbol{f}(\boldsymbol{x}) - \boldsymbol{p} \Vert \le \sum_{i=1}^m |f_i(\boldsymbol{x}) - p_i| < m \cdot \frac{\varepsilon}{m} = \varepsilon</script><p>Q.E.D.</p>
+<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
+<p>设$D \subset \mathbb{R}^n$，$\boldsymbol{f},\boldsymbol{g}: D \to \mathbb{R}^m,\boldsymbol{a} \in D^\prime$，并且</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} \boldsymbol{f}(\boldsymbol{x}) = \boldsymbol{p}，\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} \boldsymbol{g}(\boldsymbol{x}) = \boldsymbol{q}</script><p>于是我们有： <br/><br>（1）对任何$\lambda \in \mathbb{R}$，可以得出$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}}(\lambda \boldsymbol{f}(\boldsymbol{a})) = \lambda \boldsymbol{p}$。<br>（2）$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} (\boldsymbol{f}(\boldsymbol{x}) + \boldsymbol{g}(\boldsymbol{x})) = \boldsymbol{p} + \boldsymbol{q}$</p>
 </blockquote>
-<p>示例 2：</p>
-<blockquote>
-<p>输入: “cbbd”<br>输出: “bb”</p>
+<p>证：利用不等式很容易证明。</p>
+<p>Q.E.D.</p>
+<h4 id="定义3：连续映射"><a href="#定义3：连续映射" class="headerlink" title="定义3：连续映射"></a>定义3：连续映射</h4><blockquote>
+<p>设$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m,\boldsymbol{a} \in D$。如果$\forall \varepsilon &gt; 0$，$\exists \delta &gt; 0$，使得当$\boldsymbol{x} \in D \cap B_\delta(\boldsymbol{a})$时，有$\boldsymbol{f}(\boldsymbol{x}) \in B_\varepsilon(\boldsymbol{f}(\boldsymbol{a}))$，则称映射$\boldsymbol{f}$在点$\boldsymbol{a}$处连续。当$\boldsymbol{f}$在$D$中的每一点都连续，称映射$f$在$D$上连续。</p>
 </blockquote>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>关键思路是如何尽量少的遍历？注意到要判断$a_1a_2a_3 \cdots a_{n-1} a_n$是否是回文串，等价于判断$a_2a_3 \cdots a_{n-1}$是否是回文串，而且$a_1=a_n$是否成立，如果两个都成立，那么原字符串是回文串，否则就不是；所以解法思路是动态规划，<br>状态：<code>dp[i][j]</code>表示下标从<code>i</code>到<code>j</code>构成的子串是否是回文串<br>状态转移方程：<code>dp[i][j] = dp[i+1][j-1] &amp;&amp; a[i]==a[j]</code></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><details open>
-<summary>python3</summary>
+<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
+<p>设$D$是$\mathbb{R}^n$中的开集，$\boldsymbol{f}:D \to \mathbb{R}^m$，$\boldsymbol{f}$在$D$上连续的充分必要条件是，对任意的$\mathbb{R}^m$上的开集$G$，$\boldsymbol{f}^{-1}(G)$是$\mathbb{R}^n$中的开集。这里</p>
+<script type="math/tex; mode=display">
+  \boldsymbol{f}^{-1}(G) = \{ \boldsymbol{x} \in D : \boldsymbol{f}(\boldsymbol{x}) \in G \}</script></blockquote>
+<p>证：必要性。如果$\boldsymbol{f}^{-1}(G)$是空集，自然是开集；如果非空，任取$\boldsymbol{x}_0 \in \boldsymbol{f}^{-1}(G)$，则$\boldsymbol{f}(\boldsymbol{x_0}) \in G$，由于$G$是开集，从而存在$\varepsilon &gt; 0$，使得$B_\varepsilon(\boldsymbol{f}(\boldsymbol{x}_0)) \subset G$。又因为$\boldsymbol{f}$在$\boldsymbol{x}_0$处连续，从而存在$\delta &gt; 0$，使得当$\boldsymbol{x} \in B_\delta(\boldsymbol{x}_0)$时，有$\boldsymbol{f}(\boldsymbol{x}) \in B_\varepsilon(\boldsymbol{f}(\boldsymbol{x}_0)) \subset G$，即$\boldsymbol{x} \in \boldsymbol{f}^{-1}(G)$，从而$B_\delta(\boldsymbol{x}_0) \subset \boldsymbol{f}^{-1}(G)$。这就说明$\boldsymbol{f}^{-1}(G)$是开集。</p>
+<p>充分性。任取$\boldsymbol{x}_0 \in D$，对任意小的$\varepsilon &gt; 0$，取$G=B_\varepsilon(\boldsymbol{f}(\boldsymbol{x}_0))$，可知$G$是开集，利用条件知$\boldsymbol{f}^{-1}(G)$也是开集。因为$\boldsymbol{x}_0 \in \boldsymbol{f}^{-1}(G)$，从而存在$\delta &gt; 0$，使得$B_\delta(\boldsymbol{x}_0) \subset \boldsymbol{f}^{-1}(G)$。即对任意的$\boldsymbol{x} \in B_\delta(\boldsymbol{x}_0)$，有$\boldsymbol{f}(\boldsymbol{x}) \in G = B_\varepsilon(\boldsymbol{f}(\boldsymbol{x}_0))$。从而$\boldsymbol{f}$在$\boldsymbol{x}_0$处连续。由于$\boldsymbol{x}_0$是任取的，所以$\boldsymbol{f}$在$D$上连续。</p>
+<h4 id="定义4：一致连续映射"><a href="#定义4：一致连续映射" class="headerlink" title="定义4：一致连续映射"></a>定义4：一致连续映射</h4><blockquote>
+<p>设$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m$，如果$\forall \varepsilon &gt; 0$，$\exists \delta&gt; 0$，使得当$\boldsymbol{x},\boldsymbol{y} \in D$且$\Vert \boldsymbol{x} - \boldsymbol{y} \Vert &lt; \delta$时，有$\Vert \boldsymbol{f}(\boldsymbol{x}) - \boldsymbol{f}(\boldsymbol{y}) \Vert &lt; \varepsilon$，则称$\boldsymbol{f}$在$D$上一致连续。</p>
+</blockquote>
+<h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><blockquote>
+<p>设$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m$是$D$上一致连续当且仅当$\boldsymbol{f}$的每一个分量函数在$D$上一致连续。</p>
+</blockquote>
+<p>证：利用$|f_i(\boldsymbol{x}) - f_i(\boldsymbol{y})| \le \Vert \boldsymbol{f}(\boldsymbol{x}) - \boldsymbol{f}(\boldsymbol{y}) \Vert$，很容易证明。</p>
+<p>Q.E.D.</p>
+<h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h4><blockquote>
+<p>设$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m$是$D$上的连续映射。如果$D$是紧致集，那么$\boldsymbol{f}$在$D$上是一致连续的。</p>
+</blockquote>
+<p>证：与<a href="https://gamersover.github.io/2021/01/20/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%906/#%E5%AE%9A%E7%90%861" target="_blank" rel="noopener">函数极限六的定理1</a>证法一样。</p>
+<p>Q.E.D.</p>
+<h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><blockquote>
+<p>设$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m$是$D$上的连续映射。如果$D$是$\mathbb{R}^n$中的连通集，那么$\boldsymbol{f}(D)$是$\mathbb{R}^m$中的连通集。</p>
+</blockquote>
+<p>证：与<a href="https://gamersover.github.io/2021/01/20/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%906/#%E5%AE%9A%E7%90%864" target="_blank" rel="noopener">函数极限六的定理4</a>证法一样。</p>
+<h4 id="定理7"><a href="#定理7" class="headerlink" title="定理7"></a>定理7</h4><blockquote>
+<p>设$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m$是$D$上的连续映射。如果$D$是$\mathbb{R}^n$中紧致集，那么$\boldsymbol{f}(D)$是$\mathbb{R}^m$中的紧致集。</p>
+</blockquote>
+<p>证：与<a href="https://gamersover.github.io/2021/01/20/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%906/#%E5%AE%9A%E7%90%863" target="_blank" rel="noopener">函数极限六的定理3</a>证法一样。</p>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestPalindrome</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        n = len(s)</span><br><span class="line">        dp = [[<span class="literal">False</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(n)] <span class="keyword">for</span> j <span class="keyword">in</span> range(n)]</span><br><span class="line">        max_len = <span class="number">0</span></span><br><span class="line">        start, end = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(i, n):</span><br><span class="line">                <span class="keyword">if</span> i == j:</span><br><span class="line">                    dp[i][j] = <span class="literal">True</span></span><br><span class="line">               </span><br><span class="line">                <span class="keyword">elif</span> s[i] == s[j]:</span><br><span class="line">                    <span class="keyword">if</span> j - i &gt; <span class="number">1</span>:</span><br><span class="line">                        dp[i][j] = dp[i+<span class="number">1</span>][j<span class="number">-1</span>]</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        dp[i][j] = <span class="literal">True</span></span><br><span class="line">                        </span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    dp[i][j] = <span class="literal">False</span></span><br><span class="line">                    </span><br><span class="line">                <span class="keyword">if</span> dp[i][j] <span class="keyword">and</span> max_len &lt; j - i + <span class="number">1</span>:</span><br><span class="line">                    start = i</span><br><span class="line">                    end = j + <span class="number">1</span></span><br><span class="line">                    max_len = j - i + <span class="number">1</span> </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> s[start:end]</span><br></pre></td></tr></table></figure>
-</details>
-
-
-<details>
-<summary>c++</summary>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="keyword">int</span> maxLen = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, end = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n, <span class="literal">false</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == j) dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (s[i] == s[j]) &#123;</span><br><span class="line">                    <span class="keyword">if</span> ((j - i) &gt; <span class="number">1</span>) dp[i][j] = dp[i + <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">else</span> dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[i][j] = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (dp[i][j] &amp;&amp; (j-i+<span class="number">1</span> &gt; maxLen)) &#123;</span><br><span class="line">                    maxLen = max(j - i + <span class="number">1</span>, maxLen);</span><br><span class="line">                    start = i;</span><br><span class="line">                    end = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substr(start, maxLen);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</details>
-
-
-<details>
-<summary>java</summary>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.length();</span><br><span class="line">        <span class="keyword">int</span> maxLen = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, end = <span class="number">0</span>;</span><br><span class="line">        Boolean[][] dp = <span class="keyword">new</span> Boolean[n][n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n-<span class="number">1</span>; i&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i; j&lt;n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(i == j) dp[i][j] = <span class="keyword">true</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(i) == s.charAt(j))&#123;</span><br><span class="line">                    <span class="keyword">if</span>(j - i &gt; <span class="number">1</span>) dp[i][j] = dp[i+<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">else</span> dp[i][j] = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> dp[i][j] = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (dp[i][j] &amp;&amp; ((j - i + <span class="number">1</span>) &gt; maxLen))&#123;</span><br><span class="line">                    maxLen = j - i + <span class="number">1</span>;</span><br><span class="line">                    start = i;</span><br><span class="line">                    end = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substring(start, end+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</details>
     </div>
 
     
@@ -304,9 +343,11 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
-              <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag"><i class="fa fa-tag"></i> 字符串</a>
-              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"><i class="fa fa-tag"></i> 动态规划</a>
+              <a href="/tags/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%90/" rel="tag"><i class="fa fa-tag"></i> 函数极限</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 数学分析</a>
+              <a href="/tags/%E4%B8%80%E8%87%B4%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0/" rel="tag"><i class="fa fa-tag"></i> 一致连续函数</a>
+              <a href="/tags/%E5%90%91%E9%87%8F%E5%80%BC%E5%87%BD%E6%95%B0/" rel="tag"><i class="fa fa-tag"></i> 向量值函数</a>
+              <a href="/tags/%E8%BF%9E%E7%BB%AD%E6%98%A0%E5%B0%84/" rel="tag"><i class="fa fa-tag"></i> 连续映射</a>
           </div>
 
         
@@ -315,13 +356,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/11/17/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%901/" rel="prev" title="函数极限一：函数极限定义与基本性质">
-      <i class="fa fa-chevron-left"></i> 函数极限一：函数极限定义与基本性质
+    <a href="/2021/01/20/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%906/" rel="prev" title="函数极限六：多变量函数的一致连续性">
+      <i class="fa fa-chevron-left"></i> 函数极限六：多变量函数的一致连续性
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/11/27/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%902/" rel="next" title="函数极限二：其它类型的函数极限">
-      函数极限二：其它类型的函数极限 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -381,7 +419,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1：向量值函数"><span class="nav-text">定义1：向量值函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义3：连续映射"><span class="nav-text">定义3：连续映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义4：一致连续映射"><span class="nav-text">定义4：一致连续映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5"><span class="nav-text">定理5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理6"><span class="nav-text">定理6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理7"><span class="nav-text">定理7</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -632,7 +670,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'gamersover.github.io',
       owner       : 'gamersover',
       admin       : ['gamersover'],
-      id          : 'fbb28e7adb771d4e9ac6cbb25110bdb4',
+      id          : 'd5ca49136e6221eee76d274087d88867',
         language: 'zh-CN',
       distractionFreeMode: true
     });
