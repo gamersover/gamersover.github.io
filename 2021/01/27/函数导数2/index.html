@@ -20,16 +20,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
-<meta property="og:type" content="website">
-<meta property="og:title" content="尘雨尘风">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;%E6%95%B0%E7%BB%84&#x2F;index.html">
+  <meta name="description" content="本章介绍常见初等函数的导函数及其求法。">
+<meta name="keywords" content="导数,数学分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数导数二：初等函数的导数">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;01&#x2F;27&#x2F;%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B02&#x2F;index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+<meta property="og:description" content="本章介绍常见初等函数的导函数及其求法。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-01-27T12:45:32.324Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/tags/%E6%95%B0%E7%BB%84/">
+<link rel="canonical" href="http://yoursite.com/2021/01/27/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B02/">
 
 
 <script id="page-configurations">
@@ -37,12 +39,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: 数组 | 尘雨尘风</title>
+  <title>函数导数二：初等函数的导数 | 尘雨尘风</title>
   
 
 
@@ -181,120 +183,143 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">数组
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/27/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          函数导数二：初等函数的导数
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-27 20:23:04 / 修改时间：20:45:32" itemprop="dateCreated datePublished" datetime="2021-01-27T20:23:04+08:00">2021-01-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>749</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <p>本章介绍常见初等函数的导函数及其求法。<br><a id="more"></a></p>
+<h4 id="常值函数"><a href="#常值函数" class="headerlink" title="常值函数"></a>常值函数</h4><blockquote>
+<p>函数$f = c$为常值函数，证：$f^\prime = 0$。</p>
+</blockquote>
+<p>证：由于</p>
+<script type="math/tex; mode=display">
+    f^\prime(x) = \frac{f(x+h) - f(x)}{h} = \frac{c-c}{h} = 0</script><p>Q.E.D.</p>
+<h4 id="指数函数"><a href="#指数函数" class="headerlink" title="指数函数"></a>指数函数</h4><blockquote>
+<p>函数$f(x) = x^\alpha (x &gt; 0, \alpha \in \mathbb{R})$，证：$f^\prime(x) = \alpha x^{\alpha - 1}$。</p>
+</blockquote>
+<p>证：由于</p>
+<script type="math/tex; mode=display">
+    f^\prime(x) = \lim\limits_{h \to 0} \frac{(x+h)^\alpha - x^\alpha}{h} = x^{\alpha-1}\lim\limits_{h \to 0} \frac{(1 + h/x)^{\alpha} - 1}{h/x}</script><p>而</p>
+<script type="math/tex; mode=display">
+    \lim\limits_{t \to 0} \frac{(1+t)^\alpha - 1}{t} = \lim\limits_{t \to 0} \frac{e^{\alpha \ln(1+t)} - 1}{\alpha \ln (1+t)} \frac{\alpha \ln (1+t)}{t}</script><p>由于$x \sim \ln(1+x), e^x-1 \sim x \quad (x \to 0)$，从而</p>
+<script type="math/tex; mode=display">
+    \lim\limits_{t \to 0} \frac{(1+t)^\alpha - 1}{t} = \alpha</script><p>所以</p>
+<script type="math/tex; mode=display">
+     f^\prime(x) = \alpha x^{\alpha - 1}</script><p>Q.E.D.</p>
+<h4 id="正弦函数"><a href="#正弦函数" class="headerlink" title="正弦函数"></a>正弦函数</h4><blockquote>
+<p>函数$f(x) = \sin x$，证$f^\prime(x) = \cos x$。</p>
+</blockquote>
+<p>证：由于</p>
+<script type="math/tex; mode=display">
+    f^\prime(x) = \lim\limits_{h \to 0} \frac{\sin(x+h) - \sin x}{h} = \lim\limits_{h \to 0} \frac{\cos (x+h/2) \sin (h/2)}{h/2} = \cos x</script><p>Q.E.D.</p>
+<h4 id=""><a href="#" class="headerlink" title=" "></a> </h4>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-01-22T20:16:33+08:00"
-              content="2021-01-22">
-          01-22
-        </time>
-      </div>
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%AF%BC%E6%95%B0/" rel="tag"><i class="fa fa-tag"></i> 导数</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 数学分析</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/22/leetcode%E9%A2%98%E8%A7%A315/" itemprop="url">
-            <span itemprop="name">leetcode题解15：三数之和</span>
-          </a>
-      </div>
+        
 
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-01-11T20:11:59+08:00"
-              content="2021-01-11">
-          01-11
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/11/leetcode%E9%A2%98%E8%A7%A311/" itemprop="url">
-            <span itemprop="name">leetcode题解11：盛最多水的容器</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/25/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B01/" rel="prev" title="函数导数一：导数的定义与基本性质">
+      <i class="fa fa-chevron-left"></i> 函数导数一：导数的定义与基本性质
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-11-14T09:41:06+08:00"
-              content="2020-11-14">
-          11-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/11/14/leetcode%E9%A2%98%E8%A7%A34/" itemprop="url">
-            <span itemprop="name">leetcode题解4：寻找两个正序数组的中位数</span>
-          </a>
-      </div>
-
-    </header>
+      </footer>
+    
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-11-07T09:09:23+08:00"
-              content="2020-11-07">
-          11-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/11/07/leetcode%E9%A2%98%E8%A7%A31/" itemprop="url">
-            <span itemprop="name">leetcode题解1：两数之和</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -341,6 +366,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#常值函数"><span class="nav-text">常值函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指数函数"><span class="nav-text">指数函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正弦函数"><span class="nav-text">正弦函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-text"> </span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -524,9 +550,81 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '2b5e8584032528a65176',
+      clientSecret: '4a98c67c6337be0cd82b30d04699a4dcef47307c',
+      repo        : 'gamersover.github.io',
+      owner       : 'gamersover',
+      admin       : ['gamersover'],
+      id          : 'bc7b6f5d2f3510e26bff9cb326d99185',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>
