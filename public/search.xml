@@ -4,11 +4,24 @@
   
     
     <entry>
+      <title>函数导数4</title>
+      <link href="/2021/02/22/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B04/"/>
+      <url>/2021/02/22/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B04/</url>
+      
+        <content type="html"><![CDATA[<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><p>设函数$f,g$在$(a,b)$上可导，并且$g(x) \ne 0$对$x \in (a,b)$成立。又设</p><script type="math/tex; mode=display">    \lim \limits_{x \to a^+} f(x) = \lim \limits_{x \to a^+} g(x) = 0</script><p>如果极限</p><script type="math/tex; mode=display">    \lim \limits_{x \to a^+} \frac{f^\prime(x)}{g^\prime(x)}</script><p>存在(或为$\infty$)，那么便有</p><script type="math/tex; mode=display">    \lim \limits_{x \to a^+} \frac{f(x)}{g(x)} = \lim \limits_{x \to a^+} \frac{f^\prime(x)}{g^\prime(x)}</script><p>证：</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数学试题一：初中篇</title>
       <link href="/2021/02/20/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/"/>
       <url>/2021/02/20/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/</url>
       
-        <content type="html"><![CDATA[<ol><li><p>在$\triangle ABC$中，$AB=AC$，点$D$在线段$BC$上，且$\angle BAD = 20^\circ$，点$E$在线段$AC$上，且$AE = AD$，求$\angle CDE$。</p></li><li><p>在$\triangle ABC$中，点$D,E$分别是$AC,BC$的中点，点$F$在线段$AB$上，且$BF=\frac{1}{3}AB$，$BD$与$CF$相交于点$G$，连接$EG$； <br/><br>（1）证：$EG \parallel AC$ <br/><br>（2）求$\frac{S_{\triangle BFG}}{S_{\triangle BEG}}$</p></li><li><p>当关于$x$的方程$rx^2 + (r+2)^2x + r - 1 = 0$有且仅有整数根时，求$r$的值。</p></li><li></li></ol>]]></content>
+        <content type="html"><![CDATA[<h4 id="几何题"><a href="#几何题" class="headerlink" title="几何题"></a>几何题</h4><ol><li><p>在$\triangle ABC$中，$AB=AC$，点$D$在线段$BC$上，且$\angle BAD = 20^\circ$，点$E$在线段$AC$上，且$AE = AD$，求$\angle CDE$。<br><img src="https://github.com/gamersover/hexo_blog_assets/blob/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.1.jpg?raw=true" alt="img"></p><a id="more"></a></li><li><p>在$\triangle ABC$中，点$D,E$分别是$AC,BC$的中点，点$F$在线段$AB$上，且$BF=\frac{1}{3}AB$，$BD$与$CF$相交于点$G$，连接$EG$； <br/><br>（1）证：$EG \parallel AC$。 <br/><br>（2）求$\frac{S_{\triangle BFG}}{S_{\triangle BEG}}$。</p></li></ol><p><img src="https://github.com/gamersover/hexo_blog_assets/blob/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.2.jpg?raw=true" alt="img"></p><ol><li><p>在$\triangle ABC$中，$\angle BAC$的角平分线$AD$交$BC$于点$D$，点$E$是$BC$的中点，过点$E$作$EG \parallel AD$交$AB$于点$F$，交$CA$的延长线于点$G$。证：$BF = CG$。</p></li><li><p>在$Rt\triangle ABC$中，$\angle ACB = 90^\circ$，点$D$在$AB$上，且$CD \perp AB$，$AE$平分$\angle BAC$交$CD$于点$K$，交$BC$于点$E$，$F$是$BE$上的点，且$BF=CE$，证：$FK \parallel AB$。</p></li><li><p>$EFGH$是正方形$ABCD$的内接四边形，其中点$E,F,G,H$分别在线段$AB,BC,CD,DA$中，$\angle BEG,\angle CFH$都是锐角，已知$EG=3,FH=4$，四边形$EFGH$的面积为$5$，求正方形$ABCD$的面积。</p></li><li><p>平行四边形$ABCD$中，$BC=2AB$，$M$是$AD$的中点，点$E$在$AB$上，且$CE \perp AB$，求$\angle DME : \angle AEM$。</p></li><li><p>矩形$ABCD$中，$AB=a,BC=b$，点$E,F$分别在$AB,BC$上，定义$S_1=S_{\triangle DAE},S_2=S_{\triangle CDF},S_3=S_{\triangle BEF},S_4=S_{\triangle DEF}$，如果$S_1=S_2=\frac{1}{2} (S_3 + S_4)$，求$S_4$（用$a,b$表示）。</p></li><li><p>平行四边形$ABCD$中，$M$是$BC$的中点，且$AM=9,BD=12,AD=10$，求平行四边形$ABCD$的面积。</p></li><li><p>平行四边形$ABCD$中，$AB=5,AD=8$，$\triangle BAD,\triangle ADC$的角平分线分别交$BC$于点$E,F$，求$EF$。</p></li><li><p>$\triangle ABC$是$\bigodot O$的内接三角形，且$AC=BC$，点$D$在$\bigodot O$上，延长$DA$至点$E$，使$CE=CD$；<br/><br>（1）证：$AE=BD$。 <br/><br>（2）若$AC \perp BC$，证：$AD+BD = \sqrt 2 CD$。</p></li><li><p>在三角形$ABC$中，点$O$是$AC$上的一个动点，过点$O$作直线$MN \parallel BC$，设$MN$交$\triangle BCA$的角平分线于点$E$，交$\triangle BCA$的外角平行线于点$F$；<br/><br>（1）证：$OE=OF$。<br/><br>（2）点$O$在何处时，四边形$AECF$是矩形？<br/><br>（3）若$AC$上存在点$O$使四边形$AECF$是正方形，且$\frac{AE}{BC} = \frac{\sqrt 6}{2} $，求$\angle B$的大小。</p></li></ol><ol><li><p>已知等边三角形$ABC$与点$P$，设点$P$到$\triangle ABC$三边$AB,AC,BC$的距离分别为$h_1,h_2,h_3$，$\triangle ABC$的高为$h$。若点$P$在边$BC$上，此时$h_3=0$，可得$h_1+h_2+h_3 = h$，当点$P$在$\triangle ABC$内或在$\triangle ABC$外这两种情况，上述结论是否正确？若正确，请给予证明；若不正确，$h_1,h_2,h_3$和$h$之间有和关系？</p></li><li><p>三角形$ABC$中，$AB=5,AC=3$，$D$为$BC$的中点，$AD=2$，求$BC$的长。</p></li><li><p>$Rt\triangle ABC$中，$\angle C = 90^\circ$，点$M$是$BC$的中点，点$D$在$AB$上，$MD \perp AB$，证：$AC^2 + BD^2 = AD^2$。</p></li><li><p>在$\triangle ABC$中，$AB=AC$，点$P$是$BC$上一点，证：$PA^2 + PB\cdot PC = AB^2$。</p></li><li><p>点$P$是$\triangle ABC$内一点，$PD \perp AB$于点$D$，$PE \perp BC$于点$E$，$PF \perp AC$于点$F$，证：$AD^2 + BE^2 + CF^2 = AF^2 + BD^2 + CE^2$。</p></li><li><p>在$\triangle ABC$中，$BD \perp AC$于点$D$，$CE \perp AB$于点$E$，点$F$在$BD$上，且$BF=AC$，点$G$在$CE$的延长线上，且$CG = AB$，证：$AG \perp AF$。</p></li><li><p>在等腰$Rt \triangle ABC$中，$\angle A = 90^\circ$，$\angle ABC$的角平分线$BD$交$AC$于点$D$，点$E$在$BC$上，且$\angle BDE = 45^\circ$，连接$AE$，证：$AE \perp BD$。</p></li><li><p>点$E$为平行四边形$ABCD$的边$BC$上一动点，$DE$交直线$AB$于点$F$，连接$AE,CF$；<br/><br>（1）$\triangle ABE$与$\triangle CEF$的面积有何关系？ <br/><br>（2）若$E$在$CB$的延长线上，（1）的结论依然成立吗？</p></li><li><p>$\triangle ABC$中，$AB=5,AC=11$，$\triangle BAC$的角平分线$AD$交$BC$于点$D$，点$E$为$BC$的中点，过点$E$作$EF \parallel AD$交$AC$于点$F$，求$CF$的长。</p><h4 id="代数题"><a href="#代数题" class="headerlink" title="代数题"></a>代数题</h4><p>当关于$x$的方程$rx^2 + (r+2)^2x + r - 1 = 0$有且仅有整数根时，求$r$的值。</p></li></ol>]]></content>
       
       
       <categories>
@@ -20,7 +33,7 @@
       
         <tags>
             
-            <tag> 试题 </tag>
+            <tag> 数学试题 </tag>
             
         </tags>
       
@@ -29,7 +42,7 @@
     
     
     <entry>
-      <title>函数导数三：极值与微分中值定理</title>
+      <title>函数导数三：极值定义与微分中值定理</title>
       <link href="/2021/02/01/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B03/"/>
       <url>/2021/02/01/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B03/</url>
       
@@ -359,9 +372,9 @@
             
             <tag> 字符串 </tag>
             
-            <tag> 正则表达式 </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> 正则表达式 </tag>
             
         </tags>
       
@@ -541,9 +554,9 @@
             
             <tag> 欧几里得空间 </tag>
             
-            <tag> 拓扑 </tag>
-            
             <tag> 开覆盖 </tag>
+            
+            <tag> 拓扑 </tag>
             
             <tag> 列紧集 </tag>
             
@@ -580,9 +593,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -613,6 +626,8 @@
             
             <tag> 欧几里得空间 </tag>
             
+            <tag> 闭区间套 </tag>
+            
             <tag> 拓扑 </tag>
             
             <tag> 开集 </tag>
@@ -626,8 +641,6 @@
             <tag> 闭包 </tag>
             
             <tag> 边界 </tag>
-            
-            <tag> 闭区间套 </tag>
             
         </tags>
       
@@ -716,9 +729,9 @@
             
             <tag> 点列极限 </tag>
             
-            <tag> 闭区间套 </tag>
-            
             <tag> 实数连续性 </tag>
+            
+            <tag> 闭区间套 </tag>
             
             <tag> 开覆盖 </tag>
             
