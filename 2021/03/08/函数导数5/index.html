@@ -14,10 +14,11 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
   <meta name="description" content="定理1 设函数$f$在区间$[a,b]$上连续，在$(a,b)$上可导，那么$f$在$[a,b]$上递增（减）的充分必要条件是$f^\prime \ge 0 (\le 0)$在区间$(a,b)$上成立。">
@@ -28,7 +29,7 @@
 <meta property="og:site_name" content="尘雨尘风">
 <meta property="og:description" content="定理1 设函数$f$在区间$[a,b]$上连续，在$(a,b)$上可导，那么$f$在$[a,b]$上递增（减）的充分必要条件是$f^\prime \ge 0 (\le 0)$在区间$(a,b)$上成立。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-03-09T12:37:58.778Z">
+<meta property="og:updated_time" content="2021-03-11T13:10:17.409Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/03/08/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B05/">
@@ -220,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-09 20:37:58" itemprop="dateModified" datetime="2021-03-09T20:37:58+08:00">2021-03-09</time>
+                <time title="修改时间：2021-03-11 21:10:17" itemprop="dateModified" datetime="2021-03-11T21:10:17+08:00">2021-03-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -245,14 +246,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
+              <span>5.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -278,7 +279,7 @@
 <h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
 <p>设函数$f$在区间$[a,b]$上连续，在$(a,b)$上可导，如果$f^\prime &gt; 0 (&lt; 0)$在区间$(a,b)$上成立。那么$f$在$[a,b]$上严格递增（严格递减）的。</p>
 </blockquote>
-<p>证：证法与<a href="todo">定理1</a>一样。</p>
+<p>证：证法与<a href="https://gamersover.github.io/2021/03/08/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B05/#%E5%AE%9A%E7%90%861" target="_blank" rel="noopener">定理1</a>一样。</p>
 <p>Q.E.D.</p>
 <h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
 <p>设函数$f$在区间$[a,b]$上连续，在$(a,b)$上可导，在区间$(a,b)$内，除了有限个点之外，$f^\prime &gt; 0 (&lt; 0)$成立。那么$f$在$[a,b]$上严格递增（严格递减）的。</p>
@@ -288,13 +289,13 @@
 <h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><blockquote>
 <p>设函数$f$在区间$[a,b]$上连续，在$(a,b)$上可导，那么$f$在$[a,b]$上严格递增（严格递减）的充分必要条件是：<br/><br>（1）当$x \in (a,b)$时，$f^\prime \ge 0 (f^\prime \le 0)$；<br/><br>（2）在$(a,b)$的任何开子区间上，$f^\prime \ne 0$。</p>
 </blockquote>
-<p>证：必要性。由<a href="todo">定理1</a>可知，（1）是必要的，假如（2）不正确，则存在一个被$(a,b)$包含的开区间，在其上$f^\prime = 0$，那么在这个开区间上$f$为常数，因此$f$在$[a,b]$上不是严格单调的，从而（2）必然正确。</p>
-<p>充分性。设（1）（2）同时成立，由（1）和<a href="todo">定理1</a>可知，$f$是单调的，若有$x_1,x_2 \in [a,b]$，其中$x_1 &lt; x_2$，使得$f(x_1) = f(x_2)$，那么对$x \in [x_1, x_2]$，有$f(x_1) = f(x) = f(x_2)$。从而对$x \in (x_1,x_2)$，有$f^\prime = 0$，这与（2）矛盾，从而$f$在$[a,b]$上严格单调。</p>
+<p>证：必要性。由<a href="https://gamersover.github.io/2021/03/08/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B05/#%E5%AE%9A%E7%90%861" target="_blank" rel="noopener">定理1</a>可知，（1）是必要的，假如（2）不正确，则存在一个被$(a,b)$包含的开区间，在其上$f^\prime = 0$，那么在这个开区间上$f$为常数，因此$f$在$[a,b]$上不是严格单调的，从而（2）必然正确。</p>
+<p>充分性。设（1）（2）同时成立，由（1）和<a href="https://gamersover.github.io/2021/03/08/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B05/#%E5%AE%9A%E7%90%861" target="_blank" rel="noopener">定理1</a>可知，$f$是单调的，若有$x_1,x_2 \in [a,b]$，其中$x_1 &lt; x_2$，使得$f(x_1) = f(x_2)$，那么对$x \in [x_1, x_2]$，有$f(x_1) = f(x) = f(x_2)$。从而对$x \in (x_1,x_2)$，有$f^\prime = 0$，这与（2）矛盾，从而$f$在$[a,b]$上严格单调。</p>
 <p>Q.E.D.</p>
 <h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h4><blockquote>
 <p>设函数$f$在$[a,b]$上连续，$x_0 \in (a,b)$；<br/><br>（1）如果存在正数$\delta &gt; 0$，使得在$(x_0 - \delta, x_0)$上$f^\prime &gt; 0$，而在$(x_0, x_0 + \delta)$上$f^\prime &lt; 0$，那么$f(x_0)$是$f$的一个严格极大值，所谓严格极大值是指，当$0 &lt; |x - x_0| &lt; \delta$时，$f(x) &lt; f(x_0)$；<br>（2）如果存在正数$\delta &gt; 0$，使得在$(x_0 - \delta, x_0)$上$f^\prime &lt; 0$，而在$(x_0, x_0 + \delta)$上$f^\prime &gt; 0$，那么$f(x_0)$是$f$的一个严格极小值，所谓严格极小值是指，当$0 &lt; |x - x_0| &lt; \delta$时，$f(x) &gt; f(x_0)$；</p>
 </blockquote>
-<p>证：这里只证（1），（2）是同样的证法。由<a href="todo">定理2</a>可知，$f$在$[x_0-\delta, x_0]$上严格递增，所以当$x \in (x_0-\delta, x_0)$时，$f(x) &lt; f(x_0)$，而$f$在$[x_0, x_0+\delta]$上严格递减，所以当$x \in (x_0, x_0 + \delta)$时，$f(x) &lt; f(x_0)$，即$f(x_0)$是一个严格极大值。</p>
+<p>证：这里只证（1），（2）是同样的证法。由<a href="https://gamersover.github.io/2021/03/08/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B05/#%E5%AE%9A%E7%90%862" target="_blank" rel="noopener">定理2</a>可知，$f$在$[x_0-\delta, x_0]$上严格递增，所以当$x \in (x_0-\delta, x_0)$时，$f(x) &lt; f(x_0)$，而$f$在$[x_0, x_0+\delta]$上严格递减，所以当$x \in (x_0, x_0 + \delta)$时，$f(x) &lt; f(x_0)$，即$f(x_0)$是一个严格极大值。</p>
 <p>Q.E.D.</p>
 <h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><blockquote>
 <p>设$f$在$[a,b]$上连续，$x_0 \in (a,b)$是$f$的一个驻点，进一步假设$f^{\prime\prime}(x_0)$存在，那么 <br/><br>（1）当$f^{\prime\prime} &lt; 0$时，$f(x_0)$是$f$的一个严格极大值； <br/><br>（2）当$f^{\prime\prime} &gt; 0$时，$f(x_0)$是$f$的一个严格极小值。</p>
@@ -304,6 +305,55 @@
     f^{\prime\prime}(x_0) = \lim \limits_{x \to x_0} \frac{f^\prime(x) - f^\prime(x_0)}{x - x_0} = \lim\limits_{x \to x_0} \frac{f^\prime(x)}{x-x_0} < 0</script><p>从而存在一个$\delta &gt; 0$，使得当$0 &lt; |x - x_0| &lt; \delta$时，有</p>
 <script type="math/tex; mode=display">
     \frac{f^\prime(x)}{x - x_0} < 0</script><p>所以，当$x \in (x_0, x_0 + \delta)$时，$f^\prime(x) &lt; 0$；而当$x \in (x_0 - \delta, x_0)$时，$f^\prime(x) &gt; 0$，即$f(x_0)$是$f$的一个严格极大值。</p>
+<p>Q.E.D.</p>
+<h4 id="定义1：凸函数"><a href="#定义1：凸函数" class="headerlink" title="定义1：凸函数"></a>定义1：凸函数</h4><blockquote>
+<p>设函数$f$在区间$I$上有定义，如果对任何$x_1,x_2 \in I$，$x_1\ne x_2$，以及任意的$\lambda_1,\lambda_2 &gt; 0$，且$\lambda_1 + \lambda_2 = 1$，都有</p>
+<script type="math/tex; mode=display">
+    f(\lambda_1 x_1 + \lambda_2 x_2) \le \lambda_1 f(x_1) + \lambda_2 f(x_2)</script><p>则称$f$为$I$上的凸函数，如果上述不等式的不等号总成立，则称$f$为$I$上的严格凸函数。</p>
+</blockquote>
+<h4 id="定理7"><a href="#定理7" class="headerlink" title="定理7"></a>定理7</h4><blockquote>
+<p>设$f$在区间$I$上是凸函数，则对任何的$x_1,x_2,\cdots,x_n \in I$，以及$\lambda_1,\lambda_2,\cdots,\lambda_n &gt; 0$，且$\lambda _1+\lambda _2+\cdots+\lambda_n = 1$，都有</p>
+<script type="math/tex; mode=display">
+    f(\sum_{i=1}^n \lambda_i x_i) \le \sum_{i=1}^n \lambda_i f(x_i)</script><p>如果$f$是$I$上的严格凸函数，则当$x_1,x_2,\cdots,x_n$不全相等时，有</p>
+<script type="math/tex; mode=display">
+    f(\sum_{i=1}^n \lambda_i x_i) < \sum_{i=1}^n \lambda_i f(x_i)</script></blockquote>
+<p>证：使用数学归纳法。当$n=2$时，由凸函数定义知显然成立；设$n = k$时命题成立，现在证$n = k+1$时命题也成立。设$x_1,x_2,\cdots,x_{k+1} \in I$，$\lambda_1,\lambda_2,\cdots,\lambda_{k+1} &gt; 0$，并且$\lambda_1 + \lambda_2 + \cdots + \lambda_{k+1} = 1$，知</p>
+<script type="math/tex; mode=display">
+    \lambda_1 + \lambda_2 + \cdots + \lambda_k = 1 - \lambda_{k+1} \Rightarrow \frac{\lambda_1}{1-\lambda_{k+1}} + \frac{\lambda_2}{1-\lambda_{k+1}} + \cdots + \frac{\lambda_k}{1-\lambda_{k+1}} = 1</script><p>令$u_i = \frac{\lambda_i}{1-\lambda_{k+1}} (i=1,2\cdots,k)$，从而有</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        f(\sum_{i=1}^{k+1} \lambda_i x_i) & = f\left((1-\lambda_{k+1})\sum_{i=1}^k u_i x_i + \lambda_{k+1}x_{k+1}\right) \\
+        & \le (1-\lambda_{k+1}) f(\sum_{i=1}^k u_ix_i) + \lambda_{k+1} f(x_{k+1}) \\
+        & \le (1-\lambda_{k+1}) \sum_{i=1}^k u_i f(x_i) + \lambda_{k+1} f(x_{k+1}) \\
+        & = \sum_{i=1}^{k+1} \lambda_i f(x_i)
+    \end{aligned}</script><p>从而当$f$为$I$上的凸函数时，对任何$n \in \mathbb{N^{*}}$，不等式都成立。</p>
+<p>再设$f$是$I$上的严格凸函数，同样当$n=2$时，自然严格不等号成立。假设当$n=k$时，严格不等号成立。现设$x_1,x_2,\cdots,x_{k+1}$不全相等，有两种情况：<br/><br>（1）$x_1,x_2,\cdots,x_k$不全相等，则此时上述归纳法的最后一个不等号是严格的，<br>（2）$x_1=x_2=\cdots=x_k \ne x_{k+1}$，则</p>
+<script type="math/tex; mode=display">
+    \sum_{i=1}^k u_ix_i = x_1 \ne x_{k+1}</script><p>此时上述归纳法的第一个不等号是严格的。从而对任何$n \in \mathbb{N^*}$，最终不等式都是严格的。</p>
+<p>Q.E.D.</p>
+<h4 id="定理8：Jensen不等式"><a href="#定理8：Jensen不等式" class="headerlink" title="定理8：Jensen不等式"></a>定理8：Jensen不等式</h4><blockquote>
+<p>设$f$在区间$I$上是凸函数，则对任何$x_1,x_2,\cdots,x_n \in I$，以及对任何的正数$\beta_1,\beta_2,\cdots,\beta_n$，有不等式</p>
+<script type="math/tex; mode=display">
+    f(\sum_{i=1}^n \beta_i x_i / \sum_{i=1}^n \beta_n) \le \frac{\sum\limits_{i=1}^n \beta_i f(x_i)}{\sum\limits_{i=1}^n \beta_i}</script></blockquote>
+<p>证：令</p>
+<script type="math/tex; mode=display">
+    \lambda_i = \frac{\beta_i}{\sum\limits_{i=1}^n \beta_i} \quad (i=1,2,\cdots,n)</script><p>再由<a href="todo">定理7</a>可证。</p>
+<p>Q.E.D.</p>
+<h4 id="定理9"><a href="#定理9" class="headerlink" title="定理9"></a>定理9</h4><blockquote>
+<p>函数$f$在区间$I$是凸函数，当且仅当对任何$(x_1,x_2) \in I$及任何$x \in (x_1,x_2)$，有</p>
+<script type="math/tex; mode=display">
+    \frac{f(x) - f(x_1)}{x - x_1} \le \frac{f(x_2) - f(x_1)}{x_2 - x_1} \le \frac{f(x_2) - f(x)}{x_2 - x}</script><p>若$f$是严格凸函数，当且仅当上述不等式是严格的。</p>
+</blockquote>
+<p>证：必要性。记</p>
+<script type="math/tex; mode=display">
+    \lambda_1 = \frac{x_2 - x}{x_2 - x_1} \qquad \lambda_2 = \frac{x - x_1}{x_2 - x_1}</script><p>则有$\lambda_1 &gt; 0, \lambda_2 &gt; 0, \lambda_1 + \lambda_2 = 1$，且$x = \lambda_1 x_1 + \lambda_2 x_2$，<br>由凸函数的定义可知</p>
+<script type="math/tex; mode=display">
+    \lambda_1 f(x) + \lambda_2 f(x) = f(x) = f(\lambda_1 x_1 + \lambda_2 x_2) \le \lambda_1 f(x_1) + \lambda_2 f(x_2)</script><p>可得</p>
+<script type="math/tex; mode=display">
+    \lambda_1 (f(x) - f(x_1)) \le \lambda_2 (f(x_2) - f(x)) \Rightarrow \frac{f(x) - f(x_1)}{x - x_1} \le \frac{f(x_2) - f(x)}{x_2 - x}</script><p>又易证得：若$b&gt;0,d&gt;0,a/b \le c/d$，则有</p>
+<script type="math/tex; mode=display">
+\frac{a}{b} \le \frac{a+c}{b+d} \le \frac{c}{d}</script><p>由以上性质，易得要证不等式成立，若$f$是严格凸函数，那么上述证明中得不等号都是严格的。</p>
+<p>充分性。必要性的证明倒推回去即可证。</p>
 <p>Q.E.D.</p>
 
     </div>
@@ -391,7 +441,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5"><span class="nav-text">定理5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理6"><span class="nav-text">定理6</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5"><span class="nav-text">定理5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理6"><span class="nav-text">定理6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1：凸函数"><span class="nav-text">定义1：凸函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理7"><span class="nav-text">定理7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理8：Jensen不等式"><span class="nav-text">定理8：Jensen不等式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理9"><span class="nav-text">定理9</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -462,13 +512,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">117k</span>
+    <span title="站点总字数">120k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:47</span>
+    <span title="站点阅读时长">1:49</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
@@ -508,6 +558,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
