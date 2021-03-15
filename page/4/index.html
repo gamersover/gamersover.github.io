@@ -24,26 +24,26 @@
   <meta name="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
 <meta property="og:type" content="website">
 <meta property="og:title" content="尘雨尘风">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2020&#x2F;09&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;page&#x2F;4&#x2F;index.html">
 <meta property="og:site_name" content="尘雨尘风">
 <meta property="og:description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/archives/2020/09/">
+<link rel="canonical" href="http://yoursite.com/page/4/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
+    isHome : true,
     isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 尘雨尘风</title>
+  <title>尘雨尘风</title>
   
 
 
@@ -182,92 +182,110 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/23/WSL%E5%92%8Cwindows%E7%9A%84zsh%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/">
 
-  
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">还行! 目前共计 31 篇日志。 继续努力。</span>
-      </div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/23/WSL%E5%92%8Cwindows%E7%9A%84zsh%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">WSL和windows的zsh终端配置教程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-23 20:50:16" itemprop="dateCreated datePublished" datetime="2019-12-23T20:50:16+08:00">2019-12-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-16 20:32:24" itemprop="dateModified" datetime="2020-12-16T20:32:24+08:00">2020-12-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+          <h2 id="1-WSL终端配置"><a href="#1-WSL终端配置" class="headerlink" title="1 WSL终端配置"></a>1 WSL终端配置</h2><hr>
+<h3 id="1-1-更换配色"><a href="#1-1-更换配色" class="headerlink" title="1.1 更换配色"></a>1.1 更换配色</h3><p>背景rgb（0，43，53），文字rgb(147,161,161)</p>
+<h3 id="1-2-下载并安装字体FiraCode，右键属性选择字体为FiraCode"><a href="#1-2-下载并安装字体FiraCode，右键属性选择字体为FiraCode" class="headerlink" title="1.2 下载并安装字体FiraCode，右键属性选择字体为FiraCode"></a>1.2 下载并安装字体FiraCode，右键属性选择字体为FiraCode</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/23/WSL%E5%92%8Cwindows%E7%9A%84zsh%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-09-28T20:35:28+08:00"
-              content="2020-09-28">
-          09-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/09/28/%E7%82%B9%E5%88%97%E6%9E%81%E9%99%903/" itemprop="url">
-            <span itemprop="name">点列极限三：数列极限的上极限与下极限，Stolz定理</span>
-          </a>
-      </div>
-
-    </header>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-09-24T21:06:48+08:00"
-              content="2020-09-24">
-          09-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/09/24/%E7%82%B9%E5%88%97%E6%9E%81%E9%99%902/" itemprop="url">
-            <span itemprop="name">点列极限二：实数连续性</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-09-20T10:16:27+08:00"
-              content="2020-09-20">
-          09-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/09/20/%E7%82%B9%E5%88%97%E6%9E%81%E9%99%901/" itemprop="url">
-            <span itemprop="name">点列极限一：数列极限定义与基本性质</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-
-    </div>
-  </div>
   
   
   
 
+
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
 
 
 
