@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="该题来自于力扣第16题给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。">
+  <meta name="description" content="该题来自于力扣第16题给定一个包括n个整数的数组nums和一个目标值target。找出nums中的三个整数，使得它们的和与target最接近。返回这三个数的和。假定每组输入只存在唯一答案。">
 <meta name="keywords" content="leetcode,数组,双指针">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode题解16：最接近的三数之和">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;03&#x2F;13&#x2F;leetcode%E9%A2%98%E8%A7%A316&#x2F;index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="该题来自于力扣第16题给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。">
+<meta property="og:description" content="该题来自于力扣第16题给定一个包括n个整数的数组nums和一个目标值target。找出nums中的三个整数，使得它们的和与target最接近。返回这三个数的和。假定每组输入只存在唯一答案。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-03-13T05:03:17.201Z">
+<meta property="og:updated_time" content="2021-03-16T12:35:00.566Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/03/13/leetcode%E9%A2%98%E8%A7%A316/">
@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">32</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -213,10 +213,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-03-13 10:42:01 / 修改时间：13:03:17" itemprop="dateCreated datePublished" datetime="2021-03-13T10:42:01+08:00">2021-03-13</time>
+              <time title="创建时间：2021-03-13 10:42:01" itemprop="dateCreated datePublished" datetime="2021-03-13T10:42:01+08:00">2021-03-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-16 20:35:00" itemprop="dateModified" datetime="2021-03-16T20:35:00+08:00">2021-03-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -240,14 +246,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>3.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -259,7 +265,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>该题来自于<a href="https://leetcode-cn.com/problems/3sum-closest/" target="_blank" rel="noopener">力扣第16题</a><br>给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。</p>
+        <p>该题来自于<a href="https://leetcode-cn.com/problems/3sum-closest/" target="_blank" rel="noopener">力扣第16题</a><br>给定一个包括<code>n</code>个整数的数组<code>nums</code>和一个目标值<code>target</code>。找出<code>nums</code>中的三个整数，使得它们的和与<code>target</code>最接近。返回这三个数的和。假定每组输入只存在唯一答案。</p>
 <a id="more"></a>
 <p>示例：</p>
 <blockquote>
@@ -271,7 +277,28 @@
 <li><code>-10^3 &lt;= nums[i] &lt;= 10^3</code></li>
 <li><code>-10^4 &lt;= target &lt;= 10^4</code></li>
 </ul>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><h2 id="具体算法"><a href="#具体算法" class="headerlink" title="具体算法"></a>具体算法</h2><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><details open>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>首先想到三数之和的解法，将数组排序，然后先固定第一个数，接下来就是如何找到另外两个数，使得三个数的和最接近target。还是用双指针法，假设第一个数下标为<code>first</code>，第二个数下标为<code>second=first+1</code>，第三个数下标为<code>third=n-1</code>，记<code>s=nums[first]+nums[second]+nums[third]</code>，由于数组是排过序的，所以分三种情况</p>
+<ol>
+<li>如果<code>s=target</code>，直接返回这<code>target</code>就可以了；</li>
+<li>如果<code>s&gt;target</code>，那么移动指针<code>second</code>，只会让<code>s</code>更大，从而与<code>target</code>相差更大，所以让<code>third--</code>；</li>
+<li>如果<code>s&lt;target</code>，那么移动指针<code>third</code>，只会让<code>s</code>更小，从而与<code>target</code>相差更大，所以让<code>second--</code></li>
+</ol>
+<p>经过上述步骤，如果没有返回，记录<code>s-target</code>的绝对值是否是最小的，并更新s，然后遍历<code>first</code>就可以找到最终结果了。</p>
+<h2 id="具体算法"><a href="#具体算法" class="headerlink" title="具体算法"></a>具体算法</h2><p>具体算法如下：</p>
+<ol>
+<li>排序数组</li>
+<li>将最接近<code>target</code>的值<code>closest</code>初始化为<code>nums[0]+nums[1]+nums[2]</code></li>
+<li>第一个数下标<code>first</code>从<code>0</code>到<code>n-3</code>遍历数组</li>
+<li>进入循环体，设<code>second=first + 1</code>，<code>third=n-1</code>，计算<code>s=nums[first] + nums[second] + nums[third]</code></li>
+<li>判断<code>s</code>与<code>target</code>的关系，如果<code>s==target</code>，直接返回target，退出程序；否则按照上面的分析更新<code>second</code>，<code>third</code></li>
+<li>如果<code>|s-target|&lt;|closest-target|</code>，那么更新<code>closest=s</code></li>
+<li>判断<code>second</code>是否大于等于<code>third</code>，如果是，退出循环；否则<code>first++</code>，并进入循环体（第4步）</li>
+</ol>
+<p>小优化：</p>
+<blockquote>
+<p>在三数之和中，为了避免找到重复解，每到一个新数时可以和前面数比较，如果一样直接跳过。这里在遍历<code>first,second,third</code>三个数时都可以跳过重复值，避免重复计算。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2></blockquote>
+<details open>
 <summary>python3</summary>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">threeSumClosest</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        nums.sort()</span><br><span class="line">        closest = sum(nums[:<span class="number">3</span>])</span><br><span class="line">        first = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> first &lt; len(nums) - <span class="number">2</span>:</span><br><span class="line">            second, third = first + <span class="number">1</span>, len(nums) - <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> second &lt; third:</span><br><span class="line">                s = nums[first] + nums[second] + nums[third]</span><br><span class="line">                <span class="keyword">if</span> abs(s - target) &lt;= abs(closest - target):</span><br><span class="line">                    closest = s</span><br><span class="line">                    <span class="keyword">if</span> closest == target:</span><br><span class="line">                        <span class="keyword">return</span> target</span><br><span class="line">                <span class="keyword">if</span> s &gt; target:</span><br><span class="line">                    <span class="keyword">while</span> third &gt; second <span class="keyword">and</span> nums[third] == nums[third<span class="number">-1</span>]:</span><br><span class="line">                        third -= <span class="number">1</span></span><br><span class="line">                    third -= <span class="number">1</span></span><br><span class="line">                <span class="keyword">elif</span> s &lt; target:</span><br><span class="line">                    <span class="keyword">while</span> second &lt; third <span class="keyword">and</span> nums[second] == nums[second+<span class="number">1</span>]:</span><br><span class="line">                        second += <span class="number">1</span></span><br><span class="line">                    second += <span class="number">1</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span> first &lt; len(nums) - <span class="number">2</span> <span class="keyword">and</span> nums[first] == nums[first+<span class="number">1</span>]:</span><br><span class="line">                first += <span class="number">1</span></span><br><span class="line">            first += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> closest</span><br></pre></td></tr></table></figure>
@@ -313,7 +340,10 @@
     <a href="/2021/03/12/%E6%95%B0%E5%AD%A6%E7%A7%91%E6%99%AE1/" rel="prev" title="数学科普一：平均数">
       <i class="fa fa-chevron-left"></i> 数学科普一：平均数
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/16/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B06/" rel="next" title="函数导数六：函数的微分">
+      函数导数六：函数的微分 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -389,7 +419,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -444,13 +474,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">128k</span>
+    <span title="站点总字数">130k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:57</span>
+    <span title="站点阅读时长">1:58</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
