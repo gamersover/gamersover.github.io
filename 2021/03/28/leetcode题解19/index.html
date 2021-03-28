@@ -21,18 +21,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="本章介绍常见初等函数的导函数及其求法。">
-<meta name="keywords" content="函数导数,数学分析">
+  <meta name="description" content="该题来自于力扣第19题 给你一个链表，删除链表的倒数第n个结点，并且返回链表的头结点。进阶：你能尝试使用一趟扫描实现吗？">
+<meta name="keywords" content="leetcode,双指针,链表">
 <meta property="og:type" content="article">
-<meta property="og:title" content="函数导数二：初等函数的导数">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;01&#x2F;27&#x2F;%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B02&#x2F;index.html">
+<meta property="og:title" content="leetcode题解19：删除链表的倒数第N个结点">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;03&#x2F;28&#x2F;leetcode%E9%A2%98%E8%A7%A319&#x2F;index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="本章介绍常见初等函数的导函数及其求法。">
+<meta property="og:description" content="该题来自于力扣第19题 给你一个链表，删除链表的倒数第n个结点，并且返回链表的头结点。进阶：你能尝试使用一趟扫描实现吗？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-02-20T12:22:34.093Z">
+<meta property="og:updated_time" content="2021-03-28T04:59:33.049Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2021/01/27/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B02/">
+<link rel="canonical" href="http://yoursite.com/2021/03/28/leetcode%E9%A2%98%E8%A7%A319/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>函数导数二：初等函数的导数 | 尘雨尘风</title>
+  <title>leetcode题解19：删除链表的倒数第N个结点 | 尘雨尘风</title>
   
 
 
@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/27/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B02/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/28/leetcode%E9%A2%98%E8%A7%A319/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
@@ -204,7 +204,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          函数导数二：初等函数的导数
+          leetcode题解19：删除链表的倒数第N个结点
         </h1>
 
         <div class="post-meta">
@@ -213,23 +213,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-01-27 20:23:04" itemprop="dateCreated datePublished" datetime="2021-01-27T20:23:04+08:00">2021-01-27</time>
+              <time title="创建时间：2021-03-28 11:45:23 / 修改时间：12:59:33" itemprop="dateCreated datePublished" datetime="2021-03-28T11:45:23+08:00">2021-03-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-20 20:22:34" itemprop="dateModified" datetime="2021-02-20T20:22:34+08:00">2021-02-20</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
                 </span>
             </span>
 
@@ -246,7 +240,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -265,89 +259,59 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>本章介绍常见初等函数的导函数及其求法。<br><a id="more"></a></p>
-<h4 id="常值函数"><a href="#常值函数" class="headerlink" title="常值函数"></a>常值函数</h4><blockquote>
-<p>函数$f = c$为常值函数，证：$f^\prime = 0$。</p>
-</blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \frac{f(x+h) - f(x)}{h} = \frac{c-c}{h} = 0</script><p>Q.E.D.</p>
-<h4 id="指数函数"><a href="#指数函数" class="headerlink" title="指数函数"></a>指数函数</h4><blockquote>
-<p>函数$f(x) = x^\alpha (x &gt; 0, \alpha \in \mathbb{R})$，证：$f^\prime(x) = \alpha x^{\alpha - 1}$。</p>
-</blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \lim\limits_{h \to 0} \frac{(x+h)^\alpha - x^\alpha}{h} = x^{\alpha-1}\lim\limits_{h \to 0} \frac{(1 + h/x)^{\alpha} - 1}{h/x}</script><p>而</p>
-<script type="math/tex; mode=display">
-    \lim\limits_{t \to 0} \frac{(1+t)^\alpha - 1}{t} = \lim\limits_{t \to 0} \frac{e^{\alpha \ln(1+t)} - 1}{\alpha \ln (1+t)} \frac{\alpha \ln (1+t)}{t}</script><p>由于$\ln(1+x) \sim x, e^x-1 \sim x \quad (x \to 0)$，从而</p>
-<script type="math/tex; mode=display">
-    \lim\limits_{t \to 0} \frac{(1+t)^\alpha - 1}{t} = \alpha</script><p>所以</p>
-<script type="math/tex; mode=display">
-     f^\prime(x) = \alpha x^{\alpha - 1}</script><p>Q.E.D.</p>
-<h4 id="正弦函数"><a href="#正弦函数" class="headerlink" title="正弦函数"></a>正弦函数</h4><blockquote>
-<p>函数$f(x) = \sin x$，证$f^\prime(x) = \cos x$。</p>
-</blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \lim\limits_{h \to 0} \frac{\sin(x+h) - \sin x}{h} = \lim\limits_{h \to 0} \frac{\cos (x+h/2) \sin (h/2)}{h/2} = \cos x</script><p>Q.E.D.</p>
-<h4 id="余弦函数"><a href="#余弦函数" class="headerlink" title="余弦函数"></a>余弦函数</h4><blockquote>
-<p>函数$f(x) = \cos x$，证$f^\prime(x) = -\sin x$。</p>
-</blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \lim \limits_{h \to 0} \frac{\cos (x+h) - \cos x}{h} = \lim\limits_{h \to 0} \frac{-\sin(x+h)\sin (h/2)}{h/2} = -\sin x</script><p>Q.E.D.</p>
-<h4 id="正切函数"><a href="#正切函数" class="headerlink" title="正切函数"></a>正切函数</h4><blockquote>
-<p>函数$f(x) = \tan x$，证$f^\prime(x) = \sec^2x$。</p>
-</blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    (\tan x)^\prime = \begin{aligned} \left( \frac{\sin x}{\cos x} \right)\end{aligned} ^\prime = \frac{(\sin x)^\prime \cos x - \sin x (\cos x)^\prime}{\cos^2x} = \frac{1}{\cos^2 x} = \sec^2x</script><p>Q.E.D.</p>
-<h4 id="余切函数"><a href="#余切函数" class="headerlink" title="余切函数"></a>余切函数</h4><blockquote>
-<p>函数$f(x) = \cot x$，证$f^\prime(x) = -\csc^2x$。</p>
-</blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    (\tan x)^\prime = \begin{aligned} \left( \frac{\cos x}{\sin x} \right)\end{aligned} ^\prime = \frac{(\cos x)^\prime \sin x - \cos x (\sin x)^\prime}{\sin^2x} = - \frac{1}{\cos^2 x} = -\csc^2x</script><p>Q.E.D.</p>
-<h4 id="反正弦函数"><a href="#反正弦函数" class="headerlink" title="反正弦函数"></a>反正弦函数</h4><blockquote>
-<p>函数$f(x) = \arcsin x$，证$f^\prime(x) = \frac{1}{\sqrt{1-x^2}}$。</p>
-</blockquote>
-<p>证：函数$f(x)$的反函数为$x = \sin y$，从而</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \frac{1}{(\sin y)^\prime} = \frac{1}{\cos y} = \frac{1}{\sqrt{1-x^2}}</script><p>Q.E.D.</p>
-<h4 id="反余弦函数"><a href="#反余弦函数" class="headerlink" title="反余弦函数"></a>反余弦函数</h4><blockquote>
-<p>函数$f(x) = \arccos x$，证$f^\prime(x) = -\frac{1}{\sqrt{1-x^2}}$。</p>
-</blockquote>
-<p>证：函数$f(x)$的反函数为$x = \cos y$，从而</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \frac{1}{(\cos y)^\prime} = \frac{1}{-\sin y} = -\frac{1}{\sqrt{1-x^2}}</script><p>Q.E.D.</p>
-<h4 id="反正切函数"><a href="#反正切函数" class="headerlink" title="反正切函数"></a>反正切函数</h4><blockquote>
-<p>函数$f(x) = \arctan x$，证$f^\prime(x) = \frac{1}{1+x^2}$。</p>
-</blockquote>
-<p>证：函数$f(x)$的反函数为$x = \tan y$，从而</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \frac{1}{(\tan y)^\prime} = {\cos^2 y} = \frac{1}{1+\tan^2y} = \frac{1}{1+x^2}</script><p>Q.E.D.</p>
-<h4 id="反余切函数"><a href="#反余切函数" class="headerlink" title="反余切函数"></a>反余切函数</h4><!--todo：markdown 不支持\arccot-->
+        <p>该题来自于<a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener">力扣第19题</a></p>
+<p>给你一个链表，删除链表的倒数第<code>n</code>个结点，并且返回链表的头结点。<br>进阶：你能尝试使用一趟扫描实现吗？</p>
+<a id="more"></a>
+<p>示例 1：</p>
 <blockquote>
-<p>函数$f(x) = \arccot x$，证$f^\prime(x) = -\frac{1}{1+x^2}$。</p>
+<p>输入：head = [1,2,3,4,5], n = 2<br>输出：[1,2,3,5]</p>
 </blockquote>
-<p>证：函数$f(x)$的反函数为$x = \cot y$，从而</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \frac{1}{(\cot y)^\prime} = -{\sin^2 y} = -\frac{1}{1+\cot^2y} = -\frac{1}{1+x^2}</script><p>Q.E.D.</p>
-<h4 id="幂函数"><a href="#幂函数" class="headerlink" title="幂函数"></a>幂函数</h4><blockquote>
-<p>函数$f(x) = a^x (a&gt;0)$，证$f^\prime(x) = a^x \ln a$。</p>
+<p>示例 2：</p>
+<blockquote>
+<p>输入：head = [1], n = 1<br>输出：[]</p>
 </blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \lim\limits_{h \to 0} \frac{a^{x+h} - a^x}{h} = a^x \lim\limits_{h \to 0} \frac{a^{h} - 1}{h} = a^x \ln a</script><p>特别地，当$a= e$时，有$(e^x)^\prime = e^x$。</p>
-<p>Q.E.D.</p>
-<h4 id="对数函数"><a href="#对数函数" class="headerlink" title="对数函数"></a>对数函数</h4><blockquote>
-<p>函数$f(x) = \log_a x \quad (a &gt; 0)$，证$f^\prime(x) = \frac{1}{x \ln a}$。</p>
+<p>示例 3：</p>
+<blockquote>
+<p>输入：head = [1,2], n = 1<br>输出：[1]</p>
 </blockquote>
-<p>证：由于$f(x)$的反函数为$x = a^y$，所以</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \frac{1}{(a^y)^\prime} = \frac{1}{a^y \ln a} = \frac{1}{x \ln a}</script><p>特别地，当$a=e$时，有$(\ln x)^\prime = \frac{1}{x}$。</p>
-<p>Q.E.D.</p>
+<p>提示：</p>
+<ul>
+<li>链表中结点的数目为<code>sz</code></li>
+<li>1 &lt;= <code>sz</code> &lt;= 30</li>
+<li>0 &lt;= <code>Node.val</code> &lt;= 100</li>
+<li>1 &lt;= <code>n</code> &lt;= sz</li>
+</ul>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>想找到倒数第<code>n</code>个结点，就相当于找到第<code>sz - n + 1</code>个结点，但是<code>sz</code>不知道，需要一趟遍历整个链表才能获得，这样看来无论如何都需要两遍扫描；还记得找到中点结点的方法吗？快慢指针，一遍扫描即可；这里也可以用类似的想法；比如，现有一链表如下，要删除倒数第2个结点：</p>
+<blockquote>
+<p>1 -&gt; 2 -&gt; 3 -&gt; <font color='blue'>4</font> -&gt; 5 -&gt; <font color='red'>6</font></p>
+</blockquote>
+<p>如果我们能够让第一个指针<code>p1</code>指向4，那么就可以进行删除操作了；利用快慢指针的想法，第二个指针<code>p2</code>需要指向最后一个结点即6，所以两个指针相差2个结点，如果最开始让<code>p1</code>指向1，<code>p2</code>指向3，然后只需让<code>p1++,p2++</code>直到<code>p2</code>到达最后一个结点，这时<code>p1</code>自然达到了倒数第<code>n</code>个结点了。</p>
+<p>所以先让<code>p2</code>指针往右走<code>n</code>步，达到第<code>n+1</code>个结点，然后<code>p1,p2</code>指针同时走动1步，直到<code>p2</code>指针指向<code>sz</code>，这时<code>p1</code>自然会指向<code>sz -n</code>，即要删除结点的父结点位置，然后就可以删除了。当然，还要考虑特殊情况：删除一个结点的时候的特殊处理。或者用一个虚假的头指向链表原有head，这样就不用考虑特殊情况了。</p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>采用双指针法，</p>
+<ol>
+<li>初始化<code>p1=head,p2=head</code></li>
+<li>进入循环<code>p2 = p2-&gt;next</code>，直到<code>i==n</code>，如果<code>p2==null</code>，表明删除的是头结点，则让<code>head = p1-&gt;next</code>退出程序，或则进入3</li>
+<li>进入循环<code>p1 = p1-&gt;next, p2=p2-&gt;next</code>，直到<code>p2-&gt;next == null</code>，表明<code>p2</code>已到达最后一个结点，此时让<code>p1-&gt;next = p1-&gt;next-&gt;next</code></li>
+</ol>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><details open>
+<summary>python3</summary>
 
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeNthFromEnd</span><span class="params">(self, head, n)</span>:</span></span><br><span class="line">        p1, p2 = head, head</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; n <span class="keyword">and</span> p2 <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            p2 = p2.next</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> p2 <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            head = p1.next</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> p2.next <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            p1 = p1.next</span><br><span class="line">            p2 = p2.next        </span><br><span class="line">        p1.next = p1.next.next</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> head</span><br></pre></td></tr></table></figure>
+</details>
+
+
+<details>
+<summary>c++</summary>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode* p1 = head;</span><br><span class="line">        ListNode* p2 = head;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; n &amp;&amp; p2 != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            p2 = p2-&gt;next;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p2 == <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(p2-&gt;next != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            p1 = p1-&gt;next;</span><br><span class="line">            p2 = p2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        p1-&gt;next = p1-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</details>
+
+
+<details>
+<summary>java</summary>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">removeNthFromEnd</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode p1 = head;</span><br><span class="line">        ListNode p2 = head;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; n &amp;&amp; p2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">            p2 = p2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p2 == <span class="keyword">null</span>)&#123;</span><br><span class="line">            head = head.next;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(p2.next != <span class="keyword">null</span>)&#123;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">            p2 = p2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        p1.next = p1.next.next;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
     </div>
 
     
@@ -357,8 +321,9 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B0/" rel="tag"><i class="fa fa-tag"></i> 函数导数</a>
-              <a href="/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 数学分析</a>
+              <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+              <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag"><i class="fa fa-tag"></i> 双指针</a>
+              <a href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag"><i class="fa fa-tag"></i> 链表</a>
           </div>
 
         
@@ -367,13 +332,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/25/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B01/" rel="prev" title="函数导数一：导数的定义与基本性质">
-      <i class="fa fa-chevron-left"></i> 函数导数一：导数的定义与基本性质
+    <a href="/2021/03/16/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B06/" rel="prev" title="函数导数六：函数的微分">
+      <i class="fa fa-chevron-left"></i> 函数导数六：函数的微分
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/02/01/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B03/" rel="next" title="函数导数三：极值定义与微分中值定理">
-      函数导数三：极值定义与微分中值定理 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -433,7 +395,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#常值函数"><span class="nav-text">常值函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指数函数"><span class="nav-text">指数函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正弦函数"><span class="nav-text">正弦函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#余弦函数"><span class="nav-text">余弦函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正切函数"><span class="nav-text">正切函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#余切函数"><span class="nav-text">余切函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反正弦函数"><span class="nav-text">反正弦函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反余弦函数"><span class="nav-text">反余弦函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反正切函数"><span class="nav-text">反正切函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反余切函数"><span class="nav-text">反余切函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#幂函数"><span class="nav-text">幂函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对数函数"><span class="nav-text">对数函数</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -686,7 +648,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'gamersover.github.io',
       owner       : 'gamersover',
       admin       : ['gamersover'],
-      id          : 'bc7b6f5d2f3510e26bff9cb326d99185',
+      id          : '29b7bd4319ce4923cba83445b8d4231c',
         language: 'zh-CN',
       distractionFreeMode: true
     });
