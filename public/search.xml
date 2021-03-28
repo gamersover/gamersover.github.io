@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>函数导数七：Taylor定理</title>
+      <link href="/2021/03/28/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B07/"/>
+      <url>/2021/03/28/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B07/</url>
+      
+        <content type="html"><![CDATA[<h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote><p>设函数$f$在$x_0$处有直到$n$阶的导数，这里$n$是任意给定的正整数，令</p><script type="math/tex; mode=display">    T_n(f,x_0;x) = f(x_0) + \frac{1}{1!}f^\prime(x_0)(x - x_0) + \frac{1}{2!}f^{\prime\prime}(x_0)(x-x_0)^2 + \cdots + \frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n</script><p>称它为$f$在$x_0$处的$n$次Taylor多项式。</p></blockquote><a id="more"></a><h4 id="定理1：带Peano余项的Taylor定理"><a href="#定理1：带Peano余项的Taylor定理" class="headerlink" title="定理1：带Peano余项的Taylor定理"></a>定理1：带Peano余项的Taylor定理</h4><blockquote><p>设函数$f$在$x_0$处有直到$n$阶的导数，则有</p><script type="math/tex; mode=display">    f(x) = T_n(f,x_0;x) + o((x-x_0)^n)  \quad (x \to x_0)</script></blockquote><p>证：用数学归纳法。当$n=1$时，由微分性质可知成立。现设$n=k$时，上式成立。由于</p><script type="math/tex; mode=display">    T_{k+1}^{\prime}(f,x_0;x) = T_k(f^\prime, x_0; x)</script><p>由L’Hospital法则可知</p><script type="math/tex; mode=display">    \lim \limits_{x \to x_0} \frac{f(x) - T_{k+1}(f,x_0,x)}{(x-x_0)^{k+1}} = \frac{1}{k+1}\lim \limits_{x \to x_0} \frac{f^\prime(x) - T_k(f^\prime, x_0;x)}{(x-x_0)^k}</script><p>而$f^\prime$在$n = k$时定理成立，从而</p><script type="math/tex; mode=display">    \lim \limits_{x \to x_0} \frac{f^\prime(x) - T_k(f^\prime, x_0;x)}{(x-x_0)^k} = 0</script><p>所以</p><script type="math/tex; mode=display">    \lim \limits_{x \to x_0} \frac{f(x) - T_{k+1}(f,x_0,x)}{(x-x_0)^{k+1}} = 0</script><p>令</p><script type="math/tex; mode=display">    R_n(x) = f(x) - T_n(f,x_0;x) \quad (n=1,2,\cdots)</script><p>称它为余项，满足</p><script type="math/tex; mode=display">    \lim \limits_{x \to x_0} \frac{R_n(x)}{(x-x_0)^n} = 0</script><p>这种余项称为Peano余项，该定理也称为带有Peano余项的Tyalor定理，也叫做函数$f$的Taylor展开式。</p><p>Q.E.D.</p><h4 id="定理2：带Peano余项的Maclaurin定理"><a href="#定理2：带Peano余项的Maclaurin定理" class="headerlink" title="定理2：带Peano余项的Maclaurin定理"></a>定理2：带Peano余项的Maclaurin定理</h4><blockquote><p>设函数$f$在$x=0$处有直到$n$阶的导数，则多项式</p><script type="math/tex; mode=display">    T_n(f,0;x) = f(0) + \frac{f^\prime(0)}{1!} x + \frac{f^{\prime\prime}(0)}{2!}x^2 + \cdots + \frac{f^{(n)}(0)}{n!}x^n</script><p>为$f$的$n$次Maclaurin多项式，相应地，</p><script type="math/tex; mode=display">    f(x) = T_n(f,0,x) + o(x^n) \quad (x \to x_0)</script><p>称为带Peano余项的Maclaurin定理，也叫做函数$f$的Maclaurin展开式。</p></blockquote><h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote><p>设函数$f$在$x_0$处有直到$k$阶的导数，并且</p><script type="math/tex; mode=display">    f^\prime(x_0) = f^{\prime\prime}(x_0) = \cdots = f^{(k-1)} (x_0) = 0, f^{(k)}(x_0) \ne 0</script><p>那么： <br/><br>（1）当$k$为奇数时，$x_0$不是$f$的极值点。<br/><br>（2）当$k$为偶数时，若$f^{(k)}(x_0)&gt;0$，则$x_0$是$f$的严格极小值；若$f^{(k)}(x_0)&lt;0$，则$x_0$是$f$的严格极大值。</p></blockquote><p>证：由Peano余项的Taylor定理可知：</p><script type="math/tex; mode=display">    f(x) = f(x_0) + \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k + o((x-x_0)^k) \quad (x \to x_0)</script><p>即</p><script type="math/tex; mode=display">    \frac{f(x) - f(x_0)}{(x-x_0)^k} = \frac{f^{(k)}(x_0)}{k!} + o(1)</script><p>（1）当$k$为奇数时。若$f^{(k)}(x_0) &gt; 0$，则当$x&gt;x_0$时，$f(x)&gt;f(x_0)$，$x<x_0$时，$f(x)<f(x_0)$，表明$x_0$不是极值点；对于$f^{(k)}(x_0) < 0$时，讨论是一样的；<br/><br>（2）当$k$为偶数时，由于$(x - x_0)^k$在$x\ne x_0$处总是正值，所以当$f^{(k)}(x_0)&gt;0$时，总有$f(x)&gt;f(x_0)$，可知此时$x_0$是极小值；同理当$f^{(k)}(x_0)&lt;0$时，总有$f(x)&lt;f(x_0)$，此时$x_0$是极大值点。</p><p>Q.E.D.</p><h4 id="定理4：带Lagrange余项和Cauchy余项的Taylor定理"><a href="#定理4：带Lagrange余项和Cauchy余项的Taylor定理" class="headerlink" title="定理4：带Lagrange余项和Cauchy余项的Taylor定理"></a>定理4：带Lagrange余项和Cauchy余项的Taylor定理</h4><blockquote><p>设$f$在开区间$(a,b)$上有$n+1$阶导数，$x_0,x$是$(a,b)$中任意两点，那么</p><script type="math/tex; mode=display">    f(x) = T_n(f,x_0;x) + R_n(x)</script><p>其中</p><script type="math/tex; mode=display">    R_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - x_0)^{(n+1)}</script><p>称为Lagrange余项；<br>或者</p><script type="math/tex; mode=display">    R_n(x) = \frac{f^{(n+1)}(\xi)}{n!}(x - \xi)^n(x - x_0)</script><p>称为Cauchy余项。</p></blockquote><p>证：记</p><script type="math/tex; mode=display">    F(t) = T_n(f,t;x) = f(t) + \sum_{k=1}^n \frac{f^{(k)}(t)}{k!}(x-t)^k</script><p>有</p><script type="math/tex; mode=display">\begin{aligned}    F^\prime(t) & = f^\prime(t) + \sum_{k=1}^n \left(\frac{f^{(k+1)}(t)}{k!}(x-t)^k - \frac{f^{(k)}(t)}{(k-1)!}(x-t)^{(k-1)} \right) \\    & = f^\prime(t) + \sum_{k=1}^n \frac{f^{(k+1)}(t)}{k!}(x-t)^k + \sum_{k=1}^n \frac{f^{(k)}(t)}{(k-1)!}(x-t)^{(k-1)} \\    & = f^\prime(t) + \frac{f^{(n+1)}(t)}{n!}(x-t)^{(n)} - f^\prime(t) = \frac{f^{(n+1)}(t)}{n!}(x-t)^{(n)}\end{aligned}</script><p>对函数$g(t)=F(t),\lambda(t) = \left( \frac{x-t}{x-x_0}\right)^{n+1}$，在区间$[x_0,x]$（先设$x_0&lt;x$）上使用<a href="todo">函数导数三的定理3</a>可知，必存在$\xi \in (x_0, x)$，使得</p><script type="math/tex; mode=display">    F^\prime(\xi) = \lambda^\prime(\xi)(F(x_0) - F(x))</script><p>而</p><script type="math/tex; mode=display">    \lambda^\prime(t) = -(n+1)\frac{(x-t)^n}{(x-x_0)^{n+1}}</script><p>从而</p><script type="math/tex; mode=display">    \frac{f^{(n+1)}(\xi)}{n!}(x-\xi)^{n} = -(n+1)\frac{(x-\xi)^n}{(x-x_0)^{n+1}}(T_n(f,x_0;x)-f(x))</script><p>即</p><script type="math/tex; mode=display">    f(x) = T_n(f,x_0;x) + \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}</script><p>这就是带Lagrange余项的Taylor定理；若令$\lambda(t) = \frac{x-t}{x- x_0}$，则同上可得</p><script type="math/tex; mode=display">    \frac{f^{(n+1)}(\xi)}{n!}(x-\xi)^{n} = -\frac{1}{x-x_0}(T_n(f,x_0;x)-f(x))</script><p>即</p><script type="math/tex; mode=display">    f(x) = T_n(f,x_0;x) + \frac{f^{(n+1)}(\xi)}{n!}(x-\xi)^n(x-x_0)</script><p>这就是带Cauchy余项的Taylor定理。<br/></p><p>如果$x &lt; x_0$，分别取</p><script type="math/tex; mode=display">    \lambda(t) = 1 - \left( \frac{x - t}{x-x_0} \right)^{(n+1)}, \quad \lambda(t) = 1 - \frac{x-t}{x-x_0}</script><p>即可证。</p><p>Q.E.D.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 函数微分 </tag>
+            
+            <tag> Taylor公式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode题解19：删除链表的倒数第N个结点</title>
       <link href="/2021/03/28/leetcode%E9%A2%98%E8%A7%A319/"/>
       <url>/2021/03/28/leetcode%E9%A2%98%E8%A7%A319/</url>
