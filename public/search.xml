@@ -436,9 +436,9 @@
             
             <tag> 函数极限 </tag>
             
-            <tag> 连续函数 </tag>
-            
             <tag> 多变量函数 </tag>
+            
+            <tag> 连续函数 </tag>
             
         </tags>
       
@@ -746,9 +746,9 @@
             
             <tag> 点列极限 </tag>
             
-            <tag> 欧几里得空间 </tag>
-            
             <tag> 开覆盖 </tag>
+            
+            <tag> 欧几里得空间 </tag>
             
             <tag> 拓扑 </tag>
             
@@ -787,9 +787,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -818,9 +818,9 @@
             
             <tag> 点列极限 </tag>
             
-            <tag> 欧几里得空间 </tag>
-            
             <tag> 闭区间套 </tag>
+            
+            <tag> 欧几里得空间 </tag>
             
             <tag> 拓扑 </tag>
             
@@ -991,9 +991,9 @@
             
             <tag> shell </tag>
             
-            <tag> vim </tag>
-            
             <tag> linux </tag>
+            
+            <tag> vim </tag>
             
         </tags>
       
