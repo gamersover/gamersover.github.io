@@ -9,7 +9,7 @@ categories: 算法
 mathjax: true
 ---
 
-该题来自于[力扣第19题](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
+该题来自于[力扣第22题](https://leetcode-cn.com/problems/generate-parentheses/)
 
 数字`n`代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且有效的括号组合。
 <!--more--> 
