@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>函数导数九：映射微分和复合求导</title>
+      <link href="/2021/04/11/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B09/"/>
+      <url>/2021/04/11/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B09/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数学分析 </tag>
+            
+            <tag> 函数导数 </tag>
+            
+            <tag> 微分 </tag>
+            
+            <tag> 映射 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode题解22</title>
       <link href="/2021/04/05/leetcode%E9%A2%98%E8%A7%A322/"/>
       <url>/2021/04/05/leetcode%E9%A2%98%E8%A7%A322/</url>
@@ -49,15 +80,13 @@
       
         <tags>
             
-            <tag> 函数微分 </tag>
+            <tag> 数学分析 </tag>
             
-            <tag> 方向导数 </tag>
+            <tag> 函数导数 </tag>
             
-            <tag> 偏导数 </tag>
+            <tag> 微分 </tag>
             
-            <tag> 梯度 </tag>
-            
-            <tag> Jacobi矩阵 </tag>
+            <tag> 多变量函数 </tag>
             
         </tags>
       
@@ -82,9 +111,11 @@
       
         <tags>
             
-            <tag> 函数微分 </tag>
+            <tag> 数学分析 </tag>
             
-            <tag> Taylor公式 </tag>
+            <tag> 函数导数 </tag>
+            
+            <tag> Taylor定理 </tag>
             
         </tags>
       
@@ -138,7 +169,11 @@
       
         <tags>
             
-            <tag> 函数微分 </tag>
+            <tag> 数学分析 </tag>
+            
+            <tag> 函数导数 </tag>
+            
+            <tag> 微分 </tag>
             
         </tags>
       
@@ -192,15 +227,9 @@
       
         <tags>
             
-            <tag> 函数导数 </tag>
+            <tag> 数学科普 </tag>
             
-            <tag> 数学分析 </tag>
-            
-            <tag> 算术平均数 </tag>
-            
-            <tag> 几何平均数 </tag>
-            
-            <tag> 调和平均数 </tag>
+            <tag> 平均数 </tag>
             
         </tags>
       
@@ -225,15 +254,9 @@
       
         <tags>
             
-            <tag> 函数导数 </tag>
-            
             <tag> 数学分析 </tag>
             
-            <tag> 函数单调性 </tag>
-            
-            <tag> 函数极值 </tag>
-            
-            <tag> 函数凸性 </tag>
+            <tag> 函数导数 </tag>
             
         </tags>
       
@@ -258,9 +281,9 @@
       
         <tags>
             
-            <tag> 函数导数 </tag>
-            
             <tag> 数学分析 </tag>
+            
+            <tag> 函数导数 </tag>
             
             <tag> 洛必达法则 </tag>
             
@@ -312,15 +335,11 @@
       
         <tags>
             
-            <tag> 函数导数 </tag>
-            
             <tag> 数学分析 </tag>
             
-            <tag> 极值 </tag>
+            <tag> 函数导数 </tag>
             
             <tag> 微分中值定理 </tag>
-            
-            <tag> 驻点 </tag>
             
         </tags>
       
@@ -345,9 +364,11 @@
       
         <tags>
             
+            <tag> 数学分析 </tag>
+            
             <tag> 函数导数 </tag>
             
-            <tag> 数学分析 </tag>
+            <tag> 初等函数 </tag>
             
         </tags>
       
@@ -372,11 +393,9 @@
       
         <tags>
             
-            <tag> 函数导数 </tag>
-            
             <tag> 数学分析 </tag>
             
-            <tag> 链式法则 </tag>
+            <tag> 函数导数 </tag>
             
         </tags>
       
@@ -432,13 +451,11 @@
             
             <tag> 数学分析 </tag>
             
+            <tag> 映射 </tag>
+            
             <tag> 函数极限 </tag>
             
-            <tag> 一致连续函数 </tag>
-            
             <tag> 向量值函数 </tag>
-            
-            <tag> 连续映射 </tag>
             
         </tags>
       
@@ -466,8 +483,6 @@
             <tag> 数学分析 </tag>
             
             <tag> 函数极限 </tag>
-            
-            <tag> 一致连续函数 </tag>
             
             <tag> 多变量函数 </tag>
             
@@ -497,8 +512,6 @@
             <tag> 数学分析 </tag>
             
             <tag> 函数极限 </tag>
-            
-            <tag> 连续函数 </tag>
             
             <tag> 多变量函数 </tag>
             
@@ -530,8 +543,6 @@
             <tag> 函数极限 </tag>
             
             <tag> 连续函数 </tag>
-            
-            <tag> 初等函数 </tag>
             
             <tag> 上极限与下极限 </tag>
             
@@ -592,14 +603,6 @@
             <tag> 函数极限 </tag>
             
             <tag> 连续函数 </tag>
-            
-            <tag> 一致连续 </tag>
-            
-            <tag> 间断点 </tag>
-            
-            <tag> 零值定理 </tag>
-            
-            <tag> 介值定理 </tag>
             
         </tags>
       
@@ -688,10 +691,6 @@
             
             <tag> 函数极限 </tag>
             
-            <tag> 无穷小 </tag>
-            
-            <tag> O与o表示法 </tag>
-            
         </tags>
       
     </entry>
@@ -747,10 +746,6 @@
             <tag> 数学分析 </tag>
             
             <tag> 函数极限 </tag>
-            
-            <tag> 夹逼定理 </tag>
-            
-            <tag> 单边极限 </tag>
             
         </tags>
       
@@ -808,21 +803,7 @@
             
             <tag> 点列极限 </tag>
             
-            <tag> 欧几里得空间 </tag>
-            
-            <tag> 开覆盖 </tag>
-            
             <tag> 拓扑 </tag>
-            
-            <tag> 列紧集 </tag>
-            
-            <tag> 紧致集 </tag>
-            
-            <tag> 连通集 </tag>
-            
-            <tag> 区域 </tag>
-            
-            <tag> 道路连通集 </tag>
             
         </tags>
       
@@ -880,23 +861,7 @@
             
             <tag> 点列极限 </tag>
             
-            <tag> 欧几里得空间 </tag>
-            
-            <tag> 闭区间套 </tag>
-            
             <tag> 拓扑 </tag>
-            
-            <tag> 开集 </tag>
-            
-            <tag> 闭集 </tag>
-            
-            <tag> 极限点 </tag>
-            
-            <tag> 导集 </tag>
-            
-            <tag> 闭包 </tag>
-            
-            <tag> 边界 </tag>
             
         </tags>
       
@@ -924,10 +889,6 @@
             <tag> 数学分析 </tag>
             
             <tag> 点列极限 </tag>
-            
-            <tag> 欧几里得空间 </tag>
-            
-            <tag> 基本点列 </tag>
             
         </tags>
       
@@ -987,18 +948,6 @@
             
             <tag> 实数连续性 </tag>
             
-            <tag> 闭区间套 </tag>
-            
-            <tag> 开覆盖 </tag>
-            
-            <tag> 基本列 </tag>
-            
-            <tag> 列紧性 </tag>
-            
-            <tag> 紧致性 </tag>
-            
-            <tag> 确界 </tag>
-            
         </tags>
       
     </entry>
@@ -1024,9 +973,9 @@
             
             <tag> 数学分析 </tag>
             
-            <tag> 夹逼定理 </tag>
-            
             <tag> 点列极限 </tag>
+            
+            <tag> 数列极限 </tag>
             
         </tags>
       
@@ -1053,9 +1002,9 @@
             
             <tag> shell </tag>
             
-            <tag> linux </tag>
-            
             <tag> vim </tag>
+            
+            <tag> linux </tag>
             
         </tags>
       
