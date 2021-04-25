@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="尘雨尘风">
 <meta property="og:description" content="定义1 设函数$f$在开集$D$上的每一点处存在偏导数：      D_if(\boldsymbol{x}) = \frac{\partial f}{\partial x_i}(\boldsymbol{x}) \quad (i=1,2,\cdots,n)称它们为$f$的一阶偏导函数，如果对这些偏导函数又可以取偏导数，得出的就是$f$的二阶偏导函数，依次可以定义三阶偏导数以及更高阶的偏导数。对于二阶">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-04-25T12:42:06.119Z">
+<meta property="og:updated_time" content="2021-04-25T12:54:29.613Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/04/21/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B012/">
@@ -121,7 +121,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">47</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">48</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-25 20:42:06" itemprop="dateModified" datetime="2021-04-25T20:42:06+08:00">2021-04-25</time>
+                <time title="修改时间：2021-04-25 20:54:29" itemprop="dateModified" datetime="2021-04-25T20:54:29+08:00">2021-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -312,12 +312,12 @@
 <script type="math/tex; mode=display">
     \frac{\partial f}{\partial x_1}(\boldsymbol{x}) = \cdots = \frac{\partial f}{\partial x_n}(\boldsymbol{x}) = 0</script><p>那么$f$在$D$上为一个常数。</p>
 </blockquote>
-<p>证：如果$D$是凸区域，则由<a href="todo">定理1</a>立即得出结论。如果$D$不是凸区域，任取$\boldsymbol{x}_0 \in D$，令</p>
+<p>证：如果$D$是凸区域，则由<a href="https://gamersover.github.io/2021/04/21/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B012/#%E5%AE%9A%E7%90%861" target="_blank" rel="noopener">定理1</a>立即得出结论。如果$D$不是凸区域，任取$\boldsymbol{x}_0 \in D$，令</p>
 <script type="math/tex; mode=display">
     \begin{aligned}
     A = \{ \boldsymbol{x} \in D: f(\boldsymbol{x}) = f(\boldsymbol{x_0})\} \\
     B = \{ \boldsymbol{x} \in D: f(\boldsymbol{x}) \ne f(\boldsymbol{x_0}) \}
-    \end{aligned}</script><p>显然$A$非空，而$D=A \cup B$，由于$D$是连通开集，若能证明$A,B$是开集，则由<a href="todo">点列极限六的定理3</a>可知，$B = \varnothing$，从而证得结论。为了证明$A$是开集，任取$\boldsymbol{a} \in A \subset D$，存在$B_{\boldsymbol{r}}(\boldsymbol{a}) \in D$，由于$B_{\boldsymbol{r}}(\boldsymbol{a})$是凸区域，从而$f$在$B_{\boldsymbol{r}}(\boldsymbol{a})$上是常数，且对任意的$\boldsymbol{x} \in B_{\boldsymbol{r}}(\boldsymbol{a})$，有</p>
+    \end{aligned}</script><p>显然$A$非空，而$D=A \cup B$，由于$D$是连通开集，若能证明$A,B$是开集，则由<a href="https://gamersover.github.io/2020/11/10/%E7%82%B9%E5%88%97%E6%9E%81%E9%99%906/#%E5%AE%9A%E7%90%863" target="_blank" rel="noopener">点列极限六的定理3</a>可知，$B = \varnothing$，从而证得结论。为了证明$A$是开集，任取$\boldsymbol{a} \in A \subset D$，存在$B_{\boldsymbol{r}}(\boldsymbol{a}) \in D$，由于$B_{\boldsymbol{r}}(\boldsymbol{a})$是凸区域，从而$f$在$B_{\boldsymbol{r}}(\boldsymbol{a})$上是常数，且对任意的$\boldsymbol{x} \in B_{\boldsymbol{r}}(\boldsymbol{a})$，有</p>
 <script type="math/tex; mode=display">
     f(\boldsymbol{x}) = f(\boldsymbol{a}) = f(\boldsymbol{x}_0)</script><p>从而$B_{\boldsymbol{r}}(\boldsymbol{a}) \subset A$，也就说明$A$是开集。同样的方法也可以证明$B$是开集。再由上面分析可知命题成立。</p>
 <p>Q.E.D.</p>
@@ -360,7 +360,7 @@
         \varphi^{\prime\prime}(t) &= \left(h_1\frac{\partial}{\partial x_1} + \cdots + h_n\frac{\partial}{\partial x_n}\right)^2f(\boldsymbol{a} + t\boldsymbol{h}) \\
         \cdots, \\
         \varphi^{(m)}(t) &= \left(h_1\frac{\partial}{\partial x_1} + \cdots + h_n\frac{\partial}{\partial x_n}\right)^mf(\boldsymbol{a} + t\boldsymbol{h})
-    \end{aligned}</script><p>根据<a href="todo">定理3</a>可知，</p>
+    \end{aligned}</script><p>根据<a href="https://gamersover.github.io/2021/04/21/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B012/#%E5%AE%9A%E7%90%863" target="_blank" rel="noopener">定理3</a>可知，</p>
 <script type="math/tex; mode=display">
     \varphi^{(k)}(t) = \sum_{|\boldsymbol{\alpha}|=k}\frac{k!}{\boldsymbol{\alpha}!}\frac{\partial^{\alpha_1}}{\partial x_1^{\alpha_1}}\cdots \frac{\partial ^{\alpha_n}}{\partial x_n^{\alpha_n}}f(\boldsymbol{a} + t\boldsymbol{h})\boldsymbol{h}^{\boldsymbol{\alpha}} = \sum_{|\boldsymbol{\alpha}|=k} \frac{k!}{\boldsymbol{\alpha}!}D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + t\boldsymbol{h}) \boldsymbol{h}^{\boldsymbol{\alpha}}</script><p>所以</p>
 <script type="math/tex; mode=display">
@@ -370,7 +370,7 @@
 <p>设$D \subset \mathbb{R}^n$是一个凸区域，$f \in C^m(D)$，$\boldsymbol{a}$和$\boldsymbol{a}+\boldsymbol{h}$是$D$中的两个点，那么</p>
 <script type="math/tex; mode=display">
     f(\boldsymbol{a} + \boldsymbol{h}) = \sum_{k=0}^m \sum_{|\boldsymbol{\alpha}|=k} \frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} + o(\Vert \boldsymbol{h} \Vert^m) \quad (\boldsymbol{h} \to \boldsymbol{0})</script></blockquote>
-<p>证：由<a href="todo">定理4</a>可知</p>
+<p>证：由<a href="https://gamersover.github.io/2021/04/21/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B012/#%E5%AE%9A%E7%90%864" target="_blank" rel="noopener">定理4</a>可知</p>
 <script type="math/tex; mode=display">
     f(\boldsymbol{a} + \boldsymbol{h}) = \sum_{k=0}^{m-1} \sum_{|\boldsymbol{\alpha}|=k} \frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} + \sum_{|\boldsymbol{\alpha}|=m}\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + \theta \boldsymbol{h})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} \tag{2}</script><p>其中$\theta \in (0, 1)$，因为$f$的$m$阶偏导数连续，所以</p>
 <script type="math/tex; mode=display">
@@ -408,7 +408,7 @@
 <script type="math/tex; mode=display">
     \boldsymbol{g}(t) = \boldsymbol{f} \circ \boldsymbol{r}(t)</script><p>映射$g$在$[0,1]$上连续，在$(0,1)$内可微，从而</p>
 <script type="math/tex; mode=display">
-    J\boldsymbol{g}(t) = J\boldsymbol{f}(\boldsymbol{r}(t))(\boldsymbol{b} - \boldsymbol{a})</script><p>由<a href="todo">定理6</a>可知存在$\tau \in (0, 1)$，使得</p>
+    J\boldsymbol{g}(t) = J\boldsymbol{f}(\boldsymbol{r}(t))(\boldsymbol{b} - \boldsymbol{a})</script><p>由<a href="https://gamersover.github.io/2021/04/21/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B012/#%E5%AE%9A%E7%90%866%EF%BC%9A%E6%8B%9F%E5%BE%AE%E5%88%86%E5%B9%B3%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">定理6</a>可知存在$\tau \in (0, 1)$，使得</p>
 <script type="math/tex; mode=display">
     \Vert \boldsymbol{g}(1) - \boldsymbol{g}(0)\Vert = \Vert J\boldsymbol{g}(\tau)\Vert</script><p>即</p>
 <script type="math/tex; mode=display">
@@ -441,8 +441,8 @@
       <i class="fa fa-chevron-left"></i> 函数导数十一：逆映射定理
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/04/25/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B013/" rel="next" title="函数导数13">
-      函数导数13 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/04/25/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B013/" rel="next" title="函数导数十三：导数的应用">
+      函数导数十三：导数的应用 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -532,7 +532,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">48</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
