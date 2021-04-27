@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="尘雨尘风">
 <meta property="og:description" content="定义1 设函数$f$在开集$D$上的每一点处存在偏导数：      D_if(\boldsymbol{x}) = \frac{\partial f}{\partial x_i}(\boldsymbol{x}) \quad (i=1,2,\cdots,n)称它们为$f$的一阶偏导函数，如果对这些偏导函数又可以取偏导数，得出的就是$f$的二阶偏导函数，依次可以定义三阶偏导数以及更高阶的偏导数。对于二阶">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-04-25T12:54:29.613Z">
+<meta property="og:updated_time" content="2021-04-26T12:52:25.216Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/04/21/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B012/">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-25 20:54:29" itemprop="dateModified" datetime="2021-04-25T20:54:29+08:00">2021-04-25</time>
+                <time title="修改时间：2021-04-26 20:52:25" itemprop="dateModified" datetime="2021-04-26T20:52:25+08:00">2021-04-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -246,14 +246,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>11k</span>
+              <span>12k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>10 分钟</span>
+              <span>11 分钟</span>
             </span>
 
         </div>
@@ -307,7 +307,7 @@
 <script type="math/tex; mode=display">
     f(\boldsymbol{b}) - f(\boldsymbol{a}) = \boldsymbol{J}f(\boldsymbol{a} + \theta (\boldsymbol{b} - \boldsymbol{a}))(\boldsymbol{b} - \boldsymbol{a})</script><p>再令$\boldsymbol{\xi} = \boldsymbol{a} + \theta(\boldsymbol{b} - \boldsymbol{a})$即证得结论。</p>
 <p>Q.E.D.</p>
-<h4 id="定理2-1"><a href="#定理2-1" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
+<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
 <p>设$D$是$\mathbb{R}^n$中的区域，如果对任意的$\boldsymbol{x} \in D$，有</p>
 <script type="math/tex; mode=display">
     \frac{\partial f}{\partial x_1}(\boldsymbol{x}) = \cdots = \frac{\partial f}{\partial x_n}(\boldsymbol{x}) = 0</script><p>那么$f$在$D$上为一个常数。</p>
@@ -321,7 +321,7 @@
 <script type="math/tex; mode=display">
     f(\boldsymbol{x}) = f(\boldsymbol{a}) = f(\boldsymbol{x}_0)</script><p>从而$B_{\boldsymbol{r}}(\boldsymbol{a}) \subset A$，也就说明$A$是开集。同样的方法也可以证明$B$是开集。再由上面分析可知命题成立。</p>
 <p>Q.E.D.</p>
-<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
+<h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><blockquote>
 <p>设$k,n$是两个正整数，那么</p>
 <script type="math/tex; mode=display">
     (x_1 + \cdots + x_n)^k = \sum_{\alpha_1 + \cdots + \alpha_n = k} \frac{k!}{\alpha_1!\cdots\alpha_n!}x_1^{\alpha_1} \cdots x_n^{\alpha_n}</script><p>这里$\alpha_1,\cdots,\alpha_n$是非负整数。如果记$\boldsymbol{\alpha} = (\alpha_1, \cdots, \alpha_n)$，$\boldsymbol{x}=(x_1,\cdots,x_n)$，且</p>
@@ -341,7 +341,7 @@
     &= \sum_{\alpha_n=0}^k \frac{k!}{\alpha_n!(k-\alpha_n)!} \sum_{\alpha_1 + \alpha_{n-1}=k-\alpha_n}\frac{(k-\alpha_n)!}{\alpha_1!\cdots\alpha_{n-1}!} x_1^{\alpha_1} \cdots x_{n-1}^{\alpha_{n-1}} x_n^{\alpha_n} \\
     & = \sum_{\alpha_1 + \cdots + \alpha_n = k} \frac{k!}{\alpha_1!\cdots\alpha_n!}x_1^{\alpha_1} \cdots x_n^{\alpha_n}
     \end{aligned}</script><p>Q.E.D.</p>
-<h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><blockquote>
+<h4 id="定理5：Taylor公式"><a href="#定理5：Taylor公式" class="headerlink" title="定理5：Taylor公式"></a>定理5：Taylor公式</h4><blockquote>
 <p>设$D \subset \mathbb{R}^n$是一个凸区域，$f \in C^{m+1}(D)$，$\boldsymbol{a}=(a_1,\cdots,a_n)$，$\boldsymbol{a}+\boldsymbol{h} = (a_1+h_1,\cdots,a_n+h_n)$是$D$中的两个点，则必存在$\theta \in (0, 1)$，使得</p>
 <script type="math/tex; mode=display">
     f(\boldsymbol{a} + \boldsymbol{h}) = \sum_{k=0}^m \sum_{|\boldsymbol{a}|=k} \frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} + \boldsymbol{R}_m</script><p>其中</p>
@@ -360,17 +360,28 @@
         \varphi^{\prime\prime}(t) &= \left(h_1\frac{\partial}{\partial x_1} + \cdots + h_n\frac{\partial}{\partial x_n}\right)^2f(\boldsymbol{a} + t\boldsymbol{h}) \\
         \cdots, \\
         \varphi^{(m)}(t) &= \left(h_1\frac{\partial}{\partial x_1} + \cdots + h_n\frac{\partial}{\partial x_n}\right)^mf(\boldsymbol{a} + t\boldsymbol{h})
-    \end{aligned}</script><p>根据<a href="https://gamersover.github.io/2021/04/21/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B012/#%E5%AE%9A%E7%90%863" target="_blank" rel="noopener">定理3</a>可知，</p>
+    \end{aligned}</script><p>根据<a href="todo">定理4</a>可知，</p>
 <script type="math/tex; mode=display">
     \varphi^{(k)}(t) = \sum_{|\boldsymbol{\alpha}|=k}\frac{k!}{\boldsymbol{\alpha}!}\frac{\partial^{\alpha_1}}{\partial x_1^{\alpha_1}}\cdots \frac{\partial ^{\alpha_n}}{\partial x_n^{\alpha_n}}f(\boldsymbol{a} + t\boldsymbol{h})\boldsymbol{h}^{\boldsymbol{\alpha}} = \sum_{|\boldsymbol{\alpha}|=k} \frac{k!}{\boldsymbol{\alpha}!}D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + t\boldsymbol{h}) \boldsymbol{h}^{\boldsymbol{\alpha}}</script><p>所以</p>
 <script type="math/tex; mode=display">
     \varphi^{(k)}(0) = \sum_{|\boldsymbol{\alpha}|=k} \frac{k!}{\boldsymbol{\alpha}!}D^{\boldsymbol{\alpha}}f(\boldsymbol{a}) \boldsymbol{h}^{\boldsymbol{\alpha}}</script><p>将其代入(1)式，即得证明的结论。</p>
 <p>Q.E.D.</p>
-<h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h4><blockquote>
+<h5 id="特别地"><a href="#特别地" class="headerlink" title="特别地"></a>特别地</h5><p>Taylor公式的前三项写出来就是</p>
+<script type="math/tex; mode=display">
+    f(\boldsymbol{a} + \boldsymbol{h}) = f(\boldsymbol{a}) + \frac{\partial f}{\partial x_1}(\boldsymbol{a})h_1 + \cdots + \frac{\partial f}{\partial x_n}(\boldsymbol{a})h_n + \frac{1}{2} \sum_{i,j=1}^n\frac{\partial^2 f}{\partial x_i \partial x_j}(\boldsymbol{a})h_ih_j + \cdots</script><p>如果记</p>
+<script type="math/tex; mode=display">
+    Hf(\boldsymbol{a}) = \begin{bmatrix} 
+            \frac{\partial^2 f}{\partial x_1^2}(\boldsymbol{a}) & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_n}(\boldsymbol{a}) \\
+            \vdots & & \vdots \\
+            \frac{\partial^2 f}{\partial x_n \partial x_1}(\boldsymbol{a}) & \cdots & \frac{\partial^2 f}{\partial x_n^2}(\boldsymbol{a})
+    \end{bmatrix}</script><p>那么上式可写成</p>
+<script type="math/tex; mode=display">
+    f(\boldsymbol{a} + \boldsymbol{h}) = f(\boldsymbol{a}) + Jf(\boldsymbol{a})\boldsymbol{h} + \frac{1}{2}\boldsymbol{h}^T Hf(\boldsymbol{a}) \boldsymbol{h} + \cdots</script><p>这里$Hf$称为$f$的Hesse方阵，它是一个$n$阶对称方阵。</p>
+<h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><blockquote>
 <p>设$D \subset \mathbb{R}^n$是一个凸区域，$f \in C^m(D)$，$\boldsymbol{a}$和$\boldsymbol{a}+\boldsymbol{h}$是$D$中的两个点，那么</p>
 <script type="math/tex; mode=display">
     f(\boldsymbol{a} + \boldsymbol{h}) = \sum_{k=0}^m \sum_{|\boldsymbol{\alpha}|=k} \frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} + o(\Vert \boldsymbol{h} \Vert^m) \quad (\boldsymbol{h} \to \boldsymbol{0})</script></blockquote>
-<p>证：由<a href="https://gamersover.github.io/2021/04/21/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B012/#%E5%AE%9A%E7%90%864" target="_blank" rel="noopener">定理4</a>可知</p>
+<p>证：由<a href="todo">定理5</a>可知</p>
 <script type="math/tex; mode=display">
     f(\boldsymbol{a} + \boldsymbol{h}) = \sum_{k=0}^{m-1} \sum_{|\boldsymbol{\alpha}|=k} \frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} + \sum_{|\boldsymbol{\alpha}|=m}\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + \theta \boldsymbol{h})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} \tag{2}</script><p>其中$\theta \in (0, 1)$，因为$f$的$m$阶偏导数连续，所以</p>
 <script type="math/tex; mode=display">
@@ -384,7 +395,7 @@
 <script type="math/tex; mode=display">
     \sum_{|\boldsymbol{\alpha}| = m}\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + \theta \boldsymbol{h})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} = \sum_{|\boldsymbol{\alpha}| = m}\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} + o(\Vert \boldsymbol{h} \Vert^{m}) \quad (\boldsymbol{h} \to \boldsymbol{0})</script><p>将上式代入(2)式中，即证得命题成立。</p>
 <p>Q.E.D.</p>
-<h4 id="定理6：拟微分平均值定理"><a href="#定理6：拟微分平均值定理" class="headerlink" title="定理6：拟微分平均值定理"></a>定理6：拟微分平均值定理</h4><blockquote>
+<h4 id="定理7：拟微分平均值定理"><a href="#定理7：拟微分平均值定理" class="headerlink" title="定理7：拟微分平均值定理"></a>定理7：拟微分平均值定理</h4><blockquote>
 <p>设$\boldsymbol{f}: [a,b] \to \mathbb{R}^m$是$[a,b]$上的连续映射，在开区间$(a,b)$上可微，那么存在一点$\xi \in (a,b)$使得</p>
 <script type="math/tex; mode=display">
     \Vert \boldsymbol{f}(b) - \boldsymbol{f}(a) \Vert \le \Vert J\boldsymbol{f}(\xi) \Vert (b-a)</script></blockquote>
@@ -398,7 +409,7 @@
 <script type="math/tex; mode=display">
     \Vert \boldsymbol{u} \Vert^2 = (b-a)\left< \boldsymbol{u}, J\boldsymbol{f}(\xi) \right> \le (b-a)\Vert \boldsymbol{u} \Vert \Vert J\boldsymbol{f}(\xi) \Vert</script><p>当$\boldsymbol{u} \ne \boldsymbol{0}$时，式子两边消去$\Vert \boldsymbol{u} \Vert$即得证原命题；若$\boldsymbol{u} = \boldsymbol{0}$，命题自然成立。</p>
 <p>Q.E.D.</p>
-<h4 id="定理7"><a href="#定理7" class="headerlink" title="定理7"></a>定理7</h4><blockquote>
+<h4 id="定理8"><a href="#定理8" class="headerlink" title="定理8"></a>定理8</h4><blockquote>
 <p>设凸区域$D \subset \mathbb{R}^n$，且映射$\boldsymbol{f}: D \to \mathbb{R}^m$在$D$上可微，则对任何$\boldsymbol{a},\boldsymbol{b} \in D$，在由$\boldsymbol{a}, \boldsymbol{b}$所决定的线段上必有一点$\boldsymbol{\xi}$，使得</p>
 <script type="math/tex; mode=display">
     \boldsymbol{f}(\boldsymbol{b}) - \boldsymbol{f}(\boldsymbol{a}) \le \Vert J\boldsymbol{f}(\boldsymbol{\xi}) \Vert \Vert \boldsymbol{b} - \boldsymbol{a}\Vert</script></blockquote>
@@ -408,7 +419,7 @@
 <script type="math/tex; mode=display">
     \boldsymbol{g}(t) = \boldsymbol{f} \circ \boldsymbol{r}(t)</script><p>映射$g$在$[0,1]$上连续，在$(0,1)$内可微，从而</p>
 <script type="math/tex; mode=display">
-    J\boldsymbol{g}(t) = J\boldsymbol{f}(\boldsymbol{r}(t))(\boldsymbol{b} - \boldsymbol{a})</script><p>由<a href="https://gamersover.github.io/2021/04/21/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B012/#%E5%AE%9A%E7%90%866%EF%BC%9A%E6%8B%9F%E5%BE%AE%E5%88%86%E5%B9%B3%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">定理6</a>可知存在$\tau \in (0, 1)$，使得</p>
+    J\boldsymbol{g}(t) = J\boldsymbol{f}(\boldsymbol{r}(t))(\boldsymbol{b} - \boldsymbol{a})</script><p>由<a href="todo">定理7</a>可知存在$\tau \in (0, 1)$，使得</p>
 <script type="math/tex; mode=display">
     \Vert \boldsymbol{g}(1) - \boldsymbol{g}(0)\Vert = \Vert J\boldsymbol{g}(\tau)\Vert</script><p>即</p>
 <script type="math/tex; mode=display">
@@ -441,8 +452,8 @@
       <i class="fa fa-chevron-left"></i> 函数导数十一：逆映射定理
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/04/25/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B013/" rel="next" title="函数导数十三：导数的应用">
-      函数导数十三：导数的应用 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/04/25/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B013/" rel="next" title="函数导数十三：极值">
+      函数导数十三：极值 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -503,7 +514,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2-1"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5"><span class="nav-text">定理5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理6：拟微分平均值定理"><span class="nav-text">定理6：拟微分平均值定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理7"><span class="nav-text">定理7</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5：Taylor公式"><span class="nav-text">定理5：Taylor公式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#特别地"><span class="nav-text">特别地</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理6"><span class="nav-text">定理6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理7：拟微分平均值定理"><span class="nav-text">定理7：拟微分平均值定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理8"><span class="nav-text">定理8</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -574,13 +585,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">174k</span>
+    <span title="站点总字数">183k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:38</span>
+    <span title="站点阅读时长">2:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
