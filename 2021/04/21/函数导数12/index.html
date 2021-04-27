@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="尘雨尘风">
 <meta property="og:description" content="定义1 设函数$f$在开集$D$上的每一点处存在偏导数：      D_if(\boldsymbol{x}) = \frac{\partial f}{\partial x_i}(\boldsymbol{x}) \quad (i=1,2,\cdots,n)称它们为$f$的一阶偏导函数，如果对这些偏导函数又可以取偏导数，得出的就是$f$的二阶偏导函数，依次可以定义三阶偏导数以及更高阶的偏导数。对于二阶">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-04-26T12:52:25.216Z">
+<meta property="og:updated_time" content="2021-04-27T13:28:30.599Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/04/21/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B012/">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-26 20:52:25" itemprop="dateModified" datetime="2021-04-26T20:52:25+08:00">2021-04-26</time>
+                <time title="修改时间：2021-04-27 21:28:30" itemprop="dateModified" datetime="2021-04-27T21:28:30+08:00">2021-04-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -360,7 +360,7 @@
         \varphi^{\prime\prime}(t) &= \left(h_1\frac{\partial}{\partial x_1} + \cdots + h_n\frac{\partial}{\partial x_n}\right)^2f(\boldsymbol{a} + t\boldsymbol{h}) \\
         \cdots, \\
         \varphi^{(m)}(t) &= \left(h_1\frac{\partial}{\partial x_1} + \cdots + h_n\frac{\partial}{\partial x_n}\right)^mf(\boldsymbol{a} + t\boldsymbol{h})
-    \end{aligned}</script><p>根据<a href="todo">定理4</a>可知，</p>
+    \end{aligned}</script><p>根据<a href="https://gamersover.github.io/2021/04/21/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B012/#%E5%AE%9A%E7%90%864" target="_blank" rel="noopener">定理4</a>可知，</p>
 <script type="math/tex; mode=display">
     \varphi^{(k)}(t) = \sum_{|\boldsymbol{\alpha}|=k}\frac{k!}{\boldsymbol{\alpha}!}\frac{\partial^{\alpha_1}}{\partial x_1^{\alpha_1}}\cdots \frac{\partial ^{\alpha_n}}{\partial x_n^{\alpha_n}}f(\boldsymbol{a} + t\boldsymbol{h})\boldsymbol{h}^{\boldsymbol{\alpha}} = \sum_{|\boldsymbol{\alpha}|=k} \frac{k!}{\boldsymbol{\alpha}!}D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + t\boldsymbol{h}) \boldsymbol{h}^{\boldsymbol{\alpha}}</script><p>所以</p>
 <script type="math/tex; mode=display">
@@ -381,7 +381,7 @@
 <p>设$D \subset \mathbb{R}^n$是一个凸区域，$f \in C^m(D)$，$\boldsymbol{a}$和$\boldsymbol{a}+\boldsymbol{h}$是$D$中的两个点，那么</p>
 <script type="math/tex; mode=display">
     f(\boldsymbol{a} + \boldsymbol{h}) = \sum_{k=0}^m \sum_{|\boldsymbol{\alpha}|=k} \frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} + o(\Vert \boldsymbol{h} \Vert^m) \quad (\boldsymbol{h} \to \boldsymbol{0})</script></blockquote>
-<p>证：由<a href="todo">定理5</a>可知</p>
+<p>证：由<a href="https://gamersover.github.io/2021/04/21/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B012/#%E5%AE%9A%E7%90%865%EF%BC%9ATaylor%E5%85%AC%E5%BC%8F" target="_blank" rel="noopener">定理5</a>可知</p>
 <script type="math/tex; mode=display">
     f(\boldsymbol{a} + \boldsymbol{h}) = \sum_{k=0}^{m-1} \sum_{|\boldsymbol{\alpha}|=k} \frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} + \sum_{|\boldsymbol{\alpha}|=m}\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + \theta \boldsymbol{h})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} \tag{2}</script><p>其中$\theta \in (0, 1)$，因为$f$的$m$阶偏导数连续，所以</p>
 <script type="math/tex; mode=display">
@@ -419,7 +419,7 @@
 <script type="math/tex; mode=display">
     \boldsymbol{g}(t) = \boldsymbol{f} \circ \boldsymbol{r}(t)</script><p>映射$g$在$[0,1]$上连续，在$(0,1)$内可微，从而</p>
 <script type="math/tex; mode=display">
-    J\boldsymbol{g}(t) = J\boldsymbol{f}(\boldsymbol{r}(t))(\boldsymbol{b} - \boldsymbol{a})</script><p>由<a href="todo">定理7</a>可知存在$\tau \in (0, 1)$，使得</p>
+    J\boldsymbol{g}(t) = J\boldsymbol{f}(\boldsymbol{r}(t))(\boldsymbol{b} - \boldsymbol{a})</script><p>由<a href="https://gamersover.github.io/2021/04/21/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B012/#%E5%AE%9A%E7%90%867%EF%BC%9A%E6%8B%9F%E5%BE%AE%E5%88%86%E5%B9%B3%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">定理7</a>可知存在$\tau \in (0, 1)$，使得</p>
 <script type="math/tex; mode=display">
     \Vert \boldsymbol{g}(1) - \boldsymbol{g}(0)\Vert = \Vert J\boldsymbol{g}(\tau)\Vert</script><p>即</p>
 <script type="math/tex; mode=display">
