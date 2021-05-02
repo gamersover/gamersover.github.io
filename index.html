@@ -119,7 +119,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">48</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">51</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">43</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">46</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -188,6 +188,297 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/05/02/UI%E5%BC%80%E5%8F%91%E4%B9%8BpyQt5-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/02/UI%E5%BC%80%E5%8F%91%E4%B9%8BpyQt5-2/" class="post-title-link" itemprop="url">UI开发之pyQt5二：</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-02 18:28:35 / 修改时间：18:29:23" itemprop="dateCreated datePublished" datetime="2021-05-02T18:28:35+08:00">2021-05-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <!--
+    开始声明并介绍Qt的版本关系
+    1. 开局放一张Qt类继承的关系图，并表明不是为了记住，而是为了后面介绍组件的关系以及作为编码时可以进行查找的手册，所以看到这么复杂的图不要慌
+    2. 然后依次介绍UI组成部分
+    3. 介绍相应代码
+-->
+<!-- 每个控件的具体属性还是分开讲，并且要先讲控件再讲布局
+### 文本显示类控件
+#### 单行编辑框（QLineEdit）
+
+单行编辑框一般是用来输入用户名或密码等简要内容的，其写法如下：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, QApplication, QLineEdit, QVBoxLayout, QWidget</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainWindow</span><span class="params">(QMainWindow)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, parent=None)</span>:</span></span><br><span class="line">        super(MainWindow, self).__init__(parent)   </span><br><span class="line">        self.init_ui()</span><br><span class="line">        self.show()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">init_ui</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.setGeometry(<span class="number">1000</span>, <span class="number">400</span>, <span class="number">300</span>, <span class="number">300</span>)</span><br><span class="line">        self.setWindowTitle(<span class="string">"主窗口"</span>)</span><br><span class="line"></span><br><span class="line">        main_widget = QWidget()</span><br><span class="line">        main_layout = QVBoxLayout()</span><br><span class="line">        main_widget.setLayout(main_layout)</span><br><span class="line">        line_edit1 = QLineEdit()</span><br><span class="line">        line_edit1.setPlaceholderText(<span class="string">"用户名"</span>)</span><br><span class="line">        line_edit2 = QLineEdit()</span><br><span class="line">        line_edit2.setPlaceholderText(<span class="string">"密码"</span>)</span><br><span class="line">        main_layout.addWidget(line_edit1)</span><br><span class="line">        main_layout.addWidget(line_edit2)</span><br><span class="line"></span><br><span class="line">        self.setCentralWidget(main_widget)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app = QApplication(sys.argv[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line">    window = MainWindow()</span><br><span class="line">    window.show()</span><br><span class="line"></span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
+<p>其中创建了一个主控件<code>main_widget</code>用来显示其他控件，使用<code>setCentralWidget(main_widget)</code>可以设置为主窗口<code>QMainWindow</code>的主控件，该控件使用了垂直布局方式<code>QVBoxlayout</code>，其中包含两个文本编辑子控件。<code>QLineEdit</code>可以设置的一些属性：</p>
+<ul>
+<li><code>setPlaceholderText(a0: str)</code>：<ul>
+<li>提示内容，输入时会覆盖</li>
+</ul>
+</li>
+<li><code>setText(self, atext: str)</code>：<ul>
+<li>设置文本显示的内容</li>
+</ul>
+</li>
+<li><code>setMaxLength(self, a0: int)</code></li>
+<li><code>setEchoMode(self, a0: &#39;QLineEdit.EchoMode&#39;)</code><ul>
+<li>输入文本不可见，一般用在输入密码时保护隐私，以小圆点替代输入的文本来显示</li>
+</ul>
+</li>
+<li><code>setAlignment(self, flag: typing.Union[QtCore.Qt.Alignment, QtCore.Qt.AlignmentFlag])</code><ul>
+<li>文本的显示对齐方式，有居中对齐，左对齐，右对齐等</li>
+</ul>
+</li>
+<li><code>setReadOnly(self, a0: bool)</code><ul>
+<li>可知设置为只读模式，这时不能编辑<br>—&gt;</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%862/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%862/" class="post-title-link" itemprop="url">函数积分二：Riemann积分</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-28 21:12:18 / 修改时间：21:15:00" itemprop="dateCreated datePublished" datetime="2021-04-28T21:12:18+08:00">2021-04-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%861/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%861/" class="post-title-link" itemprop="url">函数积分一：原函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-28 20:19:42 / 修改时间：21:14:57" itemprop="dateCreated datePublished" datetime="2021-04-28T20:19:42+08:00">2021-04-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="定义1：原函数"><a href="#定义1：原函数" class="headerlink" title="定义1：原函数"></a>定义1：原函数</h4><blockquote>
+<p>已知区间$D$和函数$f: D \to \mathbb{R}, F: D \to \mathbb{R}$，如果两个函数满足关系</p>
+<script type="math/tex; mode=display">
+    F^\prime(x) = f(x)</script><p>则称$F$为$f$在$D$上的一个原函数。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%861/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/25/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B013/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -219,7 +510,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-27 21:29:10" itemprop="dateModified" datetime="2021-04-27T21:29:10+08:00">2021-04-27</time>
+                <time title="修改时间：2021-04-28 20:16:48" itemprop="dateModified" datetime="2021-04-28T20:16:48+08:00">2021-04-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -485,7 +776,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/16/UI%E5%BC%80%E5%8F%91%E4%B9%8BpyQt5/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/16/UI%E5%BC%80%E5%8F%91%E4%B9%8BpyQt5-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
@@ -499,7 +790,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/16/UI%E5%BC%80%E5%8F%91%E4%B9%8BpyQt5/" class="post-title-link" itemprop="url">UI开发之pyQt5</a>
+            <a href="/2021/04/16/UI%E5%BC%80%E5%8F%91%E4%B9%8BpyQt5-1/" class="post-title-link" itemprop="url">UI开发之PyQt5一：控件和布局的关系</a>
         </h2>
 
         <div class="post-meta">
@@ -508,10 +799,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-16 23:29:31 / 修改时间：23:34:26" itemprop="dateCreated datePublished" datetime="2021-04-16T23:29:31+08:00">2021-04-16</time>
+              <time title="创建时间：2021-04-16 23:29:31" itemprop="dateCreated datePublished" datetime="2021-04-16T23:29:31+08:00">2021-04-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-02 18:56:16" itemprop="dateModified" datetime="2021-05-02T18:56:16+08:00">2021-05-02</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -528,14 +825,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>3.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -547,12 +844,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <!--
-    开始声明并介绍Qt的版本关系
-    1. 开局放一张Qt类继承的关系图，并表明不是为了记住，而是为了后面介绍组件的关系以及作为编码时可以进行查找的手册，所以看到这么复杂的图不要慌
-    2. 然后依次介绍UI组成部分
-    3. 介绍相应代码
--->
+          <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>PyQt5是一个用来开发UI的python第三方库，UI不外乎显示控件，布局与交互，简单说就是确定UI需要展示哪些东西，这些东西如何排布在界面上以及操作这些东西的逻辑是什么。而PyQt5的控件与布局几乎都在QtWidgets这个类里面，至于交互就是后面所要讲的信号与槽。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/16/UI%E5%BC%80%E5%8F%91%E4%B9%8BpyQt5-1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -594,10 +894,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-16 23:23:36 / 修改时间：23:28:26" itemprop="dateCreated datePublished" datetime="2021-04-16T23:23:36+08:00">2021-04-16</time>
+              <time title="创建时间：2021-04-16 23:23:36" itemprop="dateCreated datePublished" datetime="2021-04-16T23:23:36+08:00">2021-04-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-29 21:26:41" itemprop="dateModified" datetime="2021-04-29T21:26:41+08:00">2021-04-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -614,7 +920,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>438</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -640,6 +946,9 @@
     2. 接着介绍sql关键词的书写顺序和执行顺序
     3. 再介绍一些实践操作和join等等操作
 -->
+<p>数据库，顾名思义用来存放数据的地方，可以把数据库比作图书馆，图书馆里面有不同区域相当于不同的数据库（database），而每个区域又存放着不同的书籍，相当于每个database含有很多表（table），图中表现了这种关系。而表中有包含数据，数据是由记录（行）和字段（列）构成的，每条记录的字段的数据就是存储的数据。</p>
+<p>表即普通的表格，比如下面的表有两条记录，字段包括id，name，age。<br>|id|name|age|<br>|:-:|:-:|:-:|<br>|0|superman|32|<br>|1|wonderwoman|102|<br>|2|batman|30|</p>
+<p>对于数据库，表，记录，字段都有增、删、改、查的操作，而sql（Structured Query Language）即结构化查询语言就是用来完成这些操作的，根据操作的对象不同将sql语言分为DML(data manipulation language)，DQL(Data Query Language)，DDL(data definition language)</p>
 
       
     </div>
@@ -858,294 +1167,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/05/leetcode%E9%A2%98%E8%A7%A322/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
-      <meta itemprop="name" content="陈华杰">
-      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="尘雨尘风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/05/leetcode%E9%A2%98%E8%A7%A322/" class="post-title-link" itemprop="url">leetcode题解22</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-05 14:54:04 / 修改时间：15:38:04" itemprop="dateCreated datePublished" datetime="2021-04-05T14:54:04+08:00">2021-04-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>148</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>该题来自于<a href="https://leetcode-cn.com/problems/generate-parentheses/" target="_blank" rel="noopener">力扣第22题</a></p>
-<p>数字<code>n</code>代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且有效的括号组合。<br>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/05/leetcode%E9%A2%98%E8%A7%A322/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/31/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B08/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
-      <meta itemprop="name" content="陈华杰">
-      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="尘雨尘风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/31/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B08/" class="post-title-link" itemprop="url">函数导数八：多变量函数的微分</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-31 21:04:32" itemprop="dateCreated datePublished" datetime="2021-03-31T21:04:32+08:00">2021-03-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-11 22:42:17" itemprop="dateModified" datetime="2021-04-11T22:42:17+08:00">2021-04-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^n$，$f: D \to \mathbb{R}$，$\boldsymbol{u}$是一个方向，$x_0 \in D$，如果极限</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{t \to 0} \frac{f(\boldsymbol{x}_0 + t\boldsymbol{u}) - f(\boldsymbol{x})}{t}</script><p>存在且有限，则称这个极限为函数$f$在$\boldsymbol{x}_0$处沿方向$u$的方向导数，记为$\frac{\partial f}{\partial \boldsymbol{u}}(\boldsymbol{x}_0)$。</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/31/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B08/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/28/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B07/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
-      <meta itemprop="name" content="陈华杰">
-      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="尘雨尘风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/28/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B07/" class="post-title-link" itemprop="url">函数导数七：Taylor定理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-28 15:01:39" itemprop="dateCreated datePublished" datetime="2021-03-28T15:01:39+08:00">2021-03-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-11 22:38:40" itemprop="dateModified" datetime="2021-04-11T22:38:40+08:00">2021-04-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>设函数$f$在$x_0$处有直到$n$阶的导数，这里$n$是任意给定的正整数，令</p>
-<script type="math/tex; mode=display">
-    T_n(f,x_0;x) = f(x_0) + \frac{1}{1!}f^\prime(x_0)(x - x_0) + \frac{1}{2!}f^{\prime\prime}(x_0)(x-x_0)^2 + \cdots + \frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n</script><p>称它为$f$在$x_0$处的$n$次Taylor多项式。</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/28/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B07/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1217,7 +1238,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1230,7 +1251,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1272,13 +1293,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">183k</span>
+    <span title="站点总字数">188k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:46</span>
+    <span title="站点阅读时长">2:51</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
