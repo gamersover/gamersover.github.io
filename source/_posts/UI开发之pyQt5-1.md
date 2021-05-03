@@ -66,7 +66,7 @@ PyQt5控件布局的基本逻辑是：
 
 ### 主窗口写法
 界面展示：
-<img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No1.jpg" width="20%">
+<img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No1.jpg" width="25%">
 代码如下：
 ```python
 import sys
@@ -91,27 +91,20 @@ if __name__ == "__main__":
 
     sys.exit(app.exec_())
 ```
-可以看到初始化了一个主窗口`QMainWindow`，其中Qt程序的入口使用`QApplication`类实现，主窗口可以设置一些属性：
-* 窗口大小与位置
-    * `setGeometry(ax: int, ay: int, aw: int, ah: int)`
-        统一设置窗口的显示位置和大小，ax,ay表示窗口左上角坐标，aw,ah表示窗口的宽和高，都是以像素为单位
-    * `move(ax: int, ay: int)`
-        单独设置窗口的显示位置即左上角坐标
-    * `setFixedSize(w: int, h: int)`
-        单独设置窗口的大小即宽和高
-    * `setFixedWidth(w: int)`
-        单独设置窗口的宽
-    * `setFixedHeight(h: int)`
-        单独设置窗口的高
+可以看到初始化了一个主窗口`QMainWindow`，其中Qt程序的入口使用`QApplication`类实现，主窗口的属性如下：
 
-* 窗口标题与图标
-    * `setWindowTitle(a0: str)`
-        设置窗口标题
-    * `setWindowIcon(icon: QICon)`
-        设置窗口图标
-* 控件显示
-    * `show()`
-        用于显示所有可显示的控件
+|  | API                                             | 描述                                                         |
+| :------------- | :---------------------------------------------- | :----------------------------------------------------------- |
+|        窗口大小与位置        | setGeometry(ax: int, ay: int, aw: int, ah: int) | 统一设置窗口的显示位置和大小，ax,ay表示窗口左上角坐标，aw,ah表示窗口的宽和高，都是以像素为单位 |
+|                | move(ax: int, ay: int)                          | 单独设置窗口的显示位置即左上角坐标                           |
+|                | setFixedSize(w: int, h: int)                    | 单独设置窗口的大小即宽和高                                   |
+|                | setFixedWidth(w: int)                           | 单独设置窗口的宽                                             |
+|                | setFixedHeight(h: int)                          | 单独设置窗口的高                                             |
+| 窗口标题与图标 | setWindowTitle(a0: str)                         | 设置窗口标题                                                 |
+|                | setWindowIcon(icon: QIcon)                      | 设置窗口图标                                                 |
+| 控件显示       | show()                                          | 显示控件与其子控件                                           |
+
+
 
 ### 设置布局和添加控件
 有了主窗口后，就可以添加想要添加的控件了，如下面代码：
