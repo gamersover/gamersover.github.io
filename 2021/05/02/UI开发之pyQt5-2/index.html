@@ -21,14 +21,19 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="keywords" content="UI开发,Qt,python">
+  <meta name="description" content="文本类控件主要包含：  QLineEdit：单行文本编辑框 QTextEdit：多行文本编辑框">
+<meta name="keywords" content="UI开发,Qt,python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UI开发之pyQt5二：">
+<meta property="og:title" content="UI开发之PyQt5二：文本类控件">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;05&#x2F;02&#x2F;UI%E5%BC%80%E5%8F%91%E4%B9%8BpyQt5-2&#x2F;index.html">
 <meta property="og:site_name" content="尘雨尘风">
+<meta property="og:description" content="文本类控件主要包含：  QLineEdit：单行文本编辑框 QTextEdit：多行文本编辑框">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-05-02T10:29:23.481Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;gamersover&#x2F;hexo_blog_assets&#x2F;main&#x2F;pyqt%E6%95%99%E7%A8%8B&#x2F;No4.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;gamersover&#x2F;hexo_blog_assets&#x2F;main&#x2F;pyqt%E6%95%99%E7%A8%8B&#x2F;No5.gif">
+<meta property="og:updated_time" content="2021-05-03T12:34:25.156Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;gamersover&#x2F;hexo_blog_assets&#x2F;main&#x2F;pyqt%E6%95%99%E7%A8%8B&#x2F;No4.gif">
 
 <link rel="canonical" href="http://yoursite.com/2021/05/02/UI%E5%BC%80%E5%8F%91%E4%B9%8BpyQt5-2/">
 
@@ -43,7 +48,7 @@
   };
 </script>
 
-  <title>UI开发之pyQt5二： | 尘雨尘风</title>
+  <title>UI开发之PyQt5二：文本类控件 | 尘雨尘风</title>
   
 
 
@@ -202,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          UI开发之pyQt5二：
+          UI开发之PyQt5二：文本类控件
         </h1>
 
         <div class="post-meta">
@@ -211,10 +216,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-05-02 18:28:35 / 修改时间：18:29:23" itemprop="dateCreated datePublished" datetime="2021-05-02T18:28:35+08:00">2021-05-02</time>
+              <time title="创建时间：2021-05-02 18:28:35" itemprop="dateCreated datePublished" datetime="2021-05-02T18:28:35+08:00">2021-05-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-03 20:34:25" itemprop="dateModified" datetime="2021-05-03T20:34:25+08:00">2021-05-03</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -238,7 +249,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,43 +268,181 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <!--
-    开始声明并介绍Qt的版本关系
-    1. 开局放一张Qt类继承的关系图，并表明不是为了记住，而是为了后面介绍组件的关系以及作为编码时可以进行查找的手册，所以看到这么复杂的图不要慌
-    2. 然后依次介绍UI组成部分
-    3. 介绍相应代码
--->
-<!-- 每个控件的具体属性还是分开讲，并且要先讲控件再讲布局
-### 文本显示类控件
-#### 单行编辑框（QLineEdit）
-
-单行编辑框一般是用来输入用户名或密码等简要内容的，其写法如下：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, QApplication, QLineEdit, QVBoxLayout, QWidget</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainWindow</span><span class="params">(QMainWindow)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, parent=None)</span>:</span></span><br><span class="line">        super(MainWindow, self).__init__(parent)   </span><br><span class="line">        self.init_ui()</span><br><span class="line">        self.show()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">init_ui</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.setGeometry(<span class="number">1000</span>, <span class="number">400</span>, <span class="number">300</span>, <span class="number">300</span>)</span><br><span class="line">        self.setWindowTitle(<span class="string">"主窗口"</span>)</span><br><span class="line"></span><br><span class="line">        main_widget = QWidget()</span><br><span class="line">        main_layout = QVBoxLayout()</span><br><span class="line">        main_widget.setLayout(main_layout)</span><br><span class="line">        line_edit1 = QLineEdit()</span><br><span class="line">        line_edit1.setPlaceholderText(<span class="string">"用户名"</span>)</span><br><span class="line">        line_edit2 = QLineEdit()</span><br><span class="line">        line_edit2.setPlaceholderText(<span class="string">"密码"</span>)</span><br><span class="line">        main_layout.addWidget(line_edit1)</span><br><span class="line">        main_layout.addWidget(line_edit2)</span><br><span class="line"></span><br><span class="line">        self.setCentralWidget(main_widget)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app = QApplication(sys.argv[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line">    window = MainWindow()</span><br><span class="line">    window.show()</span><br><span class="line"></span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
-<p>其中创建了一个主控件<code>main_widget</code>用来显示其他控件，使用<code>setCentralWidget(main_widget)</code>可以设置为主窗口<code>QMainWindow</code>的主控件，该控件使用了垂直布局方式<code>QVBoxlayout</code>，其中包含两个文本编辑子控件。<code>QLineEdit</code>可以设置的一些属性：</p>
+        <p>文本类控件主要包含：</p>
 <ul>
-<li><code>setPlaceholderText(a0: str)</code>：<ul>
-<li>提示内容，输入时会覆盖</li>
+<li>QLineEdit：单行文本编辑框</li>
+<li>QTextEdit：多行文本编辑框</li>
 </ul>
-</li>
-<li><code>setText(self, atext: str)</code>：<ul>
-<li>设置文本显示的内容</li>
-</ul>
-</li>
-<li><code>setMaxLength(self, a0: int)</code></li>
-<li><code>setEchoMode(self, a0: &#39;QLineEdit.EchoMode&#39;)</code><ul>
-<li>输入文本不可见，一般用在输入密码时保护隐私，以小圆点替代输入的文本来显示</li>
-</ul>
-</li>
-<li><code>setAlignment(self, flag: typing.Union[QtCore.Qt.Alignment, QtCore.Qt.AlignmentFlag])</code><ul>
-<li>文本的显示对齐方式，有居中对齐，左对齐，右对齐等</li>
-</ul>
-</li>
-<li><code>setReadOnly(self, a0: bool)</code><ul>
-<li>可知设置为只读模式，这时不能编辑<br>—&gt;</li>
-</ul>
-</li>
-</ul>
-
+<a id="more"></a>
+<h4 id="QLineEdit（单行文本编辑框）"><a href="#QLineEdit（单行文本编辑框）" class="headerlink" title="QLineEdit（单行文本编辑框）"></a>QLineEdit（单行文本编辑框）</h4><p>展示<br><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No4.gif" width="25%"></p>
+<p>该控件一般用来输入用户名或密码等简要内容，其写法如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">line_edit = QLineEdit()</span><br><span class="line">line_edit.setPlaceholderText(<span class="string">"密码"</span>)</span><br><span class="line">line_edit.setClearButtonEnabled(<span class="literal">True</span>)</span><br><span class="line">line_edit.setEchoMode(QLineEdit.EchoMode.Password)</span><br></pre></td></tr></table></figure><br>其基本属性包含：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">API</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">设置文本属性</td>
+<td style="text-align:left">setText(text: str)</td>
+<td style="text-align:left">设置显示的文本</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setMaxLength(a0: int)</td>
+<td style="text-align:left">设置文本最大长度</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setEchoMode(a0: ‘QLineEdit.EchoMode’)</td>
+<td style="text-align:left">输入文本不可见，一般用在输入密码时保护隐私，以小圆点替代输入的文本来显示</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setAlignment(flag: typing.Union[QtCore.Qt.Alignment, QtCore.Qt.AlignmentFlag])</td>
+<td style="text-align:left">文本的显示对齐方式，有居中对齐，左对齐，右对齐等</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setReadOnly(a0: bool)</td>
+<td style="text-align:left">可知设置为只读模式，这时不能编辑</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setPlaceholderText(a0: str)</td>
+<td style="text-align:left">设置占位提示文本</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setCompleter(completer: QCompleter)</td>
+<td style="text-align:left">设置文本自动补全</td>
+</tr>
+<tr>
+<td style="text-align:left">获取文本状态</td>
+<td style="text-align:left">text()-&gt;str</td>
+<td style="text-align:left">获取文本</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">displayText()-&gt;str</td>
+<td style="text-align:left">获取显示的文本，和显示的内容保持一致。如果是普通文本，则和<code>text()</code>返回的值一样；如果设置了<code>EchoMode</code>为密码类型，则返回小圆点。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">placeholderText()-&gt;str</td>
+<td style="text-align:left">获取占位提示文本</td>
+</tr>
+<tr>
+<td style="text-align:left">操作文本内容</td>
+<td style="text-align:left">insert(a0: str)</td>
+<td style="text-align:left">在当前光标后插入文本</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">clear()</td>
+<td style="text-align:left">删除所有内容</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setClearButtonEnabled(enable: bool)</td>
+<td style="text-align:left">添加文本清除按钮</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="QTextEdit：多行文本编辑框"><a href="#QTextEdit：多行文本编辑框" class="headerlink" title="QTextEdit：多行文本编辑框"></a>QTextEdit：多行文本编辑框</h4><p>展示<br><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No5.gif" width="25%"></p>
+<p>该控件用来实现大量文本的输入与显示，写法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text_edit = QTextEdit()</span><br><span class="line">text_edit.setPlaceholderText(<span class="string">"请输入"</span>)</span><br></pre></td></tr></table></figure>
+<p>基本属性有：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">API</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">设置文本属性</td>
+<td style="text-align:left">setPlainText(text: str)</td>
+<td style="text-align:left">设置普通文本</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setHtml(text: str)</td>
+<td style="text-align:left">设置html文本</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setText(text: str)</td>
+<td style="text-align:left">设置文本，根据text参数判断为普通文本还是html文本，不建议使用，而是直接使用<code>setPlainText</code>或<code>setHtml</code></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setMarkdown(markdown: str)</td>
+<td style="text-align:left">设置markdown文本</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setAlignment(self, flag: typing.Union[QtCore.Qt.Alignment, QtCore.Qt.AlignmentFlag])</td>
+<td style="text-align:left">文本的显示对齐方式，有居中对齐，左对齐，右对齐等</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setReadOnly(self, a0: bool)</td>
+<td style="text-align:left">可知设置为只读模式，这时不能编辑</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setPlaceholderText(placeholderText: str)</td>
+<td style="text-align:left">设置占位提示文本</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setLineWrapMode(mode: ‘QTextEdit.LineWrapMode’)</td>
+<td style="text-align:left">当参数为<code>NoWrap</code>时，文本长度宽度后不自动换行显示，这时通过拖动水平滚动条查看超出的内容</td>
+</tr>
+<tr>
+<td style="text-align:left">获取文本状态</td>
+<td style="text-align:left">toPlainText()-&gt;str</td>
+<td style="text-align:left">将显示文本转换为普通文本并返回</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">toHtml()-&gt;str</td>
+<td style="text-align:left">将显示文本转换为html文本并返回</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">toMarkdown()-&gt;str</td>
+<td style="text-align:left">将显示文本转换为markdown文本并返回</td>
+</tr>
+<tr>
+<td style="text-align:left">操作文本内容</td>
+<td style="text-align:left">insertHtml(text: str)</td>
+<td style="text-align:left">在当前光标后插入html文本</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">insertPlainText(text: str)</td>
+<td style="text-align:left">在当前光标后插入普通文本</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">clear()</td>
+<td style="text-align:left">清除所有内容</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="字体与颜色"><a href="#字体与颜色" class="headerlink" title="字体与颜色"></a>字体与颜色</h4><p>文本类肯定离不开字体与颜色，PyQt5的字体与颜色分别在</p>
+<h5 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h5>
     </div>
 
     
@@ -377,6 +526,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#QLineEdit（单行文本编辑框）"><span class="nav-text">QLineEdit（单行文本编辑框）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#QTextEdit：多行文本编辑框"><span class="nav-text">QTextEdit：多行文本编辑框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体与颜色"><span class="nav-text">字体与颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字体"><span class="nav-text">字体</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -447,13 +597,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">188k</span>
+    <span title="站点总字数">191k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:51</span>
+    <span title="站点阅读时长">2:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
