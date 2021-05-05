@@ -10,7 +10,7 @@ mathjax: true
 ---
 
 
-## 题目描述
+## 描述
 
 该题来自于[力扣第四题](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
 

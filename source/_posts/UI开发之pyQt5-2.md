@@ -45,7 +45,7 @@ line_edit.setEchoMode(QLineEdit.EchoMode.Password)
 |              | setClearButtonEnabled(enable: bool)                          | 添加文本清除按钮                                             |
 
 
-#### QTextEdit：多行文本编辑框
+#### QTextEdit（多行文本编辑框）
 
 展示
 <img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No5.gif" width="25%">

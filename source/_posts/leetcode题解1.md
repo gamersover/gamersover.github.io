@@ -9,7 +9,7 @@ categories: 算法
 mathjax: true
 ---
 
-## 题目描述
+## 描述
 
 该题来自于[力扣第一题](https://leetcode-cn.com/problems/two-sum/)
 

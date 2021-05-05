@@ -9,6 +9,7 @@ categories: 算法
 mathjax: true
 ---
 
+## 描述
 该题来自于[力扣第16题](https://leetcode-cn.com/problems/3sum-closest/)
 给定一个包括`n`个整数的数组`nums`和一个目标值`target`。找出`nums`中的三个整数，使得它们的和与`target`最接近。返回这三个数的和。假定每组输入只存在唯一答案。
 
@@ -34,8 +35,7 @@ mathjax: true
 3. 如果`s<target`，那么移动指针`third`，只会让`s`更小，从而与`target`相差更大，所以让`second--`
 
 经过上述步骤，如果没有返回，记录`s-target`的绝对值是否是最小的，并更新s，然后遍历`first`就可以找到最终结果了。
-## 具体算法
-具体算法如下：
+## 算法
 1. 排序数组
 2. 将最接近`target`的值`closest`初始化为`nums[0]+nums[1]+nums[2]`
 3. 第一个数下标`first`从`0`到`n-3`遍历数组

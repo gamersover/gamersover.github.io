@@ -9,7 +9,7 @@ categories: 算法
 mathjax: true
 ---
 
-## 题目描述
+## 描述
 
 该题来自于[力扣第八题](https://leetcode-cn.com/problems/string-to-integer-atoi)
 

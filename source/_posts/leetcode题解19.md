@@ -9,6 +9,7 @@ categories: 算法
 mathjax: true
 ---
 
+## 描述
 该题来自于[力扣第19题](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
 
 给你一个链表，删除链表的倒数第`n`个结点，并且返回链表的头结点。
