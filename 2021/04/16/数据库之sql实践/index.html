@@ -21,16 +21,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="概述数据库，顾名思义用来存放数据的地方，可以把数据库比作图书馆，图书馆里面有不同区域相当于不同的数据库（database），而每个区域又存放着不同的书籍，相当于每个database含有很多表（table），图中表现了这种关系。而表中有包含数据，数据是由记录（行）和字段（列）构成的，每条记录的字段的数据就是存储的数据。">
+  <meta name="description" content="概述数据库，顾名思义用来存放数据的地方，可以把数据库比作图书馆，图书馆里面有不同区域相当于不同的数据库（database），而每个区域又存放着不同的书籍，相当于每个database含有很多表（table），图中表现了这种关系。">
 <meta name="keywords" content="大数据,sql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库之sql实践">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;04&#x2F;16&#x2F;%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8Bsql%E5%AE%9E%E8%B7%B5&#x2F;index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="概述数据库，顾名思义用来存放数据的地方，可以把数据库比作图书馆，图书馆里面有不同区域相当于不同的数据库（database），而每个区域又存放着不同的书籍，相当于每个database含有很多表（table），图中表现了这种关系。而表中有包含数据，数据是由记录（行）和字段（列）构成的，每条记录的字段的数据就是存储的数据。">
+<meta property="og:description" content="概述数据库，顾名思义用来存放数据的地方，可以把数据库比作图书馆，图书馆里面有不同区域相当于不同的数据库（database），而每个区域又存放着不同的书籍，相当于每个database含有很多表（table），图中表现了这种关系。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-05-03T04:34:26.261Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;gamersover&#x2F;hexo_blog_assets&#x2F;main&#x2F;%E6%95%B0%E6%8D%AE%E5%BA%93&#x2F;No1.jpg">
+<meta property="og:updated_time" content="2021-05-10T13:21:10.828Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;gamersover&#x2F;hexo_blog_assets&#x2F;main&#x2F;%E6%95%B0%E6%8D%AE%E5%BA%93&#x2F;No1.jpg">
 
 <link rel="canonical" href="http://yoursite.com/2021/04/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8Bsql%E5%AE%9E%E8%B7%B5/">
 
@@ -121,7 +123,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">51</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">53</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -131,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">46</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">47</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -221,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-03 12:34:26" itemprop="dateModified" datetime="2021-05-03T12:34:26+08:00">2021-05-03</time>
+                <time title="修改时间：2021-05-10 21:21:10" itemprop="dateModified" datetime="2021-05-10T21:21:10+08:00">2021-05-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -246,14 +248,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -272,9 +274,9 @@
     2. 接着介绍sql关键词的书写顺序和执行顺序
     3. 再介绍一些实践操作和join等等操作
 -->
-<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>数据库，顾名思义用来存放数据的地方，可以把数据库比作图书馆，图书馆里面有不同区域相当于不同的数据库（database），而每个区域又存放着不同的书籍，相当于每个database含有很多表（table），图中表现了这种关系。而表中有包含数据，数据是由记录（行）和字段（列）构成的，每条记录的字段的数据就是存储的数据。</p>
-<a id="more"></a>
-<p>表即普通的表格，下表中有两条记录（两行），三个字段（三列）为<code>id</code>，<code>name</code>，<code>age</code>。</p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>数据库，顾名思义用来存放数据的地方，可以把数据库比作图书馆，图书馆里面有不同区域相当于不同的数据库（database），而每个区域又存放着不同的书籍，相当于每个database含有很多表（table），图中表现了这种关系。<br><a id="more"></a></p>
+<p><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E6%8D%AE%E5%BA%93/No1.jpg" width="25%"></p>
+<p>而表中有包含数据，数据是由记录（行）和字段（列）构成的，每条记录的字段的数据就是存储的数据。表即普通的表格，下表中有两条记录（两行），三个字段（三列）为<code>id</code>，<code>name</code>，<code>age</code>。</p>
 <div class="table-container">
 <table>
 <thead>
@@ -317,7 +319,13 @@
 </li>
 </ul>
 <h3 id="表操作sql"><a href="#表操作sql" class="headerlink" title="表操作sql"></a>表操作sql</h3><ul>
-<li><strong>创建表</strong></li>
+<li><p><strong>create table</strong>： 创建表<br>语法：  </p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE 表名</span><br><span class="line">(</span><br><span class="line">字段名<span class="number">1</span> 数据类型,</span><br><span class="line">字段名<span class="number">2</span> 数据类型,</span><br><span class="line">字段名<span class="number">3</span> 数据类型,</span><br><span class="line">...</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>数据库的基本数据类型可以分为三种：数字型，字符串型，日期型，而数字型又有整型和小数。由于每一种数据库的数据类型不太一样，以mysql为例</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> create table dc_character(</span></span><br><span class="line">       id int,</span><br><span class="line">       name varchar(255),</span><br><span class="line">       age int)</span><br><span class="line">Query OK, 0 rows affected (2.60 sec)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>desc tables</strong>：查看表详情</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> desc dc_character;</span></span><br><span class="line">+-------+--------------+------+-----+---------+-------+</span><br><span class="line">| Field | Type         | Null | Key | Default | Extra |</span><br><span class="line">+-------+--------------+------+-----+---------+-------+</span><br><span class="line">| id    | int          | YES  |     | NULL    |       |</span><br><span class="line">| name  | varchar(255) | YES  |     | NULL    |       |</span><br><span class="line">| age   | int          | YES  |     | NULL    |       |</span><br><span class="line">+-------+--------------+------+-----+---------+-------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </div>
@@ -421,7 +429,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -434,7 +442,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -476,13 +484,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">191k</span>
+    <span title="站点总字数">199k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:54</span>
+    <span title="站点阅读时长">3:01</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

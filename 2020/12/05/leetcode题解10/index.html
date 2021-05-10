@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="该题来自于力扣第10题 给你一个字符串s和一个字符规律p，请你来实现一个支持&amp;#39;.&amp;#39;和&amp;#39;*&amp;#39;的正则表达式匹配。 &amp;#39;.&amp;#39;匹配任意单个字符&amp;#39;*&amp;#39;匹配零个或多个前面的那一个元素所谓匹配，是要涵盖整个字符串s的，而不是部分字符串。">
+  <meta name="description" content="描述该题来自于力扣第10题 给你一个字符串s和一个字符规律p，请你来实现一个支持&amp;#39;.&amp;#39;和&amp;#39;*&amp;#39;的正则表达式匹配。 &amp;#39;.&amp;#39;匹配任意单个字符&amp;#39;*&amp;#39;匹配零个或多个前面的那一个元素所谓匹配，是要涵盖整个字符串s的，而不是部分字符串。">
 <meta name="keywords" content="leetcode,字符串,正则表达式,动态规划">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode题解10：正则表达式匹配">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;12&#x2F;05&#x2F;leetcode%E9%A2%98%E8%A7%A310&#x2F;index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="该题来自于力扣第10题 给你一个字符串s和一个字符规律p，请你来实现一个支持&amp;#39;.&amp;#39;和&amp;#39;*&amp;#39;的正则表达式匹配。 &amp;#39;.&amp;#39;匹配任意单个字符&amp;#39;*&amp;#39;匹配零个或多个前面的那一个元素所谓匹配，是要涵盖整个字符串s的，而不是部分字符串。">
+<meta property="og:description" content="描述该题来自于力扣第10题 给你一个字符串s和一个字符规律p，请你来实现一个支持&amp;#39;.&amp;#39;和&amp;#39;*&amp;#39;的正则表达式匹配。 &amp;#39;.&amp;#39;匹配任意单个字符&amp;#39;*&amp;#39;匹配零个或多个前面的那一个元素所谓匹配，是要涵盖整个字符串s的，而不是部分字符串。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-01-03T07:14:37.002Z">
+<meta property="og:updated_time" content="2021-05-05T04:23:29.464Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/12/05/leetcode%E9%A2%98%E8%A7%A310/">
@@ -121,7 +121,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">51</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">53</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">46</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">47</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-03 15:14:37" itemprop="dateModified" datetime="2021-01-03T15:14:37+08:00">2021-01-03</time>
+                <time title="修改时间：2021-05-05 12:23:29" itemprop="dateModified" datetime="2021-05-05T12:23:29+08:00">2021-05-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -265,7 +265,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>该题来自于力扣<a href="https://leetcode-cn.com/problems/regular-expression-matching" target="_blank" rel="noopener">第10题</a></p>
+        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于力扣<a href="https://leetcode-cn.com/problems/regular-expression-matching" target="_blank" rel="noopener">第10题</a></p>
 <p>给你一个字符串<code>s</code>和一个字符规律<code>p</code>，请你来实现一个支持<code>&#39;.&#39;</code>和<code>&#39;*&#39;</code>的正则表达式匹配。</p>
 <p><code>&#39;.&#39;</code>匹配任意单个字符<br><code>&#39;*&#39;</code>匹配零个或多个前面的那一个元素<br>所谓匹配，是要涵盖<strong>整个</strong>字符串<code>s</code>的，而不是部分字符串。</p>
 <a id="more"></a>
@@ -301,7 +301,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="最终算法"><a href="#最终算法" class="headerlink" title="最终算法"></a>最终算法</h3><p>根据前面分析知道，麻烦在于<code>p[j]=&#39;*&#39;</code>时的处理，实际上无论<code>s[i]</code>与<code>p[j-1]</code>是否匹配到了，<code>*</code>前面的字符都可能不匹配<code>s</code>中的字符，也就是说<code>dp[i][j] = dp[i][j-2]</code>或者<code>dp[i][j] = dp[i][j-2] | dp[i-1][j]</code>；<br>所以实现的时候可以让<code>dp[i][j]</code>初始化为<code>false</code>，按照<code>dp[i][j]</code>的定义，<code>i,j</code>都必须大于0，这时可以让<code>dp[i][j]</code>表示两个空字符串是否匹配，当然设为<code>true</code>了，最后按照方程进行状态转移就可以了</p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>根据前面分析知道，麻烦在于<code>p[j]=&#39;*&#39;</code>时的处理，实际上无论<code>s[i]</code>与<code>p[j-1]</code>是否匹配到了，<code>*</code>前面的字符都可能不匹配<code>s</code>中的字符，也就是说<code>dp[i][j] = dp[i][j-2]</code>或者<code>dp[i][j] = dp[i][j-2] | dp[i-1][j]</code>；<br>所以实现的时候可以让<code>dp[i][j]</code>初始化为<code>false</code>，按照<code>dp[i][j]</code>的定义，<code>i,j</code>都必须大于0，这时可以让<code>dp[i][j]</code>表示两个空字符串是否匹配，当然设为<code>true</code>了，最后按照方程进行状态转移就可以了</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><details open>
 <summary>python3</summary>
 
@@ -408,7 +408,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最终算法"><span class="nav-text">最终算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -424,7 +424,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -437,7 +437,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -479,13 +479,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">191k</span>
+    <span title="站点总字数">199k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:54</span>
+    <span title="站点阅读时长">3:01</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

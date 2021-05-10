@@ -31,7 +31,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;gamersover&#x2F;hexo_blog_assets&#x2F;main&#x2F;pyqt%E6%95%99%E7%A8%8B&#x2F;No4.gif">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;gamersover&#x2F;hexo_blog_assets&#x2F;main&#x2F;pyqt%E6%95%99%E7%A8%8B&#x2F;No5.gif">
-<meta property="og:updated_time" content="2021-05-03T12:34:25.156Z">
+<meta property="og:updated_time" content="2021-05-09T06:26:20.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;gamersover&#x2F;hexo_blog_assets&#x2F;main&#x2F;pyqt%E6%95%99%E7%A8%8B&#x2F;No4.gif">
 
@@ -124,7 +124,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">51</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">53</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">46</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">47</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-03 20:34:25" itemprop="dateModified" datetime="2021-05-03T20:34:25+08:00">2021-05-03</time>
+                <time title="修改时间：2021-05-09 14:26:20" itemprop="dateModified" datetime="2021-05-09T14:26:20+08:00">2021-05-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -249,14 +249,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>3.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -274,7 +274,7 @@
 <li>QTextEdit：多行文本编辑框</li>
 </ul>
 <a id="more"></a>
-<h4 id="QLineEdit（单行文本编辑框）"><a href="#QLineEdit（单行文本编辑框）" class="headerlink" title="QLineEdit（单行文本编辑框）"></a>QLineEdit（单行文本编辑框）</h4><p>展示<br><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No4.gif" width="25%"></p>
+<h3 id="QLineEdit（单行文本编辑框）"><a href="#QLineEdit（单行文本编辑框）" class="headerlink" title="QLineEdit（单行文本编辑框）"></a>QLineEdit（单行文本编辑框）</h3><p>展示<br><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No4.gif" width="25%"></p>
 <p>该控件一般用来输入用户名或密码等简要内容，其写法如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">line_edit = QLineEdit()</span><br><span class="line">line_edit.setPlaceholderText(<span class="string">"密码"</span>)</span><br><span class="line">line_edit.setClearButtonEnabled(<span class="literal">True</span>)</span><br><span class="line">line_edit.setEchoMode(QLineEdit.EchoMode.Password)</span><br></pre></td></tr></table></figure><br>其基本属性包含：</p>
 <div class="table-container">
 <table>
@@ -322,6 +322,11 @@
 <td style="text-align:left">设置文本自动补全</td>
 </tr>
 <tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setFont(a0: QtGui.QFont)</td>
+<td style="text-align:left">设置文本字体</td>
+</tr>
+<tr>
 <td style="text-align:left">获取文本状态</td>
 <td style="text-align:left">text()-&gt;str</td>
 <td style="text-align:left">获取文本</td>
@@ -354,7 +359,7 @@
 </tbody>
 </table>
 </div>
-<h4 id="QTextEdit：多行文本编辑框"><a href="#QTextEdit：多行文本编辑框" class="headerlink" title="QTextEdit：多行文本编辑框"></a>QTextEdit：多行文本编辑框</h4><p>展示<br><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No5.gif" width="25%"></p>
+<h3 id="QTextEdit（多行文本编辑框）"><a href="#QTextEdit（多行文本编辑框）" class="headerlink" title="QTextEdit（多行文本编辑框）"></a>QTextEdit（多行文本编辑框）</h3><p>展示<br><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No5.gif" width="25%"></p>
 <p>该控件用来实现大量文本的输入与显示，写法如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text_edit = QTextEdit()</span><br><span class="line">text_edit.setPlaceholderText(<span class="string">"请输入"</span>)</span><br></pre></td></tr></table></figure>
 <p>基本属性有：</p>
@@ -409,6 +414,16 @@
 <td style="text-align:left">当参数为<code>NoWrap</code>时，文本长度宽度后不自动换行显示，这时通过拖动水平滚动条查看超出的内容</td>
 </tr>
 <tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setFont(a0: QtGui.QFont)</td>
+<td style="text-align:left">设置文本字体</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setTextColor(c: typing.Union[QtGui.QColor, QtCore.Qt.GlobalColor, QtGui.QGradient])</td>
+<td style="text-align:left">设置字体颜色</td>
+</tr>
+<tr>
 <td style="text-align:left">获取文本状态</td>
 <td style="text-align:left">toPlainText()-&gt;str</td>
 <td style="text-align:left">将显示文本转换为普通文本并返回</td>
@@ -441,8 +456,168 @@
 </tbody>
 </table>
 </div>
-<h4 id="字体与颜色"><a href="#字体与颜色" class="headerlink" title="字体与颜色"></a>字体与颜色</h4><p>文本类肯定离不开字体与颜色，PyQt5的字体与颜色分别在</p>
-<h5 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h5>
+<h3 id="字体和字体颜色"><a href="#字体和字体颜色" class="headerlink" title="字体和字体颜色"></a>字体和字体颜色</h3><p>文本类肯定离不开字体以及字体颜色，而Qt5的字体类型与字体颜色是分开的，都是在<code>QtGui</code>类中</p>
+<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>字体在<code>QtGui.QFont</code>类中，初始化方法<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">font = QFont(family: str, pointSize: int, weight: int, italic: bool)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>family：字体风格</li>
+<li>pointSize：字体大小，可选参数</li>
+<li>weight：字体粗细，可选参数</li>
+<li>italic：是否斜体，可选参数</li>
+</ul>
+<p>基本属性有：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">API</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">设置文本属性</td>
+<td style="text-align:left">setWordSpacing(spacing: float)</td>
+<td style="text-align:left">设置文本间距</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setBold(enable: bool)</td>
+<td style="text-align:left">设置文本加粗</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setFamily(a0: str)</td>
+<td style="text-align:left">设置字体风格</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setPointSize(a0: int)</td>
+<td style="text-align:left">设置文本大小（字号单位）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setPixelSize(a0: int)</td>
+<td style="text-align:left">设置文本大小（像素单位）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setWeight(a0: int)</td>
+<td style="text-align:left">设置文本粗细，比<code>setBold</code>细粒度设置</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setItalic(b: bool)</td>
+<td style="text-align:left">设置斜体</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setOverline(a0: bool)</td>
+<td style="text-align:left">设置字体上划线</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setunderline(a0: bool)</td>
+<td style="text-align:left">设置字体下划线</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setLetterSpacing(type: ‘QFont.SpacingType’, spacing: float)</td>
+<td style="text-align:left">设置字间距</td>
+</tr>
+<tr>
+<td style="text-align:left">获取文本属性</td>
+<td style="text-align:left">family() -&gt; str</td>
+<td style="text-align:left">获取字体风格</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">pointSize() -&gt; int</td>
+<td style="text-align:left">获取字体大小（字号单位）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">pixelSize() -&gt; int</td>
+<td style="text-align:left">获取文本大小（像素单位）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>比如对<code>QLineEdit</code>设置字体：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">line_edit = QLineEdit()</span><br><span class="line">font = QFont(<span class="string">"Arial"</span>, <span class="number">20</span>)</span><br><span class="line"><span class="comment"># 设置字间距</span></span><br><span class="line">font.setLetterSpacing(QFont.SpacingType.AbsoluteSpacing, <span class="number">10</span>)</span><br><span class="line">line_edit.setFont(font)</span><br></pre></td></tr></table></figure></p>
+<h4 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h4><p>字体在<code>QtGui.QColor</code>类中，初始化方法有</p>
+<ol>
+<li><code>QColor(rgb: int)</code></li>
+<li><code>QColor(r: int, g: int, b: int, alpha: int)</code>：alpha表示透明度，可选参数，取值0-255，0表示完全透明，255表示无透明</li>
+<li><code>QColor(self, aname: str)</code></li>
+</ol>
+<p>比如初始化一个红色<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">color = QColor(<span class="string">"red"</span>)</span><br><span class="line">color = QColor(<span class="number">0xff00ff</span>)</span><br><span class="line">color = QColor(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<p>基本属性有：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">API</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">设置颜色</td>
+<td style="text-align:left">setCmyk(c: int, m: int, y: int, k: int, alpha: int)</td>
+<td style="text-align:left">设置颜色（cmyk格式）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setHsl(h: int, s: int, l: int, alpha: int)</td>
+<td style="text-align:left">设置颜色（hsl格式）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setHsv(h: int, s: int, v: int, alpha: int)</td>
+<td style="text-align:left">设置颜色（hsv格式）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">setAlpha(alpha: int)</td>
+<td style="text-align:left">设置颜色透明度</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">darker(factor: int)</td>
+<td style="text-align:left">根据factor参数返回一个更深的颜色</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">lighter(factor: int)</td>
+<td style="text-align:left">根据factor参数返回一个更浅的颜色</td>
+</tr>
+<tr>
+<td style="text-align:left">获取颜色</td>
+<td style="text-align:left">getCmyk() -&gt; Tuple[int, int, int, int, int]</td>
+<td style="text-align:left">获取颜色（cmyk格式）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">getHsl() -&gt; Tuple[int, int, int, int]</td>
+<td style="text-align:left">获取颜色（hsl格式）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">getHsv() -&gt; Tuple[int, int, int, int]</td>
+<td style="text-align:left">获取颜色（hsv格式）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">getRgb() -&gt; Tuple[int, int, int, int]</td>
+<td style="text-align:left">获取颜色（rgb格式）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>比如对<code>QTextEdit</code>设置字体：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">text_edit = QTextEdit()</span><br><span class="line">color = QColor(<span class="string">"red"</span>)</span><br><span class="line">text_edit.setTextColor(color)</span><br></pre></td></tr></table></figure></p>
+<p>！注意: <code>QLineEdit</code>并没有<code>setTextColor</code>方法，所以不能直接设置颜色，这时需要使用更加强大的<code>QSS</code>来配置，类似于网页设计中的<code>CSS</code>。后续章节会详细介绍。</p>
+
     </div>
 
     
@@ -466,7 +641,10 @@
     <a href="/2021/04/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%862/" rel="prev" title="函数积分二：Riemann积分">
       <i class="fa fa-chevron-left"></i> 函数积分二：Riemann积分
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/05/leetcode%E9%A2%98%E8%A7%A323/" rel="next" title="leetcode题解23：合并K个升序链表">
+      leetcode题解23：合并K个升序链表 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -526,7 +704,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#QLineEdit（单行文本编辑框）"><span class="nav-text">QLineEdit（单行文本编辑框）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#QTextEdit：多行文本编辑框"><span class="nav-text">QTextEdit：多行文本编辑框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体与颜色"><span class="nav-text">字体与颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字体"><span class="nav-text">字体</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#QLineEdit（单行文本编辑框）"><span class="nav-text">QLineEdit（单行文本编辑框）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QTextEdit（多行文本编辑框）"><span class="nav-text">QTextEdit（多行文本编辑框）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字体和字体颜色"><span class="nav-text">字体和字体颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字体"><span class="nav-text">字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#颜色"><span class="nav-text">颜色</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -542,7 +720,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -555,7 +733,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -597,13 +775,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">191k</span>
+    <span title="站点总字数">199k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:54</span>
+    <span title="站点阅读时长">3:01</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
