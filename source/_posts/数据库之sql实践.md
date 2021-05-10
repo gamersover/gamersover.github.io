@@ -106,4 +106,35 @@ categories: 技术
   ```
 
 ### 表操作sql
-* **创建表**
+* **create table**： 创建表
+语法：  
+  ```
+  CREATE TABLE 表名
+  (
+  字段名1 数据类型,
+  字段名2 数据类型,
+  字段名3 数据类型,
+  ...
+  )
+  ```
+  数据库的基本数据类型可以分为三种：数字型，字符串型，日期型，而数字型又有整型和小数。由于每一种数据库的数据类型不太一样，以mysql为例
+  ```shell
+  mysql> create table dc_character(
+         id int,
+         name varchar(255),
+         age int)
+  Query OK, 0 rows affected (2.60 sec)
+  ```
+
+* **desc tables**：查看表详情
+  ```shell
+  mysql> desc dc_character;
+  +-------+--------------+------+-----+---------+-------+
+  | Field | Type         | Null | Key | Default | Extra |
+  +-------+--------------+------+-----+---------+-------+
+  | id    | int          | YES  |     | NULL    |       |
+  | name  | varchar(255) | YES  |     | NULL    |       |
+  | age   | int          | YES  |     | NULL    |       |
+  +-------+--------------+------+-----+---------+-------+
+  3 rows in set (0.00 sec)
+  ```
