@@ -126,7 +126,7 @@ categories: 技术
   Query OK, 0 rows affected (2.60 sec)
   ```
 
-* **desc tables**：查看表详情
+* **desc 表名**：查看表详情
   ```shell
   mysql> desc dc_character;
   +-------+--------------+------+-----+---------+-------+
@@ -138,3 +138,7 @@ categories: 技术
   +-------+--------------+------+-----+---------+-------+
   3 rows in set (0.00 sec)
   ```
+
+* **insert into 表名**：表中插入数据
+
+* ****
