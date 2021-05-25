@@ -22,14 +22,14 @@
   </script>
 
   <meta name="description" content="定理1 设函数$f$在$[a,b]$上Riemann可积，则$f$在$[a,b]$上有界。">
-<meta name="keywords" content="数学分析,函数积分,Riemann积分,零测集">
+<meta name="keywords" content="数学分析,函数积分,Riemann积分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数积分三：可积性理论">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;05&#x2F;14&#x2F;%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%863&#x2F;index.html">
 <meta property="og:site_name" content="尘雨尘风">
 <meta property="og:description" content="定理1 设函数$f$在$[a,b]$上Riemann可积，则$f$在$[a,b]$上有界。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-05-24T14:12:19.799Z">
+<meta property="og:updated_time" content="2021-05-25T13:19:05.060Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/05/14/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%863/">
@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">49</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">50</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 22:12:19" itemprop="dateModified" datetime="2021-05-24T22:12:19+08:00">2021-05-24</time>
+                <time title="修改时间：2021-05-25 21:19:05" itemprop="dateModified" datetime="2021-05-25T21:19:05+08:00">2021-05-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -246,14 +246,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4k</span>
+              <span>6.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -269,7 +269,7 @@
 <p>设函数$f$在$[a,b]$上Riemann可积，则$f$在$[a,b]$上有界。</p>
 </blockquote>
 <a id="more"></a>
-<p>证：设$f$在$[a,b]$上的积分为$I$，则由<a href="todo">定义2</a>可知，对$\varepsilon = 1$，必存在一个分割$\pi$，使得</p>
+<p>证：设$f$在$[a,b]$上的积分为$I$，则由<a href="https://gamersover.github.io/2021/04/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%862/#%E5%AE%9A%E4%B9%892%EF%BC%9ARiemann%E7%A7%AF%E5%88%86" target="_blank" rel="noopener">函数积分二的定义2</a>可知，对$\varepsilon = 1$，必存在一个分割$\pi$，使得</p>
 <script type="math/tex; mode=display">
     \left| \sum_{i=1}^nf(\xi_i) \Delta x_i - I \right| < I</script><p>这里值点$\xi_i \in [x_{i-1}, x_i] (1 \le i \le n)$可以任取，由上式可得</p>
 <script type="math/tex; mode=display">
@@ -277,7 +277,7 @@
 <script type="math/tex; mode=display">
     |f(\xi_1)| \Delta x_1 < |I| + 1 + \left| \sum_{i=2}^n f(\xi_i) \Delta x_i \right|</script><p>即</p>
 <script type="math/tex; mode=display">
-    |f(\xi_i)| < \frac{1}{\Delta x_i} \left( |I| + 1 + \left| \sum_{i=2}^n f(\xi_i) \Delta x_i \right| \right)</script><p>此时，把在$[x_{i-1},x_i]$中的$\xi_i$固定下来(i=2,3,\cdots,n)，则上式右边是一个确定的正数，而$\xi_i$可以在$[x_0,x_1]$上任取，这就证明了$f$在区间$[x_0,x_1]$上有界。同理$f$在子区间$[x_{i-1},x_i] (i=2,3,\cdots,n)$上都是有界的，所以$f$在区间$[a,b]$上有界。</p>
+    |f(\xi_i)| < \frac{1}{\Delta x_i} \left( |I| + 1 + \left| \sum_{i=2}^n f(\xi_i) \Delta x_i \right| \right)</script><p>此时，把在$[x_{i-1}, x_i]$中的$\xi_i$固定下来$(i=2,3,\cdots,n)$，则上式右边是一个确定的正数，而$\xi_i$可以在$[x_0,x_1]$上任取，这就证明了$f$在区间$[x_0,x_1]$上有界。同理$f$在子区间$[x_{i-1},x_i] (i=2,3,\cdots,n)$上都是有界的，所以$f$在区间$[a,b]$上有界。</p>
 <p>Q.E.D.</p>
 <h4 id="定义1：振幅"><a href="#定义1：振幅" class="headerlink" title="定义1：振幅"></a>定义1：振幅</h4><blockquote>
 <p>设函数$f$在区间$[a,b]$上有界，用$M$与$m$分别表示$f$在$[a,b]$上的上确界和下确界，令$\omega = M - m$，称$\omega$为函数$f$在区间$[a,b]$上的振幅。</p>
@@ -285,7 +285,7 @@
 <h4 id="定义2：上和与下和"><a href="#定义2：上和与下和" class="headerlink" title="定义2：上和与下和"></a>定义2：上和与下和</h4><blockquote>
 <p>设函数$f$在区间$[a,b]$上有界，对$[a,b]$上的任何分割</p>
 <script type="math/tex; mode=display">
-    \pi : a = x_0 < x_1 < \cdots < x_n = b</script><p>在$\pi$的第$i$个子区间$[x_i-1, x_i]$上$f$的上确界与下确界分别记为$M_i$与$m_i$，并令$\omega_i = M_i - m_i$，称$\omega_i$为$f$在$[x_i-1,x_i]$上的振幅，这里$i=1,2,\cdots,n$。定义</p>
+    \pi : a = x_0 < x_1 < \cdots < x_n = b</script><p>在$\pi$的第$i$个子区间$[x_i-1, x_i]$上$f$的上确界与下确界分别记为$M_i$与$m_i$，并令$\omega_i = M_i - m_i$，称$\omega_i$为$f$在$[x_{i-1}, x_i]$上的振幅，这里$i=1,2,\cdots,n$。定义</p>
 <script type="math/tex; mode=display">
     \overline S (f, \pi) = \sum_{i=1}^n M_i \Delta x_i, \quad \underline S(f, \pi) = \sum_{i=1}^n m_i \Delta x_i</script><p>并分别称它们是$f$关于分割$\pi$的上和与下和。</p>
 </blockquote>
@@ -319,7 +319,7 @@
 <h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
 <p>对于任意两个分割，一个分割的下和总是不超过另一个分割的上和。</p>
 </blockquote>
-<p>证：设$\pi_1$与$\pi_2$是$[a,b]$上的两个分割，如果$\pi_1$的所有分点都是$\pi_2$的分点，则称分割$\pi_2$比$\pi_1$更细或者分割$\pi_1$比$\pi_2$更粗，记为$\pi_1 \le \pi_2$；将$\pi_1$的分点与$\pi_2$的分点合并组成新的分割记为$\pi = \pi_1 + \pi_2$，则显然有$\pi_1 + \pi_2 \le \pi_i (i=1,2)$，则由<a href="todo">定理2</a>可知</p>
+<p>证：设$\pi_1$与$\pi_2$是$[a,b]$上的两个分割，如果$\pi_1$的所有分点都是$\pi_2$的分点，则称分割$\pi_2$比$\pi_1$更细或者分割$\pi_1$比$\pi_2$更粗，记为$\pi_1 \le \pi_2$；将$\pi_1$的分点与$\pi_2$的分点合并组成新的分割记为$\pi = \pi_1 + \pi_2$，则显然有$\pi_1 + \pi_2 \le \pi_i (i=1,2)$，则由<a href="https://gamersover.github.io/2021/05/14/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%863/#%E5%AE%9A%E7%90%862" target="_blank" rel="noopener">定理2</a>可知</p>
 <script type="math/tex; mode=display">
     \underline S(f, \pi_1) \le \underline S(f, \pi) \le \overline S(f, \pi) \le \overline S(f, \pi_2)</script><p>Q.E.D.</p>
 <h4 id="定义3：上积分和下积分"><a href="#定义3：上积分和下积分" class="headerlink" title="定义3：上积分和下积分"></a>定义3：上积分和下积分</h4><blockquote>
@@ -335,7 +335,7 @@
 <script type="math/tex; mode=display">
     \underline I = \sup_m  \underline S(f, \pi)</script><p>从而对任意的$\varepsilon &gt; 0$，存在$[a,b]$上的一个分割$\pi_0$，使得</p>
 <script type="math/tex; mode=display">
-    \underline S (f, \pi_0) > \underline I - \frac{\varepsilon}{2}</script><p>设$\pi_0$有$l$个内分点，将$\pi_0$和$\pi$的分点组合称新的分割$\pi^\prime$，则$\pi^\prime$是在$\pi$的分点基础上至多添加了$l$个分点的分割，从而由<a href="todo">定理2</a>可知，</p>
+    \underline S (f, \pi_0) > \underline I - \frac{\varepsilon}{2}</script><p>设$\pi_0$有$l$个内分点，将$\pi_0$和$\pi$的分点组合称新的分割$\pi^\prime$，则$\pi^\prime$是在$\pi$的分点基础上至多添加了$l$个分点的分割，从而由<a href="https://gamersover.github.io/2021/05/14/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%863/#%E5%AE%9A%E7%90%862" target="_blank" rel="noopener">定理2</a>可知，</p>
 <script type="math/tex; mode=display">
     \underline S(f, \pi^\prime) \le \underline S(f, \pi) + l\omega \Vert \pi \Vert</script><p>则</p>
 <script type="math/tex; mode=display">
@@ -348,15 +348,55 @@
     0 < \underline I - \underline S(f, \pi) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon</script><p>即</p>
 <script type="math/tex; mode=display">
     \lim \limits_{\Vert \pi \Vert \to 0} \underline S(f, \pi) = \underline I</script><p>Q.E.D.</p>
-<!--下面内容移到讲完lebegue定理后，估计函数积分4-->
-<h4 id="定理4：积分的可加性"><a href="#定理4：积分的可加性" class="headerlink" title="定理4：积分的可加性"></a>定理4：积分的可加性</h4><blockquote>
-<p>设$c \in (a,b)$，函数$f$在$[a,c],[c,b]$上可积，那么$f$在$[a,b]$上也可积，且</p>
-<script type="math/tex; mode=display">
-    \int_a^b f(x) \mathrm{d} x = \int_a^c f(x) \mathrm{d} x + \int_c^b f(x) \mathrm{d} x</script></blockquote>
-<p>证：</p>
-<h4 id="定理：Talyor公式的积分余项"><a href="#定理：Talyor公式的积分余项" class="headerlink" title="定理：Talyor公式的积分余项"></a>定理：Talyor公式的积分余项</h4><blockquote>
-<p>设函数$f$在$(a,b)$有直到$n+1$阶的连续导函数，对任意</p>
+<h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h4><blockquote>
+<p>设函数$f:[a,b] \to \mathbb{R}$有界，则以下三个条件互相等价： <br/><br>（1）$f$在$[a,b]$上可积； <br/><br>（2）$\displaystyle \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^n \omega_i \Delta x_i = 0$，其中$\omega_i = M_i - m_i$是$f$在$[x_{i-1}, x_i] (i=1,2,\cdots,n)$上的振幅； <br/><br>（3）$\underline I = \overline I$。</p>
 </blockquote>
+<p>证：$(1)\Rightarrow (2)$<br>设$f$在$[a,b]$上的积分值为$I$，则对任意的$\varepsilon &gt; 0$，存在$\delta &gt; 0$，使得对任意满足$\Vert \pi \Vert &lt; \delta$的分割$\pi$，有</p>
+<script type="math/tex; mode=display">
+    I - \frac{\varepsilon}{3} < \sum_{i=1}^n f(\xi_i) \Delta x_i < I + \frac{\varepsilon}{3}</script><p>对一切值点$\xi_i \in [x_{i-1}, x_i] (i=1,2,\cdots,n)$成立，从而有</p>
+<script type="math/tex; mode=display">
+    I - \frac{\varepsilon}{3} \le \underline S(f, \pi) \le \overline S(f, \pi) \le I - \frac{\varepsilon}{3}</script><p>从而有</p>
+<script type="math/tex; mode=display">
+    0 < \sum_{i=1}^n \omega_i \Delta x_i \le I - \frac{2}{3}\varepsilon < \varepsilon</script><p>$(2)\Rightarrow (3)$<br>若（2）成立，则有</p>
+<script type="math/tex; mode=display">
+    0 \le \overline I - \underline I \le \overline S(f, \pi) - \underline S(f, \pi) = \sum \limits_{i=1}^n \omega_i \Delta x_i < \varepsilon</script><p>由于$\varepsilon$是任何的正数，所以$\overline I = \underline I$。<br>$(3) \Rightarrow (1)$<br>设$\overline I = \underline I = I$，则对任意的分割$\pi$，有</p>
+<script type="math/tex; mode=display">
+    \underline S(f, \pi) \le \sum_{i=1}^n f(\xi_i) \Delta x_i \le \overline S(f, \pi)</script><p>两边同时取极限$\Vert \pi \Vert \to 0$，得到</p>
+<script type="math/tex; mode=display">
+    \underline I \le \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^n f(\xi_i) \Delta x_i \le \overline I</script><p>所以</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^n f(\xi_i) \Delta x_i = I</script><p>即$f$在$[a,b]$上可积。</p>
+<p>Q.E.D.</p>
+<h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><blockquote>
+<p>设$f$是定义在$[a,b]$上的单调函数，则$f$在$[a,b]$上可积。</p>
+</blockquote>
+<p>证：不失一般性，不妨设$f$是递增函数，若$f(a)=f(b)$，则$f$在$[a,b]$上是常数，显然可积。下面设$f(b) &gt; f(a)$，对任意给定的$\varepsilon &gt; 0$，有</p>
+<script type="math/tex; mode=display">
+    \begin{aligned} 
+        0 & \le \sum_{i=1}^n \omega_i \Delta x_i = \sum \limits_{i=1}^n (M_i - m_i) \Delta x_i \\
+        & \le \sum_{i=1}^n (f(x_i) - f(x_{i-1})) \Delta x_i \\
+        & \le \Vert \pi \Vert (f(b) - f(a))
+    \end{aligned}</script><p>所以取$\displaystyle \delta = \frac{\varepsilon}{f(b) - f(a)}$，只要分割$\pi$满足$\Vert \pi \Vert &lt; \delta$，就有</p>
+<script type="math/tex; mode=display">
+    0 < \sum \limits_{i=1}^n \omega_i \Delta x_i < \varepsilon</script><p>所以$f$在$[a,b]$上可积。</p>
+<p>Q.E.D.</p>
+<h4 id="定理7"><a href="#定理7" class="headerlink" title="定理7"></a>定理7</h4><blockquote>
+<p>设$f: [a,b] \to \mathbb{R}$是连续函数，则$f$在$[a,b]$上可积。</p>
+</blockquote>
+<p>证：由于$f$在$[a,b]$上一致连续，所以对任意给定的$\varepsilon &gt; 0$，必有$\delta &gt; 0$，使得当$s, t \in [a,b]$且$|s - t| &lt; \delta$时，有</p>
+<script type="math/tex; mode=display">
+    |f(s) - f(t)| < \frac{\varepsilon}{b - a}</script><p>对$[a,b]$上的一个分割</p>
+<script type="math/tex; mode=display">
+    \pi: a = x_0 < x_1 < \cdots < x_n = b</script><p>设</p>
+<script type="math/tex; mode=display">
+    M_i = f(s_i), \quad m_i = f(t_i)</script><p>其中$s_i, t_i \in [x_{i-1}, x_i] (i=1,2,\cdots,n)$，只要$\Vert \pi \Vert &lt; \delta$，就有</p>
+<script type="math/tex; mode=display">
+    |s_i - t_i| \le \Delta x_i \le \Vert \pi \Vert < \delta</script><p>从而有</p>
+<script type="math/tex; mode=display">
+    \begin{aligned} 
+    \sum_{i=1}^n \omega_i \Delta x_i = \sum \limits_{i=1}^n (M_i - m_i) \Delta x_i &= \sum \limits_{i=1}^n (f(s_i) - f(t_i)) \Delta x_i \\
+    & < \frac{\varepsilon}{b - a} \sum_{i=1}^n \Delta x_i = \varepsilon
+    \end{aligned}</script><p>所以$f$在$[a,b]$上可积。</p>
 
     </div>
 
@@ -370,7 +410,6 @@
               <a href="/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 数学分析</a>
               <a href="/tags/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> 函数积分</a>
               <a href="/tags/Riemann%E7%A7%AF%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> Riemann积分</a>
-              <a href="/tags/%E9%9B%B6%E6%B5%8B%E9%9B%86/" rel="tag"><i class="fa fa-tag"></i> 零测集</a>
           </div>
 
         
@@ -382,7 +421,10 @@
     <a href="/2021/05/14/UI%E5%BC%80%E5%8F%91%E4%B9%8BpyQt5-3/" rel="prev" title="UI开发之pyQt5-3：按钮类控件">
       <i class="fa fa-chevron-left"></i> UI开发之pyQt5-3：按钮类控件
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/25/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%864/" rel="next" title="函数积分4：Lebesgue定理">
+      函数积分4：Lebesgue定理 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -442,7 +484,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1：振幅"><span class="nav-text">定义1：振幅</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2：上和与下和"><span class="nav-text">定义2：上和与下和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义3：上积分和下积分"><span class="nav-text">定义3：上积分和下积分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4：Darboux"><span class="nav-text">定理4：Darboux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4：积分的可加性"><span class="nav-text">定理4：积分的可加性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理：Talyor公式的积分余项"><span class="nav-text">定理：Talyor公式的积分余项</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1：振幅"><span class="nav-text">定义1：振幅</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2：上和与下和"><span class="nav-text">定义2：上和与下和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义3：上积分和下积分"><span class="nav-text">定义3：上积分和下积分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4：Darboux"><span class="nav-text">定理4：Darboux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5"><span class="nav-text">定理5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理6"><span class="nav-text">定理6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理7"><span class="nav-text">定理7</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -458,7 +500,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -513,13 +555,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">210k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:11</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
