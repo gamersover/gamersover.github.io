@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定理1：积分的可加性 设$c \in (a,b)$，函数$f$在$[a,c],[c,b]$上可积，那么$f$在$[a,b]$上也可积，且      \int_a^b f(x) \mathrm{d} x = \int_a^c f(x) \mathrm{d} x + \int_c^b f(x) \mathrm{d} x 证：由Lebesgue定理易知$f$在$[a,b]$上可积，取分割      \b">
+  <meta name="description" content="定理1：积分的可加性 设$c \in (a,b)$，函数$f$在$[a,c],[c,b]$上可积，那么$f$在$[a,b]$上也可积，且      \int_a^b f(x) \mathrm{d} x = \int_a^c f(x) \mathrm{d} x + \int_c^b f(x) \mathrm{d} x">
 <meta name="keywords" content="数学分析,函数积分,Riemann积分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数积分五：可积函数的性质">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;05&#x2F;28&#x2F;%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%865&#x2F;index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定理1：积分的可加性 设$c \in (a,b)$，函数$f$在$[a,c],[c,b]$上可积，那么$f$在$[a,b]$上也可积，且      \int_a^b f(x) \mathrm{d} x = \int_a^c f(x) \mathrm{d} x + \int_c^b f(x) \mathrm{d} x 证：由Lebesgue定理易知$f$在$[a,b]$上可积，取分割      \b">
+<meta property="og:description" content="定理1：积分的可加性 设$c \in (a,b)$，函数$f$在$[a,c],[c,b]$上可积，那么$f$在$[a,b]$上也可积，且      \int_a^b f(x) \mathrm{d} x = \int_a^c f(x) \mathrm{d} x + \int_c^b f(x) \mathrm{d} x">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-05-28T13:23:28.062Z">
+<meta property="og:updated_time" content="2021-05-28T13:27:47.751Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/05/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%865/">
@@ -215,7 +215,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-28 20:33:11 / 修改时间：21:23:28" itemprop="dateCreated datePublished" datetime="2021-05-28T20:33:11+08:00">2021-05-28</time>
+              <time title="创建时间：2021-05-28 20:33:11 / 修改时间：21:27:47" itemprop="dateCreated datePublished" datetime="2021-05-28T20:33:11+08:00">2021-05-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -263,7 +263,8 @@
 <p>设$c \in (a,b)$，函数$f$在$[a,c],[c,b]$上可积，那么$f$在$[a,b]$上也可积，且</p>
 <script type="math/tex; mode=display">
     \int_a^b f(x) \mathrm{d} x = \int_a^c f(x) \mathrm{d} x + \int_c^b f(x) \mathrm{d} x</script></blockquote>
-<p>证：由<a href="todo">Lebesgue定理</a>易知$f$在$[a,b]$上可积，取分割</p>
+<a id="more"></a>
+<p>证：由<a href="https://gamersover.github.io/2021/05/25/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%864/#%E5%AE%9A%E7%90%867%EF%BC%9ALebesgue" target="_blank" rel="noopener">Lebesgue定理</a>易知$f$在$[a,b]$上可积，取分割</p>
 <script type="math/tex; mode=display">
     \begin{aligned}
     & \pi_1: a < a + \frac{1}{n}(c-a) < a+\frac{2}{n}(c-a) < \cdots < c \\
