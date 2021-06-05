@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="尘雨尘风">
 <meta property="og:description" content="定义1：零测度集 设$A$为实数的集合，如果对任意给定的$\varepsilon &amp;gt; 0$， 存在至多可数个开区间$\{I_n: n \in \mathbb{N}^*\}$组成$A$的一个开覆盖，并且$\displaystyle \sum_{n=1}^{\infty} |I_n| \le \varepsilon$($|I_n|$表示开区间$I_n$的长度)，那么称$A$是零测度集，简称零测集">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-05-28T13:27:50.385Z">
+<meta property="og:updated_time" content="2021-06-05T03:37:54.007Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/05/25/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%864/">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-28 21:27:50" itemprop="dateModified" datetime="2021-05-28T21:27:50+08:00">2021-05-28</time>
+                <time title="修改时间：2021-06-05 11:37:54" itemprop="dateModified" datetime="2021-06-05T11:37:54+08:00">2021-06-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -320,7 +320,7 @@
     D_\delta = \{ x \in [a, b]: \omega_f(x) \ge \delta\}</script><p>记$D(f)$为$f$在$[a,b]$上不连续点的全体。则有</p>
 <script type="math/tex; mode=display">
     D(f) = \bigcup \limits_{n=1}^\infty D_{1/n}</script></blockquote>
-<p>证：任取$x \in \bigcup \limits_{n=1}^\infty D_{1/n}$，知$\omega_f(x) &gt; 0$，从而由<a href="https://gamersover.github.io/2021/05/25/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%864/#%E5%AE%9A%E7%90%864" target="_blank" rel="noopener">定理4</a>可知$x$是$f$的不连续点，从而</p>
+<p>证：任取$x \in \bigcup \limits_{n=1}^\infty D_{1/n}$，知$\omega_f(x) &gt; 0$，从而由<a href="https://gamersover.github.io/2021/05/25/函数积分4/#定理4" target="_blank" rel="noopener">定理4</a>可知$x$是$f$的不连续点，从而</p>
 <script type="math/tex; mode=display">
     \bigcup \limits_{n=1}^\infty D_{1/n} \subset D(f) \tag{1}</script><p>反之，任取$x \in D(f)$，可知$\omega_f(x) &gt; 0$，从而存在充分大的$m \in \mathbb{N^*}$，使得$\displaystyle \omega_f(x) \ge \frac{1}{m}$，从而有$x \in D_{1/m}$，所以</p>
 <script type="math/tex; mode=display">
@@ -348,7 +348,7 @@
 <h4 id="定理7：Lebesgue"><a href="#定理7：Lebesgue" class="headerlink" title="定理7：Lebesgue"></a>定理7：Lebesgue</h4><blockquote>
 <p>设函数$f$在有限区间$[a,b]$上有界，那么$f$在$[a.b]$上Riemann可积的充分必要条件是$D(f)$是一个零测集。</p>
 </blockquote>
-<p>证：必要性。只需要证明对任意的$\delta &gt; 0$，$D_{\delta}$是零测集，从而$D_1,D_{1/2},\cdots$都是零测集，再由<a href="https://gamersover.github.io/2021/05/25/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%864/#%E5%AE%9A%E7%90%865" target="_blank" rel="noopener">定理5</a>可知$D(f)$是零测集。由于$f$可积，从而由<a href="https://gamersover.github.io/2021/05/14/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%863/#%E5%AE%9A%E7%90%865" target="_blank" rel="noopener">函数积分三的定理5</a>可知对任意给定的$\varepsilon &gt; 0$，存在$[a,b]$上的一个分割</p>
+<p>证：必要性。只需要证明对任意的$\delta &gt; 0$，$D_{\delta}$是零测集，从而$D_1,D_{1/2},\cdots$都是零测集，再由<a href="https://gamersover.github.io/2021/05/25/函数积分4/#定理5" target="_blank" rel="noopener">定理5</a>可知$D(f)$是零测集。由于$f$可积，从而由<a href="https://gamersover.github.io/2021/05/14/函数积分3/#定理5" target="_blank" rel="noopener">函数积分三的定理5</a>可知对任意给定的$\varepsilon &gt; 0$，存在$[a,b]$上的一个分割</p>
 <script type="math/tex; mode=display">
     \pi: a = x_0 < x_1 < \cdots < x_m = b</script><p>使得</p>
 <script type="math/tex; mode=display">
@@ -369,13 +369,13 @@
 <script type="math/tex; mode=display">
     D(f) \subset \bigcup \limits_{i=1}^\infty (\alpha_i, \beta_i), \quad 且 \quad \sum_{i=1}^\infty (\beta_i - \alpha_i) < \frac{\varepsilon}{2\omega}</script><p>这里$\omega$是$f$在$[a,b]$上的振幅。令</p>
 <script type="math/tex; mode=display">
-    K = [a, b] \backslash \bigcup \limits_{i=1}^\infty (\alpha_i, \beta_i)</script><p>由<a href="https://gamersover.github.io/2021/05/25/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%864/#%E5%AE%9A%E7%90%866" target="_blank" rel="noopener">定理6</a>可知，对上述的$\varepsilon &gt; 0$，存在$\delta &gt; 0$， 使得当$x \in K, y \in [a, b]$且$|x - y| &lt; \delta$时，有</p>
+    K = [a, b] \backslash \bigcup \limits_{i=1}^\infty (\alpha_i, \beta_i)</script><p>由<a href="https://gamersover.github.io/2021/05/25/函数积分4/#定理6" target="_blank" rel="noopener">定理6</a>可知，对上述的$\varepsilon &gt; 0$，存在$\delta &gt; 0$， 使得当$x \in K, y \in [a, b]$且$|x - y| &lt; \delta$时，有</p>
 <script type="math/tex; mode=display">
     |f(x) - f(y)| < \frac{\varepsilon}{4(b - a)}</script><p>现取分割</p>
 <script type="math/tex; mode=display">
     \pi : a = x_0 < x_1 < \cdots < x_n = b</script><p>且$\Vert \pi \Vert &lt; \delta$，记</p>
 <script type="math/tex; mode=display">
-    \sum_{i=1}^\infty \omega_i \Delta x_i = \sum \nolimits_1 \omega_i \Delta x_i + \sum \nolimits_2 \omega_i \Delta x_i</script><p>其中$\sum_1$表示对满足$K \cap (x_{i-1}, x_i) \ne \varnothing$的$i$的求和，$\sum_2$表示对满足$K \cap (x_{i-1}, x_i) = \varnothing$的$i$的求和。对$\sum_1$中的项，任取$y_i \in K \cap (x_{i-1}, x_i)$，由<a href="https://gamersover.github.io/2021/05/25/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%864/#%E5%AE%9A%E7%90%866" target="_blank" rel="noopener">定理6</a>得</p>
+    \sum_{i=1}^\infty \omega_i \Delta x_i = \sum \nolimits_1 \omega_i \Delta x_i + \sum \nolimits_2 \omega_i \Delta x_i</script><p>其中$\sum_1$表示对满足$K \cap (x_{i-1}, x_i) \ne \varnothing$的$i$的求和，$\sum_2$表示对满足$K \cap (x_{i-1}, x_i) = \varnothing$的$i$的求和。对$\sum_1$中的项，任取$y_i \in K \cap (x_{i-1}, x_i)$，由<a href="https://gamersover.github.io/2021/05/25/函数积分4/#定理6" target="_blank" rel="noopener">定理6</a>得</p>
 <script type="math/tex; mode=display">
     \begin{aligned}
     \omega_i &= sup\{ |f(z_1) - f(z_2)|: z_1, z_2 \in [x_{i-1}, x_i] \} & \\

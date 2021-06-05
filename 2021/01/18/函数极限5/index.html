@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="尘雨尘风">
 <meta property="og:description" content="定义1 设$D \subset \mathbb{R^n}$，那么映射$f: D \to \mathbb{R}$称为一个$n$元函数，其中$D$称为函数$f$的定义域，而$f(D) \subset \mathbb{R}$称为$f$的值域。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-04-11T14:41:30.656Z">
+<meta property="og:updated_time" content="2021-06-05T03:41:15.427Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/01/18/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%905/">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-11 22:41:30" itemprop="dateModified" datetime="2021-04-11T22:41:30+08:00">2021-04-11</time>
+                <time title="修改时间：2021-06-05 11:41:15" itemprop="dateModified" datetime="2021-06-05T11:41:15+08:00">2021-06-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -291,7 +291,7 @@
 <script type="math/tex; mode=display">
     \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} f(\boldsymbol{x}) = l, \qquad \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} g(\boldsymbol{x}) = m</script><p>那么有：<br>（1）$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} (f \pm g)(\boldsymbol{x}) = l \pm m$；<br/><br>（2）$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} fg(\boldsymbol{x}) = lm$；<br/><br>（3）$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} (\frac{f}{g})(\boldsymbol{x}) = \frac{l}{m}$，其中$m \ne 0$。</p>
 </blockquote>
-<p>证：证明方法与单变量极限四则运算几乎一样。参考<a href="https://gamersover.github.io/2020/11/17/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%901/#%E5%AE%9A%E7%90%864%EF%BC%9A%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%90%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97" target="_blank" rel="noopener">函数极限一的定理4</a>。</p>
+<p>证：证明方法与单变量极限四则运算几乎一样。参考<a href="https://gamersover.github.io/2020/11/17/函数极限1/#定理4：函数极限四则运算" target="_blank" rel="noopener">函数极限一的定理4</a>。</p>
 <p>Q.E.D.</p>
 <h4 id="定理3：复合函数极限"><a href="#定理3：复合函数极限" class="headerlink" title="定理3：复合函数极限"></a>定理3：复合函数极限</h4><blockquote>
 <p>设函数$f$在以$\boldsymbol{a} \in \mathbb{R}^n$为球心，$\boldsymbol{r}$为半径的某个空心球$B_{\boldsymbol{r}}(\boldsymbol{\check a})$上有定义，且$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} f(\boldsymbol{x}) = l$；一元函数$\varphi$在以$l$为球心的空心球$U = \{t: 0&lt;|t - l| &lt; \delta \}$上有定义，且$\lim \limits_{t \to l} \varphi(t) = m$。再设</p>
@@ -299,21 +299,21 @@
     f(B_{\boldsymbol{r}}(\boldsymbol{\check a})) \in U</script><p>那么就有</p>
 <script type="math/tex; mode=display">
     \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} \varphi(f(\boldsymbol{x})) = m</script></blockquote>
-<p>证：与单变量复合函数极限证明方法一样。参考<a href="https://gamersover.github.io/2020/11/17/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%901/#%E5%AE%9A%E7%90%868" target="_blank" rel="noopener">函数极限一的定理8</a>。</p>
+<p>证：与单变量复合函数极限证明方法一样。参考<a href="https://gamersover.github.io/2020/11/17/函数极限1/#定理8" target="_blank" rel="noopener">函数极限一的定理8</a>。</p>
 <p>Q.E.D.</p>
 <h4 id="定理4：Cauchy收敛原理"><a href="#定理4：Cauchy收敛原理" class="headerlink" title="定理4：Cauchy收敛原理"></a>定理4：Cauchy收敛原理</h4><blockquote>
 <p>设$D \in \mathbb{R}^n$，$\boldsymbol{a} \in D^\prime$，$f: D \to \mathbb{R}$。那么极限$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}}f(\boldsymbol{x})$存在的充分必要条件是，对任意给定的$\varepsilon &gt; 0$，存在$\delta &gt; 0$，使得当$\boldsymbol{x}^\prime,\boldsymbol{x}^{\prime\prime} \in D$且</p>
 <script type="math/tex; mode=display">
     0 < \Vert \boldsymbol{x}^\prime - \boldsymbol{a} \Vert < \delta \quad 0 < \Vert \boldsymbol{x}^{\prime\prime} - \boldsymbol{a} \Vert < \delta</script><p>同时成立时，一定有$|f(\boldsymbol{x}^\prime) - f(\boldsymbol{x}^{\prime\prime})| &lt; \varepsilon$。</p>
 </blockquote>
-<p>证：与证明单变量的Cauchy收敛原理类似。参考<a href="https://gamersover.github.io/2020/11/17/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%901/#%E5%AE%9A%E7%90%867%EF%BC%9ACauchy%E6%94%B6%E6%95%9B%E5%8E%9F%E7%90%86" target="_blank" rel="noopener">函数极限一定理7</a>。</p>
+<p>证：与证明单变量的Cauchy收敛原理类似。参考<a href="https://gamersover.github.io/2020/11/17/函数极限1/#定理7：Cauchy收敛原理" target="_blank" rel="noopener">函数极限一定理7</a>。</p>
 <p>Q.E.D.</p>
 <h4 id="定义3：多变量连续函数"><a href="#定义3：多变量连续函数" class="headerlink" title="定义3：多变量连续函数"></a>定义3：多变量连续函数</h4><blockquote>
 <p>设$D \subset \mathbb{R}^n$，$f: D \to \mathbb{R}$，$\boldsymbol{a} \in D$。如果对$\forall \varepsilon &gt; 0$，$\exists \delta &gt; 0$，使得当$\boldsymbol{x} \in D \cap B_\delta(\boldsymbol{a})$，有</p>
 <script type="math/tex; mode=display">
     |f(\boldsymbol{x}) - f(\boldsymbol{a})| < \varepsilon</script><p>则称函数$f$在点$\boldsymbol{a}$处连续，$\boldsymbol{a}$称为$f$的一个连续点，$D$中$f$的非连续点称为$f$的间断点。如果$f$在$D$中的每个点上都连续，则称$f$在$D$上连续。</p>
 </blockquote>
-<p>注：设$D=\{\boldsymbol{p}_1,\boldsymbol{p}_2,\cdots,\boldsymbol{p}_m \}$，定义函数$f: D \to \mathbb{R}$为$f(\boldsymbol{p}_i) = \lambda_i (i=1,2,\cdots,m)$，这里$\lambda_1,\lambda_2,\cdots,\lambda_m$是任意给定的数，那么根据定义3，$f$在$D$上连续。对于单变量函数也成立，比如定义域$D=\{a\}$，且$f(a)$存在，这时$f$在$D$内连续。这与<a href="https://gamersover.github.io/2020/12/08/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%903/#%E5%AE%9A%E4%B9%891%EF%BC%9A%E6%9F%90%E7%82%B9%E8%BF%9E%E7%BB%AD" target="_blank" rel="noopener">函数极限三的定义1</a>不矛盾，单变量点连续定义的时候$D$为非单点闭区间，且极限值等于函数值，这种定义不包含孤立点的情况，所以单变量连续函数的真正定义也囊括在本章的定义3中。</p>
+<p>注：设$D=\{\boldsymbol{p}_1,\boldsymbol{p}_2,\cdots,\boldsymbol{p}_m \}$，定义函数$f: D \to \mathbb{R}$为$f(\boldsymbol{p}_i) = \lambda_i (i=1,2,\cdots,m)$，这里$\lambda_1,\lambda_2,\cdots,\lambda_m$是任意给定的数，那么根据定义3，$f$在$D$上连续。对于单变量函数也成立，比如定义域$D=\{a\}$，且$f(a)$存在，这时$f$在$D$内连续。这与<a href="https://gamersover.github.io/2020/12/08/函数极限3/#定义1：某点连续" target="_blank" rel="noopener">函数极限三的定义1</a>不矛盾，单变量点连续定义的时候$D$为非单点闭区间，且极限值等于函数值，这种定义不包含孤立点的情况，所以单变量连续函数的真正定义也囊括在本章的定义3中。</p>
 <h4 id="定理5：多变量连续函数的四则运算"><a href="#定理5：多变量连续函数的四则运算" class="headerlink" title="定理5：多变量连续函数的四则运算"></a>定理5：多变量连续函数的四则运算</h4><blockquote>
 <p>设$D \subset \mathbb{R^n}$，$f,g: D \to \mathbb{R}$，点$\boldsymbol{a} \in D$。如果$f,g$在$\boldsymbol{a}$处连续，那么$f \pm g$和$fg$都在$\boldsymbol{a}$处连续，如果$g(\boldsymbol{a}) \ne 0$，那么$f/g$也在$\boldsymbol{a}$处连续。</p>
 </blockquote>
@@ -324,7 +324,7 @@
 <h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><blockquote>
 <p>设函数$f$在以$\boldsymbol{a} \in \mathbb{R}^n$为球心，$\boldsymbol{r}$为半径的某个球$B_{\boldsymbol{r}}(\boldsymbol{a})$上有定义，且在$\boldsymbol{a}$处连续；一元函数$\varphi$在$U = \{t: 0&lt;|t - l| &lt; \delta \}$上有定义，且且在$l$处连续，则函数$\varphi(f(\boldsymbol{x}))$在$\boldsymbol{a}$处连续。</p>
 </blockquote>
-<p>证：与单变量复合函数极限证明方法类似。参考<a href="https://gamersover.github.io/2020/11/17/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%901/#%E5%AE%9A%E7%90%868" target="_blank" rel="noopener">函数极限一的定理8</a>。</p>
+<p>证：与单变量复合函数极限证明方法类似。参考<a href="https://gamersover.github.io/2020/11/17/函数极限1/#定理8" target="_blank" rel="noopener">函数极限一的定理8</a>。</p>
 
     </div>
 

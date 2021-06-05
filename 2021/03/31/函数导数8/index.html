@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="尘雨尘风">
 <meta property="og:description" content="定义1 设开集$D \subset \mathbb{R}^n$，$f: D \to \mathbb{R}$，$\boldsymbol{u}$是一个方向，$x_0 \in D$，如果极限      \lim \limits_{t \to 0} \frac{f(\boldsymbol{x}_0 + t\boldsymbol{u}) - f(\boldsymbol{x})}{t}存在且有限，则称这个极限">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-04-11T14:42:17.645Z">
+<meta property="og:updated_time" content="2021-06-05T03:27:31.821Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/03/31/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B08/">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-11 22:42:17" itemprop="dateModified" datetime="2021-04-11T22:42:17+08:00">2021-04-11</time>
+                <time title="修改时间：2021-06-05 11:27:31" itemprop="dateModified" datetime="2021-06-05T11:27:31+08:00">2021-06-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -298,7 +298,7 @@
 <p>为了方便，将$\boldsymbol{x}_0,\boldsymbol{h}$表示列向量形式，设函数$f$在$\boldsymbol{x}_0 = (x_1,x_2,\cdots,x_n)^T$处可微，则</p>
 <script type="math/tex; mode=display">
     \mathrm{d}f(\boldsymbol{x}_0) (\boldsymbol{h}) = \boldsymbol{J}f(\boldsymbol{x_0}) \boldsymbol{h}</script></blockquote>
-<p>证：<a href="https://gamersover.github.io/2021/03/31/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B08/#%E5%AE%9A%E4%B9%893" target="_blank" rel="noopener">定义3</a>中令$\boldsymbol{h} = (h_1,0,\cdots, 0)^T$，此时</p>
+<p>证：<a href="https://gamersover.github.io/2021/03/31/函数导数8/#定义3" target="_blank" rel="noopener">定义3</a>中令$\boldsymbol{h} = (h_1,0,\cdots, 0)^T$，此时</p>
 <script type="math/tex; mode=display">
     f(x_1+h_1, x_2, \cdots, x_n) - f(x_1,x_2,\cdots,x_n) = \lambda_1 h_1 + o(|h_1|)</script><p>从而</p>
 <script type="math/tex; mode=display">
@@ -323,7 +323,7 @@
 <script type="math/tex; mode=display">
     \frac{1}{\Vert \boldsymbol{h} \Vert} |\sum_{i=1}^n \beta_i(\boldsymbol{h})h_i| = \left| \sum_{i=1}^n \beta_i(\boldsymbol{h}) \frac{h_i}{\boldsymbol{\Vert h \Vert}} \right| \le \left| \sum_{i=1}^n \beta_i(\boldsymbol{h}) \right| \to 0</script><p>即</p>
 <script type="math/tex; mode=display">
-    \sum_{i=1}^n \beta_i(\boldsymbol{h}) h_i = o(\Vert \boldsymbol{h} \Vert)</script><p>由<a href="https://gamersover.github.io/2021/03/31/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B08/#%E5%AE%9A%E4%B9%893" target="_blank" rel="noopener">定义3</a>可知，函数$f$在$\boldsymbol{x}_0$处可微。 <br/><br>必要性。记</p>
+    \sum_{i=1}^n \beta_i(\boldsymbol{h}) h_i = o(\Vert \boldsymbol{h} \Vert)</script><p>由<a href="https://gamersover.github.io/2021/03/31/函数导数8/#定义3" target="_blank" rel="noopener">定义3</a>可知，函数$f$在$\boldsymbol{x}_0$处可微。 <br/><br>必要性。记</p>
 <script type="math/tex; mode=display">
     r(\boldsymbol{h}) = f(\boldsymbol{x}_0 + \boldsymbol{h}) - f(\boldsymbol{x}_0) - \boldsymbol{J}f(\boldsymbol{x_0}) \boldsymbol{h}</script><p>可知当$\Vert \boldsymbol{h} \Vert \to 0$时，有$r(\boldsymbol{h}) = o(\Vert \boldsymbol{h} \Vert)$，由于</p>
 <script type="math/tex; mode=display">
