@@ -21,18 +21,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m$。记$\boldsymbol{f}$的分量依次为$f_1,f_2,\cdots,f_m$，可以把$\boldsymbol{f}(\boldsymbol{x})$写成      \boldsymbol{f(x)} = \left(         \begin{matrix">
-<meta name="keywords" content="数学分析,函数导数,微分,映射">
+  <meta name="description" content="定义1：变上限积分 设$f$在$[a,b]$上可积，从而对任何$x \in [a,b]$，$f$在$[a,x]$上也可积，因此定义函数      F(x) = \int_a^x f(t) \mathrm{d} t其中$x$可在$[a,b]$上变化，称$F(x)$为上限变动的积分。  定理1 设$f$在$[a,b]$上可积，那么变上限积分$\displaystyle F(x) = \int_a^x">
+<meta name="keywords" content="数学分析,函数积分,Riemann积分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="函数导数九：映射微分和复合求导">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;04&#x2F;11&#x2F;%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B09&#x2F;index.html">
+<meta property="og:title" content="函数积分六：微积分基本定理">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;06&#x2F;05&#x2F;%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%866&#x2F;index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m$。记$\boldsymbol{f}$的分量依次为$f_1,f_2,\cdots,f_m$，可以把$\boldsymbol{f}(\boldsymbol{x})$写成      \boldsymbol{f(x)} = \left(         \begin{matrix">
+<meta property="og:description" content="定义1：变上限积分 设$f$在$[a,b]$上可积，从而对任何$x \in [a,b]$，$f$在$[a,x]$上也可积，因此定义函数      F(x) = \int_a^x f(t) \mathrm{d} t其中$x$可在$[a,b]$上变化，称$F(x)$为上限变动的积分。  定理1 设$f$在$[a,b]$上可积，那么变上限积分$\displaystyle F(x) = \int_a^x">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-04-13T14:17:50.299Z">
+<meta property="og:updated_time" content="2021-06-05T03:13:13.904Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2021/04/11/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B09/">
+<link rel="canonical" href="http://yoursite.com/2021/06/05/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%866/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>函数导数九：映射微分和复合求导 | 尘雨尘风</title>
+  <title>函数积分六：微积分基本定理 | 尘雨尘风</title>
   
 
 
@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/11/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B09/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/05/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%866/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
@@ -204,7 +204,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          函数导数九：映射微分和复合求导
+          函数积分六：微积分基本定理
         </h1>
 
         <div class="post-meta">
@@ -213,16 +213,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-04-11 22:30:39" itemprop="dateCreated datePublished" datetime="2021-04-11T22:30:39+08:00">2021-04-11</time>
+              <time title="创建时间：2021-06-05 10:06:53 / 修改时间：11:13:13" itemprop="dateCreated datePublished" datetime="2021-06-05T10:06:53+08:00">2021-06-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-13 22:17:50" itemprop="dateModified" datetime="2021-04-13T22:17:50+08:00">2021-04-13</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -246,14 +240,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.2k</span>
+              <span>3.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -265,100 +259,97 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m$。记$\boldsymbol{f}$的分量依次为$f_1,f_2,\cdots,f_m$，可以把$\boldsymbol{f}(\boldsymbol{x})$写成</p>
+        <h4 id="定义1：变上限积分"><a href="#定义1：变上限积分" class="headerlink" title="定义1：变上限积分"></a>定义1：变上限积分</h4><blockquote>
+<p>设$f$在$[a,b]$上可积，从而对任何$x \in [a,b]$，$f$在$[a,x]$上也可积，因此定义函数</p>
 <script type="math/tex; mode=display">
-    \boldsymbol{f(x)} = \left(
-        \begin{matrix} 
-            f_1(\boldsymbol{x}) \\
-            f_2(\boldsymbol{x}) \\
-            \vdots \\
-            f_m(\boldsymbol{x})
-        \end{matrix} 
-    \right) \quad (\boldsymbol{x} \in D)</script><p>设点$\boldsymbol{x}_0 \in D, \boldsymbol{h} \in \mathbb{R}^n$。由于$\boldsymbol{x}_0$是$D$的内点，所以总可以找到充分小的$\Vert \boldsymbol{h} \Vert$使得$\boldsymbol{x}_0 + \boldsymbol{h} \in D$。</p>
-<a id="more"></a>
-<h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>如果映射$\boldsymbol{f}$满足</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{f}(\boldsymbol{x}_0 + \boldsymbol{h}) - \boldsymbol{f}(\boldsymbol{x}_0) = \boldsymbol{Ah} + \boldsymbol{r}(\boldsymbol{h})</script><p>式中$\boldsymbol{A}$是一个$m \times n$矩阵，它的元素不依赖于$\boldsymbol{h}$，且</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{\boldsymbol{h} \to \boldsymbol{0}} \frac{\Vert \boldsymbol{r}(\boldsymbol{h}) \Vert}{\Vert \boldsymbol{h} \Vert} = 0</script><p>则称映射$\boldsymbol{f}$在点$\boldsymbol{x}_0$处可微，并称$\boldsymbol{Ah}$是$\boldsymbol{f}$在点$\boldsymbol{x}_0$处的微分，记作</p>
-<script type="math/tex; mode=display">
-    \mathrm{d}\boldsymbol{f}(\boldsymbol{x}_0) = \boldsymbol{Ah}</script></blockquote>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>若映射$\boldsymbol{f}$在点$\boldsymbol{x}_0$处可微，则有</p>
-<script type="math/tex; mode=display">
-    \mathrm{d}\boldsymbol{f}(\boldsymbol{x}_0) = \boldsymbol{Jf}(\boldsymbol{x}_0)\boldsymbol{h}</script><p>其中</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{Jf}(\boldsymbol{x}_0) = \left[
-        \begin{matrix}
-            \frac{\partial f_1(\boldsymbol{x}_0)}{\partial x_1}  & \cdots & \frac{\partial f_1(\boldsymbol{x}_0)}{\partial x_n} \\
-            \vdots & & \vdots \\
-            \frac{\partial f_m(\boldsymbol{x}_0)}{\partial x_1}  & \cdots & \frac{\partial f_m(\boldsymbol{x}_0)}{\partial x_n}
-        \end{matrix}
-    \right]</script><p>称之为映射$\boldsymbol{f}$在点$\boldsymbol{x}_0$处的Jacobi矩阵，也称为导数。</p>
+    F(x) = \int_a^x f(t) \mathrm{d} t</script><p>其中$x$可在$[a,b]$上变化，称$F(x)$为上限变动的积分。</p>
 </blockquote>
-<p>证：有定义可知，</p>
+<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
+<p>设$f$在$[a,b]$上可积，那么变上限积分$\displaystyle F(x) = \int_a^x f(t) \mathrm{d} t$在$[a,b]$上连续。</p>
+</blockquote>
+<p>证：任取一点$x_0 \in (a,b)$，则</p>
 <script type="math/tex; mode=display">
-    \boldsymbol{f}(\boldsymbol{x}_0 + \boldsymbol{h}) - \boldsymbol{f}(\boldsymbol{x}_0) = \boldsymbol{Ah} + \boldsymbol{r}(\boldsymbol{h})</script><p>设</p>
+    \begin{aligned}
+    F(x_0 + h) - F(x_0) &= \int_a^{x_0+h} f(t) \mathrm{d} t - \int_a^{x_0} f(t) \mathrm{d} t \\
+    &= \int_{x_0}^{x_0 + h} f(t) \mathrm{d} t
+    \end{aligned}</script><p>这里$h$可正可负，但是$x_0 + h \in [a,b]$。由于$f$可知，从而由<a href="todo">函数积分三的定理1</a>可知，$f$有界，设$|f(x)| \le M$。当$h&gt;0$时，由<a href="todo">函数积分五的定理3</a>可知</p>
 <script type="math/tex; mode=display">
-    \boldsymbol{A} = \left[\begin{matrix}
-        a_{11} & \cdots & a_{1n} \\
-        \vdots & & \vdots \\
-        a_{m1} & \cdots & a_{mn}
-    \end{matrix}\right]</script><p>将其代入上式中得</p>
+    |F(x_0 + h) - F(x_0)| = \left| \int_{x_0}^{x_0 + h} f(t) \mathrm{d} t \right| \le \int_{x_0}^{x_0 + h} |f(t)| \mathrm{d} t \le Mh</script><p>当$h &lt; 0$时，</p>
 <script type="math/tex; mode=display">
-    f_i(\boldsymbol{x}_0 + \boldsymbol{h}) - f_i(\boldsymbol{x}_0) = \sum_{j=1}^n a_{ij} h_j + r_i(\boldsymbol{h})</script><p>其中$r_i(\boldsymbol{h})$表示$\boldsymbol{r}(\boldsymbol{h})$的第$i$个分量，由$\boldsymbol{r}(\boldsymbol{h})$的性质可知</p>
+    |F(x_0 + h) - F(x_0)| = \left| \int_{x_0}^{x_0 + h} f(t) \mathrm{d} t \right| = \left| \int_{x_0+h}^{x_0} f(t) \mathrm{d} t \right| \le \int_{x_0+h}^{x_0} |f(t)| \mathrm{d} t \le M (-h) \le M|h|</script><p>所以</p>
 <script type="math/tex; mode=display">
-    r_i(\boldsymbol{h}) = o(\Vert \boldsymbol{h} \Vert) \quad (\boldsymbol{h} \to 0, i=1,2,\cdots,m)</script><p>从而继续由<a href="https://gamersover.github.io/2021/03/31/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B08/#%E5%AE%9A%E4%B9%891" target="_blank" rel="noopener">函数导数八定理1</a>可知</p>
-<script type="math/tex; mode=display">
-    a_{ij} = \frac{\partial f_i(\boldsymbol{x}_0)}{\partial x_j} (i=1,2,\cdots,m;j=1,2,\cdots,n)</script><p>从而得证。</p>
+    |F(x_0 + h) - F(x_0)| \le |Mh|</script><p>令$h \to 0$，可知$F$在$x_0 \in (a,b)$处连续。$x_0 = a$或$x_0 = b$时，利用上述方法容易证得。</p>
 <p>Q.E.D.</p>
 <h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>若映射$\boldsymbol{f}$在点$\boldsymbol{x}_0$的某一领域内存在Jacobi矩阵$\boldsymbol{Jf}$，且$\boldsymbol{Jf}$的各元素在$\boldsymbol{x}_0$处都连续，则映射$\boldsymbol{f}$在点$\boldsymbol{x}_0$处可微。</p>
-</blockquote>
-<p>证：由<a href="https://gamersover.github.io/2021/04/11/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B09/#%E5%AE%9A%E7%90%861" target="_blank" rel="noopener">定理1</a>与<a href="https://gamersover.github.io/2021/03/31/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B08/#%E5%AE%9A%E7%90%862" target="_blank" rel="noopener">函数导数八的定理2</a>易证。</p>
+<p>设函数$f$在$[a,b]$上可积，在点$x_0 \in [a,b]$出连续，那么$F$在$x_0$处可导，且</p>
+<script type="math/tex; mode=display">
+    F^\prime(x_0) = f(x_0)</script></blockquote>
+<p>证：由<a href="todo">定理1</a>可得</p>
+<script type="math/tex; mode=display">
+    F(x_0 + h) - F(x_0) = \int_{x_0}^{x_0 + h} f(t) \mathrm{d} t</script><p>从而</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+    \frac{F(x_0 + h) - F(x_0)}{h} - f(x_0) &= \frac{1}{h} \int_{x_0}^{x_0 + h} f(t) \mathrm{d} t - \frac{1}{h} \int_{x_0}^{x_0 + h} f(x_0) \mathrm{d} t \\
+    &= \frac{1}{h} \int_{x_0}^{x_0 + h} (f(t) - f(x_0)) \mathrm{d} t
+    \end{aligned}</script><p>由于$f$在$x_0$处连续，对任意给定的$\varepsilon &gt; 0$，存在$\delta &gt; 0$，使得当$|t - x_0| &lt; \delta$且$t \in (a,b)$时，有</p>
+<script type="math/tex; mode=display">
+    |f(t) - f(x_0)| < \varepsilon</script><p>现取$0 &lt; |h| &lt; \delta$，从而有</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+    \left| \frac{F(x_0 + h) - F(x_0)}{h} - f(x_0) \right| &\le \frac{1}{|h|} \left|\int_{x_0}^{x_0 + h} |f(t) - f(x_0)| \mathrm{d} t \right|\\
+    & < \frac{1}{|h|} \varepsilon |h| = \varepsilon
+    \end{aligned}</script><p>从而</p>
+<script type="math/tex; mode=display">
+    F^\prime(x_0) = \lim \limits_{h \to 0} \frac{F(x_0 + h) - F(x_0)}{h} = f(x_0)</script><p>Q.E.D.</p>
+<h4 id="定理3：微积分基本定理"><a href="#定理3：微积分基本定理" class="headerlink" title="定理3：微积分基本定理"></a>定理3：微积分基本定理</h4><blockquote>
+<p>设函数$f$在$[a,b]$上连续，那么</p>
+<script type="math/tex; mode=display">
+    \frac{\mathrm{d}}{\mathrm{d}x} \int_a^x f(t) \mathrm{d} t = f(x) \quad (a \le x \le b)</script></blockquote>
+<p>证：利用<a href="todo">定理2</a>可直接推出。</p>
 <p>Q.E.D.</p>
-<h4 id="定义2"><a href="#定义2" class="headerlink" title="定义2"></a>定义2</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m$。如果$\boldsymbol{f}$在$D$上的每一点处都连续，则记$\boldsymbol{f} \in C(D)$；如果$\boldsymbol{Jf}$在$\boldsymbol{D}$上的每一点处都连续，则记$\boldsymbol{f} \in C^1(D)$。</p>
+<h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><blockquote>
+<p>[a,b]上的连续函数一定有原函数。</p>
 </blockquote>
-<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^n$，$\boldsymbol{g}: D \to \mathbb{R}^m$，$\boldsymbol{g}$在点$\boldsymbol{x}_0 \in D$处可微，又设$\boldsymbol{f}$把包含$\boldsymbol{g}(D)$的一个开集映射至$\mathbb{R}^l$，并且$\boldsymbol{f}$在$\boldsymbol{g}(\boldsymbol{x}_0)$处可微，那么复合映射$\boldsymbol{f} \circ \boldsymbol{g}$在点$\boldsymbol{x}_0$处可微，并且</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{J}(\boldsymbol{f}\circ \boldsymbol{g})(\boldsymbol{x}_0) = \boldsymbol{Jf}(\boldsymbol{g}(\boldsymbol{x}_0)) \boldsymbol{Jg}(\boldsymbol{x}_0)</script></blockquote>
-<p>证：令$\boldsymbol{y}_0 = \boldsymbol{g}(\boldsymbol{x}_0)$，$\boldsymbol{A} = \boldsymbol{Jf}(\boldsymbol{y}_0)，\boldsymbol{B} = \boldsymbol{Jg}(\boldsymbol{x}_0)$，易知$\boldsymbol{A}$是$l\times m$矩阵，$\boldsymbol{B}$是$m \times n$矩阵，从而若能证明</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{\Vert \boldsymbol{h} \Vert \to 0} \frac{\Vert (\boldsymbol{f} \circ \boldsymbol{g})(\boldsymbol{x}_0 + \boldsymbol{h}) - (\boldsymbol{f} \circ \boldsymbol{g})(\boldsymbol{x}_0) - \boldsymbol{ABh} \Vert}{\Vert \boldsymbol{h} \Vert} = 0 \tag{1}</script><p>则由<a href="https://gamersover.github.io/2021/04/11/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B09/#%E5%AE%9A%E4%B9%891" target="_blank" rel="noopener">定义1</a>可知，$\boldsymbol{J}(\boldsymbol{f}\circ \boldsymbol{g})(\boldsymbol{x}_0) = \boldsymbol{AB}$。<br/><br>由于$\boldsymbol{g},\boldsymbol{f}$分别在$\boldsymbol{x}_0,\boldsymbol{y}_0$处可微，从而有</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-    \boldsymbol{g}(\boldsymbol{x}_0 + \boldsymbol{h}) - \boldsymbol{g}(\boldsymbol{x}_0) = \boldsymbol{Bh} + \boldsymbol{u}(\boldsymbol{h}) \\
-    \boldsymbol{f}(\boldsymbol{y}_0 + \boldsymbol{k}) - \boldsymbol{f}(\boldsymbol{y}_0) = \boldsymbol{Ak} + \boldsymbol{v}(\boldsymbol{k}) 
-    \end{aligned} \tag{2}</script><p>其中$\boldsymbol{h}，\boldsymbol{k}$分别为$n \times 1$矩阵和$m \times 1$矩阵，且</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-        \frac{\Vert \boldsymbol{u}(\boldsymbol{h}) \Vert}{\Vert \boldsymbol{h} \Vert} \to 0 \quad (\Vert \boldsymbol{h} \Vert \to 0) \\
-        \frac{\Vert \boldsymbol{v}(\boldsymbol{k}) \Vert}{\Vert \boldsymbol{k} \Vert} \to 0 \quad (\Vert \boldsymbol{k} \Vert \to 0)
-    \end{aligned}</script><p>记</p>
-<script type="math/tex; mode=display">
-    \frac{\Vert \boldsymbol{u}(\boldsymbol{h}) \Vert}{\Vert \boldsymbol{h} \Vert} = \varepsilon(\boldsymbol{h})， \quad \frac{\Vert \boldsymbol{v}(\boldsymbol{h}) \Vert}{\Vert \boldsymbol{h} \Vert} = \eta(\boldsymbol{h})</script><p>则</p>
-<script type="math/tex; mode=display">
-    \Vert \boldsymbol{u}(\boldsymbol{h}) \Vert = \varepsilon(\boldsymbol{h}) \Vert \boldsymbol{h} \Vert， \quad \Vert \boldsymbol{v}(\boldsymbol{k}) \Vert = \eta(\boldsymbol{k}) \Vert \boldsymbol{k} \Vert</script><p>且</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{\Vert \boldsymbol{h} \Vert \to 0} \varepsilon(\boldsymbol{h}) = 0， \quad \lim \limits_{\Vert \boldsymbol{k} \Vert \to 0} \eta(\boldsymbol{k}) = 0 \tag{3}</script><p>对给定的$\boldsymbol{h}$，令$\boldsymbol{k} = \boldsymbol{g}(\boldsymbol{x}_0 + \boldsymbol{h}) - \boldsymbol{g}(\boldsymbol{x}_0)$，由式(2)可得</p>
-<script type="math/tex; mode=display">
-    \Vert \boldsymbol{k} \Vert \le \Vert \boldsymbol{Bh} \Vert + \Vert \boldsymbol{u}(\boldsymbol{h})\Vert \le (\Vert \boldsymbol{B} \Vert + \varepsilon(\boldsymbol{h})) \Vert \boldsymbol{h} \Vert</script><p>从而有</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-        & \Vert \boldsymbol{f} \circ \boldsymbol{g} (\boldsymbol{x}_0 + \boldsymbol{h}) - \boldsymbol{f} \circ \boldsymbol{g} (\boldsymbol{x}_0) - \boldsymbol{ABh} \Vert \\
-        & = \Vert \boldsymbol{f}(\boldsymbol{g} (\boldsymbol{x}_0 + \boldsymbol{h})) - \boldsymbol{f}(\boldsymbol{g} (\boldsymbol{x}_0)) - \boldsymbol{ABh} \Vert \\
-        & = \Vert \boldsymbol{f}(\boldsymbol{y}_0 + \boldsymbol{k}) - \boldsymbol{f}(\boldsymbol{y}_0) - \boldsymbol{ABh} \Vert \\
-        & = \Vert \boldsymbol{Ak} + \boldsymbol{v}(\boldsymbol{k}) - \boldsymbol{ABh} \Vert \\
-        & = \Vert \boldsymbol{A}(\boldsymbol{k} - \boldsymbol{Bh}) + \boldsymbol{v}{\boldsymbol{k}} \Vert \\
-        & \le \Vert \boldsymbol{A} \Vert u(\boldsymbol{h}) + \eta(\boldsymbol{k})\Vert \boldsymbol{k} \Vert \\
-        & \le \Vert \boldsymbol{A} \Vert \varepsilon(\boldsymbol{h}) \Vert \boldsymbol{h} \Vert + \eta(\boldsymbol{k})(\Vert \boldsymbol{B} \Vert + \varepsilon(\boldsymbol{h})) \Vert \boldsymbol{h} \Vert
-    \end{aligned}</script><p>所以</p>
-<script type="math/tex; mode=display">
-    \frac{\Vert (\boldsymbol{f} \circ \boldsymbol{g})(\boldsymbol{x}_0 + \boldsymbol{h}) - (\boldsymbol{f} \circ \boldsymbol{g})(\boldsymbol{x}_0) - \boldsymbol{ABh} \Vert}{\Vert \boldsymbol{h} \Vert} \le \Vert \boldsymbol{A} \Vert \varepsilon(\boldsymbol{h}) + \eta(\boldsymbol{k})(\Vert \boldsymbol{B} \Vert + \varepsilon(\boldsymbol{h}))</script><p>再由式(3)可知式(1)成立。</p>
+<p>证：利用<a href="todo">定理3</a>可直接推出。</p>
 <p>Q.E.D.</p>
+<h4 id="定理5：Newton-Leibniz"><a href="#定理5：Newton-Leibniz" class="headerlink" title="定理5：Newton-Leibniz"></a>定理5：Newton-Leibniz</h4><blockquote>
+<p>设$f$在$[a,b]$上连续，$G$是$f$在$[a,b]$上的任一原函数，那么</p>
+<script type="math/tex; mode=display">
+    \int_a^b f(x) \mathrm{d} x = G(b) - G(a)</script></blockquote>
+<p>证：由<a href="todo">定理3</a>可知$\displaystyle F(x) = \int_a^x f(t) \mathrm{d} t$是$f$的一个原函数，所以</p>
+<script type="math/tex; mode=display">
+    \int_a^x f(t) \mathrm{d} t = G(x) + c</script><p>在上式中令$x = a$，得$c = -G(a)$，将$c$代入上式，再令$x=b$即证得。</p>
+<p>Q.E.D.</p>
+<h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><blockquote>
+<p>如果函数$G$在$[a,b]$上有连续的导函数，那么</p>
+<script type="math/tex; mode=display">
+    \int_a^x G^\prime(t) \mathrm{d} t = G(x) - G(a) \quad (a \le x \le b)</script></blockquote>
+<p>证：从<a href="todo">定理5</a>的证明过程可以立即得出。</p>
+<p>Q.E.D.</p>
+<h4 id="定理7：Taylor公式的积分余项"><a href="#定理7：Taylor公式的积分余项" class="headerlink" title="定理7：Taylor公式的积分余项"></a>定理7：Taylor公式的积分余项</h4><blockquote>
+<p>设函数$f$在$(a,b)$上有直到$n+1$阶的连续导函数，那么对任意固定的$x_0 \in (a,b)$，有</p>
+<script type="math/tex; mode=display">
+    f(x) = f(x_0) + \frac{1}{1!}f^\prime(x_0) (x - x_0) + \cdots + \frac{1}{n!}f^{(n)} (x_0) (x - x_0)^n + R_n(x)</script><p>其中</p>
+<script type="math/tex; mode=display">
+    R_n (x) = \frac{1}{n!}\int_{x_0}^x (x - t)^n f^{(n+1)}(t) \mathrm{d} t \quad (a < x < b)</script></blockquote>
+<p>证：记</p>
+<script type="math/tex; mode=display">
+    T_n(f, x_0;x) = \sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k</script><p>则</p>
+<script type="math/tex; mode=display">
+    R_n(x) = f(x) - T_n(f, x_0;x)</script><p>可知</p>
+<script type="math/tex; mode=display">
+    R_n^{(k)}(x_0) = 0 (k=0,1,\cdots,n), \quad R_n^{(n+1)}(x) = f^{(n+1)}(x)</script><p>连续使用分部积分公式可得</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+    R_n(x) &= \int_{x_0}^x R^\prime_n(t) \mathrm{d} t = \int_{x_0}^x R^\prime_n(t) \mathrm{d} (t-x) \\
+    &= (t-x)R^\prime_n(t) \Big|_{x_0}^x - \int_{x_0}^x (t-x)R_n^{\prime\prime} \mathrm{d}t \\
+    &= -\frac{1}{2} \int_{x_0}^x R_n^{\prime\prime}(t) \mathrm{d} (t - x)^2 \\
+    &= -\frac{1}{2} (t-x)^2 R_n^{\prime\prime}(t) \Big|_{x_0}^x + \frac{1}{2}\int_{x_0}^x (t - x)^2 R_n^{\prime\prime\prime}(t) \mathrm{d} t \\
+    &= \frac{1}{2} \int_{x_0}^x (t - x)^2 R^{\prime\prime\prime}(t) \mathrm{d} t \\
+    &= \cdots \\
+    &= (-1)^n \frac{1}{n!}\int_{x_0}^x (t - x)^n R_n^{(n+1)} (t) \mathrm{d} t \\
+    &= \frac{1}{n!} \int_{x_0}^x (x - t)^n f^{(n+1)}(t) \mathrm{d} t
+    \end{aligned}</script><p>Q.E.D.</p>
 
     </div>
 
@@ -370,9 +361,8 @@
           
           <div class="post-tags">
               <a href="/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 数学分析</a>
-              <a href="/tags/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B0/" rel="tag"><i class="fa fa-tag"></i> 函数导数</a>
-              <a href="/tags/%E5%BE%AE%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> 微分</a>
-              <a href="/tags/%E6%98%A0%E5%B0%84/" rel="tag"><i class="fa fa-tag"></i> 映射</a>
+              <a href="/tags/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> 函数积分</a>
+              <a href="/tags/Riemann%E7%A7%AF%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> Riemann积分</a>
           </div>
 
         
@@ -381,13 +371,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/04/05/leetcode%E9%A2%98%E8%A7%A322/" rel="prev" title="leetcode题解22：括号生成">
-      <i class="fa fa-chevron-left"></i> leetcode题解22：括号生成
+    <a href="/2021/05/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%865/" rel="prev" title="函数积分五：可积函数的性质">
+      <i class="fa fa-chevron-left"></i> 函数积分五：可积函数的性质
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/04/13/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B010/" rel="next" title="函数导数十：隐函数、隐映射定理">
-      函数导数十：隐函数、隐映射定理 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -447,7 +434,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1：变上限积分"><span class="nav-text">定义1：变上限积分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3：微积分基本定理"><span class="nav-text">定理3：微积分基本定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5：Newton-Leibniz"><span class="nav-text">定理5：Newton-Leibniz</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理6"><span class="nav-text">定理6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理7：Taylor公式的积分余项"><span class="nav-text">定理7：Taylor公式的积分余项</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -700,7 +687,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'gamersover.github.io',
       owner       : 'gamersover',
       admin       : ['gamersover'],
-      id          : 'f00540a86fd142656ecc59c39a620020',
+      id          : '6820fe4c300a2e30eefa7f3cd0f32c7a',
         language: 'zh-CN',
       distractionFreeMode: true
     });
