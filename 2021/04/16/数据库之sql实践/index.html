@@ -30,7 +30,7 @@
 <meta property="og:description" content="概述数据库，顾名思义用来存放数据的地方，可以把数据库比作图书馆，图书馆里面有不同区域相当于不同的数据库（database），而每个区域又存放着不同的书籍，相当于每个database含有很多表（table），图中表现了这种关系。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;gamersover&#x2F;hexo_blog_assets&#x2F;main&#x2F;%E6%95%B0%E6%8D%AE%E5%BA%93&#x2F;No1.jpg">
-<meta property="og:updated_time" content="2021-05-14T12:04:49.856Z">
+<meta property="og:updated_time" content="2021-06-15T08:57:19.724Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;gamersover&#x2F;hexo_blog_assets&#x2F;main&#x2F;%E6%95%B0%E6%8D%AE%E5%BA%93&#x2F;No1.jpg">
 
@@ -123,7 +123,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">54</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">55</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -133,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">52</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">53</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -223,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-14 20:04:49" itemprop="dateModified" datetime="2021-05-14T20:04:49+08:00">2021-05-14</time>
+                <time title="修改时间：2021-06-15 16:57:19" itemprop="dateModified" datetime="2021-06-15T16:57:19+08:00">2021-06-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,14 +248,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.4k</span>
+              <span>6.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -358,8 +358,20 @@
 </li>
 <li><p><strong>alter table 表名 drop 字段名</strong>：删除字段</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">ysql&gt;</span><span class="bash"> alter table dc drop power_level;</span></span><br><span class="line">Query OK, 0 rows affected (1.14 sec)</span><br><span class="line">Records: 0  Duplicates: 0  Warnings: 0</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> desc dc;</span></span><br><span class="line">+-------+--------------+------+-----+---------+-------+</span><br><span class="line">| Field | Type         | Null | Key | Default | Extra |</span><br><span class="line">+-------+--------------+------+-----+---------+-------+</span><br><span class="line">| id    | int          | YES  |     | NULL    |       |</span><br><span class="line">| name  | varchar(255) | YES  |     | NULL    |       |</span><br><span class="line">| age   | int          | YES  |     | NULL    |       |</span><br><span class="line">+-------+--------------+------+-----+---------+-------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-<h4 id="数据操作sql"><a href="#数据操作sql" class="headerlink" title="数据操作sql"></a>数据操作sql</h4></li>
+</li>
 </ul>
+<h4 id="数据操作sql"><a href="#数据操作sql" class="headerlink" title="数据操作sql"></a>数据操作sql</h4><p>假设表<code>dc</code>的结构为<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> desc dc;</span></span><br><span class="line">+------------+--------------+------+-----+---------+----------------+</span><br><span class="line">| Field      | Type         | Null | Key | Default | Extra          |</span><br><span class="line">+------------+--------------+------+-----+---------+----------------+</span><br><span class="line">| id         | int          | NO   | PRI | NULL    | auto_increment |</span><br><span class="line">| name       | varchar(255) | NO   |     | NULL    |                |</span><br><span class="line">| age        | int          | YES  |     | 30      |                |</span><br><span class="line">| powerlevel | int          | YES  |     | NULL    |                |</span><br><span class="line">+------------+--------------+------+-----+---------+----------------+</span><br><span class="line">4 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p><strong>select * from 表名</strong>：查询表中的所有数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>insert into 表名 values (字段1数据, 字段2数据, …)</strong>：向表中添加一行数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> insert into dc values (0, <span class="string">'superman'</span>, 35, 10);</span></span><br><span class="line">Query OK, 1 row affected (0.08 sec)</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> select * from dc;</span></span><br><span class="line">+----+----------+------+------------+</span><br><span class="line">| id | name     | age  | powerlevel |</span><br><span class="line">+----+----------+------+------------+</span><br><span class="line">|  1 | superman |   35 |         10 |</span><br><span class="line">+----+----------+------+------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<p>注意到由于<code>id</code>是自增的，所以<code>id</code>默认从1开始，添加数据的时候也可以指定字段，这样<code>id</code>会自动加1。</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> insert into dc (name, age) values (<span class="string">'wonderwoman'</span>, 34);</span></span><br><span class="line">Query OK, 1 row affected (0.12 sec)</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> select * from mydatabase.dc;</span></span><br><span class="line">+----+-------------+------+------------+</span><br><span class="line">| id | name        | age  | powerlevel |</span><br><span class="line">+----+-------------+------+------------+</span><br><span class="line">|  1 | superman    |   35 |         10 |</span><br><span class="line">|  2 | wonderwoman |   34 |       NULL |</span><br><span class="line">+----+-------------+------+------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<p>注意到<code>id</code>自增1，<code>powerlevel</code>会取默认值<code>NULL</code>。</p>
 
     </div>
 
@@ -462,7 +474,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -475,7 +487,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">54</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -517,13 +529,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">222k</span>
+    <span title="站点总字数">224k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:24</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
