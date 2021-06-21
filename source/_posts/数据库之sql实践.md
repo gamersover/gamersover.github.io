@@ -276,5 +276,53 @@ categories: 技术
   3 rows in set (0.00 sec)
   ```
 
-  #### 数据操作sql
-  
+#### 数据操作sql
+假设表`dc`的结构为
+```shell
+mysql> desc dc;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int          | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(255) | NO   |     | NULL    |                |
+| age        | int          | YES  |     | 30      |                |
+| powerlevel | int          | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+```
+
+* **select * from 表名**：查询表中的所有数据
+```shell
+
+```
+
+* **insert into 表名 values (字段1数据, 字段2数据, ...)**：向表中添加一行数据
+```shell
+mysql> insert into dc values (0, 'superman', 35, 10);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from dc;
++----+----------+------+------------+
+| id | name     | age  | powerlevel |
++----+----------+------+------------+
+|  1 | superman |   35 |         10 |
++----+----------+------+------------+
+1 row in set (0.00 sec)
+```
+注意到由于`id`是自增的，所以`id`默认从1开始，添加数据的时候也可以指定字段，这样`id`会自动加1。
+
+
+```shell
+mysql> insert into dc (name, age) values ('wonderwoman', 34);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> select * from mydatabase.dc;
++----+-------------+------+------------+
+| id | name        | age  | powerlevel |
++----+-------------+------+------------+
+|  1 | superman    |   35 |         10 |
+|  2 | wonderwoman |   34 |       NULL |
++----+-------------+------+------------+
+2 rows in set (0.00 sec)
+```
+注意到`id`自增1，`powerlevel`会取默认值`NULL`。
