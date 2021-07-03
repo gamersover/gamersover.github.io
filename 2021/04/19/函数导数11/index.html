@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="尘雨尘风">
 <meta property="og:description" content="定理1: 局部逆映射定理 设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^n$，满足：（a）$\boldsymbol{f} \in C^1(D)$； （b）有$\boldsymbol{x}_0 \in D$，使得      \det J\boldsymbol{f}(\boldsymbol{x}_0) \ne 0记$\bol">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-06-05T03:33:08.443Z">
+<meta property="og:updated_time" content="2021-06-30T12:08:15.219Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/04/19/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B011/">
@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">53</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">54</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-05 11:33:08" itemprop="dateModified" datetime="2021-06-05T11:33:08+08:00">2021-06-05</time>
+                <time title="修改时间：2021-06-30 20:08:15" itemprop="dateModified" datetime="2021-06-30T20:08:15+08:00">2021-06-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -268,7 +268,7 @@
         <h4 id="定理1-局部逆映射定理"><a href="#定理1-局部逆映射定理" class="headerlink" title="定理1: 局部逆映射定理"></a>定理1: 局部逆映射定理</h4><blockquote>
 <p>设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^n$，满足：<br/><br>（a）$\boldsymbol{f} \in C^1(D)$； <br/><br>（b）有$\boldsymbol{x}_0 \in D$，使得</p>
 <script type="math/tex; mode=display">
-    \det J\boldsymbol{f}(\boldsymbol{x}_0) \ne 0</script><p>记$\boldsymbol{y}_0 = \boldsymbol{f}(\boldsymbol{x}_0)$，那么存在$\boldsymbol{x}_0$的一个领域$U$和$\boldsymbol{y}_0$的一个领域$V$，使得 <br/><br>（1）$\boldsymbol{f}(U) = V$，且$\boldsymbol{f}$在$U$上是单射；<br/><br>（2）记$\boldsymbol{g}$是$\boldsymbol{f}$在$U$上的逆映射，$\boldsymbol{g} \in C^1(V)$；<br/><br>（3）当$\boldsymbol{y} \in V$时，</p>
+    \det J\boldsymbol{f}(\boldsymbol{x}_0) \ne 0</script><p>记$\boldsymbol{y}_0 = \boldsymbol{f}(\boldsymbol{x}_0)$，那么存在$\boldsymbol{x}_0$的一个邻域$U$和$\boldsymbol{y}_0$的一个邻域$V$，使得 <br/><br>（1）$\boldsymbol{f}(U) = V$，且$\boldsymbol{f}$在$U$上是单射；<br/><br>（2）记$\boldsymbol{g}$是$\boldsymbol{f}$在$U$上的逆映射，$\boldsymbol{g} \in C^1(V)$；<br/><br>（3）当$\boldsymbol{y} \in V$时，</p>
 <script type="math/tex; mode=display">
     J\boldsymbol{g}(\boldsymbol{y}) = (J\boldsymbol{f}(\boldsymbol{x}))^{-1}</script><p>其中$\boldsymbol{x} = \boldsymbol{g}(\boldsymbol{y})$。</p>
 </blockquote>
@@ -279,7 +279,7 @@
 <script type="math/tex; mode=display">
     \boldsymbol{F}(\boldsymbol{x}_0, \boldsymbol{y}_0) = \boldsymbol{f}(\boldsymbol{x}_0) - \boldsymbol{y}_0 = \boldsymbol{0}</script><p>再由条件（b）可知，</p>
 <script type="math/tex; mode=display">
-    \det J_{\boldsymbol{x}} \boldsymbol{F} (\boldsymbol{x}_0, \boldsymbol{y}_0) = \det J\boldsymbol{f}(\boldsymbol{x}_0) \ne 0</script><p>从而由<a href="https://gamersover.github.io/2021/04/13/函数导数10/#定理3：隐映射定理" target="_blank" rel="noopener">函数导数十的定理3</a>可知，存在$\boldsymbol{x}_0$的领域$H$和$\boldsymbol{y}_0$的领域$V$，其中$H \subset D$，使得对每一点$\boldsymbol{y} \in V$，方程$\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y}) = \boldsymbol{0}$即$\boldsymbol{f}(\boldsymbol{x}) = \boldsymbol{y}$在$H$中有唯一解，记作$\boldsymbol{g}(\boldsymbol{y})$，其中$\boldsymbol{g} \in C^1(V)$，并且当$\boldsymbol{y} \in V$时，</p>
+    \det J_{\boldsymbol{x}} \boldsymbol{F} (\boldsymbol{x}_0, \boldsymbol{y}_0) = \det J\boldsymbol{f}(\boldsymbol{x}_0) \ne 0</script><p>从而由<a href="https://gamersover.github.io/2021/04/13/函数导数10/#定理3：隐映射定理" target="_blank" rel="noopener">函数导数十的定理3</a>可知，存在$\boldsymbol{x}_0$的邻域$H$和$\boldsymbol{y}_0$的邻域$V$，其中$H \subset D$，使得对每一点$\boldsymbol{y} \in V$，方程$\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y}) = \boldsymbol{0}$即$\boldsymbol{f}(\boldsymbol{x}) = \boldsymbol{y}$在$H$中有唯一解，记作$\boldsymbol{g}(\boldsymbol{y})$，其中$\boldsymbol{g} \in C^1(V)$，并且当$\boldsymbol{y} \in V$时，</p>
 <script type="math/tex; mode=display">
     \begin{aligned}
     J\boldsymbol{g}(\boldsymbol{y}) &= -(J_{\boldsymbol{x}}\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y}))^{-1}J_{\boldsymbol{y}}\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y}) \\
@@ -292,7 +292,7 @@
     \boldsymbol{f} \circ \boldsymbol{f}^{-1}(\boldsymbol{y}) = \boldsymbol{y}</script><p>（2）$\boldsymbol{f}^{-1} \in C^1(G)$；<br/><br>（3）</p>
 <script type="math/tex; mode=display">
     J\boldsymbol{f}^{-1}(\boldsymbol{y}) = (J\boldsymbol{f}(\boldsymbol{x}))^{-1} \quad (\boldsymbol{x} = J\boldsymbol{f}^{-1}(\boldsymbol{y}))</script></blockquote>
-<p>证：由于$\boldsymbol{f}$是单射，所以逆映射$\boldsymbol{f}^{-1}$必然存在，所以（1）成立；再由<a href="https://gamersover.github.io/2021/04/19/函数导数11/#定理1-局部逆映射定理" target="_blank" rel="noopener">定理1</a>可知，（2）（3）自然也成立。接下来只需证明$\boldsymbol{f}(D)$是开集，任取$\boldsymbol{y} \in G$，由<a href="https://gamersover.github.io/2021/04/19/函数导数11/#定理1-局部逆映射定理" target="_blank" rel="noopener">定理1</a>可知，存在$\boldsymbol{x}$的一个领域$U$和$\boldsymbol{y}$的一个领域$V$，使得$V = \boldsymbol{f}(U) \subset \boldsymbol{f}(D) = G$，即$\boldsymbol{y}$是$G$的内点，从而$G$是开集。</p>
+<p>证：由于$\boldsymbol{f}$是单射，所以逆映射$\boldsymbol{f}^{-1}$必然存在，所以（1）成立；再由<a href="https://gamersover.github.io/2021/04/19/函数导数11/#定理1-局部逆映射定理" target="_blank" rel="noopener">定理1</a>可知，（2）（3）自然也成立。接下来只需证明$\boldsymbol{f}(D)$是开集，任取$\boldsymbol{y} \in G$，由<a href="https://gamersover.github.io/2021/04/19/函数导数11/#定理1-局部逆映射定理" target="_blank" rel="noopener">定理1</a>可知，存在$\boldsymbol{x}$的一个邻域$U$和$\boldsymbol{y}$的一个邻域$V$，使得$V = \boldsymbol{f}(U) \subset \boldsymbol{f}(D) = G$，即$\boldsymbol{y}$是$G$的内点，从而$G$是开集。</p>
 <h4 id="定义2：正则映射"><a href="#定义2：正则映射" class="headerlink" title="定义2：正则映射"></a>定义2：正则映射</h4><blockquote>
 <p>设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^n$，满足以下三个条件：<br/><br>（1）$\boldsymbol{f} \in C^1(D)$；<br/><br>（2）$\boldsymbol{f}$是$D$上的单射；<br/><br>（3）$\det J\boldsymbol{f}(\boldsymbol{x}) \ne 0$对一切$\boldsymbol{x} \in D$成立。<br/><br>则称$\boldsymbol{f}$是$D$上的一个正则映射。</p>
 </blockquote>
@@ -400,7 +400,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -455,13 +455,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">230k</span>
+    <span title="站点总字数">231k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:29</span>
+    <span title="站点阅读时长">3:30</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

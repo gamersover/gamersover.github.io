@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="尘雨尘风">
 <meta property="og:description" content="描述该题来自于力扣第八题 请你来实现一个atoi函数，使其能将字符串转换成整数。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-05-05T04:23:37.053Z">
+<meta property="og:updated_time" content="2021-06-30T12:08:15.197Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/11/28/leetcode%E9%A2%98%E8%A7%A38/">
@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">53</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">54</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-05 12:23:37" itemprop="dateModified" datetime="2021-05-05T12:23:37+08:00">2021-05-05</time>
+                <time title="修改时间：2021-06-30 20:08:15" itemprop="dateModified" datetime="2021-06-30T20:08:15+08:00">2021-06-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -301,7 +301,7 @@
 <blockquote>
 <p>输入: “-91283472332”<br>输出: -2147483648<br>解释: 数字 “-91283472332” 超过 32 位有符号整数范围。<br>     因此返回 INT_MIN (−231) 。</p>
 </blockquote>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>思路是遍历字符串，对每个字符单独处理，字符类型一共有四种：空格(space)，+/-，数字(0-9)，其他(other)；根据这四种类型分别处理，然后判断边界即可。<br>这里采用另一种代码的写法，利用状态机，根据不同的字符输入进行不同的状态转换，从而获得结果，其本质和上面的思路道理是一样的，但是状态机在计算机领域非常通用，比如说硬件verilog语言应用就很多，而且正则表达式匹配的原理也使用到的状态机，故此采用状态机的写法。<br>首先可以定义状态，分为开始状态（start）、符号状态（sign）、数字状态（number）和结束状态（end），根据输入字符的不同，各个状态的转移图如下：</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>思路是遍历字符串，对每个字符单独处理，字符类型一共有四种：空格(space)，+/-，数字(0-9)，其他(other)；根据这四种类型分别处理，然后判断边界即可。<br>这里采用另一种代码的写法，利用状态机，根据不同的字符输入进行不同的状态转换，从而获得结果，其本质和上面的思路道理是一样的，但是状态机在计算机邻域非常通用，比如说硬件verilog语言应用就很多，而且正则表达式匹配的原理也使用到的状态机，故此采用状态机的写法。<br>首先可以定义状态，分为开始状态（start）、符号状态（sign）、数字状态（number）和结束状态（end），根据输入字符的不同，各个状态的转移图如下：</p>
 <pre class="mermaid">graph LR;
 S1[start]; S2[sign]; S3[number]; S4[end];
 S1 -- space --> S1;
@@ -479,7 +479,7 @@ S1 -- other --> S4</pre>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -534,13 +534,13 @@ S1 -- other --> S4</pre>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">230k</span>
+    <span title="站点总字数">231k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:29</span>
+    <span title="站点阅读时长">3:30</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
