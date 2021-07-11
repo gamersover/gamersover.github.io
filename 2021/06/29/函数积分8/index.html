@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="尘雨尘风">
 <meta property="og:description" content="定义1：零测集 设$B \subset \mathbb{R}^2$，如果对任意给定的$\varepsilon &amp;gt; 0$，存在可数个闭矩形序列$\{I_i\}(i=1,2,\cdots)$，使得      B \subset \bigcup \limits_{i=1}^\infty I_i, \qquad \sum_{i=1}^\infty \sigma(I_i) &amp;lt; \varepsilon则">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-07-08T12:32:36.812Z">
+<meta property="og:updated_time" content="2021-07-11T10:35:00.331Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/06/29/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%868/">
@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-08 20:32:36" itemprop="dateModified" datetime="2021-07-08T20:32:36+08:00">2021-07-08</time>
+                <time title="修改时间：2021-07-11 18:35:00" itemprop="dateModified" datetime="2021-07-11T18:35:00+08:00">2021-07-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -286,9 +286,9 @@
 </blockquote>
 <p>证：(1)(2)(3)易证，这里只证(4)(5)。<br>(4)的充分性。由于$B \subset \bar B$，从而由定义可知，对于任意给定的$\varepsilon &gt; 0$，存在有限个闭矩形序列$I_1, I_2, \cdots, I_m$使得</p>
 <script type="math/tex; mode=display">
-    B \subset \bar B \subset \bigcup \limits_{i=1}^m I_i, \quad \sum_{i=1}^m \sigma(I_i) < \varepsilon</script><p>所以$B$是零面积集。<br>必要性。有定义知$B \subset \bigcup \limits_{i=1}^m I_i$，而$\bigcup \limits_{i=1}^m I_i$是闭集，从而$\bar B \subset \bigcup \limits_{i=1}^m I_i$，在由定义可知，$\bar B$是零面积集。<br/><br>(5)的充分性由<a href="todo">定义2</a>显然得出。<br>必要性。可知$B$是紧致集而且是零测集，从而对任意给定的$\varepsilon &gt; 0$，存在开矩形序列$\{I_i\}$，使得</p>
+    B \subset \bar B \subset \bigcup \limits_{i=1}^m I_i, \quad \sum_{i=1}^m \sigma(I_i) < \varepsilon</script><p>所以$B$是零面积集。<br>必要性。有定义知$B \subset \bigcup \limits_{i=1}^m I_i$，而$\bigcup \limits_{i=1}^m I_i$是闭集，从而$\bar B \subset \bigcup \limits_{i=1}^m I_i$，在由定义可知，$\bar B$是零面积集。<br/><br>(5)的充分性由<a href="https://gamersover.github.io/2021/06/29/函数积分8/#定义2：零面积集" target="_blank" rel="noopener">定义2</a>显然得出。<br>必要性。可知$B$是紧致集而且是零测集，从而对任意给定的$\varepsilon &gt; 0$，存在开矩形序列$\{I_i\}$，使得</p>
 <script type="math/tex; mode=display">
-    B \subset \bigcup \limits_{i=1}^\infty I_i, \qquad \sum_{i=1}^\infty \sigma(I_i) < \varepsilon</script><p>由<a href="todo">点列极限六的定理2</a>可知，从$\{I_i\}$中可以选取有限个开矩形仍能覆盖住$B$，这些开矩形的面积和自然小于$\varepsilon$，从而$B$是零面积集。</p>
+    B \subset \bigcup \limits_{i=1}^\infty I_i, \qquad \sum_{i=1}^\infty \sigma(I_i) < \varepsilon</script><p>由<a href="https://gamersover.github.io/2020/11/10/点列极限6/#定理2" target="_blank" rel="noopener">点列极限六的定理2</a>可知，从$\{I_i\}$中可以选取有限个开矩形仍能覆盖住$B$，这些开矩形的面积和自然小于$\varepsilon$，从而$B$是零面积集。</p>
 <p>Q.E.D.</p>
 <h4 id="定义3"><a href="#定义3" class="headerlink" title="定义3"></a>定义3</h4><blockquote>
 <p>设集合$B \subset \mathbb{R}^2, f: B \to \mathbb{R}$有界。对任何$\boldsymbol{x} \in B$及$r &gt; 0$，令$I_{x,r} = B \cap B_r(\boldsymbol{x})$。用$\omega_f(\boldsymbol{x}, r)$表示$f$在$I_{r,\boldsymbol{x}}$上的振幅。令</p>
@@ -299,23 +299,23 @@
 <p>函数$f$在$I_{r, \boldsymbol{x}}$上的振幅</p>
 <script type="math/tex; mode=display">
     \omega_f(\boldsymbol{x}, r) = \sup \{ |f(\boldsymbol{y}_1) - f(\boldsymbol{y}_2)|: \boldsymbol{y}_1,\boldsymbol{y}_2 \in I_{\boldsymbol{x}, r} \}</script></blockquote>
-<p>证：与<a href="todo">函数积分四的定理2</a>证明方法一样。</p>
+<p>证：与<a href="https://gamersover.github.io/2021/05/25/函数积分4/#定理2" target="_blank" rel="noopener">函数积分四的定理2</a>证明方法一样。</p>
 <p>Q.E.D.</p>
 <h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><blockquote>
 <p>设集合$B \subset \mathbb{R}^2$，函数$f$在点$\boldsymbol{x} \in B$处连续的充分必要条件是$\omega_f(\boldsymbol{x}) = 0$。</p>
 </blockquote>
-<p>证：与<a href="todo">函数积分四的定理4</a>证明方法一样。</p>
+<p>证：与<a href="https://gamersover.github.io/2021/05/25/函数积分4/#定理4" target="_blank" rel="noopener">函数积分四的定理4</a>证明方法一样。</p>
 <h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h4><blockquote>
 <p>设$I$是一个矩形，对$\delta &lt; 0$， 记</p>
 <script type="math/tex; mode=display">
     D_\delta = \{ \boldsymbol{x} \in I: \omega_f(\boldsymbol{x}) \ge \delta \}</script><p>用$D(f)$表示$f$在矩形$I$上不连续点的全体，那么有</p>
 <script type="math/tex; mode=display">
     \displaystyle D(f) = \bigcup_{n=1}^\infty D_{1/n}</script></blockquote>
-<p>证：与<a href="todo">函数积分四的定理5</a>证明方法一样。</p>
+<p>证：与<a href="https://gamersover.github.io/2021/05/25/函数积分4/#定理5" target="_blank" rel="noopener">函数积分四的定理5</a>证明方法一样。</p>
 <h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><blockquote>
 <p>设$f$是定义在有限闭矩形$I$上的函数，如果存在一列开矩形$I_j(j=1,2,\cdots)$使得$\displaystyle D(f) \subset \bigcup \limits_{j=1}^\infty I_j$，记$K = I \subset \bigcup \limits_{j=1}^\infty I_j$，那么对任意的$\varepsilon &gt; 0$，一定存在$\delta &gt; 0$，当$\boldsymbol{x} \in K, \boldsymbol{I}$且$\Vert \boldsymbol{x} - \boldsymbol{y} \Vert &lt; \delta$时，有$|f(\boldsymbol{x}) - f(\boldsymbol{y})| &lt; \varepsilon$。、</p>
 </blockquote>
-<p>证：与<a href="todo">函数积分四的定理6</a>证明方法一样。</p>
+<p>证：与<a href="https://gamersover.github.io/2021/05/25/函数积分4/#定理6" target="_blank" rel="noopener">函数积分四的定理6</a>证明方法一样。</p>
 
     </div>
 
@@ -341,8 +341,8 @@
       <i class="fa fa-chevron-left"></i> 函数积分七：矩形区域的二重积分
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/07/11/leetcode%E9%A2%98%E8%A7%A324/" rel="next" title="leetcode题解24">
-      leetcode题解24 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/07/11/leetcode%E9%A2%98%E8%A7%A324/" rel="next" title="leetcode题解24：两两交换链表中的节点">
+      leetcode题解24：两两交换链表中的节点 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -474,13 +474,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">234k</span>
+    <span title="站点总字数">242k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:33</span>
+    <span title="站点阅读时长">3:40</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
