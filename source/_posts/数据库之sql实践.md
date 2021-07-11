@@ -217,7 +217,7 @@ categories: 技术
 创建了表，其中`id`字段设置为主键，并设置为自增；`name`字段设置数据不能为`Null`；`age`字段设置默认值为30。
 
 ### 3.5.2 查
-查询表的字段信息与前面的[表操作查询](todo)一样
+查询表的字段信息与前面的[表操作查询](https://gamersover.github.io/2021/04/16/数据库之sql实践/#3-2-查)一样
 
 ### 3.5.3 改
 * **alter table 表名 add 新字段名 数据类型**：增加字段
@@ -542,7 +542,6 @@ mysql> select * from dc t1 left join dc_name t2 on (t1.name=t2.name)
 * **insert (into|overwrite) 表名 select查询语句**：从另一表中中导入数据
   * into是追加方式
   * overwirte是重写方式
-  * select查询语句格式[这里](todo)会介绍到
   
   ```sql
   mysql> create table dc_name (id int, name varchar(255)); -- 创建新表dc_name
