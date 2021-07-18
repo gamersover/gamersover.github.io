@@ -453,17 +453,11 @@ mysql> select t1.*, t2.iq from dc t1 right join dc_name t2 on (t1.name=t2.name);
 2 rows in set (0.00 sec)
 ```
 
-注意：2个以上表的join语法有两种写法
+注意：2个以上表的join语法
 ```sql
 select * from a
 join b on (a.a1=b.b1)
 join c on (a.a1=c.c1)
-
--- 或者 todo: 需测试
-select * from a
-join b
-join c
-on (a.a1=b.b1 and a.a1=c.c1)
 ```
 
 #### 3.6.1.4 子查询
