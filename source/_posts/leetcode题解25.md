@@ -1,5 +1,5 @@
 ---
-title: leetcode题解25
+title: leetcode题解25：K个一组翻转链表
 date: 2021-07-18 09:56:33
 tags:
     - leetcode
