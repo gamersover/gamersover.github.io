@@ -4,7 +4,7 @@ date: 2019-12-28 18:02:27
 tags: 
     - linux
     - shell
-categories: shell
+categories: 技术
 ---
 
 ## linux终端快捷键

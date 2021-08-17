@@ -5,7 +5,7 @@ tags:
     - vim 
     - shell 
     - linux
-categories: vim 
+categories: 技术
 ---
 
 ## 1 Vim逻辑
