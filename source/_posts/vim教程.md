@@ -194,9 +194,10 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'crooloose/nerdtree'
+Plugin 'preservim/nerdtree'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'connorholyday/vim-snazzy'
 Plugin 'dense-analysis/ale'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -205,7 +206,7 @@ Plugin 'ycm-core/YouCompleteMe'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-# nerdtree相关设置
+" nerdtree相关设置
 let NERDChristmasTree=0
 let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\~$']
@@ -216,7 +217,7 @@ let NERDTreeShowHidden=1
 let NERDTreeWinSize=25
 let g:nerdtree_tabs_open_on_console_startup=1
 let NERDTreeIgnore=['\.pyc','\~$','\.swp']
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
@@ -232,21 +233,22 @@ let g:NERDTreeIndicatorMapCustom = {
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map tt :NERDTreeMirror<CR>
 map tt :NERDTreeToggle<CR>
-# airline相关设置
+" airline相关设置
 set laststatus=2
+let g:airline_theme = 'simple'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-# ale相关设置
+" ale相关设置
 let b:ale_linters = ['pyline']
 let b:ale_fixers = ['autopep8', 'yapf']
-# intent_guides相关设置
+" intent_guides相关设置
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_color_change_percent = 1
 silent! unmap <LEADER>ig
 autocmd WinEnter * silent! unmap <LEADER>ig
-# youcompleteme相关设置
+" youcompleteme相关设置
 nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap g/ :YcmCompleter GetDoc<CR>
 nnoremap gt :YcmCompleter GetType<CR>
@@ -256,7 +258,7 @@ let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_use_clangd = 0
 let g:ycm_python_interpreter_path = "/usr/bin/python3"
 let g:ycm_python_binary_path = "/usr/bin/python3"
-# 主题相关设置
+" 主题相关设置
 "color snazzy
 colorscheme molokai
 ```
