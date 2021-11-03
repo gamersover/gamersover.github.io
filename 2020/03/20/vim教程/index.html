@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="1 Vim逻辑 Vim命令逻辑为operation + motion的方式，首先输入主要操作（命令），然后可以输入行为，比如输入c，然后输入5→表示修改右边5个字符">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim教程">
+<meta property="og:url" content="http://yoursite.com/2020/03/20/vim%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="尘雨尘风">
+<meta property="og:description" content="1 Vim逻辑 Vim命令逻辑为operation + motion的方式，首先输入主要操作（命令），然后可以输入行为，比如输入c，然后输入5→表示修改右边5个字符">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-20T13:27:45.000Z">
+<meta property="article:modified_time" content="2021-10-27T07:06:50.393Z">
+<meta property="article:author" content="陈华杰">
+<meta property="article:tag" content="shell">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/20/vim%E6%95%99%E7%A8%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>vim教程 | 尘雨尘风</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">尘雨尘风</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">数学与编程的爱好者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">61</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">64</span></a>
+
+  </li>
+        <li class="menu-item menu-item-poem">
+
+    <a href="/poem/" rel="section"><i class="fa fa-book fa-fw"></i>诗集</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/20/vim%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vim教程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-20 21:27:45" itemprop="dateCreated datePublished" datetime="2020-03-20T21:27:45+08:00">2020-03-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-27 15:06:50" itemprop="dateModified" datetime="2021-10-27T15:06:50+08:00">2021-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1-Vim逻辑"><a href="#1-Vim逻辑" class="headerlink" title="1 Vim逻辑"></a>1 Vim逻辑</h2><blockquote>
+<p>Vim命令逻辑为operation + motion的方式，首先输入主要操作（命令），然后可以输入行为，比如输入c，然后输入5→表示修改右边5个字符</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="2-快捷键"><a href="#2-快捷键" class="headerlink" title="2 快捷键"></a>2 快捷键</h2><ul>
+<li>普通模式</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">含义</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">esc</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">进入普通模式</td>
+</tr>
+<tr>
+<td style="text-align:center">h</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">左</td>
+</tr>
+<tr>
+<td style="text-align:center">j</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">下</td>
+</tr>
+<tr>
+<td style="text-align:center">k</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">上</td>
+</tr>
+<tr>
+<td style="text-align:center">l</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">右</td>
+</tr>
+<tr>
+<td style="text-align:center">i</td>
+<td style="text-align:center">insert</td>
+<td style="text-align:center">光标前一个字符插入</td>
+</tr>
+<tr>
+<td style="text-align:center">gg</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">到文件头部</td>
+</tr>
+<tr>
+<td style="text-align:center">G</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">到文件尾部</td>
+</tr>
+<tr>
+<td style="text-align:center">a</td>
+<td style="text-align:center">append</td>
+<td style="text-align:center">光标后一个字符插入</td>
+</tr>
+<tr>
+<td style="text-align:center">I</td>
+<td style="text-align:center">shift+insert</td>
+<td style="text-align:center">行首插入</td>
+</tr>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">shift+append</td>
+<td style="text-align:center">行尾插入</td>
+</tr>
+<tr>
+<td style="text-align:center">u</td>
+<td style="text-align:center">undo</td>
+<td style="text-align:center">撤销</td>
+</tr>
+<tr>
+<td style="text-align:center">d</td>
+<td style="text-align:center">delete(cut)</td>
+<td style="text-align:center">删除（剪切）</td>
+</tr>
+<tr>
+<td style="text-align:center">p</td>
+<td style="text-align:center">paste</td>
+<td style="text-align:center">粘贴</td>
+</tr>
+<tr>
+<td style="text-align:center">y</td>
+<td style="text-align:center">yank</td>
+<td style="text-align:center">复制</td>
+</tr>
+<tr>
+<td style="text-align:center">c</td>
+<td style="text-align:center">change</td>
+<td style="text-align:center">修改（删除光标中的内容并进入编辑模式）</td>
+</tr>
+<tr>
+<td style="text-align:center">w</td>
+<td style="text-align:center">word</td>
+<td style="text-align:center">光标移动到下一个词</td>
+</tr>
+<tr>
+<td style="text-align:center">f</td>
+<td style="text-align:center">find</td>
+<td style="text-align:center">在行内查找</td>
+</tr>
+<tr>
+<td style="text-align:center">%</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">快速定位括号的另一半</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;&gt;</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">向前缩进</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;&lt;</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">向后缩进</td>
+</tr>
+<tr>
+<td style="text-align:center">cw</td>
+<td style="text-align:center">change word</td>
+<td style="text-align:center">光标位于词开头，修改整个词</td>
+</tr>
+<tr>
+<td style="text-align:center">ciw</td>
+<td style="text-align:center">change in word</td>
+<td style="text-align:center">光标位于中间，修改整个词</td>
+</tr>
+<tr>
+<td style="text-align:center">ci”</td>
+<td style="text-align:center">change in “ “</td>
+<td style="text-align:center">光标位于单引号中，修改单引号中的词</td>
+</tr>
+<tr>
+<td style="text-align:center">di”</td>
+<td style="text-align:center">delete in “ “</td>
+<td style="text-align:center">光标位于单引号中，删除单引号中的词</td>
+</tr>
+<tr>
+<td style="text-align:center">yi”</td>
+<td style="text-align:center">yank in “ “</td>
+<td style="text-align:center">光标位于单引号中，复制单引号中的词</td>
+</tr>
+<tr>
+<td style="text-align:center">cf”</td>
+<td style="text-align:center">change until find “</td>
+<td style="text-align:center">修改从光标到找到单引号字符的内容</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>命令行模式</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">含义</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">:</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">命令行模式</td>
+</tr>
+<tr>
+<td style="text-align:center">:q</td>
+<td style="text-align:center">quit</td>
+<td style="text-align:center">命令行模式下，退出</td>
+</tr>
+<tr>
+<td style="text-align:center">:r file</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">将file文件的内容读到当前文件中（从光标后一行插入）</td>
+</tr>
+<tr>
+<td style="text-align:center">:w</td>
+<td style="text-align:center">writen</td>
+<td style="text-align:center">命令行模式下，保存（写入）</td>
+</tr>
+<tr>
+<td style="text-align:center">:w file</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">另存到file文件（如果在vision模型下选中的内容，会将这部分内容保存到file文件）</td>
+</tr>
+<tr>
+<td style="text-align:center">:s</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">替换</td>
+</tr>
+<tr>
+<td style="text-align:center">:!</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">执行shell命令</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="3-搜索与替换"><a href="#3-搜索与替换" class="headerlink" title="3 搜索与替换"></a>3 搜索与替换</h2><ul>
+<li><p><code>/</code>搜索模式下，从光标开始往后搜索</p>
+<p>| 快捷键 |    含义    |     功能     |<br>| :——: | :————: | :—————: |<br>|   n    |    next    | 下一个匹配的 |<br>|   N    | shift+next | 前一个匹配的 |</p>
+</li>
+<li><p><code>?</code>搜索模式下，从光标开始往前搜索，快捷键的功能与<code>/</code>模型下刚好相反</p>
+</li>
+<li><p><code>:s</code>替换</p>
+<p>|     语法      |          功能          |<br>| :—————-: | :——————————: |<br>|   <code>:s/a/b/</code>   | 光标后的第一个a替换成b |<br>|  <code>:s/a/b/g</code>   |        替换整行        |<br>| <code>:1,4s/a/b/g</code> |     1-4行的a换成b      |<br>|  <code>:%s/a/b/g</code>  |      全文的a换成b      |</p>
+</li>
+</ul>
+<h2 id="4-vim基础配置"><a href="#4-vim基础配置" class="headerlink" title="4 vim基础配置"></a>4 vim基础配置</h2><blockquote>
+<ol>
+<li>home目录下新建.vim目录</li>
+<li>在.vim下新建vimrc文件</li>
+<li>添加配置内容（map a b）（noremap a b）(set a)（let a）（color）</li>
+</ol>
+</blockquote>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span>		# 语法高亮</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">number</span>		# 显示行号</span><br><span class="line"><span class="keyword">set</span> relativenumber			# 显示相对行号</span><br><span class="line"><span class="keyword">set</span> norelativenumber		# 不显示显示相对行号</span><br><span class="line"><span class="keyword">set</span> wrap	# 避免超出行显示</span><br><span class="line"><span class="keyword">set</span> showcmd		# 右下角显示命令</span><br><span class="line"><span class="keyword">set</span> wildmenu	# 命令行模式下<span class="keyword">tab</span>提示</span><br><span class="line"><span class="keyword">set</span> hlsearch	# 高亮显示搜索结果</span><br><span class="line">exec <span class="string">"nohlsearch"</span>		# 退出重新进入后不高亮显示之前的结果</span><br><span class="line"><span class="keyword">set</span> incsearch		# 边输入边搜索</span><br><span class="line"><span class="keyword">set</span> ignorecase		# 搜索时忽略大小写</span><br><span class="line"><span class="keyword">set</span> smartcase		# 如果既含有小写又含有大写，则准确匹配</span><br><span class="line"></span><br><span class="line"># <span class="symbol">&lt;CR&gt;</span>代表回车</span><br><span class="line"><span class="keyword">map</span> S :<span class="keyword">w</span><span class="symbol">&lt;CR&gt;</span>		# 大S快捷键映射为保存功能</span><br><span class="line"><span class="keyword">map</span> Q :q<span class="symbol">&lt;CR&gt;</span>		# 大Q快捷键映射为退出功能</span><br><span class="line"><span class="keyword">map</span> R :<span class="keyword">source</span> $MYVIMRC		# 大R快捷键映射为刷新该<span class="keyword">vim</span>配置</span><br><span class="line"></span><br><span class="line"><span class="keyword">noremap</span> J <span class="number">5</span><span class="keyword">j</span>		# 大J快捷键映射为光标向下移动<span class="number">5</span>行</span><br><span class="line"><span class="keyword">noremap</span> K <span class="number">5</span><span class="keyword">k</span>		# 大K快捷键映射为光标向上移动<span class="number">5</span>行</span><br><span class="line"></span><br><span class="line">color slate			# <span class="keyword">vim</span>配色改为slate</span><br></pre></td></tr></table></figure>
+<h2 id="5-vim插件安装"><a href="#5-vim插件安装" class="headerlink" title="5 vim插件安装"></a>5 vim插件安装</h2><h3 id="5-1-插件安装步骤"><a href="#5-1-插件安装步骤" class="headerlink" title="5.1 插件安装步骤"></a>5.1 插件安装步骤</h3><ol>
+<li>找到插件的github地址，然后clone下来放到<code>~/.vim/bundle</code>目录下</li>
+<li>在<code>~/.vimrc</code>中写入<code>Plugin &#39;plugname&#39;</code>，其中plugname为github中的项目名字</li>
+</ol>
+<h3 id="5-2-例子（安装vim-airline插件）"><a href="#5-2-例子（安装vim-airline插件）" class="headerlink" title="5.2 例子（安装vim-airline插件）"></a>5.2 例子（安装vim-airline插件）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.vim/bundle</span><br><span class="line">git clone https://github.com/vim-airline/vim-airline.git</span><br><span class="line">vim ~/.vimrc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在vimrc中加入一行</span></span><br><span class="line">Plugin 'vim-airline/vim-airline'</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>也可以先安装vundle（插件管理工具）插件，只需要按照vundle的语法在vimrc中编辑语句后，执行PluginInstall可以自动下载插件，具体可以看vundle的github文档</p>
+</blockquote>
+<h3 id="5-3-vim主题安装"><a href="#5-3-vim主题安装" class="headerlink" title="5.3 vim主题安装"></a>5.3 vim主题安装</h3><ol>
+<li>下载相应的themename.vim到<code>~/.vim/colors</code>目录下</li>
+<li>然后在<code>~/.vimrc</code>中写入<code>color themename</code>即可</li>
+</ol>
+<h2 id="6-附录（-vimrc文件）"><a href="#6-附录（-vimrc文件）" class="headerlink" title="6 附录（.vimrc文件）"></a>6 附录（.vimrc文件）</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mapleader=<span class="string">" "</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span></span><br><span class="line"><span class="keyword">set</span> encoding=utf-<span class="number">8</span></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">number</span></span><br><span class="line"><span class="keyword">set</span> norelativenumber</span><br><span class="line"><span class="keyword">set</span> wrap</span><br><span class="line"><span class="keyword">set</span> showcmd</span><br><span class="line"><span class="keyword">set</span> wildmenu</span><br><span class="line"><span class="comment">"搜索相关</span></span><br><span class="line"><span class="keyword">set</span> hlsearch</span><br><span class="line">exec <span class="string">"nohlsearch"</span></span><br><span class="line"><span class="keyword">set</span> incsearch</span><br><span class="line"><span class="keyword">set</span> ignorecase</span><br><span class="line"><span class="keyword">set</span> smartcase</span><br><span class="line"><span class="keyword">noremap</span> <span class="symbol">&lt;LEADER&gt;</span><span class="symbol">&lt;CR&gt;</span> :<span class="keyword">nohlsearch</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="comment">"缩进相关</span></span><br><span class="line"><span class="keyword">set</span> smartindent</span><br><span class="line"><span class="keyword">set</span> tabstop=<span class="number">4</span></span><br><span class="line"><span class="keyword">set</span> autoindent</span><br><span class="line"><span class="keyword">set</span> expandtab</span><br><span class="line"><span class="comment">"保存退出快捷键</span></span><br><span class="line"><span class="keyword">map</span> S :<span class="keyword">w</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> Q :q<span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> R :<span class="keyword">source</span> ~/.vimrc<span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="comment">"快速浏览</span></span><br><span class="line"><span class="keyword">noremap</span> J <span class="number">5</span><span class="keyword">j</span></span><br><span class="line"><span class="keyword">noremap</span> K <span class="number">5</span><span class="keyword">k</span></span><br><span class="line"><span class="comment">"分屏相关</span></span><br><span class="line"><span class="keyword">map</span> <span class="keyword">sl</span> :<span class="keyword">set</span> splitright<span class="symbol">&lt;CR&gt;</span>:<span class="keyword">vsplit</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> <span class="keyword">sh</span> :<span class="keyword">set</span> nosplitright<span class="symbol">&lt;CR&gt;</span>:<span class="keyword">vsplit</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> sk :<span class="keyword">set</span> splitbelow<span class="symbol">&lt;CR&gt;</span>:<span class="keyword">split</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> sj :<span class="keyword">set</span> nosplitbelow<span class="symbol">&lt;CR&gt;</span>:<span class="keyword">split</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="comment">"分屏跳转</span></span><br><span class="line"><span class="keyword">map</span> <span class="symbol">&lt;LEADER&gt;</span><span class="keyword">l</span> <span class="symbol">&lt;C-w&gt;</span><span class="keyword">l</span></span><br><span class="line"><span class="keyword">map</span> <span class="symbol">&lt;LEADER&gt;</span>h <span class="symbol">&lt;C-w&gt;</span>h</span><br><span class="line"><span class="keyword">map</span> <span class="symbol">&lt;LEADER&gt;</span><span class="keyword">k</span> <span class="symbol">&lt;C-w&gt;</span><span class="keyword">k</span></span><br><span class="line"><span class="keyword">map</span> <span class="symbol">&lt;LEADER&gt;</span><span class="keyword">j</span> <span class="symbol">&lt;C-w&gt;</span><span class="keyword">j</span></span><br><span class="line"><span class="comment">"分屏大小调节</span></span><br><span class="line"><span class="keyword">map</span> <span class="symbol">&lt;up&gt;</span> :<span class="keyword">res</span> +<span class="number">5</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> <span class="symbol">&lt;down&gt;</span> :<span class="keyword">res</span> -<span class="number">5</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> <span class="symbol">&lt;left&gt;</span> :<span class="keyword">vertical</span> <span class="keyword">resize</span>-<span class="number">5</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> <span class="symbol">&lt;right&gt;</span> :<span class="keyword">vertical</span> <span class="keyword">resize</span>+<span class="number">5</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="comment">"vundle插件相关</span></span><br><span class="line"><span class="keyword">set</span> nocompatible              <span class="comment">" be iMproved, required</span></span><br><span class="line"><span class="keyword">filetype</span> off                  <span class="comment">" required</span></span><br><span class="line"></span><br><span class="line"><span class="comment">" set the runtime path to include Vundle and initialize</span></span><br><span class="line"><span class="keyword">set</span> rtp+=~/.<span class="keyword">vim</span>/bundle/Vundle.<span class="keyword">vim</span></span><br><span class="line"><span class="keyword">call</span> vundle#begin()</span><br><span class="line"><span class="comment">" alternatively, pass a path where Vundle should install plugins</span></span><br><span class="line"><span class="comment">"call vundle#begin('~/some/path/here')</span></span><br><span class="line"></span><br><span class="line"><span class="comment">" let Vundle manage Vundle, required</span></span><br><span class="line">Plugin <span class="string">'VundleVim/Vundle.vim'</span></span><br><span class="line">Plugin <span class="string">'preservim/nerdtree'</span></span><br><span class="line">Plugin <span class="string">'rstacruz/sparkup'</span>, &#123;<span class="string">'rtp'</span>: <span class="string">'vim/'</span>&#125;</span><br><span class="line">Plugin <span class="string">'vim-airline/vim-airline'</span></span><br><span class="line">Plugin <span class="string">'vim-airline/vim-airline-themes'</span></span><br><span class="line">Plugin <span class="string">'connorholyday/vim-snazzy'</span></span><br><span class="line">Plugin <span class="string">'dense-analysis/ale'</span></span><br><span class="line">Plugin <span class="string">'Xuyuanp/nerdtree-git-plugin'</span></span><br><span class="line">Plugin <span class="string">'nathanaelkane/vim-indent-guides'</span></span><br><span class="line">Plugin <span class="string">'ycm-core/YouCompleteMe'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> vundle#end()            <span class="comment">" required</span></span><br><span class="line"><span class="keyword">filetype</span> plugin <span class="built_in">indent</span> <span class="keyword">on</span>    <span class="comment">" required</span></span><br><span class="line"><span class="comment">" nerdtree相关设置</span></span><br><span class="line"><span class="keyword">let</span> NERDChristmasTree=<span class="number">0</span></span><br><span class="line"><span class="keyword">let</span> NERDTreeChDirMode=<span class="number">2</span></span><br><span class="line"><span class="keyword">let</span> NERDTreeIgnore=[<span class="string">'\~$'</span>]</span><br><span class="line"><span class="keyword">let</span> NERDTreeShowBookmarks=<span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> NERDTreeAutoCenter=<span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> NERDTreeShowLineNumbers=<span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> NERDTreeShowHidden=<span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> NERDTreeWinSize=<span class="number">25</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:nerdtree_tabs_open_on_console_startup</span>=<span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> NERDTreeIgnore=[<span class="string">'\.pyc'</span>,<span class="string">'\~$'</span>,<span class="string">'\.swp'</span>]</span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:NERDTreeGitStatusIndicatorMapCustom</span> = &#123;</span><br><span class="line">    \ <span class="string">"Modified"</span>  : <span class="string">"✹"</span>,</span><br><span class="line">    \ <span class="string">"Staged"</span>    : <span class="string">"✚"</span>,</span><br><span class="line">    \ <span class="string">"Untracked"</span> : <span class="string">"✭"</span>,</span><br><span class="line">    \ <span class="string">"Renamed"</span>   : <span class="string">"➜"</span>,</span><br><span class="line">    \ <span class="string">"Unmerged"</span>  : <span class="string">"═"</span>,</span><br><span class="line">    \ <span class="string">"Deleted"</span>   : <span class="string">"✖"</span>,</span><br><span class="line">    \ <span class="string">"Dirty"</span>     : <span class="string">"✗"</span>,</span><br><span class="line">    \ <span class="string">"Clean"</span>     : <span class="string">"✔︎"</span>,</span><br><span class="line">    \ <span class="string">'Ignored'</span>   : <span class="string">'☒'</span>,</span><br><span class="line">    \ <span class="string">"Unknown"</span>   : <span class="string">"?"</span></span><br><span class="line">    \ &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">autocmd</span> bufenter * <span class="keyword">if</span> (<span class="built_in">winnr</span>(<span class="string">"$"</span>) == <span class="number">1</span> &amp;&amp; <span class="built_in">exists</span>(<span class="string">"b:NERDTree"</span>) &amp;&amp; <span class="variable">b:NERDTree</span>.isTabTree()) | q | <span class="keyword">endif</span></span><br><span class="line"><span class="keyword">map</span> tt :NERDTreeMirror<span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> tt :NERDTreeToggle<span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="comment">" airline相关设置</span></span><br><span class="line"><span class="keyword">set</span> laststatus=<span class="number">2</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:airline_theme</span> = <span class="string">'simple'</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:airline_powerline_fonts</span> = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:airline</span>#extensions#tabline#enabled = <span class="number">1</span></span><br><span class="line"><span class="comment">" ale相关设置</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">b:ale_linters</span> = [<span class="string">'pyline'</span>]</span><br><span class="line"><span class="keyword">let</span> <span class="variable">b:ale_fixers</span> = [<span class="string">'autopep8'</span>, <span class="string">'yapf'</span>]</span><br><span class="line"><span class="comment">" intent_guides相关设置</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:indent_guides_guide_size</span> = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:indent_guides_start_level</span> = <span class="number">2</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:indent_guides_enable_on_vim_startup</span> = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:indent_guides_color_change_percent</span> = <span class="number">1</span></span><br><span class="line">silent! <span class="keyword">unmap</span> <span class="symbol">&lt;LEADER&gt;</span>ig</span><br><span class="line"><span class="keyword">autocmd</span> WinEnter * silent! <span class="keyword">unmap</span> <span class="symbol">&lt;LEADER&gt;</span>ig</span><br><span class="line"><span class="comment">" youcompleteme相关设置</span></span><br><span class="line"><span class="keyword">nnoremap</span> gd :YcmCompleter GoToDefinitionElseDeclaration<span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">nnoremap</span> g/ :YcmCompleter GetDoc<span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">nnoremap</span> gt :YcmCompleter GetType<span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">nnoremap</span> <span class="keyword">gr</span> :YcmCompleter GoToReferences<span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_autoclose_preview_window_after_completion</span>=<span class="number">0</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_autoclose_preview_window_after_insertion</span>=<span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_use_clangd</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_python_interpreter_path</span> = <span class="string">"/usr/bin/python3"</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_python_binary_path</span> = <span class="string">"/usr/bin/python3"</span></span><br><span class="line"><span class="comment">" 主题相关设置</span></span><br><span class="line"><span class="comment">"color snazzy</span></span><br><span class="line"><span class="keyword">colorscheme</span> molokai</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/shell/" rel="tag"><i class="fa fa-tag"></i> shell</a>
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+              <a href="/tags/vim/" rel="tag"><i class="fa fa-tag"></i> vim</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/28/linux%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/" rel="prev" title="linux命令大全">
+      <i class="fa fa-chevron-left"></i> linux命令大全
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/09/20/%E7%82%B9%E5%88%97%E6%9E%81%E9%99%901/" rel="next" title="点列极限一：数列极限定义与基本性质">
+      点列极限一：数列极限定义与基本性质 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Vim逻辑"><span class="nav-text">1 Vim逻辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-快捷键"><span class="nav-text">2 快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-搜索与替换"><span class="nav-text">3 搜索与替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-vim基础配置"><span class="nav-text">4 vim基础配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-vim插件安装"><span class="nav-text">5 vim插件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-插件安装步骤"><span class="nav-text">5.1 插件安装步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-例子（安装vim-airline插件）"><span class="nav-text">5.2 例子（安装vim-airline插件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-vim主题安装"><span class="nav-text">5.3 vim主题安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-附录（-vimrc文件）"><span class="nav-text">6 附录（.vimrc文件）</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="陈华杰"
+      src="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+  <p class="site-author-name" itemprop="name">陈华杰</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gamersover" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gamersover" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈华杰</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">278k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:12</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'default',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '2b5e8584032528a65176',
+      clientSecret: '4a98c67c6337be0cd82b30d04699a4dcef47307c',
+      repo        : 'gamersover.github.io',
+      owner       : 'gamersover',
+      admin       : ['gamersover'],
+      id          : 'd075a0300feefe4e39d31d530510decf',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

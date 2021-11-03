@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="定义1：隐式方程 设$D \subset \mathbb{R}^2$是一开集，$F: D \to \mathbb{R}$是一个含有两个自变量$x,y$的函数，对于$D$中的点$(x,y)$满足方程      F(x,y) &#x3D; 0的点的全体组成$D$内的一条曲线，而方程就称为该曲线的隐式方程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数导数十：隐函数、隐映射定理">
+<meta property="og:url" content="http://yoursite.com/2021/04/13/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B010/index.html">
+<meta property="og:site_name" content="尘雨尘风">
+<meta property="og:description" content="定义1：隐式方程 设$D \subset \mathbb{R}^2$是一开集，$F: D \to \mathbb{R}$是一个含有两个自变量$x,y$的函数，对于$D$中的点$(x,y)$满足方程      F(x,y) &#x3D; 0的点的全体组成$D$内的一条曲线，而方程就称为该曲线的隐式方程。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-13T14:14:25.000Z">
+<meta property="article:modified_time" content="2021-10-27T05:27:17.734Z">
+<meta property="article:author" content="陈华杰">
+<meta property="article:tag" content="数学分析">
+<meta property="article:tag" content="函数导数">
+<meta property="article:tag" content="隐函数">
+<meta property="article:tag" content="隐映射">
+<meta property="article:tag" content="微分">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2021/04/13/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B010/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>函数导数十：隐函数、隐映射定理 | 尘雨尘风</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">尘雨尘风</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">数学与编程的爱好者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">61</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">64</span></a>
+
+  </li>
+        <li class="menu-item menu-item-poem">
+
+    <a href="/poem/" rel="section"><i class="fa fa-book fa-fw"></i>诗集</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/13/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B010/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          函数导数十：隐函数、隐映射定理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-13 22:14:25" itemprop="dateCreated datePublished" datetime="2021-04-13T22:14:25+08:00">2021-04-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>11k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>10 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="定义1：隐式方程"><a href="#定义1：隐式方程" class="headerlink" title="定义1：隐式方程"></a>定义1：隐式方程</h4><blockquote>
+<p>设$D \subset \mathbb{R}^2$是一开集，$F: D \to \mathbb{R}$是一个含有两个自变量$x,y$的函数，对于$D$中的点$(x,y)$满足方程</p>
+<script type="math/tex; mode=display">
+    F(x,y) = 0</script><p>的点的全体组成$D$内的一条曲线，而方程就称为该曲线的隐式方程。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="定理1：隐函数定理"><a href="#定理1：隐函数定理" class="headerlink" title="定理1：隐函数定理"></a>定理1：隐函数定理</h4><blockquote>
+<p>设开集$D \subset \mathbb{R}^2$，函数$F: D \to \mathbb{R}$满足条件：<br/><br>（a）$F \in C^1(D)$； <br/><br>（b）点$(x_0,y_0) \in D$使得$F(x_0,y_0) = 0$；<br/><br>（c）$\frac{\partial F(x_0,y_0)}{\partial y} \ne 0$ <br/><br>那么存在一个包含$(x_0,y_0)$的开矩形$I \times J \subset D$，使得：<br/><br>（1）对每一个$x \in I$，方程$F(x,y)=0$在$J$中有唯一的解$f(x)$；<br /><br>（2）$y_0 = f(x_0)$； <br/><br>（3）$f \in C^1(I)$；<br/><br>（4）当$x \in I$时，有</p>
+<script type="math/tex; mode=display">
+    f^\prime(x) = -\frac{\frac{\partial F}{\partial x}(x,y)}{\frac{\partial F}{\partial y}(x,y)}</script><p>其中$y = f(x)$。</p>
+</blockquote>
+<p>证：不妨设$\displaystyle \frac{\partial F(x_0,y_0)}{\partial y} &gt; 0$，由条件$(a)$可知，存在一个包含$(x_0,y_0)$的开矩形$I^\prime \times J$，满足$I^\prime \times \bar J \subset D$，且在$I^\prime \times \bar J$上有$\displaystyle \frac{\partial F}{\partial y} &gt; 0$。从而对任意给定的$x \in I^\prime$，$F(x,y)$在闭区间$\bar J$上是严格递增的连续函数。设$J = (c,d)$，由条件$(b)$可知必有</p>
+<script type="math/tex; mode=display">
+    F(x_0, c) < 0, \quad F(x_0, d) > 0</script><p>由条件$(a)$能推出$F \in C(D)$，因此存在含$x_0$的开区间$I \subset I^\prime$，使得当$x \in I$时，</p>
+<script type="math/tex; mode=display">
+    F(x, c) < 0, \quad F(x, d) > 0</script><p>由连续函数的零值定理和严格单调性可知，对每一个$x \in I$，存在唯一的一个数，记作$f(x) \in (c, d) = J$，使得$F(x, f(x)) = 0$，这就证明了（1），显然$f$满足（2）。<br/><br>为了证明（3）和（4），先证明$f$在开区间$I$上连续。特别地，$x_0 \in I$，由上面的证明可知无论区间$J$取得多小，一定存在足够小的区间$I$使得对每一个$x \in I$时，有$f(x) \in J$；这时$|f(x) - f(x_0)| &lt; |J|$，其中$|J|$表示区间$J$的长度。即证明了$f$在$x_0$处连续。现任取$x_1 \in I$，设$y_1 = f(x_1)$，则$(x_1,y_1) \in I \times J$。因为有$F(x_1,y_1)=0$，$\displaystyle \frac{\partial F(x_1,y_1)}{\partial y} &gt; 0$，所以$F$在点$(x_1,y_1)$处满足它在$(x_0,y_0)$处的同样条件，所以$f$在$x_1$处也是连续的，从而$f$在整个区间$I$上连续。<br/><br>再证$(3)$和$(4)$。设$x \in I$，取$h$很小，使得$x+h \in I$。令$y = f(x)$，$k = f(x+h) - f(x)$。由$F$的可微性，并利用<a href="https://gamersover.github.io/2021/03/31/函数导数8/#定理1" target="_blank" rel="noopener">函数导数八的定理1</a>可得</p>
+<script type="math/tex; mode=display">
+    0 = F(x+h, y+k) - F(x, y) = \frac{\partial F}{\partial x}(x, y) h + \frac{\partial F}{\partial y}(x, y) k + \alpha h + \beta k</script><p>其中当$h \to 0$时，$\alpha \to 0$，当$k \to 0$时，$\beta \to 0$。又由于$f \in C(I)$，所以当$h \to 0$时，$k \to 0$，从而$\beta \to 0$。从而</p>
+<script type="math/tex; mode=display">
+    \lim \limits_{h \to 0} \frac{f(x + h) - f(x)}{h} = \lim \limits_{h \to 0} \frac{k}{h} = \lim\limits_{h \to 0} \frac{-\frac{\partial F}{\partial x} + \alpha}{\frac{\partial F}{\partial y} + \beta}</script><p>即</p>
+<script type="math/tex; mode=display">
+    f^\prime(x) = - \frac{\frac{\partial F}{\partial x} (x, y)}{\frac{\partial F}{\partial y} (x,y)}</script><p>其中$x \in I$且$y = f(x)$。由于$(a)$知，$f^\prime$在$I$上连续。</p>
+<p>Q.E.D.</p>
+<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
+<p>设开集$D \subset \mathbb{R}^{n+1}$，$F: D \to \mathbb{R}$，满足条件：<br/><br>（a）$F \in C^1(D)$；<br/><br>（b）$F(\boldsymbol{x}_0, y_0) = 0$，这里$\boldsymbol{x}_0 \in \mathbb{R}^n,y_0 \in \mathbb{R}$且$(\boldsymbol{x}_0, y_0) \in D$；<br/><br>（c）$\frac{\partial F(\boldsymbol{x}_0, y_0)}{\partial y} \ne 0$。<br/><br>那么存在$(\boldsymbol{x}_0, y_0)$的一个邻域$G \times J$，其中$G$是$\boldsymbol{x_0}$在$\mathbb{R}^n$的一个邻域，$J$是$\mathbb{R}$中的一个开区间，使得：<br/><br>（1）对每一个$\boldsymbol{x} \in G$，方程</p>
+<script type="math/tex; mode=display">
+    F(\boldsymbol{x}, y) = 0</script><p>在$J$中存在唯一的解，记为$f(\boldsymbol{x})$；<br/><br>（2）$y_0 = f(\boldsymbol{x}_0)$； <br/><br>（3）$f \in C^1(G)$； <br/><br>（4）当$\boldsymbol{x} \in G$时，</p>
+<script type="math/tex; mode=display">
+    \frac{\partial f}{\partial x_i} = - \frac{\frac{\partial F}{\partial x_i}(\boldsymbol{x}, y)}{\frac{\partial F}{\partial y}(\boldsymbol{x}, y)} \quad (i=1,2,\cdots,n)</script><p>其中$y = f(\boldsymbol{x})$。</p>
+</blockquote>
+<p>证：由<a href="https://gamersover.github.io/2021/04/13/函数导数10/#定理1：隐函数定理" target="_blank" rel="noopener">定理1</a>的证明，可知（1）（2）的证明方式一模一样；而在证明（3）（4）时，只需令$\boldsymbol{h} = (0, \cdots, h_i, \cdots, 0)^T$，固定$x_i$，其他证明过程一样，即可证得（3）和（4）。</p>
+<p>Q.E.D.</p>
+<hr>
+<p>设有$m$个方程组成的方程组</p>
+<script type="math/tex; mode=display">
+    \left\{ \begin{aligned}
+        & F_1(x_1,x_2,\cdots,x_n, y_1,\cdots, y_m) = 0 \\
+        & \cdots, \\
+        & F_m(x_1,x_2,\cdots,x_n, y_1,\cdots, y_m) = 0 
+    \end{aligned} \right.</script><p>按照隐函数的想法，是否可以解出</p>
+<script type="math/tex; mode=display">
+    \left\{ \begin{aligned}
+        & y_1 = f_1(x_1,\cdots,x_n) \\
+        & \cdots \\
+        & y_m = f_m(x_1,\cdots,x_n)
+    \end{aligned} \right.</script><p>为了缩短记号，可令</p>
+<script type="math/tex; mode=display">
+    \boldsymbol{F} = \left[ \begin{matrix}
+         F_1 \\
+         \vdots \\
+         F_m
+    \end{matrix} \right], \quad
+    \boldsymbol{f} = \left[ \begin{matrix}
+         f_1 \\
+         \vdots \\
+         f_m
+    \end{matrix} \right]</script><p>从而可以把方程改写为</p>
+<script type="math/tex; mode=display">
+    \boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y}) = \boldsymbol{0}</script><p>而解出式可改写为</p>
+<script type="math/tex; mode=display">
+    \boldsymbol{y} = \boldsymbol{f}(\boldsymbol{x})</script><p>需要再定义几个记号，设$\boldsymbol{F}$定义在开集$D \subset \mathbb{R}^{m+n}$上，在$m \times (m+n)$矩阵</p>
+<script type="math/tex; mode=display">
+    J\boldsymbol{F} = \left[
+        \begin{matrix}
+            \frac{\partial F_1}{\partial x_1} & \cdots & \frac{\partial F_1}{x_n} & \frac{\partial F_1}{\partial y_1} & \cdots & \frac{\partial F_1}{\partial y_m} \\
+            \vdots & & \vdots & \vdots & & \vdots \\
+            \frac{\partial F_m}{\partial x_1} & \cdots & \frac{\partial F_m}{x_n} & \frac{\partial F_m}{\partial y_1} & \cdots & \frac{\partial F_m}{\partial y_m}
+        \end{matrix}
+        \right]</script><p>中做分块：$J\boldsymbol{F} = (J<em>{\boldsymbol{x}}\boldsymbol{F}, J</em>{\boldsymbol{y}}\boldsymbol{F})$，其中</p>
+<script type="math/tex; mode=display">
+    J_{\boldsymbol{x}}\boldsymbol{F} = \left[
+        \begin{matrix}
+            \frac{\partial F_1}{\partial x_1} & \cdots & \frac{\partial F_1}{x_n}  \\
+            \vdots & & \vdots\\
+            \frac{\partial F_m}{\partial x_1} & \cdots & \frac{\partial F_m}{x_n}
+        \end{matrix}
+        \right], \quad
+    J_{\boldsymbol{y}}\boldsymbol{F} = \left[
+        \begin{matrix}
+            \frac{\partial F_1}{\partial y_1} & \cdots & \frac{\partial F_1}{\partial y_m} \\
+            \vdots & & \vdots \\
+            \frac{\partial F_m}{\partial y_1} & \cdots & \frac{\partial F_m}{\partial y_m}
+        \end{matrix}
+        \right]</script><p>$J<em>{\boldsymbol{x}}\boldsymbol{F}$是一个$m \times n$矩阵，$J</em>{\boldsymbol{y}}\boldsymbol{F}$是一个$m$阶方阵。</p>
+<h4 id="定理3：隐映射定理"><a href="#定理3：隐映射定理" class="headerlink" title="定理3：隐映射定理"></a>定理3：隐映射定理</h4><blockquote>
+<p>设开集$D \subset \mathbb{R}^{n+m}$，$\boldsymbol{F}: D \to \mathbb{R}^m$，满足下列条件：<br/><br>（a）$\boldsymbol{F} \in C^1(D)$；<br/><br>（b）有一点$(\boldsymbol{x}<em>0, \boldsymbol{y}_0) \in D$，使得$\boldsymbol{F}(\boldsymbol{x}_0, \boldsymbol{y}_0) = \boldsymbol{0}$；<br/><br>（c）行列式$\det J</em>{\boldsymbol{y}} \boldsymbol{F}(\boldsymbol{x}_0, \boldsymbol{y}_0) \ne 0$ <br/><br>那么存在$(\boldsymbol{x}_0, \boldsymbol{y}_0)$的一个邻域$G \times H$，使得：<br/><br>（1）对每一个$\boldsymbol{x} \in G$，方程$\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y})=\boldsymbol{0}$在$H$中有唯一的解，记为$\boldsymbol{f}(\boldsymbol{x})$；<br/><br>（2）$\boldsymbol{y}_0 = \boldsymbol{f}(\boldsymbol{x}_0)$ <br/><br>（3）$\boldsymbol{f} \in C^1(D)$<br>（4）当$\boldsymbol{x} \in G$时，</p>
+<script type="math/tex; mode=display">
+    J\boldsymbol{f}(\boldsymbol{x}) = -(J_{\boldsymbol{y}}\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y})^{-1})J_{\boldsymbol{x}}\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y})</script><p>其中$\boldsymbol{y} = \boldsymbol{f}(\boldsymbol{x})$</p>
+</blockquote>
+<p>证：对方程组的个数$m$进行归纳。当$m=1$时，即为该定理<a href="https://gamersover.github.io/2021/04/13/函数导数10/#定理2" target="_blank" rel="noopener">定理2</a>。先设方程组个数为$m-1$时该定理成立，再证明在$m$时依然成立即可。<br/><br>由于$\det J<em>{\boldsymbol{y}}\boldsymbol{F}(\boldsymbol{x}_0, \boldsymbol{y}_0) \ne 0$，且$\boldsymbol{F} \in C^1(D)$，所以总可以找到一个包含$(\boldsymbol{x}_0, \boldsymbol{y}_0)$的开集$D^\prime$满足$(\boldsymbol{x}_0, \boldsymbol{y}_0) \in D^\prime \subset D$，且在$D^\prime$上的每一个点处都有$\det J</em>{\boldsymbol{y}}\boldsymbol{F} \ne 0$。由条件$（c）$可知$m$阶方阵$J_{\boldsymbol{y}}\boldsymbol{F}(\boldsymbol{x}_0, \boldsymbol{y}_0)$的元素不全为$0$，不妨设</p>
+<script type="math/tex; mode=display">
+    \frac{\partial F_m}{\partial y_j}(\boldsymbol{x}_0, \boldsymbol{y}_0) \ne 0 \tag{1}</script><p>同时令</p>
+<script type="math/tex; mode=display">
+    \boldsymbol{u} = (y_1, \cdots, y_{m-1}), \quad t = y_m, \quad \boldsymbol{y} = (\boldsymbol{u}, t)</script><p>同样可以定义$\boldsymbol{y}_0 = (\boldsymbol{u}_0, t_0)$来规定$\boldsymbol{u}_0$和$t_0$的意义，从而式(1)可写成</p>
+<script type="math/tex; mode=display">
+    \frac{\partial F_m}{\partial t}(\boldsymbol{x}_0, \boldsymbol{u}_0, t_0) \ne 0</script><p>又有</p>
+<script type="math/tex; mode=display">
+    F_m (\boldsymbol{x}_0, \boldsymbol{u}_0, t_0) = F_m(\boldsymbol{x}_0, \boldsymbol{y}_0) = 0</script><p>由<a href="https://gamersover.github.io/2021/04/13/函数导数10/#定理2" target="_blank" rel="noopener">定理2</a>可知，存在$(\boldsymbol{x}<em>0, \boldsymbol{u}_0, t_0)$的一个邻域$(G_n \times G</em>{m-1}) \times J \subset D^\prime$，使得：<br/><br>（i）对每一点$(\boldsymbol{x}, \boldsymbol{u}) \in G<em>{n} \times G</em>{m=1}$，方程</p>
+<script type="math/tex; mode=display">
+    F_m(\boldsymbol{x}, \boldsymbol{u}, t) = 0</script><p>在$J$中有唯一的解$t = \varphi(\boldsymbol{x}, \boldsymbol{u})$，这里函数$\varphi: G<em>n \times G</em>{m-1} \to J$；<br/><br>（ii）$\varphi(\boldsymbol{x}<em>0, \boldsymbol{u}_0) = t_0$；<br/><br>（iii）$\varphi \in C^1(G</em>{n} \times G<em>{m-1})$；<br/><br>这时将$t = \varphi(\boldsymbol{x}, \boldsymbol{u})$代入到原始方程中，即将$y_m$用$x_1,\cdots,x_n,y_1,\cdots,y</em>{m-1}$代入，</p>
+<script type="math/tex; mode=display">
+ \Phi_i(\boldsymbol{x}, \boldsymbol{u}) = F_i(\boldsymbol{x}, \boldsymbol{u}, \varphi(\boldsymbol{x}, \boldsymbol{u})) = 0 \quad (i=1,2,\cdots,m-1) \tag{2}</script><p>考虑映射</p>
+<script type="math/tex; mode=display">
+    \boldsymbol{\Phi} = \left[\begin{matrix}
+            \Phi_1 \\
+            \vdots \\
+            \Phi_{m-1}
+        \end{matrix}\right]: G_n \times G_{m-1} \to \mathbb{R}^{m-1}</script><p>若能证明$\boldsymbol{\Phi}$满足定理的三个条件，便可使用归纳假设了。显然$\boldsymbol{\Phi} \in C^1$，并且</p>
+<script type="math/tex; mode=display">
+    \phi_i(\boldsymbol{x}_0, \boldsymbol{u}_0) = F_i(\boldsymbol{x}_0, \boldsymbol{u}_0, \varphi(\boldsymbol{x}_0, \boldsymbol{u}_0)) = 0 \quad (i=1,2\cdots,m-1)</script><p>所以$\boldsymbol{\Phi}(\boldsymbol{x}_0, \boldsymbol{y}_0)=\boldsymbol{0}$。对式(2)两边同时关于$u_j$（即$y_j$）$(j=1,2,\cdots,m-1)$求导，得</p>
+<script type="math/tex; mode=display">
+    \frac{\partial \Phi_i}{\partial u_j} = \frac{\partial F_i}{\partial y_j} + \frac{\partial F_i}{\partial y_m} \frac{\partial \varphi}{\partial u_j} \quad (i,j=1,2,\cdots,m-1)</script><p>又由（i）可知</p>
+<script type="math/tex; mode=display">
+    F_m(\boldsymbol{x}, \boldsymbol{u}, \varphi(\boldsymbol{x}, \boldsymbol{u})) = 0</script><p>对上式也关于$u_j$（即$y_j$）$(j=1,2,\cdots,m-1)$求导得</p>
+<script type="math/tex; mode=display">
+    \frac{\partial F_m}{\partial y_j} + \frac{\partial F_m}{\partial y_m} \frac{\partial \varphi}{\partial u_j} = 0 \quad (j=1,2,\cdots,m-1)</script><p>从而由</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        \left| 
+            \begin{matrix}
+                \frac{\partial F_1}{\partial y_1} & \cdots & \frac{\partial F_1}{\partial y_m} \\
+                \vdots & & \vdots \\
+                \frac{\partial F_m}{\partial y_1} & \cdots & \frac{\partial F_m}{\partial y_m} 
+            \end{matrix} 
+        \right| 
+        & = 
+        \left| 
+            \begin{matrix}
+                \frac{\partial F_1}{\partial y_1} + \frac{\partial F_1}{\partial y_m}\frac{\partial \varphi}{\partial u_1} & \frac{\partial F_1}{\partial y_2} + \frac{\partial F_1}{\partial y_m}\frac{\partial \varphi}{\partial u_2} & \cdots & \frac{\partial F_1}{\partial y_m} \\
+                \vdots & \vdots & & \vdots \\
+                \frac{\partial F_m}{\partial y_1} + \frac{\partial F_m}{\partial y_m}\frac{\partial \varphi}{\partial u_1} & \frac{\partial F_m}{\partial y_2} + \frac{\partial F_m}{\partial y_m}\frac{\partial \varphi}{\partial u_2} & \cdots & \frac{\partial F_m}{\partial y_m}
+            \end{matrix} 
+        \right| \\
+        & = 
+        \left| 
+            \begin{matrix}
+                \frac{\partial \Phi_1}{\partial u_1} & \cdots & \frac{\partial \Phi_1}{\partial u_{m-1}} & \frac{\partial F_1}{\partial y_m} \\
+                \vdots & & \vdots & \vdots \\
+                \frac{\partial \Phi_{m-1}}{\partial u_1} & \cdots & \frac{\partial \Phi_{m-1}}{\partial u_{m-1}} & \frac{\partial F_{m-1}}{\partial y_m} \\
+                0 & \cdots & 0 & \frac{\partial F_m}{\partial y_m}
+            \end{matrix} 
+        \right| \\
+        & = \frac{\partial F_m}{\partial y_m}(\boldsymbol{x}_0, \boldsymbol{u}_0, t_0) \det(J_{\boldsymbol{u}} \boldsymbol{\Phi}(\boldsymbol{x}_0, \boldsymbol{u}_0))
+    \end{aligned} \tag{3}</script><p>根据条件（c），式子(3)的左边不等于0，因为有</p>
+<script type="math/tex; mode=display">
+     \det(J_{\boldsymbol{u}} \boldsymbol{\Phi}(\boldsymbol{x}_0, \boldsymbol{u}_0)) \ne 0</script><p>从而证明了$\boldsymbol{\Phi}$满足本定理中的三个条件，从而对$\boldsymbol{\Phi}$使用归纳假设，可知定理中的结论（1），（2）和（3）对$\boldsymbol{\Phi}$都成立。即存在点$(\boldsymbol{x}<em>0, \boldsymbol{y}_0)$的邻域$G \times H</em>{m-1} \subset G<em>n \times G</em>{m-1}$使得：<br/><br>（aa）当$\boldsymbol{x} \in G$时，方程$\boldsymbol{\phi}(\boldsymbol{x}, \boldsymbol{u}) = \boldsymbol{0}$在$H<em>{m-1}$中有唯一解$\boldsymbol{u} = \boldsymbol{g}(\boldsymbol{x})$，其中映射$\boldsymbol{g}: G \to H</em>{m-1}$；<br/><br>（ab）$\boldsymbol{\boldsymbol{x}_0} = \boldsymbol{u}_0$；<br/><br>（ac）$\boldsymbol{g} \in C^1(G)$ <br/><br>令</p>
+<script type="math/tex; mode=display">
+    \boldsymbol{f}(\boldsymbol{x}) = (\boldsymbol{g}(\boldsymbol{x}), \varphi(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}))) \quad (\boldsymbol{x} \in G)</script><script type="math/tex; mode=display">
+    H = H_{m-1} \times J</script><p>于是$\boldsymbol{f}: G \to H$。我们要证明$\boldsymbol{f}$满足条件（1），（2）和（3）。当$\boldsymbol{x} \in G$，$(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x})) \in G \times H<em>{m-1} \subset G_n \times G</em>{m-1}$，从而由（aa）可得</p>
+<script type="math/tex; mode=display">
+    F_i(\boldsymbol{x}, \boldsymbol{f}(\boldsymbol{x})) = F_i(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}), \varphi(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}))) = \Phi_i(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x})) = 0 \quad (i=1,2,\cdots,m-1)</script><p>另外由（i）可知</p>
+<script type="math/tex; mode=display">
+    F_m(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x})) = F_m(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}), \varphi(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}))) =  0</script><p>从而$\boldsymbol{f}$满足（1）。由（ab）和（ii）可知</p>
+<script type="math/tex; mode=display">
+    \boldsymbol{f}(\boldsymbol{x}_0) = (\boldsymbol{g}(\boldsymbol{x}_0), \varphi(\boldsymbol{x}_0, \boldsymbol{g}(\boldsymbol{x}_0))) = (\boldsymbol{u}_0, \varphi(\boldsymbol{x}_0, \boldsymbol{u}_0)) = (\boldsymbol{u}_0, t_0) = \boldsymbol{y}_0</script><p>所以$\boldsymbol{f}$满足（2）。再由（ac）和（iii）即知$\boldsymbol{f}$满足（3）。再由恒等式</p>
+<script type="math/tex; mode=display">
+    \boldsymbol{F}(\boldsymbol{x}, \boldsymbol{f}(\boldsymbol{x})) = \boldsymbol{0}</script><p>对上式复合求导，得</p>
+<script type="math/tex; mode=display">
+    J_{\boldsymbol{x}} \boldsymbol{F}(\boldsymbol{x}, \boldsymbol{f}(\boldsymbol{x})) + J_y \boldsymbol{F}(\boldsymbol{x}, \boldsymbol{f}(\boldsymbol{x})) J\boldsymbol{f}(\boldsymbol{x}) = \boldsymbol{0}</script><p>由于在$D^\prime$上$\det J<em>{\boldsymbol{y}}\boldsymbol{F}$处处不为0，所以$J</em>{\boldsymbol{y}}\boldsymbol{F}$是可逆方阵，在上式中取逆方阵，得出</p>
+<script type="math/tex; mode=display">
+    J\boldsymbol{f}(\boldsymbol{x}) = -(J_{\boldsymbol{y}}\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{f}(\boldsymbol{x})))^{-1}J_{\boldsymbol{x}}\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{f}(\boldsymbol{x}))</script><p>即表明$\boldsymbol{f}$满足（4）。</p>
+<p>Q.E.D.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 数学分析</a>
+              <a href="/tags/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B0/" rel="tag"><i class="fa fa-tag"></i> 函数导数</a>
+              <a href="/tags/%E9%9A%90%E5%87%BD%E6%95%B0/" rel="tag"><i class="fa fa-tag"></i> 隐函数</a>
+              <a href="/tags/%E9%9A%90%E6%98%A0%E5%B0%84/" rel="tag"><i class="fa fa-tag"></i> 隐映射</a>
+              <a href="/tags/%E5%BE%AE%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> 微分</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/11/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B09/" rel="prev" title="函数导数九：映射微分和复合求导">
+      <i class="fa fa-chevron-left"></i> 函数导数九：映射微分和复合求导
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8Bsql%E5%AE%9E%E8%B7%B5/" rel="next" title="数据库之sql实践">
+      数据库之sql实践 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1：隐式方程"><span class="nav-text">定义1：隐式方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1：隐函数定理"><span class="nav-text">定理1：隐函数定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3：隐映射定理"><span class="nav-text">定理3：隐映射定理</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="陈华杰"
+      src="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+  <p class="site-author-name" itemprop="name">陈华杰</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gamersover" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gamersover" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈华杰</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">278k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:12</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'default',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '2b5e8584032528a65176',
+      clientSecret: '4a98c67c6337be0cd82b30d04699a4dcef47307c',
+      repo        : 'gamersover.github.io',
+      owner       : 'gamersover',
+      admin       : ['gamersover'],
+      id          : '1fdb0e76b62b9c401c98d6a494c10551',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

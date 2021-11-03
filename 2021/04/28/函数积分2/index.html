@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="定义1：分割 在区间$[a,b]$上，记分割      \pi : a &#x3D; x_0 &lt; x_1 &lt; \cdots &lt; x_n &#x3D; b把$[a,b]$分成$n$个小区间$[x{i-1},x_i]$，其长度为$\Delta x_i &#x3D; x_i - x{i-1} (i&#x3D;-1,2,\cdots,n)$。并称${x_0, x_1, \cdots,x_n}$为$\pi$的分点序列。令      \Vert \">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数积分二：Riemann积分">
+<meta property="og:url" content="http://yoursite.com/2021/04/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%862/index.html">
+<meta property="og:site_name" content="尘雨尘风">
+<meta property="og:description" content="定义1：分割 在区间$[a,b]$上，记分割      \pi : a &#x3D; x_0 &lt; x_1 &lt; \cdots &lt; x_n &#x3D; b把$[a,b]$分成$n$个小区间$[x{i-1},x_i]$，其长度为$\Delta x_i &#x3D; x_i - x{i-1} (i&#x3D;-1,2,\cdots,n)$。并称${x_0, x_1, \cdots,x_n}$为$\pi$的分点序列。令      \Vert \">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-28T13:12:18.000Z">
+<meta property="article:modified_time" content="2021-10-27T05:27:17.736Z">
+<meta property="article:author" content="陈华杰">
+<meta property="article:tag" content="数学分析">
+<meta property="article:tag" content="函数积分">
+<meta property="article:tag" content="Riemann积分">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2021/04/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%862/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>函数积分二：Riemann积分 | 尘雨尘风</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">尘雨尘风</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">数学与编程的爱好者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">61</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">64</span></a>
+
+  </li>
+        <li class="menu-item menu-item-poem">
+
+    <a href="/poem/" rel="section"><i class="fa fa-book fa-fw"></i>诗集</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%862/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          函数积分二：Riemann积分
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-28 21:12:18" itemprop="dateCreated datePublished" datetime="2021-04-28T21:12:18+08:00">2021-04-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="定义1：分割"><a href="#定义1：分割" class="headerlink" title="定义1：分割"></a>定义1：分割</h4><blockquote>
+<p>在区间$[a,b]$上，记分割</p>
+<script type="math/tex; mode=display">
+    \pi : a = x_0 < x_1 < \cdots < x_n = b</script><p>把$[a,b]$分成$n$个小区间$[x<em>{i-1},x_i]$，其长度为$\Delta x_i = x_i - x</em>{i-1} (i=-1,2,\cdots,n)$。并称${x_0, x_1, \cdots,x_n}$为$\pi$的分点序列。令</p>
+<script type="math/tex; mode=display">
+    \Vert \pi \Vert = \max \limits_{1 \le i \le n} \{ \Delta x_i \}</script><p>称$\Vert \pi \Vert$为分割$\pi$的宽度。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="定义2：Riemann积分"><a href="#定义2：Riemann积分" class="headerlink" title="定义2：Riemann积分"></a>定义2：Riemann积分</h4><blockquote>
+<p>设函数$f$在区间$[a,b]$上有定义，如果实数$I$使得对任意给定的$\varepsilon &gt; 0$，存在$\delta &gt; 0$，只要$[a,b]$的分割$\pi$满足$\Vert \pi \Vert &lt; \delta$，而不管$\xi<em>i \in [x</em>{i-1}, x_i] (1 \le i \le n)$如何选择，都有</p>
+<script type="math/tex; mode=display">
+    |I - \sum_{i=1}^n f(\xi_i) \Delta x_i| < \varepsilon</script><p>成立，则称$f$在$[a,b]$上Riemann可积，称$I$是$f$在$[a,b]$上的Riemann积分，通常用</p>
+<script type="math/tex; mode=display">
+    \int_a^b f(x) \mathrm{d} x</script><p>来表示。其中$b$与$a$分别称为积分的上限与下限，$f$称为被积函数。和式</p>
+<script type="math/tex; mode=display">
+    \sum_{i=1}^n f(\xi_i) \Delta x_i</script><p>称为$f$的Riemann和（也称积分和），${\xi_1, \xi_2, \cdots, \xi_n}$称为此积分和的值点序列。</p>
+</blockquote>
+<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
+<p>如果函数$f,g$在$[a,b]$可积且非负，那么 <br/><br>（1）</p>
+<script type="math/tex; mode=display">
+    \int_a^b f(x) \mathrm{d} x \ge 0</script><p>（2）如果$f \ge g$在$[a,b]$上成立，则</p>
+<script type="math/tex; mode=display">
+    \int_a^b f(x) \mathrm{d} x \ge \int_a^b g(x) \mathrm{d} x</script><p>（3）$f \pm g$在$[a,b]$上也可积，且</p>
+<script type="math/tex; mode=display">
+    \int_a^b (f(x) \pm g(x)) \mathrm{d} x = \int_a^b f(x) \mathrm{d} x \pm \int_a^b g(x) \mathrm{d} x</script><p>（4）对任意的常数$c$，函数$cf$也在$[a,b]$上可积，且</p>
+<script type="math/tex; mode=display">
+    \int_a^b cf(x) \mathrm{d} x = c \int_a^b f(x) \mathrm{d} x</script></blockquote>
+<p>证：由积分的定义容易推出。</p>
+<p>Q.E.D.</p>
+<h4 id="定理2：Newton-Leibiniz"><a href="#定理2：Newton-Leibiniz" class="headerlink" title="定理2：Newton-Leibiniz"></a>定理2：Newton-Leibiniz</h4><blockquote>
+<p>设函数$f$在$[a,b]$上可积，且在$(a,b)$上有原函数$F$，如果$F$在$[a,b]$上连续，那么必有</p>
+<script type="math/tex; mode=display">
+    \int_a^b f(x) \mathrm{d} x = F(b) - F(a)</script><p>为了方便，引入记号</p>
+<script type="math/tex; mode=display">
+    F(x) \Big|_a^b = F(b) - F(a)</script><p>从而</p>
+<script type="math/tex; mode=display">
+    \int_a^b f(x) \mathrm{d} x = F(x) \Big|_a^b</script></blockquote>
+<p>证：用分点$a = x<em>0 &lt; x_1 &lt; \cdots &lt; x_n=b$把区间$[a,b]$作$n$等分，即$x_i - x</em>{i-1} = (b-a) / n (i=1,2,\cdots,n)$，于是</p>
+<script type="math/tex; mode=display">
+    F(b) - F(a) = \sum_{i=1}^n (F(x_i) - F(x_{i-1}))</script><p>对$F$使用微分中值定理，有</p>
+<script type="math/tex; mode=display">
+    F(b) - F(a) = \sum_{i=1}^n F^\prime(\xi_i) \Delta x_i = \sum_{i=1}^n f(\xi_i) \Delta x_i \tag{1}</script><p>这里$\xi<em>i \in (x</em>{i-1}, x_i)(i=1,2,\cdots,n)$，由于$f$在$[a,b]$上可积，所以当$n \to \infty$时，式(1)的右边以$\displaystyle \int_a^b f(x) \mathrm{d} x$为极限，从而在式(1)两边令$n \to \infty$，可得</p>
+<script type="math/tex; mode=display">
+    F(b) - F(a) = \int_a^b f(x) \mathrm{d} x</script><p>Q.E.D.</p>
+<h4 id="定理3：分部积分公式"><a href="#定理3：分部积分公式" class="headerlink" title="定理3：分部积分公式"></a>定理3：分部积分公式</h4><blockquote>
+<p>设$u,v$是两个可导的函数，且公式中存在的函数积分在$[a,b]$上都存在，则</p>
+<script type="math/tex; mode=display">
+    \int_a^b u(x)v^\prime(x) \mathrm{d} x = u(x)v(x)\Big|_a^b - \int_a^b u^\prime(x)v(x) \mathrm{d} x</script><p>或写成微分形式</p>
+<script type="math/tex; mode=display">
+    \int_a^b u \mathrm{d} v = u v\Big|_a^b  - \int_a^b v \mathrm{d} u</script></blockquote>
+<p>证：由求导法则可知</p>
+<script type="math/tex; mode=display">
+    (uv)^\prime = uv^\prime + vu^\prime</script><p>对上式两边求不定积分得</p>
+<script type="math/tex; mode=display">
+    \int_a^b (uv)^\prime \mathrm{d} x = \int_a^b uv^\prime \mathrm{d}x + \int_a^b vu^\prime \mathrm{d}x</script><p>从而有<a href="https://gamersover.github.io/2021/04/28/函数积分2/#定理2：Newton-Leibiniz公式" target="_blank" rel="noopener">Newton-Leibniz公式</a>可得</p>
+<script type="math/tex; mode=display">
+    \int_a^b u \mathrm{d} v = u v \Big|_a^b - \int_a^b v \mathrm{d} u</script><p>Q.E.D.</p>
+<h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><blockquote>
+<p>设函数$f$在区间$I$上连续，$a,b \in I$，函数$\varphi$在区间$[\alpha, \beta]$上有连续的导函数，$\varphi([\alpha, \beta]) \subset I$，且$\varphi(\alpha) = a, \varphi(\beta) = b$，若公式中存在的函数积分在$[a,b]$上都存在，那么</p>
+<script type="math/tex; mode=display">
+    \int_a^b f(x) \mathrm{d} x = \int_{\alpha}^{\beta} f \circ \varphi(t) \varphi^\prime(t) \mathrm{d} x</script></blockquote>
+<p>证：设$F$是$f$在$[a,b]$上的一个原函数，则</p>
+<script type="math/tex; mode=display">
+    (F \circ \varphi(t))^\prime = F^\prime \circ \varphi(t) \varphi^\prime(t) = f \circ \varphi(t) \varphi^\prime(t)</script><p>从而$f \circ \varphi(t) \varphi^\prime(t)$的一个原函数为$F\circ \varphi(t)$，从而由<a href="https://gamersover.github.io/2021/04/28/函数积分2/#定理2：Newton-Leibiniz公式" target="_blank" rel="noopener">Newton-Leibniz公式</a>可知</p>
+<script type="math/tex; mode=display">
+    \int_{\alpha}^{\beta} f \circ \varphi(t) \varphi^\prime(t) \mathrm{d} x = F\circ \varphi(t) \Big|_{\alpha}^{\beta} = F(b) - F(a) = \int_a^b f(x) \mathrm{d} x</script><p>Q.E.D.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 数学分析</a>
+              <a href="/tags/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> 函数积分</a>
+              <a href="/tags/Riemann%E7%A7%AF%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> Riemann积分</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%861/" rel="prev" title="函数积分一：原函数">
+      <i class="fa fa-chevron-left"></i> 函数积分一：原函数
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/02/UI%E5%BC%80%E5%8F%91%E4%B9%8BpyQt5-2/" rel="next" title="UI开发之PyQt5二：文本类控件">
+      UI开发之PyQt5二：文本类控件 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1：分割"><span class="nav-text">定义1：分割</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2：Riemann积分"><span class="nav-text">定义2：Riemann积分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2：Newton-Leibiniz"><span class="nav-text">定理2：Newton-Leibiniz</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3：分部积分公式"><span class="nav-text">定理3：分部积分公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4"><span class="nav-text">定理4</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="陈华杰"
+      src="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+  <p class="site-author-name" itemprop="name">陈华杰</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gamersover" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gamersover" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈华杰</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">278k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:12</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'default',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '2b5e8584032528a65176',
+      clientSecret: '4a98c67c6337be0cd82b30d04699a4dcef47307c',
+      repo        : 'gamersover.github.io',
+      owner       : 'gamersover',
+      admin       : ['gamersover'],
+      id          : '90baad6f6f0c84f4998b10df27e415fd',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

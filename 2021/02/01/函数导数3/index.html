@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="定义1：极值 设函数$f: (a,b) \to \mathbb{R}$，如果对点$x_0 \in (a, b)$，存在$\delta &gt; 0$，使得$\Delta &#x3D; (x_0 - \delta, x_0 + \delta) \subset (a,b)$，且当$x \in \Delta$时，有$f(x_0) \ge f(x)$，则称$f(x_0)$是$f$在$(a,b)$上的极大值，$x_0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数导数三：极值定义与微分中值定理">
+<meta property="og:url" content="http://yoursite.com/2021/02/01/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B03/index.html">
+<meta property="og:site_name" content="尘雨尘风">
+<meta property="og:description" content="定义1：极值 设函数$f: (a,b) \to \mathbb{R}$，如果对点$x_0 \in (a, b)$，存在$\delta &gt; 0$，使得$\Delta &#x3D; (x_0 - \delta, x_0 + \delta) \subset (a,b)$，且当$x \in \Delta$时，有$f(x_0) \ge f(x)$，则称$f(x_0)$是$f$在$(a,b)$上的极大值，$x_0">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-02-01T11:39:05.000Z">
+<meta property="article:modified_time" content="2021-10-27T05:27:17.734Z">
+<meta property="article:author" content="陈华杰">
+<meta property="article:tag" content="数学分析">
+<meta property="article:tag" content="函数导数">
+<meta property="article:tag" content="微分中值定理">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2021/02/01/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B03/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>函数导数三：极值定义与微分中值定理 | 尘雨尘风</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">尘雨尘风</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">数学与编程的爱好者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">61</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">64</span></a>
+
+  </li>
+        <li class="menu-item menu-item-poem">
+
+    <a href="/poem/" rel="section"><i class="fa fa-book fa-fw"></i>诗集</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/01/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          函数导数三：极值定义与微分中值定理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-01 19:39:05" itemprop="dateCreated datePublished" datetime="2021-02-01T19:39:05+08:00">2021-02-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="定义1：极值"><a href="#定义1：极值" class="headerlink" title="定义1：极值"></a>定义1：极值</h4><blockquote>
+<p>设函数$f: (a,b) \to \mathbb{R}$，如果对点$x_0 \in (a, b)$，存在$\delta &gt; 0$，使得$\Delta = (x_0 - \delta, x_0 + \delta) \subset (a,b)$，且当$x \in \Delta$时，有$f(x_0) \ge f(x)$，则称$f(x_0)$是$f$在$(a,b)$上的极大值，$x_0$称为极大值点。类似地，可以定义$f$在$(a,b)$上的极小值和极小值点。极小值和极大值统称为极值，而极小值点和极大值点统称为极值点。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="定理1：Fermat"><a href="#定理1：Fermat" class="headerlink" title="定理1：Fermat"></a>定理1：Fermat</h4><blockquote>
+<p>若函数$f$在其极值点$x_0 \in (a,b)$处可导，则必有$f^\prime(x) = 0$。</p>
+</blockquote>
+<p>证：不妨设$f(x_0)$时极大值，由极大值点的定义可知，存在$\delta &gt; 0$，使得当$x \in (x_0 - \delta, x_0 + \delta)$，有$f(x_0) &gt; f(x)$。从而，当$x \in (x_0 - \delta, x_0)$时，有</p>
+<script type="math/tex; mode=display">
+    \frac{f(x) - f(x_0)}{x - x_0} \ge 0</script><p>而当$x \in (x_0, x_0+\delta)$，又有</p>
+<script type="math/tex; mode=display">
+    \frac{f(x) - f(x_0)}{x - x_0} \le 0</script><p>由于$f^\prime(x)$存在，因此$f<em>-^{\prime}(x)$和$f</em>+^{\prime}(x)$都存在，且相等。从而在以上两个不等式中分别令$x \to x_0^-, x \to x_0^+$，得</p>
+<script type="math/tex; mode=display">
+    f_-^{\prime}(x_0) \ge 0 \qquad f_+^{\prime}(x) \le 0</script><p>因此必有$f^\prime(x) = 0$。</p>
+<p>Q.E.D.</p>
+<h4 id="定义2：驻点"><a href="#定义2：驻点" class="headerlink" title="定义2：驻点"></a>定义2：驻点</h4><blockquote>
+<p>满足$x_0 \in (a,b)$且$f^\prime(x_0) = 0$的点$x_0$称为函数$f$的一个驻点。</p>
+</blockquote>
+<h4 id="定理2：Rolle"><a href="#定理2：Rolle" class="headerlink" title="定理2：Rolle"></a>定理2：Rolle</h4><blockquote>
+<p>设函数$f$在$[a,b]$上连续，在$(a,b)$内可导，且$f(a) = f(b)$，那么存在一点$\xi \in (a,b)$，使得$f^\prime(\xi) = 0$。</p>
+</blockquote>
+<p>证：闭区间$[a,b]$上的连续函数$f$取到最小值和最大值分别记为$m$ 和 $M$。如果$m = M$，那么$f$时常值函数，这时$f^\prime = 0$，因此$(a,b)$上任意一点都可为所求的点。若$M &gt; m$，由于$f(a) = f(b)$，则$m, M$至少有一个时$f$在内点$\xi \in (a,b)$上所取得的。这时$\xi$为一个极值点，由<a href="函数导数3/#定理1：Fermat">定理1</a>可知$f^\prime(\xi) = 0$。</p>
+<p>Q.E.D.</p>
+<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
+<p>设函数$f$与$\lambda$在$[a,b]$上连续，在$(a,b)$内可导，且$\lambda(a) = 1,\lambda(b) = 0$，则必存在一点$\xi \in (a,b)$使得</p>
+<script type="math/tex; mode=display">
+    f^\prime(\xi) = \lambda^\prime(\xi)(f(a) - f(b))</script></blockquote>
+<p>证：构造函数</p>
+<script type="math/tex; mode=display">
+    \varphi(x) = f(x) - (\lambda(x)f(a) + (1 - \lambda(x))f(b))</script><p>可知$\varphi(a) = \varphi(b) = 0$。因此函数$\varphi$满足Rolle定理条件，从而存在一点$\xi \in (a,b)$使得$\varphi^{\prime}(\xi) = 0$，由于</p>
+<script type="math/tex; mode=display">
+    \varphi^\prime(x) = f^\prime(x) - \lambda^\prime(x)(f(a) - f(b))</script><p>将$\xi$代入上式，得</p>
+<script type="math/tex; mode=display">
+    f^\prime(\xi) = \lambda^\prime(\xi)(f(a) - f(b))</script><p>Q.E.D.</p>
+<h4 id="定理4：Lagrange"><a href="#定理4：Lagrange" class="headerlink" title="定理4：Lagrange"></a>定理4：Lagrange</h4><blockquote>
+<p>设函数$f$在$[a,b]$上连续，在$(a,b)$内可导，则存在$\xi \in (a,b)$使得</p>
+<script type="math/tex; mode=display">
+    \frac{f(a) - f(b)}{a - b} = f^\prime(\xi)</script></blockquote>
+<p>证：在<a href="https://gamersover.github.io/2021/02/01/函数导数3/#定理3" target="_blank" rel="noopener">定理3</a>中取</p>
+<script type="math/tex; mode=display">
+    \lambda (x) = \frac{b-x}{b-a} \quad (a \le x \le b)</script><p>即可得。</p>
+<p>Q.E.D.</p>
+<h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h4><blockquote>
+<p>设函数$f$与在$[a,b]$上连续，在$(a,b)$内可导，则函数$f$在$[a,b]$上为常数的充分必要条件是$f^\prime = 0$。</p>
+</blockquote>
+<p>证：必要性易证。充分性：设$f^\prime = 0$，任取$x_1,x_2 \in [a,b]$，且$x_1 &lt; x_2$，那么存在$\xi \in (x_1,x_2)$，使得</p>
+<script type="math/tex; mode=display">
+    f(x_2) - f(x_1) = f^\prime(\xi) (x_2 - x_1)</script><p>由于$f^\prime(\xi) = 0$，从而$f(x_2) = f(x_1)$。</p>
+<p>Q.E.D.</p>
+<h4 id="定理6：Cauchy"><a href="#定理6：Cauchy" class="headerlink" title="定理6：Cauchy"></a>定理6：Cauchy</h4><blockquote>
+<p>设函数$f$和$g$在区间$[a,b]$上连续，在区间$(a,b)$内可导，且当$x \in (a,b)$时，$g^\prime(x) \ne 0$，这时必存在一点$\xi \in (a,b)$，使得</p>
+<script type="math/tex; mode=display">
+    \frac{f(a) - f(b)}{g(a) - g(b)} = \frac{f^\prime(\xi)}{g^\prime(\xi)}</script></blockquote>
+<p>证：在<a href="https://gamersover.github.io/2021/02/01/函数导数3/#定理3" target="_blank" rel="noopener">定理3</a>中取</p>
+<script type="math/tex; mode=display">
+    \lambda (x) = \frac{g(b) - g(x)}{g(b) - g(a)} \quad (a \le x \le b)</script><p>即可得。</p>
+<p>Q.E.D.</p>
+<h4 id="定理7：Darboux"><a href="#定理7：Darboux" class="headerlink" title="定理7：Darboux"></a>定理7：Darboux</h4><blockquote>
+<p>如果$f$在$[a,b]$上可导，那么： <br/><br>（1）导函数$f^\prime$可以取到$f^\prime(a)$与$f^\prime(b)$之间的一切值。<br/><br>（2）$f^\prime$无第一类间断点。</p>
+</blockquote>
+<p>证：（1）先证明：如果$f^\prime(a)f^\prime(b) &lt; 0$，那么必有$\xi \in (a,b)$，使得$f^\prime(\xi) = 0$。不妨设$f^\prime(a) &gt; 0, f^\prime(b) &lt; 0$。由于</p>
+<script type="math/tex; mode=display">
+    f^\prime(a) = \lim\limits_{x\to a^+} \frac{f(x) - f(a)}{x - a} > 0</script><p>所以存在$\delta_1 &gt; 0$，当$x \in (a, a+\delta_1)$时，$\frac{f(x) - f(a)}{x - a} &gt; 0$，由于$x &gt; a$，所以$f(x) &gt; f(a)$。同理可知存在$\delta_2 &gt; 0$，当$x \in (b - \delta_2, b)$时，$f(x) &gt; f(b)$，表明$f(a),f(b)$都不是$f$在$[a,b]$上的最大值，从而必存在$\xi \in (a,b)$，使得$f^\prime(\xi) = 0$。</p>
+<p>现在设$f^\prime(a) &lt; f^\prime(b)$，任取介于$f^\prime(a)$和$f^\prime(b)$之间的值$\gamma$，即</p>
+<script type="math/tex; mode=display">
+    f^\prime(a) < \gamma < f^\prime(b)</script><p>记$F(x) = f(x) - \lambda x$，那么$F^\prime(x) = f^\prime(x) - \lambda$，可知$F^\prime(a)F^\prime(b) &lt; 0$，从而利用上面所证的结论可知，存在$\xi \in (a,b)$，使得$F^\prime(\xi) = 0$，即</p>
+<script type="math/tex; mode=display">
+    f^\prime(\xi) = \lambda</script><p>（2）用反证法。如果$x_0$是$f^\prime$的一个第一类间断点，那么$f^\prime(x_0+)$和$f^\prime(x_0-)$都存在，于是由<a href="https://gamersover.github.io/2021/02/01/函数导数3/#定理4：Lagrange" target="_blank" rel="noopener">定理4</a>可得</p>
+<script type="math/tex; mode=display">
+    f^\prime(x_0) = f_+^\prime(x_0) = \lim\limits_{x \to x_0+} \frac{f(x) - f(x_0)}{x - x_0} = \lim\limits_{x \to x_0^+} \frac{f^\prime(\xi_+)(x-x_0)}{x - x_0}  = \lim\limits_{x \to x_0^+} f^\prime(\xi_+)</script><p>其中$\xi<em>+ \in (x_0, x)$。由于当$x \to x_0^+$，$\xi</em>+ \to x_0^+$，且已知$f^\prime(x_0+)$存在，所以得</p>
+<script type="math/tex; mode=display">
+    f^\prime(x_0) = f^\prime(x_0+)</script><p>同理可证$f^\prime(x_0) = f^\prime(x_0-)$。由此可知$f^\prime$在$x_0$处连续，这与$x_0$是$f^\prime$的间断点矛盾。</p>
+<p>Q.E.D.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 数学分析</a>
+              <a href="/tags/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B0/" rel="tag"><i class="fa fa-tag"></i> 函数导数</a>
+              <a href="/tags/%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/" rel="tag"><i class="fa fa-tag"></i> 微分中值定理</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/27/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B02/" rel="prev" title="函数导数二：初等函数的导数">
+      <i class="fa fa-chevron-left"></i> 函数导数二：初等函数的导数
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/02/20/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/" rel="next" title="数学试题一：初中篇">
+      数学试题一：初中篇 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1：极值"><span class="nav-text">定义1：极值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1：Fermat"><span class="nav-text">定理1：Fermat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2：驻点"><span class="nav-text">定义2：驻点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2：Rolle"><span class="nav-text">定理2：Rolle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4：Lagrange"><span class="nav-text">定理4：Lagrange</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5"><span class="nav-text">定理5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理6：Cauchy"><span class="nav-text">定理6：Cauchy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理7：Darboux"><span class="nav-text">定理7：Darboux</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="陈华杰"
+      src="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+  <p class="site-author-name" itemprop="name">陈华杰</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gamersover" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gamersover" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈华杰</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">278k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:12</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'default',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '2b5e8584032528a65176',
+      clientSecret: '4a98c67c6337be0cd82b30d04699a4dcef47307c',
+      repo        : 'gamersover.github.io',
+      owner       : 'gamersover',
+      admin       : ['gamersover'],
+      id          : '4cea46dd04f9a350e01544889257b2d7',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

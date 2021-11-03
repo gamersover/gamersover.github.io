@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="定义1 设$B \subset \mathbb{R}^2$是有界集，函数$f: B \to \mathbb{R}$，令      f_B(\boldsymbol{p}) &#x3D; \left\{           \begin{aligned}             &amp; f(\boldsymbol{p}), &amp; \boldsymbol{p} \in B \\             &amp; 0, &amp; \">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数积分九：有界区域上的二重积分">
+<meta property="og:url" content="http://yoursite.com/2021/07/13/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%869/index.html">
+<meta property="og:site_name" content="尘雨尘风">
+<meta property="og:description" content="定义1 设$B \subset \mathbb{R}^2$是有界集，函数$f: B \to \mathbb{R}$，令      f_B(\boldsymbol{p}) &#x3D; \left\{           \begin{aligned}             &amp; f(\boldsymbol{p}), &amp; \boldsymbol{p} \in B \\             &amp; 0, &amp; \">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-13T12:31:23.000Z">
+<meta property="article:modified_time" content="2021-10-27T05:27:17.736Z">
+<meta property="article:author" content="陈华杰">
+<meta property="article:tag" content="数学分析">
+<meta property="article:tag" content="函数积分">
+<meta property="article:tag" content="二重积分">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2021/07/13/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%869/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>函数积分九：有界区域上的二重积分 | 尘雨尘风</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">尘雨尘风</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">数学与编程的爱好者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">61</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">64</span></a>
+
+  </li>
+        <li class="menu-item menu-item-poem">
+
+    <a href="/poem/" rel="section"><i class="fa fa-book fa-fw"></i>诗集</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/13/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%869/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          函数积分九：有界区域上的二重积分
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-13 20:31:23" itemprop="dateCreated datePublished" datetime="2021-07-13T20:31:23+08:00">2021-07-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
+<p>设$B \subset \mathbb{R}^2$是有界集，函数$f: B \to \mathbb{R}$，令</p>
+<script type="math/tex; mode=display">
+    f_B(\boldsymbol{p}) = \left\{  
+        \begin{aligned}
+            & f(\boldsymbol{p}), & \boldsymbol{p} \in B \\
+            & 0, & \boldsymbol{p} \in B^c
+        \end{aligned}
+     \right.</script><p>则函数$f_B$在全平面$\mathbb{R}^2$上有定义，如果限制在集合$B$上，$f_B$与$f$相等。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="定义2"><a href="#定义2" class="headerlink" title="定义2"></a>定义2</h4><blockquote>
+<p>任取有界的闭矩形$I \supset B$，如果函数$f_B$在$I$上可积，则称函数$f$在$B$上可积，并称数值$\displaystyle \int_I f_B \mathrm{d} \sigma$为函数$f$在$B$上的（二重）积分，记作</p>
+<script type="math/tex; mode=display">
+    \iint \limits_B f(x, y) \mathrm{d} x \mathrm{d} y \quad 或 \quad \int_B f \mathrm{d} \sigma</script></blockquote>
+<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
+<p>设有界集$B \subset \mathbb{R}^2$，函数$f: B \to \mathbb{R}$有界，如果集合$B$的边界$\partial B$和$f$在$B$上的间断点都是零测集，那么$f$在$B$上可积。</p>
+</blockquote>
+<p>证：取闭矩形$I$，满足$I^\circ \supset \overline B$，由于$f_B$在$\overline B^c$上处处为零，所以$\overline B^c$中的每个点都是$f_B$的连续点，在$B^\circ$上，$f_B = f$，所以在$B^\circ$上$f_B$的不连续点就是$f$的不连续点，从而</p>
+<script type="math/tex; mode=display">
+    D(f_B) \subset D(f) \cup \partial B</script><p>由于$D(f)$与$\partial B$都是零测集，所以$D(f_B)$也是零测集，即$f_B$在$I$上可积，从而$f$在$B$上可积。</p>
+<p>Q.E.D.</p>
+<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
+<p>设有界集$B \subset \mathbb{R}^2$，$f: B \to \mathbb{R}$在$B$上可积，那么对任意常数$c$，函数$cf$在$B$上也可积，并且</p>
+<script type="math/tex; mode=display">
+    \int_B cf \mathrm{d} \sigma = c \int_B f \mathrm{d} \sigma</script><p>又若$g: B \to \mathbb{R}$在$B$上可积，那么$f \pm g$也在$B$上可积，且</p>
+<script type="math/tex; mode=display">
+    \int_B (f \pm g) \mathrm{d} \sigma = \int_B f \mathrm{d} \sigma \pm \int_B g \mathrm{d} \sigma</script></blockquote>
+<p>证：对于第一个等式，设闭矩形$I \supset B$，有</p>
+<script type="math/tex; mode=display">
+    \int_B cf \mathrm{d} \sigma = \int_I cf_B \mathrm{d} \sigma = c \int_I f_B \mathrm{d} \sigma = c \int_B f \mathrm{d} \sigma</script><p>对于第二个等式，同样有</p>
+<script type="math/tex; mode=display">
+    \int_B (f \pm g) \mathrm{d} \sigma = \int_I (f_B \pm g_B) \mathrm{d} \sigma = \int_I f_B \mathrm{d} \sigma \pm \int_I g_B \mathrm{d} \sigma = \int_B f \mathrm{d} \sigma \pm \int_B g \mathrm{d} \sigma</script><p>Q.E.D.</p>
+<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
+<p>设$B_1, B_2 \subset \mathbb{R}^2$有界，且$B_1 \cap B_2$是零面积集，若函数$f$在$B_1$和$B_2$上都可积，那么$f$在$B_1 \cup B_2$上可积，且</p>
+<script type="math/tex; mode=display">
+    \int_{B_1 \cup B_2} f \mathrm{d} \sigma = \int_{B_1} f \mathrm{d} \sigma + \int_{B_2} f \mathrm{d} \sigma</script></blockquote>
+<p>证：易知，只要$\boldsymbol{x} \notin B<em>1 \cap B_2$，有$f</em>{B<em>1 \cup B_2}(\boldsymbol{x}) = f</em>{B<em>1}(\boldsymbol{x}) + f</em>{B<em>2}(\boldsymbol{x})$，从而使得$f</em>{B<em>1 \cup B_2}$与$f</em>{B<em>1} + f</em>{B_2}$不相等的集合必属于$B_1 \cap B_2$，即为零面积集。所以由<a href="https://gamersover.github.io/2021/06/29/函数积分8/#定理9" target="_blank" rel="noopener">函数积分八的定理9</a>可知，</p>
+<script type="math/tex; mode=display">
+    \int_I (f_{B_1} + f_{B_2}) \mathrm{d} \sigma = \int_I f_{B_1 \cap B_2} \mathrm{d} \sigma</script><p>设矩形$I \supset B$，则有</p>
+<script type="math/tex; mode=display">
+    \int_{B_1} f \mathrm{d} \sigma + \int_{B_2} f \mathrm{d} \sigma = \int_I f_{B_1} \mathrm{d} \sigma + \int_I f_{B_2} \mathrm{d} \sigma = \int_I (f_{B_1} + f_{B_2}) \mathrm{d} \sigma = \int_I f_{B_1 \cap B_2} \mathrm{d} \sigma</script><p>Q.E.D.</p>
+<h4 id="定义3"><a href="#定义3" class="headerlink" title="定义3"></a>定义3</h4><blockquote>
+<p>设$B \subset \mathbb{R}^2$有界，若常值函数$1$在$B$上可积，那么积分$\displaystyle \int_B 1 \mathrm{d} \sigma$称为点集$B$的面积，记为$\sigma(B)$，这时称$B$是有面积的。记函数</p>
+<script type="math/tex; mode=display">
+    \chi_B (\boldsymbol{p}) = \left\{
+        \begin{aligned}
+        1, & \quad \boldsymbol{p} \in B \\
+        0, & \quad \boldsymbol{p} \notin B
+        \end{aligned}
+        \right.</script><p>称为$B$的特征函数，从而$B$的面积也可以写为</p>
+<script type="math/tex; mode=display">
+    \sigma(B) = \int_B 1 \mathrm{d} \sigma = \int_I \chi_B \mathrm{d} \sigma</script><p>这里$I$是任何一个包含$B$的闭矩形。  </p>
+</blockquote>
+<h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><blockquote>
+<p>设$B \subset \mathbb{R}^2$是一个有界集，且$\displaystyle \sigma(B) = \int_B 1 \mathrm{d} \sigma$存在，则</p>
+<script type="math/tex; mode=display">
+    D(\chi_B) = \partial B</script></blockquote>
+<p>证：由于</p>
+<script type="math/tex; mode=display">
+    \mathbb{R}^2 = B^\circ \cup \partial B \cup (B^c)^\circ</script><p>而在开集$B^\circ$和$(B^c)^\circ$上，$\chi_B$分别为$1$和$0$，所以$\chi_B$在$B^\circ$和$(B^c)^\circ$上连续，从而</p>
+<script type="math/tex; mode=display">
+    D(\chi_B) \subset \partial B   \tag {1}</script><p>任取$\boldsymbol{p} \in \partial B$，则在$\boldsymbol{p}$的任意小的领域内即有$B$中的点$\boldsymbol{p}^\prime$，又有$B^c$中的点$\boldsymbol{p}^{\prime\prime}$，而$\chi_B(\boldsymbol{p}^\prime) = 1, \chi_B(\boldsymbol{p}^{\prime\prime})=0$，所以$\chi_B$在$\boldsymbol{p}$处不连续，所以</p>
+<script type="math/tex; mode=display">
+    \partial B \subset D(\chi_B) \tag {2}</script><p>由$(1)(2)$即得$D(\chi_B) = \partial B$。</p>
+<p>Q.E.D.</p>
+<h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h4><blockquote>
+<p>设$B \subset \mathbb{R}^2$是一个有界集，则点集$B$为零面积集的充分必要条件是</p>
+<script type="math/tex; mode=display">
+    \sigma (B) = \int_B 1 \mathrm{d} \sigma = 0</script></blockquote>
+<p>证：必要性。作闭矩形$I$使得$I^{\circ} \supset \overline B$，则$B$上的特征函数$\chi_B$在$I$上取非零值的点集正好是$B$，而$B$是零面积集，由<a href="https://gamersover.github.io/2021/06/29/函数积分8/#定理8" target="_blank" rel="noopener">函数积分八的定理8</a>可知， $\chi_B$在$I$上可积且</p>
+<script type="math/tex; mode=display">
+    \sigma(B) = \int_B 1 \mathrm{d} \sigma = \int_I \chi_B \mathrm{d} \sigma = 0</script><p>这表明$B$的面积为零。</p>
+<p>充分性。由于$\sigma(B) = 0$，从而$B^\circ = \varnothing$，又因为$\chi_B$可积，从而$D(\chi_B)$是零测集，再由<a href="https://gamersover.github.io/2021/07/13/函数积分9/#定理4" target="_blank" rel="noopener">定理4</a>可知$\partial B$是零测集，而$\partial B$又是有界闭集，从而由<a href="https://gamersover.github.io/2021/06/29/函数积分8/#定理1" target="_blank" rel="noopener">函数积分八的定理1</a>可知$\partial B$是零面积集，由$B \subset \partial B \cup B^\circ = \partial B$，得$B \subset \partial B$，所以$B$也是零面积集。</p>
+<p>Q.E.D.</p>
+<h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><blockquote>
+<p>设有界集$B \subset \mathbb{R}^2$，则$B$有面积当且仅当$B$的边界$\partial B$是一零面积集。</p>
+</blockquote>
+<p>证：由于$\partial B$是有界闭集，所以$\partial B$是零面积集$\Leftrightarrow \partial B$是零测集$\Leftrightarrow D(\chi_B)$是零测集$\Leftrightarrow \sigma(B)$存在$\Leftrightarrow B$有面积。</p>
+<p>Q.E.D.</p>
+<h4 id="定理7"><a href="#定理7" class="headerlink" title="定理7"></a>定理7</h4><blockquote>
+<p>设$B$是$\mathbb{R}^2$中的有面积的点集，$f$在$B$上可积，对$B$的任意分割$T$作Riemann和，那么对任意的$\boldsymbol{\xi}_i \in D_i(i=1,2,\cdots,m)$有</p>
+<script type="math/tex; mode=display">
+    \lim_{\Vert T \Vert \to 0} \sum_{i=1}^m f(\boldsymbol{\xi}_i) \sigma(D_i) = \int_B f \mathrm{d} \sigma</script><p>其中$\Vert T \Vert = \max \limits_{1 \le i \le m} \mathrm{diam}(D_i)$。也就是说，对任意的$\varepsilon &gt; 0$，存在$\delta&gt;0$，只要分割$T = {D_1, D_2, \cdots, D_n}$满足$\Vert T \Vert &lt; \delta$，就有</p>
+<script type="math/tex; mode=display">
+    \left|\sum_{i=1}^m f(\boldsymbol{\xi}_i) \sigma(D_i) - \int_B f \mathrm{d} \sigma \right| < \varepsilon</script></blockquote>
+<p>证：由于$f$在$B$上可积，从而对任意的$\varepsilon &gt; 0$，存在矩形网的分割$\pi_{\varepsilon} = {J_1, J_2, \cdots, J_t }$，使得</p>
+<script type="math/tex; mode=display">
+    \overline S(f, \pi_{\varepsilon}) - \underline S(f, \pi_{\varepsilon}) < \frac{\varepsilon}{2}</script><p>即</p>
+<script type="math/tex; mode=display">
+    \sum_{i=1}^t (\sup f(J_i) - \inf f(J_i)) \sigma(J_i) < \frac{\varepsilon}{2}</script><p>这里$J_i \subset B (i=1,2,\cdots,t)$，现将子矩形$J_i$的每一边平行地向内部收缩同一距离$\delta &gt; 0$，作成一个开矩形$\tilde {J_i} \subset J_i (i=1,2,\cdots,t)$。记</p>
+<script type="math/tex; mode=display">
+    K = I \bigcap (\bigcup \limits_{i=1}^t \tilde J_i)^c</script><p>这里$I$是所有包含在$B$中的闭子矩形$J_i$的并，显然$K$是闭集，现取$\delta &gt; 0$充分小，使得$\sigma(K) &lt; \varepsilon / 2\omega$，这里$\omega$是$f$在$B$上的振幅。对这个$\delta &gt; 0$，任取分割$T = {D_1, D_2, \cdots, D_m}$，使得$\Vert T \Vert &lt; \delta$，记$\displaystyle A = \int_B f \mathrm{d} \sigma$，则有</p>
+<script type="math/tex; mode=display">
+    A = \sum_{i=1}^m \int_{D_i} f \mathrm{d} \sigma</script><p>设$f$在$D_i$上的上、下确界分别为$M_i, m_i$，则</p>
+<script type="math/tex; mode=display">
+    m_i \sigma(D_i) \le \int_{D_i} f \mathrm{d} \sigma \le M_i \sigma(D_i)</script><p>记$\displaystyle \mu<em>i = \frac{1}{\sigma(D_i)} \int</em>{D_i} f \mathrm{d} \sigma$，从而$m_i \le \mu_i \le M_i$，又有</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+    \left| A - \sum_{i=1}^m f(\boldsymbol{\xi}_i)\sigma(D_i) \right| &= \left| \sum_{i=1}^m (\mu_i - f(\boldsymbol{\xi}_i)) \sigma(D_i) \right| \\
+    & \le \sum_{i=1}^m \left| \mu_i - f(\boldsymbol{\xi}_i) \right| \sigma(D_i) \\
+    & \le \sum_{i=1}^m (M_i - m_i) \sigma(D_i) \\
+    & = \sum_{i=1}^m \omega_i \sigma(D_i) \\
+    & = \sum \nolimits_1 + \sum \nolimits_2
+    \end{aligned}</script><p>其中</p>
+<script type="math/tex; mode=display">
+    \sum \nolimits_1 = \sum_{D_i \subset K} \omega_i \sigma(D_i) \quad \sum \nolimits_2 = \sum_{D_i \nsubseteq K}\omega_i \sigma(D_i)</script><p>而</p>
+<script type="math/tex; mode=display">
+    \sum \nolimits_1 \le \omega \sum_{D_1 \subset K} \sigma(D_i) \le \omega_i \sigma(K) < \frac{\varepsilon}{2}</script><p>对于$\sum_2$，由于$D_i \nsubseteq K$，从而$D_i$必与某个$\tilde {J_j}$相交，所以必有$D_i \subset J_j$，从而有</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+    \sum \nolimits_2 = \sum_{j=1}^t \sum_{D_i \subset J_j} \omega_i \sigma(D_i) & \le \sum_{j=1}^t (\sup f(J_j) - \inf f(J_j)) \sum_{D_i \subset J_j} \sigma(D_i) \\
+    & \le \sum_{j=1}^t (\sup f(J_j) - \inf f(J_j)) \sigma(J_i) < \frac{\varepsilon}{2}
+    \end{aligned}</script><p>所以有</p>
+<script type="math/tex; mode=display">
+    \left| A - \sum_{i=1}^m f(\boldsymbol{\xi}_i)\sigma(D_i)  \right| \le \sum \nolimits_1 + \sum \nolimits_2 < \varepsilon</script><p>Q.E.D.</p>
+<h4 id="定理8：积分平均值定理"><a href="#定理8：积分平均值定理" class="headerlink" title="定理8：积分平均值定理"></a>定理8：积分平均值定理</h4><blockquote>
+<p>设$K$是$\mathbb{R}^2$中的有线条光滑曲线围成的有界闭区域，函数$f, g: K \to \mathbb{R}$连续且$g$在$K$上不变号，于是存在一点$\boldsymbol{\xi} \in K$，满足</p>
+<script type="math/tex; mode=display">
+    \int_K fg \mathrm{d} \sigma = f(\boldsymbol{\xi}) \int_K g \mathrm{d} \sigma</script></blockquote>
+<p>证：连续函数$g$与$fg$在$K$上都可积，因为$K$是紧致集，所以连续函数$f$在$K$上取得最小值$f(\boldsymbol{a})$与最大值$f(\boldsymbol{b})$，不妨设在$K$上$g \le 0$，于是</p>
+<script type="math/tex; mode=display">
+    f(\boldsymbol{a})g(\boldsymbol{p}) \le g(\boldsymbol{p})g(\boldsymbol{p}) \le f(\boldsymbol{b})g(\boldsymbol{p})</script><p>对一切$\boldsymbol{p} \in K$都成立，从而有</p>
+<script type="math/tex; mode=display">
+    f(\boldsymbol{a})\int_K g \mathrm{d} \sigma \le \int_K fg \mathrm{d} \sigma \le f(\boldsymbol{b}) \int_K g \mathrm{d} \sigma</script><p>若$\displaystyle \int_K g \mathrm{d} \sigma = 0$，这时$g = 0$，定理自然成立。现设$\displaystyle \int_K g \mathrm{d} \sigma &gt; 0$，于是</p>
+<script type="math/tex; mode=display">
+    f(\boldsymbol{a}) \le \left( \int_k g \mathrm{d} \sigma \right)^{-1} \int_K fg \mathrm{d} \sigma \le f(\boldsymbol{b})</script><p>由于$K$是连通集，而$f$在$K$上连续，从而由介值定理可知，存在一点$\boldsymbol{\xi} \in K$，使得</p>
+<script type="math/tex; mode=display">
+    f(\boldsymbol{\xi}) = \left( \int_K g \mathrm{d} \sigma \right)^{-1} \int_K fg \mathrm{d} \sigma</script><p>Q.E.D.</p>
+<h4 id="定理9"><a href="#定理9" class="headerlink" title="定理9"></a>定理9</h4><blockquote>
+<p>设$K$是$\mathbb{R}^2$中的有界闭区域，函数$f$在$K$上连续，那么存在一点$\boldsymbol{\xi} \in K$，使得</p>
+<script type="math/tex; mode=display">
+    \int_K f \mathrm{d} \sigma = f(\boldsymbol{\xi}) \sigma(K)</script></blockquote>
+<p>证：由<a href="https://gamersover.github.io/2021/07/13/函数积分9/#定理8：积分平均值定理" target="_blank" rel="noopener">定理8</a>，令$g = 1$即得。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 数学分析</a>
+              <a href="/tags/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> 函数积分</a>
+              <a href="/tags/%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> 二重积分</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/07/11/leetcode%E9%A2%98%E8%A7%A324/" rel="prev" title="leetcode题解24：两两交换链表中的节点">
+      <i class="fa fa-chevron-left"></i> leetcode题解24：两两交换链表中的节点
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/07/18/leetcode%E9%A2%98%E8%A7%A325/" rel="next" title="leetcode题解25：K个一组翻转链表">
+      leetcode题解25：K个一组翻转链表 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义3"><span class="nav-text">定义3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5"><span class="nav-text">定理5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理6"><span class="nav-text">定理6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理7"><span class="nav-text">定理7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理8：积分平均值定理"><span class="nav-text">定理8：积分平均值定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理9"><span class="nav-text">定理9</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="陈华杰"
+      src="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+  <p class="site-author-name" itemprop="name">陈华杰</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gamersover" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gamersover" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈华杰</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">278k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:12</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'default',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '2b5e8584032528a65176',
+      clientSecret: '4a98c67c6337be0cd82b30d04699a4dcef47307c',
+      repo        : 'gamersover.github.io',
+      owner       : 'gamersover',
+      admin       : ['gamersover'],
+      id          : '35a1942b715bea30fcc03cd3101abebe',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

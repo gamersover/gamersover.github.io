@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="定义1 定义$f: I \to \mathbb{R}$，其中$I$是$\mathbb{R}^n$中的一个闭长方体，即$I &#x3D; I_1 \times I_2 \times \cdots I_n$，其中$i_i&#x3D;[a_i, b_i] (i&#x3D;1,2,\cdots,n)$是$\mathbb{R}$中的有界闭区间。$I$的$n$维体积定义为      \mu(I) &#x3D; \prod_{i&#x3D;1}^n (b_i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数积分十二：$n$重积分">
+<meta property="og:url" content="http://yoursite.com/2021/08/02/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%8612/index.html">
+<meta property="og:site_name" content="尘雨尘风">
+<meta property="og:description" content="定义1 定义$f: I \to \mathbb{R}$，其中$I$是$\mathbb{R}^n$中的一个闭长方体，即$I &#x3D; I_1 \times I_2 \times \cdots I_n$，其中$i_i&#x3D;[a_i, b_i] (i&#x3D;1,2,\cdots,n)$是$\mathbb{R}$中的有界闭区间。$I$的$n$维体积定义为      \mu(I) &#x3D; \prod_{i&#x3D;1}^n (b_i">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-02T12:26:01.000Z">
+<meta property="article:modified_time" content="2021-10-27T05:27:17.736Z">
+<meta property="article:author" content="陈华杰">
+<meta property="article:tag" content="数学分析">
+<meta property="article:tag" content="函数积分">
+<meta property="article:tag" content="n重积分">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2021/08/02/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%8612/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>函数积分十二：$n$重积分 | 尘雨尘风</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">尘雨尘风</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">数学与编程的爱好者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">61</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">64</span></a>
+
+  </li>
+        <li class="menu-item menu-item-poem">
+
+    <a href="/poem/" rel="section"><i class="fa fa-book fa-fw"></i>诗集</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/02/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%8612/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          函数积分十二：$n$重积分
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-02 20:26:01" itemprop="dateCreated datePublished" datetime="2021-08-02T20:26:01+08:00">2021-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
+<p>定义$f: I \to \mathbb{R}$，其中$I$是$\mathbb{R}^n$中的一个闭长方体，即$I = I_1 \times I_2 \times \cdots I_n$，其中$i_i=[a_i, b_i] (i=1,2,\cdots,n)$是$\mathbb{R}$中的有界闭区间。$I$的$n$维体积定义为</p>
+<script type="math/tex; mode=display">
+    \mu(I) = \prod_{i=1}^n (b_i - a_i)</script><p>用平行于各个坐标平面的$n$组超平面对$I$进行划分，得到有限多个小的子长方体，不妨设为$k$个，这称为$I$的一个分割$\pi$，这时可以定义Riemann和</p>
+<script type="math/tex; mode=display">
+    \sum_{i=1}^k f(\boldsymbol{\xi_i}) \mu(I_i)</script><p>其中$\boldsymbol{\xi_i} \in I_i$，$\mu(I_i)$表示子长方体$I_i$的体积。</p>
+</blockquote>
+<a id="more"></a>
+<p>有了定义1，仿照二重积分，三重积分的推理方法，可以定义和证明相似的定理。比如可以记$\Vert \pi \Vert$为这些子长方体的对角线的长度的最大值，若$\Vert \pi \Vert \to 0$时，上式的Riemann和极限存在且不依赖于子长方体中值点的选取，则称该极限为$f$在$I$上的积分，记作</p>
+<script type="math/tex; mode=display">
+    \idotsint \limits_I f(x_1, x_2, \cdots, x_n) \mathrm{d} x_1 \mathrm{d} x_2 \cdots \mathrm{d} x_n</script><p>也记为</p>
+<script type="math/tex; mode=display">
+    \int_I f \mathrm{d} \mu</script><p>这时称$f$在$I$上可积，而且若$f$在$I$可积，那么$f$在$I$上必有界。包括上和，下和以及可积性的充分必要条件都与前面二重积分的结论一样，以及$I$上的$n$重积分计算，也可以化为累次积分来进行，这时共有$n!$中不同的顺序。关于$n$重积分的Lebesgue定理，也可以引入零测集与零体积集的概念，可以证明：一个有界点集有体积的充分必要条件是它的边界是零体积集。同理，$n$重积分也可以化为一个$n-1$重积分和一个定积分来计算。</p>
+<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
+<p>设$V \subset \mathbb{R}^n$是有体积的有界闭集，有界函数$f: V \to \mathbb{R}$连续，<br/><br>（1）如果<br>$V = { \boldsymbol{x} = (x<em>1, x_2,\cdots,x_n) \in \mathbb{R}^n }$，当$(x_1, x_2, \cdots, x</em>{n-1}） \in D \subset \mathbb{R}^{n-1}$时，</p>
+<script type="math/tex; mode=display">
+    \varphi_1(x_1, x_2, \cdots, x_{n-1}) \le x_n \le \varphi_2(x_1, x_2, \cdots,x_{n-1})</script><p>其中$\varphi_1, \varphi_2$是$D$上的连续函数，那么</p>
+<script type="math/tex; mode=display">
+    \int_V f \mathrm{d} \mu = \idotsint \limits_D \mathrm{d} x_1 \mathrm{d} x_2 \mathrm{d} x_{n-1} \int_{\varphi_1(x_1, x_2, \cdots, x_{n-1})}^{\varphi_2(x_1, x_2, \cdots, x_{n-1})} f(x_1, x_2,\cdots,x_{n-1}, x_n) \mathrm{d} x_n</script><p>（2）如果<br>$V = { \boldsymbol{x} = (x<em>1, x_2, \cdots, x</em>{n}) \in \mathbb{R}^n}$，当$x_n \in [a, b]$时, </p>
+<script type="math/tex; mode=display">
+    (x_1,x_2,\cdots, x_{n-1}) \in D_{x_n} \in \mathbb{R}^{n-1}</script><p>那么</p>
+<script type="math/tex; mode=display">
+    \int_V f \mathrm{d} \mu = \int_a^b \mathrm{d} x_n \idotsint \limits_{D_{x_n}} f(x_1, x_2,\cdots,x_n) \mathrm{d} x_1 \mathrm{d} x_2 \cdots \mathrm{d} x_{n-1}</script><p>（3）当然，也可把$n$重积分化成一个$k (1 \le k &lt; n)$重积分与一个$n-k$重积分来计算，即当$(x_{k+1}, \cdots, x_n) \in D_1 \subset \mathbb{R}^{n-k}$时，</p>
+<script type="math/tex; mode=display">
+    (x_1, x_2, \cdots, x_{k}) \in D_2 \subset \mathbb{R}^{k}</script><p>那么</p>
+<script type="math/tex; mode=display">
+    \int_V f \mathrm{d} \mu = \overbrace{\idotsint \limits_{D_1}}^{n-k \text{个}} \mathrm{d} x_{k+1} \cdots \mathrm{d} x_n  \overbrace{\idotsint \limits_{D_2}}^{k \text{个}} f(x_1, x_2,\cdots,x_n) \mathrm{d} x_{1} \cdots \mathrm{d} x_k</script></blockquote>
+<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
+<p>设$\Omega$是$\mathbb{R}^n$中的开集，$\Delta \subset \Omega$有体积，映射$\boldsymbol{\varphi}: x_i = x_i(u_1,u_2,\cdots,u_n) (i=1,2,\cdots,n)$在$\Delta$上是正则的，那么对$\boldsymbol{\varphi} (\Delta)$上的连续函数$\boldsymbol{F}$，有</p>
+<script type="math/tex; mode=display">
+    \idotsint \limits_{\boldsymbol{\varphi}(\Delta)} \boldsymbol{F}(x_1, x_2, \cdots,x_n) \mathrm{d} x_1 \mathrm{d} x_2 \cdots \mathrm{d} x_n = \idotsint \limits_{\Delta} \boldsymbol{F}(x_1(u_1,\cdots,u_n), \cdots, x_n(u_1,\cdots,u_n)) \left| 
+        \frac{\partial (x_1, \cdots,x_n)}{\partial (u_1, \cdots, u_n)}
+    \right| \mathrm{d} u_1 \cdots \mathrm{d} u_n</script></blockquote>
+<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
+<p>令映射</p>
+<script type="math/tex; mode=display">
+    \left\{ 
+        \begin{matrix}
+        x_1 = & r \cos \theta_1,  \\
+        x_2 = & r \sin \theta_1 \cos \theta_2, \\
+        x_3 = & r \sin \theta_1 \sin \theta_2 \cos \theta_2, \\ 
+        \cdots\\
+        x_{n-1} = & r \sin \theta_1 \sin \theta_2 \cdots r \sin \theta_{n-2} \cos \theta_{n-1} \\
+        x_n = & r \sin \theta_1 \sin \theta_2 \cdots \sin \theta_{n-2} \sin \theta_{n-1}
+        \end{matrix}
+    \right.</script><p>称为$n$维球坐标变换，改变换将有界集$\Delta$映射到$V$，则</p>
+<script type="math/tex; mode=display">
+\int_V F(x_1,\cdots, x_n) \mathrm{d} \mu = \idotsint \limits_{\Delta} \boldsymbol{F}(\theta_1, \cdots, \theta_n) r^{n-1} \sin^{n-2} \theta_1 \sin ^{n-3} \theta_2 \cdots \sin \theta_{n-2} \mathrm{d} \theta_1 \cdots \mathrm{d} \theta_n</script></blockquote>
+<p>证：关键需要证明</p>
+<script type="math/tex; mode=display">
+    \frac{\partial (x_1, x_2, \cdots, x_n)}{\partial (r, \theta_1, \cdots, \theta_{n-1})} = r^{n-1} \sin^{n-2} \theta_1 \sin ^{n-3} \theta_2 \cdots \sin \theta_{n-2}</script><p>这时考虑方程组</p>
+<script type="math/tex; mode=display">
+    \left\{
+        \begin{matrix} 
+        F_1 = & r^2 - (x_1^2 + x_2^2 + \cdots + x_n^2) = 0 \\
+        F_2 = & r^2 \sin^2 \theta_1 - (x_2^2 + \cdots + x_n^2) = 0 \\
+        F_3 = & r^2 \sin^2 \theta_1 \sin^2 \theta_2 - (x_3^2 + \cdots + x_n^2) = 0 \\
+        \cdots \\
+        F_n = & r^2 \sin^2 \theta_1 \cdots \sin^ \theta_{n-1} - x_n^2 = 0
+        \end{matrix}
+    \right. \tag {1}</script><p>令$\boldsymbol{u} = (r, \theta<em>1, \cdots, \theta</em>{n-1}), \boldsymbol{x} = (x_1, x_2, \cdots, x_n)$，则根据<a href="https://gamersover.github.io/2021/04/13/函数导数10#定理3：隐映射定理" target="_blank" rel="noopener">隐映射定理</a>可知</p>
+<script type="math/tex; mode=display">
+    \left(\begin{matrix}
+    \frac{\partial r}{\partial \theta_1} & \cdots & \frac{\partial x_1}{\partial \theta_{n-1}} \\
+    \vdots & & \vdots \\
+    \frac{x_n}{\partial r} & \cdots & \frac{x_n}{\partial \theta_{n-1}}
+    \end{matrix} \right) = - (J_{\boldsymbol{x}}F(\boldsymbol{x}, \boldsymbol{u}))^{-1} J_{\boldsymbol{u}}F(\boldsymbol{x}, \boldsymbol{u})</script><p>两边取行列式即得</p>
+<script type="math/tex; mode=display">
+    \frac{\partial (x_1, x_2, \cdots, x_n)}{\partial (r, \theta_1, \cdots, \theta_{n-1})} = (-1)^n \frac{\det J_{\boldsymbol{u}}F(\boldsymbol{x}, \boldsymbol{u})}{\det J_{x}F(\boldsymbol{x}, \boldsymbol{u})}</script><p>通过方程组(1)可以求出</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+    &\det J_{\boldsymbol{u}}F(\boldsymbol{x}, \boldsymbol{u}) = 2^n r^{2n-1} \sin^{2n-3} \theta_1 \cos \theta_1 \sin^{2n-5} \theta_2 \cos \theta_2 \cdots \sin \theta_{n-1} \cos \theta_{n-1} \\
+    &\det J_{\boldsymbol{x}} F(\boldsymbol{x}, \boldsymbol{u}) = (-1)^n 2^n r^n \sin^{n-1} \theta_1  \cos \theta_1 \sin^{n-2} \theta_2 \cos \theta_2 \cdots \sin \theta_{n-1} \cos \theta_{n-1}
+    \end{aligned}</script><p>所以</p>
+<script type="math/tex; mode=display">
+ \frac{\partial (x_1, x_2, \cdots, x_n)}{\partial (r, \theta_1, \cdots, \theta_{n-1})} = r^{n-1} \sin^{n-2} \theta_1 \sin ^{n-3} \theta_2 \cdots \sin \theta_{n-2}</script><p>Q.E.D.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 数学分析</a>
+              <a href="/tags/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> 函数积分</a>
+              <a href="/tags/n%E9%87%8D%E7%A7%AF%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> n重积分</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/07/29/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%8611/" rel="prev" title="函数积分十一：三重积分">
+      <i class="fa fa-chevron-left"></i> 函数积分十一：三重积分
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/08/11/%E5%BE%AE%E7%A7%AF%E5%88%86%E5%9C%A8%E5%87%A0%E4%BD%95%E4%B8%8A%E7%9A%84%E5%BA%94%E7%94%A82/" rel="next" title="微积分在几何上的应用二：曲线的切线与曲面的切平面">
+      微积分在几何上的应用二：曲线的切线与曲面的切平面 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="陈华杰"
+      src="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+  <p class="site-author-name" itemprop="name">陈华杰</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gamersover" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gamersover" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈华杰</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">278k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:12</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'default',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '2b5e8584032528a65176',
+      clientSecret: '4a98c67c6337be0cd82b30d04699a4dcef47307c',
+      repo        : 'gamersover.github.io',
+      owner       : 'gamersover',
+      admin       : ['gamersover'],
+      id          : '54ce2c4f59bea4a146d4b28340c5aade',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

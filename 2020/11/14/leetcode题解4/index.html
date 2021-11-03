@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="描述该题来自于力扣第四题 给定两个大小为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的中位数。进阶：你能设计一个时间复杂度为 O(log(m+n)) 的算法解决此问题吗？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode题解4：寻找两个正序数组的中位数">
+<meta property="og:url" content="http://yoursite.com/2020/11/14/leetcode%E9%A2%98%E8%A7%A34/index.html">
+<meta property="og:site_name" content="尘雨尘风">
+<meta property="og:description" content="描述该题来自于力扣第四题 给定两个大小为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的中位数。进阶：你能设计一个时间复杂度为 O(log(m+n)) 的算法解决此问题吗？">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-14T01:41:06.000Z">
+<meta property="article:modified_time" content="2021-10-27T05:27:17.733Z">
+<meta property="article:author" content="陈华杰">
+<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="数组">
+<meta property="article:tag" content="二分查找">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/11/14/leetcode%E9%A2%98%E8%A7%A34/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>leetcode题解4：寻找两个正序数组的中位数 | 尘雨尘风</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">尘雨尘风</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">数学与编程的爱好者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">61</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">64</span></a>
+
+  </li>
+        <li class="menu-item menu-item-poem">
+
+    <a href="/poem/" rel="section"><i class="fa fa-book fa-fw"></i>诗集</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/14/leetcode%E9%A2%98%E8%A7%A34/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          leetcode题解4：寻找两个正序数组的中位数
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-14 09:41:06" itemprop="dateCreated datePublished" datetime="2020-11-14T09:41:06+08:00">2020-11-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于<a href="https://leetcode-cn.com/problems/median-of-two-sorted-arrays/" target="_blank" rel="noopener">力扣第四题</a></p>
+<p>给定两个大小为 m 和 n 的正序（从小到大）数组 <code>nums1</code> 和 <code>nums2</code>。请你找出并返回这两个正序数组的中位数。<br>进阶：你能设计一个时间复杂度为 <code>O(log(m+n))</code> 的算法解决此问题吗？</p>
+<a id="more"></a>
+<p>示例 1：</p>
+<blockquote>
+<p>输入：nums1 = [1,3], nums2 = [2]<br>输出：2.00000<br>解释：合并数组 = [1,2,3] ，中位数 2</p>
+</blockquote>
+<p>示例 2：</p>
+<blockquote>
+<p>输入：nums1 = [1,2], nums2 = [3,4]<br>输出：2.50000<br>解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5</p>
+</blockquote>
+<p>示例 3：</p>
+<blockquote>
+<p>输入：nums1 = [0,0], nums2 = [0,0]<br>输出：0.00000</p>
+</blockquote>
+<p>示例 4：</p>
+<blockquote>
+<p>输入：nums1 = [], nums2 = [1]<br>输出：1.00000</p>
+</blockquote>
+<p>示例 5：</p>
+<blockquote>
+<p>输入：nums1 = [2], nums2 = []<br>输出：2.00000</p>
+</blockquote>
+<p>提示：</p>
+<blockquote>
+<ul>
+<li>nums1.length == m</li>
+<li>nums2.length == n</li>
+<li>0 &lt;= m &lt;= 1000</li>
+<li>0 &lt;= n &lt;= 1000</li>
+<li>1 &lt;= m + n &lt;= 2000</li>
+<li>-106 &lt;= nums1[i], nums2[i] &lt;= 106</li>
+</ul>
+</blockquote>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>时间复杂度需达$O(\log(n))$级别，首先想到的是二分法，但该题如何使用二分求解，还需仔细分析。</p>
+<h3 id="中位数特点"><a href="#中位数特点" class="headerlink" title="中位数特点"></a>中位数特点</h3><p>中位数的特点是比它小的数和比它大的数一样多，如下面例子</p>
+<blockquote>
+<p>1 2 3 4 <font color='blue'>5</font> 6 7 8 9    </p>
+</blockquote>
+<p><code>5</code>的前面有四个数<code>1 2 3 4</code>，后面有四个数<code>6 7 8 9</code>，从而<code>5</code>是中位数</p>
+<blockquote>
+<p>1 2 3 4 <font color='blue'>5 6</font> 7 8 9 10</p>
+</blockquote>
+<p><code>5 6</code>的前面有四个数<code>1 2 3 4</code>，后面有四个数<code>6 7 8 9</code>，从而<code>(5+6)/2=5.5</code>是中位数</p>
+<p>所以想找到中位数就需要找到一个分割使得以下两点满足：</p>
+<ol>
+<li>该分割的左边元素比右边元素至多多出一个</li>
+<li>该分割的右边元素都要大于左边的元素</li>
+</ol>
+<h3 id="两个排序数组的中位数寻找"><a href="#两个排序数组的中位数寻找" class="headerlink" title="两个排序数组的中位数寻找"></a>两个排序数组的中位数寻找</h3><p>对于两个排序数组，比如</p>
+<blockquote>
+<p>1 4 5 7 8 9<br>2 3 6</p>
+</blockquote>
+<p>这时分割应该是</p>
+<blockquote>
+<font color='red'>1 4 5</font> <font color='blue'>7 8 9</font> <br/>
+<font color='red'>2 3</font> <font color='blue'>6</font>
+
+</blockquote>
+<p>可以看到分割的左边为<code>1 4 5 2 3</code>，右边为<code>6 7 8 9</code>，满足上述两点。</p>
+<p>所以基本想法是首先遍历所有满足第一点的分割，然后判断该分割是否满足第二点即可。</p>
+<ul>
+<li><p>满足第1点的分割</p>
+<p>  找分割无非就是如何划分，使得左边有5个数罢了，而这5个数来自于上面数组和下面数组，从而以<code>2 3 6</code>作为基准，如果<code>2 3 6</code>中没有划分到左边的，那么左边5个数都是来自上面数组的<code>1 4 5 7 8</code>；如果<code>2 3 6</code>中只有<code>2</code>划分到左边，那显然是上面数组的<code>1 4 5 7</code>划分到左边。<br>  所有分割情况如下四种：<br>  （1）</p>
+<blockquote>
+<font color='red'>1 4 5 7 8</font> <font color='blue'>9</font> <br/>
+<font color='blue'>2 3 6</font>
+
+</blockquote>
+<p>  （2）</p>
+<blockquote>
+<font color='red'>1 4 5 7</font> <font color='blue'>8 9</font> <br/>
+<font color='red'>2</font> <font color='blue'>3 6</font>
+
+</blockquote>
+<p>  （3）</p>
+<blockquote>
+<font color='red'>1 4 5</font> <font color='blue'>7 8 9</font> <br/>
+<font color='red'>2 3</font> <font color='blue'>6</font>
+
+</blockquote>
+<p>  （4）</p>
+<blockquote>
+<font color='red'>1 4</font> <font color='blue'>5 7 8 9</font> <br/>
+<font color='red'>2 3 6</font>
+</blockquote>
+</li>
+<li><p>满足第2点的分割</p>
+<p> 以下面分割为例</p>
+<blockquote>
+<font color='red'>1 4 5 7</font> <font color='blue'>8 9</font> <br/>
+<font color='red'>2</font> <font color='blue'>3 6</font>
+
+</blockquote>
+<p> 要判断右边元素是否都要大于左边，只需判断<code>8 3</code>是否都要大于<code>7 2</code>，由于上下两个数组已经排好序了，表示$(8,7),(3,2)$已经满足条件了，所以只需比较$(8,2),(3,7)$是否满足条件，显然$3 &lt; 7$，所以该分割不满足第2点。</p>
+</li>
+</ul>
+<h3 id="最终算法"><a href="#最终算法" class="headerlink" title="最终算法"></a>最终算法</h3><p>经过以上例子的分析，下面解释一般的情况，比如两个数组</p>
+<blockquote>
+<p>$a_0 a_1 a_2 a_3 a_4 a_5$<br>$b_0 b_1 b_2$</p>
+</blockquote>
+<p>假设任取分割$(4,1)$，表示分割点分别在$a_4$的左边和$b_1$的左边</p>
+<blockquote>
+<p><font color="red">$a_0 a_1 a_2 a_3$</font> $a_4 a_5 a_6$</p>
+<p><font color="red">$b_0$</font> $b_1 b_2$</p>
+</blockquote>
+<p>这时根据$a_4,b_0$的大小关系和$b_1,a_3$的大小关系分成三种情况</p>
+<ol>
+<li>$a_4 \ge b_0$且$b_1 \ge a_3$<br>这时分割已经找到了</li>
+<li>$b_1 &lt; a_3$，可以推出$b_0 \le b_1 &lt; a_3 \le a_4 \Rightarrow b_0 &lt; a_4$<br>这时比$b_1$大的数至少有$a_3,a_4,a_5,a_6,b_2$这5个数，显然比$b_1$还小的数不可能是中位数，所以分割点必然在$b_1$的右边</li>
+<li>$a_4 &lt; b_0$，可以推出$a_3 \le a_4 &lt; b_0 \le b_1 \Rightarrow a_3 &lt; b_1$<br>这时比$b_1$小的数至少有$a_0,a_1,a_2,a_3,b_0$这5个数，显然比$b_1$还大的数不可能是中位数，所以分割点必然在$b_1$的左边</li>
+</ol>
+<p>如此才出现了二分的样子了。 所以假设<code>nums2</code>是短的那个数组，且长度为<code>n</code>，取<code>0&lt;=j&lt;=n</code>作为<code>nums2</code>的分割点，如果<code>j=n</code>表示<code>nums2</code>的所有元素都归左边，若<code>j&lt;n</code>，则<code>nums2[j]</code>左边的元素归左边。</p>
+<p>由于二分法每次可以筛选掉一半，所以初始化<code>jleft=0,jright=n</code>，然后执行</p>
+<ol>
+<li><p><code>j = (jleft+jright) // 2</code>，显然此时<code>nums1</code>的分割点<code>i = (m+n+1)//2 - j</code>，如下图所示</p>
+<blockquote>
+<p>… <code>nums1[i-1], nums1[i]</code>, …<br>… <code>nums2[j-1], nums2[j]</code>, …</p>
+</blockquote>
+<p> 这时需比较<code>nums1[i],nums2[j-1]</code>的大小以及<code>nums2[j],nums1[i-1]</code>的大小关系了，</p>
+</li>
+<li><p>若<code>nums1[i] &gt;= nums2[j-1] &amp;&amp; nums2[j] &gt;= nums1[i-1]</code>表示找到了分割点，此时若<code>m+n</code>是奇数，表示中位数只有一个，而分割的左边比右边多一个元素，所以中位数必然是<code>max(nums1[i-1], num2[j-1])</code>；如果<code>m+n</code>是偶数，中位数取两个的均值，此时取<code>max(nums1[i-1], num2[j-1])</code>和<code>min(nums1[i], num2[j])</code>的均值就是中位数了。<strong>也就是说中位数要么是左边数的最大值，要么是左边数的最大值与右边数的最小值的均值。</strong></p>
+</li>
+<li><p>若<code>nums2[j] &lt; nums1[i-1]</code>，这时分割点在<code>j</code>的右边，所以令<code>jleft=j+1</code>，然后回到第1步</p>
+</li>
+<li>若<code>nums1[i] &lt; nums2[j-1]</code>，这时分给点在<code>j</code>的左边，所以令<code>jright=j-1</code>，然后回到第1步</li>
+</ol>
+<p>按照上述步骤下去，就可以找到最终解了，记左边最大值为<code>max_left</code>，右边最小值为<code>min_right</code>；<br>最后注意边界:</p>
+<p>边界1：若<code>j=0,i&lt;m</code>，此时如下</p>
+<blockquote>
+<p>…,<code>nums1[i-1],nums1[i]</code>,…<br><code>nums2[0],nums2[1]</code>,…</p>
+</blockquote>
+<p>可知左边只有<code>nums1[i-1]</code>，所以<code>max_left=nums1[i-1]</code>；而<code>min_right=min(nums[i],nums2[k])</code>；</p>
+<p>边界2：若<code>j=0,i=m</code>，此时如下</p>
+<blockquote>
+<p>…,<code>nums1[m-1]</code><br><code>nums2[0],nums2[1]</code>,…</p>
+</blockquote>
+<p>可知<code>max_left=nums1[m-1]</code>，<code>min_right=nums2[0]</code>;</p>
+<p>边界3：若<code>j=n,i&gt;0</code>，此时如下</p>
+<blockquote>
+<p>…,<code>nums1[i-1],nums1[i]</code>,…<br>…,<code>nums2[n-2],nums2[n-1]</code></p>
+</blockquote>
+<p><code>max_left=max(nums1[i-1],nums2[n-1])</code>；<code>min_right=nums1[i]</code>;</p>
+<p>边界3：若<code>j=n,i=0</code>，此时如下</p>
+<blockquote>
+<p><code>nums1[0],nums1[1]</code>,…<br>…,<code>nums2[n-2],nums2[n-1]</code></p>
+</blockquote>
+<p><code>max_left=nums2[n-1]</code>；<code>min_right=nums1[0]</code>。</p>
+<p>由于每次都是对最短的数组进行二分，所以时间复杂度为$O(\log(\min(m, n)))$。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><details open>
+<summary>python3</summary>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findMedianSortedArrays</span><span class="params">(self, nums1, nums2)</span>:</span></span><br><span class="line">        m, n = len(nums1), len(nums2)</span><br><span class="line">        <span class="keyword">if</span> m &lt; n:</span><br><span class="line">            m, n, nums1, nums2 = n, m, nums2, nums1</span><br><span class="line">        </span><br><span class="line">        half_len = (m + n + <span class="number">1</span>) &gt;&gt; <span class="number">1</span></span><br><span class="line">        jleft, jright = <span class="number">0</span>, n</span><br><span class="line">        <span class="keyword">while</span> jleft &lt;= jright:</span><br><span class="line">            j = (jleft + jright) &gt;&gt; <span class="number">1</span></span><br><span class="line">            i = half_len - j</span><br><span class="line">            <span class="keyword">if</span> j &lt; n <span class="keyword">and</span> nums2[j] &lt; nums1[i<span class="number">-1</span>]:</span><br><span class="line">                jleft = j + <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> j &gt; <span class="number">0</span> <span class="keyword">and</span> nums1[i] &lt; nums2[j<span class="number">-1</span>]:</span><br><span class="line">                jright = j - <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> j == <span class="number">0</span>:</span><br><span class="line">            max_left = nums1[i<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">elif</span> j == n <span class="keyword">and</span> i == <span class="number">0</span>:</span><br><span class="line">            max_left = nums2[j<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            max_left = max(nums1[i<span class="number">-1</span>], nums2[j<span class="number">-1</span>])</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (m + n) % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> max_left</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> j == n:</span><br><span class="line">            min_right = nums1[i]</span><br><span class="line">        <span class="keyword">elif</span> j == <span class="number">0</span> <span class="keyword">and</span> i == m:</span><br><span class="line">            min_right = nums2[j]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            min_right = min(nums1[i], nums2[j])</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> (max_left + min_right) / <span class="number">2</span></span><br></pre></td></tr></table></figure>
+</details>
+
+
+<details>
+<summary>c++</summary>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums1.size() &lt; nums2.size()) &#123;</span><br><span class="line">            <span class="keyword">return</span> findMedianSortedArrays(nums2, nums1);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> m = nums1.size(), n = nums2.size();</span><br><span class="line">        <span class="keyword">int</span> halfLen = (m + n + <span class="number">1</span>) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> jleft = <span class="number">0</span>, jright = n;</span><br><span class="line">        <span class="keyword">int</span> i, j;</span><br><span class="line">        <span class="keyword">while</span> (jleft &lt;= jright) &#123;</span><br><span class="line">            j = (jleft + jright) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            i = halfLen - j;</span><br><span class="line">            <span class="keyword">if</span> (j &lt; n &amp;&amp; nums2[j] &lt; nums1[i - <span class="number">1</span>])</span><br><span class="line">                jleft = j + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; <span class="number">0</span> &amp;&amp; nums1[i] &lt; nums2[j - <span class="number">1</span>])</span><br><span class="line">                jright = j - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span> max_left = <span class="number">0</span>, min_right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span>) max_left = nums1[i - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (j == n &amp;&amp; i == <span class="number">0</span>) max_left = nums2[j - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">else</span> max_left = max(nums1[i - <span class="number">1</span>], nums2[j - <span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ((m + n) % <span class="number">2</span> == <span class="number">1</span>) <span class="keyword">return</span> max_left;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (j == n) min_right = nums1[i];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (j == <span class="number">0</span> &amp;&amp; i == m) min_right = nums2[j];</span><br><span class="line">        <span class="keyword">else</span> min_right = min(nums1[i], nums2[j]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (min_right + max_left) / <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</details>
+
+
+<details>
+<summary>java</summary>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums1.length &lt; nums2.length) &#123;</span><br><span class="line">            <span class="keyword">return</span> findMedianSortedArrays(nums2, nums1);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> m = nums1.length, n = nums2.length;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> halfLen = (m + n + <span class="number">1</span>) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> jleft = <span class="number">0</span>, jright = n;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(jleft &lt;= jright) &#123;</span><br><span class="line">            j = (jleft + jright) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            i = halfLen - j;</span><br><span class="line">            <span class="keyword">if</span> (j &lt; n &amp;&amp; nums2[j] &lt; nums1[i-<span class="number">1</span>]) jleft = j + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(j &gt; <span class="number">0</span> &amp;&amp; nums1[i] &lt; nums2[j-<span class="number">1</span>]) jright =  j - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span> maxLeft, minRight;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span>) maxLeft = nums1[i-<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(j == n &amp;&amp; i==<span class="number">0</span>) maxLeft = nums2[j-<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">else</span> maxLeft = Math.max(nums1[i-<span class="number">1</span>], nums2[j-<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ((m + n) % <span class="number">2</span> == <span class="number">1</span>) <span class="keyword">return</span> maxLeft;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (j == n) minRight = nums1[i];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(j == <span class="number">0</span> &amp;&amp; i == m) minRight = nums2[j];</span><br><span class="line">        <span class="keyword">else</span> minRight = Math.min(nums1[i], nums2[j]);</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> (maxLeft + minRight) / <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+              <a href="/tags/%E6%95%B0%E7%BB%84/" rel="tag"><i class="fa fa-tag"></i> 数组</a>
+              <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" rel="tag"><i class="fa fa-tag"></i> 二分查找</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/10/%E7%82%B9%E5%88%97%E6%9E%81%E9%99%906/" rel="prev" title="点列极限六：拓扑学基础之列紧集、紧致集、连通集">
+      <i class="fa fa-chevron-left"></i> 点列极限六：拓扑学基础之列紧集、紧致集、连通集
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/17/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%901/" rel="next" title="函数极限一：函数极限定义与基本性质">
+      函数极限一：函数极限定义与基本性质 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中位数特点"><span class="nav-text">中位数特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个排序数组的中位数寻找"><span class="nav-text">两个排序数组的中位数寻找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最终算法"><span class="nav-text">最终算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="陈华杰"
+      src="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+  <p class="site-author-name" itemprop="name">陈华杰</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gamersover" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gamersover" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈华杰</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">278k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:12</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'default',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '2b5e8584032528a65176',
+      clientSecret: '4a98c67c6337be0cd82b30d04699a4dcef47307c',
+      repo        : 'gamersover.github.io',
+      owner       : 'gamersover',
+      admin       : ['gamersover'],
+      id          : '2ae0edbd19fdec77573e1ee9bb586bea',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

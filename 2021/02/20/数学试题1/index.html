@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="几何题$1.$ 在$\triangle ABC$中，$AB&#x3D;AC$，点$D$在线段$BC$上，且$\angle BAD &#x3D; 20^\circ$，点$E$在线段$AC$上，且$AE &#x3D; AD$，求$\angle CDE$。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学试题一：初中篇">
+<meta property="og:url" content="http://yoursite.com/2021/02/20/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/index.html">
+<meta property="og:site_name" content="尘雨尘风">
+<meta property="og:description" content="几何题$1.$ 在$\triangle ABC$中，$AB&#x3D;AC$，点$D$在线段$BC$上，且$\angle BAD &#x3D; 20^\circ$，点$E$在线段$AC$上，且$AE &#x3D; AD$，求$\angle CDE$。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.1.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.2.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.3.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.4.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.5.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.6.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.7.jpg">
+<meta property="article:published_time" content="2021-02-20T12:26:52.000Z">
+<meta property="article:modified_time" content="2021-10-27T05:27:17.737Z">
+<meta property="article:author" content="陈华杰">
+<meta property="article:tag" content="数学试题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.1.jpg">
+
+<link rel="canonical" href="http://yoursite.com/2021/02/20/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>数学试题一：初中篇 | 尘雨尘风</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">尘雨尘风</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">数学与编程的爱好者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">61</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">64</span></a>
+
+  </li>
+        <li class="menu-item menu-item-poem">
+
+    <a href="/poem/" rel="section"><i class="fa fa-book fa-fw"></i>诗集</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/20/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数学试题一：初中篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-20 20:26:52" itemprop="dateCreated datePublished" datetime="2021-02-20T20:26:52+08:00">2021-02-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="几何题"><a href="#几何题" class="headerlink" title="几何题"></a>几何题</h4><p>$1.$ 在$\triangle ABC$中，$AB=AC$，点$D$在线段$BC$上，且$\angle BAD = 20^\circ$，点$E$在线段$AC$上，且$AE = AD$，求$\angle CDE$。</p>
+<p><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.1.jpg" width="20%"><br><a id="more"></a></p>
+<p>$2.$ 在$\triangle ABC$中，点$D,E$分别是$AC,BC$的中点，点$F$在线段$AB$上，且$BF=\frac{1}{3}AB$，$BD$与$CF$相交于点$G$，连接$EG$； <br/><br>（1）证：$EG \parallel AC$。 <br/><br>（2）求$\frac{S<em>{\triangle BFG}}{S</em>{\triangle BEG}}$。</p>
+<p><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.2.jpg" width="25%"></p>
+<p>$3.$ 在$\triangle ABC$中，$\angle BAC$的角平分线$AD$交$BC$于点$D$，点$E$是$BC$的中点，过点$E$作$EG \parallel AD$交$AB$于点$F$，交$CA$的延长线于点$G$。证：$BF = CG$。</p>
+<p><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.3.jpg" width="25%"></p>
+<p>$4.$ 在$Rt\triangle ABC$中，$\angle ACB = 90^\circ$，点$D$在$AB$上，且$CD \perp AB$，$AE$平分$\angle BAC$交$CD$于点$K$，交$BC$于点$E$，$F$是$BE$上的点，且$BF=CE$，证：$FK \parallel AB$。</p>
+<p><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.4.jpg" width="25%"></p>
+<p>$5.$ $EFGH$是正方形$ABCD$的内接四边形，其中点$E,F,G,H$分别在线段$AB,BC,CD,DA$中，$\angle BEG,\angle CFH$都是锐角，已知$EG=3,FH=4$，四边形$EFGH$的面积为$5$，求正方形$ABCD$的面积。</p>
+<p><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.5.jpg" width="20%"></p>
+<p>$6.$ 平行四边形$ABCD$中，$BC=2AB$，$M$是$AD$的中点，点$E$在$AB$上，且$CE \perp AB$，求$\angle DME : \angle AEM$。</p>
+<p><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.6.jpg" width="25%"></p>
+<p>$7.$ 矩形$ABCD$中，$AB=a,BC=b$，点$E,F$分别在$AB,BC$上，定义$S<em>1=S</em>{\triangle DAE},S<em>2=S</em>{\triangle CDF},S<em>3=S</em>{\triangle BEF},S<em>4=S</em>{\triangle DEF}$，如果$S_1=S_2=\frac{1}{2} (S_3 + S_4)$，求$S_4$（用$a,b$表示）。</p>
+<p><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%981/No.7.jpg" width="25%"></p>
+<p>$8.$ 平行四边形$ABCD$中，$M$是$BC$的中点，且$AM=9,BD=12,AD=10$，求平行四边形$ABCD$的面积。</p>
+<p>$9.$ 平行四边形$ABCD$中，$AB=5,AD=8$，$\triangle BAD,\triangle ADC$的角平分线分别交$BC$于点$E,F$，求$EF$。</p>
+<p>$10.$ $\triangle ABC$是$\bigodot O$的内接三角形，且$AC=BC$，点$D$在$\bigodot O$上，延长$DA$至点$E$，使$CE=CD$；<br/><br>（1）证：$AE=BD$。 <br/><br>（2）若$AC \perp BC$，证：$AD+BD = \sqrt 2 CD$。</p>
+<p>$11.$ 在三角形$ABC$中，点$O$是$AC$上的一个动点，过点$O$作直线$MN \parallel BC$，设$MN$交$\triangle BCA$的角平分线于点$E$，交$\triangle BCA$的外角平行线于点$F$；<br/><br>（1）证：$OE=OF$。<br/><br>（2）点$O$在何处时，四边形$AECF$是矩形？<br/><br>（3）若$AC$上存在点$O$使四边形$AECF$是正方形，且$\frac{AE}{BC} = \frac{\sqrt 6}{2} $，求$\angle B$的大小。</p>
+<p>$12.$ 已知等边三角形$ABC$与点$P$，设点$P$到$\triangle ABC$三边$AB,AC,BC$的距离分别为$h_1,h_2,h_3$，$\triangle ABC$的高为$h$。若点$P$在边$BC$上，此时$h_3=0$，可得$h_1+h_2+h_3 = h$，当点$P$在$\triangle ABC$内或在$\triangle ABC$外这两种情况，上述结论是否正确？若正确，请给予证明；若不正确，$h_1,h_2,h_3$和$h$之间有和关系？</p>
+<p>$13.$ 三角形$ABC$中，$AB=5,AC=3$，$D$为$BC$的中点，$AD=2$，求$BC$的长。</p>
+<p>$14.$ $Rt\triangle ABC$中，$\angle C = 90^\circ$，点$M$是$BC$的中点，点$D$在$AB$上，$MD \perp AB$，证：$AC^2 + BD^2 = AD^2$。</p>
+<p>$15.$ 在$\triangle ABC$中，$AB=AC$，点$P$是$BC$上一点，证：$PA^2 + PB\cdot PC = AB^2$。</p>
+<p>$16.$ 点$P$是$\triangle ABC$内一点，$PD \perp AB$于点$D$，$PE \perp BC$于点$E$，$PF \perp AC$于点$F$，证：$AD^2 + BE^2 + CF^2 = AF^2 + BD^2 + CE^2$。</p>
+<p>$17.$ 在$\triangle ABC$中，$BD \perp AC$于点$D$，$CE \perp AB$于点$E$，点$F$在$BD$上，且$BF=AC$，点$G$在$CE$的延长线上，且$CG = AB$，证：$AG \perp AF$。</p>
+<p>$18.$ 在等腰$Rt \triangle ABC$中，$\angle A = 90^\circ$，$\angle ABC$的角平分线$BD$交$AC$于点$D$，点$E$在$BC$上，且$\angle BDE = 45^\circ$，连接$AE$，证：$AE \perp BD$。</p>
+<p>$19.$ 点$E$为平行四边形$ABCD$的边$BC$上一动点，$DE$交直线$AB$于点$F$，连接$AE,CF$；<br/><br>（1）$\triangle ABE$与$\triangle CEF$的面积有何关系？ <br/><br>（2）若$E$在$CB$的延长线上，（1）的结论依然成立吗？</p>
+<p>$20.$ $\triangle ABC$中，$AB=5,AC=11$，$\triangle BAC$的角平分线$AD$交$BC$于点$D$，点$E$为$BC$的中点，过点$E$作$EF \parallel AD$交$AC$于点$F$，求$CF$的长。</p>
+<p>$21.$ 在$\triangle ABC$中，点$E$在$AB$上，$AE:EB=1:3$，点$D$在$BC$上，$BD:DC=2:1$，$AD$与$CE$相交于点$F$，则$\frac{EF}{FC} + \frac{AF}{FD}$的值为？</p>
+<p>$22.$ 在$\triangle ABC$中，$AB &gt; AC$，$AD$平分$\angle BAC$且交$BC$于点$D$，$EF \perp AD$交$AB$于点$E$，交$AC$于点$F$，交$AD$于点$G$，交$BC$的延长线于点$M$，证：$\angle M = \frac{1}{2} (\angle ACB - \angle B)$。</p>
+<p>$23.$ 在$\triangle ABC$中，$AD$是$\angle BAC$的角平分线且交$BC$于点$D$，若$AB + BD = 25, AC - CD = 4$，则$AD$为多少？</p>
+<p>$24.$ 在$\triangle ABC$中，$DE \parallel FG \parallel BC$，$GI \parallel EF \parallel AB$，若$S<em>{\triangle ADE} = 20, S</em>{\triangle} EFG = 45, S<em>{\triangle GIC} = 80$，则$S</em>{\triangle ABC}$是多少？</p>
+<p>$25.$ 在梯形$ABCD$中，$AD \parallel BC$，$AC \perp BD$，已知$AD:BC=3:4$，则$BD:AC$的值为？</p>
+<p>$26.$ 六边形$ABCDEF$由6个全等的正方形组成，正方形边长为$1$，过点$A$的一条直线分别与$ED,CD$交于$M,N$，若这个六边形在$MN$两侧的部分面积相等，则$EM$的长度是？</p>
+<p>$27.$ 正方形$ABCD$的边$AB=12$，点$E$在$CD$上，且$DE=5$，点$M$在$AE$上，且$EM=5$，过点$M$的线段$PQ \perp AE$分别交$AD,BC$于点$P,Q$，则$PM:MQ$为？</p>
+<p>$28.$ $\triangle ABC$中，$AD$是$BC$边上的中线，点$F$在$AD$上，且$AF:FD=1:5$，连接$CF$并延交$AB$于点$E$，则$AE:EB$为？</p>
+<p>$29.$ 在梯形$ABCD$中，$AD \parallel BC$，$EH \parallel BC$分别交$AB,BD,AC,CD$于点$E,F,G,H$，且$BC=a,AD=b (a &gt; b)$，$AE:EB=3:2$，则$FG$为？</p>
+<p>$30.$ 设$P,M,N$分别是$\triangle ABC$的边$BC,CA,AB$上的点，且$AP,BM,CN$三点共线，证$\frac{AN}{NB} \cdot \frac{BP}{CP} = \frac{AM}{MC}$。</p>
+<p>$31.$ 已知$M,N$为$\triangle ABC$的边$BC$上的两点，且满足$BM=MN=NC$，一条平行于$AC$的直线分别交$AB,AM$和$AN$的延长线于点$D,E,F$，证$EF=3DE$。</p>
+<p>$32.$ 已知$\triangle ABC$和$\triangle A_1B_1C_1$均为正三角形，$BC$和$B_1C_1$的中点均为$D$，证$AA_1 \perp CC_1$。</p>
+<p>$33.$ 在$\triangle ABC$内部选取一点$P$，过点$P$作三条分别与$\triangle ABC$的三边平行的直线，这样所得的三角形$t<em>1,t_2,t_3$的面积分别为$4, 9, 49$，求$S</em>{\triangle ABC}$。</p>
+<p>$34.$ 点$E$是四边形$ABCD$的对角线$BD$上一点，且$\angle BAC=\angle BDC=\angle DAE$，<br /><br>（1）证：$BE \cdot AD = CD \cdot AE$； <br/><br>（2）猜想$\frac{BC}{DE}$可能等于哪两条线段之比？注：只需写出一组比？并证明你的猜想。</p>
+<p>$35.$ 在$\triangle ABC$中，$\angle BAC = 120^\circ$，$AD \perp BC$并交$BC$于点$D$，且$AB+BD=DC$，则$\angle C=$？</p>
+<p>$36.$ $BM$和$CM$分别是$\triangle ABC$的内角$ABC$和外角$ACD$的角平分线，$ME \parallel BC$交$AB$于点$E$，交$AC$于点$F$，证$EF = BE - CF$。</p>
+<p>$37.$ 在等腰$\triangle ABC$中，$AB=AC$，点$D,E$在线段$BC$上，且$BD=DE=EC$，证$\angle BAD &lt; \angle DAE$。</p>
+<p>$38.$ 已知$BE$是$\angle ABD$的角平分线，$CF$是$\angle ACD$的角平分线，$BE$与$CF$交于点$G$，若$\angle BDC=140^\circ,\angle BGC=110^\circ$，则$\angle A=$？</p>
+<p>$39.$ 已知$\angle xOy = 90^\circ$，点$A,B$分别在射线$Ox,Oy$上移动，$BE$是$\angle ABy$的角平分线，$BE$的反向延长线与$\angle OAB$的角平分线交于点$C$。试问$\angle ACB$的大小是否变化，如果保持不变，请证明；如果变化，请求出变化范围。</p>
+<p>$40.$ 点$D,F$分别是$\triangle ABC$的边$AB,AC$上的点，且$AD:DB=CF:FA=2:3$，连接$DF$交$BC$的延迟线于点$E$，则$EF:FD=$？</p>
+<p>$41.$ 已知矩形$ABCD$的边长$AB=2,BC=3$，点$P$是$AD$边上的一动点，$Q$是$BC$边上的任意一点，连接$AQ,DQ$，过点$P$作$PE \parallel DQ$交$AQ$于点$E$，作$PF \parallel AQ$交$DQ$于点$F$，<br /><br>（1）设$AP$的长为$x$，试求$S<em>{\triangle PEF}$关于$x$的函数式，并求当$P$在何处时，$S</em>{\triangle PEF}$取最大值，最大值是多少？<br/><br>（2）当$Q$在何处时，$\triangle ADQ$的周长最小？</p>
+<p>$42.$ 如图，在矩形$ABCD$中，点$E$为$AD$的中点，$EF \perp EC$，连接$FC$，$(AB &gt; AE)$， <br/><br>（1）$\triangle AEF \sim \triangle ECF$成立吗？若成立，请证明；否则，请说明理由。 <br/><br>（2）设$\frac{AB}{BC}=k$，是否存在这样的$k$使得$\triangle AEF \sim \triangle BCF$？若存在，证明之并求出$k$；否则，请说明理由。</p>
+<p>$43.$ 点$M$为$\triangle ABC$的边$BC$的中点，截线$PQ$分别交$AB,AM,AC$于点$P,N,Q$，求证$\frac{AB}{AP} + \frac{AC}{AQ} = 2\frac{AM}{AN}$。</p>
+<p>$44.$ 点$M$为正方形$ABCD$的边$AB$上一点，$BP \perp CM$于点$P$，$N$为$BC$上一点，且$BM=BN$，求证$PD \perp PN$。</p>
+<p>$45.$ 四边形$ABCD$中，$AC,BD$相交于点$O$，过点$O$作$AB$的平行线分别交$AD,BC$以及$DC$的延长线于点$E,F,G$，求证$GO^2 = GE\cdot GF$。</p>
+<p>$46.$ 已知点$E$为平行四边形$ABCD$边$DC$上一点，且$CE=DC$，连接$AE$分别交$BC,BD$于点$F,G$，$AC,BD$相交于点$O$，连接$OF$，求证$AB = 2OF$。</p>
+<h4 id="代数题"><a href="#代数题" class="headerlink" title="代数题"></a>代数题</h4><ol>
+<li><p>当关于$x$的方程$rx^2 + (r+2)^2x + r - 1 = 0$有且仅有整数根时，求$r$的值。</p>
+</li>
+<li><p>已知$\frac{1}{4}(b-c)^2 = (a-b)(c-a)$，且$a \ne 0$，则$\frac{b+c}{a}=$？</p>
+</li>
+<li><p>已知$x + y + z=0$，则$\frac{1}{y^2+z^2-x^2} + \frac{1}{z^2+x^2-y^2} + \frac{1}{x^2+y^2-z^2}=$？</p>
+</li>
+<li><p>已知$\frac{x}{m} + \frac{y}{n} + \frac{z}{p} = 1$，$\frac{m}{x} + \frac{n}{y} + \frac{p}{z} = 0$，则$\frac{x^2}{m^2} + \frac{y^2}{n^2} + \frac{z^2}{p^2}=$？</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6%E8%AF%95%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 数学试题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/01/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B03/" rel="prev" title="函数导数三：极值定义与微分中值定理">
+      <i class="fa fa-chevron-left"></i> 函数导数三：极值定义与微分中值定理
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/02/22/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B04/" rel="next" title="函数导数四：L’Hospital法则">
+      函数导数四：L’Hospital法则 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#几何题"><span class="nav-text">几何题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代数题"><span class="nav-text">代数题</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="陈华杰"
+      src="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+  <p class="site-author-name" itemprop="name">陈华杰</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gamersover" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gamersover" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈华杰</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">278k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:12</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'default',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '2b5e8584032528a65176',
+      clientSecret: '4a98c67c6337be0cd82b30d04699a4dcef47307c',
+      repo        : 'gamersover.github.io',
+      owner       : 'gamersover',
+      admin       : ['gamersover'],
+      id          : '5adbe575cea0761d733c61b4efe2a6b8',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
