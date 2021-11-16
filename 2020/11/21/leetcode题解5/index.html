@@ -285,7 +285,7 @@
 <blockquote>
 <p>输入: “cbbd”<br>输出: “bb”</p>
 </blockquote>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>关键思路是如何尽量少的遍历？注意到要判断$a<em>1a_2a_3 \cdots a</em>{n-1} a<em>n$是否是回文串，等价于判断$a_2a_3 \cdots a</em>{n-1}$是否是回文串，而且$a_1=a_n$是否成立，如果两个都成立，那么原字符串是回文串，否则就不是；所以解法思路是动态规划，<br>状态：<code>dp[i][j]</code>表示下标从<code>i</code>到<code>j</code>构成的子串是否是回文串<br>状态转移方程：<code>dp[i][j] = dp[i+1][j-1] &amp;&amp; a[i]==a[j]</code></p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>关键思路是如何尽量少的遍历？注意到要判断$a_1a_2a_3 \cdots a_{n-1} a_n$是否是回文串，等价于判断$a_2a_3 \cdots a_{n-1}$是否是回文串，而且$a_1=a_n$是否成立，如果两个都成立，那么原字符串是回文串，否则就不是；所以解法思路是动态规划，<br>状态：<code>dp[i][j]</code>表示下标从<code>i</code>到<code>j</code>构成的子串是否是回文串<br>状态转移方程：<code>dp[i][j] = dp[i+1][j-1] &amp;&amp; a[i]==a[j]</code></p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><details open>
 <summary>python3</summary>
 
@@ -462,13 +462,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

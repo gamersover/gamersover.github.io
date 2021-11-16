@@ -300,7 +300,7 @@
 <h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
 <p>设$f$是区间$(a,b)$上的递增（减）函数，则$f$的间断点一定是跳跃点，而且跳跃点集是至多可数的。</p>
 </blockquote>
-<p>证：不妨设$f$在$(a,b)$递增，任取$x \in (a,b)$，集合${f(t)：t \in (a,x) }$有上界，因为$f(x)$就是一个上界，从而集合必有上确界（记作$A$），显然有$A \le f(x)$，下面证明$f(x-)=A$。</p>
+<p>证：不妨设$f$在$(a,b)$递增，任取$x \in (a,b)$，集合$\{f(t)：t \in (a,x) \}$有上界，因为$f(x)$就是一个上界，从而集合必有上确界（记作$A$），显然有$A \le f(x)$，下面证明$f(x-)=A$。</p>
 <p>对任意给定的$\varepsilon&gt;0$，且$A$又是上确界，从而存在一个$\delta&gt;0$，使得$a &lt; x-\delta$，并且有$A - \varepsilon &lt; f(x - \delta)$，又由于$f$是递增函数，从而</p>
 <script type="math/tex; mode=display">
     A - \varepsilon < f(x - \delta) \le f(t) \le A</script><p>对$t \in (x-\delta, x)$都成立，从而得出$\forall \varepsilon &gt; 0$，$\exists \delta &gt; 0$，使得$|f(t) - A| &lt; \varepsilon$对$t \in (x-\delta, x)$成立，因此$f(x-)=A$；同理可以证明$f(x+)$存在且有限，存在</p>
@@ -313,31 +313,31 @@
 <h4 id="定理4：一致连续的函数必定连续"><a href="#定理4：一致连续的函数必定连续" class="headerlink" title="定理4：一致连续的函数必定连续"></a>定理4：一致连续的函数必定连续</h4><blockquote>
 <p>设$f: I \to \mathbb{R}$在其定义域$I$上一致连续，则函数$f$在$I$上的连续。</p>
 </blockquote>
-<p>证：由一致连续的定义可知，任取$x \in (x<em>1,x_2)$，如果$|x_1-x_2|&lt;\delta$，则$x_1,x_2 \in (x-\delta, x+\delta)$，从而由Cauchy收敛原理知$\lim \limits</em>{t \to x} f(t)$存在，又有$|f(t) - f(x)| &lt; \varepsilon$对$t \in (x-\delta, x+\delta)$成立，从而$\lim \limits_{t \to x} f(t) = f(x)$，所以函数$f$在$x$处连续。</p>
+<p>证：由一致连续的定义可知，任取$x \in (x_1,x_2)$，如果$|x_1-x_2|&lt;\delta$，则$x_1,x_2 \in (x-\delta, x+\delta)$，从而由Cauchy收敛原理知$\lim \limits_{t \to x} f(t)$存在，又有$|f(t) - f(x)| &lt; \varepsilon$对$t \in (x-\delta, x+\delta)$成立，从而$\lim \limits_{t \to x} f(t) = f(x)$，所以函数$f$在$x$处连续。</p>
 <p>Q.E.D.</p>
 <h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h4><blockquote>
 <p>设函数$f$在$[a,b]$上连续，那么$f$在$[a,b]$上一致连续。</p>
 </blockquote>
 <p>证：反证法。假设$f$不在$[a,b]$上一致连续，则存在一个$\varepsilon_0 &gt; 0$，对任意的$n \in \mathbb{N^*}$，总能找到$s_n,t_n\in [a,b]$，使得当$|s_n-t_n| &lt; 1/n$时，有</p>
 <script type="math/tex; mode=display">
-    |f(s_n)-f(t_n)| \ge \varepsilon_0 \tag 1</script><p>由于${s<em>n}$是一个在$[a,b]$内的数列，从而由列紧性定理可知，存在一个子列${s</em>{k_n}}$，使得</p>
+    |f(s_n)-f(t_n)| \ge \varepsilon_0 \tag 1</script><p>由于$\{s_n\}$是一个在$[a,b]$内的数列，从而由列紧性定理可知，存在一个子列$\{s_{k_n}\}$，使得</p>
 <script type="math/tex; mode=display">
     s_{k_n} \to s^* \in [a,b]  \quad (n \to \infty)</script><p>由（1）可知</p>
 <script type="math/tex; mode=display">
-    |f(s_{k_n}) - f(t_{k_n})| \ge \varepsilon_0 \tag 2</script><p>而$|s<em>{k_n} - t</em>{k<em>n}| &lt; 1/n$，令$n \to \infty$，可知$t</em>{k_n} \to s^*$，从而由函数$f$的连续性，令（2）式中$n \to \infty$，可得</p>
+    |f(s_{k_n}) - f(t_{k_n})| \ge \varepsilon_0 \tag 2</script><p>而$|s_{k_n} - t_{k_n}| &lt; 1/n$，令$n \to \infty$，可知$t_{k_n} \to s^*$，从而由函数$f$的连续性，令（2）式中$n \to \infty$，可得</p>
 <script type="math/tex; mode=display">
     0=|f(s^*)-f(s^*)| = |\lim \limits_{n \to \infty}f(s_{k_n}) - \lim \limits_{n \to \infty}f(t_{k_n})| = \lim \limits_{n \to \infty}|f(s_{k_n}) - f(t_{k_n})| \ge \varepsilon_0 > 0</script><p>矛盾。</p>
 <p>Q.E.D.</p>
 <h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a><span id="theorem6">定理6</span></h4><blockquote>
 <p>有界闭区间上的连续函数必在该区间上有界。</p>
 </blockquote>
-<p>证：反证法。设函数$f$在$[a,b]$上连续且无上界，那么对任意的$n \in \mathbb{N^*}$，存在$x<em>n \in [a,b]$，使得$f(x_n) &gt; n$，又由于$x_n \in [a,b]$，从而存在一个子列${x</em>{k_n}}$使得</p>
+<p>证：反证法。设函数$f$在$[a,b]$上连续且无上界，那么对任意的$n \in \mathbb{N^*}$，存在$x_n \in [a,b]$，使得$f(x_n) &gt; n$，又由于$x_n \in [a,b]$，从而存在一个子列$\{x_{k_n}\}$使得</p>
 <script type="math/tex; mode=display">
     x_{k_n} \to \xi \in [a,b] \quad (n \to \infty)</script><p>由函数$f$的连续性可知</p>
 <script type="math/tex; mode=display">
     \lim \limits_{n \to \infty} f(x_{k_n}) = f(\xi)</script><p>而$f(\xi)$是给定点的函数值，在连续函数中必有界，另一方面</p>
 <script type="math/tex; mode=display">
-    f(x_{k_n}) > k_n \ge n</script><p>得到$\lim \limits<em>{n \to \infty} f(x</em>{k_n}) = \infty$，这与上面结论$f(\xi)$是有界矛盾。所以$f$在$[a,b]$有上界。<br>同理，可证$f$在$[a,b]$有下界。</p>
+    f(x_{k_n}) > k_n \ge n</script><p>得到$\lim \limits_{n \to \infty} f(x_{k_n}) = \infty$，这与上面结论$f(\xi)$是有界矛盾。所以$f$在$[a,b]$有上界。<br>同理，可证$f$在$[a,b]$有下界。</p>
 <p>Q.E.D.</p>
 <h4 id="定理7"><a href="#定理7" class="headerlink" title="定理7"></a><span id="theorem7">定理7</span></h4><blockquote>
 <p>设$f$在$[a,b]$上连续，记</p>
@@ -348,17 +348,17 @@
 </blockquote>
 <p>证：由<a href="#theorem6">定理6</a>可知$m,M$是有限数，由上确界的定义可知，对任意的$n \in \mathbb{N^*}$，必存在$x_n \in [a,b]$，使得</p>
 <script type="math/tex; mode=display">
-    M - \frac{1}{n} < f(x_n) \le M</script><p>从数列${x<em>n}$中选出一个收敛子列${x</em>{k<em>n}}$，不妨令$x</em>{k_n} \to x^* \in [a,b]$，而且有不等式</p>
+    M - \frac{1}{n} < f(x_n) \le M</script><p>从数列$\{x_n\}$中选出一个收敛子列$\{x_{k_n}\}$，不妨令$x_{k_n} \to x^* \in [a,b]$，而且有不等式</p>
 <script type="math/tex; mode=display">
     M - \frac{1}{k_n} < f(x_{k_n}) \le M</script><p>上式中令$n \to \infty$，由函数$f$的连续性可知</p>
 <script type="math/tex; mode=display">
-    f(x_*) = \lim \limits_{x \to x^*} f(x) = M</script><p>同理，可证存在$x<em>* \in [a,b]$使得$f(x</em>*) = m$。</p>
+    f(x_*) = \lim \limits_{x \to x^*} f(x) = M</script><p>同理，可证存在$x_<em> \in [a,b]$使得$f(x_</em>) = m$。</p>
 <p>Q.E.D.</p>
 <h4 id="定理8：零值定理"><a href="#定理8：零值定理" class="headerlink" title="定理8：零值定理"></a><span id="theorem8">定理8：零值定理</span></h4><blockquote>
 <p>设$f$在$[a,b]$上连续，如果$f(a)f(b) &lt; 0$，则必存在一点$c \in [a,b]$，使得$f(c) = 0$。</p>
 </blockquote>
 <p>证：不妨设$f(a) &lt; 0 &lt; f(b)$，将区间$[a,b]$而等分，如果$f((a+b)/2)=0$，则$c=(a+b)/2$，如果$f((a+b)/2)&gt;0$，则令$a_1=a,b_1=(a+b)/2$，否则令$a_1=(a+b)/2,b_1=b$，可知$[a_1,b_1]$两端取值异号，对$[a_1,b_1]$重复上述过程，一直下去，可以得到一列闭区间$[a_k, b_k] (k=1,2,\cdots)$，满足 <br/><br>（1）$[a,b] \supset [a_1,b_1] \supset [a_2,b_2] \supset \cdots \supset [a_k,b_k] \supset \cdots$；<br/><br>（2）$0 &lt; b_k - a_k = \frac{1}{2^k}(b-a)$；<br/><br>（3）$f(a_k) &lt; 0 &lt; f(b_k)$</p>
-<p>如果对某个$k$，有$f((a<em>k+b_k)/2)=0$，则$c=(a_k+b_k)/2$，否则由闭区间套定理可知，存在$c \in [a_k, b_k] (k=1,2,\cdots)$，使得$\lim \limits</em>{k\to \infty} a<em>k = \lim \limits</em>{k \to \infty} b_k = c$，由函数的连续性可知，令（3）式中的$k \to \infty$，得$f(c) \le 0 \le f(c)$，从而$f(c)=0$。</p>
+<p>如果对某个$k$，有$f((a_k+b_k)/2)=0$，则$c=(a_k+b_k)/2$，否则由闭区间套定理可知，存在$c \in [a_k, b_k] (k=1,2,\cdots)$，使得$\lim \limits_{k\to \infty} a_k = \lim \limits_{k \to \infty} b_k = c$，由函数的连续性可知，令（3）式中的$k \to \infty$，得$f(c) \le 0 \le f(c)$，从而$f(c)=0$。</p>
 <p>Q.E.D.</p>
 <h4 id="定理9：介值定理"><a href="#定理9：介值定理" class="headerlink" title="定理9：介值定理"></a>定理9：介值定理</h4><blockquote>
 <p>设$f$是区间$[a,b]$上得非常值连续函数，$\gamma$是介于$f(a),f(b)$之间得任何实数，则必存在$c \in [a,b]$，使得$f(c)=\gamma$。</p>
@@ -528,13 +528,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

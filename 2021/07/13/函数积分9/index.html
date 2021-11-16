@@ -311,7 +311,7 @@
 <p>设$B_1, B_2 \subset \mathbb{R}^2$有界，且$B_1 \cap B_2$是零面积集，若函数$f$在$B_1$和$B_2$上都可积，那么$f$在$B_1 \cup B_2$上可积，且</p>
 <script type="math/tex; mode=display">
     \int_{B_1 \cup B_2} f \mathrm{d} \sigma = \int_{B_1} f \mathrm{d} \sigma + \int_{B_2} f \mathrm{d} \sigma</script></blockquote>
-<p>证：易知，只要$\boldsymbol{x} \notin B<em>1 \cap B_2$，有$f</em>{B<em>1 \cup B_2}(\boldsymbol{x}) = f</em>{B<em>1}(\boldsymbol{x}) + f</em>{B<em>2}(\boldsymbol{x})$，从而使得$f</em>{B<em>1 \cup B_2}$与$f</em>{B<em>1} + f</em>{B_2}$不相等的集合必属于$B_1 \cap B_2$，即为零面积集。所以由<a href="https://gamersover.github.io/2021/06/29/函数积分8/#定理9" target="_blank" rel="noopener">函数积分八的定理9</a>可知，</p>
+<p>证：易知，只要$\boldsymbol{x} \notin B_1 \cap B_2$，有$f_{B_1 \cup B_2}(\boldsymbol{x}) = f_{B_1}(\boldsymbol{x}) + f_{B_2}(\boldsymbol{x})$，从而使得$f_{B_1 \cup B_2}$与$f_{B_1} + f_{B_2}$不相等的集合必属于$B_1 \cap B_2$，即为零面积集。所以由<a href="https://gamersover.github.io/2021/06/29/函数积分8/#定理9" target="_blank" rel="noopener">函数积分八的定理9</a>可知，</p>
 <script type="math/tex; mode=display">
     \int_I (f_{B_1} + f_{B_2}) \mathrm{d} \sigma = \int_I f_{B_1 \cap B_2} \mathrm{d} \sigma</script><p>设矩形$I \supset B$，则有</p>
 <script type="math/tex; mode=display">
@@ -357,20 +357,20 @@
 <h4 id="定理7"><a href="#定理7" class="headerlink" title="定理7"></a>定理7</h4><blockquote>
 <p>设$B$是$\mathbb{R}^2$中的有面积的点集，$f$在$B$上可积，对$B$的任意分割$T$作Riemann和，那么对任意的$\boldsymbol{\xi}_i \in D_i(i=1,2,\cdots,m)$有</p>
 <script type="math/tex; mode=display">
-    \lim_{\Vert T \Vert \to 0} \sum_{i=1}^m f(\boldsymbol{\xi}_i) \sigma(D_i) = \int_B f \mathrm{d} \sigma</script><p>其中$\Vert T \Vert = \max \limits_{1 \le i \le m} \mathrm{diam}(D_i)$。也就是说，对任意的$\varepsilon &gt; 0$，存在$\delta&gt;0$，只要分割$T = {D_1, D_2, \cdots, D_n}$满足$\Vert T \Vert &lt; \delta$，就有</p>
+    \lim_{\Vert T \Vert \to 0} \sum_{i=1}^m f(\boldsymbol{\xi}_i) \sigma(D_i) = \int_B f \mathrm{d} \sigma</script><p>其中$\Vert T \Vert = \max \limits_{1 \le i \le m} \mathrm{diam}(D_i)$。也就是说，对任意的$\varepsilon &gt; 0$，存在$\delta&gt;0$，只要分割$T = \{D_1, D_2, \cdots, D_n\}$满足$\Vert T \Vert &lt; \delta$，就有</p>
 <script type="math/tex; mode=display">
     \left|\sum_{i=1}^m f(\boldsymbol{\xi}_i) \sigma(D_i) - \int_B f \mathrm{d} \sigma \right| < \varepsilon</script></blockquote>
-<p>证：由于$f$在$B$上可积，从而对任意的$\varepsilon &gt; 0$，存在矩形网的分割$\pi_{\varepsilon} = {J_1, J_2, \cdots, J_t }$，使得</p>
+<p>证：由于$f$在$B$上可积，从而对任意的$\varepsilon &gt; 0$，存在矩形网的分割$\pi_{\varepsilon} = \{J_1, J_2, \cdots, J_t \}$，使得</p>
 <script type="math/tex; mode=display">
     \overline S(f, \pi_{\varepsilon}) - \underline S(f, \pi_{\varepsilon}) < \frac{\varepsilon}{2}</script><p>即</p>
 <script type="math/tex; mode=display">
     \sum_{i=1}^t (\sup f(J_i) - \inf f(J_i)) \sigma(J_i) < \frac{\varepsilon}{2}</script><p>这里$J_i \subset B (i=1,2,\cdots,t)$，现将子矩形$J_i$的每一边平行地向内部收缩同一距离$\delta &gt; 0$，作成一个开矩形$\tilde {J_i} \subset J_i (i=1,2,\cdots,t)$。记</p>
 <script type="math/tex; mode=display">
-    K = I \bigcap (\bigcup \limits_{i=1}^t \tilde J_i)^c</script><p>这里$I$是所有包含在$B$中的闭子矩形$J_i$的并，显然$K$是闭集，现取$\delta &gt; 0$充分小，使得$\sigma(K) &lt; \varepsilon / 2\omega$，这里$\omega$是$f$在$B$上的振幅。对这个$\delta &gt; 0$，任取分割$T = {D_1, D_2, \cdots, D_m}$，使得$\Vert T \Vert &lt; \delta$，记$\displaystyle A = \int_B f \mathrm{d} \sigma$，则有</p>
+    K = I \bigcap (\bigcup \limits_{i=1}^t \tilde J_i)^c</script><p>这里$I$是所有包含在$B$中的闭子矩形$J_i$的并，显然$K$是闭集，现取$\delta &gt; 0$充分小，使得$\sigma(K) &lt; \varepsilon / 2\omega$，这里$\omega$是$f$在$B$上的振幅。对这个$\delta &gt; 0$，任取分割$T = \{D_1, D_2, \cdots, D_m\}$，使得$\Vert T \Vert &lt; \delta$，记$\displaystyle A = \int_B f \mathrm{d} \sigma$，则有</p>
 <script type="math/tex; mode=display">
     A = \sum_{i=1}^m \int_{D_i} f \mathrm{d} \sigma</script><p>设$f$在$D_i$上的上、下确界分别为$M_i, m_i$，则</p>
 <script type="math/tex; mode=display">
-    m_i \sigma(D_i) \le \int_{D_i} f \mathrm{d} \sigma \le M_i \sigma(D_i)</script><p>记$\displaystyle \mu<em>i = \frac{1}{\sigma(D_i)} \int</em>{D_i} f \mathrm{d} \sigma$，从而$m_i \le \mu_i \le M_i$，又有</p>
+    m_i \sigma(D_i) \le \int_{D_i} f \mathrm{d} \sigma \le M_i \sigma(D_i)</script><p>记$\displaystyle \mu_i = \frac{1}{\sigma(D_i)} \int_{D_i} f \mathrm{d} \sigma$，从而$m_i \le \mu_i \le M_i$，又有</p>
 <script type="math/tex; mode=display">
     \begin{aligned}
     \left| A - \sum_{i=1}^m f(\boldsymbol{\xi}_i)\sigma(D_i) \right| &= \left| \sum_{i=1}^m (\mu_i - f(\boldsymbol{\xi}_i)) \sigma(D_i) \right| \\
@@ -566,13 +566,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

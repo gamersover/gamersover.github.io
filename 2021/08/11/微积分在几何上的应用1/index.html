@@ -255,7 +255,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.2k</span>
+              <span>5.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -285,7 +285,7 @@
 <a id="more"></a>
 <p>证：对$\theta$的变化范围$[\alpha, \beta]$作一分割</p>
 <script type="math/tex; mode=display">
-    \alpha = \theta_1 < \theta_2 < \cdots < \theta_n = \beta</script><p>任取$\xi<em>i \in [\theta</em>{i-1}, \theta<em>{i}] (i=1,2,\cdots,n)$，从而夹在$\theta = \theta</em>{i-1}, \theta = \theta<em>i$与$r = r(\theta)$之间的区域的面积，在$\Delta \theta_i = \theta</em>{i} - \theta_{i-1}$很小时可表示为</p>
+    \alpha = \theta_1 < \theta_2 < \cdots < \theta_n = \beta</script><p>任取$\xi_i \in [\theta_{i-1}, \theta_{i}] (i=1,2,\cdots,n)$，从而夹在$\theta = \theta_{i-1}, \theta = \theta_i$与$r = r(\theta)$之间的区域的面积，在$\Delta \theta_i = \theta_{i} - \theta_{i-1}$很小时可表示为</p>
 <script type="math/tex; mode=display">
     \Delta S_i \approx \frac{1}{2} r^2(\theta_{i}) \Delta \theta_i</script><p>令$\max \limits_{1 \le i \le n} \Delta \theta_i \to 0$，得到</p>
 <script type="math/tex; mode=display">
@@ -295,7 +295,7 @@
 <script type="math/tex; mode=display">
     \pi: \alpha = t_0 < t_1 < \cdots < t_n = \beta</script><p>那么有</p>
 <script type="math/tex; mode=display">
-    \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^n \sqrt{(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2 + (z^\prime(\zeta_i))^2} \Delta t_i= \int_{\alpha}^{\beta} \sqrt{(x^\prime(t))^2 + (y^\prime(t))^2 + (z^\prime(t))^2} \mathrm{d}t</script><p>其中$\xi<em>i, \eta_i, \zeta_i$分别为$x, y, z$函数的值点，即$\xi_i,\eta_i,\zeta_i \in [t</em>{i-1}, t_i]$。</p>
+    \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^n \sqrt{(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2 + (z^\prime(\zeta_i))^2} \Delta t_i= \int_{\alpha}^{\beta} \sqrt{(x^\prime(t))^2 + (y^\prime(t))^2 + (z^\prime(t))^2} \mathrm{d}t</script><p>其中$\xi_i, \eta_i, \zeta_i$分别为$x, y, z$函数的值点，即$\xi_i,\eta_i,\zeta_i \in [t_{i-1}, t_i]$。</p>
 </blockquote>
 <p>证： 由三角不等式</p>
 <script type="math/tex; mode=display">
@@ -319,7 +319,7 @@
     S = \sum_{i=1}^n \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\xi_i))^2 + (z^\prime(\xi_i))^2} \Delta t_i
     \end{aligned}</script><p>由积分的定义可知，对上述$\varepsilon$，存在$\delta_2 &gt; 0$，当$\Vert \pi \Vert \le \delta_2$时，有</p>
 <script type="math/tex; mode=display">
-    |S - I| < \frac{\varepsilon}{2}</script><p>而不论$\xi<em>i \in [t</em>{i-1}, t_i] (i=1,2,\cdots,n)$如何选取，当$\Vert \pi \Vert &lt; \min(\delta_1, \delta_2)$时，有</p>
+    |S - I| < \frac{\varepsilon}{2}</script><p>而不论$\xi_i \in [t_{i-1}, t_i] (i=1,2,\cdots,n)$如何选取，当$\Vert \pi \Vert &lt; \min(\delta_1, \delta_2)$时，有</p>
 <script type="math/tex; mode=display">
     \begin{aligned}
     & |\sum_{i=1}^n \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2 + (z^\prime(\zeta_i))^2} \Delta t_i- I| \\
@@ -345,7 +345,7 @@
     s(\Gamma) = \int_{\alpha}^{\beta} \sqrt{(x^\prime(t))^2 + (y^\prime(t))^2 + (z^\prime(t))^2}</script></blockquote>
 <p>证：沿$A$到$B$的方向在$\Gamma$上取$n+1$个点：</p>
 <script type="math/tex; mode=display">
-    A = A_0, A_1, A_2, \cdots, A_n = B</script><p>并把这$n$条线段之和$\sum<em>{i=1}^n |A</em>{i-1}A_i|$作为$\Gamma$弧长的一个近似值，可知当分割点越来越细时，近似值的极限就是弧长。设点$A_i$对应着参数值$t_i (i=0,1,2,\cdots,n)$，则</p>
+    A = A_0, A_1, A_2, \cdots, A_n = B</script><p>并把这$n$条线段之和$\sum_{i=1}^n |A_{i-1}A_i|$作为$\Gamma$弧长的一个近似值，可知当分割点越来越细时，近似值的极限就是弧长。设点$A_i$对应着参数值$t_i (i=0,1,2,\cdots,n)$，则</p>
 <script type="math/tex; mode=display">
     \alpha = t_0 < t_1 < t_2 < \cdots < t_n = \beta</script><p>记为分割$\pi$，从而</p>
 <script type="math/tex; mode=display">
@@ -353,7 +353,7 @@
     |A_{i-1}A_i| &= \Vert \boldsymbol{r}(t_i) - \boldsymbol{r}(t_{i-1}) \Vert \\
     &= \sqrt {((x(t_i) - x(t_{i-1}))^2 + (y(t_i) - y(t_{i-1}))^2 + (z(t_i) - z(t_{i-1}))^2)} \\
     &= \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2 + (z^\prime(\zeta_i))^2} \Delta t_i
-    \end{aligned}</script><p>其中$\xi<em>i,\eta_i, \zeta_i \in (t</em>{i-1}, t_i)$，又由于$x^\prime, y^\prime, z^\prime$都是连续函数，所以存在一个常数$K$，使得</p>
+    \end{aligned}</script><p>其中$\xi_i,\eta_i, \zeta_i \in (t_{i-1}, t_i)$，又由于$x^\prime, y^\prime, z^\prime$都是连续函数，所以存在一个常数$K$，使得</p>
 <script type="math/tex; mode=display">
     |A_{i-1}A_i| \le K \Delta t_i \le K \Vert \pi \Vert</script><p>所以</p>
 <script type="math/tex; mode=display">
@@ -372,7 +372,7 @@
     S = 2\pi \int_{\alpha}^{\beta} y(t) \sqrt {(x^\prime(t))^2 + (y^\prime(t))^2} \mathrm{d} t</script></blockquote>
 <p>证：（1）作区间$[a,b]$的一个分割</p>
 <script type="math/tex; mode=display">
-    \pi: a = x_0 < x_1 < \cdots < x_n = b</script><p>将旋转体介于平面$x = x<em>{k-1}, x= x</em>{k}$之间的体积记为$V<em>k$，任取$\xi_k \in [x</em>{k-1}, x_k]$，则</p>
+    \pi: a = x_0 < x_1 < \cdots < x_n = b</script><p>将旋转体介于平面$x = x_{k-1}, x= x_{k}$之间的体积记为$V_k$，任取$\xi_k \in [x_{k-1}, x_k]$，则</p>
 <script type="math/tex; mode=display">
     V_k \approx \pi f^2(\xi_k) \Delta x_k</script><p>从而</p>
 <script type="math/tex; mode=display">
@@ -382,9 +382,9 @@
 <script type="math/tex; mode=display">
     \alpha = t_0 < t_1 < \cdots < t_n = \beta</script><p>这时曲线上的第$i$段$A_{i-1}A_i$的弧长可近似为</p>
 <script type="math/tex; mode=display">
-    \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2} \Delta t_i</script><p>其中$\xi<em>i, \eta_i \in [t</em>{i-1}, t_i]$，由这段曲线弧旋转而成的曲面面积可表示为</p>
+    \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2} \Delta t_i</script><p>其中$\xi_i, \eta_i \in [t_{i-1}, t_i]$，由这段曲线弧旋转而成的曲面面积可表示为</p>
 <script type="math/tex; mode=display">
-    \Delta S_i \approx 2 \pi y(\zeta_i) \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2} \Delta t_i</script><p>其中$\zeta<em>i \in [t</em>{i-1}, t_i]$，所以旋转曲面的总面积可表示为</p>
+    \Delta S_i \approx 2 \pi y(\zeta_i) \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2} \Delta t_i</script><p>其中$\zeta_i \in [t_{i-1}, t_i]$，所以旋转曲面的总面积可表示为</p>
 <script type="math/tex; mode=display">
     S \approx \sum_{i=1}^n 2\pi y(\zeta_i) \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2} \Delta t_i</script><p>当$\Vert \pi \Vert \to 0$时，利用类似<a href="#引理1">引理1</a>的证法，可得</p>
 <script type="math/tex; mode=display">
@@ -547,13 +547,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

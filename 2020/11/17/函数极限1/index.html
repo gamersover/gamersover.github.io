@@ -283,15 +283,15 @@
     f(x) \to l (x \to x_0)</script></blockquote>
 <a id="more"></a>
 <h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a><span id="theorem1">定理1</span></h4><blockquote>
-<p>函数$f$在$x_0$处有极限$l$的充分必要条件是，对任何一个收敛于$x_0$的数列${x_n \ne x_0 : n=1,2,3,\cdots}$，有数列${f(x_n)}$有极限$l$。</p>
+<p>函数$f$在$x_0$处有极限$l$的充分必要条件是，对任何一个收敛于$x_0$的数列$\{x_n \ne x_0 : n=1,2,3,\cdots\}$，有数列$\{f(x_n)\}$有极限$l$。</p>
 </blockquote>
-<p>证：<strong>必要性</strong>。设$\lim \limits<em>{x \to x_0} f(x)= l$，则对任给的$\varepsilon&gt;0$，存在一个$\delta &gt; 0$，使得当$0 &lt; |x - x_0| &lt; \delta$，有$|f(x) - l| &lt; \varepsilon$，对于取定的$\delta$，由于$\lim \limits</em>{n \to \infty} x_n = x_0$，所以存在$N \in \mathbb{N^*}$，使得当$n &gt; N$时，有$0 &lt; |x_n - x_0| &lt; \delta$，从而有</p>
+<p>证：<strong>必要性</strong>。设$\lim \limits_{x \to x_0} f(x)= l$，则对任给的$\varepsilon&gt;0$，存在一个$\delta &gt; 0$，使得当$0 &lt; |x - x_0| &lt; \delta$，有$|f(x) - l| &lt; \varepsilon$，对于取定的$\delta$，由于$\lim \limits_{n \to \infty} x_n = x_0$，所以存在$N \in \mathbb{N^*}$，使得当$n &gt; N$时，有$0 &lt; |x_n - x_0| &lt; \delta$，从而有</p>
 <script type="math/tex; mode=display">
-    |f(x_n) - l| < \varepsilon</script><p>所以$\lim \limits<em>{n \to \infty} f(x_n) = l$。<br><strong>充分性</strong>。反证法，假设$\lim \limits</em>{x \to x<em>0} f(x) = l$不成立，即存在$\varepsilon_0 &gt; 0$，使得对任意的正整数$n$，存在点$x_n$，使得当$0 &lt; |x_n - x_0| &lt; \frac{1}{n}$，有$|f(x_n) - l| \ge \varepsilon_0 &gt; 0$，从而找到了一个数列${x_n \ne x_0: n=1,2,3,\cdots}$，虽然它收敛于$x_0$，但是$\lim \limits</em>{n \to \infty} f(x_n) \ne l$。</p>
+    |f(x_n) - l| < \varepsilon</script><p>所以$\lim \limits_{n \to \infty} f(x_n) = l$。<br><strong>充分性</strong>。反证法，假设$\lim \limits_{x \to x_0} f(x) = l$不成立，即存在$\varepsilon_0 &gt; 0$，使得对任意的正整数$n$，存在点$x_n$，使得当$0 &lt; |x_n - x_0| &lt; \frac{1}{n}$，有$|f(x_n) - l| \ge \varepsilon_0 &gt; 0$，从而找到了一个数列$\{x_n \ne x_0: n=1,2,3,\cdots\}$，虽然它收敛于$x_0$，但是$\lim \limits_{n \to \infty} f(x_n) \ne l$。</p>
 <h4 id="定理2：函数极限唯一性"><a href="#定理2：函数极限唯一性" class="headerlink" title="定理2：函数极限唯一性"></a>定理2：函数极限唯一性</h4><blockquote>
 <p>若$\lim \limits_{x \to x_0} f(x)$存在，则它是唯一的</p>
 </blockquote>
-<p>证：若$\lim \limits_{x \to x_0} f(x)$存在，可知对任意收敛于$x_0$的数列${x_n \ne x_0 : n=1,2,3,\cdots}$，有</p>
+<p>证：若$\lim \limits_{x \to x_0} f(x)$存在，可知对任意收敛于$x_0$的数列$\{x_n \ne x_0 : n=1,2,3,\cdots\}$，有</p>
 <script type="math/tex; mode=display">
     \lim \limits_{n\to\infty} f(x_n) = \lim \limits_{x \to x_0} f(x)</script><p>而数列极限是唯一的，所以函数极限也是唯一的。<br>Q.E.D.</p>
 <h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
@@ -303,7 +303,7 @@
 <script type="math/tex; mode=display">
     |f(x)| \le |l| + |f(x) - l| < 1 + |l|</script><p>从而令$M = 1 + |l|$就满足条件了。<br>Q.E.D.</p>
 <h4 id="定理4：函数极限四则运算"><a href="#定理4：函数极限四则运算" class="headerlink" title="定理4：函数极限四则运算"></a>定理4：函数极限四则运算</h4><blockquote>
-<p>设$\lim \limits<em>{x \to x_0} f(x)$与$\lim \limits</em>{x \to x<em>0}g(x)$存在，那么 <br/><br>（1）$\lim \limits</em>{x \to x<em>0} (f \pm g)(x) = \lim \limits</em>{x \to x<em>0} f(x) \pm \lim \limits</em>{x \to x<em>0} g(x)$ <br/><br>（2）$\lim \limits</em>{x \to x<em>0} fg(x) = \lim \limits</em>{x \to x<em>0} f(x) \cdot \lim \limits</em>{x \to x<em>0} g(x)$ <br/><br>（3）$\lim \limits</em>{x \to x<em>0} \frac{f}{g}(x) = \frac{\lim \limits</em>{x \to x<em>0} f(x)}{\lim \limits</em>{x \to x<em>0} g(x)}$，其中$\lim \limits</em>{x \to x_0} g(x) \ne 0$</p>
+<p>设$\lim \limits_{x \to x_0} f(x)$与$\lim \limits_{x \to x_0}g(x)$存在，那么 <br/><br>（1）$\lim \limits_{x \to x_0} (f \pm g)(x) = \lim \limits_{x \to x_0} f(x) \pm \lim \limits_{x \to x_0} g(x)$ <br/><br>（2）$\lim \limits_{x \to x_0} fg(x) = \lim \limits_{x \to x_0} f(x) \cdot \lim \limits_{x \to x_0} g(x)$ <br/><br>（3）$\lim \limits_{x \to x_0} \frac{f}{g}(x) = \frac{\lim \limits_{x \to x_0} f(x)}{\lim \limits_{x \to x_0} g(x)}$，其中$\lim \limits_{x \to x_0} g(x) \ne 0$</p>
 </blockquote>
 <p>证：由<a href="#theorem1">定理1</a>和数列极限的四则运算很容易证明<br>Q.E.D.</p>
 <h4 id="定理5：夹逼原理"><a href="#定理5：夹逼原理" class="headerlink" title="定理5：夹逼原理"></a>定理5：夹逼原理</h4><blockquote>
@@ -318,29 +318,29 @@
     \lim \limits_{x \to x_0} f(x) \le \lim \limits_{x \to x_0} g(x)</script></blockquote>
 <p>证：由<a href="#theorem1">定理1</a>和数列极限大小关系很容易证明<br>Q.E.D.</p>
 <h4 id="定理7：Cauchy收敛原理"><a href="#定理7：Cauchy收敛原理" class="headerlink" title="定理7：Cauchy收敛原理"></a>定理7：Cauchy收敛原理</h4><blockquote>
-<p>函数$f$在$x<em>0$处有极限当且仅当对$\forall \varepsilon &gt; 0$，$\exists \delta &gt; 0$，使得对$\forall x_1,x_2 \in B</em>\delta(\check x_0)$，有$|f(x_1) - f(x_2)| &lt; \varepsilon$。</p>
+<p>函数$f$在$x_0$处有极限当且仅当对$\forall \varepsilon &gt; 0$，$\exists \delta &gt; 0$，使得对$\forall x_1,x_2 \in B_\delta(\check x_0)$，有$|f(x_1) - f(x_2)| &lt; \varepsilon$。</p>
 </blockquote>
-<p>证：<strong>必要性</strong>。设$\lim \limits<em>{x \to x_0} f(x) = l$，可知对$\forall \varepsilon &gt; 0$，$\exists \delta &gt; 0$，使得当$x \in B</em>\delta(\check x_0)$时，有</p>
+<p>证：<strong>必要性</strong>。设$\lim \limits_{x \to x_0} f(x) = l$，可知对$\forall \varepsilon &gt; 0$，$\exists \delta &gt; 0$，使得当$x \in B_\delta(\check x_0)$时，有</p>
 <script type="math/tex; mode=display">
-    |f(x) - l| < \frac{\varepsilon}{2}</script><p>所以任取$x<em>1,x_2 \in B</em>\delta(\check x_0)$，有</p>
+    |f(x) - l| < \frac{\varepsilon}{2}</script><p>所以任取$x_1,x_2 \in B_\delta(\check x_0)$，有</p>
 <script type="math/tex; mode=display">
     \begin{aligned}
     |f(x_1) - l| < \frac{\varepsilon}{2} \\
     |f(x_2) - 1| < \frac{\varepsilon}{2}    
     \end{aligned}</script><p>显然有</p>
 <script type="math/tex; mode=display">
-    |f(x_1) - f(x_2)| < |f(x_1) - l| + |l - f(x_2)| < \varepsilon</script><p><strong>充分性</strong>。设${x_n \ne x_0, n \in \mathbb{N^{<em>}}}$是任意一个收敛于$x_0$的数列，可知对取定的$\delta$，存在$N \in \mathbb{N^</em>}$，使得当$m,n&gt;N$时，有$0&lt;|x_n - x_0| &lt; \delta, 0&lt;|x_m - x_0| &lt; \delta$，此时有</p>
+    |f(x_1) - f(x_2)| < |f(x_1) - l| + |l - f(x_2)| < \varepsilon</script><p><strong>充分性</strong>。设$\{x_n \ne x_0, n \in \mathbb{N^{<em>}}\}$是任意一个收敛于$x_0$的数列，可知对取定的$\delta$，存在$N \in \mathbb{N^</em>}$，使得当$m,n&gt;N$时，有$0&lt;|x_n - x_0| &lt; \delta, 0&lt;|x_m - x_0| &lt; \delta$，此时有</p>
 <script type="math/tex; mode=display">
-    |f(x_n) - f(x_m)| < \varepsilon</script><p>可知${f(x_n)}$是基本列，由数列的Cauchy收敛原理可知，数列${f(x_n)}$收敛，不妨设该数列收敛于$l_x$；<br>若能证明无论${x_n}$怎么取，数列${f(x_n)}$收敛于相同的点，则再由<a href="#theorem1">定理1</a>可知，函数$f$在$x_0$出也收敛。不妨设${y_n}$是另一个收敛于$x_0$的数列，自然数列${f(y_n)}$也收敛，不妨设收敛于$l_y$，构造数列${z_n}$：</p>
+    |f(x_n) - f(x_m)| < \varepsilon</script><p>可知$\{f(x_n)\}$是基本列，由数列的Cauchy收敛原理可知，数列$\{f(x_n)\}$收敛，不妨设该数列收敛于$l_x$；<br>若能证明无论$\{x_n\}$怎么取，数列$\{f(x_n)\}$收敛于相同的点，则再由<a href="#theorem1">定理1</a>可知，函数$f$在$x_0$出也收敛。不妨设$\{y_n\}$是另一个收敛于$x_0$的数列，自然数列$\{f(y_n)\}$也收敛，不妨设收敛于$l_y$，构造数列$\{z_n\}$：</p>
 <script type="math/tex; mode=display">
-    x_1,y_1,x_2,y_2,\cdots,x_n,y_n,\cdots</script><p>可知$z_n \ne x_0(n \in \mathbb{N^*})$，且$z_n \to x_0( n \to \infty)$，可知数列${f(z_n)}$也有极限，记为$l$，又因为${f(x_n)}$和${f(y_n)}$都是${f(z_n)}$的子列，所以有</p>
+    x_1,y_1,x_2,y_2,\cdots,x_n,y_n,\cdots</script><p>可知$z_n \ne x_0(n \in \mathbb{N^*})$，且$z_n \to x_0( n \to \infty)$，可知数列$\{f(z_n)\}$也有极限，记为$l$，又因为$\{f(x_n)\}$和$\{f(y_n)\}$都是$\{f(z_n)\}$的子列，所以有</p>
 <script type="math/tex; mode=display">
     l_x = l_y = l</script><p>Q.E.D.</p>
 <h4 id="定理8"><a href="#定理8" class="headerlink" title="定理8"></a>定理8</h4><blockquote>
-<p>设$\lim \limits<em>{x \to x_0} f(x) = l,\lim \limits</em>{t \to t<em>0} g(t) = x_0$，如果在$t_0$的某个邻域$B</em>\eta(t_0)$内有$g(t) \ne x_0$，则</p>
+<p>设$\lim \limits_{x \to x_0} f(x) = l,\lim \limits_{t \to t_0} g(t) = x_0$，如果在$t_0$的某个邻域$B_\eta(t_0)$内有$g(t) \ne x_0$，则</p>
 <script type="math/tex; mode=display">
     \lim \limits_{t \to t_0} f(g(t)) = l</script></blockquote>
-<p>证。由$\lim \limits<em>{x \to x_0} f(x) = l$，可知对$\forall \varepsilon &gt; 0, \exists \delta &gt; 0$，使得$0 &lt; |x-x_0| &lt; \delta$，有$|f(x) - l| &lt; \varepsilon$；对给定的$\delta&gt;0$，由$\lim \limits</em>{t \to t_0} g(t) = x_0$，可知存在$\eta_1 &gt; 0$，使得$0&lt;|t - t_0| &lt; \eta_1$时，有$0&lt; |g(t) - x_0| &lt; \delta$，从而有$|f(g(t)) - l| &lt; \varepsilon$，取$\sigma = \min(\eta, \eta_1)$，即对$\forall \varepsilon &gt; 0, \exists \sigma &gt; 0$，使得$0&lt; |t-t_0| &lt; \sigma$时，有$|f(g(t)) - l| &lt; \varepsilon$。</p>
+<p>证。由$\lim \limits_{x \to x_0} f(x) = l$，可知对$\forall \varepsilon &gt; 0, \exists \delta &gt; 0$，使得$0 &lt; |x-x_0| &lt; \delta$，有$|f(x) - l| &lt; \varepsilon$；对给定的$\delta&gt;0$，由$\lim \limits_{t \to t_0} g(t) = x_0$，可知存在$\eta_1 &gt; 0$，使得$0&lt;|t - t_0| &lt; \eta_1$时，有$0&lt; |g(t) - x_0| &lt; \delta$，从而有$|f(g(t)) - l| &lt; \varepsilon$，取$\sigma = \min(\eta, \eta_1)$，即对$\forall \varepsilon &gt; 0, \exists \sigma &gt; 0$，使得$0&lt; |t-t_0| &lt; \sigma$时，有$|f(g(t)) - l| &lt; \varepsilon$。</p>
 <p>Q.E.D.</p>
 <h4 id="定义2：单边极限"><a href="#定义2：单边极限" class="headerlink" title="定义2：单边极限"></a>定义2：单边极限</h4><blockquote>
 <p>设函数$f$在$(x_0,x_0+r)$（$r$是一个确定的正数）上有定义，若$\forall \varepsilon &gt; 0, \exists \delta \in (0, r)$，使得当$0 &lt; x - x_0 &lt; \delta$时，有</p>
@@ -349,9 +349,9 @@
 <script type="math/tex; mode=display">
     l = \lim \limits_{x \to x_0^+} f(x) = l</script><p>在右极限存在的情况下，也将右极限记为$f(x_0+)$</p>
 </blockquote>
-<p>类似地，可以定义$f$在$x<em>0$处的左极限$f(x_0-) = \lim \limits</em>{x \to x_0^-} f(x)$；左右极限统称为单边极限。</p>
+<p>类似地，可以定义$f$在$x_0$处的左极限$f(x_0-) = \lim \limits_{x \to x_0^-} f(x)$；左右极限统称为单边极限。</p>
 <h4 id="定理9"><a href="#定理9" class="headerlink" title="定理9"></a>定理9</h4><blockquote>
-<p>函数$f$在$x<em>0$的某个去心邻域内处有定义，则$\lim \limits</em>{x \to x_0} f(x)$存在的充分必要条件是</p>
+<p>函数$f$在$x_0$的某个去心邻域内处有定义，则$\lim \limits_{x \to x_0} f(x)$存在的充分必要条件是</p>
 <script type="math/tex; mode=display">
     f(x_0+) = f(x_0-)</script></blockquote>
 <p>证明有极限与左右极限的定义显然。</p>
@@ -512,13 +512,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

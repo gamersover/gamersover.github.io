@@ -255,7 +255,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.2k</span>
+              <span>6.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -281,10 +281,10 @@
 <p>$\mathbb{R^n}$中的集合$E$为列紧集的充分必要条件是$E$是有界闭集。</p>
 </blockquote>
 <a id="more"></a>
-<p>证：必要性。如果$E$是无界的，那么必可以找到一个子列${\boldsymbol{x}<em>i} \subset E$，满足$\Vert \boldsymbol{x}_i \Vert &gt; i(i=1,2,3,\cdots)$，显然${\boldsymbol{x}_i}$不收敛，从而$E$不可能是列紧集。如果$E$不是闭集，则$E^{\prime} \not\subset E$，则必可以找到一个收敛点列${\boldsymbol{x}_i} \subset E$有极限$\boldsymbol{a}$，且$\boldsymbol{a} \notin E$，从而找不到一个${\boldsymbol{x}_i}$的子列，使得该子列收敛于$E$中的点，从而$E$不是列紧集。矛盾。<br/><br>充分性。任取点列${\boldsymbol{x}_i} \subset E$，由于$E$是有界集，从而${\boldsymbol{x}_i}$有界，由Bolzano-Weierstrass定理可知，存在一个收敛子列${\boldsymbol{x}</em>{k_i}}$收敛于$\boldsymbol{a}$，又因为$E$是闭集，可知$\boldsymbol{a} \in E$，所以$E$是列紧集。</p>
+<p>证：必要性。如果$E$是无界的，那么必可以找到一个子列$\{\boldsymbol{x}_i\} \subset E$，满足$\Vert \boldsymbol{x}_i \Vert &gt; i(i=1,2,3,\cdots)$，显然$\{\boldsymbol{x}_i\}$不收敛，从而$E$不可能是列紧集。如果$E$不是闭集，则$E^{\prime} \not\subset E$，则必可以找到一个收敛点列$\{\boldsymbol{x}_i\} \subset E$有极限$\boldsymbol{a}$，且$\boldsymbol{a} \notin E$，从而找不到一个$\{\boldsymbol{x}_i\}$的子列，使得该子列收敛于$E$中的点，从而$E$不是列紧集。矛盾。<br/><br>充分性。任取点列$\{\boldsymbol{x}_i\} \subset E$，由于$E$是有界集，从而$\{\boldsymbol{x}_i\}$有界，由Bolzano-Weierstrass定理可知，存在一个收敛子列$\{\boldsymbol{x}_{k_i}\}$收敛于$\boldsymbol{a}$，又因为$E$是闭集，可知$\boldsymbol{a} \in E$，所以$E$是列紧集。</p>
 <p>Q.E.D.</p>
 <h4 id="定义2：开覆盖"><a href="#定义2：开覆盖" class="headerlink" title="定义2：开覆盖"></a>定义2：开覆盖</h4><blockquote>
-<p>设$E \subset \mathbb{R^n}$，$\mathscr{J} = {G_\alpha}$是$\mathbb{R}^n$中的一个开集族，如果</p>
+<p>设$E \subset \mathbb{R^n}$，$\mathscr{J} = \{G_\alpha\}$是$\mathbb{R}^n$中的一个开集族，如果</p>
 <script type="math/tex; mode=display">
     E \subset \bigcup \limits_\alpha G_\alpha</script><p>则称开集族$\mathscr{J}$覆盖了$E$，或称$\mathscr{J}$是$E$的一个开覆盖。</p>
 </blockquote>
@@ -296,27 +296,27 @@
 </blockquote>
 <p>证：<strong>必要性</strong>。设$E$为紧致集，考虑以原点$\boldsymbol{0}=(0,0,\cdots,0)$为球心，$m \in \mathbb{N^*}$为半径的球$B_m(\boldsymbol{0})$。有</p>
 <script type="math/tex; mode=display">
-    E \subset \mathbb{R^n} = \bigcup \limits_{m=1}^\infty B_m(\boldsymbol{0})</script><p>从而$\mathscr{J}={B_m(\boldsymbol{0}):m \in \mathbb{N^*}}$是$E$的一个开覆盖，所以可从$\mathscr{J}$中选取有限个元素，记作</p>
+    E \subset \mathbb{R^n} = \bigcup \limits_{m=1}^\infty B_m(\boldsymbol{0})</script><p>从而$\mathscr{J}=\{B_m(\boldsymbol{0}):m \in \mathbb{N^*}\}$是$E$的一个开覆盖，所以可从$\mathscr{J}$中选取有限个元素，记作</p>
 <script type="math/tex; mode=display">
     B_{k_1}(\boldsymbol{0}), B_{k_2}(\boldsymbol{0}), \cdots, B_{k_t}(\boldsymbol{0})</script><p>它们仍然组成$E$的一个开覆盖，令</p>
 <script type="math/tex; mode=display">
-    s = \max(k_1,k_2,\cdots,k_t)</script><p>可知$E \subset B<em>s(\boldsymbol{0})$，因此$E$是有界的。<br/><br>再证$E$闭集。即证$E^c$是开集，任取$\boldsymbol{q} \in E^c$，对$\forall \boldsymbol{q} \in E$，存在充分小的球$B_r(\boldsymbol{q})$，使得$B_r(\boldsymbol{q}) \cap B_r(\boldsymbol{p}) = \varnothing$，这里半径$r&gt;0$且于$\boldsymbol{q}$有关，所有的$B</em>{r}(\boldsymbol{q})$全体构成$E$的一个开覆盖，从而可以取出有限个球</p>
+    s = \max(k_1,k_2,\cdots,k_t)</script><p>可知$E \subset B_s(\boldsymbol{0})$，因此$E$是有界的。<br/><br>再证$E$闭集。即证$E^c$是开集，任取$\boldsymbol{q} \in E^c$，对$\forall \boldsymbol{q} \in E$，存在充分小的球$B_r(\boldsymbol{q})$，使得$B_r(\boldsymbol{q}) \cap B_r(\boldsymbol{p}) = \varnothing$，这里半径$r&gt;0$且于$\boldsymbol{q}$有关，所有的$B_{r}(\boldsymbol{q})$全体构成$E$的一个开覆盖，从而可以取出有限个球</p>
 <script type="math/tex; mode=display">
     B_{r_1}(\boldsymbol{q_1}),B_{r_2}(\boldsymbol{q_2}),\cdots,B_{r_m}(\boldsymbol{q_m})</script><p>仍然构成$E$的一个开覆盖，可知</p>
 <script type="math/tex; mode=display">
     B_{r_i}(\boldsymbol{q_i}) \cap B_{r_i}(\boldsymbol{p}) = \varnothing \quad (i=1,2,\cdots,m)</script><p>令</p>
 <script type="math/tex; mode=display">
-    s = \min(r_1,r_2,\cdots,r_m)</script><p>可知球$B<em>s(\boldsymbol{p}) \cap E = \varnothing$，所以$B_s(\boldsymbol{p}) \subset E^c$，从而$E^c$是开集。<br><strong>充分性</strong>。反证法，假设$E$不是紧致集，则存在开集族${G</em>{\alpha}}$，它是$E$的一个开覆盖，但它的任意有限子族不能覆盖$E$，由于$E$是有界闭集，从而从在一个超立方体$I^n$，使得$E \subset I$，将$I$分成相等的$2^n$个闭超立方体$K<em>1,K_2,\cdots,K</em>{2^n}$，可知</p>
+    s = \min(r_1,r_2,\cdots,r_m)</script><p>可知球$B_s(\boldsymbol{p}) \cap E = \varnothing$，所以$B_s(\boldsymbol{p}) \subset E^c$，从而$E^c$是开集。<br><strong>充分性</strong>。反证法，假设$E$不是紧致集，则存在开集族$\{G_{\alpha}\}$，它是$E$的一个开覆盖，但它的任意有限子族不能覆盖$E$，由于$E$是有界闭集，从而从在一个超立方体$I^n$，使得$E \subset I$，将$I$分成相等的$2^n$个闭超立方体$K_1,K_2,\cdots,K_{2^n}$，可知</p>
 <script type="math/tex; mode=display">
     I^n = K_1 \cup K_2 \cup \cdots \cup K_{2^n}</script><p>且</p>
 <script type="math/tex; mode=display">
-    diam (K_i) = \frac{1}{2} diam(I^n) (i=1,2,\cdots,2^n)</script><p>由于$E$不能被${G_{\alpha}}$的任意有限子族覆盖，所以存在某个$K_i$使得，不妨记为$F_1$，使得</p>
+    diam (K_i) = \frac{1}{2} diam(I^n) (i=1,2,\cdots,2^n)</script><p>由于$E$不能被$\{G_{\alpha}\}$的任意有限子族覆盖，所以存在某个$K_i$使得，不妨记为$F_1$，使得</p>
 <script type="math/tex; mode=display">
-    H_1 = F_1 \cap E</script><p>不能被${G_{\alpha}}$的任意有限子族覆盖，且$diam(H_1) \le diam(F_1) = \frac{1}{2} diam(I^n)$，继续对$F_1$做上述划分和分析，可知必存在闭超立方体$F_2$，使得</p>
+    H_1 = F_1 \cap E</script><p>不能被$\{G_{\alpha}\}$的任意有限子族覆盖，且$diam(H_1) \le diam(F_1) = \frac{1}{2} diam(I^n)$，继续对$F_1$做上述划分和分析，可知必存在闭超立方体$F_2$，使得</p>
 <script type="math/tex; mode=display">
-    H_2 = F_2 \cap E</script><p>不能被${G<em>{\alpha}}$的任意有限子族覆盖，且$diam(H_2) \le diam(F_2) = \frac{1}{2} diam(F_1) = \frac{1}{2^2} diam(I^n)$，一直进行下去，从而得到一列闭集$H_k = F_k \cap E(k=1,2,\cdots)$，它们满足 <br/><br>(a) $H_1 \supset H_2 \supset \cdots$ <br/><br>(b) $diam(H_k) \le \frac{1}{2^k} diam(I) \to 0 (k \to \infty)$ <br/><br>(c) 每个$H_k$都不能被${G</em>{\alpha}}$的任意有限子族覆盖 <br/><br>由(a)和(b)可知，${H<em>k}$满足闭区间套的条件，从而存在唯一的点$\boldsymbol{\xi} \in \bigcap\limits</em>{k=1}^\infty \boldsymbol{H}<em>k$，由因为$\boldsymbol{\xi} \in E$，而${G</em>{\alpha}}$是$E$的一个开覆盖，所以存在某个开集$G<em>{\beta} \in {G</em>{\alpha}}$，使得$\boldsymbol{\xi} \in G<em>{\beta}$，从而存在$r &gt; 0$，使得$B_r(\boldsymbol{\xi}) \subset G</em>{\beta}$，又由(b)可知，存在充分大的$k$，使得$diam(H_k) &lt; r$。<br>此时对任意的$\boldsymbol{x} \in H_k$，因为$\boldsymbol{\xi} \in H_k$，从而有</p>
+    H_2 = F_2 \cap E</script><p>不能被$\{G_{\alpha}\}$的任意有限子族覆盖，且$diam(H_2) \le diam(F_2) = \frac{1}{2} diam(F_1) = \frac{1}{2^2} diam(I^n)$，一直进行下去，从而得到一列闭集$H_k = F_k \cap E(k=1,2,\cdots)$，它们满足 <br/><br>(a) $H_1 \supset H_2 \supset \cdots$ <br/><br>(b) $diam(H_k) \le \frac{1}{2^k} diam(I) \to 0 (k \to \infty)$ <br/><br>(c) 每个$H_k$都不能被$\{G_{\alpha}\}$的任意有限子族覆盖 <br/><br>由(a)和(b)可知，$\{H_k\}$满足闭区间套的条件，从而存在唯一的点$\boldsymbol{\xi} \in \bigcap\limits_{k=1}^\infty \boldsymbol{H}_k$，由因为$\boldsymbol{\xi} \in E$，而$\{G_{\alpha}\}$是$E$的一个开覆盖，所以存在某个开集$G_{\beta} \in \{G_{\alpha}\}$，使得$\boldsymbol{\xi} \in G_{\beta}$，从而存在$r &gt; 0$，使得$B_r(\boldsymbol{\xi}) \subset G_{\beta}$，又由(b)可知，存在充分大的$k$，使得$diam(H_k) &lt; r$。<br>此时对任意的$\boldsymbol{x} \in H_k$，因为$\boldsymbol{\xi} \in H_k$，从而有</p>
 <script type="math/tex; mode=display">
-    \Vert \boldsymbol{x} - \boldsymbol{\xi} \Vert \le diam(H_k) < r</script><p>即有$\boldsymbol{x} \in B<em>r(\boldsymbol{\xi}) \subset G</em>{\beta}$，所以$H<em>k \subset G</em>{\beta}$，这与(c)矛盾。</p>
+    \Vert \boldsymbol{x} - \boldsymbol{\xi} \Vert \le diam(H_k) < r</script><p>即有$\boldsymbol{x} \in B_r(\boldsymbol{\xi}) \subset G_{\beta}$，所以$H_k \subset G_{\beta}$，这与(c)矛盾。</p>
 <p>Q.E.D.</p>
 <h4 id="定义4：连通集"><a href="#定义4：连通集" class="headerlink" title="定义4：连通集"></a>定义4：连通集</h4><blockquote>
 <p>设$E \subset \mathbb{R^n}$，如果$E$的任一分解式$E=A \cup B$满足条件$A \ne \varnothing,B \ne \varnothing$，并且$A \cap B = \varnothing$，便可使得以下两式：</p>
@@ -356,7 +356,7 @@
 <script type="math/tex; mode=display">
     \boldsymbol{\Phi}(t) = (\varphi_1(t),\varphi_2(t),\cdots,\varphi_n(t)) \quad (a \le t \le b)</script><p>为$\Gamma$的参数方程，令</p>
 <script type="math/tex; mode=display">
-    F = \{ t \in [a,b]: \boldsymbol{\Phi}(t) \in A \} \quad G = \{ t \in [a,b]: \boldsymbol{\Phi}(t) \in B \}</script><p>可知$F,G$是互不相交的非空集合，且$F \cup G = [a, b]$，又由于$[a,b]$是连通集，所以$F \cap G^{\prime}$和$F^{\prime} \cap G$至少有一个非空，不妨设$c \in F \cap G^{\prime}$，由$c \in G^{\prime}$，知有数列${t<em>i} \subset G$，使得$\lim \limits</em>{i \to \infty} t_i = c$，由于$\varphi_i(i=1,2,\cdots,n)$是连续函数，可知</p>
+    F = \{ t \in [a,b]: \boldsymbol{\Phi}(t) \in A \} \quad G = \{ t \in [a,b]: \boldsymbol{\Phi}(t) \in B \}</script><p>可知$F,G$是互不相交的非空集合，且$F \cup G = [a, b]$，又由于$[a,b]$是连通集，所以$F \cap G^{\prime}$和$F^{\prime} \cap G$至少有一个非空，不妨设$c \in F \cap G^{\prime}$，由$c \in G^{\prime}$，知有数列$\{t_i\} \subset G$，使得$\lim \limits_{i \to \infty} t_i = c$，由于$\varphi_i(i=1,2,\cdots,n)$是连续函数，可知</p>
 <script type="math/tex; mode=display">
     \lim \limits_{i \to \infty} \boldsymbol{\Phi}(t_i) = \boldsymbol{\Phi}(c)</script><p>由于$\boldsymbol{\Phi}(t_i) \in B(i=1,2,\cdots,n)$且$\boldsymbol{\Phi}(c) \in A$，可知$\boldsymbol{\Phi}(c) \notin B$，从而$\boldsymbol{\Phi}(c) \in B^{\prime}$，所以$\boldsymbol{\Phi}(c) \in A \cap B^{\prime}$，即$A \cap B^{\prime} \ne \varnothing$，可得$E$是连通集。</p>
 <p>Q.E.D.</p>
@@ -518,13 +518,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

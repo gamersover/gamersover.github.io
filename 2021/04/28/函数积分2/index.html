@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定义1：分割 在区间$[a,b]$上，记分割      \pi : a &#x3D; x_0 &lt; x_1 &lt; \cdots &lt; x_n &#x3D; b把$[a,b]$分成$n$个小区间$[x{i-1},x_i]$，其长度为$\Delta x_i &#x3D; x_i - x{i-1} (i&#x3D;-1,2,\cdots,n)$。并称${x_0, x_1, \cdots,x_n}$为$\pi$的分点序列。令      \Vert \">
+  <meta name="description" content="定义1：分割 在区间$[a,b]$上，记分割      \pi : a &#x3D; x_0 &lt; x_1 &lt; \cdots &lt; x_n &#x3D; b把$[a,b]$分成$n$个小区间$[x_{i-1},x_i]$，其长度为$\Delta x_i &#x3D; x_i - x_{i-1} (i&#x3D;-1,2,\cdots,n)$。并称$\{x_0, x_1, \cdots,x_n\}$为$\pi$的分点序列。令      \Ve">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数积分二：Riemann积分">
 <meta property="og:url" content="http://yoursite.com/2021/04/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%862/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定义1：分割 在区间$[a,b]$上，记分割      \pi : a &#x3D; x_0 &lt; x_1 &lt; \cdots &lt; x_n &#x3D; b把$[a,b]$分成$n$个小区间$[x{i-1},x_i]$，其长度为$\Delta x_i &#x3D; x_i - x{i-1} (i&#x3D;-1,2,\cdots,n)$。并称${x_0, x_1, \cdots,x_n}$为$\pi$的分点序列。令      \Vert \">
+<meta property="og:description" content="定义1：分割 在区间$[a,b]$上，记分割      \pi : a &#x3D; x_0 &lt; x_1 &lt; \cdots &lt; x_n &#x3D; b把$[a,b]$分成$n$个小区间$[x_{i-1},x_i]$，其长度为$\Delta x_i &#x3D; x_i - x_{i-1} (i&#x3D;-1,2,\cdots,n)$。并称$\{x_0, x_1, \cdots,x_n\}$为$\pi$的分点序列。令      \Ve">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-28T13:12:18.000Z">
 <meta property="article:modified_time" content="2021-10-27T05:27:17.736Z">
@@ -277,19 +277,19 @@
         <h4 id="定义1：分割"><a href="#定义1：分割" class="headerlink" title="定义1：分割"></a>定义1：分割</h4><blockquote>
 <p>在区间$[a,b]$上，记分割</p>
 <script type="math/tex; mode=display">
-    \pi : a = x_0 < x_1 < \cdots < x_n = b</script><p>把$[a,b]$分成$n$个小区间$[x<em>{i-1},x_i]$，其长度为$\Delta x_i = x_i - x</em>{i-1} (i=-1,2,\cdots,n)$。并称${x_0, x_1, \cdots,x_n}$为$\pi$的分点序列。令</p>
+    \pi : a = x_0 < x_1 < \cdots < x_n = b</script><p>把$[a,b]$分成$n$个小区间$[x_{i-1},x_i]$，其长度为$\Delta x_i = x_i - x_{i-1} (i=-1,2,\cdots,n)$。并称$\{x_0, x_1, \cdots,x_n\}$为$\pi$的分点序列。令</p>
 <script type="math/tex; mode=display">
     \Vert \pi \Vert = \max \limits_{1 \le i \le n} \{ \Delta x_i \}</script><p>称$\Vert \pi \Vert$为分割$\pi$的宽度。</p>
 </blockquote>
 <a id="more"></a>
 <h4 id="定义2：Riemann积分"><a href="#定义2：Riemann积分" class="headerlink" title="定义2：Riemann积分"></a>定义2：Riemann积分</h4><blockquote>
-<p>设函数$f$在区间$[a,b]$上有定义，如果实数$I$使得对任意给定的$\varepsilon &gt; 0$，存在$\delta &gt; 0$，只要$[a,b]$的分割$\pi$满足$\Vert \pi \Vert &lt; \delta$，而不管$\xi<em>i \in [x</em>{i-1}, x_i] (1 \le i \le n)$如何选择，都有</p>
+<p>设函数$f$在区间$[a,b]$上有定义，如果实数$I$使得对任意给定的$\varepsilon &gt; 0$，存在$\delta &gt; 0$，只要$[a,b]$的分割$\pi$满足$\Vert \pi \Vert &lt; \delta$，而不管$\xi_i \in [x_{i-1}, x_i] (1 \le i \le n)$如何选择，都有</p>
 <script type="math/tex; mode=display">
     |I - \sum_{i=1}^n f(\xi_i) \Delta x_i| < \varepsilon</script><p>成立，则称$f$在$[a,b]$上Riemann可积，称$I$是$f$在$[a,b]$上的Riemann积分，通常用</p>
 <script type="math/tex; mode=display">
     \int_a^b f(x) \mathrm{d} x</script><p>来表示。其中$b$与$a$分别称为积分的上限与下限，$f$称为被积函数。和式</p>
 <script type="math/tex; mode=display">
-    \sum_{i=1}^n f(\xi_i) \Delta x_i</script><p>称为$f$的Riemann和（也称积分和），${\xi_1, \xi_2, \cdots, \xi_n}$称为此积分和的值点序列。</p>
+    \sum_{i=1}^n f(\xi_i) \Delta x_i</script><p>称为$f$的Riemann和（也称积分和），$\{\xi_1, \xi_2, \cdots, \xi_n\}$称为此积分和的值点序列。</p>
 </blockquote>
 <h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
 <p>如果函数$f,g$在$[a,b]$可积且非负，那么 <br/><br>（1）</p>
@@ -311,11 +311,11 @@
     F(x) \Big|_a^b = F(b) - F(a)</script><p>从而</p>
 <script type="math/tex; mode=display">
     \int_a^b f(x) \mathrm{d} x = F(x) \Big|_a^b</script></blockquote>
-<p>证：用分点$a = x<em>0 &lt; x_1 &lt; \cdots &lt; x_n=b$把区间$[a,b]$作$n$等分，即$x_i - x</em>{i-1} = (b-a) / n (i=1,2,\cdots,n)$，于是</p>
+<p>证：用分点$a = x_0 &lt; x_1 &lt; \cdots &lt; x_n=b$把区间$[a,b]$作$n$等分，即$x_i - x_{i-1} = (b-a) / n (i=1,2,\cdots,n)$，于是</p>
 <script type="math/tex; mode=display">
     F(b) - F(a) = \sum_{i=1}^n (F(x_i) - F(x_{i-1}))</script><p>对$F$使用微分中值定理，有</p>
 <script type="math/tex; mode=display">
-    F(b) - F(a) = \sum_{i=1}^n F^\prime(\xi_i) \Delta x_i = \sum_{i=1}^n f(\xi_i) \Delta x_i \tag{1}</script><p>这里$\xi<em>i \in (x</em>{i-1}, x_i)(i=1,2,\cdots,n)$，由于$f$在$[a,b]$上可积，所以当$n \to \infty$时，式(1)的右边以$\displaystyle \int_a^b f(x) \mathrm{d} x$为极限，从而在式(1)两边令$n \to \infty$，可得</p>
+    F(b) - F(a) = \sum_{i=1}^n F^\prime(\xi_i) \Delta x_i = \sum_{i=1}^n f(\xi_i) \Delta x_i \tag{1}</script><p>这里$\xi_i \in (x_{i-1}, x_i)(i=1,2,\cdots,n)$，由于$f$在$[a,b]$上可积，所以当$n \to \infty$时，式(1)的右边以$\displaystyle \int_a^b f(x) \mathrm{d} x$为极限，从而在式(1)两边令$n \to \infty$，可得</p>
 <script type="math/tex; mode=display">
     F(b) - F(a) = \int_a^b f(x) \mathrm{d} x</script><p>Q.E.D.</p>
 <h4 id="定理3：分部积分公式"><a href="#定理3：分部积分公式" class="headerlink" title="定理3：分部积分公式"></a>定理3：分部积分公式</h4><blockquote>
@@ -498,13 +498,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

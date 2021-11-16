@@ -255,14 +255,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6k</span>
+              <span>6.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -280,13 +280,13 @@
 <a id="more"></a>
 <p>证：设$f$在$[a,b]$上的积分为$I$，则由<a href="https://gamersover.github.io/2021/04/28/函数积分2/#定义2：Riemann积分" target="_blank" rel="noopener">函数积分二的定义2</a>可知，对$\varepsilon = 1$，必存在一个分割$\pi$，使得</p>
 <script type="math/tex; mode=display">
-    \left| \sum_{i=1}^nf(\xi_i) \Delta x_i - I \right| < I</script><p>这里值点$\xi<em>i \in [x</em>{i-1}, x_i] (1 \le i \le n)$可以任取，由上式可得</p>
+    \left| \sum_{i=1}^nf(\xi_i) \Delta x_i - I \right| < I</script><p>这里值点$\xi_i \in [x_{i-1}, x_i] (1 \le i \le n)$可以任取，由上式可得</p>
 <script type="math/tex; mode=display">
     \left| \sum_{i=1}^n f(\xi_i) \Delta x_i \right| < |I| + 1</script><p>从而有</p>
 <script type="math/tex; mode=display">
     |f(\xi_1)| \Delta x_1 < |I| + 1 + \left| \sum_{i=2}^n f(\xi_i) \Delta x_i \right|</script><p>即</p>
 <script type="math/tex; mode=display">
-    |f(\xi_1)| < \frac{1}{\Delta x_1} \left( |I| + 1 + \left| \sum_{i=2}^n f(\xi_i) \Delta x_i \right| \right)</script><p>此时，把在$[x<em>{i-1}, x_i]$中的$\xi_i$固定下来$(i=2,3,\cdots,n)$，则上式右边是一个确定的正数，而$\xi_i$可以在$[x_0,x_1]$上任取，这就证明了$f$在区间$[x_0,x_1]$上有界。同理$f$在子区间$[x</em>{i-1},x_i] (i=2,3,\cdots,n)$上都是有界的，所以$f$在区间$[a,b]$上有界。</p>
+    |f(\xi_1)| < \frac{1}{\Delta x_1} \left( |I| + 1 + \left| \sum_{i=2}^n f(\xi_i) \Delta x_i \right| \right)</script><p>此时，把在$[x_{i-1}, x_i]$中的$\xi_i$固定下来$(i=2,3,\cdots,n)$，则上式右边是一个确定的正数，而$\xi_i$可以在$[x_0,x_1]$上任取，这就证明了$f$在区间$[x_0,x_1]$上有界。同理$f$在子区间$[x_{i-1},x_i] (i=2,3,\cdots,n)$上都是有界的，所以$f$在区间$[a,b]$上有界。</p>
 <p>Q.E.D.</p>
 <h4 id="定义1：振幅"><a href="#定义1：振幅" class="headerlink" title="定义1：振幅"></a>定义1：振幅</h4><blockquote>
 <p>设函数$f$在区间$[a,b]$上有界，用$M$与$m$分别表示$f$在$[a,b]$上的上确界和下确界，令$\omega = M - m$，称$\omega$为函数$f$在区间$[a,b]$上的振幅。</p>
@@ -294,7 +294,7 @@
 <h4 id="定义2：上和与下和"><a href="#定义2：上和与下和" class="headerlink" title="定义2：上和与下和"></a>定义2：上和与下和</h4><blockquote>
 <p>设函数$f$在区间$[a,b]$上有界，对$[a,b]$上的任何分割</p>
 <script type="math/tex; mode=display">
-    \pi : a = x_0 < x_1 < \cdots < x_n = b</script><p>在$\pi$的第$i$个子区间$[x<em>i-1, x_i]$上$f$的上确界与下确界分别记为$M_i$与$m_i$，并令$\omega_i = M_i - m_i$，称$\omega_i$为$f$在$[x</em>{i-1}, x_i]$上的振幅，这里$i=1,2,\cdots,n$。定义</p>
+    \pi : a = x_0 < x_1 < \cdots < x_n = b</script><p>在$\pi$的第$i$个子区间$[x_i-1, x_i]$上$f$的上确界与下确界分别记为$M_i$与$m_i$，并令$\omega_i = M_i - m_i$，称$\omega_i$为$f$在$[x_{i-1}, x_i]$上的振幅，这里$i=1,2,\cdots,n$。定义</p>
 <script type="math/tex; mode=display">
     \overline S (f, \pi) = \sum_{i=1}^n M_i \Delta x_i, \quad \underline S(f, \pi) = \sum_{i=1}^n m_i \Delta x_i</script><p>并分别称它们是$f$关于分割$\pi$的上和与下和。</p>
 </blockquote>
@@ -358,11 +358,11 @@
 <script type="math/tex; mode=display">
     \lim \limits_{\Vert \pi \Vert \to 0} \underline S(f, \pi) = \underline I</script><p>Q.E.D.</p>
 <h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h4><blockquote>
-<p>设函数$f:[a,b] \to \mathbb{R}$有界，则以下三个条件互相等价： <br/><br>（1）$f$在$[a,b]$上可积； <br/><br>（2）$\displaystyle \lim \limits<em>{\Vert \pi \Vert \to 0} \sum</em>{i=1}^n \omega<em>i \Delta x_i = 0$，其中$\omega_i = M_i - m_i$是$f$在$[x</em>{i-1}, x_i] (i=1,2,\cdots,n)$上的振幅； <br/><br>（3）$\underline I = \overline I$。</p>
+<p>设函数$f:[a,b] \to \mathbb{R}$有界，则以下三个条件互相等价： <br/><br>（1）$f$在$[a,b]$上可积； <br/><br>（2）$\displaystyle \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^n \omega_i \Delta x_i = 0$，其中$\omega_i = M_i - m_i$是$f$在$[x_{i-1}, x_i] (i=1,2,\cdots,n)$上的振幅； <br/><br>（3）$\underline I = \overline I$。</p>
 </blockquote>
 <p>证：$(1)\Rightarrow (2)$<br>设$f$在$[a,b]$上的积分值为$I$，则对任意的$\varepsilon &gt; 0$，存在$\delta &gt; 0$，使得对任意满足$\Vert \pi \Vert &lt; \delta$的分割$\pi$，有</p>
 <script type="math/tex; mode=display">
-    I - \frac{\varepsilon}{3} < \sum_{i=1}^n f(\xi_i) \Delta x_i < I + \frac{\varepsilon}{3}</script><p>对一切值点$\xi<em>i \in [x</em>{i-1}, x_i] (i=1,2,\cdots,n)$成立，从而有</p>
+    I - \frac{\varepsilon}{3} < \sum_{i=1}^n f(\xi_i) \Delta x_i < I + \frac{\varepsilon}{3}</script><p>对一切值点$\xi_i \in [x_{i-1}, x_i] (i=1,2,\cdots,n)$成立，从而有</p>
 <script type="math/tex; mode=display">
     I - \frac{\varepsilon}{3} \le \underline S(f, \pi) \le \overline S(f, \pi) \le I - \frac{\varepsilon}{3}</script><p>从而有</p>
 <script type="math/tex; mode=display">
@@ -398,7 +398,7 @@
 <script type="math/tex; mode=display">
     \pi: a = x_0 < x_1 < \cdots < x_n = b</script><p>设</p>
 <script type="math/tex; mode=display">
-    M_i = f(s_i), \quad m_i = f(t_i)</script><p>其中$s<em>i, t_i \in [x</em>{i-1}, x_i] (i=1,2,\cdots,n)$，只要$\Vert \pi \Vert &lt; \delta$，就有</p>
+    M_i = f(s_i), \quad m_i = f(t_i)</script><p>其中$s_i, t_i \in [x_{i-1}, x_i] (i=1,2,\cdots,n)$，只要$\Vert \pi \Vert &lt; \delta$，就有</p>
 <script type="math/tex; mode=display">
     |s_i - t_i| \le \Delta x_i \le \Vert \pi \Vert < \delta</script><p>从而有</p>
 <script type="math/tex; mode=display">
@@ -564,13 +564,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

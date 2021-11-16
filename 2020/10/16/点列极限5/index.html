@@ -255,7 +255,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.3k</span>
+              <span>6.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -292,19 +292,19 @@
     \Vert \boldsymbol{x} - \boldsymbol{c} \Vert \le \Vert \boldsymbol{x} - \boldsymbol{a} \Vert + \Vert \boldsymbol{a} - \boldsymbol{c} \Vert \le d + \Vert \boldsymbol{a} - \boldsymbol{c} \Vert = r</script><p>从而有$\boldsymbol{x} \in B_r(\boldsymbol{c})$，可得$B_d(\boldsymbol{a}) \subset B_r(\boldsymbol{c}) \subset E$，从而$\boldsymbol{a} \in E°$，由于$\boldsymbol{a} \in B_r(\boldsymbol{c})$，所以$B_r(\boldsymbol{c}) \subset E°$，所以$E°$是开集。</p>
 <p>Q.E.D.</p>
 <h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>在空间$\mathbb{R^n}$中： <br/><br>（1）$\mathbb{R^n},\varnothing$是开集；<br/><br>（2）设${E<em>\alpha}$是$\mathbb{R^n}$的一个开子集族，其中指标$\alpha$来自一个指标集$I$，那么并集$\bigcup \limits</em>{\alpha \in I}E<em>\alpha$是开集（任意多个开集的并是开集）<br/><br>（3）设$E_1,E_2,\cdots,E_m$是有限多个开集，那么交集$\bigcap \limits</em>{i=1}^mE_i$是开集（有限个开集的交是开集）。</p>
+<p>在空间$\mathbb{R^n}$中： <br/><br>（1）$\mathbb{R^n},\varnothing$是开集；<br/><br>（2）设$\{E_\alpha\}$是$\mathbb{R^n}$的一个开子集族，其中指标$\alpha$来自一个指标集$I$，那么并集$\bigcup \limits_{\alpha \in I}E_\alpha$是开集（任意多个开集的并是开集）<br/><br>（3）设$E_1,E_2,\cdots,E_m$是有限多个开集，那么交集$\bigcap \limits_{i=1}^mE_i$是开集（有限个开集的交是开集）。</p>
 </blockquote>
-<p>证：（1）显然，下面证（2）（3）<br>（2）任取$\boldsymbol{a} \in \bigcup \limits<em>{\alpha \in I} E</em>\alpha$，存在$\beta \in I$，使得$\boldsymbol{a} \in E<em>\beta$，由于$E</em>\beta$是开集，从而存在球$B<em>r(\boldsymbol{a}) \subset E</em>\beta \subset \bigcup \limits<em>{\alpha \in I} E</em>\alpha$，从而$\boldsymbol{a}$是$\bigcup \limits<em>{\alpha \in I} E</em>\alpha$的内点，所以$\bigcup \limits<em>{\alpha \in I} E</em>\alpha$是开集。 <br/><br>（3）任取$\boldsymbol{a} \in \bigcap \limits_{i=1}^mE_i$，即$\boldsymbol{a} \in E_i (i=1,2,\cdots,m)$，则存在$r_i&gt;0$，使得</p>
+<p>证：（1）显然，下面证（2）（3）<br>（2）任取$\boldsymbol{a} \in \bigcup \limits_{\alpha \in I} E_\alpha$，存在$\beta \in I$，使得$\boldsymbol{a} \in E_\beta$，由于$E_\beta$是开集，从而存在球$B_r(\boldsymbol{a}) \subset E_\beta \subset \bigcup \limits_{\alpha \in I} E_\alpha$，从而$\boldsymbol{a}$是$\bigcup \limits_{\alpha \in I} E_\alpha$的内点，所以$\bigcup \limits_{\alpha \in I} E_\alpha$是开集。 <br/><br>（3）任取$\boldsymbol{a} \in \bigcap \limits_{i=1}^mE_i$，即$\boldsymbol{a} \in E_i (i=1,2,\cdots,m)$，则存在$r_i&gt;0$，使得</p>
 <script type="math/tex; mode=display">
     B_{r_i}(\boldsymbol{a}) \in E_i (i=1,2,\cdots,m)</script><p>令$r = \min(r_1,r_2,\cdots,r_m)$，可得</p>
 <script type="math/tex; mode=display">
-    B_r(\boldsymbol{a}) \subset \bigcap \limits_{i=1}^mE_i</script><p>所以$\boldsymbol{a}$是$\bigcap \limits<em>{i=1}^mE_i$的内点，从而$\bigcap \limits</em>{i=1}^mE_i$是开集。</p>
+    B_r(\boldsymbol{a}) \subset \bigcap \limits_{i=1}^mE_i</script><p>所以$\boldsymbol{a}$是$\bigcap \limits_{i=1}^mE_i$的内点，从而$\bigcap \limits_{i=1}^mE_i$是开集。</p>
 <p>Q.E.D.</p>
 <h4 id="定义2：闭集"><a href="#定义2：闭集" class="headerlink" title="定义2：闭集"></a>定义2：闭集</h4><blockquote>
 <p>设$F \subset \mathbb{R^n}$，若$F^c$是开集，则称$F$是闭集。</p>
 </blockquote>
 <h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
-<p>在空间$\mathbb{R^n}$中：<br/><br>（1）$\mathbb{R^n},\varnothing$是闭集；<br/><br>（2）设${F<em>\alpha}$是$\mathbb{R^n}$的一个闭子集族，其中指标$\alpha$来自一个指标集$I$，那么交集$\bigcap \limits</em>{\alpha \in I}F<em>\alpha$是闭集（任意多个闭集的并是闭集） <br/><br>（3）设$F_1,F_2,\cdots,F_m$是有限多个开集，那么交集$\bigcup \limits</em>{i=1}^m F_i$是闭集（有限个闭集的交是闭集）。 <br/></p>
+<p>在空间$\mathbb{R^n}$中：<br/><br>（1）$\mathbb{R^n},\varnothing$是闭集；<br/><br>（2）设$\{F_\alpha\}$是$\mathbb{R^n}$的一个闭子集族，其中指标$\alpha$来自一个指标集$I$，那么交集$\bigcap \limits_{\alpha \in I}F_\alpha$是闭集（任意多个闭集的并是闭集） <br/><br>（3）设$F_1,F_2,\cdots,F_m$是有限多个开集，那么交集$\bigcup \limits_{i=1}^m F_i$是闭集（有限个闭集的交是闭集）。 <br/></p>
 </blockquote>
 <p>利用De Morgan对偶原理与定理7的结论容易证明，从略。</p>
 <h4 id="定义3：凝聚点或极限点"><a href="#定义3：凝聚点或极限点" class="headerlink" title="定义3：凝聚点或极限点"></a>定义3：凝聚点或极限点</h4><blockquote>
@@ -321,18 +321,18 @@
 <h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a><span id="theorem5">定理5</span></h4><blockquote>
 <p>$E$是闭集的充分必要条件是，$E$中的任意收敛点列的极限必在$E$中。</p>
 </blockquote>
-<p>证：必要性。设$E$中的收敛点列${\boldsymbol{x}_i}$有极限$\boldsymbol{a}$，则$\boldsymbol{a} \in E$或$\boldsymbol{a} \notin E$，如果$\boldsymbol{a} \notin E$，由极限性质可知$\boldsymbol{a} \in E^{\prime}$，又根据<a href="#theorem4">定理4</a>，可得$\boldsymbol{a} \in E$，所以$\boldsymbol{a}$必在$E$中。<br>充分性。任取$\boldsymbol{a} \in E^{\prime}$，可从$E$中选出点列${\boldsymbol{x}_i}$收敛于$\boldsymbol{a}$，而$\boldsymbol{a} \in E$，所以$E^{\prime} \subset E$，从而$E$是闭集。</p>
+<p>证：必要性。设$E$中的收敛点列$\{\boldsymbol{x}_i\}$有极限$\boldsymbol{a}$，则$\boldsymbol{a} \in E$或$\boldsymbol{a} \notin E$，如果$\boldsymbol{a} \notin E$，由极限性质可知$\boldsymbol{a} \in E^{\prime}$，又根据<a href="#theorem4">定理4</a>，可得$\boldsymbol{a} \in E$，所以$\boldsymbol{a}$必在$E$中。<br>充分性。任取$\boldsymbol{a} \in E^{\prime}$，可从$E$中选出点列$\{\boldsymbol{x}_i\}$收敛于$\boldsymbol{a}$，而$\boldsymbol{a} \in E$，所以$E^{\prime} \subset E$，从而$E$是闭集。</p>
 <p>Q.E.D.</p>
 <h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><blockquote>
 <p>$E$的导集$E^{\prime}$与$\bar E$都是闭集。</p>
 </blockquote>
 <p>证：前一命题。任取$\boldsymbol{a} \in (E^{\prime})^c$，可知$\boldsymbol{a}$不是$E$的极限点，则存在一个球$B_r(\boldsymbol{a})$，其中至多只有$E$中的一个点，且该点若存在只能是$\boldsymbol{a}$，由因为$B_r(\boldsymbol{a})$是开集，从而任取$\boldsymbol{c} \in B_r(\boldsymbol{a})$，若$\boldsymbol{c} = \boldsymbol{a}$，自然有$\boldsymbol{c} \in (E^{\prime})^c$，若$\boldsymbol{c} \ne \boldsymbol{a}$，则存在球$B_s(\boldsymbol{c}) \subset B_r(\boldsymbol{a})$，且$B_s(\boldsymbol{c})$不包含$E$中的点，可知此时$\boldsymbol{c}$也不可能是$E$的极限点；即$B_r(\boldsymbol{a}) \subset (E^{\prime})^c$，所以$E^{\prime}$是闭集。</p>
-<p>后一命题。若$E^{\prime}=\varnothing$，可知$\bar{E} = E$，可知$E$是闭集，从而$\bar{E}$是闭集；若$E^{\prime} \ne \varnothing$，则任取$\bar{E}$中的一个收敛点列${\boldsymbol{x}_i}$有极限$\boldsymbol{a}$，如果${\boldsymbol{x}_i}$中只有有限个点，显然有$\boldsymbol{a} \in \bar{E}$中，否则其中必有一个子列的点全属于$E$或者$E^{\prime}$，若全属于$E$，则有$\boldsymbol{a} \in E^{\prime} \subset \bar{E}$，若全属于$E^{\prime}$，由于前面已证得$E^{\prime}$是闭集，从而$\boldsymbol{a} \in E^{\prime} \subset \bar{E}$，所以$\bar{E}$是闭集。</p>
+<p>后一命题。若$E^{\prime}=\varnothing$，可知$\bar{E} = E$，可知$E$是闭集，从而$\bar{E}$是闭集；若$E^{\prime} \ne \varnothing$，则任取$\bar{E}$中的一个收敛点列$\{\boldsymbol{x}_i\}$有极限$\boldsymbol{a}$，如果$\{\boldsymbol{x}_i\}$中只有有限个点，显然有$\boldsymbol{a} \in \bar{E}$中，否则其中必有一个子列的点全属于$E$或者$E^{\prime}$，若全属于$E$，则有$\boldsymbol{a} \in E^{\prime} \subset \bar{E}$，若全属于$E^{\prime}$，由于前面已证得$E^{\prime}$是闭集，从而$\boldsymbol{a} \in E^{\prime} \subset \bar{E}$，所以$\bar{E}$是闭集。</p>
 <p>Q.E.D.</p>
 <h4 id="定理7"><a href="#定理7" class="headerlink" title="定理7"></a>定理7</h4><blockquote>
 <p>$E°$是含于$E$内的最大开集，$\bar E$是包含$E$的最小闭集。</p>
 </blockquote>
-<p>证：前一命题。设开集$B \subset E$，任取$\boldsymbol{a} \in B \subset E$，可知存在球$B_r(\boldsymbol{a}) \subset B \subset E$，可知$\boldsymbol{a} \in E°$，所以$B \subset E°$。<br>后一命题。设闭集$F \supset E$，任取$\boldsymbol{b} \in \bar E = E^{\prime} \cup E$，若$\boldsymbol{b} \in E$，则$\boldsymbol{b} \in F$；若$\boldsymbol{b} \in E^{\prime}$，则$E$中有一个点列${\boldsymbol{x}_i}$收敛于$\boldsymbol{b}$，而这个点列也可以看出是$F$中的，再由<a href="#theorem5">定理5</a>可知，$\boldsymbol{b} \in F$，所以$\bar E \subset F$。</p>
+<p>证：前一命题。设开集$B \subset E$，任取$\boldsymbol{a} \in B \subset E$，可知存在球$B_r(\boldsymbol{a}) \subset B \subset E$，可知$\boldsymbol{a} \in E°$，所以$B \subset E°$。<br>后一命题。设闭集$F \supset E$，任取$\boldsymbol{b} \in \bar E = E^{\prime} \cup E$，若$\boldsymbol{b} \in E$，则$\boldsymbol{b} \in F$；若$\boldsymbol{b} \in E^{\prime}$，则$E$中有一个点列$\{\boldsymbol{x}_i\}$收敛于$\boldsymbol{b}$，而这个点列也可以看出是$F$中的，再由<a href="#theorem5">定理5</a>可知，$\boldsymbol{b} \in F$，所以$\bar E \subset F$。</p>
 <p>Q.E.D.</p>
 <h4 id="定义5：边界"><a href="#定义5：边界" class="headerlink" title="定义5：边界"></a>定义5：边界</h4><blockquote>
 <p>（1）设点集$E\subset \mathbb{R^n}$，$(E^c)^°$中的点称为$E$的外点，外点的全体称为$E$的外部；<br/><br>（2）既不是$E$的内点又不是$E$的外点的点称为$E$的边界点，边界点的全体称为$E$的边界。</p>
@@ -343,7 +343,7 @@
     diam(E) = \sup \{ \Vert \boldsymbol{x} - \boldsymbol{y} \Vert: \boldsymbol{x}, \boldsymbol{y} \in E \}</script><p>称该数为集合$E$的直径。</p>
 </blockquote>
 <h4 id="定理8：闭区间套定理"><a href="#定理8：闭区间套定理" class="headerlink" title="定理8：闭区间套定理"></a>定理8：闭区间套定理</h4><blockquote>
-<p>设${\boldsymbol{F}_i}(\boldsymbol{F}_i \ne \varnothing, i=1,2,3,\cdots)$是一闭集列，并且$\boldsymbol{F}_1 \supset \boldsymbol{F}_2 \supset \boldsymbol{F}_3 \supset \cdots$，若</p>
+<p>设$\{\boldsymbol{F}_i\}(\boldsymbol{F}_i \ne \varnothing, i=1,2,3,\cdots)$是一闭集列，并且$\boldsymbol{F}_1 \supset \boldsymbol{F}_2 \supset \boldsymbol{F}_3 \supset \cdots$，若</p>
 <script type="math/tex; mode=display">
     \lim \limits_{i \to \infty} diam(\boldsymbol{F}_i) = 0</script><p>那么$\bigcap \limits_{i=1}^\infty \boldsymbol{F}_i$只含唯一的点。</p>
 </blockquote>
@@ -351,7 +351,7 @@
 <script type="math/tex; mode=display">
     \{\boldsymbol{x}_i, \boldsymbol{x}_{i+1}, \boldsymbol{x}_{i+2}, \cdots\} \in \boldsymbol{F}_i \quad (i \in \mathbb{N}^{*})</script><p>所以当$k,l &gt; i$时，</p>
 <script type="math/tex; mode=display">
-    \Vert \boldsymbol{x}_k - \boldsymbol{x}_l \Vert \le diam(\boldsymbol{F}_i) \to 0 \quad (i \to \infty)</script><p>可知${ \boldsymbol{x}<em>i }$时基本点列，不妨设其收敛于点$\boldsymbol{a}$，又由闭集的性质<a href="#theorem5">定理5</a>可知，$\boldsymbol{a} \in \boldsymbol{F}_i$对所有$i \in \mathbb{N}^{*}$成立，因此$\boldsymbol{a} \in \bigcap \limits</em>{i=1}^\infty \boldsymbol{F}<em>i$。<br>假设还有点$\boldsymbol{b} \in \bigcap \limits</em>{i=1}^\infty \boldsymbol{F}_i$，从而$\boldsymbol{a},\boldsymbol{b} \in \boldsymbol{F}_i$，可知</p>
+    \Vert \boldsymbol{x}_k - \boldsymbol{x}_l \Vert \le diam(\boldsymbol{F}_i) \to 0 \quad (i \to \infty)</script><p>可知$\{ \boldsymbol{x}_i \}$时基本点列，不妨设其收敛于点$\boldsymbol{a}$，又由闭集的性质<a href="#theorem5">定理5</a>可知，$\boldsymbol{a} \in \boldsymbol{F}_i$对所有$i \in \mathbb{N}^{*}$成立，因此$\boldsymbol{a} \in \bigcap \limits_{i=1}^\infty \boldsymbol{F}_i$。<br>假设还有点$\boldsymbol{b} \in \bigcap \limits_{i=1}^\infty \boldsymbol{F}_i$，从而$\boldsymbol{a},\boldsymbol{b} \in \boldsymbol{F}_i$，可知</p>
 <script type="math/tex; mode=display">
     \Vert \boldsymbol{a} - \boldsymbol{b} \Vert \le diam(\boldsymbol{F_i}) = 0 \quad (i \to \infty)</script><p>可知$\boldsymbol{a} = \boldsymbol{b}$。所以$\boldsymbol{a}$唯一。</p>
 <p>Q.E.D.</p>
@@ -513,13 +513,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

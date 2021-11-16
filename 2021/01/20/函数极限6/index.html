@@ -283,7 +283,7 @@
 </blockquote>
 <p>证：反证法。如果$f$在$D$上不一致连续，则存在一个$\varepsilon_0 &gt; 0$，使得对任何$i \in \mathbb{N}^*$，在$D$中总可以找到两个点$\boldsymbol{x}_i,\boldsymbol{y}_i$，当$\Vert \boldsymbol{x}_i - \boldsymbol{y}_i \Vert &lt; 1/i$，有</p>
 <script type="math/tex; mode=display">
-    |f(\boldsymbol{x}_i) - f(\boldsymbol{y}_i)| \ge \varepsilon_0</script><p>由于$D$是紧致集，也是列紧集，从而在点列${\boldsymbol{x}<em>i}$中可以找出子列${\boldsymbol{x}</em>{k_i}}$收敛于点$\boldsymbol{x} \in D$，此时有</p>
+    |f(\boldsymbol{x}_i) - f(\boldsymbol{y}_i)| \ge \varepsilon_0</script><p>由于$D$是紧致集，也是列紧集，从而在点列$\{\boldsymbol{x}_i\}$中可以找出子列$\{\boldsymbol{x}_{k_i}\}$收敛于点$\boldsymbol{x} \in D$，此时有</p>
 <script type="math/tex; mode=display">
     \Vert \boldsymbol{y}_{k_i} - \boldsymbol{x} \Vert \le \Vert \boldsymbol{y}_{k_i} - \boldsymbol{x}_{k_i} \Vert + \Vert \boldsymbol{x}_{k_i} - \boldsymbol{x} \Vert \le \frac{1}{k_i} + \Vert \boldsymbol{x}_{k_i} - \boldsymbol{x} \Vert \le \frac{1}{i} + \Vert \boldsymbol{x}_{k_i} - \boldsymbol{x} \Vert</script><p>从而，当$i \to \infty$，$\boldsymbol{y}_{k_i} \to \boldsymbol{x}$，而</p>
 <script type="math/tex; mode=display">
@@ -294,11 +294,11 @@
 <h4 id="定理2"><a href="#定理2" class="headerlink" title=" 定理2"></a><span id='theorem2'> 定理2<span></h4><blockquote>
 <p>设$D \subset \mathbb{R}^n$，$f: D \to \mathbb{R}$，且$f$在$D$上连续，如果$D$是紧致集，那么$f$的值域$f(D)$也是紧致集。</p>
 </blockquote>
-<p>证：任取$f(D)$中的一个点列${y<em>i}$，那么在$D$中存在一个点列${\boldsymbol{x}_i}$，使得$f(\boldsymbol{x}_i) = y_i (i=1,2,\cdots)$，由于$D$是列紧集，从而点列${\boldsymbol{x}_i}$存在一个子列${\boldsymbol{x}</em>{k_i}}$收敛于$D$中的一点$\boldsymbol{x}$，又由于$f$是$D$上的连续函数，所以</p>
+<p>证：任取$f(D)$中的一个点列$\{y_i\}$，那么在$D$中存在一个点列$\{\boldsymbol{x}_i\}$，使得$f(\boldsymbol{x}_i) = y_i (i=1,2,\cdots)$，由于$D$是列紧集，从而点列$\{\boldsymbol{x}_i\}$存在一个子列$\{\boldsymbol{x}_{k_i}\}$收敛于$D$中的一点$\boldsymbol{x}$，又由于$f$是$D$上的连续函数，所以</p>
 <script type="math/tex; mode=display">
-    \lim \limits_{i \to \infty} f(\boldsymbol{x}_{k_i}) = f(\boldsymbol{x}) \in f(D)</script><p>这就表明从点列${y<em>i}$中找到了一个子列${y</em>{k_i}}$，有</p>
+    \lim \limits_{i \to \infty} f(\boldsymbol{x}_{k_i}) = f(\boldsymbol{x}) \in f(D)</script><p>这就表明从点列$\{y_i\}$中找到了一个子列$\{y_{k_i}\}$，有</p>
 <script type="math/tex; mode=display">
-    \lim \limits_{i \to \infty} y_{k_i} = \lim \limits_{i \to \infty} f(\boldsymbol{x}_{k_i}) = f(\boldsymbol{x}) \in f(D)</script><p>即子列${y_{k_i}}$收敛于$f(D)$中的点。因为点列${y_i}$是任取的，所以$f(D)$是紧致集。</p>
+    \lim \limits_{i \to \infty} y_{k_i} = \lim \limits_{i \to \infty} f(\boldsymbol{x}_{k_i}) = f(\boldsymbol{x}) \in f(D)</script><p>即子列$\{y_{k_i}\}$收敛于$f(D)$中的点。因为点列$\{y_i\}$是任取的，所以$f(D)$是紧致集。</p>
 <p>Q.E.D.</p>
 <h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
 <p>设$D \subset \mathbb{R}^n$，$f: D \to \mathbb{R}$，且$f$在$D$上连续，如果$D$是紧致集，那么$f$在$D$上能取到它的最小值和最大值。</p>
@@ -307,14 +307,14 @@
 <script type="math/tex; mode=display">
     M = \sup f(D)， \qquad m = \inf f(D)</script><p>由上确界的定义可知，对任意的$i \in \mathbb{N}^*$，存在$\boldsymbol{x}_i \in D$，使得</p>
 <script type="math/tex; mode=display">
-    M - \frac{1}{i} < f(\boldsymbol{x}_i) < M</script><p>令$i \to \infty$，可得$\lim \limits<em>{i \to \infty} f(\boldsymbol{x}</em>{i}) = M$，由于$f(\boldsymbol{x}_{i}) \in D$，且$f(D)$是闭集，可知$M \in f(D)$，同理可证$m \in f(D)$。</p>
+    M - \frac{1}{i} < f(\boldsymbol{x}_i) < M</script><p>令$i \to \infty$，可得$\lim \limits_{i \to \infty} f(\boldsymbol{x}_{i}) = M$，由于$f(\boldsymbol{x}_{i}) \in D$，且$f(D)$是闭集，可知$M \in f(D)$，同理可证$m \in f(D)$。</p>
 <p>Q.E.D.</p>
 <h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a><span id='theorem4'>定理4</span></h4><blockquote>
 <p>设$D \subset \mathbb{R}^n$是一连通集，函数$f: D \to \mathbb{R}$是连续的，那么$f(D)$是$\mathbb{R}$中的连通集。</p>
 </blockquote>
 <p>证：设有分解式$f(D) = A \cup B$，其中$A,B$是不相交的非空集，从而</p>
 <script type="math/tex; mode=display">
-    D = f^{-1}(A) \cup f^{-1}(B)</script><p>利用映射的概念易证$f^{-1}(A)$和$f^{-1}(B)$是非空集且不相交。利用$D$是连通集的性质，不妨设$f^{-1}(A)$中包含$f^{-1}(B)$中的凝聚点，即$f^{-1}(B)$中有点列${\boldsymbol{x}_i}$收敛于$f^{-1}(A)$中的点$\boldsymbol{x}$。由于函数$f$是连续函数，所以$f(\boldsymbol{x}_i) \to f(\boldsymbol{x}) (i \to \infty)$，而${f(\boldsymbol{x}_i)} \subset B$，$f(\boldsymbol{x}) \in A$，这就表明$A \cap B^{\prime} \ne \phi $。</p>
+    D = f^{-1}(A) \cup f^{-1}(B)</script><p>利用映射的概念易证$f^{-1}(A)$和$f^{-1}(B)$是非空集且不相交。利用$D$是连通集的性质，不妨设$f^{-1}(A)$中包含$f^{-1}(B)$中的凝聚点，即$f^{-1}(B)$中有点列$\{\boldsymbol{x}_i\}$收敛于$f^{-1}(A)$中的点$\boldsymbol{x}$。由于函数$f$是连续函数，所以$f(\boldsymbol{x}_i) \to f(\boldsymbol{x}) (i \to \infty)$，而$\{f(\boldsymbol{x}_i)\} \subset B$，$f(\boldsymbol{x}) \in A$，这就表明$A \cap B^{\prime} \ne \phi $。</p>
 <p>Q.E.D.</p>
 <h4 id="定理5：介值定理"><a href="#定理5：介值定理" class="headerlink" title="定理5：介值定理"></a>定理5：介值定理</h4><blockquote>
 <p>设$D \subset \mathbb{R}^n$是一连通集，函数$f: D \to \mathbb{R}$是连续的，如果$\boldsymbol{a},\boldsymbol{b} \in D$和$r \in \mathbb{R}$使得</p>
@@ -481,13 +481,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

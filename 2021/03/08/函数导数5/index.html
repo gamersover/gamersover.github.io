@@ -325,16 +325,16 @@
     f(\sum_{i=1}^n \lambda_i x_i) \le \sum_{i=1}^n \lambda_i f(x_i)</script><p>如果$f$是$I$上的严格凸函数，则当$x_1,x_2,\cdots,x_n$不全相等时，有</p>
 <script type="math/tex; mode=display">
     f(\sum_{i=1}^n \lambda_i x_i) < \sum_{i=1}^n \lambda_i f(x_i)</script></blockquote>
-<p>证：使用数学归纳法。当$n=2$时，由凸函数定义知显然成立；设$n = k$时命题成立，现在证$n = k+1$时命题也成立。设$x<em>1,x_2,\cdots,x</em>{k+1} \in I$，$\lambda<em>1,\lambda_2,\cdots,\lambda</em>{k+1} &gt; 0$，并且$\lambda<em>1 + \lambda_2 + \cdots + \lambda</em>{k+1} = 1$，知</p>
+<p>证：使用数学归纳法。当$n=2$时，由凸函数定义知显然成立；设$n = k$时命题成立，现在证$n = k+1$时命题也成立。设$x_1,x_2,\cdots,x_{k+1} \in I$，$\lambda_1,\lambda_2,\cdots,\lambda_{k+1} &gt; 0$，并且$\lambda_1 + \lambda_2 + \cdots + \lambda_{k+1} = 1$，知</p>
 <script type="math/tex; mode=display">
-    \lambda_1 + \lambda_2 + \cdots + \lambda_k = 1 - \lambda_{k+1} \Rightarrow \frac{\lambda_1}{1-\lambda_{k+1}} + \frac{\lambda_2}{1-\lambda_{k+1}} + \cdots + \frac{\lambda_k}{1-\lambda_{k+1}} = 1</script><p>令$u<em>i = \frac{\lambda_i}{1-\lambda</em>{k+1}} (i=1,2\cdots,k)$，从而有</p>
+    \lambda_1 + \lambda_2 + \cdots + \lambda_k = 1 - \lambda_{k+1} \Rightarrow \frac{\lambda_1}{1-\lambda_{k+1}} + \frac{\lambda_2}{1-\lambda_{k+1}} + \cdots + \frac{\lambda_k}{1-\lambda_{k+1}} = 1</script><p>令$u_i = \frac{\lambda_i}{1-\lambda_{k+1}} (i=1,2\cdots,k)$，从而有</p>
 <script type="math/tex; mode=display">
     \begin{aligned}
         f(\sum_{i=1}^{k+1} \lambda_i x_i) & = f\left((1-\lambda_{k+1})\sum_{i=1}^k u_i x_i + \lambda_{k+1}x_{k+1}\right) \\
         & \le (1-\lambda_{k+1}) f(\sum_{i=1}^k u_ix_i) + \lambda_{k+1} f(x_{k+1}) \\
         & \le (1-\lambda_{k+1}) \sum_{i=1}^k u_i f(x_i) + \lambda_{k+1} f(x_{k+1}) \\
         & = \sum_{i=1}^{k+1} \lambda_i f(x_i)
-    \end{aligned}</script><p>从而当$f$为$I$上的凸函数时，对任何$n \in \mathbb{N^{*}}$，不等式都成立。<br/><br>再设$f$是$I$上的严格凸函数，同样当$n=2$时，自然严格不等号成立。假设当$n=k$时，严格不等号成立。现设$x<em>1,x_2,\cdots,x</em>{k+1}$不全相等，有两种情况：<br/><br>（1）$x<em>1,x_2,\cdots,x_k$不全相等，则此时上述归纳法的最后一个不等号是严格的，<br/><br>（2）$x_1=x_2=\cdots=x_k \ne x</em>{k+1}$，则</p>
+    \end{aligned}</script><p>从而当$f$为$I$上的凸函数时，对任何$n \in \mathbb{N^{*}}$，不等式都成立。<br/><br>再设$f$是$I$上的严格凸函数，同样当$n=2$时，自然严格不等号成立。假设当$n=k$时，严格不等号成立。现设$x_1,x_2,\cdots,x_{k+1}$不全相等，有两种情况：<br/><br>（1）$x_1,x_2,\cdots,x_k$不全相等，则此时上述归纳法的最后一个不等号是严格的，<br/><br>（2）$x_1=x_2=\cdots=x_k \ne x_{k+1}$，则</p>
 <script type="math/tex; mode=display">
     \sum_{i=1}^k u_ix_i = x_1 \ne x_{k+1}</script><p>此时上述归纳法的第一个不等号是严格的。从而对任何$n \in \mathbb{N^*}$，最终不等式都是严格的。</p>
 <p>Q.E.D.</p>
@@ -548,13 +548,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

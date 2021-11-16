@@ -255,7 +255,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5k</span>
+              <span>5.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -289,21 +289,21 @@
 <h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
 <p>设$D \subset \mathbb{R^n}$，$f: D \to \mathbb{R}$，点$\boldsymbol{a} \in D^\prime$。函数极限</p>
 <script type="math/tex; mode=display">
-    \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} f(\boldsymbol{x}) = l</script><p>的充分必要条件是，对任何的点列${\boldsymbol{x}_i} \subset D$，$\boldsymbol{x}_i \ne \boldsymbol{a} (i=1,2,3,\cdots)$且$\boldsymbol{x}_i \to \boldsymbol{a} (i \to \infty)$，数列极限</p>
+    \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} f(\boldsymbol{x}) = l</script><p>的充分必要条件是，对任何的点列$\{\boldsymbol{x}_i\} \subset D$，$\boldsymbol{x}_i \ne \boldsymbol{a} (i=1,2,3,\cdots)$且$\boldsymbol{x}_i \to \boldsymbol{a} (i \to \infty)$，数列极限</p>
 <script type="math/tex; mode=display">
     \lim \limits_{i \to \infty} f(\boldsymbol{x}_i) = l</script></blockquote>
-<p>证：必要性。有函数极限定义可知，对$\forall \varepsilon &gt; 0$，存在$\delta &gt; 0$，使得当$0 &lt; \Vert \boldsymbol{x} - \boldsymbol{a} \Vert &lt; \delta$时，有$|f(\boldsymbol{x}) - f(\boldsymbol{a})| &lt; \varepsilon$；由于$\boldsymbol{x}<em>i \to \boldsymbol{a} (i \to \infty)$，从而对于给定的$\delta$，存在$N \in \mathbb{N^*}$，使得当$i &gt; N$时，有$0 &lt; \Vert \boldsymbol{x}_i - \boldsymbol{a}| &lt; \delta$，从而$|f(\boldsymbol{x}_i) - f(\boldsymbol{a})| &lt; \varepsilon$，即$\lim \limits</em>{i \to \infty} f(\boldsymbol{x}_i) = l$</p>
-<p>充分性。反证法。假设$f$在$\boldsymbol{a}$处不以$l$为极限，则存在$\varepsilon_0 &gt; 0$，使得对任意的$i \in \mathbb{N^*}$，可以取出一个点$\boldsymbol{x}_i \in D$，使得当$|\boldsymbol{x}_i - \boldsymbol{a}| &lt; 1/i$时，有$|f(\boldsymbol{x}_i) - f(\boldsymbol{a})| \ge \varepsilon_0$，这时点列${\boldsymbol{x}_i} \subset D$，且$\boldsymbol{x}_i \to \boldsymbol{a} (i \to \infty)$，但是数列${f(\boldsymbol{x}_i)}$显然不以$l$为极限，矛盾。</p>
+<p>证：必要性。有函数极限定义可知，对$\forall \varepsilon &gt; 0$，存在$\delta &gt; 0$，使得当$0 &lt; \Vert \boldsymbol{x} - \boldsymbol{a} \Vert &lt; \delta$时，有$|f(\boldsymbol{x}) - f(\boldsymbol{a})| &lt; \varepsilon$；由于$\boldsymbol{x}_i \to \boldsymbol{a} (i \to \infty)$，从而对于给定的$\delta$，存在$N \in \mathbb{N^*}$，使得当$i &gt; N$时，有$0 &lt; \Vert \boldsymbol{x}_i - \boldsymbol{a}| &lt; \delta$，从而$|f(\boldsymbol{x}_i) - f(\boldsymbol{a})| &lt; \varepsilon$，即$\lim \limits_{i \to \infty} f(\boldsymbol{x}_i) = l$</p>
+<p>充分性。反证法。假设$f$在$\boldsymbol{a}$处不以$l$为极限，则存在$\varepsilon_0 &gt; 0$，使得对任意的$i \in \mathbb{N^*}$，可以取出一个点$\boldsymbol{x}_i \in D$，使得当$|\boldsymbol{x}_i - \boldsymbol{a}| &lt; 1/i$时，有$|f(\boldsymbol{x}_i) - f(\boldsymbol{a})| \ge \varepsilon_0$，这时点列$\{\boldsymbol{x}_i\} \subset D$，且$\boldsymbol{x}_i \to \boldsymbol{a} (i \to \infty)$，但是数列$\{f(\boldsymbol{x}_i)\}$显然不以$l$为极限，矛盾。</p>
 <p>Q.E.D.</p>
 <h4 id="定理2：函数极限的四则运算"><a href="#定理2：函数极限的四则运算" class="headerlink" title="定理2：函数极限的四则运算"></a>定理2：函数极限的四则运算</h4><blockquote>
 <p>设$D \subset \mathbb{R^n}$，$f,g: D \to \mathbb{R}$，点$\boldsymbol{a} \in D^\prime$。如果$f,g$存在着有限的极限：</p>
 <script type="math/tex; mode=display">
-    \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} f(\boldsymbol{x}) = l, \qquad \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} g(\boldsymbol{x}) = m</script><p>那么有：<br>（1）$\lim \limits<em>{\boldsymbol{x} \to \boldsymbol{a}} (f \pm g)(\boldsymbol{x}) = l \pm m$；<br/><br>（2）$\lim \limits</em>{\boldsymbol{x} \to \boldsymbol{a}} fg(\boldsymbol{x}) = lm$；<br/><br>（3）$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} (\frac{f}{g})(\boldsymbol{x}) = \frac{l}{m}$，其中$m \ne 0$。</p>
+    \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} f(\boldsymbol{x}) = l, \qquad \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} g(\boldsymbol{x}) = m</script><p>那么有：<br>（1）$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} (f \pm g)(\boldsymbol{x}) = l \pm m$；<br/><br>（2）$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} fg(\boldsymbol{x}) = lm$；<br/><br>（3）$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} (\frac{f}{g})(\boldsymbol{x}) = \frac{l}{m}$，其中$m \ne 0$。</p>
 </blockquote>
 <p>证：证明方法与单变量极限四则运算几乎一样。参考<a href="https://gamersover.github.io/2020/11/17/函数极限1/#定理4：函数极限四则运算" target="_blank" rel="noopener">函数极限一的定理4</a>。</p>
 <p>Q.E.D.</p>
 <h4 id="定理3：复合函数极限"><a href="#定理3：复合函数极限" class="headerlink" title="定理3：复合函数极限"></a>定理3：复合函数极限</h4><blockquote>
-<p>设函数$f$在以$\boldsymbol{a} \in \mathbb{R}^n$为球心，$\boldsymbol{r}$为半径的某个空心球$B<em>{\boldsymbol{r}}(\boldsymbol{\check a})$上有定义，且$\lim \limits</em>{\boldsymbol{x} \to \boldsymbol{a}} f(\boldsymbol{x}) = l$；一元函数$\varphi$在以$l$为球心的空心球$U = {t: 0&lt;|t - l| &lt; \delta }$上有定义，且$\lim \limits_{t \to l} \varphi(t) = m$。再设</p>
+<p>设函数$f$在以$\boldsymbol{a} \in \mathbb{R}^n$为球心，$\boldsymbol{r}$为半径的某个空心球$B_{\boldsymbol{r}}(\boldsymbol{\check a})$上有定义，且$\lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} f(\boldsymbol{x}) = l$；一元函数$\varphi$在以$l$为球心的空心球$U = \{t: 0&lt;|t - l| &lt; \delta \}$上有定义，且$\lim \limits_{t \to l} \varphi(t) = m$。再设</p>
 <script type="math/tex; mode=display">
     f(B_{\boldsymbol{r}}(\boldsymbol{\check a})) \in U</script><p>那么就有</p>
 <script type="math/tex; mode=display">
@@ -322,16 +322,16 @@
 <script type="math/tex; mode=display">
     |f(\boldsymbol{x}) - f(\boldsymbol{a})| < \varepsilon</script><p>则称函数$f$在点$\boldsymbol{a}$处连续，$\boldsymbol{a}$称为$f$的一个连续点，$D$中$f$的非连续点称为$f$的间断点。如果$f$在$D$中的每个点上都连续，则称$f$在$D$上连续。</p>
 </blockquote>
-<p>注：设$D={\boldsymbol{p}_1,\boldsymbol{p}_2,\cdots,\boldsymbol{p}_m }$，定义函数$f: D \to \mathbb{R}$为$f(\boldsymbol{p}_i) = \lambda_i (i=1,2,\cdots,m)$，这里$\lambda_1,\lambda_2,\cdots,\lambda_m$是任意给定的数，那么根据定义3，$f$在$D$上连续。对于单变量函数也成立，比如定义域$D={a}$，且$f(a)$存在，这时$f$在$D$内连续。这与<a href="https://gamersover.github.io/2020/12/08/函数极限3/#定义1：某点连续" target="_blank" rel="noopener">函数极限三的定义1</a>不矛盾，单变量点连续定义的时候$D$为非单点闭区间，且极限值等于函数值，这种定义不包含孤立点的情况，所以单变量连续函数的真正定义也囊括在本章的定义3中。</p>
+<p>注：设$D=\{\boldsymbol{p}_1,\boldsymbol{p}_2,\cdots,\boldsymbol{p}_m \}$，定义函数$f: D \to \mathbb{R}$为$f(\boldsymbol{p}_i) = \lambda_i (i=1,2,\cdots,m)$，这里$\lambda_1,\lambda_2,\cdots,\lambda_m$是任意给定的数，那么根据定义3，$f$在$D$上连续。对于单变量函数也成立，比如定义域$D=\{a\}$，且$f(a)$存在，这时$f$在$D$内连续。这与<a href="https://gamersover.github.io/2020/12/08/函数极限3/#定义1：某点连续" target="_blank" rel="noopener">函数极限三的定义1</a>不矛盾，单变量点连续定义的时候$D$为非单点闭区间，且极限值等于函数值，这种定义不包含孤立点的情况，所以单变量连续函数的真正定义也囊括在本章的定义3中。</p>
 <h4 id="定理5：多变量连续函数的四则运算"><a href="#定理5：多变量连续函数的四则运算" class="headerlink" title="定理5：多变量连续函数的四则运算"></a>定理5：多变量连续函数的四则运算</h4><blockquote>
 <p>设$D \subset \mathbb{R^n}$，$f,g: D \to \mathbb{R}$，点$\boldsymbol{a} \in D$。如果$f,g$在$\boldsymbol{a}$处连续，那么$f \pm g$和$fg$都在$\boldsymbol{a}$处连续，如果$g(\boldsymbol{a}) \ne 0$，那么$f/g$也在$\boldsymbol{a}$处连续。</p>
 </blockquote>
-<p>证：类似单变量极限的四则运算证明，这里以证明$f+g$在$\boldsymbol{a}$处连续为例，其他类似证明方法。由题意可知，$\forall \varepsilon &gt; 0$，$\exists \delta<em>1 &gt; 0$，使得当$x \in D \cap B</em>{\delta<em>1}(\boldsymbol{a})$时，有$|f(\boldsymbol{x}) - f(\boldsymbol{a})| &lt; \varepsilon / 2$；$\exists \delta_2 &gt; 0$，使得当$x \in D \cap B</em>{\delta<em>2}(\boldsymbol{a})$时，有$|g(\boldsymbol{x}) - g(\boldsymbol{a})| &lt; \varepsilon / 2$。令$\delta = \min(\delta_1, \delta_2)$，从而当$x \in D \cap B</em>{\delta}(\boldsymbol{a})$时，有</p>
+<p>证：类似单变量极限的四则运算证明，这里以证明$f+g$在$\boldsymbol{a}$处连续为例，其他类似证明方法。由题意可知，$\forall \varepsilon &gt; 0$，$\exists \delta_1 &gt; 0$，使得当$x \in D \cap B_{\delta_1}(\boldsymbol{a})$时，有$|f(\boldsymbol{x}) - f(\boldsymbol{a})| &lt; \varepsilon / 2$；$\exists \delta_2 &gt; 0$，使得当$x \in D \cap B_{\delta_2}(\boldsymbol{a})$时，有$|g(\boldsymbol{x}) - g(\boldsymbol{a})| &lt; \varepsilon / 2$。令$\delta = \min(\delta_1, \delta_2)$，从而当$x \in D \cap B_{\delta}(\boldsymbol{a})$时，有</p>
 <script type="math/tex; mode=display">
     |f(\boldsymbol{x}) + g(\boldsymbol{x}) - (f(\boldsymbol{a}) + g(\boldsymbol{a}))| \le |f(\boldsymbol{x}) - f(\boldsymbol{a})| + |g(\boldsymbol{x}) - g(\boldsymbol{a})| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon</script><p>这就表明$f+g$在$\boldsymbol{a}$处连续。</p>
 <p>Q.E.D.</p>
 <h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><blockquote>
-<p>设函数$f$在以$\boldsymbol{a} \in \mathbb{R}^n$为球心，$\boldsymbol{r}$为半径的某个球$B_{\boldsymbol{r}}(\boldsymbol{a})$上有定义，且在$\boldsymbol{a}$处连续；一元函数$\varphi$在$U = {t: 0&lt;|t - l| &lt; \delta }$上有定义，且且在$l$处连续，则函数$\varphi(f(\boldsymbol{x}))$在$\boldsymbol{a}$处连续。</p>
+<p>设函数$f$在以$\boldsymbol{a} \in \mathbb{R}^n$为球心，$\boldsymbol{r}$为半径的某个球$B_{\boldsymbol{r}}(\boldsymbol{a})$上有定义，且在$\boldsymbol{a}$处连续；一元函数$\varphi$在$U = \{t: 0&lt;|t - l| &lt; \delta \}$上有定义，且且在$l$处连续，则函数$\varphi(f(\boldsymbol{x}))$在$\boldsymbol{a}$处连续。</p>
 </blockquote>
 <p>证：与单变量复合函数极限证明方法类似。参考<a href="https://gamersover.github.io/2020/11/17/函数极限1/#定理8" target="_blank" rel="noopener">函数极限一的定理8</a>。</p>
 
@@ -492,13 +492,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

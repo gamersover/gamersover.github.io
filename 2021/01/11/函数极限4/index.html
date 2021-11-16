@@ -285,9 +285,9 @@
 <h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
 <p>设函数$g$在$t_0$处连续，记$g(t_0)$为$x_0$，如果函数$f$在$x_0$处连续，那么复合函数$f \circ g$在$t_0$处连续。</p>
 </blockquote>
-<p>证：由题意可知，$\lim \limits<em>{x \to x_0} f(x) = f(x_0)$，$\lim \limits</em>{t \to t_0} g(t) = g(t_0) = x_0$；</p>
+<p>证：由题意可知，$\lim \limits_{x \to x_0} f(x) = f(x_0)$，$\lim \limits_{t \to t_0} g(t) = g(t_0) = x_0$；</p>
 <p>从而对任意$\varepsilon &gt; 0$，存在$\delta &gt; 0$，使得当$0 &lt; |x - x_0| &lt; \delta$时，有$|f(x) - f(x_0)| &lt; \varepsilon$；</p>
-<p>当$x = x<em>0$时，$|f(x_0) - f(x_0)| = 0 &lt; \varepsilon$，从而上述描述可以修改为当$|x - x_0| &lt; \delta$时，有$|f(x) - f(x_0)| &lt; \varepsilon$；对于给定的$\delta &gt; 0$，存在$\eta &gt; 0$，使得当$0 &lt;|t - t_0| &lt; \eta$时，有$|g(t) - x_0| &lt; \delta$，从而有$|f(g(t)) - f(x_0)| &lt; \varepsilon$，所以$\lim \limits</em>{t \to t_0} f(g(t)) = f(x_0) = f(g(t_0))$。</p>
+<p>当$x = x_0$时，$|f(x_0) - f(x_0)| = 0 &lt; \varepsilon$，从而上述描述可以修改为当$|x - x_0| &lt; \delta$时，有$|f(x) - f(x_0)| &lt; \varepsilon$；对于给定的$\delta &gt; 0$，存在$\eta &gt; 0$，使得当$0 &lt;|t - t_0| &lt; \eta$时，有$|g(t) - x_0| &lt; \delta$，从而有$|f(g(t)) - f(x_0)| &lt; \varepsilon$，所以$\lim \limits_{t \to t_0} f(g(t)) = f(x_0) = f(g(t_0))$。</p>
 <p>Q.E.D.</p>
 <h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
 <p>设$f$是在区间$I$上严格递增（减）的连续函数，那么$f^{-1}$是$f(I)$上的严格递增（减）的连续函数。</p>
@@ -310,7 +310,7 @@
 <p>将多项式函数、幂函数、指数函数、对数函数、三角函数与反三角函数以及由它们经过有限次的四则运算、有限次复合所形成的函数统称为初等函数。由上可知初等函数在其各自的定义域上都是连续函数。</p>
 <p>Q.E.D.</p>
 <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>记$\mathbb{R}<em>{\infty} = \mathbb{R} \cup {-\infty, +\infty}$；设函数$f$定义在$B</em>{\delta}(\check x_0)$上，令</p>
+<p>记$\mathbb{R}_{\infty} = \mathbb{R} \cup \{-\infty, +\infty\}$；设函数$f$定义在$B_{\delta}(\check x_0)$上，令</p>
 <script type="math/tex; mode=display">
     E = \{ l \in \mathbb{R}_{\infty}: 存在数列x_n \in B_{\delta}(\check x_0), x_n \to x_0, 使得f(x_n) \to l \}</script><p>这是一个非空的集合。设$a^<em> = \sup E, a_</em> = \inf E$，分别称它们为$f$当$x \to x_0$时的上极限和下极限，分别记作</p>
 <script type="math/tex; mode=display">
@@ -320,27 +320,27 @@
 <p>设函数$f$定义在$I$上，那么：<br/><br>（1）$a^<em> \in E$；<br/><br>（2）若$y &gt; a^</em>$，则存在$\delta &gt; 0$，使得当$0 &lt; |x - x_0| &lt; \delta$时，有$f(x) &lt; y$；<br/><br>（3）$a^*$是满足前述两条性质的唯一的数。</p>
 </blockquote>
 <p>证：（1）若$a^<em> = +\infty$，则任何$n \in \mathbb{N}^</em>$，存在$l_n \in E$，使得$l_n &gt; n$；由于$l_n$在$E$中，从而存在$x_n$，使得当$0 &lt; |x_n - x_0| &lt; 1/n$，有$f(x_n) &gt; n$，这表明$x_n \in I$，$x_n \to x_0$时，$f(x_n) \to +\infty$，即$a^*=+\infty \in E$；</p>
-<p>若$a^<em> = -\infty$，则$E = {-\infty}$，自然有$a^</em> \in E$；</p>
+<p>若$a^<em> = -\infty$，则$E = \{-\infty\}$，自然有$a^</em> \in E$；</p>
 <p>若$a^<em>$为有限数，对任何$n \in \mathbb{N}^</em>$，存在$l_n \in E$，使得</p>
 <script type="math/tex; mode=display">
     a^* - \frac{1}{n} < l_n < a^* + \frac{1}{n}</script><p>从而存在$x_n$满足$0&lt; |x_n - x_0| &lt; 1/n$使得</p>
 <script type="math/tex; mode=display">
    a^* - \frac{1}{n} < f(x_n) < a^*+\frac{1}{n}</script><p>从而$x_n \in I$且$x_n \to x_0$时有$f(x_n) \to a^<em>$，即$a^</em> \in E$</p>
-<p>（2）反证法。假设对任意的$n \in \mathbb{N}^<em>$，存在$x<em>n$，使得$0&lt; |x_n - x_0| &lt; 1/n$时，有$f(x_n)\ge y$，从而存在子列${k_n}$，使得$f(x</em>{k_n}) \to y_1 (n \to \infty)$，此时有$y_1 \ge y &gt; a^</em>$，且$y_1 \in E$，从而与$a^*$的定义矛盾。</p>
+<p>（2）反证法。假设对任意的$n \in \mathbb{N}^<em>$，存在$x_n$，使得$0&lt; |x_n - x_0| &lt; 1/n$时，有$f(x_n)\ge y$，从而存在子列$\{k_n\}$，使得$f(x_{k_n}) \to y_1 (n \to \infty)$，此时有$y_1 \ge y &gt; a^</em>$，且$y_1 \in E$，从而与$a^*$的定义矛盾。</p>
 <p>（3）反证法。假设存在两个数$p$和$q$同时满足（1）与（2），不妨设$p &lt; q$，选取$y$，满足$p &lt; y &lt; q$，由于$p$满足（2），从而存在$\delta &gt; 0$，当$0 &lt; |x - x_0| &lt; \delta$，有$f(x) &lt; y$，此时$q$不能满足（1）。</p>
 <p>Q.E.D.</p>
 <h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><blockquote>
-<p>设函数$f$定义在$I$上，那么： <br/><br>（1）$a<em>* \in E$；<br/><br>（2）若$y &lt; a</em><em>$，则存在$\delta &gt; 0$，使得当$0 &lt; |x - x<em>0| &lt; \delta$时，有$y &lt; f(x)$；<br/><br>（3）$a</em></em>$是满足前述两条性质的唯一的数。</p>
+<p>设函数$f$定义在$I$上，那么： <br/><br>（1）$a_<em> \in E$；<br/><br>（2）若$y &lt; a_</em>$，则存在$\delta &gt; 0$，使得当$0 &lt; |x - x_0| &lt; \delta$时，有$y &lt; f(x)$；<br/><br>（3）$a_*$是满足前述两条性质的唯一的数。</p>
 </blockquote>
 <p>证：与定理5的证明几乎一样。</p>
 <p>Q.E.D.</p>
 <h4 id="定理7"><a href="#定理7" class="headerlink" title="定理7"></a>定理7</h4><blockquote>
-<p>设$f,g$在$I$上有定义，$x<em>0 \in I$，那么：<br/><br>（1）$\liminf \limits</em>{x \to x<em>0} f(x) \le \limsup \limits</em>{x \to x<em>0} f(x)$ <br /><br>（2）$\lim \limits</em>{x \to x<em>0} f(x) = a$当且仅当$\liminf \limits</em>{x \to x<em>0} f(x) = \limsup \limits</em>{x \to x_0} f(x) = a$； <br/><br>（3）若当$x \in I$时，有$f(x) \le g(x)$成立，则</p>
+<p>设$f,g$在$I$上有定义，$x_0 \in I$，那么：<br/><br>（1）$\liminf \limits_{x \to x_0} f(x) \le \limsup \limits_{x \to x_0} f(x)$ <br /><br>（2）$\lim \limits_{x \to x_0} f(x) = a$当且仅当$\liminf \limits_{x \to x_0} f(x) = \limsup \limits_{x \to x_0} f(x) = a$； <br/><br>（3）若当$x \in I$时，有$f(x) \le g(x)$成立，则</p>
 <script type="math/tex; mode=display">
     \liminf_{x \to x_0} f(x) \le \liminf_{x \to x_0} g(x)，\qquad \limsup_{x \to x_0} f(x) \le \limsup_{x \to x_0} g(x)</script></blockquote>
 <p>证：（1）（2）有上极限与下极限的定义易证。下面只证明（3）中的第二个不等式，第一个不等式是类似的证明。<br>令</p>
 <script type="math/tex; mode=display">
-    a^* = \limsup_{x \to x_0} f(x), \qquad b^* = \limsup_{x \to x_0} g(x)</script><p>存在子数列$x<em>n \in I$，且$x_n \to x_0$，使得$\lim \limits</em>{n \to \infty} f(x<em>n) = a^*$，由于$f(x_n) \le g(x_n)$，从${x_n}$中可以选取子列${x</em>{k_n}}$，使得</p>
+    a^* = \limsup_{x \to x_0} f(x), \qquad b^* = \limsup_{x \to x_0} g(x)</script><p>存在子数列$x_n \in I$，且$x_n \to x_0$，使得$\lim \limits_{n \to \infty} f(x_n) = a^*$，由于$f(x_n) \le g(x_n)$，从$\{x_n\}$中可以选取子列$\{x_{k_n}\}$，使得</p>
 <script type="math/tex; mode=display">
     \lim \limits_{n \to \infty} g(x_{k_n}) = b \ge a^* = \lim \limits_{n \to \infty} f(x_{k_n})</script><p>从而有$b^<em> \ge b \ge a^</em>$，即$b^<em> \ge a^</em>$。</p>
 <p>Q.E.D.</p>
@@ -503,13 +503,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

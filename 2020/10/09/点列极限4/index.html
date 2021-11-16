@@ -276,65 +276,65 @@
         <p>本篇主要讲多维空间中点列的极限，下面的讨论都会基于$n$维欧式空间，通常用$\mathbb{R^n}$表示；以下内容的前提是已知$n$维Euclid空间以及各种名词的概念，比如向量，范数，内积等等，如有不理解的概念，建议查看高等代数中关于<strong>度量空间</strong>的内容。</p>
 <a id="more"></a>
 <h4 id="定义1：点列收敛"><a href="#定义1：点列收敛" class="headerlink" title="定义1：点列收敛"></a>定义1：点列收敛</h4><blockquote>
-<p>设$\boldsymbol{x}_i \in \mathbb{R^n}(i=1,2,\cdots)，称{\boldsymbol{x}_i}是\mathbb{R^n}$中的一个点列。$\boldsymbol{a} \in \mathbb{R^n}$，如果对任意给定的$\varepsilon&gt;0$，存在$N \in \mathbb{N^*}$，使得当$i &gt; N$时，有</p>
+<p>设$\boldsymbol{x}_i \in \mathbb{R^n}(i=1,2,\cdots)，称\{\boldsymbol{x}_i\}是\mathbb{R^n}$中的一个点列。$\boldsymbol{a} \in \mathbb{R^n}$，如果对任意给定的$\varepsilon&gt;0$，存在$N \in \mathbb{N^*}$，使得当$i &gt; N$时，有</p>
 <script type="math/tex; mode=display">
-    \Vert \boldsymbol{x}_i - \boldsymbol{a} \Vert < \varepsilon</script><p>称点$\boldsymbol{a}$是点列${\boldsymbol{x}_i}$的极限，记作</p>
+    \Vert \boldsymbol{x}_i - \boldsymbol{a} \Vert < \varepsilon</script><p>称点$\boldsymbol{a}$是点列$\{\boldsymbol{x}_i\}$的极限，记作</p>
 <script type="math/tex; mode=display">
-    \lim \limits_{i\to\infty} \boldsymbol{x}_i = \boldsymbol{a} \quad 或 \quad \boldsymbol{x}_i \to \boldsymbol{a}(i \to \infty)</script><p>也称点列${\boldsymbol{x}_i}$收敛于点$\boldsymbol{a}$。</p>
+    \lim \limits_{i\to\infty} \boldsymbol{x}_i = \boldsymbol{a} \quad 或 \quad \boldsymbol{x}_i \to \boldsymbol{a}(i \to \infty)</script><p>也称点列$\{\boldsymbol{x}_i\}$收敛于点$\boldsymbol{a}$。</p>
 </blockquote>
 <h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>（1）如果点列${\boldsymbol{x}_i}$收敛，那么它的极限必是唯一的；<br/><br>（2）收敛点列必定是有界的。</p>
+<p>（1）如果点列$\{\boldsymbol{x}_i\}$收敛，那么它的极限必是唯一的；<br/><br>（2）收敛点列必定是有界的。</p>
 </blockquote>
 <p>证明与数列极限的证明几乎一样，从略</p>
 <h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>设$\lim \limits<em>{i \to \infty}\boldsymbol{x}_i = \boldsymbol{a}，\lim \limits</em>{i \to \infty}\boldsymbol{y}<em>i = \boldsymbol{b}$，那么 <br/><br>（1）$\lim \limits</em>{i \to \infty}(\boldsymbol{x}_i \pm \boldsymbol{y}_i) = \boldsymbol{a} \pm \boldsymbol{b}$ <br/><br>（2）对任意$\lambda \in \mathbb{R}$，有 </p>
+<p>设$\lim \limits_{i \to \infty}\boldsymbol{x}_i = \boldsymbol{a}，\lim \limits_{i \to \infty}\boldsymbol{y}_i = \boldsymbol{b}$，那么 <br/><br>（1）$\lim \limits_{i \to \infty}(\boldsymbol{x}_i \pm \boldsymbol{y}_i) = \boldsymbol{a} \pm \boldsymbol{b}$ <br/><br>（2）对任意$\lambda \in \mathbb{R}$，有 </p>
 <script type="math/tex; mode=display">
     \lim \limits_{i \to \infty}(\lambda \boldsymbol{x}_i) = \lambda \boldsymbol{a}</script></blockquote>
 <p>证明与数列极限的证明几乎一样，从略</p>
 <h4 id="定义2"><a href="#定义2" class="headerlink" title="定义2"></a>定义2</h4><blockquote>
-<p>设${\boldsymbol{x}_i}$是$\mathbb{R^n}$中的一个点列，并设</p>
+<p>设$\{\boldsymbol{x}_i\}$是$\mathbb{R^n}$中的一个点列，并设</p>
 <script type="math/tex; mode=display">
     \boldsymbol{x}_i = (x_1^{(i)},x_2^{(i)},\cdots,x_n^{(i)}) \quad (i=1,2,\cdots)</script><p>如果对$k=1,2,\cdots,n$，有</p>
 <script type="math/tex; mode=display">
-    \lim \limits_{i \to \infty} x_k^{(i)} = a_k</script><p>则称点列${\boldsymbol{x}_i}$按分量收敛于$\boldsymbol{a}=(a_1,a_2,\cdots,a_n)$。</p>
+    \lim \limits_{i \to \infty} x_k^{(i)} = a_k</script><p>则称点列$\{\boldsymbol{x}_i\}$按分量收敛于$\boldsymbol{a}=(a_1,a_2,\cdots,a_n)$。</p>
 </blockquote>
 <h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
-<p>$\lim \limits_{i \to \infty} \boldsymbol{x}_i = \boldsymbol{a}$等价于点列${\boldsymbol{x}_i}$按分量收敛于$\boldsymbol{a}$。</p>
+<p>$\lim \limits_{i \to \infty} \boldsymbol{x}_i = \boldsymbol{a}$等价于点列$\{\boldsymbol{x}_i\}$按分量收敛于$\boldsymbol{a}$。</p>
 </blockquote>
 <p>证：（a）先证$\boldsymbol{a} = \boldsymbol{0}$的情形，易知不等式</p>
 <script type="math/tex; mode=display">
-    |x_k^{(i)}| \le \Vert \boldsymbol{x}_i \Vert \le |x_1^{(i)}| + |x_2^{(i)}| + \cdots + |x_n^{(i)}| \quad (k=1,2,\cdots,n)</script><p>对所有的$i \in \mathbb{N^*}$都成立；所以当$\lim \limits<em>{i \to \infty} \boldsymbol{x}_i = \boldsymbol{0}$，有$\lim \limits</em>{i \to \infty} x_k^{(i)}=0 (k=1,2,\cdots,n)$，即${\boldsymbol{x}_i}$按分量收敛于$\boldsymbol{0}$。反之，若${\boldsymbol{x}_i}$按分量收敛于$\boldsymbol{0}$，则有</p>
+    |x_k^{(i)}| \le \Vert \boldsymbol{x}_i \Vert \le |x_1^{(i)}| + |x_2^{(i)}| + \cdots + |x_n^{(i)}| \quad (k=1,2,\cdots,n)</script><p>对所有的$i \in \mathbb{N^*}$都成立；所以当$\lim \limits_{i \to \infty} \boldsymbol{x}_i = \boldsymbol{0}$，有$\lim \limits_{i \to \infty} x_k^{(i)}=0 (k=1,2,\cdots,n)$，即$\{\boldsymbol{x}_i\}$按分量收敛于$\boldsymbol{0}$。反之，若$\{\boldsymbol{x}_i\}$按分量收敛于$\boldsymbol{0}$，则有</p>
 <script type="math/tex; mode=display">
-    \lim \limits_{i \to \infty} |x_1^{(i)}| + |x_2^{(i)}| + \cdots + |x_n^{(i)}| = 0</script><p>由此可知$\lim \limits<em>{i \to \infty} \Vert \boldsymbol{x}_i \Vert = 0$，即$\lim \limits</em>{i \to \infty} \boldsymbol{x}<em>i = \boldsymbol{0}$。<br>（b）若$\boldsymbol{a} \ne \boldsymbol{0}$，则考虑点列${\boldsymbol{x}_i - \boldsymbol{a}}$，再由（a）的结论就易证明 $\lim \limits</em>{i \to \infty} \boldsymbol{x}_i = \boldsymbol{a}$等价于点列${\boldsymbol{x}_i}$按分量收敛于$\boldsymbol{a}$。</p>
+    \lim \limits_{i \to \infty} |x_1^{(i)}| + |x_2^{(i)}| + \cdots + |x_n^{(i)}| = 0</script><p>由此可知$\lim \limits_{i \to \infty} \Vert \boldsymbol{x}_i \Vert = 0$，即$\lim \limits_{i \to \infty} \boldsymbol{x}_i = \boldsymbol{0}$。<br>（b）若$\boldsymbol{a} \ne \boldsymbol{0}$，则考虑点列$\{\boldsymbol{x}_i - \boldsymbol{a}\}$，再由（a）的结论就易证明 $\lim \limits_{i \to \infty} \boldsymbol{x}_i = \boldsymbol{a}$等价于点列$\{\boldsymbol{x}_i\}$按分量收敛于$\boldsymbol{a}$。</p>
 <p>Q.E.D.</p>
 <h4 id="定义3：基本点列"><a href="#定义3：基本点列" class="headerlink" title="定义3：基本点列"></a>定义3：基本点列</h4><blockquote>
-<p>设${\boldsymbol{x}_i}$是$\mathbb{R^n}$中的一个点列，如果对任意的$\varepsilon&gt;0$，存在$N \in \mathbb{N^*}$，使得当$k,l&gt;N$时，有$\Vert \boldsymbol{x}_k - \boldsymbol{x}_l \Vert &lt; \varepsilon$，则称${\boldsymbol{x}_i}$是一个基本（点）列。</p>
+<p>设$\{\boldsymbol{x}_i\}$是$\mathbb{R^n}$中的一个点列，如果对任意的$\varepsilon&gt;0$，存在$N \in \mathbb{N^*}$，使得当$k,l&gt;N$时，有$\Vert \boldsymbol{x}_k - \boldsymbol{x}_l \Vert &lt; \varepsilon$，则称$\{\boldsymbol{x}_i\}$是一个基本（点）列。</p>
 </blockquote>
 <h4 id="定理4：基本点列收敛"><a href="#定理4：基本点列收敛" class="headerlink" title="定理4：基本点列收敛"></a>定理4：基本点列收敛</h4><blockquote>
-<p>${\boldsymbol{x}_i}$是收敛点列的充分必要条件是${\boldsymbol{x}_i}$是基本点列。</p>
+<p>$\{\boldsymbol{x}_i\}$是收敛点列的充分必要条件是$\{\boldsymbol{x}_i\}$是基本点列。</p>
 </blockquote>
-<p>证：必要性。设${\boldsymbol{x}_i}$收敛于$\boldsymbol{a}$，可知对任意给定的$\varepsilon &gt; 0$，存在$N \in \mathbb{N^*}$，使得当$i &gt; N$时，有$\Vert \boldsymbol{x}_i - \boldsymbol{a}\Vert &lt; \frac{\varepsilon}{2}$，因此当$k,l&gt;N$时，有</p>
+<p>证：必要性。设$\{\boldsymbol{x}_i\}$收敛于$\boldsymbol{a}$，可知对任意给定的$\varepsilon &gt; 0$，存在$N \in \mathbb{N^*}$，使得当$i &gt; N$时，有$\Vert \boldsymbol{x}_i - \boldsymbol{a}\Vert &lt; \frac{\varepsilon}{2}$，因此当$k,l&gt;N$时，有</p>
 <script type="math/tex; mode=display">
     \Vert \boldsymbol{x}_k - \boldsymbol{a} \Vert < \frac{\varepsilon}{2}, \quad \Vert \boldsymbol{x}_l - \boldsymbol{a} \Vert < \frac{\varepsilon}{2}</script><p>从而有</p>
 <script type="math/tex; mode=display">
-    \Vert \boldsymbol{x}_k - \boldsymbol{x}_l \Vert \le \Vert \boldsymbol{x}_k - \boldsymbol{a} \Vert + \Vert \boldsymbol{a} - \boldsymbol{x}_l \Vert < \varepsilon</script><p>即${\boldsymbol{x}_i}$是基本列；<br>充分性。设${\boldsymbol{x}_i}$是基本列，由不等式</p>
+    \Vert \boldsymbol{x}_k - \boldsymbol{x}_l \Vert \le \Vert \boldsymbol{x}_k - \boldsymbol{a} \Vert + \Vert \boldsymbol{a} - \boldsymbol{x}_l \Vert < \varepsilon</script><p>即$\{\boldsymbol{x}_i\}$是基本列；<br>充分性。设$\{\boldsymbol{x}_i\}$是基本列，由不等式</p>
 <script type="math/tex; mode=display">
-    |x_j^{(k)} - x_j^{(l)}| \le \Vert \boldsymbol{x}_k - \boldsymbol{x}_l \Vert \quad (j=1,2,\cdots,n)</script><p>可知${x_j^{(k)}}(j=1,2,\cdots,n)$是基本列，所以它们是收敛数列，令</p>
+    |x_j^{(k)} - x_j^{(l)}| \le \Vert \boldsymbol{x}_k - \boldsymbol{x}_l \Vert \quad (j=1,2,\cdots,n)</script><p>可知$\{x_j^{(k)}\}(j=1,2,\cdots,n)$是基本列，所以它们是收敛数列，令</p>
 <script type="math/tex; mode=display">
-    \lim \limits_{i \to \infty} x_j^{(i)} = a_j \quad (j = 1,2,\cdots,n)</script><p>从而有点列${\boldsymbol{x}_i}$按分量收敛于$\boldsymbol{a} = (a_1,a_2,\cdots,a_n)$，也即${\boldsymbol{x}_i}$收敛于$\boldsymbol{a}$。</p>
+    \lim \limits_{i \to \infty} x_j^{(i)} = a_j \quad (j = 1,2,\cdots,n)</script><p>从而有点列$\{\boldsymbol{x}_i\}$按分量收敛于$\boldsymbol{a} = (a_1,a_2,\cdots,a_n)$，也即$\{\boldsymbol{x}_i\}$收敛于$\boldsymbol{a}$。</p>
 <p>Q.E.D.</p>
 <h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h4><blockquote>
 <p>(Bolzano-Weierstrass) 从任一有界的点列可以选出收敛的子点列。</p>
 </blockquote>
-<p>证：设点列${\boldsymbol{x}_i}$有界，由不等式$|x_k^{(i)}| \le \Vert \boldsymbol{x}_i \Vert$，易知数列${x_k^{(i)}}(k=1,2,\cdots,n)$是有界的，从而根据数列的Bolzano-Weierstrass定理，存在${i}$的子列${i^{(1)}} \subset {i}$，使得，</p>
+<p>证：设点列$\{\boldsymbol{x}_i\}$有界，由不等式$|x_k^{(i)}| \le \Vert \boldsymbol{x}_i \Vert$，易知数列$\{x_k^{(i)}\}(k=1,2,\cdots,n)$是有界的，从而根据数列的Bolzano-Weierstrass定理，存在$\{i\}$的子列$\{i^{(1)}\} \subset \{i\}$，使得，</p>
 <script type="math/tex; mode=display">
-\lim \limits_{l \to \infty} x_{1}^{(i^{(1)})} = a_1</script><p>而${x_2^{(i^{(1)})}}$也是一个有界数列，从而存在${i^{(1)}}$的一个子列${i^{(2)}} \subset {i^{(1)}} $，使得</p>
+\lim \limits_{l \to \infty} x_{1}^{(i^{(1)})} = a_1</script><p>而$\{x_2^{(i^{(1)})}\}$也是一个有界数列，从而存在$\{i^{(1)}\}$的一个子列$\{i^{(2)}\} \subset \{i^{(1)}\} $，使得</p>
 <script type="math/tex; mode=display">
-\lim \limits_{l \to \infty} x_{k}^{(i^{(2)})} = a_2</script><p>依此下去，找到一串子列满足${i^{(n)}} \subset {i^{(n-1)}} \subset \cdots \subset {i^{(2)}} \subset {i^{(1)}}$，且有</p>
+\lim \limits_{l \to \infty} x_{k}^{(i^{(2)})} = a_2</script><p>依此下去，找到一串子列满足$\{i^{(n)}\} \subset \{i^{(n-1)}\} \subset \cdots \subset \{i^{(2)}\} \subset \{i^{(1)}\}$，且有</p>
 <script type="math/tex; mode=display">
     \lim \limits_{l \to \infty} x_{k}^{(i^{(k)})} = a_k \quad (k=1,2,\cdots,n)</script><p>根据收敛数列的任意子列收敛于同一值，可知</p>
 <script type="math/tex; mode=display">
-    \lim \limits_{l \to \infty} x_{k}^{(i^{(n)})} = a_k \quad (k=1,2,\cdots,n)</script><p>从而找到了${i}$的一个子列${i^{(n)}}$，使得${\boldsymbol{x}_{i^{n)}}}$按分量收敛于$(a_1,a_2,\cdots,a_n)$，即选出了一个收敛子点列。</p>
+    \lim \limits_{l \to \infty} x_{k}^{(i^{(n)})} = a_k \quad (k=1,2,\cdots,n)</script><p>从而找到了$\{i\}$的一个子列$\{i^{(n)}\}$，使得$\{\boldsymbol{x}_{i^{n)}}\}$按分量收敛于$(a_1,a_2,\cdots,a_n)$，即选出了一个收敛子点列。</p>
 <p>Q.E.D.</p>
 
     </div>
@@ -493,13 +493,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

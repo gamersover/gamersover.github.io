@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定义1 在$\mathbb{R}$上，设${a_n}$是一个数列，$a \in \mathbb{R}$，若$\forall \varepsilon&gt;0$，$\exists N(\varepsilon)\in \mathbb{N^*}$，使得$\forall n&gt;N(\varepsilon)$，有$|a_n-a|&lt;\varepsilon$，则称${a_n}$当$n$趋于无穷大时以$">
+  <meta name="description" content="定义1 在$\mathbb{R}$上，设$\{a_n\}$是一个数列，$a \in \mathbb{R}$，若$\forall \varepsilon&gt;0$，$\exists N(\varepsilon)\in \mathbb{N^*}$，使得$\forall n&gt;N(\varepsilon)$，有$|a_n-a|&lt;\varepsilon$，则称$\{a_n\}$当$n$趋于无穷">
 <meta property="og:type" content="article">
 <meta property="og:title" content="点列极限一：数列极限定义与基本性质">
 <meta property="og:url" content="http://yoursite.com/2020/09/20/%E7%82%B9%E5%88%97%E6%9E%81%E9%99%901/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定义1 在$\mathbb{R}$上，设${a_n}$是一个数列，$a \in \mathbb{R}$，若$\forall \varepsilon&gt;0$，$\exists N(\varepsilon)\in \mathbb{N^*}$，使得$\forall n&gt;N(\varepsilon)$，有$|a_n-a|&lt;\varepsilon$，则称${a_n}$当$n$趋于无穷大时以$">
+<meta property="og:description" content="定义1 在$\mathbb{R}$上，设$\{a_n\}$是一个数列，$a \in \mathbb{R}$，若$\forall \varepsilon&gt;0$，$\exists N(\varepsilon)\in \mathbb{N^*}$，使得$\forall n&gt;N(\varepsilon)$，有$|a_n-a|&lt;\varepsilon$，则称$\{a_n\}$当$n$趋于无穷">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-20T02:16:27.000Z">
 <meta property="article:modified_time" content="2021-10-27T05:27:17.737Z">
@@ -255,7 +255,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>433</span>
+              <span>441</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -275,15 +275,15 @@
 
       
         <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a><span id="define1">定义1</span></h4><blockquote>
-<p>在$\mathbb{R}$上，设${a_n}$是一个数列，$a \in \mathbb{R}$，若$\forall \varepsilon&gt;0$，$\exists N(\varepsilon)\in \mathbb{N^*}$，使得$\forall n&gt;N(\varepsilon)$，有$|a_n-a|&lt;\varepsilon$，则称${a_n}$当$n$趋于无穷大时以$a$为极限，记为</p>
+<p>在$\mathbb{R}$上，设$\{a_n\}$是一个数列，$a \in \mathbb{R}$，若$\forall \varepsilon&gt;0$，$\exists N(\varepsilon)\in \mathbb{N^*}$，使得$\forall n&gt;N(\varepsilon)$，有$|a_n-a|&lt;\varepsilon$，则称$\{a_n\}$当$n$趋于无穷大时以$a$为极限，记为</p>
 <script type="math/tex; mode=display">
     \lim_{n\to \infty} a_n = a</script><p>或 </p>
 <script type="math/tex; mode=display">
-a_n \to a \quad (n \to \infty)</script><p>也称数列${a_n}$收敛于$a$； 存在极限的数列称为收敛数列，否则称为发散数列。</p>
+a_n \to a \quad (n \to \infty)</script><p>也称数列$\{a_n\}$收敛于$a$； 存在极限的数列称为收敛数列，否则称为发散数列。</p>
 </blockquote>
 <a id="more"></a>
 <h4 id="定理1：数列极限唯一性"><a href="#定理1：数列极限唯一性" class="headerlink" title="定理1：数列极限唯一性"></a>定理1：数列极限唯一性</h4><blockquote>
-<p>如果数列${a_n}$收敛，那么极限只有一个。</p>
+<p>如果数列$\{a_n\}$收敛，那么极限只有一个。</p>
 </blockquote>
 <p>证：反证法。假设存在两个不同的极限$a, b$，不妨设 $a &lt; b$，由<a href="#define1">定义1</a>可知，对$\frac{b-a}{2}&gt;0$，存在$N_1 \in \mathbb{N^*}$，使得当$n&gt;N_1$时，有</p>
 <script type="math/tex; mode=display">
@@ -291,36 +291,36 @@ a_n \to a \quad (n \to \infty)</script><p>也称数列${a_n}$收敛于$a$； 存
 <script type="math/tex; mode=display">
     |a_n-b|<\frac{b-a}{2} \tag 2</script><p>令$N=\max(N_1,N_2)$，可知当$n&gt;N$时，式(1)(2)同时成立，由式(1)可得$a_n&lt;\frac{a+b}{2}$，由式(2)可得$a_n&gt;\frac{a+b}{2}$，从而矛盾，所以假设不成立，记极限唯一。<br>Q.E.D.</p>
 <h4 id="定义2"><a href="#定义2" class="headerlink" title="定义2"></a>定义2</h4><blockquote>
-<p>设${a_n}$是一个数列，若$\exists A \in \mathbb{R}$，使得 $\forall n \in \mathbb{N^<em>}$ ，有$a_n \le A$，则称${a_n}$有上界，$A$是此数列的一个上界；若$\exists B \in \mathbb{R}$，使得$\forall n \in \mathbb{N^</em>}$，有$a_n \ge B$，则称${a_n}$有下界，$B$是此数列的一个下界；若数列既有上界又有下界，则称此数列是一个有界数列。</p>
+<p>设$\{a_n\}$是一个数列，若$\exists A \in \mathbb{R}$，使得 $\forall n \in \mathbb{N^<em>}$ ，有$a_n \le A$，则称$\{a_n\}$有上界，$A$是此数列的一个上界；若$\exists B \in \mathbb{R}$，使得$\forall n \in \mathbb{N^</em>}$，有$a_n \ge B$，则称$\{a_n\}$有下界，$B$是此数列的一个下界；若数列既有上界又有下界，则称此数列是一个有界数列。</p>
 </blockquote>
 <h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a><span id="theorem2">定理2</span></h4><blockquote>
 <p>收敛数列是有界的。</p>
 </blockquote>
-<p>证：设数列${a_n}$收敛于$a$，由<a href="#define1">定义1</a>可知，对于$1&gt;0$，存在$N \in \mathbb{N^<em>}$，使得当$n &gt; N$时，有$|a_n-a| &lt; 1$，从而$|a_n|=|a_n-a+a|&lt;=|a_n-a|+|a|&lt;1+|a|$，令$M=|a_1|+|a_2|+\cdots+|a_N|+|a|+1$，可知对所有的$n \in \mathbb{N^</em>}$，有$|a_n|&lt;M$。<br>Q.E.D.</p>
+<p>证：设数列$\{a_n\}$收敛于$a$，由<a href="#define1">定义1</a>可知，对于$1&gt;0$，存在$N \in \mathbb{N^<em>}$，使得当$n &gt; N$时，有$|a_n-a| &lt; 1$，从而$|a_n|=|a_n-a+a|&lt;=|a_n-a|+|a|&lt;1+|a|$，令$M=|a_1|+|a_2|+\cdots+|a_N|+|a|+1$，可知对所有的$n \in \mathbb{N^</em>}$，有$|a_n|&lt;M$。<br>Q.E.D.</p>
 <h4 id="定义3"><a href="#定义3" class="headerlink" title="定义3"></a>定义3</h4><blockquote>
-<p>设${a<em>n}$是一个数列，$k_i \in \mathbb{N^*} (i=1,2,3,\cdots)$，且满足$k_1&lt;k_2&lt;k_3&lt;\cdots$，那么数列${a</em>{k_n}}$称为${a_n}$的一个子列。</p>
+<p>设$\{a_n\}$是一个数列，$k_i \in \mathbb{N^*} (i=1,2,3,\cdots)$，且满足$k_1&lt;k_2&lt;k_3&lt;\cdots$，那么数列$\{a_{k_n}\}$称为$\{a_n\}$的一个子列。</p>
 </blockquote>
 <h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
-<p>设数列${a_n}$的极限为$a$，那么该数列的任何一个子列都收敛于$a$。</p>
+<p>设数列$\{a_n\}$的极限为$a$，那么该数列的任何一个子列都收敛于$a$。</p>
 </blockquote>
-<p>证：任取${a<em>n}$的一个子列${a</em>{k<em>n}}，$由<a href="#define1">定义1</a>可知，任取$\varepsilon&gt;0$，存在$N\in \mathbb{N^*}$，使得当$n&gt;N$时，有$|a_n-a|&lt;\varepsilon$，而$k_n \ge n$，所以当$k_n \ge n &gt; N$时， 有$|a</em>{k<em>n}-a|&lt;\varepsilon$，所以${a</em>{k_n}}$收敛于$a$。<br>Q.E.D.</p>
+<p>证：任取$\{a_n\}$的一个子列$\{a_{k_n}\}，$由<a href="#define1">定义1</a>可知，任取$\varepsilon&gt;0$，存在$N\in \mathbb{N^*}$，使得当$n&gt;N$时，有$|a_n-a|&lt;\varepsilon$，而$k_n \ge n$，所以当$k_n \ge n &gt; N$时， 有$|a_{k_n}-a|&lt;\varepsilon$，所以$\{a_{k_n}\}$收敛于$a$。<br>Q.E.D.</p>
 <h4 id="定理4：极限的四则运算"><a href="#定理4：极限的四则运算" class="headerlink" title="定理4：极限的四则运算"></a>定理4：极限的四则运算</h4><blockquote>
-<p>设${a<em>n}$与${b_n}$都是收敛数列，则${a_n+b_n}$，${a_nb_n}$也是收敛数列，如果$\lim \limits</em>{n\to\infty}b<em>n \ne 0$，则${\frac{a_n}{b_n}}$也收敛，并且有： <br /><br>（1）$\lim \limits</em>{n\to\infty}(a<em>n \pm b_n)=\lim \limits</em>{n\to\infty}a<em>n \pm \lim \limits</em>{n\to\infty}b<em>n$  <br /><br>（2）$\lim \limits</em>{n\to\infty}(a<em>nb_n)=\lim \limits</em>{n\to\infty}a<em>n \cdot \lim \limits</em>{n\to\infty}b<em>n$   <br /><br>（3）$\lim \limits</em>{n\to\infty}\frac{a<em>n}{b_n}=\frac{\lim \limits</em>{n\to\infty}a<em>n}{\lim \limits</em>{n\to\infty}b_n}$</p>
+<p>设$\{a_n\}$与$\{b_n\}$都是收敛数列，则$\{a_n+b_n\}$，$\{a_nb_n\}$也是收敛数列，如果$\lim \limits_{n\to\infty}b_n \ne 0$，则$\{\frac{a_n}{b_n}\}$也收敛，并且有： <br /><br>（1）$\lim \limits_{n\to\infty}(a_n \pm b_n)=\lim \limits_{n\to\infty}a_n \pm \lim \limits_{n\to\infty}b_n$  <br /><br>（2）$\lim \limits_{n\to\infty}(a_nb_n)=\lim \limits_{n\to\infty}a_n \cdot \lim \limits_{n\to\infty}b_n$   <br /><br>（3）$\lim \limits_{n\to\infty}\frac{a_n}{b_n}=\frac{\lim \limits_{n\to\infty}a_n}{\lim \limits_{n\to\infty}b_n}$</p>
 </blockquote>
-<p>证：设$\lim \limits<em>{n\to\infty}a_n=a$，$\lim \limits</em>{n\to\infty}b_n=b$</p>
+<p>证：设$\lim \limits_{n\to\infty}a_n=a$，$\lim \limits_{n\to\infty}b_n=b$</p>
 <p>（1）由<a href="#define1">定义1</a>可知，任取$\varepsilon&gt;0$，存在$N_1 \in \mathbb{N^<em>}$，使得当$n&gt;N_1$时，有$|a_n-a|&lt;\frac{\varepsilon}{2}$；存在$N_2 \in \mathbb{N^</em>}$，使得当$n&gt;N_2$时，有$|b_n-b|&lt;\frac{\varepsilon}{2}$；取$N=\max(N_1,N_2)$，可知当$n&gt;N$时，有</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
     |(a_n \pm b_n) - (a \pm b)| & = |(a_n-a) \pm (b_n-b)| \\
     & \le |a_n-a| + |b_n-b| \\
     & < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
-\end{aligned}</script><p>（2） 由于${a_n}$收敛，由<a href="#theorem2">定理2</a>可知${a_n}$有界，即存在$M \in N^<em>$，使得$|a_n|&lt;M$对一切$n \in N^</em>$成立，从而有</p>
+\end{aligned}</script><p>（2） 由于$\{a_n\}$收敛，由<a href="#theorem2">定理2</a>可知$\{a_n\}$有界，即存在$M \in N^<em>$，使得$|a_n|&lt;M$对一切$n \in N^</em>$成立，从而有</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
     |a_nb_n-ab| & = |a_nb_n-a_nb+a_nb-ab| \\
     & \le |a_n||b_n-b| + |b||a_n-a| \\
     & \le M|b_n-b| + |b||a_n-a|
-\end{aligned}</script><p>类似（1），因为${a_n}$，${b_n}$分别收敛于$a,b$，所以对任意的$\varepsilon&gt;0$，存在$n \in N^*$，使得当$n&gt;N$时，有</p>
+\end{aligned}</script><p>类似（1），因为$\{a_n\}$，$\{b_n\}$分别收敛于$a,b$，所以对任意的$\varepsilon&gt;0$，存在$n \in N^*$，使得当$n&gt;N$时，有</p>
 <script type="math/tex; mode=display">
     |a_n-a|<\frac{\varepsilon}{2(|b|+1)}， |b_n-b|<\frac{\varepsilon}{2M}</script><p>同时成立；从而</p>
 <script type="math/tex; mode=display">
@@ -330,7 +330,7 @@ a_n \to a \quad (n \to \infty)</script><p>也称数列${a_n}$收敛于$a$； 存
 <script type="math/tex; mode=display">
     |b_n-b|<\frac{|b|}{2}</script><p>此时，有$|b_n| \ge |b| - |b_n-b| &gt; \frac{|b|}{2} &gt; 0$，并且有</p>
 <script type="math/tex; mode=display">
-    \left|\frac{1}{b_n} - \frac{1}{b}\right| = \frac{|b_n - b|}{|b_nb|} \le \frac{2}{b^2} |b_n-b|</script><p>由于${b_n}$收敛于$b$，对任意的$\varepsilon&gt;0$，存在$N_2\in N^*$，使得当$n&gt;N_2$时，有$|b_n-b|&lt;\frac{b^2}{2}\varepsilon$；从而当$n&gt;\max(N_1,N_2)$时，有</p>
+    \left|\frac{1}{b_n} - \frac{1}{b}\right| = \frac{|b_n - b|}{|b_nb|} \le \frac{2}{b^2} |b_n-b|</script><p>由于$\{b_n\}$收敛于$b$，对任意的$\varepsilon&gt;0$，存在$N_2\in N^*$，使得当$n&gt;N_2$时，有$|b_n-b|&lt;\frac{b^2}{2}\varepsilon$；从而当$n&gt;\max(N_1,N_2)$时，有</p>
 <script type="math/tex; mode=display">
     \left|\frac{1}{b_n} - \frac{1}{b}\right| < \frac{2}{b^2}\frac{b^2}{2}\varepsilon=\varepsilon</script><p>所以</p>
 <script type="math/tex; mode=display">
@@ -338,7 +338,7 @@ a_n \to a \quad (n \to \infty)</script><p>也称数列${a_n}$收敛于$a$； 存
 <script type="math/tex; mode=display">
     \lim \limits_{n\to\infty}\frac{a_n}{b_n}=\lim \limits_{n\to\infty}a_n(\frac{1}{b_n})=\frac{b}{a}</script><p>Q.E.D.</p>
 <h4 id="定理5：极限保号性"><a href="#定理5：极限保号性" class="headerlink" title="定理5：极限保号性"></a><span id="theorem5">定理5</span>：极限保号性</h4><blockquote>
-<p>（1）设$\lim \limits<em>{n\to\infty}a_n=a$，$\alpha，\beta$满足$\alpha &lt; a &lt; \beta$，那么当$n$充分大时，有$\alpha &lt; a_n &lt; \beta$。 <br /><br>（2）设$\lim \limits</em>{n\to\infty}a<em>n=a，\lim \limits</em>{n\to\infty}b<em>n=b$，且$a &lt; b$，那么当$n$充分大时，一定有$a_n &lt; b_n$。<br/><br>（3）设$\lim \limits</em>{n\to\infty}a<em>n=a，\lim \limits</em>{n\to\infty}b_n=b$，并且当$n$充分大时$a_n \le b_n$，那么有$a \le b$。<br/></p>
+<p>（1）设$\lim \limits_{n\to\infty}a_n=a$，$\alpha，\beta$满足$\alpha &lt; a &lt; \beta$，那么当$n$充分大时，有$\alpha &lt; a_n &lt; \beta$。 <br /><br>（2）设$\lim \limits_{n\to\infty}a_n=a，\lim \limits_{n\to\infty}b_n=b$，且$a &lt; b$，那么当$n$充分大时，一定有$a_n &lt; b_n$。<br/><br>（3）设$\lim \limits_{n\to\infty}a_n=a，\lim \limits_{n\to\infty}b_n=b$，并且当$n$充分大时$a_n \le b_n$，那么有$a \le b$。<br/></p>
 </blockquote>
 <p>证：（1）对$\varepsilon = \beta-a&gt;0$，则存在$N_1 \in \mathbb{N^*}$，使得当$n&gt;N_1$时，有</p>
 <script type="math/tex; mode=display">
@@ -351,9 +351,9 @@ a_n \to a \quad (n \to \infty)</script><p>也称数列${a_n}$收敛于$a$； 存
     a_n < m < b_n</script><p>（3）反证法。假设$a&gt;b$，则由（2）可知，当$n$充分大时，有$a_n&gt;b_n$，与条件$a_n \le b_n$矛盾，所以$a \le b$。</p>
 <p>Q.E.D.</p>
 <h4 id="定理6：夹逼定理"><a href="#定理6：夹逼定理" class="headerlink" title="定理6：夹逼定理"></a>定理6：夹逼定理</h4><blockquote>
-<p>三个实数域上的数列${a_n},{b_n},{c_n}$，若满足</p>
+<p>三个实数域上的数列$\{a_n\},\{b_n\},\{c_n\}$，若满足</p>
 <script type="math/tex; mode=display">
-    a_n \le b_n \le c_n \quad  (n \in \mathbb{N^*})</script><p>若$\lim \limits<em>{n\to\infty}a_n=\lim \limits</em>{n\to\infty}c_n=a$，那么</p>
+    a_n \le b_n \le c_n \quad  (n \in \mathbb{N^*})</script><p>若$\lim \limits_{n\to\infty}a_n=\lim \limits_{n\to\infty}c_n=a$，那么</p>
 <script type="math/tex; mode=display">
     \lim \limits_{n\to\infty}b_n = a</script></blockquote>
 <p>证：由<a href="#theorem5">定理5</a>的（3）可知，有</p>
@@ -362,29 +362,29 @@ a_n \to a \quad (n \to \infty)</script><p>也称数列${a_n}$收敛于$a$； 存
 <script type="math/tex; mode=display">
 \lim \limits_{n\to\infty}b_n = a</script><p>Q.E.D.</p>
 <h4 id="定义4"><a href="#定义4" class="headerlink" title="定义4"></a>定义4</h4><blockquote>
-<p>如果数列${a_n}$满足条件，对任何正数$A$，都存在$N\in \mathbb{N^*}$，使得当$n&gt;N$时，有$a_n&gt;A$，则称数列${a_n}$趋向于$+\infty$，记作</p>
+<p>如果数列$\{a_n\}$满足条件，对任何正数$A$，都存在$N\in \mathbb{N^*}$，使得当$n&gt;N$时，有$a_n&gt;A$，则称数列$\{a_n\}$趋向于$+\infty$，记作</p>
 <script type="math/tex; mode=display">
-    \lim \limits_{n\to\infty}a_n = +\infty</script><p>如果对任何正数$A$，都存在$N\in \mathbb{N^*}$，使得当$n&gt;N$时，有$a_n&lt;-A$，则称数列${a_n}$趋向于$-\infty$，记作</p>
+    \lim \limits_{n\to\infty}a_n = +\infty</script><p>如果对任何正数$A$，都存在$N\in \mathbb{N^*}$，使得当$n&gt;N$时，有$a_n&lt;-A$，则称数列$\{a_n\}$趋向于$-\infty$，记作</p>
 <script type="math/tex; mode=display">
     \lim \limits_{n\to\infty}a_n = -\infty</script></blockquote>
 <h4 id="定义5"><a href="#定义5" class="headerlink" title="定义5"></a>定义5</h4><blockquote>
-<p>如果收敛数列${a<em>n}$的极限为0，则称该数列为无穷小数列，简称无穷小；如果$\lim \limits</em>{n\to\infty}|a<em>n|=\infty$，则称该数列趋向于$\infty$，记作$\lim \limits</em>{n\to\infty}a_n=\infty$，也称该数列为无穷大数列，简称无穷大。</p>
+<p>如果收敛数列$\{a_n\}$的极限为0，则称该数列为无穷小数列，简称无穷小；如果$\lim \limits_{n\to\infty}|a_n|=\infty$，则称该数列趋向于$\infty$，记作$\lim \limits_{n\to\infty}a_n=\infty$，也称该数列为无穷大数列，简称无穷大。</p>
 </blockquote>
 <h4 id="定义6：单调数列"><a href="#定义6：单调数列" class="headerlink" title="定义6：单调数列"></a>定义6：单调数列</h4><blockquote>
-<p>如果数列${a_n}$满足</p>
+<p>如果数列$\{a_n\}$满足</p>
 <script type="math/tex; mode=display">
-    a_n \le a_{n+1} \quad (n=1,2,\cdots)</script><p>则称此数列为递增数列；如果${a_n}$满足</p>
+    a_n \le a_{n+1} \quad (n=1,2,\cdots)</script><p>则称此数列为递增数列；如果$\{a_n\}$满足</p>
 <script type="math/tex; mode=display">
-    a_n \ge a_{n+1} \quad (n=1,2,\cdots)</script><p>则称此数列为递减数列；如果上面两个不等式都是严格的，即$a<em>n &lt; a</em>{n+1}$（或$a<em>n &gt; a</em>{n+1}$）（$n=1,2,\cdots$），则称此数列为严格递增的（或严格递减的）</p>
+    a_n \ge a_{n+1} \quad (n=1,2,\cdots)</script><p>则称此数列为递减数列；如果上面两个不等式都是严格的，即$a_n &lt; a_{n+1}$（或$a_n &gt; a_{n+1}$）（$n=1,2,\cdots$），则称此数列为严格递增的（或严格递减的）</p>
 </blockquote>
-<h4 id="定理7：单调且有界的数列一定有界。"><a href="#定理7：单调且有界的数列一定有界。" class="headerlink" title="定理7：单调且有界的数列一定有界。"></a>定理7：单调且有界的数列一定有界。</h4><p>证：不妨设数列${a_n}$为递增的且有上界，利用实数都可以表示成十进制无尽小数的性质，将该数列的每项表示为无尽小数：</p>
+<h4 id="定理7：单调且有界的数列一定有界。"><a href="#定理7：单调且有界的数列一定有界。" class="headerlink" title="定理7：单调且有界的数列一定有界。"></a>定理7：单调且有界的数列一定有界。</h4><p>证：不妨设数列$\{a_n\}$为递增的且有上界，利用实数都可以表示成十进制无尽小数的性质，将该数列的每项表示为无尽小数：</p>
 <script type="math/tex; mode=display">
     \begin{aligned}
     a_1 & = A_1.b_{11}b_{12}\cdots \\
     a_2 & = A_2.b_{21}b_{22}\cdots \\
     a_3 & = A_3.b_{31}b_{32}\cdots \\
     & \cdots
-    \end{aligned}</script><p>其中$A<em>1,A_2,A_3,\cdots$都是整数，而$b</em>{ij}$是0到9中的数。由于${a<em>n}$有上界，从而${A_n}$必有上界，记该数为$A$，而${a_n}$又是单调递增的，从而存在$N_0 \in \mathbb{N^*}$，使得当$n \ge N_0$时，有$A_n=A$；此时考虑${a_n}$数列$n \ge N_0$的项，对$b</em>{N<em>01},b</em>{(N<em>0+1)1},b</em>{(N<em>0+2)1},\cdots$类似前面的讨论，可知${b</em>{i1}}(i \ge N<em>0)$存在上界，记为$x_1$，同时存在$N_1 \ge N_0$，使得当$n \ge N_1$时，有$b</em>{n1}=x_1$；对其他列类比讨论，可以得到一列数$x_1,x_2,x_3,\cdots$，以及相应的正整数$N_0 \le N_1 \le N_2 \le \cdots$。令$a=A.x_1x_2x_3\cdots$，下面证明$a$就是数列${a_n}$的极限。任取$\varepsilon&gt;0$，总存在$m \in \mathbb{N^*}$，使得$10^{-m}&lt;\varepsilon$，而当$n&gt;N_m$，有$a_n$的整数部分和小数点后的前$m$位上的数与$a$完全一致，所以</p>
+    \end{aligned}</script><p>其中$A_1,A_2,A_3,\cdots$都是整数，而$b_{ij}$是0到9中的数。由于$\{a_n\}$有上界，从而$\{A_n\}$必有上界，记该数为$A$，而$\{a_n\}$又是单调递增的，从而存在$N_0 \in \mathbb{N^<em>}$，使得当$n \ge N_0$时，有$A_n=A$；此时考虑$\{a_n\}$数列$n \ge N_0$的项，对$b_{N_01},b_{(N_0+1)1},b_{(N_0+2)1},\cdots$类似前面的讨论，可知$\{b_{i1}\}(i \ge N_0)$存在上界，记为$x_1$，同时存在$N_1 \ge N_0$，使得当$n \ge N_1$时，有$b_{n1}=x_1$；对其他列类比讨论，可以得到一列数$x_1,x_2,x_3,\cdots$，以及相应的正整数$N_0 \le N_1 \le N_2 \le \cdots$。令$a=A.x_1x_2x_3\cdots$，下面证明$a$就是数列$\{a_n\}$的极限。任取$\varepsilon&gt;0$，总存在$m \in \mathbb{N^</em>}$，使得$10^{-m}&lt;\varepsilon$，而当$n&gt;N_m$，有$a_n$的整数部分和小数点后的前$m$位上的数与$a$完全一致，所以</p>
 <script type="math/tex; mode=display">
     |a_n-a| < 10^{-m} < \varepsilon</script><p>从而证明了</p>
 <script type="math/tex; mode=display">
@@ -546,13 +546,13 @@ a_n \to a \quad (n \to \infty)</script><p>也称数列${a_n}$收敛于$a$； 存
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:13</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
