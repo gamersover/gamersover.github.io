@@ -2,6 +2,10 @@
 title: pandasecharts使用示例一：Bar柱状图
 date: 2021-12-17 10:33:44
 tags:
+    - python
+    - 可视化
+    - pandasecharts
+categories: 教程
 ---
 
 [pandasecharts](https://github.com/gamersover/pandasecharts)是一款基于pandas和pyecharts的可视化工具，该文档适用于版本>=0.3.1。

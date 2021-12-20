@@ -68,6 +68,7 @@ PyQt5控件布局的基本逻辑是：
 界面展示：
 <img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No1.jpg" width="25%">
 代码如下：
+
 ```python
 import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication
@@ -91,6 +92,7 @@ if __name__ == "__main__":
 
     sys.exit(app.exec_())
 ```
+
 可以看到初始化了一个主窗口`QMainWindow`，其中Qt程序的入口使用`QApplication`类实现，主窗口的属性如下：
 
 |  | API                                             | 描述                                                         |
@@ -108,6 +110,7 @@ if __name__ == "__main__":
 
 ### 设置布局和添加控件
 有了主窗口后，就可以添加想要添加的控件了，如下面代码：
+
 ```python
 def init_ui(self):
     self.setGeometry(200, 200, 1600, 800)
@@ -125,6 +128,7 @@ def init_ui(self):
 
     self.setCentralWidget(main_widget)
 ```
+
 其中创建了一个主控件`main_widget`用来显示其他控件，使用`setCentralWidget(main_widget)`可以将`main_widget`设置为主窗口`QMainWindow`的中央控件，该控件使用了垂直布局方式`QVBoxlayout`，其中包含两个文本编辑子控件`QLineEdit`。从这里也可以看出widget和layout的关系：
 > widget.setLayout(layout)
 > layout.addWidget(widget)
@@ -137,6 +141,7 @@ def init_ui(self):
 可以先整理下该界面中的有哪些控件以及包含关系：
 <img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No2.jpg" width="60%">
 其中主控件(`main_widget`)包含左右两个控件，而右边控件(`right_widget`)又包含两个控件，所以代码实现为：
+
 ```python
 import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QVBoxLayout, QWidget, QHBoxLayout
@@ -181,4 +186,5 @@ if __name__ == "__main__":
 
     sys.exit(app.exec_())
 ```
+
 `main_widget`使用了`QHBoxLayout`布局方式，包含`left_widget`和`right_widget`两个子控件；而`right_widget`使用了`QVBoxLayout`布局方式，包含了`top_widget`和`buttom_widget`两个子控件。
