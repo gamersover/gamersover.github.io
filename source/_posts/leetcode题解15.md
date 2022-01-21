@@ -4,7 +4,7 @@ date: 2021-01-22 20:16:33
 tags:
     - leetcode
     - 数组
-    - 双指针
+    - 双指针法
 categories: 算法
 mathjax: true
 ---

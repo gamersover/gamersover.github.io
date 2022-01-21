@@ -4,7 +4,7 @@ date: 2020-11-14 09:41:06
 tags:
     - leetcode
     - 数组
-    - 二分查找
+    - 二分法
 categories: 算法
 mathjax: true
 ---
