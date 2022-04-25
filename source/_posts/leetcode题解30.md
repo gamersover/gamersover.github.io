@@ -45,6 +45,70 @@ mathjax: true
 
 
 ## 分析
+需要知道words的一个组合是否是s的一个子串，由于words中的元素组合成的字符串是固定长度的，所以只需要考虑s中固定长度的子串，以实例2为例，words中每个词的长度为4，而words中元素个数也是4，所以组合成的字符串总长度为`4*4 = 16`，所以遍历s的长度为16的子串，看看该子串里的元素是否和words一样。具体过程为：
+<font color='red'>wordgoodgoodgood</font>bestword -> w<font color='red'>ordgoodgoodgoodb</font>estword -> wo<font color='red'>rdgoodgoodgoodbe</font>stword -> ...
 
+上述方法每次移动一个字符串，无法利用之前窗口的信息，显然不合理，由于每个元素长度为4，可以每次移动4个字符，即
+* 以`w`开始，长度为16的窗口，以4为步长移动：<font color='red'>wordgoodgoodgood</font>bestword -> word<font color='red'>goodgoodgoodbest</font>word -> wordgood<font color='red'>goodgoodbestword</font> -> ...
+* 以`o`开始，长度为16的窗口，以4为步长移动：w<font color='red'>ordgoodgoodgoodb</font>estword -> wordg<font color='red'>oodgoodgoodbestw</font>ord
+* 以`r`开始以及以`d`开始相应的窗口移动
+
+优化后的方法同样可以遍历完所有子串，而且由于每次移出一个单词，移入一个单词，从而可以很好的维护窗口中的元素。
+
+在模拟窗口移动时发现可以继续优化，比如即将移入的元素不存在于words中，表明直到将该元素移出为止，不可能存在满足条件的子串。另外一种可以优化的情况，如果即将移入的元素在words中，但是元素个数超过了words中的该元素个数呢？显然这时候需要移出该元素前面的所有元素（包含自身），这样才能让该元素的个数少一个。
+
+考虑了上面的两种情况就可以保证子串里的元素都在words中，且每个元素的个数不超过words中的元素，所以该窗口必为words中的某个组合，因为如果某个元素的个数小与words中的该元素个数，那么窗口的长度必然小于16。
 
 ## 算法
+
+
+<details open>
+<summary>python<summary>
+
+```python
+class Solution:
+    def findSubstring(self, s: str, words: List[str]) -> List[int]:
+        word_len = len(words[0])
+        num_words = len(words)
+        total_len = num_words * word_len
+        s_len = len(s)
+        all_indices = []
+
+        if s_len < total_len:
+            return all_indices
+
+        word_map = {}
+        for word in words:
+            word_map[word] = word_map.get(word, 0) + 1
+
+        for wi in range(min(word_len, s_len - total_len+1)):
+            start = curr = 0
+            window_map = {}
+            while wi + curr * word_len <= (s_len - word_len):
+                curr_word = s[wi+curr*word_len:wi+curr*word_len+word_len]
+                if curr_word not in word_map:
+                    window_map = {}
+                    start = curr + 1
+                else:
+                    window_map[curr_word] = [
+                        window_map.get(curr_word, [0, []])[0] + 1,
+                        window_map.get(curr_word, [0, []])[1] + [curr]
+                    ]
+
+                    if window_map[curr_word][0] > word_map[curr_word]:
+                        new_start = window_map[curr_word][1][0] + 1
+                        for i in range(start, window_map[curr_word][1][0] + 1):
+                            window_map[s[wi+i*word_len:wi+i*word_len+word_len]][0] -= 1
+                            window_map[s[wi+i*word_len:wi+i*word_len+word_len]][1].pop(0)
+                        start = new_start
+
+                    if curr - start + 1 == num_words:
+                        if window_map[curr_word][0] == word_map[curr_word]:
+                            all_indices.append(wi+start*word_len)
+                        window_map[s[wi+start*word_len:wi+start*word_len+word_len]][0] -= 1
+                        start += 1
+
+                curr += 1
+        return all_indices
+```
+</detail>
