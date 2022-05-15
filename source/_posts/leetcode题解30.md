@@ -61,9 +61,8 @@ mathjax: true
 
 ## 算法
 
-
 <details open>
-<summary>python<summary>
+<summary>python</summary>
 
 ```python
 class Solution:
@@ -111,4 +110,4 @@ class Solution:
                 curr += 1
         return all_indices
 ```
-</detail>
+</details>
