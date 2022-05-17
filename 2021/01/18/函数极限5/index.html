@@ -29,7 +29,7 @@
 <meta property="og:description" content="定义1 设$D \subset \mathbb{R^n}$，那么映射$f: D \to \mathbb{R}$称为一个$n$元函数，其中$D$称为函数$f$的定义域，而$f(D) \subset \mathbb{R}$称为$f$的值域。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-18T13:13:19.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.735Z">
+<meta property="article:modified_time" content="2022-05-17T05:12:55.041Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="多变量函数">
@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
+                <time title="修改时间：2022-05-17 13:12:55" itemprop="dateModified" datetime="2022-05-17T13:12:55+08:00">2022-05-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -287,8 +287,8 @@
     \lim \limits_{\boldsymbol{x} \to \boldsymbol{a}} f(\boldsymbol{x}) = l</script><p>的充分必要条件是，对任何的点列$\{\boldsymbol{x}_i\} \subset D$，$\boldsymbol{x}_i \ne \boldsymbol{a} (i=1,2,3,\cdots)$且$\boldsymbol{x}_i \to \boldsymbol{a} (i \to \infty)$，数列极限</p>
 <script type="math/tex; mode=display">
     \lim \limits_{i \to \infty} f(\boldsymbol{x}_i) = l</script></blockquote>
-<p>证：必要性。有函数极限定义可知，对$\forall \varepsilon &gt; 0$，存在$\delta &gt; 0$，使得当$0 &lt; \Vert \boldsymbol{x} - \boldsymbol{a} \Vert &lt; \delta$时，有$|f(\boldsymbol{x}) - f(\boldsymbol{a})| &lt; \varepsilon$；由于$\boldsymbol{x}_i \to \boldsymbol{a} (i \to \infty)$，从而对于给定的$\delta$，存在$N \in \mathbb{N^*}$，使得当$i &gt; N$时，有$0 &lt; \Vert \boldsymbol{x}_i - \boldsymbol{a}| &lt; \delta$，从而$|f(\boldsymbol{x}_i) - f(\boldsymbol{a})| &lt; \varepsilon$，即$\lim \limits_{i \to \infty} f(\boldsymbol{x}_i) = l$</p>
-<p>充分性。反证法。假设$f$在$\boldsymbol{a}$处不以$l$为极限，则存在$\varepsilon_0 &gt; 0$，使得对任意的$i \in \mathbb{N^*}$，可以取出一个点$\boldsymbol{x}_i \in D$，使得当$|\boldsymbol{x}_i - \boldsymbol{a}| &lt; 1/i$时，有$|f(\boldsymbol{x}_i) - f(\boldsymbol{a})| \ge \varepsilon_0$，这时点列$\{\boldsymbol{x}_i\} \subset D$，且$\boldsymbol{x}_i \to \boldsymbol{a} (i \to \infty)$，但是数列$\{f(\boldsymbol{x}_i)\}$显然不以$l$为极限，矛盾。</p>
+<p>证：必要性。有函数极限定义可知，对$\forall \varepsilon &gt; 0$，存在$\delta &gt; 0$，使得当$0 &lt; \Vert \boldsymbol{x} - \boldsymbol{a} \Vert &lt; \delta$时，有$|f(\boldsymbol{x}) - f(\boldsymbol{a})| &lt; \varepsilon$；由于$\boldsymbol{x}_i \to \boldsymbol{a} (i \to \infty)$，从而对于给定的$\delta$，存在$N \in \mathbb{N^+}$，使得当$i &gt; N$时，有$0 &lt; \Vert \boldsymbol{x}_i - \boldsymbol{a}| &lt; \delta$，从而$|f(\boldsymbol{x}_i) - f(\boldsymbol{a})| &lt; \varepsilon$，即$\lim \limits_{i \to \infty} f(\boldsymbol{x}_i) = l$</p>
+<p>充分性。反证法。假设$f$在$\boldsymbol{a}$处不以$l$为极限，则存在$\varepsilon_0 &gt; 0$，使得对任意的$i \in \mathbb{N^+}$，可以取出一个点$\boldsymbol{x}_i \in D$，使得当$|\boldsymbol{x}_i - \boldsymbol{a}| &lt; 1/i$时，有$|f(\boldsymbol{x}_i) - f(\boldsymbol{a})| \ge \varepsilon_0$，这时点列$\{\boldsymbol{x}_i\} \subset D$，且$\boldsymbol{x}_i \to \boldsymbol{a} (i \to \infty)$，但是数列$\{f(\boldsymbol{x}_i)\}$显然不以$l$为极限，矛盾。</p>
 <p>Q.E.D.</p>
 <h4 id="定理2：函数极限的四则运算"><a href="#定理2：函数极限的四则运算" class="headerlink" title="定理2：函数极限的四则运算"></a>定理2：函数极限的四则运算</h4><blockquote>
 <p>设$D \subset \mathbb{R^n}$，$f,g: D \to \mathbb{R}$，点$\boldsymbol{a} \in D^\prime$。如果$f,g$存在着有限的极限：</p>
