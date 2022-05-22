@@ -5,7 +5,7 @@ tags:
     - leetcode
     - 数组
     - 深度优先遍历
-    - 回溯
+    - 递归
 categories: 算法
 mathjax: true
 ---
