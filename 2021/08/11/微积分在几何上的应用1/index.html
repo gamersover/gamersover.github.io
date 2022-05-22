@@ -29,7 +29,7 @@
 <meta property="og:description" content="定理1 设$\mathbb{R}^2$上的曲线$\Gamma$由极坐标方程      r &#x3D; r(\theta) \quad (\boldsymbol{\alpha} \le \theta \le \boldsymbol{\beta})表示，从而由此曲线和射线      \theta &#x3D; \alpha, \quad \theta &#x3D; \beta围城的区域的面积$S$为      S &#x3D; \frac">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-11T12:49:41.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.736Z">
+<meta property="article:modified_time" content="2022-05-21T02:24:05.163Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数导数">
@@ -135,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">77</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">81</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
+                <time title="修改时间：2022-05-21 10:24:05" itemprop="dateModified" datetime="2022-05-21T10:24:05+08:00">2022-05-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -302,7 +302,7 @@
     & \le |y^\prime(\xi_i) - y^\prime(\eta_i)| + |z^\prime(\xi_i) - z^\prime(\zeta_i)|
     \end{aligned}</script><p>由于$y^\prime(t)$与$z^\prime(t)$在$[\alpha, \beta]$上连续，从而一致连续，因此对任意的$\varepsilon &gt; 0$，存在$\delta_1 &gt; 0$，当$\Vert \pi \Vert &lt; \delta_1$时，</p>
 <script type="math/tex; mode=display">
-    \left\{ 
+    \left\{
         \begin{aligned}
             |y^\prime(\xi_i) - y^\prime(\eta_i)| < \frac{\varepsilon}{4(\beta - \alpha)} \\
             |z^\prime(\xi_i) - z^\prime(\zeta_i)| < \frac{\varepsilon}{4(\beta - \alpha)} \\
@@ -337,7 +337,7 @@
 <script type="math/tex; mode=display">
     \boldsymbol{r} = \boldsymbol{r}(t) \quad (\alpha \le t \le \beta)</script><p>其中$x(t), y(t), z(t)$在$[\alpha, \beta]$上有连续的导数，点$A = \boldsymbol{r}(\alpha)$与$B = \boldsymbol{r}(\beta)$分别是$\Gamma$的起点与终点。则该曲线的弧长公式为</p>
 <script type="math/tex; mode=display">
-    s(\Gamma) = \int_{\alpha}^{\beta} \sqrt{(x^\prime(t))^2 + (y^\prime(t))^2 + (z^\prime(t))^2}</script></blockquote>
+    s(\Gamma) = \int_{\alpha}^{\beta} \sqrt{(x^\prime(t))^2 + (y^\prime(t))^2 + (z^\prime(t))^2} \mathrm{d}t</script></blockquote>
 <p>证：沿$A$到$B$的方向在$\Gamma$上取$n+1$个点：</p>
 <script type="math/tex; mode=display">
     A = A_0, A_1, A_2, \cdots, A_n = B</script><p>并把这$n$条线段之和$\sum_{i=1}^n |A_{i-1}A_i|$作为$\Gamma$弧长的一个近似值，可知当分割点越来越细时，近似值的极限就是弧长。设点$A_i$对应着参数值$t_i (i=0,1,2,\cdots,n)$，则</p>
@@ -354,7 +354,7 @@
 <script type="math/tex; mode=display">
     \max \limits_{1 \le i \le n} | A_{i-1}A_i | \le K \Vert \pi \Vert</script><p>这表明，将分割$\pi$无限加细，对应的曲线$\Gamma$上的分割也会无限加细，从而$\Gamma$的弧长为</p>
 <script type="math/tex; mode=display">
-    \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^n \sqrt{(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2 + (z^\prime(\zeta_i))^2}</script><p>再由<a href="#引理1">引理1</a>可知，弧长</p>
+    \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^n \sqrt{(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2 + (z^\prime(\zeta_i))^2} \Delta t_i</script><p>再由<a href="#引理1">引理1</a>可知，弧长</p>
 <script type="math/tex; mode=display">
     S(\Gamma) = \int_{\alpha}^{\beta} \sqrt {(x^\prime(t))^2 + (y^\prime(t))^2 + (z^\prime(t))^2} \mathrm{d} t</script><p>Q.E.D.</p>
 <h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
@@ -363,8 +363,9 @@
     V = \pi \int_a^b f^2(x) \mathrm{d} x</script><p>（2）设曲线$\Gamma$</p>
 <script type="math/tex; mode=display">
     x= x(t), y = y(t) \quad (\alpha \le t \le \beta)</script><p>是一条在上半平面不自交的$C^1$类曲线，让这条曲线绕$Ox$轴旋转一周，生成的旋转曲面的面积为</p>
-<script type="math/tex; mode=display">
-    S = 2\pi \int_{\alpha}^{\beta} y(t) \sqrt {(x^\prime(t))^2 + (y^\prime(t))^2} \mathrm{d} t</script></blockquote>
+<p>$$<br>    S = 2\pi \int_{\alpha}^{\beta} y(t) \sqrt {(x^\prime(t))^2 + (y^\prime(t))^2} \mathrm{d} t</p>
+<p>$$ b</p>
+</blockquote>
 <p>证：（1）作区间$[a,b]$的一个分割</p>
 <script type="math/tex; mode=display">
     \pi: a = x_0 < x_1 < \cdots < x_n = b</script><p>将旋转体介于平面$x = x_{k-1}, x= x_{k}$之间的体积记为$V_k$，任取$\xi_k \in [x_{k-1}, x_k]$，则</p>
@@ -487,7 +488,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -542,13 +543,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">326k</span>
+    <span title="站点总字数">334k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:56</span>
+    <span title="站点阅读时长">5:04</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
