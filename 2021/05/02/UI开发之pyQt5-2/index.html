@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No4.gif">
 <meta property="og:image" content="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No5.gif">
 <meta property="article:published_time" content="2021-05-02T10:28:35.000Z">
-<meta property="article:modified_time" content="2021-12-24T11:34:18.849Z">
+<meta property="article:modified_time" content="2021-05-02T10:28:35.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="UI开发">
 <meta property="article:tag" content="Qt">
@@ -83,7 +83,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -223,13 +227,6 @@
 
               <time title="创建时间：2021-05-02 18:28:35" itemprop="dateCreated datePublished" datetime="2021-05-02T18:28:35+08:00">2021-05-02</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-24 19:34:18" itemprop="dateModified" datetime="2021-12-24T19:34:18+08:00">2021-12-24</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -277,211 +274,237 @@
 <li>QLineEdit：单行文本编辑框</li>
 <li>QTextEdit：多行文本编辑框</li>
 </ul>
-<a id="more"></a>
-<h3 id="QLineEdit（单行文本编辑框）"><a href="#QLineEdit（单行文本编辑框）" class="headerlink" title="QLineEdit（单行文本编辑框）"></a>QLineEdit（单行文本编辑框）</h3><p>展示<br><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No4.gif" width="25%"></p>
-<p>该控件一般用来输入用户名或密码等简要内容，其写法如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">line_edit = QLineEdit()</span><br><span class="line">line_edit.setPlaceholderText(<span class="string">"密码"</span>)</span><br><span class="line">line_edit.setClearButtonEnabled(<span class="literal">True</span>)</span><br><span class="line">line_edit.setEchoMode(QLineEdit.EchoMode.Password)</span><br></pre></td></tr></table></figure><br>其基本属性包含：</p>
-<div class="table-container">
+<span id="more"></span>
+<h3 id="qlineedit单行文本编辑框">QLineEdit（单行文本编辑框）</h3>
+<p>展示<br />
+<img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No4.gif" width="25%"></p>
+<p>该控件一般用来输入用户名或密码等简要内容，其写法如下：<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">line_edit = QLineEdit()</span><br><span class="line">line_edit.setPlaceholderText(<span class="string">&quot;密码&quot;</span>)</span><br><span class="line">line_edit.setClearButtonEnabled(<span class="literal">True</span>)</span><br><span class="line">line_edit.setEchoMode(QLineEdit.EchoMode.Password)</span><br></pre></td></tr></table></figure><br />
+其基本属性包含：</p>
 <table>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 36%" />
+<col style="width: 58%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left"></th>
-<th style="text-align:left">API</th>
-<th style="text-align:left">描述</th>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">API</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left">设置文本属性</td>
-<td style="text-align:left">setText(text: str)</td>
-<td style="text-align:left">设置显示的文本</td>
+<tr class="odd">
+<td style="text-align: left;">设置文本属性</td>
+<td style="text-align: left;">setText(text: str)</td>
+<td style="text-align: left;">设置显示的文本</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setMaxLength(a0: int)</td>
-<td style="text-align:left">设置文本最大长度</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setMaxLength(a0: int)</td>
+<td style="text-align: left;">设置文本最大长度</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setEchoMode(a0: ‘QLineEdit.EchoMode’)</td>
-<td style="text-align:left">输入文本不可见，一般用在输入密码时保护隐私，以小圆点替代输入的文本来显示</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setEchoMode(a0: 'QLineEdit.EchoMode')</td>
+<td
+style="text-align: left;">输入文本不可见，一般用在输入密码时保护隐私，以小圆点替代输入的文本来显示</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setAlignment(flag: typing.Union[QtCore.Qt.Alignment, QtCore.Qt.AlignmentFlag])</td>
-<td style="text-align:left">文本的显示对齐方式，有居中对齐，左对齐，右对齐等</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setAlignment(flag:
+typing.Union[QtCore.Qt.Alignment, QtCore.Qt.AlignmentFlag])</td>
+<td
+style="text-align: left;">文本的显示对齐方式，有居中对齐，左对齐，右对齐等</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setReadOnly(a0: bool)</td>
-<td style="text-align:left">可知设置为只读模式，这时不能编辑</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setReadOnly(a0: bool)</td>
+<td style="text-align: left;">可知设置为只读模式，这时不能编辑</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setPlaceholderText(a0: str)</td>
-<td style="text-align:left">设置占位提示文本</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setPlaceholderText(a0: str)</td>
+<td style="text-align: left;">设置占位提示文本</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setCompleter(completer: QCompleter)</td>
-<td style="text-align:left">设置文本自动补全</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setCompleter(completer: QCompleter)</td>
+<td style="text-align: left;">设置文本自动补全</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setFont(a0: QtGui.QFont)</td>
-<td style="text-align:left">设置文本字体</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setFont(a0: QtGui.QFont)</td>
+<td style="text-align: left;">设置文本字体</td>
 </tr>
-<tr>
-<td style="text-align:left">获取文本状态</td>
-<td style="text-align:left">text()-&gt;str</td>
-<td style="text-align:left">获取文本</td>
+<tr class="odd">
+<td style="text-align: left;">获取文本状态</td>
+<td style="text-align: left;">text()-&gt;str</td>
+<td style="text-align: left;">获取文本</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">displayText()-&gt;str</td>
-<td style="text-align:left">获取显示的文本，和显示的内容保持一致。如果是普通文本，则和<code>text()</code>返回的值一样；如果设置了<code>EchoMode</code>为密码类型，则返回小圆点。</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">displayText()-&gt;str</td>
+<td
+style="text-align: left;">获取显示的文本，和显示的内容保持一致。如果是普通文本，则和<code>text()</code>返回的值一样；如果设置了<code>EchoMode</code>为密码类型，则返回小圆点。</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">placeholderText()-&gt;str</td>
-<td style="text-align:left">获取占位提示文本</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">placeholderText()-&gt;str</td>
+<td style="text-align: left;">获取占位提示文本</td>
 </tr>
-<tr>
-<td style="text-align:left">操作文本内容</td>
-<td style="text-align:left">insert(a0: str)</td>
-<td style="text-align:left">在当前光标后插入文本</td>
+<tr class="even">
+<td style="text-align: left;">操作文本内容</td>
+<td style="text-align: left;">insert(a0: str)</td>
+<td style="text-align: left;">在当前光标后插入文本</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">clear()</td>
-<td style="text-align:left">删除所有内容</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">clear()</td>
+<td style="text-align: left;">删除所有内容</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setClearButtonEnabled(enable: bool)</td>
-<td style="text-align:left">添加文本清除按钮</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setClearButtonEnabled(enable: bool)</td>
+<td style="text-align: left;">添加文本清除按钮</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">selectAll()</td>
-<td style="text-align:left">选中所有内容</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">selectAll()</td>
+<td style="text-align: left;">选中所有内容</td>
 </tr>
-<tr>
-<td style="text-align:left">其他</td>
-<td style="text-align:left">setFocus()</td>
-<td style="text-align:left">设置为焦点（即当前操作对象）</td>
+<tr class="even">
+<td style="text-align: left;">其他</td>
+<td style="text-align: left;">setFocus()</td>
+<td style="text-align: left;">设置为焦点（即当前操作对象）</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h3 id="QTextEdit（多行文本编辑框）"><a href="#QTextEdit（多行文本编辑框）" class="headerlink" title="QTextEdit（多行文本编辑框）"></a>QTextEdit（多行文本编辑框）</h3><p>展示<br><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No5.gif" width="25%"></p>
+<h3 id="qtextedit多行文本编辑框">QTextEdit（多行文本编辑框）</h3>
+<p>展示<br />
+<img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No5.gif" width="25%"></p>
 <p>该控件用来实现大量文本的输入与显示，写法如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text_edit = QTextEdit()</span><br><span class="line">text_edit.setPlaceholderText(<span class="string">"请输入"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text_edit = QTextEdit()</span><br><span class="line">text_edit.setPlaceholderText(<span class="string">&quot;请输入&quot;</span>)</span><br></pre></td></tr></table></figure>
 <p>基本属性有：</p>
-<div class="table-container">
 <table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 43%" />
+<col style="width: 50%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left"></th>
-<th style="text-align:left">API</th>
-<th style="text-align:left">描述</th>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">API</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left">设置文本属性</td>
-<td style="text-align:left">setPlainText(text: str)</td>
-<td style="text-align:left">设置普通文本</td>
+<tr class="odd">
+<td style="text-align: left;">设置文本属性</td>
+<td style="text-align: left;">setPlainText(text: str)</td>
+<td style="text-align: left;">设置普通文本</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setHtml(text: str)</td>
-<td style="text-align:left">设置html文本</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setHtml(text: str)</td>
+<td style="text-align: left;">设置html文本</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setText(text: str)</td>
-<td style="text-align:left">设置文本，根据text参数判断为普通文本还是html文本，不建议使用，而是直接使用<code>setPlainText</code>或<code>setHtml</code></td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setText(text: str)</td>
+<td
+style="text-align: left;">设置文本，根据text参数判断为普通文本还是html文本，不建议使用，而是直接使用<code>setPlainText</code>或<code>setHtml</code></td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setMarkdown(markdown: str)</td>
-<td style="text-align:left">设置markdown文本</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setMarkdown(markdown: str)</td>
+<td style="text-align: left;">设置markdown文本</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setAlignment(self, flag: typing.Union[QtCore.Qt.Alignment, QtCore.Qt.AlignmentFlag])</td>
-<td style="text-align:left">文本的显示对齐方式，有居中对齐，左对齐，右对齐等</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setAlignment(self, flag:
+typing.Union[QtCore.Qt.Alignment, QtCore.Qt.AlignmentFlag])</td>
+<td
+style="text-align: left;">文本的显示对齐方式，有居中对齐，左对齐，右对齐等</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setReadOnly(self, a0: bool)</td>
-<td style="text-align:left">可知设置为只读模式，这时不能编辑</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setReadOnly(self, a0: bool)</td>
+<td style="text-align: left;">可知设置为只读模式，这时不能编辑</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setPlaceholderText(placeholderText: str)</td>
-<td style="text-align:left">设置占位提示文本</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setPlaceholderText(placeholderText:
+str)</td>
+<td style="text-align: left;">设置占位提示文本</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setLineWrapMode(mode: ‘QTextEdit.LineWrapMode’)</td>
-<td style="text-align:left">当参数为<code>NoWrap</code>时，文本长度宽度后不自动换行显示，这时通过拖动水平滚动条查看超出的内容</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setLineWrapMode(mode:
+'QTextEdit.LineWrapMode')</td>
+<td
+style="text-align: left;">当参数为<code>NoWrap</code>时，文本长度宽度后不自动换行显示，这时通过拖动水平滚动条查看超出的内容</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setFont(a0: QtGui.QFont)</td>
-<td style="text-align:left">设置文本字体</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setFont(a0: QtGui.QFont)</td>
+<td style="text-align: left;">设置文本字体</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setTextColor(c: typing.Union[QtGui.QColor, QtCore.Qt.GlobalColor, QtGui.QGradient])</td>
-<td style="text-align:left">设置字体颜色</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setTextColor(c: typing.Union[QtGui.QColor,
+QtCore.Qt.GlobalColor, QtGui.QGradient])</td>
+<td style="text-align: left;">设置字体颜色</td>
 </tr>
-<tr>
-<td style="text-align:left">获取文本状态</td>
-<td style="text-align:left">toPlainText()-&gt;str</td>
-<td style="text-align:left">将显示文本转换为普通文本并返回</td>
+<tr class="odd">
+<td style="text-align: left;">获取文本状态</td>
+<td style="text-align: left;">toPlainText()-&gt;str</td>
+<td style="text-align: left;">将显示文本转换为普通文本并返回</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">toHtml()-&gt;str</td>
-<td style="text-align:left">将显示文本转换为html文本并返回</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">toHtml()-&gt;str</td>
+<td style="text-align: left;">将显示文本转换为html文本并返回</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">toMarkdown()-&gt;str</td>
-<td style="text-align:left">将显示文本转换为markdown文本并返回</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">toMarkdown()-&gt;str</td>
+<td style="text-align: left;">将显示文本转换为markdown文本并返回</td>
 </tr>
-<tr>
-<td style="text-align:left">操作文本内容</td>
-<td style="text-align:left">insertHtml(text: str)</td>
-<td style="text-align:left">在当前光标后插入html文本</td>
+<tr class="even">
+<td style="text-align: left;">操作文本内容</td>
+<td style="text-align: left;">insertHtml(text: str)</td>
+<td style="text-align: left;">在当前光标后插入html文本</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">insertPlainText(text: str)</td>
-<td style="text-align:left">在当前光标后插入普通文本</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">insertPlainText(text: str)</td>
+<td style="text-align: left;">在当前光标后插入普通文本</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">clear()</td>
-<td style="text-align:left">清除所有内容</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">clear()</td>
+<td style="text-align: left;">清除所有内容</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">selectAll()</td>
-<td style="text-align:left">选中所有内容</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">selectAll()</td>
+<td style="text-align: left;">选中所有内容</td>
 </tr>
-<tr>
-<td style="text-align:left">其他</td>
-<td style="text-align:left">setFocus()</td>
-<td style="text-align:left">设置为焦点（即当前操作对象）</td>
+<tr class="even">
+<td style="text-align: left;">其他</td>
+<td style="text-align: left;">setFocus()</td>
+<td style="text-align: left;">设置为焦点（即当前操作对象）</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h3 id="字体和字体颜色"><a href="#字体和字体颜色" class="headerlink" title="字体和字体颜色"></a>字体和字体颜色</h3><p>文本类肯定离不开字体以及字体颜色，而Qt5的字体类型与字体颜色是分开的，都是在<code>QtGui</code>类中</p>
-<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>字体在<code>QtGui.QFont</code>类中，初始化方法<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">font = QFont(family: str, pointSize: int, weight: int, italic: bool)</span><br></pre></td></tr></table></figure></p>
+<h3 id="字体和字体颜色">字体和字体颜色</h3>
+<p>文本类肯定离不开字体以及字体颜色，而Qt5的字体类型与字体颜色是分开的，都是在<code>QtGui</code>类中</p>
+<h4 id="字体">字体</h4>
+<p>字体在<code>QtGui.QFont</code>类中，初始化方法<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">font = QFont(family: <span class="built_in">str</span>, pointSize: <span class="built_in">int</span>, weight: <span class="built_in">int</span>, italic: <span class="built_in">bool</span>)</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>family：字体风格</li>
 <li>pointSize：字体大小，可选参数</li>
@@ -489,158 +512,177 @@
 <li>italic：是否斜体，可选参数</li>
 </ul>
 <p>基本属性有：</p>
-<div class="table-container">
 <table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 55%" />
+<col style="width: 33%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left"></th>
-<th style="text-align:left">API</th>
-<th style="text-align:left">描述</th>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">API</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left">设置文本属性</td>
-<td style="text-align:left">setWordSpacing(spacing: float)</td>
-<td style="text-align:left">设置文本间距</td>
+<tr class="odd">
+<td style="text-align: left;">设置文本属性</td>
+<td style="text-align: left;">setWordSpacing(spacing: float)</td>
+<td style="text-align: left;">设置文本间距</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setBold(enable: bool)</td>
-<td style="text-align:left">设置文本加粗</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setBold(enable: bool)</td>
+<td style="text-align: left;">设置文本加粗</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setFamily(a0: str)</td>
-<td style="text-align:left">设置字体风格</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setFamily(a0: str)</td>
+<td style="text-align: left;">设置字体风格</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setPointSize(a0: int)</td>
-<td style="text-align:left">设置文本大小（字号单位）</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setPointSize(a0: int)</td>
+<td style="text-align: left;">设置文本大小（字号单位）</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setPixelSize(a0: int)</td>
-<td style="text-align:left">设置文本大小（像素单位）</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setPixelSize(a0: int)</td>
+<td style="text-align: left;">设置文本大小（像素单位）</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setWeight(a0: int)</td>
-<td style="text-align:left">设置文本粗细，比<code>setBold</code>细粒度设置</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setWeight(a0: int)</td>
+<td
+style="text-align: left;">设置文本粗细，比<code>setBold</code>细粒度设置</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setItalic(b: bool)</td>
-<td style="text-align:left">设置斜体</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setItalic(b: bool)</td>
+<td style="text-align: left;">设置斜体</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setOverline(a0: bool)</td>
-<td style="text-align:left">设置字体上划线</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setOverline(a0: bool)</td>
+<td style="text-align: left;">设置字体上划线</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setunderline(a0: bool)</td>
-<td style="text-align:left">设置字体下划线</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setunderline(a0: bool)</td>
+<td style="text-align: left;">设置字体下划线</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setLetterSpacing(type: ‘QFont.SpacingType’, spacing: float)</td>
-<td style="text-align:left">设置字间距</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setLetterSpacing(type:
+'QFont.SpacingType', spacing: float)</td>
+<td style="text-align: left;">设置字间距</td>
 </tr>
-<tr>
-<td style="text-align:left">获取文本属性</td>
-<td style="text-align:left">family() -&gt; str</td>
-<td style="text-align:left">获取字体风格</td>
+<tr class="odd">
+<td style="text-align: left;">获取文本属性</td>
+<td style="text-align: left;">family() -&gt; str</td>
+<td style="text-align: left;">获取字体风格</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">pointSize() -&gt; int</td>
-<td style="text-align:left">获取字体大小（字号单位）</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">pointSize() -&gt; int</td>
+<td style="text-align: left;">获取字体大小（字号单位）</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">pixelSize() -&gt; int</td>
-<td style="text-align:left">获取文本大小（像素单位）</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">pixelSize() -&gt; int</td>
+<td style="text-align: left;">获取文本大小（像素单位）</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>比如对<code>QLineEdit</code>设置字体：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">line_edit = QLineEdit()</span><br><span class="line">font = QFont(<span class="string">"Arial"</span>, <span class="number">20</span>)</span><br><span class="line"><span class="comment"># 设置字间距</span></span><br><span class="line">font.setLetterSpacing(QFont.SpacingType.AbsoluteSpacing, <span class="number">10</span>)</span><br><span class="line">line_edit.setFont(font)</span><br></pre></td></tr></table></figure></p>
-<h4 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h4><p>字体在<code>QtGui.QColor</code>类中，初始化方法有</p>
-<ol>
-<li><code>QColor(rgb: int)</code></li>
-<li><code>QColor(r: int, g: int, b: int, alpha: int)</code>：alpha表示透明度，可选参数，取值0-255，0表示完全透明，255表示无透明</li>
-<li><code>QColor(self, aname: str)</code></li>
-</ol>
-<p>比如初始化一个红色<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">color = QColor(<span class="string">"red"</span>)</span><br><span class="line">color = QColor(<span class="number">0xff00ff</span>)</span><br><span class="line">color = QColor(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<p>比如对<code>QLineEdit</code>设置字体：<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">line_edit = QLineEdit()</span><br><span class="line">font = QFont(<span class="string">&quot;Arial&quot;</span>, <span class="number">20</span>)</span><br><span class="line"><span class="comment"># 设置字间距</span></span><br><span class="line">font.setLetterSpacing(QFont.SpacingType.AbsoluteSpacing, <span class="number">10</span>)</span><br><span class="line">line_edit.setFont(font)</span><br></pre></td></tr></table></figure></p>
+<h4 id="颜色">颜色</h4>
+<p>字体在<code>QtGui.QColor</code>类中，初始化方法有<br />
+1. <code>QColor(rgb: int)</code><br />
+2.
+<code>QColor(r: int, g: int, b: int, alpha: int)</code>：alpha表示透明度，可选参数，取值0-255，0表示完全透明，255表示无透明<br />
+3. <code>QColor(self, aname: str)</code></p>
+<p>比如初始化一个红色<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">color = QColor(<span class="string">&quot;red&quot;</span>)</span><br><span class="line">color = QColor(<span class="number">0xff00ff</span>)</span><br><span class="line">color = QColor(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
 <p>基本属性有：</p>
-<div class="table-container">
 <table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 56%" />
+<col style="width: 35%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left"></th>
-<th style="text-align:left">API</th>
-<th style="text-align:left">描述</th>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">API</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left">设置颜色</td>
-<td style="text-align:left">setCmyk(c: int, m: int, y: int, k: int, alpha: int)</td>
-<td style="text-align:left">设置颜色（cmyk格式）</td>
+<tr class="odd">
+<td style="text-align: left;">设置颜色</td>
+<td style="text-align: left;">setCmyk(c: int, m: int, y: int, k: int,
+alpha: int)</td>
+<td style="text-align: left;">设置颜色（cmyk格式）</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setHsl(h: int, s: int, l: int, alpha: int)</td>
-<td style="text-align:left">设置颜色（hsl格式）</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setHsl(h: int, s: int, l: int, alpha:
+int)</td>
+<td style="text-align: left;">设置颜色（hsl格式）</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setHsv(h: int, s: int, v: int, alpha: int)</td>
-<td style="text-align:left">设置颜色（hsv格式）</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setHsv(h: int, s: int, v: int, alpha:
+int)</td>
+<td style="text-align: left;">设置颜色（hsv格式）</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setAlpha(alpha: int)</td>
-<td style="text-align:left">设置颜色透明度</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setAlpha(alpha: int)</td>
+<td style="text-align: left;">设置颜色透明度</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">darker(factor: int)</td>
-<td style="text-align:left">根据factor参数返回一个更深的颜色</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">darker(factor: int)</td>
+<td style="text-align: left;">根据factor参数返回一个更深的颜色</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">lighter(factor: int)</td>
-<td style="text-align:left">根据factor参数返回一个更浅的颜色</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">lighter(factor: int)</td>
+<td style="text-align: left;">根据factor参数返回一个更浅的颜色</td>
 </tr>
-<tr>
-<td style="text-align:left">获取颜色</td>
-<td style="text-align:left">getCmyk() -&gt; Tuple[int, int, int, int, int]</td>
-<td style="text-align:left">获取颜色（cmyk格式）</td>
+<tr class="odd">
+<td style="text-align: left;">获取颜色</td>
+<td style="text-align: left;">getCmyk() -&gt; Tuple[int, int, int, int,
+int]</td>
+<td style="text-align: left;">获取颜色（cmyk格式）</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">getHsl() -&gt; Tuple[int, int, int, int]</td>
-<td style="text-align:left">获取颜色（hsl格式）</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">getHsl() -&gt; Tuple[int, int, int,
+int]</td>
+<td style="text-align: left;">获取颜色（hsl格式）</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">getHsv() -&gt; Tuple[int, int, int, int]</td>
-<td style="text-align:left">获取颜色（hsv格式）</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">getHsv() -&gt; Tuple[int, int, int,
+int]</td>
+<td style="text-align: left;">获取颜色（hsv格式）</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">getRgb() -&gt; Tuple[int, int, int, int]</td>
-<td style="text-align:left">获取颜色（rgb格式）</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">getRgb() -&gt; Tuple[int, int, int,
+int]</td>
+<td style="text-align: left;">获取颜色（rgb格式）</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>比如对<code>QTextEdit</code>设置字体：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">text_edit = QTextEdit()</span><br><span class="line">color = QColor(<span class="string">"red"</span>)</span><br><span class="line">text_edit.setTextColor(color)</span><br></pre></td></tr></table></figure></p>
-<p>！注意: <code>QLineEdit</code>并没有<code>setTextColor</code>方法，所以不能直接设置颜色，这时需要使用更加强大的<code>QSS</code>来配置，类似于网页设计中的<code>CSS</code>。后续章节会详细介绍。</p>
+<p>比如对<code>QTextEdit</code>设置字体：<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">text_edit = QTextEdit()</span><br><span class="line">color = QColor(<span class="string">&quot;red&quot;</span>)</span><br><span class="line">text_edit.setTextColor(color)</span><br></pre></td></tr></table></figure></p>
+<p>！注意:
+<code>QLineEdit</code>并没有<code>setTextColor</code>方法，所以不能直接设置颜色，这时需要使用更加强大的<code>QSS</code>来配置，类似于网页设计中的<code>CSS</code>。后续章节会详细介绍。</p>
 
     </div>
 
@@ -728,7 +770,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#QLineEdit（单行文本编辑框）"><span class="nav-text">QLineEdit（单行文本编辑框）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QTextEdit（多行文本编辑框）"><span class="nav-text">QTextEdit（多行文本编辑框）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字体和字体颜色"><span class="nav-text">字体和字体颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字体"><span class="nav-text">字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#颜色"><span class="nav-text">颜色</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#qlineedit%E5%8D%95%E8%A1%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E6%A1%86"><span class="nav-text">QLineEdit（单行文本编辑框）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#qtextedit%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E6%A1%86"><span class="nav-text">QTextEdit（多行文本编辑框）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E5%92%8C%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2"><span class="nav-text">字体和字体颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E4%BD%93"><span class="nav-text">字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%9C%E8%89%B2"><span class="nav-text">颜色</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -799,13 +841,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
@@ -926,59 +968,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="linux终端快捷键ctrl+l: 清屏 ctrl+c: 中止 ctrl+d： 退出">
+  <meta name="description" content="linux终端快捷键 ctrl+l: 清屏 ctrl+c: 中止 ctrl+d： 退出">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux命令大全">
 <meta property="og:url" content="http://yoursite.com/2019/12/28/linux%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="linux终端快捷键ctrl+l: 清屏 ctrl+c: 中止 ctrl+d： 退出">
+<meta property="og:description" content="linux终端快捷键 ctrl+l: 清屏 ctrl+c: 中止 ctrl+d： 退出">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-28T10:02:27.000Z">
-<meta property="article:modified_time" content="2021-12-24T11:33:59.698Z">
+<meta property="article:modified_time" content="2019-12-28T10:02:27.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="shell">
 <meta property="article:tag" content="linux">
@@ -79,7 +79,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -219,13 +223,6 @@
 
               <time title="创建时间：2019-12-28 18:02:27" itemprop="dateCreated datePublished" datetime="2019-12-28T18:02:27+08:00">2019-12-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-24 19:33:59" itemprop="dateModified" datetime="2021-12-24T19:33:59+08:00">2021-12-24</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -249,7 +246,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7.9k</span>
+              <span>7.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -268,10 +265,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="linux终端快捷键"><a href="#linux终端快捷键" class="headerlink" title="linux终端快捷键"></a>linux终端快捷键</h2><p><code>ctrl+l</code>: 清屏</p>
+        <h2 id="linux终端快捷键">linux终端快捷键</h2>
+<p><code>ctrl+l</code>: 清屏</p>
 <p><code>ctrl+c</code>: 中止</p>
 <p><code>ctrl+d</code>： 退出</p>
-<a id="more"></a>
+<span id="more"></span>
 <p><code>ctrl+a</code>: 光标移到命令行的头部</p>
 <p><code>ctrl+e</code>: 光标移到命令行的尾部</p>
 <p><code>ctrl+u</code>: 删除光标前所有字符</p>
@@ -282,37 +280,51 @@
 <p><code>esc+.</code>: 上一条命令的最后一个参数</p>
 <p><code>up/down</code>：查看历史命令</p>
 <p><code>ctrl+R</code>：搜索历史命令</p>
-<h2 id="shell命令"><a href="#shell命令" class="headerlink" title="shell命令"></a>shell命令</h2><h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><h4 id="histroy"><a href="#histroy" class="headerlink" title="histroy/!"></a>histroy/!</h4><p><code>history</code>: 历史命令</p>
+<h2 id="shell命令">shell命令</h2>
+<h3 id="基础命令">基础命令</h3>
+<h4 id="histroy">histroy/!</h4>
+<p><code>history</code>: 历史命令</p>
 <p><code>!20</code>：执行第20条历史命令</p>
 <p><code>!str</code>：执行历史最近中以str开头的命令</p>
 <p><code>!$</code>：上一个命令的最后一个参数</p>
 <p><code>!!</code>：执行上一个命令</p>
-<h4 id="man"><a href="#man" class="headerlink" title="man"></a>man</h4><p><code>man command</code>: command手册</p>
+<h4 id="man">man</h4>
+<p><code>man command</code>: command手册</p>
 <p><code>man -f command</code>: 查看command的所在所有章节</p>
 <p><code>man 1 command</code>: 查看第1章节中的command手册</p>
-<h4 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h4><p><code>alias ll=ls -l</code>: 别名</p>
+<h4 id="alias">alias</h4>
+<p><code>alias ll=ls -l</code>: 别名</p>
 <p><code>unalias ll</code>: 取消别名</p>
 <ul>
 <li><p>查看命令的别名</p>
-<p>  <code>type -a ls</code>: 查看所有<code>ls</code>命令的类型</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 上述命令的输出</span></span><br><span class="line">ls is aliased to `ls --color=auto'</span><br><span class="line">ls is /bin/ls</span><br></pre></td></tr></table></figure>
-<p>  <code>ls</code>： 系统默认使用别名<br>  <code>\ls</code>: 使用原ls命令</p>
-</li>
+<p><code>type -a ls</code>: 查看所有<code>ls</code>命令的类型</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">上述命令的输出</span></span><br><span class="line">ls is aliased to `ls --color=auto&#x27;</span><br><span class="line">ls is /bin/ls</span><br></pre></td></tr></table></figure></p>
+<p><code>ls</code>： 系统默认使用别名<br />
+<code>\ls</code>: 使用原ls命令</p></li>
 </ul>
-<h4 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h4><p><code>echo &quot;123&quot;</code>：返回或者输出123，会输出换行</p>
-<p><code>echo -n &quot;123&quot;</code>：不换行输出</p>
-<h4 id="which-whereis"><a href="#which-whereis" class="headerlink" title="which/whereis"></a>which/whereis</h4><p><code>which command</code>: 查看命令的目录（根据<code>PATH</code>目录）</p>
+<h4 id="echo">echo</h4>
+<p><code>echo "123"</code>：返回或者输出123，会输出换行</p>
+<p><code>echo -n "123"</code>：不换行输出</p>
+<h4 id="whichwhereis">which/whereis</h4>
+<p><code>which command</code>:
+查看命令的目录（根据<code>PATH</code>目录）</p>
 <p><code>whereis command</code>: 整个文件索引数据库查找命令</p>
-<h3 id="用户操作"><a href="#用户操作" class="headerlink" title="用户操作"></a>用户操作</h3><p><code>id username</code>: 查看用户</p>
+<h3 id="用户操作">用户操作</h3>
+<p><code>id username</code>: 查看用户</p>
 <p><code>whoami</code>: 显示当前用户</p>
 <p><code>useradd cetrol</code>: 添加用户</p>
-<h4 id="groupadd-groupdel-useradd-userdel"><a href="#groupadd-groupdel-useradd-userdel" class="headerlink" title="groupadd/groupdel/useradd/userdel"></a>groupadd/groupdel/useradd/userdel</h4><p><code>groupadd groupname</code> 添加</p>
+<h4
+id="groupaddgroupdeluseradduserdel">groupadd/groupdel/useradd/userdel</h4>
+<p><code>groupadd groupname</code> 添加</p>
 <p><code>userdel [-r] username</code>: 删除用户（去掉home目录）</p>
-<h4 id="passwd-gpasswd"><a href="#passwd-gpasswd" class="headerlink" title="passwd/gpasswd"></a>passwd/gpasswd</h4><p><code>passwd username</code>: 为用户设置密码</p>
+<h4 id="passwdgpasswd">passwd/gpasswd</h4>
+<p><code>passwd username</code>: 为用户设置密码</p>
 <p><code>gpasswd -a username groupname</code>: 将用户添加到组</p>
 <p><code>gpasswd -d username groupname</code>: 将用户移除组</p>
-<h3 id="目录与文件操作"><a href="#目录与文件操作" class="headerlink" title="目录与文件操作"></a>目录与文件操作</h3><p><code>pwd</code>: 当前工作目录</p>
-<h4 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h4><p><code>ls</code>：当前目录内容</p>
+<h3 id="目录与文件操作">目录与文件操作</h3>
+<p><code>pwd</code>: 当前工作目录</p>
+<h4 id="ls">ls</h4>
+<p><code>ls</code>：当前目录内容</p>
 <p><code>ls -a</code>: list all 所有，包含隐藏文件</p>
 <p><code>ls dir</code>: dir目录下的内容</p>
 <p><code>ll -h</code>: 人性化显示</p>
@@ -320,262 +332,351 @@
 <p><code>ll -rt</code>: reverse，逆序</p>
 <p><code>ll dir</code>: 查看目录下所有文件的详情</p>
 <p><code>ll -d dir</code>: 只查看目录的详情</p>
-<h4 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h4><p><code>cd</code>: 到<code>home</code>目录</p>
+<h4 id="cd">cd</h4>
+<p><code>cd</code>: 到<code>home</code>目录</p>
 <p><code>cd ~</code>: 到<code>home</code>目录</p>
 <p><code>cd dir</code>: 到<code>dir</code>目录</p>
 <p><code>cd -</code>: 回到上一目录</p>
-<h4 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h4><p><code>mkdir dir1, dir2</code>: 创建目录</p>
+<h4 id="mkdir">mkdir</h4>
+<p><code>mkdir dir1, dir2</code>: 创建目录</p>
 <p><code>mkdir -v dir</code>: verbose，显示详细信息</p>
 <p><code>mkdir -p dir</code>: 如果父目录不存在，会自动创建父目录</p>
-<h4 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h4><p><code>touch file1 file2</code>: 创建文件</p>
-<p><code>touch file{1..20}</code>: 创建多个文件</p>
-<h4 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h4><p><code>cp file1 file2</code>: 拷贝文件</p>
+<h4 id="touch">touch</h4>
+<p><code>touch file1 file2</code>: 创建文件</p>
+<p><code>touch file&#123;1..20&#125;</code>: 创建多个文件</p>
+<h4 id="cp">cp</h4>
+<p><code>cp file1 file2</code>: 拷贝文件</p>
 <p><code>cp -r dir1 dir2</code>: 递归拷贝目录</p>
-<h4 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h4><p><code>mv file1 file2</code>: 剪切文件</p>
-<h4 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h4><p><code>rm -rf dir</code>: 递归删除目录</p>
-<h4 id="chmod-chown-chgrp"><a href="#chmod-chown-chgrp" class="headerlink" title="chmod/chown/chgrp"></a>chmod/chown/chgrp</h4><div class="table-container">
+<h4 id="mv">mv</h4>
+<p><code>mv file1 file2</code>: 剪切文件</p>
+<h4 id="rm">rm</h4>
+<p><code>rm -rf dir</code>: 递归删除目录</p>
+<h4 id="chmodchownchgrp">chmod/chown/chgrp</h4>
 <table>
 <thead>
-<tr>
-<th style="text-align:center">u</th>
-<th style="text-align:center">g</th>
-<th style="text-align:center">o</th>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
+<tr class="header">
+<th style="text-align: center;">u</th>
+<th style="text-align: center;">g</th>
+<th style="text-align: center;">o</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">rwx</td>
-<td style="text-align:center">rw-</td>
-<td style="text-align:center">r—</td>
-<td style="text-align:center">user</td>
-<td style="text-align:center">group</td>
+<tr class="odd">
+<td style="text-align: center;">rwx</td>
+<td style="text-align: center;">rw-</td>
+<td style="text-align: center;">r--</td>
+<td style="text-align: center;">user</td>
+<td style="text-align: center;">group</td>
 </tr>
-<tr>
-<td style="text-align:center">属主权限</td>
-<td style="text-align:center">属组权限</td>
-<td style="text-align:center">其他人权限</td>
-<td style="text-align:center">属主</td>
-<td style="text-align:center">属组</td>
+<tr class="even">
+<td style="text-align: center;">属主权限</td>
+<td style="text-align: center;">属组权限</td>
+<td style="text-align: center;">其他人权限</td>
+<td style="text-align: center;">属主</td>
+<td style="text-align: center;">属组</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p><code>chown [-r] user file/dir</code>: 改变file的所属组（递归修改目录）</p>
-<p><code>chgrp [-r] group file/dir</code>: 改变file的所属组（递归修改目录）</p>
+<p><code>chown [-r] user file/dir</code>:
+改变file的所属组（递归修改目录）</p>
+<p><code>chgrp [-r] group file/dir</code>:
+改变file的所属组（递归修改目录）</p>
 <p><code>chown [-r] user.group file/dir</code>: 同时修改主和组</p>
 <p><code>chmod u/g/o+w/r/x file</code>: 相应的u/g/o添加w/r/x权限</p>
 <p><code>chmod [a]+w/r/x file</code>: 所有组添加w/r/x权限</p>
 <p><code>chmod ug=rw file</code>: u和g添加rw权限</p>
 <p><code>chmod o=-</code>: o去掉所有权限</p>
 <p><code>chmod 777 file</code>: 所有组添加rwx权限</p>
-<h4 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h4><p><code>tar -czf test.tar.gz dir</code>: 调用gzip将<code>dir</code>目录打包并压缩为<code>test.tar.gz</code></p>
-<p><code>tar -cjf test.tar.bz2 dir</code>: 调用bzip2将<code>dir</code>目录打包并压缩为<code>test.tar.bz2</code></p>
-<p><code>tar -cJf test.tar.xz dir</code>: 调用xz将<code>dir</code>目录打包并压缩为<code>test.tar.xz</code></p>
+<h4 id="tar">tar</h4>
+<p><code>tar -czf test.tar.gz dir</code>:
+调用gzip将<code>dir</code>目录打包并压缩为<code>test.tar.gz</code></p>
+<p><code>tar -cjf test.tar.bz2 dir</code>:
+调用bzip2将<code>dir</code>目录打包并压缩为<code>test.tar.bz2</code></p>
+<p><code>tar -cJf test.tar.xz dir</code>:
+调用xz将<code>dir</code>目录打包并压缩为<code>test.tar.xz</code></p>
 <p><code>tar -tf test.tar.xz</code>: 显示压缩包中的内容</p>
-<p><code>tar -xzvf test.tar.gz</code>:  指定使用gzip解压</p>
+<p><code>tar -xzvf test.tar.gz</code>: 指定使用gzip解压</p>
 <p><code>tar -xvf test.tar.gz</code>: 自行判断解压工具解压</p>
-<p><code>tar -xvf test.tar.gz -C dir</code>: 解压后重定向到<code>dir</code>目录下</p>
-<p><code>tar -czf - /etc | tar -xzf - -C dir</code>: 将/etc打包后保存在内存中，然后通过管道解压后<code>dir</code>目录下；相当于复制文件到另一个目录（许多小文件复制时速度快）</p>
-<h4 id="du"><a href="#du" class="headerlink" title="du"></a>du</h4><p><code>du -h dir</code>: 查看目录<code>dir</code>下所有文件夹的大小</p>
+<p><code>tar -xvf test.tar.gz -C dir</code>:
+解压后重定向到<code>dir</code>目录下</p>
+<p><code>tar -czf - /etc | tar -xzf - -C dir</code>:
+将/etc打包后保存在内存中，然后通过管道解压后<code>dir</code>目录下；相当于复制文件到另一个目录（许多小文件复制时速度快）</p>
+<h4 id="du">du</h4>
+<p><code>du -h dir</code>:
+查看目录<code>dir</code>下所有文件夹的大小</p>
 <p><code>du -sh dir</code>: 查看目录<code>dir</code>总大小</p>
-<h3 id="文件增删改查"><a href="#文件增删改查" class="headerlink" title="文件增删改查"></a>文件增删改查</h3><h4 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h4><p><code>cat file</code>: 查看文本文件</p>
+<h3 id="文件增删改查">文件增删改查</h3>
+<h4 id="cat">cat</h4>
+<p><code>cat file</code>: 查看文本文件</p>
 <p><code>cat -n file</code>: 显示行号</p>
-<h4 id="head-tail"><a href="#head-tail" class="headerlink" title="head/tail"></a>head/tail</h4><p><code>head -5 file</code>: 查看头5行</p>
+<h4 id="headtail">head/tail</h4>
+<p><code>head -5 file</code>: 查看头5行</p>
 <p><code>tail -5 file</code>: 查看尾5行</p>
 <p><code>tail -f file</code>: 动态查看</p>
-<h4 id="vi-vim"><a href="#vi-vim" class="headerlink" title="vi/vim"></a>vi/vim</h4><p><code>vi file</code>: 编辑文件</p>
-<h4 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h4><p><code>sort file</code>: 按照字典序递增排序</p>
+<h4 id="vivim">vi/vim</h4>
+<p><code>vi file</code>: 编辑文件</p>
+<h4 id="sort">sort</h4>
+<p><code>sort file</code>: 按照字典序递增排序</p>
 <p><code>sort -r file</code>: 递减排序</p>
 <p><code>sort -n file</code>: 按照数字大小排序</p>
-<p><code>sort -t&quot;:&quot; -k3 -n /etc/passwd</code>: 以<code>:</code>分割后按照第3列排序</p>
-<h4 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h4><p><code>uniq</code>: 去重（只能把接近的去掉，所以一般先<code>sort</code>）</p>
+<p><code>sort -t":" -k3 -n /etc/passwd</code>:
+以<code>:</code>分割后按照第3列排序</p>
+<h4 id="uniq">uniq</h4>
+<p><code>uniq</code>:
+去重（只能把接近的去掉，所以一般先<code>sort</code>）</p>
 <p><code>uniq -c</code>: 去重，并显示个数</p>
-<h4 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h4><p><code>wc -l</code>: 统计行数</p>
-<h4 id="tr"><a href="#tr" class="headerlink" title="tr"></a>tr</h4><blockquote>
+<h4 id="wc">wc</h4>
+<p><code>wc -l</code>: 统计行数</p>
+<h4 id="tr">tr</h4>
+<blockquote>
 <p>tr(translate) 可以用来替换、删除文本字符内容</p>
 </blockquote>
 <p><code>tr -d a file</code>: 将文本中所有字符<code>a</code>删掉</p>
 <p><code>tr -d a-z file</code>: 将文本中所有小写字母删掉</p>
-<p><code>tr -d ab file</code>: 将文本中字符<code>a</code>和<code>b</code>删掉</p>
-<p><code>tr -s a file</code>: 将文本中连续出现多个的字符<code>a</code>压缩成单个字符<code>a</code></p>
-<p><code>tr -s ab file</code>: 将文本中连续出现多个字符<code>a</code>，多个字符<code>b</code>分别压缩成单个字符<code>a</code>和<code>b</code></p>
-<p><code>tr -s a b file</code>: 将文本中连续出现多个字符<code>a</code>压缩并替换成单个字符<code>b</code></p>
-<p><code>tr a b file</code>: 将文本中的每个字符<code>a</code>替换成<code>b</code></p>
-<p><code>tr -s ab c file</code>: 将文本中连续出现多个字符<code>a</code>, 多个字符<code>b</code>压缩并替换成单个字符<code>c</code></p>
-<p><code>tr ab c file</code>: 将文本中每个字符<code>a</code>,<code>b</code>替换成<code>c</code></p>
-<p><code>tr ab cd file</code>: 将文本中每个字符<code>a</code>,<code>b</code>分别替换成<code>c</code>和<code>d</code></p>
-<p><code>tr -s a-z A-Z file</code>: 将文本中连续出现多个字符<code>a</code>, 多个字符<code>b</code>分别压缩并替换成单个字符<code>c</code>和单个字符<code>d</code></p>
-<p><code>tr a-z A-Z file</code>: 将文本中每个字符<code>a</code>, <code>b</code>分别替换成<code>c</code>和<code>d</code></p>
-<p><code>tr -c -d &#39;a\n&#39; file</code>: 将文本中除了<code>a</code>和<code>\n</code>外的字符都删掉</p>
-<h4 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h4><blockquote>
+<p><code>tr -d ab file</code>:
+将文本中字符<code>a</code>和<code>b</code>删掉</p>
+<p><code>tr -s a file</code>:
+将文本中连续出现多个的字符<code>a</code>压缩成单个字符<code>a</code></p>
+<p><code>tr -s ab file</code>:
+将文本中连续出现多个字符<code>a</code>，多个字符<code>b</code>分别压缩成单个字符<code>a</code>和<code>b</code></p>
+<p><code>tr -s a b file</code>:
+将文本中连续出现多个字符<code>a</code>压缩并替换成单个字符<code>b</code></p>
+<p><code>tr a b file</code>:
+将文本中的每个字符<code>a</code>替换成<code>b</code></p>
+<p><code>tr -s ab c file</code>: 将文本中连续出现多个字符<code>a</code>,
+多个字符<code>b</code>压缩并替换成单个字符<code>c</code></p>
+<p><code>tr ab c file</code>:
+将文本中每个字符<code>a</code>,<code>b</code>替换成<code>c</code></p>
+<p><code>tr ab cd file</code>:
+将文本中每个字符<code>a</code>,<code>b</code>分别替换成<code>c</code>和<code>d</code></p>
+<p><code>tr -s a-z A-Z file</code>:
+将文本中连续出现多个字符<code>a</code>,
+多个字符<code>b</code>分别压缩并替换成单个字符<code>c</code>和单个字符<code>d</code></p>
+<p><code>tr a-z A-Z file</code>: 将文本中每个字符<code>a</code>,
+<code>b</code>分别替换成<code>c</code>和<code>d</code></p>
+<p><code>tr -c -d 'a\n' file</code>:
+将文本中除了<code>a</code>和<code>\n</code>外的字符都删掉</p>
+<h4 id="awk">awk</h4>
+<blockquote>
 <p>awk是一种编程语言，用与逐行处理文本和数据</p>
 </blockquote>
-<p><code>awk -F&quot;:&quot; &#39;{print $1}&#39; /etc/passwd</code>: 以<code>:</code>分割输出第1列</p>
-<p><code>awk &#39;BEGIN{} {} END{}&#39;</code>：文件处理前 行处理 文件处理后</p>
-<p><code>awk &#39;BEGIN{FS=&quot;:&quot;,OFS=&quot;---&quot;} {print $1,$2}&#39;</code>：输入字段以<code>:</code>分割，输出字段之间<code>---</code>输出，<code>FS</code>为输入分割符，<code>OFS</code>为输出字段分割符，<code>OFS</code>默认值为空格</p>
-<p><code>awk &#39;BEGIN{RS=&quot;:&quot;,ORS=&quot;---&quot;} {print $1,$2}&#39;</code>：输入行以<code>:</code>分割，输出行之间<code>---</code>输出，<code>RS</code>为记录分割符，<code>ORS</code>为输出记录分割符，<code>RS</code>和<code>ORS</code>默认值为换行符</p>
+<p><code>awk -F":" '&#123;print $1&#125;' /etc/passwd</code>:
+以<code>:</code>分割输出第1列</p>
+<p><code>awk 'BEGIN&#123;&#125; &#123;&#125; END&#123;&#125;'</code>：文件处理前 行处理 文件处理后</p>
+<p><code>awk 'BEGIN&#123;FS=":",OFS="---"&#125; &#123;print $1,$2&#125;'</code>：输入字段以<code>:</code>分割，输出字段之间<code>---</code>输出，<code>FS</code>为输入分割符，<code>OFS</code>为输出字段分割符，<code>OFS</code>默认值为空格</p>
+<p><code>awk 'BEGIN&#123;RS=":",ORS="---"&#125; &#123;print $1,$2&#125;'</code>：输入行以<code>:</code>分割，输出行之间<code>---</code>输出，<code>RS</code>为记录分割符，<code>ORS</code>为输出记录分割符，<code>RS</code>和<code>ORS</code>默认值为换行符</p>
 <p><code>awk pattern filename</code>：正则匹配输出</p>
-<p><code>awk &#39;/root/{action}&#39; filename</code>：匹配到<code>root</code>的行再执行<code>action</code></p>
-<p><code>awk &#39;{print NR,FNR}&#39;</code>：<code>NR</code>表示总的记录行号，FNR表示当前文件的记录行号</p>
-<p><code>awk &#39;{print NF}&#39;</code>：<code>NF</code>表示字段的个数</p>
-<p><code>awk &#39;{printf &quot;%-15s %-d %-f&quot;, $1,$2,$3}&#39;</code>：<code>printf</code>格式化输出，<code>%s</code>表示字符串，<code>%d</code>表示整形数据，<code>%f</code>表示浮点数，<code>-</code>表示左对齐，<code>15</code>表示长度为15</p>
-<p><code>awk &#39;$0~/root/&#39; /etc/passwd</code>：正则匹配行，等效于<code>awk &#39;/root/ /etc/passwd&#39;</code></p>
-<p><code>awk &#39;$0!~/root/&#39; /etc/passwd</code>：正则不匹配，等效于<code>awk &#39;!/root/ /etc/passwd&#39;</code></p>
-<p><code>awk &#39;$1==&quot;root&quot;&#39; /etc/passwd</code>：关系运算符</p>
-<p><code>awk &#39;$1&gt;100&#39; /etc/passwd</code>：关系运算符</p>
-<p><code>awk &#39;{if($3&gt;100){print $3} else if(){} else{print $1}}&#39;</code>：条件运算符</p>
-<p><code>awk &#39;{$1*10}&#39;</code>：算术运算符</p>
-<p><code>awk &#39;{if($1&gt;10 &amp;&amp; $2&lt;10){print $0}}&#39;</code>：条件运算符</p>
-<p><code>awk {length($1)==10 {print $1}}</code>：<code>length</code>函数表示字符串长度</p>
-<p><code>awk &#39;{i=1; while(i&lt;=7) {print $i; i++}}&#39;</code>：while循环</p>
-<p><code>awk &#39;{for(i=1;i&lt;=NF;i++) {print $i}}&#39;</code>：for循环</p>
-<p><code>awk &#39;{color[++i]}=$1&#39; END{for(i=1;i&lt;i;i++) {print i,color[i]}}</code>：数组</p>
-<p><code>awk &#39;{color[++i]}=$1&#39; END{(for i in color) {print i,color[i]}}</code>：数组，<code>for</code>循环使用<code>in</code>遍历获取的是索引</p>
-<h4 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h4><blockquote>
+<p><code>awk '/root/&#123;action&#125;' filename</code>：匹配到<code>root</code>的行再执行<code>action</code></p>
+<p><code>awk '&#123;print NR,FNR&#125;'</code>：<code>NR</code>表示总的记录行号，FNR表示当前文件的记录行号</p>
+<p><code>awk '&#123;print NF&#125;'</code>：<code>NF</code>表示字段的个数</p>
+<p><code>awk '&#123;printf "%-15s %-d %-f", $1,$2,$3&#125;'</code>：<code>printf</code>格式化输出，<code>%s</code>表示字符串，<code>%d</code>表示整形数据，<code>%f</code>表示浮点数，<code>-</code>表示左对齐，<code>15</code>表示长度为15</p>
+<p><code>awk '$0~/root/' /etc/passwd</code>：正则匹配行，等效于<code>awk '/root/ /etc/passwd'</code></p>
+<p><code>awk '$0!~/root/' /etc/passwd</code>：正则不匹配，等效于<code>awk '!/root/ /etc/passwd'</code></p>
+<p><code>awk '$1=="root"' /etc/passwd</code>：关系运算符</p>
+<p><code>awk '$1&gt;100' /etc/passwd</code>：关系运算符</p>
+<p><code>awk '&#123;if($3&gt;100)&#123;print $3&#125; else if()&#123;&#125; else&#123;print $1&#125;&#125;'</code>：条件运算符</p>
+<p><code>awk '&#123;$1*10&#125;'</code>：算术运算符</p>
+<p><code>awk '&#123;if($1&gt;10 &amp;&amp; $2&lt;10)&#123;print $0&#125;&#125;'</code>：条件运算符</p>
+<p><code>awk &#123;length($1)==10 &#123;print $1&#125;&#125;</code>：<code>length</code>函数表示字符串长度</p>
+<p><code>awk '&#123;i=1; while(i&lt;=7) &#123;print $i; i++&#125;&#125;'</code>：while循环</p>
+<p><code>awk '&#123;for(i=1;i&lt;=NF;i++) &#123;print $i&#125;&#125;'</code>：for循环</p>
+<p><code>awk '&#123;color[++i]&#125;=$1' END&#123;for(i=1;i&lt;i;i++) &#123;print i,color[i]&#125;&#125;</code>：数组</p>
+<p><code>awk '&#123;color[++i]&#125;=$1' END&#123;(for i in color) &#123;print i,color[i]&#125;&#125;</code>：数组，<code>for</code>循环使用<code>in</code>遍历获取的是索引</p>
+<h4 id="sed">sed</h4>
+<blockquote>
 <p>sed是一种非交互式编辑器，一次处理一行内容</p>
 </blockquote>
 <p><code>sed action file</code>：从文件<code>file</code>中每次读入一行，执行<code>action</code>动作，不会修改文件内容，只做输出</p>
 <p><code>sed -i action file</code>：会修改文件内容</p>
-<p><code>sed &quot;d&quot; file</code>：删除输出（相当于什么都不输出）</p>
-<p><code>sed &quot;4d&quot; file</code>：删除第四行</p>
-<p><code>sed &quot;3{d;}&quot;</code>：<code>{}</code>里面的命令按照<code>;</code>分割，可以执行多个目录</p>
-<p><code>sed &quot;4,7d&quot; file</code>：删除第4到7行</p>
-<p><code>sed &quot;4,$d&quot; file</code>：删除第4到最后一行</p>
-<p><code>sed -r &quot;0~2d&quot;</code>：从0开始，每2行删除，（相当于删除偶数行）</p>
+<p><code>sed "d" file</code>：删除输出（相当于什么都不输出）</p>
+<p><code>sed "4d" file</code>：删除第四行</p>
+<p><code>sed "3&#123;d;&#125;"</code>：<code>&#123;&#125;</code>里面的命令按照<code>;</code>分割，可以执行多个目录</p>
+<p><code>sed "4,7d" file</code>：删除第4到7行</p>
+<p><code>sed "4,$d" file</code>：删除第4到最后一行</p>
+<p><code>sed -r "0~2d"</code>：从0开始，每2行删除，（相当于删除偶数行）</p>
 <p><code>sed -r /root/,5d file</code>：删除从root到第5行</p>
 <p><code>sed -r /root/,+5d file</code>：删除root，再删其后5行</p>
 <p><code>sed -r /root/!d file</code>：删除非root行</p>
-<p><code>sed &quot;p&quot; file</code>：打印输出（默认）</p>
-<p><code>sed &quot;4p&quot; file</code>：只打印第4行输出（默认）</p>
+<p><code>sed "p" file</code>：打印输出（默认）</p>
+<p><code>sed "4p" file</code>：只打印第4行输出（默认）</p>
 <p><code>sed -r [s]/sth./sth./[gi]</code>：使用正则匹配</p>
-<p><code>sed -r &quot;s/red/yellow/&quot; file</code>：查找<code>red</code>并替换为<code>yellow</code>，只替换每一行第一个</p>
-<p><code>sed -r &quot;s/red/yellow/g file&quot;</code>：加上<code>g</code>，表示global，替换所有</p>
-<p><code>sed -r &quot;s/red/yellow/g file&quot;</code>：加上<code>i</code>，表示ignore-case，忽略大小写</p>
-<p><code>sed -r &quot;s#red#yellow#g file&quot;</code>：<code>/</code>其实可以替换成任意字符</p>
-<p><code>sed -r &quot;3,5s/red/yellow/g file&quot;</code>：只有3到5行替换</p>
-<p><code>sed -r &quot;s/(.*)/#&amp;/ file&quot;</code>：所有行前面加入<code>#</code>，<code>(.*)</code>表示匹配行所有内容，<code>&amp;</code>表示前面匹配的所有内容</p>
-<p><code>sed -r &quot;2r/new_file&quot; file</code>：读到第2行时读取文件内容，<code>r</code>表示读入</p>
-<p><code>sed -r &quot;2w/new_file&quot; file</code>：读到第2行时写入到新文件，<code>w</code>表示读入</p>
-<p><code>sed -r &quot;2a/new_file&quot; file</code>：读到第2行时追加新内容或到新文件，<code>a</code>表示追加（行后）</p>
-<p><code>sed -r &quot;2i/new_file&quot; file</code>：读到第2行时插入新内容或到新文件，<code>i</code>表示插入（行前）</p>
-<p><code>sed -r &quot;/root/{n;d} file&quot;</code>：找到root行，然后去下一行并删除 ，<code>n</code>表示下一行</p>
-<h3 id="时间相关命令"><a href="#时间相关命令" class="headerlink" title="时间相关命令"></a>时间相关命令</h3><h4 id="date"><a href="#date" class="headerlink" title="date"></a>date</h4><p><code>date +%F</code>:  格式化输出时间</p>
-<h4 id="time"><a href="#time" class="headerlink" title="time"></a>time</h4><p><code>time command</code>: 显示命令执行的时间</p>
-<h3 id="进程相关命令"><a href="#进程相关命令" class="headerlink" title="进程相关命令"></a>进程相关命令</h3><h4 id="ps-top"><a href="#ps-top" class="headerlink" title="ps/top"></a>ps/top</h4><p><code>ps aux</code>: 查看进程运行状态(快照模式)（process state）</p>
+<p><code>sed -r "s/red/yellow/" file</code>：查找<code>red</code>并替换为<code>yellow</code>，只替换每一行第一个</p>
+<p><code>sed -r "s/red/yellow/g file"</code>：加上<code>g</code>，表示global，替换所有</p>
+<p><code>sed -r "s/red/yellow/g file"</code>：加上<code>i</code>，表示ignore-case，忽略大小写</p>
+<p><code>sed -r "s#red#yellow#g file"</code>：<code>/</code>其实可以替换成任意字符</p>
+<p><code>sed -r "3,5s/red/yellow/g file"</code>：只有3到5行替换</p>
+<p><code>sed -r "s/(.*)/#&amp;/ file"</code>：所有行前面加入<code>#</code>，<code>(.*)</code>表示匹配行所有内容，<code>&amp;</code>表示前面匹配的所有内容</p>
+<p><code>sed -r "2r/new_file" file</code>：读到第2行时读取文件内容，<code>r</code>表示读入</p>
+<p><code>sed -r "2w/new_file" file</code>：读到第2行时写入到新文件，<code>w</code>表示读入</p>
+<p><code>sed -r "2a/new_file" file</code>：读到第2行时追加新内容或到新文件，<code>a</code>表示追加（行后）</p>
+<p><code>sed -r "2i/new_file" file</code>：读到第2行时插入新内容或到新文件，<code>i</code>表示插入（行前）</p>
+<p><code>sed -r "/root/&#123;n;d&#125; file"</code>：找到root行，然后去下一行并删除
+，<code>n</code>表示下一行</p>
+<h3 id="时间相关命令">时间相关命令</h3>
+<h4 id="date">date</h4>
+<p><code>date +%F</code>: 格式化输出时间</p>
+<h4 id="time">time</h4>
+<p><code>time command</code>: 显示命令执行的时间</p>
+<h3 id="进程相关命令">进程相关命令</h3>
+<h4 id="pstop">ps/top</h4>
+<p><code>ps aux</code>: 查看进程运行状态(快照模式)（process state）</p>
 <p><code>ps aux --sort [-]%cpu</code>: 以cpu占用排序查看进程状态</p>
 <p><code>ps auxf</code>: 加上f，显示进程的层级关系</p>
 <p><code>ps -ef</code>: 查看PID（进程ID）和PPID（进程父ID）</p>
 <p><code>top</code>: 动态模式</p>
-<h4 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h4><p><code>kill -1 PID</code>: 1为重启信号</p>
-<p><code>kill [-15] PID</code>:  默认为15即停止信号</p>
+<h4 id="kill">kill</h4>
+<p><code>kill -1 PID</code>: 1为重启信号</p>
+<p><code>kill [-15] PID</code>: 默认为15即停止信号</p>
 <p><code>kill -9 PID</code>: 9为强制关闭信号</p>
-<h4 id="fg-bg-jobs"><a href="#fg-bg-jobs" class="headerlink" title="fg/bg/jobs"></a>fg/bg/jobs</h4><p><code>jobs</code>：查看所有后台进程</p>
+<h4 id="fgbgjobs">fg/bg/jobs</h4>
+<p><code>jobs</code>：查看所有后台进程</p>
 <p><code>fg pid</code>：将后台pid任务切换至前台运行</p>
 <p><code>bg pid</code>：将前台pid任务切换至后台运行</p>
-<h3 id="硬件相关命令"><a href="#硬件相关命令" class="headerlink" title="硬件相关命令"></a>硬件相关命令</h3><h4 id="lscpu"><a href="#lscpu" class="headerlink" title="lscpu"></a>lscpu</h4><p><code>lscpu</code>: 查看cpu信息</p>
-<h4 id="lsblk"><a href="#lsblk" class="headerlink" title="lsblk"></a>lsblk</h4><p><code>lsblk</code>: 显示硬盘分区</p>
-<h4 id="fdisk-gdisk-partprobe"><a href="#fdisk-gdisk-partprobe" class="headerlink" title="fdisk/gdisk/partprobe"></a>fdisk/gdisk/partprobe</h4><p><code>fdisk</code>: MBR分区工具</p>
+<h3 id="硬件相关命令">硬件相关命令</h3>
+<h4 id="lscpu">lscpu</h4>
+<p><code>lscpu</code>: 查看cpu信息</p>
+<h4 id="lsblk">lsblk</h4>
+<p><code>lsblk</code>: 显示硬盘分区</p>
+<h4 id="fdiskgdiskpartprobe">fdisk/gdisk/partprobe</h4>
+<p><code>fdisk</code>: MBR分区工具</p>
 <p><code>fdisk /dev/sda</code>: 硬盘分区工具</p>
 <p><code>fdisk -l /dev/sda</code>: 查看分区信息</p>
 <p><code>gdisk</code>: GPT分区工具</p>
 <p><code>gdisk /dev/sda</code>: 硬盘分区工具</p>
 <p><code>gdisk -l /dev/sda</code>: 查看分区信息</p>
 <p><code>partprobe</code>：让kernel读取分区信息</p>
-<h4 id="mkfs"><a href="#mkfs" class="headerlink" title="mkfs"></a>mkfs</h4><p><code>mkfs</code>: 创建文件系统（格式化）</p>
-<p><code>mkfs.ext4 /dev/sda1</code>: 将硬盘sda的分区1格式化为ext4格式</p>
-<h4 id="mount-umount"><a href="#mount-umount" class="headerlink" title="mount/umount"></a>mount/umount</h4><p><code>mount /dev/sda1 dir</code> 将设备挂载到目录下<code>dir</code>下</p>
+<h4 id="mkfs">mkfs</h4>
+<p><code>mkfs</code>: 创建文件系统（格式化）</p>
+<p><code>mkfs.ext4 /dev/sda1</code>:
+将硬盘sda的分区1格式化为ext4格式</p>
+<h4 id="mountumount">mount/umount</h4>
+<p><code>mount /dev/sda1 dir</code>
+将设备挂载到目录下<code>dir</code>下</p>
 <blockquote>
 <p>mount命令只是临时挂载，长期挂载需在/etc/fstab文件中设置</p>
 </blockquote>
 <p><code>mount -a</code>: 从<code>/etc/fstab</code>中查找并挂载所有</p>
-<p><code>umount /dev/sda1</code>: </p>
-<h4 id="df"><a href="#df" class="headerlink" title="df"></a>df</h4><p><code>df</code>: 查看分区信息</p>
+<p><code>umount /dev/sda1</code>:</p>
+<h4 id="df">df</h4>
+<p><code>df</code>: 查看分区信息</p>
 <p><code>df -T</code>: 显示分区文件系统格式</p>
 <p><code>df -h</code>: 以<code>G,T</code>显示分区大小</p>
-<h3 id="管道相关命令"><a href="#管道相关命令" class="headerlink" title="管道相关命令"></a>管道相关命令</h3><h4 id="gt-gt-gt-lt-lt-lt"><a href="#gt-gt-gt-lt-lt-lt" class="headerlink" title="&gt;/&gt;&gt;/&lt;/&lt;&lt;"></a>&gt;/&gt;&gt;/&lt;/&lt;&lt;</h4><div class="table-container">
+<h3 id="管道相关命令">管道相关命令</h3>
+<h4 id="section">&gt;/&gt;&gt;/&lt;/&lt;&lt;</h4>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>描述符</th>
 <th>含义</th>
 <th>对应文件</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>0</td>
 <td>标准输入</td>
 <td>键盘设备文件</td>
 </tr>
-<tr>
+<tr class="even">
 <td>1</td>
 <td>标准输出</td>
 <td>终端设备文件</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>2</td>
 <td>标准错误</td>
 <td>终端设备文件</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p><code>ls 1&gt;out.txt 2&gt;err.txt</code>: 标准输出到<code>out.txt</code>，错误输出到<code>err.txt</code></p>
-<p><code>ls &gt;out.txt</code>: 等效于<code>ls 1&gt;out.txt</code>: 标准输出到<code>out.txt</code></p>
+<p><code>ls 1&gt;out.txt 2&gt;err.txt</code>:
+标准输出到<code>out.txt</code>，错误输出到<code>err.txt</code></p>
+<p><code>ls &gt;out.txt</code>: 等效于<code>ls 1&gt;out.txt</code>:
+标准输出到<code>out.txt</code></p>
 <p><code>ls &gt;&gt;out.txt</code>: 追加到文件</p>
-<p><code>ls &amp;&gt;out.txt</code>: 混合输出（包括标准输出和错误输出）</p>
-<p><code>ls 2&gt;&amp;1</code>: 错误输出（2）到标准输出（设备描述符1）中</p>
+<p><code>ls &amp;&gt;out.txt</code>:
+混合输出（包括标准输出和错误输出）</p>
+<p><code>ls 2&gt;&amp;1</code>:
+错误输出（2）到标准输出（设备描述符1）中</p>
 <p><code>ls &amp;&gt;/dev/null</code>: 混合输出到空设备（垃圾桶）</p>
 <p><code>ls 2&gt;/dev/null</code>: 错误输出到空设备</p>
-<p><code>cat &gt;out.txt</code>: 将终端输入重定向到<code>out.txt</code></p>
-<p><code>cat &gt;out.txt &lt;&lt;EOF</code>: 输入直到遇到<code>EOF</code>结束输入</p>
-<p><code>grep &#39;root&#39; &lt; /etc/passwd</code>: 输入重定向，<code>grep &#39;root&#39;</code>的输入重定向到<code>/etc/passwd</code></p>
-<h4 id="mkfifo"><a href="#mkfifo" class="headerlink" title="|/mkfifo"></a>|/mkfifo</h4><p><code>|</code>: 匿名管道</p>
-<p><code>command 1 | command 2</code>: 管道，命令1的输出重定向为命令2的输入</p>
+<p><code>cat &gt;out.txt</code>:
+将终端输入重定向到<code>out.txt</code></p>
+<p><code>cat &gt;out.txt &lt;&lt;EOF</code>:
+输入直到遇到<code>EOF</code>结束输入</p>
+<p><code>grep 'root' &lt; /etc/passwd</code>:
+输入重定向，<code>grep 'root'</code>的输入重定向到<code>/etc/passwd</code></p>
+<h4 id="mkfifo">|/mkfifo</h4>
+<p><code>|</code>: 匿名管道</p>
+<p><code>command 1 | command 2</code>:
+管道，命令1的输出重定向为命令2的输入</p>
 <p><code>mkfifo /tmp/fifo1</code>：命名管道，可以跨终端传输数据</p>
-<h4 id="tee"><a href="#tee" class="headerlink" title="tee"></a>tee</h4><p><code>ls -l | tee result.txt</code>：<code>ls -l</code>的结果不仅输出到<code>result.txt</code>中，而且会显示到屏幕上</p>
+<h4 id="tee">tee</h4>
+<p><code>ls -l | tee result.txt</code>：<code>ls -l</code>的结果不仅输出到<code>result.txt</code>中，而且会显示到屏幕上</p>
 <p><code>ls -l | tee -a result.txt</code>：追加</p>
-<h3 id="搜索相关命令"><a href="#搜索相关命令" class="headerlink" title="搜索相关命令"></a>搜索相关命令</h3><h4 id="locate-find"><a href="#locate-find" class="headerlink" title="locate/find"></a>locate/find</h4><p><code>locate string</code>: 从数据库中查找包含<code>string</code>的文件</p>
+<h3 id="搜索相关命令">搜索相关命令</h3>
+<h4 id="locatefind">locate/find</h4>
+<p><code>locate string</code>:
+从数据库中查找包含<code>string</code>的文件</p>
 <blockquote>
 <p>数据库为/var/lib/mlocate/mlocate.db，可以使用<code>updatedb</code>命令手动更新该数据库</p>
 </blockquote>
-<p><code>find dir</code>: 查找<code>dir</code> 目录下所有文件（显示所有文件）</p>
-<p><code>find dir [-name] &quot;string&quot;</code>: 查找<code>dir</code>目录下包含<code>string</code>的所有文件</p>
-<p><code>find dir -iname &quot;string&quot;</code>: 查找文件，忽略大小写</p>
+<p><code>find dir</code>: 查找<code>dir</code>
+目录下所有文件（显示所有文件）</p>
+<p><code>find dir [-name] "string"</code>:
+查找<code>dir</code>目录下包含<code>string</code>的所有文件</p>
+<p><code>find dir -iname "string"</code>: 查找文件，忽略大小写</p>
 <p><code>find dir -size +5M: 查找大于</code>5M`的文件</p>
-<p><code>find dir -maxdepth 3 -a -name &quot;string&quot;</code>:  查找文件且深度为3（<code>-a</code>表示and，<code>-o</code>表示or）</p>
+<p><code>find dir -maxdepth 3 -a -name "string"</code>:
+查找文件且深度为3（<code>-a</code>表示and，<code>-o</code>表示or）</p>
 <p><code>find dir -mtime +5</code>: 修改时间超过5天内的文件</p>
-<p><code>find dir -user username</code>: 用户为<code>username</code>的文件</p>
-<p><code>find dir -group groupname</code>: 查看组为<code>groupname</code>的文件</p>
+<p><code>find dir -user username</code>:
+用户为<code>username</code>的文件</p>
+<p><code>find dir -group groupname</code>:
+查看组为<code>groupname</code>的文件</p>
 <p><code>find dir -nouser -o -nogroup</code>: 没用户没组的文件</p>
-<p><code>find dir ! -user username</code>:  <code>!</code>表示取反</p>
+<p><code>find dir ! -user username</code>: <code>!</code>表示取反</p>
 <p><code>find dir -type d</code>: 查找为<code>d</code>（目录）的文件</p>
 <p><code>find dir -perm 666</code>: 查找权限大于等于666的文件</p>
-<p><code>find dir -regex &#39;regular expression&#39;</code>: 以正则表达式查找 </p>
-<p><code>find {sth} -delete</code>: 查找后删除</p>
-<p><code>find {sth} -print/-ls</code>: 查找后打印（<code>ls</code>更详细）</p>
-<p><code>find {sth} -exec/-ok command \;</code> : 查找后执行<code>command</code> shell命令（<code>-ok</code>有交互，会询问是否如此操作）</p>
-<h3 id="grep正则命令"><a href="#grep正则命令" class="headerlink" title="grep正则命令"></a>grep正则命令</h3><h4 id="grep-egrep"><a href="#grep-egrep" class="headerlink" title="grep/egrep"></a>grep/egrep</h4><p><code>grep pattern file1 [file2]</code>：从文件中过滤出匹配到模式的字符串</p>
+<p><code>find dir -regex 'regular expression'</code>:
+以正则表达式查找</p>
+<p><code>find &#123;sth&#125; -delete</code>: 查找后删除</p>
+<p><code>find &#123;sth&#125; -print/-ls</code>:
+查找后打印（<code>ls</code>更详细）</p>
+<p><code>find &#123;sth&#125; -exec/-ok command \;</code> :
+查找后执行<code>command</code>
+shell命令（<code>-ok</code>有交互，会询问是否如此操作）</p>
+<h3 id="grep正则命令">grep正则命令</h3>
+<h4 id="grepegrep">grep/egrep</h4>
+<p><code>grep pattern file1 [file2]</code>：从文件中过滤出匹配到模式的字符串</p>
 <p><code>grep -q pattern file1</code>：不打印结果，只返回输出码（0表示找到，1表示没找到，2表示文件不存在）</p>
 <p><code>grep -v</code>：取反，未匹配到的打印输出</p>
 <p><code>grep -i</code>：忽略大小写</p>
 <p><code>grep -o</code>：只输出匹配到的内容</p>
 <p><code>grep -n</code>：输出匹配到的行号</p>
 <p><code>grep -r[-R] dir</code>：递归遍历<code>dir</code>目录匹配</p>
-<p><code>grep -E(egrep)</code>：<code>egrep</code>可以直接使用扩展元字符<code>?</code>，<code>+</code>，<code>{}</code>，<code>|</code>，<code>()</code>，但是在<code>grep</code>中需要使用<code>\</code>转义才能使用扩展元字符</p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h4 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h4><p><code>screen -S session_name</code>: 新开一个名字叫session_name的screen作业</p>
+<p><code>grep -E(egrep)</code>：<code>egrep</code>可以直接使用扩展元字符<code>?</code>，<code>+</code>，<code>&#123;&#125;</code>，<code>|</code>，<code>()</code>，但是在<code>grep</code>中需要使用<code>\</code>转义才能使用扩展元字符</p>
+<h3 id="其他">其他</h3>
+<h4 id="screen">screen</h4>
+<p><code>screen -S session_name</code>:
+新开一个名字叫session_name的screen作业</p>
 <p><code>screen -ls</code>: 查看所有screen作业</p>
 <p><code>screen -r</code>: 恢复上一次的作业</p>
-<p><code>screen -r session_name</code>: 恢复session_name的作业（attached）</p>
+<p><code>screen -r session_name</code>:
+恢复session_name的作业（attached）</p>
 <p><code>screen -d</code>: 离线当前作业（detached）</p>
 <p><code>ctrl+a d</code>：离线当前作业</p>
-<p><code>screen -d session_name</code>: 离线session_name作业（detached）</p>
-<p><code>exit</code>: 在attached的screen作业下输入该命令，终止该screen作业</p>
-<p><code>kill pid</code>: <code>pid</code>为screen的进程id，终止该screen作业</p>
+<p><code>screen -d session_name</code>:
+离线session_name作业（detached）</p>
+<p><code>exit</code>:
+在attached的screen作业下输入该命令，终止该screen作业</p>
+<p><code>kill pid</code>:
+<code>pid</code>为screen的进程id，终止该screen作业</p>
 <p><code>screen -wipe</code>: 清理掉没用的（deaded）screen作业</p>
-<h4 id="seq"><a href="#seq" class="headerlink" title="seq"></a>seq</h4><p><code>seq 10</code>：产生1到10的序列</p>
+<h4 id="seq">seq</h4>
+<p><code>seq 10</code>：产生1到10的序列</p>
 <p><code>seq 2 10</code>：产生从2到10的序列</p>
 <p><code>seq 1 2 10</code>：产生从1到10的序列，递增为2</p>
 
@@ -664,7 +765,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux终端快捷键"><span class="nav-text">linux终端快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell命令"><span class="nav-text">shell命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础命令"><span class="nav-text">基础命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#histroy"><span class="nav-text">histroy&#x2F;!</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#man"><span class="nav-text">man</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#alias"><span class="nav-text">alias</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#echo"><span class="nav-text">echo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#which-whereis"><span class="nav-text">which&#x2F;whereis</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户操作"><span class="nav-text">用户操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#groupadd-groupdel-useradd-userdel"><span class="nav-text">groupadd&#x2F;groupdel&#x2F;useradd&#x2F;userdel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#passwd-gpasswd"><span class="nav-text">passwd&#x2F;gpasswd</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录与文件操作"><span class="nav-text">目录与文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ls"><span class="nav-text">ls</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cd"><span class="nav-text">cd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mkdir"><span class="nav-text">mkdir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#touch"><span class="nav-text">touch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cp"><span class="nav-text">cp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mv"><span class="nav-text">mv</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rm"><span class="nav-text">rm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chmod-chown-chgrp"><span class="nav-text">chmod&#x2F;chown&#x2F;chgrp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tar"><span class="nav-text">tar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#du"><span class="nav-text">du</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件增删改查"><span class="nav-text">文件增删改查</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cat"><span class="nav-text">cat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#head-tail"><span class="nav-text">head&#x2F;tail</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vi-vim"><span class="nav-text">vi&#x2F;vim</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sort"><span class="nav-text">sort</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#uniq"><span class="nav-text">uniq</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wc"><span class="nav-text">wc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tr"><span class="nav-text">tr</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk"><span class="nav-text">awk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sed"><span class="nav-text">sed</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间相关命令"><span class="nav-text">时间相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#date"><span class="nav-text">date</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#time"><span class="nav-text">time</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程相关命令"><span class="nav-text">进程相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ps-top"><span class="nav-text">ps&#x2F;top</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#kill"><span class="nav-text">kill</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fg-bg-jobs"><span class="nav-text">fg&#x2F;bg&#x2F;jobs</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#硬件相关命令"><span class="nav-text">硬件相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lscpu"><span class="nav-text">lscpu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lsblk"><span class="nav-text">lsblk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fdisk-gdisk-partprobe"><span class="nav-text">fdisk&#x2F;gdisk&#x2F;partprobe</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mkfs"><span class="nav-text">mkfs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mount-umount"><span class="nav-text">mount&#x2F;umount</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#df"><span class="nav-text">df</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管道相关命令"><span class="nav-text">管道相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#gt-gt-gt-lt-lt-lt"><span class="nav-text">&gt;&#x2F;&gt;&gt;&#x2F;&lt;&#x2F;&lt;&lt;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mkfifo"><span class="nav-text">|&#x2F;mkfifo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tee"><span class="nav-text">tee</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索相关命令"><span class="nav-text">搜索相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#locate-find"><span class="nav-text">locate&#x2F;find</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#grep正则命令"><span class="nav-text">grep正则命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#grep-egrep"><span class="nav-text">grep&#x2F;egrep</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#screen"><span class="nav-text">screen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#seq"><span class="nav-text">seq</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux%E7%BB%88%E7%AB%AF%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-text">linux终端快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell%E5%91%BD%E4%BB%A4"><span class="nav-text">shell命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="nav-text">基础命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#histroy"><span class="nav-text">histroy&#x2F;!</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#man"><span class="nav-text">man</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#alias"><span class="nav-text">alias</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#echo"><span class="nav-text">echo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#whichwhereis"><span class="nav-text">which&#x2F;whereis</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%93%8D%E4%BD%9C"><span class="nav-text">用户操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#groupaddgroupdeluseradduserdel"><span class="nav-text">groupadd&#x2F;groupdel&#x2F;useradd&#x2F;userdel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#passwdgpasswd"><span class="nav-text">passwd&#x2F;gpasswd</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E4%B8%8E%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-text">目录与文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ls"><span class="nav-text">ls</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cd"><span class="nav-text">cd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mkdir"><span class="nav-text">mkdir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#touch"><span class="nav-text">touch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cp"><span class="nav-text">cp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mv"><span class="nav-text">mv</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rm"><span class="nav-text">rm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chmodchownchgrp"><span class="nav-text">chmod&#x2F;chown&#x2F;chgrp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tar"><span class="nav-text">tar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#du"><span class="nav-text">du</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="nav-text">文件增删改查</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cat"><span class="nav-text">cat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#headtail"><span class="nav-text">head&#x2F;tail</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vivim"><span class="nav-text">vi&#x2F;vim</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sort"><span class="nav-text">sort</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#uniq"><span class="nav-text">uniq</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wc"><span class="nav-text">wc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tr"><span class="nav-text">tr</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk"><span class="nav-text">awk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sed"><span class="nav-text">sed</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-text">时间相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#date"><span class="nav-text">date</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#time"><span class="nav-text">time</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-text">进程相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pstop"><span class="nav-text">ps&#x2F;top</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#kill"><span class="nav-text">kill</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fgbgjobs"><span class="nav-text">fg&#x2F;bg&#x2F;jobs</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-text">硬件相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lscpu"><span class="nav-text">lscpu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lsblk"><span class="nav-text">lsblk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fdiskgdiskpartprobe"><span class="nav-text">fdisk&#x2F;gdisk&#x2F;partprobe</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mkfs"><span class="nav-text">mkfs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mountumount"><span class="nav-text">mount&#x2F;umount</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#df"><span class="nav-text">df</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%A1%E9%81%93%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-text">管道相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#section"><span class="nav-text">&gt;&#x2F;&gt;&gt;&#x2F;&lt;&#x2F;&lt;&lt;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mkfifo"><span class="nav-text">|&#x2F;mkfifo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tee"><span class="nav-text">tee</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-text">搜索相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#locatefind"><span class="nav-text">locate&#x2F;find</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#grep%E6%AD%A3%E5%88%99%E5%91%BD%E4%BB%A4"><span class="nav-text">grep正则命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#grepegrep"><span class="nav-text">grep&#x2F;egrep</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#screen"><span class="nav-text">screen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#seq"><span class="nav-text">seq</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -735,13 +836,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
@@ -862,59 +963,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="描述该题来自于力扣第30题 给定一个字符串s和一些长度相同的单词words 。找出s中恰好可以由words中所有单词串联形成的子串的起始位置。 注意子串要与words中的单词完全匹配，中间不能有其他字符 ，但不需要考虑words中单词串联的顺序。">
+  <meta name="description" content="描述 该题来自于力扣第30题 给定一个字符串s和一些长度相同的单词words 。找出s中恰好可以由words中所有单词串联形成的子串的起始位置。 注意子串要与words中的单词完全匹配，中间不能有其他字符 ，但不需要考虑words中单词串联的顺序。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode题解30：串联所有单词的子串">
 <meta property="og:url" content="http://yoursite.com/2022/01/25/leetcode%E9%A2%98%E8%A7%A330/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="描述该题来自于力扣第30题 给定一个字符串s和一些长度相同的单词words 。找出s中恰好可以由words中所有单词串联形成的子串的起始位置。 注意子串要与words中的单词完全匹配，中间不能有其他字符 ，但不需要考虑words中单词串联的顺序。">
+<meta property="og:description" content="描述 该题来自于力扣第30题 给定一个字符串s和一些长度相同的单词words 。找出s中恰好可以由words中所有单词串联形成的子串的起始位置。 注意子串要与words中的单词完全匹配，中间不能有其他字符 ，但不需要考虑words中单词串联的顺序。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-25T10:30:03.000Z">
-<meta property="article:modified_time" content="2022-05-15T10:58:16.550Z">
+<meta property="article:modified_time" content="2022-01-25T10:30:03.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="leetcode">
 <meta property="article:tag" content="滑动窗口">
@@ -79,7 +79,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -219,13 +223,6 @@
 
               <time title="创建时间：2022-01-25 18:30:03" itemprop="dateCreated datePublished" datetime="2022-01-25T18:30:03+08:00">2022-01-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-15 18:58:16" itemprop="dateModified" datetime="2022-05-15T18:58:16+08:00">2022-05-15</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -268,45 +265,63 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于<a href="https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words" target="_blank" rel="noopener">力扣第30题</a></p>
-<p>给定一个字符串<code>s</code>和一些长度相同的单词<code>words</code> 。找出<code>s</code>中恰好可以由<code>words</code>中所有单词串联形成的子串的起始位置。</p>
-<p>注意子串要与<code>words</code>中的单词完全匹配，中间不能有其他字符 ，但不需要考虑<code>words</code>中单词串联的顺序。</p>
-<a id="more"></a>
+        <h2 id="描述">描述</h2>
+<p>该题来自于<a
+target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words">力扣第30题</a></p>
+<p>给定一个字符串<code>s</code>和一些长度相同的单词<code>words</code>
+。找出<code>s</code>中恰好可以由<code>words</code>中所有单词串联形成的子串的起始位置。</p>
+<p>注意子串要与<code>words</code>中的单词完全匹配，中间不能有其他字符
+，但不需要考虑<code>words</code>中单词串联的顺序。</p>
+<span id="more"></span>
 <p>示例 1：</p>
 <blockquote>
-<p>输入：s = “barfoothefoobarman”, words = [“foo”,”bar”]<br>输出：[0,9]<br>解释：<br>从索引 0 和 9 开始的子串分别是 “barfoo” 和 “foobar” 。<br>输出的顺序不重要, [9,0] 也是有效答案。</p>
+<p>输入：s = "barfoothefoobarman", words = ["foo","bar"]<br />
+输出：[0,9]<br />
+解释：<br />
+从索引 0 和 9 开始的子串分别是 "barfoo" 和 "foobar" 。<br />
+输出的顺序不重要, [9,0] 也是有效答案。</p>
 </blockquote>
 <p>示例 2：</p>
 <blockquote>
-<p>输入：s = “wordgoodgoodgoodbestword”, words = [“word”,”good”,”best”,”word”]<br>输出：[]</p>
+<p>输入：s = "wordgoodgoodgoodbestword", words =
+["word","good","best","word"]<br />
+输出：[]</p>
 </blockquote>
 <p>示例 3：</p>
 <blockquote>
-<p>输入：s = “barfoofoobarthefoobarman”, words = [“bar”,”foo”,”the”]<br>输出：[6,9,12]</p>
+<p>输入：s = "barfoofoobarthefoobarman", words =
+["bar","foo","the"]<br />
+输出：[6,9,12]</p>
 </blockquote>
-<p>提示：</p>
-<ul>
-<li>1 &lt;= s.length &lt;= 104</li>
-<li>s 由小写英文字母组成</li>
-<li>1 &lt;= words.length &lt;= 5000</li>
-<li>1 &lt;= words[i].length &lt;= 30</li>
-<li>words[i]由小写英文字母组成</li>
-</ul>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>需要知道words的一个组合是否是s的一个子串，由于words中的元素组合成的字符串是固定长度的，所以只需要考虑s中固定长度的子串，以实例2为例，words中每个词的长度为4，而words中元素个数也是4，所以组合成的字符串总长度为<code>4*4 = 16</code>，所以遍历s的长度为16的子串，看看该子串里的元素是否和words一样。具体过程为：</p>
-<p><font color='red'>wordgoodgoodgood</font>bestword -&gt; w<font color='red'>ordgoodgoodgoodb</font>estword -&gt; wo<font color='red'>rdgoodgoodgoodbe</font>stword -&gt; …</p>
-<p>上述方法每次移动一个字符串，无法利用之前窗口的信息，显然不合理，由于每个元素长度为4，可以每次移动4个字符，即</p>
-<ul>
-<li>以<code>w</code>开始，长度为16的窗口，以4为步长移动：<font color='red'>wordgoodgoodgood</font>bestword -&gt; word<font color='red'>goodgoodgoodbest</font>word -&gt; wordgood<font color='red'>goodgoodbestword</font> -&gt; …</li>
-<li>以<code>o</code>开始，长度为16的窗口，以4为步长移动：w<font color='red'>ordgoodgoodgoodb</font>estword -&gt; wordg<font color='red'>oodgoodgoodbestw</font>ord</li>
-<li>以<code>r</code>开始以及以<code>d</code>开始相应的窗口移动</li>
-</ul>
+<p>提示：<br />
+* 1 &lt;= s.length &lt;= 104<br />
+* s 由小写英文字母组成<br />
+* 1 &lt;= words.length &lt;= 5000<br />
+* 1 &lt;= words[i].length &lt;= 30<br />
+* words[i]由小写英文字母组成</p>
+<h2 id="分析">分析</h2>
+<p>需要知道words的一个组合是否是s的一个子串，由于words中的元素组合成的字符串是固定长度的，所以只需要考虑s中固定长度的子串，以实例2为例，words中每个词的长度为4，而words中元素个数也是4，所以组合成的字符串总长度为<code>4*4 = 16</code>，所以遍历s的长度为16的子串，看看该子串里的元素是否和words一样。具体过程为：<br />
+<font color='red'>wordgoodgoodgood</font>bestword -&gt;
+w<font color='red'>ordgoodgoodgoodb</font>estword -&gt;
+wo<font color='red'>rdgoodgoodgoodbe</font>stword -&gt; ...</p>
+<p>上述方法每次移动一个字符串，无法利用之前窗口的信息，显然不合理，由于每个元素长度为4，可以每次移动4个字符，即<br />
+*
+以<code>w</code>开始，长度为16的窗口，以4为步长移动：<font color='red'>wordgoodgoodgood</font>bestword
+-&gt; word<font color='red'>goodgoodgoodbest</font>word -&gt;
+wordgood<font color='red'>goodgoodbestword</font> -&gt; ...<br />
+*
+以<code>o</code>开始，长度为16的窗口，以4为步长移动：w<font color='red'>ordgoodgoodgoodb</font>estword
+-&gt; wordg<font color='red'>oodgoodgoodbestw</font>ord<br />
+* 以<code>r</code>开始以及以<code>d</code>开始相应的窗口移动</p>
 <p>优化后的方法同样可以遍历完所有子串，而且由于每次移出一个单词，移入一个单词，从而可以很好的维护窗口中的元素。</p>
 <p>在模拟窗口移动时发现可以继续优化，比如即将移入的元素不存在于words中，表明直到将该元素移出为止，不可能存在满足条件的子串。另外一种可以优化的情况，如果即将移入的元素在words中，但是元素个数超过了words中的该元素个数呢？显然这时候需要移出该元素前面的所有元素（包含自身），这样才能让该元素的个数少一个。</p>
 <p>考虑了上面的两种情况就可以保证子串里的元素都在words中，且每个元素的个数不超过words中的元素，所以该窗口必为words中的某个组合，因为如果某个元素的个数小与words中的该元素个数，那么窗口的长度必然小于16。</p>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><details open>
-<summary>python</summary>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findSubstring</span><span class="params">(self, s: str, words: List[str])</span> -&gt; List[int]:</span></span><br><span class="line">        word_len = len(words[<span class="number">0</span>])</span><br><span class="line">        num_words = len(words)</span><br><span class="line">        total_len = num_words * word_len</span><br><span class="line">        s_len = len(s)</span><br><span class="line">        all_indices = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> s_len &lt; total_len:</span><br><span class="line">            <span class="keyword">return</span> all_indices</span><br><span class="line"></span><br><span class="line">        word_map = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">            word_map[word] = word_map.get(word, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> wi <span class="keyword">in</span> range(min(word_len, s_len - total_len+<span class="number">1</span>)):</span><br><span class="line">            start = curr = <span class="number">0</span></span><br><span class="line">            window_map = &#123;&#125;</span><br><span class="line">            <span class="keyword">while</span> wi + curr * word_len &lt;= (s_len - word_len):</span><br><span class="line">                curr_word = s[wi+curr*word_len:wi+curr*word_len+word_len]</span><br><span class="line">                <span class="keyword">if</span> curr_word <span class="keyword">not</span> <span class="keyword">in</span> word_map:</span><br><span class="line">                    window_map = &#123;&#125;</span><br><span class="line">                    start = curr + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    window_map[curr_word] = [</span><br><span class="line">                        window_map.get(curr_word, [<span class="number">0</span>, []])[<span class="number">0</span>] + <span class="number">1</span>,</span><br><span class="line">                        window_map.get(curr_word, [<span class="number">0</span>, []])[<span class="number">1</span>] + [curr]</span><br><span class="line">                    ]</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> window_map[curr_word][<span class="number">0</span>] &gt; word_map[curr_word]:</span><br><span class="line">                        new_start = window_map[curr_word][<span class="number">1</span>][<span class="number">0</span>] + <span class="number">1</span></span><br><span class="line">                        <span class="keyword">for</span> i <span class="keyword">in</span> range(start, window_map[curr_word][<span class="number">1</span>][<span class="number">0</span>] + <span class="number">1</span>):</span><br><span class="line">                            window_map[s[wi+i*word_len:wi+i*word_len+word_len]][<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line">                            window_map[s[wi+i*word_len:wi+i*word_len+word_len]][<span class="number">1</span>].pop(<span class="number">0</span>)</span><br><span class="line">                        start = new_start</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> curr - start + <span class="number">1</span> == num_words:</span><br><span class="line">                        <span class="keyword">if</span> window_map[curr_word][<span class="number">0</span>] == word_map[curr_word]:</span><br><span class="line">                            all_indices.append(wi+start*word_len)</span><br><span class="line">                        window_map[s[wi+start*word_len:wi+start*word_len+word_len]][<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line">                        start += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                curr += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> all_indices</span><br></pre></td></tr></table></figure>
+<h2 id="算法">算法</h2>
+<details open>
+<summary>
+python
+</summary>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">findSubstring</span>(<span class="params">self, s: <span class="built_in">str</span>, words: <span class="type">List</span>[<span class="built_in">str</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        word_len = <span class="built_in">len</span>(words[<span class="number">0</span>])</span><br><span class="line">        num_words = <span class="built_in">len</span>(words)</span><br><span class="line">        total_len = num_words * word_len</span><br><span class="line">        s_len = <span class="built_in">len</span>(s)</span><br><span class="line">        all_indices = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> s_len &lt; total_len:</span><br><span class="line">            <span class="keyword">return</span> all_indices</span><br><span class="line"></span><br><span class="line">        word_map = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">            word_map[word] = word_map.get(word, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> wi <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">min</span>(word_len, s_len - total_len+<span class="number">1</span>)):</span><br><span class="line">            start = curr = <span class="number">0</span></span><br><span class="line">            window_map = &#123;&#125;</span><br><span class="line">            <span class="keyword">while</span> wi + curr * word_len &lt;= (s_len - word_len):</span><br><span class="line">                curr_word = s[wi+curr*word_len:wi+curr*word_len+word_len]</span><br><span class="line">                <span class="keyword">if</span> curr_word <span class="keyword">not</span> <span class="keyword">in</span> word_map:</span><br><span class="line">                    window_map = &#123;&#125;</span><br><span class="line">                    start = curr + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    window_map[curr_word] = [</span><br><span class="line">                        window_map.get(curr_word, [<span class="number">0</span>, []])[<span class="number">0</span>] + <span class="number">1</span>,</span><br><span class="line">                        window_map.get(curr_word, [<span class="number">0</span>, []])[<span class="number">1</span>] + [curr]</span><br><span class="line">                    ]</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> window_map[curr_word][<span class="number">0</span>] &gt; word_map[curr_word]:</span><br><span class="line">                        new_start = window_map[curr_word][<span class="number">1</span>][<span class="number">0</span>] + <span class="number">1</span></span><br><span class="line">                        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start, window_map[curr_word][<span class="number">1</span>][<span class="number">0</span>] + <span class="number">1</span>):</span><br><span class="line">                            window_map[s[wi+i*word_len:wi+i*word_len+word_len]][<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line">                            window_map[s[wi+i*word_len:wi+i*word_len+word_len]][<span class="number">1</span>].pop(<span class="number">0</span>)</span><br><span class="line">                        start = new_start</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> curr - start + <span class="number">1</span> == num_words:</span><br><span class="line">                        <span class="keyword">if</span> window_map[curr_word][<span class="number">0</span>] == word_map[curr_word]:</span><br><span class="line">                            all_indices.append(wi+start*word_len)</span><br><span class="line">                        window_map[s[wi+start*word_len:wi+start*word_len+word_len]][<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line">                        start += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                curr += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> all_indices</span><br></pre></td></tr></table></figure>
 </details>
 
     </div>
@@ -394,7 +409,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-text">算法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-text">算法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -465,13 +480,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

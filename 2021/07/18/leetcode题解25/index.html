@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="描述该题来自于力扣第25题 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。k 是一个正整数，它的值小于或等于链表的长度。如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。 进阶：你可以设计一个只使用常数额外空间的算法来解决此问题吗？你不能只是单纯的改变节点内部的值，而是需要实际进行节点交换。">
+  <meta name="description" content="描述 该题来自于力扣第25题 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。 k 是一个正整数，它的值小于或等于链表的长度。 如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。 进阶： 你可以设计一个只使用常数额外空间的算法来解决此问题吗？ 你不能只是单纯的改变节点内部的值，而是需要实际进行节点交换。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode题解25：K个一组翻转链表">
 <meta property="og:url" content="http://yoursite.com/2021/07/18/leetcode%E9%A2%98%E8%A7%A325/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="描述该题来自于力扣第25题 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。k 是一个正整数，它的值小于或等于链表的长度。如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。 进阶：你可以设计一个只使用常数额外空间的算法来解决此问题吗？你不能只是单纯的改变节点内部的值，而是需要实际进行节点交换。">
+<meta property="og:description" content="描述 该题来自于力扣第25题 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。 k 是一个正整数，它的值小于或等于链表的长度。 如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。 进阶： 你可以设计一个只使用常数额外空间的算法来解决此问题吗？ 你不能只是单纯的改变节点内部的值，而是需要实际进行节点交换。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-18T01:56:33.000Z">
-<meta property="article:modified_time" content="2022-01-06T02:39:43.134Z">
+<meta property="article:modified_time" content="2021-07-18T01:56:33.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="leetcode">
 <meta property="article:tag" content="链表">
@@ -79,7 +79,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -219,13 +223,6 @@
 
               <time title="创建时间：2021-07-18 09:56:33" itemprop="dateCreated datePublished" datetime="2021-07-18T09:56:33+08:00">2021-07-18</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-06 10:39:43" itemprop="dateModified" datetime="2022-01-06T10:39:43+08:00">2022-01-06</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -249,7 +246,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.3k</span>
+              <span>3.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -268,47 +265,58 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于<a href="https://leetcode-cn.com/problems/reverse-nodes-in-k-group/" target="_blank" rel="noopener">力扣第25题</a></p>
-<p>给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。<br>k 是一个正整数，它的值小于或等于链表的长度。<br>如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。</p>
-<p>进阶：<br>你可以设计一个只使用常数额外空间的算法来解决此问题吗？<br>你不能只是单纯的改变节点内部的值，而是需要实际进行节点交换。</p>
-<a id="more"></a>
+        <h2 id="描述">描述</h2>
+<p>该题来自于<a
+target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-nodes-in-k-group/">力扣第25题</a></p>
+<p>给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。<br />
+k 是一个正整数，它的值小于或等于链表的长度。<br />
+如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。</p>
+<p>进阶：<br />
+你可以设计一个只使用常数额外空间的算法来解决此问题吗？<br />
+你不能只是单纯的改变节点内部的值，而是需要实际进行节点交换。</p>
+<span id="more"></span>
 <p>示例 1：</p>
 <blockquote>
-<p>输入：head = [1,2,3,4,5], k = 2<br>输出：[2,1,4,3,5]</p>
+<p>输入：head = [1,2,3,4,5], k = 2<br />
+输出：[2,1,4,3,5]</p>
 </blockquote>
 <p>示例 2：</p>
 <blockquote>
-<p>输入：head = [1,2,3,4,5], k = 3<br>输出：[3,2,1,4,5]</p>
+<p>输入：head = [1,2,3,4,5], k = 3<br />
+输出：[3,2,1,4,5]</p>
 </blockquote>
 <p>示例 3：</p>
 <blockquote>
-<p>输入：head = [1,2,3,4,5], k = 1<br>输出：[1,2,3,4,5]</p>
+<p>输入：head = [1,2,3,4,5], k = 1<br />
+输出：[1,2,3,4,5]</p>
 </blockquote>
 <p>示例 4：</p>
 <blockquote>
-<p>输入：head = [1], k = 1<br>输出：[1]<br>提示：</p>
+<p>输入：head = [1], k = 1<br />
+输出：[1]<br />
+提示：</p>
 </blockquote>
-<p>列表中节点的数量在范围 sz 内</p>
+<p>列表中节点的数量在范围 <code>sz</code> 内</p>
 <ul>
 <li>1 &lt;= sz &lt;= 5000</li>
 <li>0 &lt;= Node.val &lt;= 1000</li>
 <li>1 &lt;= k &lt;= sz</li>
 </ul>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>思路比较直观，首先从当前节点开始往后数节点的个数，如果不超过<code>k</code>个，直接返回头节点；如果达到<code>k</code>个节点，则翻转这<code>k</code>个节点并返回翻转后的头节点，然后循环上述步骤就可以了。这里重点分析如何翻转<code>k</code>个节点，比如说翻转<code>1-&gt;2-&gt;3-&gt;4</code>的步骤如下：</p>
-<ol>
-<li>将2放到前面，<code>2-&gt;1-&gt;3-&gt;4</code></li>
-<li>将3放到前面，<code>3-&gt;2-&gt;1-&gt;4</code></li>
-<li>将4放到前面，<code>4-&gt;3-&gt;2-&gt;1</code></li>
-</ol>
-<p>所以依次仿照上述操作即可翻转任意<code>k</code>个节点了，假设已知<code>k</code>个节点的头指针<code>head</code>和尾指针<code>tail</code>，并且指针<code>curr</code>前面已经翻转，现在需要翻转<code>curr</code>后的节点，如下所示<br><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head -&gt; ... -&gt; curr -&gt; <span class="built_in">first</span> -&gt; ... -&gt;</span><br></pre></td></tr></table></figure><br><code>head</code>到<code>curr</code>已经翻转了，那么接下来需要将<code>first</code>放到前面即可，可以进行以下操作</p>
-<ol>
-<li><code>first = curr.next</code></li>
-<li><code>curr.next = first.next</code></li>
-<li><code>first.next = head</code></li>
-<li>最后更新<code>head</code>方便下次循环，<code>head = first</code></li>
-</ol>
+<h2 id="分析">分析</h2>
+<p>思路比较直观，首先从当前节点开始往后数节点的个数，如果不超过<code>k</code>个，直接返回头节点；如果达到<code>k</code>个节点，则翻转这<code>k</code>个节点并返回翻转后的头节点，然后循环上述步骤就可以了。这里重点分析如何翻转<code>k</code>个节点，比如说翻转<code>1-&gt;2-&gt;3-&gt;4</code>的步骤如下：<br />
+1. 将2放到前面，<code>2-&gt;1-&gt;3-&gt;4</code><br />
+2. 将3放到前面，<code>3-&gt;2-&gt;1-&gt;4</code><br />
+3. 将4放到前面，<code>4-&gt;3-&gt;2-&gt;1</code></p>
+<p>所以依次仿照上述操作即可翻转任意<code>k</code>个节点了，假设已知<code>k</code>个节点的头指针<code>head</code>和尾指针<code>tail</code>，并且指针<code>curr</code>前面已经翻转，现在需要翻转<code>curr</code>后的节点，如下所示<br />
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head -&gt; ... -&gt; curr -&gt; <span class="built_in">first</span> -&gt; ... -&gt;</span><br></pre></td></tr></table></figure><br />
+<code>head</code>到<code>curr</code>已经翻转了，那么接下来需要将<code>first</code>放到前面即可，可以进行以下操作<br />
+1. <code>first = curr.next</code><br />
+2. <code>curr.next = first.next</code><br />
+3. <code>first.next = head</code><br />
+4. 最后更新<code>head</code>方便下次循环，<code>head = first</code></p>
 <p>直到<code>head</code>与<code>tail</code>相等，表示<code>tail</code>已经在头部了，所以不需要再翻转了。</p>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><ol>
+<h2 id="算法">算法</h2>
+<ol type="1">
 <li>初始化<code>fakeHead</code>，并令<code>fakeHead.next = head</code>，初始<code>pre</code>，并令<code>pre = fakeHead</code></li>
 <li>进入循环，循环条件是<code>head != null</code></li>
 <li>判断从<code>head</code>开始是否有<code>k</code>个节点，如果没有进入步骤4，如果有进入步骤5</li>
@@ -318,25 +326,26 @@
 <li>更新<code>pre</code>,<code>head</code>准备下次循环，<code>pre=tail</code>，<code>head=pre.next</code>，回到步骤2</li>
 <li>循环条件不满足退出并返回<code>fakeHead.next</code></li>
 </ol>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><details open>
-<summary>python3</summary>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, val=<span class="number">0</span>, next=None)</span>:</span></span><br><span class="line">        self.val = val</span><br><span class="line">        self.next = next</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(self, head, tail)</span>:</span></span><br><span class="line">        curr = head</span><br><span class="line">        <span class="keyword">while</span> head != tail:</span><br><span class="line">            first = curr.next</span><br><span class="line">            curr.next = first.next</span><br><span class="line">            first.next = head</span><br><span class="line">            head = first</span><br><span class="line">        <span class="keyword">return</span> head, curr</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseKGroup</span><span class="params">(self, head: ListNode, k: int)</span> -&gt; ListNode:</span></span><br><span class="line">        fakeHead = ListNode(<span class="number">0</span>, head)</span><br><span class="line">        pre = fakeHead</span><br><span class="line">        <span class="keyword">while</span> head:</span><br><span class="line">            tail = pre</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> range(k):</span><br><span class="line">                tail = tail.next</span><br><span class="line">                <span class="keyword">if</span> tail <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                    <span class="keyword">return</span> fakeHead.next</span><br><span class="line">            head, tail = self.reverse(head, tail)</span><br><span class="line">            pre.next = head</span><br><span class="line">            pre = tail</span><br><span class="line">            head = pre.next</span><br><span class="line">        <span class="keyword">return</span> fakeHead.next</span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<details open>
+<summary>
+python3
+</summary>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ListNode</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, val=<span class="number">0</span>, <span class="built_in">next</span>=<span class="literal">None</span></span>):</span><br><span class="line">        self.val = val</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="built_in">next</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">reverse</span>(<span class="params">self, head, tail</span>):</span><br><span class="line">        curr = head</span><br><span class="line">        <span class="keyword">while</span> head != tail:</span><br><span class="line">            first = curr.<span class="built_in">next</span></span><br><span class="line">            curr.<span class="built_in">next</span> = first.<span class="built_in">next</span></span><br><span class="line">            first.<span class="built_in">next</span> = head</span><br><span class="line">            head = first</span><br><span class="line">        <span class="keyword">return</span> head, curr</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">reverseKGroup</span>(<span class="params">self, head: ListNode, k: <span class="built_in">int</span></span>) -&gt; ListNode:</span><br><span class="line">        fakeHead = ListNode(<span class="number">0</span>, head)</span><br><span class="line">        pre = fakeHead</span><br><span class="line">        <span class="keyword">while</span> head:</span><br><span class="line">            tail = pre</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">                tail = tail.<span class="built_in">next</span></span><br><span class="line">                <span class="keyword">if</span> tail <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                    <span class="keyword">return</span> fakeHead.<span class="built_in">next</span></span><br><span class="line">            head, tail = self.reverse(head, tail)</span><br><span class="line">            pre.<span class="built_in">next</span> = head</span><br><span class="line">            pre = tail</span><br><span class="line">            head = pre.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> fakeHead.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
 </details>
-
-
 <details>
-<summary>c++</summary>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    ListNode *next;</span><br><span class="line">    ListNode() : val(<span class="number">0</span>), next(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">    ListNode(<span class="keyword">int</span> x) : val(x), next(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">    ListNode(<span class="keyword">int</span> x, ListNode *next) : val(x), next(next) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(ListNode* &amp;head, ListNode* &amp;tail)</span> </span>&#123;</span><br><span class="line">        ListNode* curr = head;</span><br><span class="line">        <span class="keyword">while</span> (head != tail) &#123;</span><br><span class="line">            ListNode* first = curr-&gt;next;</span><br><span class="line">            curr-&gt;next = first-&gt;next;</span><br><span class="line">            first-&gt;next = head;</span><br><span class="line">            head = first;</span><br><span class="line">        &#125;</span><br><span class="line">        tail = curr;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseKGroup</span><span class="params">(ListNode* head, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        ListNode* fakeHead = <span class="keyword">new</span> ListNode(<span class="number">0</span>, head);</span><br><span class="line">        ListNode* pre = fakeHead;</span><br><span class="line">        <span class="keyword">while</span> (head) &#123;</span><br><span class="line">            ListNode* tail = pre;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">                tail = tail-&gt;next;</span><br><span class="line">                <span class="keyword">if</span> (tail == <span class="literal">nullptr</span>) <span class="keyword">return</span> fakeHead-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            reverse(head, tail);</span><br><span class="line">            pre-&gt;next = head;</span><br><span class="line">            pre = tail;</span><br><span class="line">            head = pre-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fakeHead-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<summary>
+c++
+</summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ListNode</span> &#123;</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line">    ListNode *next;</span><br><span class="line">    <span class="built_in">ListNode</span>() : <span class="built_in">val</span>(<span class="number">0</span>), <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">    <span class="built_in">ListNode</span>(<span class="type">int</span> x) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">    <span class="built_in">ListNode</span>(<span class="type">int</span> x, ListNode *next) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(next) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reverse</span><span class="params">(ListNode* &amp;head, ListNode* &amp;tail)</span> </span>&#123;</span><br><span class="line">        ListNode* curr = head;</span><br><span class="line">        <span class="keyword">while</span> (head != tail) &#123;</span><br><span class="line">            ListNode* first = curr-&gt;next;</span><br><span class="line">            curr-&gt;next = first-&gt;next;</span><br><span class="line">            first-&gt;next = head;</span><br><span class="line">            head = first;</span><br><span class="line">        &#125;</span><br><span class="line">        tail = curr;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseKGroup</span><span class="params">(ListNode* head, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        ListNode* fakeHead = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>, head);</span><br><span class="line">        ListNode* pre = fakeHead;</span><br><span class="line">        <span class="keyword">while</span> (head) &#123;</span><br><span class="line">            ListNode* tail = pre;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">                tail = tail-&gt;next;</span><br><span class="line">                <span class="keyword">if</span> (tail == <span class="literal">nullptr</span>) <span class="keyword">return</span> fakeHead-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">reverse</span>(head, tail);</span><br><span class="line">            pre-&gt;next = head;</span><br><span class="line">            pre = tail;</span><br><span class="line">            head = pre-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fakeHead-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </details>
-
-
 <details>
-<summary>java</summary>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    ListNode next;</span><br><span class="line">    ListNode() &#123;&#125;</span><br><span class="line">    ListNode(<span class="keyword">int</span> val) &#123; <span class="keyword">this</span>.val = val; &#125;</span><br><span class="line">    ListNode(<span class="keyword">int</span> val, ListNode next) &#123; <span class="keyword">this</span>.val = val; <span class="keyword">this</span>.next = next; &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverse</span><span class="params">(ListNode head, ListNode tail)</span> </span>&#123;</span><br><span class="line">        ListNode curr = head;</span><br><span class="line">        <span class="keyword">while</span>(head != tail) &#123;</span><br><span class="line">            ListNode first = curr.next;</span><br><span class="line">            curr.next = first.next;</span><br><span class="line">            first.next = head;</span><br><span class="line">            head = first;</span><br><span class="line">        &#125;</span><br><span class="line">        tail = curr;</span><br><span class="line">        <span class="keyword">return</span> tail;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseKGroup</span><span class="params">(ListNode head, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        ListNode fakeHead = <span class="keyword">new</span> ListNode(<span class="number">0</span>, head);</span><br><span class="line">        ListNode pre = fakeHead;</span><br><span class="line">        <span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">            ListNode tail = pre;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">                tail = tail.next;</span><br><span class="line">                <span class="keyword">if</span> (tail == <span class="keyword">null</span>) <span class="keyword">return</span> fakeHead.next;</span><br><span class="line">            &#125;</span><br><span class="line">            ListNode newTail = reverse(head, tail);</span><br><span class="line">            pre.next = tail;</span><br><span class="line">            pre = newTail;</span><br><span class="line">            head = pre.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fakeHead.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<summary>
+java
+</summary>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ListNode</span> &#123;</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line">    ListNode next;</span><br><span class="line">    ListNode() &#123;&#125;</span><br><span class="line">    ListNode(<span class="type">int</span> val) &#123; <span class="built_in">this</span>.val = val; &#125;</span><br><span class="line">    ListNode(<span class="type">int</span> val, ListNode next) &#123; <span class="built_in">this</span>.val = val; <span class="built_in">this</span>.next = next; &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">reverse</span><span class="params">(ListNode head, ListNode tail)</span> &#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">curr</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="keyword">while</span>(head != tail) &#123;</span><br><span class="line">            <span class="type">ListNode</span> <span class="variable">first</span> <span class="operator">=</span> curr.next;</span><br><span class="line">            curr.next = first.next;</span><br><span class="line">            first.next = head;</span><br><span class="line">            head = first;</span><br><span class="line">        &#125;</span><br><span class="line">        tail = curr;</span><br><span class="line">        <span class="keyword">return</span> tail;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">reverseKGroup</span><span class="params">(ListNode head, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">fakeHead</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">0</span>, head);</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">pre</span> <span class="operator">=</span> fakeHead;</span><br><span class="line">        <span class="keyword">while</span> (head != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="type">ListNode</span> <span class="variable">tail</span> <span class="operator">=</span> pre;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">                tail = tail.next;</span><br><span class="line">                <span class="keyword">if</span> (tail == <span class="literal">null</span>) <span class="keyword">return</span> fakeHead.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">ListNode</span> <span class="variable">newTail</span> <span class="operator">=</span> reverse(head, tail);</span><br><span class="line">            pre.next = tail;</span><br><span class="line">            pre = newTail;</span><br><span class="line">            head = pre.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fakeHead.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </details>
+
     </div>
 
     
@@ -422,7 +431,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -493,13 +502,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

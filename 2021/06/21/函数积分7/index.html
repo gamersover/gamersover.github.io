@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定义1 定义$f: I \to \mathbb{R}$， 其中$I$是$\mathbb{R}^2$中的闭矩形，$I &#x3D; [a,b] \times [c, d]$，作$[a,b]$的分割      \pi_x : a &#x3D; x_0 &lt; x_1 &lt; \cdots &lt; x_n &#x3D; b;又作$[c,d]$的分割      \pi_y : c &#x3D; y_0 &lt; y_1 &lt; \cdots &lt; y_n &#x3D; d;两族">
+  <meta name="description" content="定义1  定义\(f: I \to \mathbb{R}\)， 其中\(I\)是\(\mathbb{R}^2\)中的闭矩形，\(I &#x3D; [a,b] \times [c, d]\)，作\([a,b]\)的分割 \[     \pi_x : a &#x3D; x_0 &lt; x_1 &lt; \cdots &lt; x_n &#x3D; b; \] 又作\([c,d]\)的分割 \[     \pi_y : c &#x3D; y">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数积分七：矩形区域的二重积分">
 <meta property="og:url" content="http://yoursite.com/2021/06/21/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%867/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定义1 定义$f: I \to \mathbb{R}$， 其中$I$是$\mathbb{R}^2$中的闭矩形，$I &#x3D; [a,b] \times [c, d]$，作$[a,b]$的分割      \pi_x : a &#x3D; x_0 &lt; x_1 &lt; \cdots &lt; x_n &#x3D; b;又作$[c,d]$的分割      \pi_y : c &#x3D; y_0 &lt; y_1 &lt; \cdots &lt; y_n &#x3D; d;两族">
+<meta property="og:description" content="定义1  定义\(f: I \to \mathbb{R}\)， 其中\(I\)是\(\mathbb{R}^2\)中的闭矩形，\(I &#x3D; [a,b] \times [c, d]\)，作\([a,b]\)的分割 \[     \pi_x : a &#x3D; x_0 &lt; x_1 &lt; \cdots &lt; x_n &#x3D; b; \] 又作\([c,d]\)的分割 \[     \pi_y : c &#x3D; y">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-06-21T12:23:38.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.736Z">
+<meta property="article:modified_time" content="2021-06-21T12:23:38.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数积分">
@@ -80,7 +80,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,13 +224,6 @@
 
               <time title="创建时间：2021-06-21 20:23:38" itemprop="dateCreated datePublished" datetime="2021-06-21T20:23:38+08:00">2021-06-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -250,14 +247,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.8k</span>
+              <span>7.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>7 分钟</span>
             </span>
 
         </div>
@@ -269,161 +266,455 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>定义$f: I \to \mathbb{R}$， 其中$I$是$\mathbb{R}^2$中的闭矩形，$I = [a,b] \times [c, d]$，作$[a,b]$的分割</p>
-<script type="math/tex; mode=display">
-    \pi_x : a = x_0 < x_1 < \cdots < x_n = b;</script><p>又作$[c,d]$的分割</p>
-<script type="math/tex; mode=display">
-    \pi_y : c = y_0 < y_1 < \cdots < y_n = d;</script><p>两族平行直线$x = x_i(i=0,1,\cdots,n)$与$y=y_j(j=0,1,\cdots,m)$把$I$分割成$k= n \times m$个子矩形：</p>
-<script type="math/tex; mode=display">
-    [x_{i-1}, x_i] \times [y_{j-1}, y_j] \quad (i=1,2,\cdots,n; j=1,2,\cdots,m)</script><p>这$k$个子矩形的全体组成$I$的一个分割$\pi = \pi_x \times \pi_y$，用一定次序重排这$k$个子矩形，将它们编号为$I_1,I_2,\cdots, I_k$，在每一个$I_i$中任取一点$\xi_i (i=1,2,\cdots,k)$，作积分和</p>
-<script type="math/tex; mode=display">
-    \sum_{i=1}^k f(\xi_i) \sigma(I_i) \tag{1}</script><p>其中$\sigma(I_i)$表示$I_i$区域的面积。记</p>
-<script type="math/tex; mode=display">
-    \Vert \pi \Vert = \max(\mathrm{diam}(I_1), \mathrm{diam}(I_2), \cdots, \mathrm{diam}(I_k))</script><p>这里$\mathrm{diam}(I_i)$表示矩形$I_i$的对角线的长度，称$\Vert \pi \Vert$为分割$\pi$的宽度。令$\boldsymbol{\xi} = (\boldsymbol{\xi_1}, \boldsymbol{\xi_2}, \cdots, \boldsymbol{\xi_k})$，称$\boldsymbol{\xi}$为积分和$(1)$的值点向量，称$\boldsymbol{\xi_1}, \boldsymbol{\xi_2},\cdots, \boldsymbol{\xi_k}$为值点。</p>
+        <h4 id="定义1">定义1</h4>
+<blockquote>
+<p>定义<span class="math inline">\(f: I \to \mathbb{R}\)</span>，
+其中<span class="math inline">\(I\)</span>是<span
+class="math inline">\(\mathbb{R}^2\)</span>中的闭矩形，<span
+class="math inline">\(I = [a,b] \times [c, d]\)</span>，作<span
+class="math inline">\([a,b]\)</span>的分割<br />
+<span class="math display">\[
+    \pi_x : a = x_0 &lt; x_1 &lt; \cdots &lt; x_n = b;
+\]</span><br />
+又作<span class="math inline">\([c,d]\)</span>的分割<br />
+<span class="math display">\[
+    \pi_y : c = y_0 &lt; y_1 &lt; \cdots &lt; y_n = d;
+\]</span><br />
+两族平行直线<span class="math inline">\(x =
+x_i(i=0,1,\cdots,n)\)</span>与<span
+class="math inline">\(y=y_j(j=0,1,\cdots,m)\)</span>把<span
+class="math inline">\(I\)</span>分割成<span class="math inline">\(k= n
+\times m\)</span>个子矩形：<br />
+<span class="math display">\[
+    [x_{i-1}, x_i] \times [y_{j-1}, y_j] \quad (i=1,2,\cdots,n;
+j=1,2,\cdots,m)
+\]</span><br />
+这<span class="math inline">\(k\)</span>个子矩形的全体组成<span
+class="math inline">\(I\)</span>的一个分割<span
+class="math inline">\(\pi = \pi_x \times
+\pi_y\)</span>，用一定次序重排这<span
+class="math inline">\(k\)</span>个子矩形，将它们编号为<span
+class="math inline">\(I_1,I_2,\cdots, I_k\)</span>，在每一个<span
+class="math inline">\(I_i\)</span>中任取一点<span
+class="math inline">\(\xi_i (i=1,2,\cdots,k)\)</span>，作积分和<br />
+<span class="math display">\[
+    \sum_{i=1}^k f(\xi_i) \sigma(I_i) \tag{1}
+\]</span><br />
+其中<span class="math inline">\(\sigma(I_i)\)</span>表示<span
+class="math inline">\(I_i\)</span>区域的面积。记<br />
+<span class="math display">\[
+    \Vert \pi \Vert = \max(\mathrm{diam}(I_1), \mathrm{diam}(I_2),
+\cdots, \mathrm{diam}(I_k))
+\]</span><br />
+这里<span class="math inline">\(\mathrm{diam}(I_i)\)</span>表示矩形<span
+class="math inline">\(I_i\)</span>的对角线的长度，称<span
+class="math inline">\(\Vert \pi \Vert\)</span>为分割<span
+class="math inline">\(\pi\)</span>的宽度。令<span
+class="math inline">\(\boldsymbol{\xi} = (\boldsymbol{\xi_1},
+\boldsymbol{\xi_2}, \cdots, \boldsymbol{\xi_k})\)</span>，称<span
+class="math inline">\(\boldsymbol{\xi}\)</span>为积分和<span
+class="math inline">\((1)\)</span>的值点向量，称<span
+class="math inline">\(\boldsymbol{\xi_1}, \boldsymbol{\xi_2},\cdots,
+\boldsymbol{\xi_k}\)</span>为值点。</p>
 </blockquote>
-<a id="more"></a>
-<h4 id="定义2"><a href="#定义2" class="headerlink" title="定义2"></a>定义2</h4><blockquote>
-<p>如果存在数$A$，使得对任意的给定的$\varepsilon &gt; 0$，存在$\delta &gt; 0$，当$\Vert \pi \Vert &lt; \delta$时，不论值点$\xi_i$在子矩形$I_i$中如何选择，都有</p>
-<script type="math/tex; mode=display">
-    \left| \sum_{i=1}^k f(\boldsymbol{\xi_i}) \sigma(I_i) - A \right| < \varepsilon</script><p>则称函数$f$在矩形$I$上可积，并将$A$写作</p>
-<script type="math/tex; mode=display">
-    \iint \limits_I f(x,y) \mathrm{d}x \mathrm{d}y \quad 或 \quad \int_I f \mathrm{d} \sigma</script><p>称之为$f$在矩形$I$上的二重积分，也可简称为$f$在$I$上的积分，这里$f$称为被积函数，$I$称为积分区域。上述定义用极限过程记为</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^k f(\boldsymbol{\xi_i}) \sigma(I_i) = A</script></blockquote>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>如果$f$在$I$上可积，那么$f$必在$I$上有界。</p>
+<span id="more"></span>
+<h4 id="定义2">定义2</h4>
+<blockquote>
+<p>如果存在数<span
+class="math inline">\(A\)</span>，使得对任意的给定的<span
+class="math inline">\(\varepsilon &gt; 0\)</span>，存在<span
+class="math inline">\(\delta &gt; 0\)</span>，当<span
+class="math inline">\(\Vert \pi \Vert &lt;
+\delta\)</span>时，不论值点<span
+class="math inline">\(\xi_i\)</span>在子矩形<span
+class="math inline">\(I_i\)</span>中如何选择，都有<br />
+<span class="math display">\[
+    \left| \sum_{i=1}^k f(\boldsymbol{\xi_i}) \sigma(I_i) - A \right|
+&lt; \varepsilon
+\]</span><br />
+则称函数<span class="math inline">\(f\)</span>在矩形<span
+class="math inline">\(I\)</span>上可积，并将<span
+class="math inline">\(A\)</span>写作<br />
+<span class="math display">\[
+    \iint \limits_I f(x,y) \mathrm{d}x \mathrm{d}y \quad 或 \quad \int_I
+f \mathrm{d} \sigma
+\]</span><br />
+称之为<span class="math inline">\(f\)</span>在矩形<span
+class="math inline">\(I\)</span>上的二重积分，也可简称为<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(I\)</span>上的积分，这里<span
+class="math inline">\(f\)</span>称为被积函数，<span
+class="math inline">\(I\)</span>称为积分区域。上述定义用极限过程记为<br />
+<span class="math display">\[
+    \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^k
+f(\boldsymbol{\xi_i}) \sigma(I_i) = A
+\]</span></p>
 </blockquote>
-<p>证：与<a href="https://gamersover.github.io/2021/05/14/函数积分3#定理1" target="_blank" rel="noopener">函数积分三的定理1</a>证明方法一样。</p>
+<h4 id="定理1">定理1</h4>
+<blockquote>
+<p>如果<span class="math inline">\(f\)</span>在<span
+class="math inline">\(I\)</span>上可积，那么<span
+class="math inline">\(f\)</span>必在<span
+class="math inline">\(I\)</span>上有界。</p>
+</blockquote>
+<p>证：与<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/05/14/函数积分3#定理1">函数积分三的定理1</a>证明方法一样。</p>
 <p>Q.E.D.</p>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>设$f$和$g$在$I$上可积，那么 <br/><br>（1）若$c$为任何常数，那么$cf$在$I$上也可积，并且</p>
-<script type="math/tex; mode=display">
-    \int_I (cf) \mathrm{d} \sigma = c \int_I f \mathrm{d} \sigma</script><p>（2）$f \pm g$在$I$上可积，并且</p>
-<script type="math/tex; mode=display">
-    \int_I (f \pm g) \mathrm{d} \sigma = \int_I f \mathrm{d} \sigma \pm \int_I g \mathrm{d} \sigma</script><p>（3）若$f \ge 0$，则</p>
-<script type="math/tex; mode=display">
-    \int_I f \mathrm{d} \sigma \ge 0</script><p>（4）若$f \ge g$，则</p>
-<script type="math/tex; mode=display">
-    \int_I f \mathrm{d} \sigma \ge \int_I g \mathrm{d} \sigma</script></blockquote>
+<h4 id="定理2">定理2</h4>
+<blockquote>
+<p>设<span class="math inline">\(f\)</span>和<span
+class="math inline">\(g\)</span>在<span
+class="math inline">\(I\)</span>上可积，那么<br />
+（1）若<span class="math inline">\(c\)</span>为任何常数，那么<span
+class="math inline">\(cf\)</span>在<span
+class="math inline">\(I\)</span>上也可积，并且<br />
+<span class="math display">\[
+    \int_I (cf) \mathrm{d} \sigma = c \int_I f \mathrm{d} \sigma
+\]</span><br />
+（2）<span class="math inline">\(f \pm g\)</span>在<span
+class="math inline">\(I\)</span>上可积，并且<br />
+<span class="math display">\[
+    \int_I (f \pm g) \mathrm{d} \sigma = \int_I f \mathrm{d} \sigma \pm
+\int_I g \mathrm{d} \sigma
+\]</span><br />
+（3）若<span class="math inline">\(f \ge 0\)</span>，则<br />
+<span class="math display">\[
+    \int_I f \mathrm{d} \sigma \ge 0
+\]</span><br />
+（4）若<span class="math inline">\(f \ge g\)</span>，则<br />
+<span class="math display">\[
+    \int_I f \mathrm{d} \sigma \ge \int_I g \mathrm{d} \sigma
+\]</span></p>
+</blockquote>
 <p>证：由积分的定义易推出（1）（2）（3）；由（2）（3）易推出（4）。</p>
 <p>Q.E.D.</p>
-<h4 id="定义3"><a href="#定义3" class="headerlink" title="定义3"></a>定义3</h4><blockquote>
-<p>设$f$定义在$I$上，有分割</p>
-<script type="math/tex; mode=display">
-    \pi: I_1, I_2, \cdots, I_k</script><p>则</p>
-<script type="math/tex; mode=display">
-    S(f, \pi) = \sum_{i=1}^k f(\boldsymbol{\xi_i}) \sigma(I_i)</script><p>称为$f$关于分割$\pi$的Riemann和。令</p>
-<script type="math/tex; mode=display">
-    m_i = \inf f(I_i), \quad M_i = \sup f(I_i) \quad (i=1,2,\cdots,k)</script><p>定义</p>
-<script type="math/tex; mode=display">
-    \underline S(f, \pi) = \sum_{i=1}^k m_i \sigma(I_i), \quad \overline S(f, \pi) = \sum_{i=1}^k M_i \sigma(I_i)</script><p>分别称为$f$关于分割$\pi$的下和与上和。</p>
+<h4 id="定义3">定义3</h4>
+<blockquote>
+<p>设<span class="math inline">\(f\)</span>定义在<span
+class="math inline">\(I\)</span>上，有分割<br />
+<span class="math display">\[
+    \pi: I_1, I_2, \cdots, I_k
+\]</span><br />
+则<br />
+<span class="math display">\[
+    S(f, \pi) = \sum_{i=1}^k f(\boldsymbol{\xi_i}) \sigma(I_i)
+\]</span><br />
+称为<span class="math inline">\(f\)</span>关于分割<span
+class="math inline">\(\pi\)</span>的Riemann和。令<br />
+<span class="math display">\[
+    m_i = \inf f(I_i), \quad M_i = \sup f(I_i) \quad (i=1,2,\cdots,k)
+\]</span><br />
+定义<br />
+<span class="math display">\[
+    \underline S(f, \pi) = \sum_{i=1}^k m_i \sigma(I_i), \quad \overline
+S(f, \pi) = \sum_{i=1}^k M_i \sigma(I_i)
+\]</span><br />
+分别称为<span class="math inline">\(f\)</span>关于分割<span
+class="math inline">\(\pi\)</span>的下和与上和。</p>
 </blockquote>
-<h4 id="定义4"><a href="#定义4" class="headerlink" title="定义4"></a>定义4</h4><blockquote>
-<p>设分割$\pi = \pi_x \times \pi_y$与$\pi^\prime = \pi_x^\prime \times \pi_y^\prime$是$I$的两个分割，如果$\pi_x \le \pi_x^\prime$且$\pi_y \le \pi^\prime$，那么称分割$\pi$比$\pi^\prime$粗，或者称分割$\pi^\prime$比$\pi$细，记$\pi \le \pi^\prime$。</p>
+<h4 id="定义4">定义4</h4>
+<blockquote>
+<p>设分割<span class="math inline">\(\pi = \pi_x \times
+\pi_y\)</span>与<span class="math inline">\(\pi^\prime = \pi_x^\prime
+\times \pi_y^\prime\)</span>是<span
+class="math inline">\(I\)</span>的两个分割，如果<span
+class="math inline">\(\pi_x \le \pi_x^\prime\)</span>且<span
+class="math inline">\(\pi_y \le \pi^\prime\)</span>，那么称分割<span
+class="math inline">\(\pi\)</span>比<span
+class="math inline">\(\pi^\prime\)</span>粗，或者称分割<span
+class="math inline">\(\pi^\prime\)</span>比<span
+class="math inline">\(\pi\)</span>细，记<span class="math inline">\(\pi
+\le \pi^\prime\)</span>。</p>
 </blockquote>
-<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
-<p>设$\pi$和$\pi^\prime$是矩形$I$的两个分割，并且$\pi \le \pi^\prime$，那么</p>
-<script type="math/tex; mode=display">
-    \underline S(f, \pi) \le \underline S(f, \pi^\prime) \le \overline S(f, \pi^\prime) \le \overline S(f, \pi)</script></blockquote>
-<p>证：与<a href="https://gamersover.github.io/2021/05/14/函数积分3#定理2" target="_blank" rel="noopener">函数积分三的定理2</a>证明方法类似。</p>
-<h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><blockquote>
-<p>设$\pi_1$和$\pi_2$是$I$的任何两个分割，那么</p>
-<script type="math/tex; mode=display">
-    \underline S(f, \pi) \le \overline S(f, \pi)</script></blockquote>
-<p>证：与<a href="https://gamersover.github.io/2021/05/14/函数积分3#定理3" target="_blank" rel="noopener">函数积分三的定理3</a>证明方法类似。</p>
-<h4 id="定义5"><a href="#定义5" class="headerlink" title="定义5"></a>定义5</h4><blockquote>
-<p>所有下和构成的集合有上界，从而有上确界，令</p>
-<script type="math/tex; mode=display">
-    \underline {\int}_I f \mathrm{d} \sigma = \sup \limits_\pi \underline S(f, \pi)</script><p>称这个数为$f$在$I$上的下积分；而所有上和构成的集合有下界，从而有下确界，令</p>
-<script type="math/tex; mode=display">
-    \overline {\int}_I f \mathrm{d} \sigma = \inf \limits_\pi \overline S(f, \pi)</script><p>称这个数为$f$在$I$上的上积分。</p>
+<h4 id="定理3">定理3</h4>
+<blockquote>
+<p>设<span class="math inline">\(\pi\)</span>和<span
+class="math inline">\(\pi^\prime\)</span>是矩形<span
+class="math inline">\(I\)</span>的两个分割，并且<span
+class="math inline">\(\pi \le \pi^\prime\)</span>，那么<br />
+<span class="math display">\[
+    \underline S(f, \pi) \le \underline S(f, \pi^\prime) \le \overline
+S(f, \pi^\prime) \le \overline S(f, \pi)
+\]</span></p>
 </blockquote>
-<h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><blockquote>
-<p>等式</p>
-<script type="math/tex; mode=display">
-    \underline {\int}_I f \mathrm{d} \sigma = \overline {\int}_I \mathrm{d} \sigma</script><p>成立的充分必要条件是，对任意给定的$\varepsilon &gt; 0$，存在$I$的一个分割$\pi$，使得</p>
-<script type="math/tex; mode=display">
-    \overline S(f, \pi) - \underline S(f, \pi) < \varepsilon</script></blockquote>
-<p>证：必要性。设</p>
-<script type="math/tex; mode=display">
-    A = \underline {\int}_I f \mathrm{d} \sigma = \overline {\int} \mathrm{d} \sigma</script><p>由下积分的定义可知，对任意给定的$\varepsilon &gt; 0$，存在矩形$I$的一个分割$\pi_1$，使得</p>
-<script type="math/tex; mode=display">
-    \underline S(f, \pi_1) > A - \frac{\varepsilon}{2}</script><p>又由上积分的定义可知，存在矩形$I$的一个分割$\pi_2$，使得</p>
-<script type="math/tex; mode=display">
-    \overline S(f, \pi_2) < A + \frac{\varepsilon}{2}</script><p>把分割$\pi_1$与$\pi_2$合在一起得到分割$\pi$，从而有</p>
-<script type="math/tex; mode=display">
-    A - \frac{\varepsilon}{2} < \underline S(f, \pi_1) \le \underline S(f, \pi) \le \overline S(f, \pi) \le \overline S(f, \pi_2) < A + \frac{\varepsilon}{2}</script><p>从而有</p>
-<script type="math/tex; mode=display">
-    \overline S (f, \pi) - \underline S(f, \pi) < A + \frac{\varepsilon}{2} - (A - \frac{\varepsilon}{2}) = \varepsilon</script><p>充分性。有</p>
-<script type="math/tex; mode=display">
-    0 \le \overline \int_I f \mathrm{d} \sigma - \underline \int_I f \mathrm{d} \sigma \le \overline S(f, \pi) - \underline S(f, \pi) < \varepsilon</script><p>由于$\varepsilon$是任意的正数，从而必有</p>
-<script type="math/tex; mode=display">
-    \underline \int_I f \mathrm{d} \sigma = \overline \int_I f \mathrm{d} \sigma</script><p>Q.E.D.</p>
-<h4 id="定理7"><a href="#定理7" class="headerlink" title="定理7"></a>定理7</h4><blockquote>
-<p>有界函数$f$在矩形$I$上可积的充分必要条件是</p>
-<script type="math/tex; mode=display">
-    \underline \int_I f \mathrm{d} \sigma = \overline \int_I f \mathrm{d} \sigma</script><p>这个公共的值就是积分值$\displaystyle \int_I f \mathrm{d} \sigma$。</p>
+<p>证：与<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/05/14/函数积分3#定理2">函数积分三的定理2</a>证明方法类似。</p>
+<h4 id="定理4">定理4</h4>
+<blockquote>
+<p>设<span class="math inline">\(\pi_1\)</span>和<span
+class="math inline">\(\pi_2\)</span>是<span
+class="math inline">\(I\)</span>的任何两个分割，那么<br />
+<span class="math display">\[
+    \underline S(f, \pi) \le \overline S(f, \pi)
+\]</span></p>
 </blockquote>
-<p>证：必要性。设$f$在$I$上的积分值为$A$，从而对任意的$\varepsilon &gt; 0$，必存在$I$的一个分割$\pi = \{I_1, I_2, \cdots, I_k \}$，对任意的值点$\boldsymbol{\xi_i} \in I_i (i=1,2,\cdots,k) $，有不等式</p>
-<script type="math/tex; mode=display">
-    A - \varepsilon < \sum_{i=1}^k f(\boldsymbol{\xi_i}) \sigma(I_i) < A + \varepsilon</script><p>由于$\boldsymbol{\xi_i}$是任取的，所以有</p>
-<script type="math/tex; mode=display">
-    A - \varepsilon \le \underline S(f, \pi) \le \overline S(f, \pi) \le A + \varepsilon</script><p>从而</p>
-<script type="math/tex; mode=display">
-    A - \varepsilon \le \underline \int_I f \mathrm{d} \sigma \le \overline \int_I f \mathrm{d} \sigma \le A + \varepsilon</script><p>令$\varepsilon \to 0$，可得</p>
-<script type="math/tex; mode=display">
-    \underline \int_I f \mathrm{d} \sigma = \overline \int_I f \mathrm{d} \sigma = A</script><p>充分性。假设</p>
-<script type="math/tex; mode=display">
-    \underline \int_I f \mathrm{d} \sigma = \overline \int_I f \mathrm{d} \sigma = A</script><p>成立。要证对任意$\varepsilon &gt; 0$，存在$\delta &gt; 0$，只要$I$的分割$\pi = \{ I_1, I_2, \cdots, I_k \}$满足$\Vert \pi \Vert &lt; \delta$，有</p>
-<script type="math/tex; mode=display">
-    |S(f, \pi) - A| < \varepsilon</script><p>首先有</p>
-<script type="math/tex; mode=display">
-    \underline S(f, \pi) \le S(f, \pi) \le \overline S(f, \pi)</script><p>而</p>
-<script type="math/tex; mode=display">
-    \underline S(f, \pi) \le A \le \overline S(f, \pi)</script><p>所以</p>
-<script type="math/tex; mode=display">
-    |S(f, \pi) - A| \le \overline S(f, \pi) - \underline S(f, \pi) = \sum_{j=1}^k f(M_j - m_j) \sigma(I_j) \tag{2}</script><p>由于$f$在$I$上有界，不妨设$|f(\boldsymbol{p})| \le M (\boldsymbol{p} \in I)$；而由<a href="https://gamersover.github.io/2021/06/21/函数积分7/#定理6" target="_blank" rel="noopener">定理6</a>可知，存在$I$的分割$\pi_\varepsilon = \{J_1, J_2, \cdots, J_t\}$，使得</p>
-<script type="math/tex; mode=display">
-    \overline S(f, \pi_\varepsilon) - \underline S(f, \pi_\varepsilon) < \frac{\varepsilon}{2}</script><p>将子矩形$J_i$的每一边平行的向矩形内部收缩同一距离$\delta&gt;0$，得到一个开矩形$\tilde{J_i} \subset J_i (i=1,2,\cdots, t)$，令</p>
-<script type="math/tex; mode=display">
-    K = I \cap \left( \bigcup \limits_{i=1}^t \tilde {J_i} \right)^c</script><p>显然$K$是一个闭集，取$\delta$充分小，使得</p>
-<script type="math/tex; mode=display">
-    \sigma(K) < \frac{\varepsilon}{4M}</script><p>这时将$(2)$式写为</p>
-<script type="math/tex; mode=display">
-     |S(f, \pi) - A| \le  \sum_{j=1}^k f(M_j - m_j) \sigma(I_j) = \sum \nolimits_1 + \sum \nolimits_2</script><p>其中</p>
-<script type="math/tex; mode=display">
+<p>证：与<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/05/14/函数积分3#定理3">函数积分三的定理3</a>证明方法类似。</p>
+<h4 id="定义5">定义5</h4>
+<blockquote>
+<p>所有下和构成的集合有上界，从而有上确界，令<br />
+<span class="math display">\[
+    \underline {\int}_I f \mathrm{d} \sigma = \sup \limits_\pi
+\underline S(f, \pi)
+\]</span><br />
+称这个数为<span class="math inline">\(f\)</span>在<span
+class="math inline">\(I\)</span>上的下积分；而所有上和构成的集合有下界，从而有下确界，令<br />
+<span class="math display">\[
+    \overline {\int}_I f \mathrm{d} \sigma = \inf \limits_\pi \overline
+S(f, \pi)
+\]</span><br />
+称这个数为<span class="math inline">\(f\)</span>在<span
+class="math inline">\(I\)</span>上的上积分。</p>
+</blockquote>
+<h4 id="定理6">定理6</h4>
+<blockquote>
+<p>等式<br />
+<span class="math display">\[
+    \underline {\int}_I f \mathrm{d} \sigma = \overline {\int}_I
+\mathrm{d} \sigma
+\]</span><br />
+成立的充分必要条件是，对任意给定的<span
+class="math inline">\(\varepsilon &gt; 0\)</span>，存在<span
+class="math inline">\(I\)</span>的一个分割<span
+class="math inline">\(\pi\)</span>，使得<br />
+<span class="math display">\[
+    \overline S(f, \pi) - \underline S(f, \pi) &lt; \varepsilon
+\]</span></p>
+</blockquote>
+<p>证：必要性。设<br />
+<span class="math display">\[
+    A = \underline {\int}_I f \mathrm{d} \sigma = \overline {\int}
+\mathrm{d} \sigma
+\]</span><br />
+由下积分的定义可知，对任意给定的<span class="math inline">\(\varepsilon
+&gt; 0\)</span>，存在矩形<span
+class="math inline">\(I\)</span>的一个分割<span
+class="math inline">\(\pi_1\)</span>，使得<br />
+<span class="math display">\[
+    \underline S(f, \pi_1) &gt; A - \frac{\varepsilon}{2}
+\]</span><br />
+又由上积分的定义可知，存在矩形<span
+class="math inline">\(I\)</span>的一个分割<span
+class="math inline">\(\pi_2\)</span>，使得<br />
+<span class="math display">\[
+    \overline S(f, \pi_2) &lt; A + \frac{\varepsilon}{2}
+\]</span><br />
+把分割<span class="math inline">\(\pi_1\)</span>与<span
+class="math inline">\(\pi_2\)</span>合在一起得到分割<span
+class="math inline">\(\pi\)</span>，从而有<br />
+<span class="math display">\[
+    A - \frac{\varepsilon}{2} &lt; \underline S(f, \pi_1) \le \underline
+S(f, \pi) \le \overline S(f, \pi) \le \overline S(f, \pi_2) &lt; A +
+\frac{\varepsilon}{2}
+\]</span><br />
+从而有<br />
+<span class="math display">\[
+    \overline S (f, \pi) - \underline S(f, \pi) &lt; A +
+\frac{\varepsilon}{2} - (A - \frac{\varepsilon}{2}) = \varepsilon
+\]</span><br />
+充分性。有<br />
+<span class="math display">\[
+    0 \le \overline \int_I f \mathrm{d} \sigma - \underline \int_I f
+\mathrm{d} \sigma \le \overline S(f, \pi) - \underline S(f, \pi) &lt;
+\varepsilon
+\]</span><br />
+由于<span
+class="math inline">\(\varepsilon\)</span>是任意的正数，从而必有<br />
+<span class="math display">\[
+    \underline \int_I f \mathrm{d} \sigma = \overline \int_I f
+\mathrm{d} \sigma
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理7">定理7</h4>
+<blockquote>
+<p>有界函数<span class="math inline">\(f\)</span>在矩形<span
+class="math inline">\(I\)</span>上可积的充分必要条件是<br />
+<span class="math display">\[
+    \underline \int_I f \mathrm{d} \sigma = \overline \int_I f
+\mathrm{d} \sigma
+\]</span><br />
+这个公共的值就是积分值<span class="math inline">\(\displaystyle \int_I f
+\mathrm{d} \sigma\)</span>。</p>
+</blockquote>
+<p>证：必要性。设<span class="math inline">\(f\)</span>在<span
+class="math inline">\(I\)</span>上的积分值为<span
+class="math inline">\(A\)</span>，从而对任意的<span
+class="math inline">\(\varepsilon &gt; 0\)</span>，必存在<span
+class="math inline">\(I\)</span>的一个分割<span
+class="math inline">\(\pi = \{I_1, I_2, \cdots, I_k
+\}\)</span>，对任意的值点$ I_i (i=1,2,,k) $，有不等式<br />
+<span class="math display">\[
+    A - \varepsilon &lt; \sum_{i=1}^k f(\boldsymbol{\xi_i}) \sigma(I_i)
+&lt; A + \varepsilon
+\]</span><br />
+由于<span
+class="math inline">\(\boldsymbol{\xi_i}\)</span>是任取的，所以有<br />
+<span class="math display">\[
+    A - \varepsilon \le \underline S(f, \pi) \le \overline S(f, \pi) \le
+A + \varepsilon
+\]</span><br />
+从而<br />
+<span class="math display">\[
+    A - \varepsilon \le \underline \int_I f \mathrm{d} \sigma \le
+\overline \int_I f \mathrm{d} \sigma \le A + \varepsilon
+\]</span><br />
+令<span class="math inline">\(\varepsilon \to 0\)</span>，可得<br />
+<span class="math display">\[
+    \underline \int_I f \mathrm{d} \sigma = \overline \int_I f
+\mathrm{d} \sigma = A
+\]</span><br />
+充分性。假设<br />
+<span class="math display">\[
+    \underline \int_I f \mathrm{d} \sigma = \overline \int_I f
+\mathrm{d} \sigma = A
+\]</span><br />
+成立。要证对任意<span class="math inline">\(\varepsilon &gt;
+0\)</span>，存在<span class="math inline">\(\delta &gt;
+0\)</span>，只要<span class="math inline">\(I\)</span>的分割<span
+class="math inline">\(\pi = \{ I_1, I_2, \cdots, I_k
+\}\)</span>满足<span class="math inline">\(\Vert \pi \Vert &lt;
+\delta\)</span>，有<br />
+<span class="math display">\[
+    |S(f, \pi) - A| &lt; \varepsilon
+\]</span><br />
+首先有<br />
+<span class="math display">\[
+    \underline S(f, \pi) \le S(f, \pi) \le \overline S(f, \pi)
+\]</span><br />
+而<br />
+<span class="math display">\[
+    \underline S(f, \pi) \le A \le \overline S(f, \pi)
+\]</span><br />
+所以<br />
+<span class="math display">\[
+    |S(f, \pi) - A| \le \overline S(f, \pi) - \underline S(f, \pi) =
+\sum_{j=1}^k f(M_j - m_j) \sigma(I_j) \tag{2}
+\]</span><br />
+由于<span class="math inline">\(f\)</span>在<span
+class="math inline">\(I\)</span>上有界，不妨设<span
+class="math inline">\(|f(\boldsymbol{p})| \le M (\boldsymbol{p} \in
+I)\)</span>；而由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/06/21/函数积分7/#定理6">定理6</a>可知，存在<span
+class="math inline">\(I\)</span>的分割<span
+class="math inline">\(\pi_\varepsilon = \{J_1, J_2, \cdots,
+J_t\}\)</span>，使得<br />
+<span class="math display">\[
+    \overline S(f, \pi_\varepsilon) - \underline S(f, \pi_\varepsilon)
+&lt; \frac{\varepsilon}{2}
+\]</span><br />
+将子矩形<span
+class="math inline">\(J_i\)</span>的每一边平行的向矩形内部收缩同一距离<span
+class="math inline">\(\delta&gt;0\)</span>，得到一个开矩形<span
+class="math inline">\(\tilde{J_i} \subset J_i (i=1,2,\cdots,
+t)\)</span>，令<br />
+<span class="math display">\[
+    K = I \cap \left( \bigcup \limits_{i=1}^t \tilde {J_i} \right)^c
+\]</span><br />
+显然<span class="math inline">\(K\)</span>是一个闭集，取<span
+class="math inline">\(\delta\)</span>充分小，使得<br />
+<span class="math display">\[
+    \sigma(K) &lt; \frac{\varepsilon}{4M}
+\]</span><br />
+这时将<span class="math inline">\((2)\)</span>式写为<br />
+<span class="math display">\[
+     |S(f, \pi) - A| \le  \sum_{j=1}^k f(M_j - m_j) \sigma(I_j) = \sum
+\nolimits_1 + \sum \nolimits_2
+\]</span><br />
+其中<br />
+<span class="math display">\[
     \begin{aligned}
     \sum \nolimits_1 = \sum_{I_j \subset K} (M_j - m_j) \sigma(I_j) \\
     \sum \nolimits_2 = \sum_{I_j \nsubseteq K} (M_j - m_j) \sigma(I_j)
-    \end{aligned}</script><p>一方面</p>
-<script type="math/tex; mode=display">
-    \sum \nolimits_1 \le 2M \sum_{I_j \subset K} \sigma(I_j) < 2M \cdot \frac{\varepsilon}{4M} = \frac{\varepsilon}{2}</script><p>另一方面，$\sum \nolimits_2$中的$I_j \nsubseteq K$，从而$I_j$必与某个$\tilde {J_i}$相交，而$\Vert \pi \Vert &lt; \delta$，所以$I_j \subset J_i$，所以</p>
-<script type="math/tex; mode=display">
+    \end{aligned}
+\]</span><br />
+一方面<br />
+<span class="math display">\[
+    \sum \nolimits_1 \le 2M \sum_{I_j \subset K} \sigma(I_j) &lt; 2M
+\cdot \frac{\varepsilon}{4M} = \frac{\varepsilon}{2}
+\]</span><br />
+另一方面，<span class="math inline">\(\sum \nolimits_2\)</span>中的<span
+class="math inline">\(I_j \nsubseteq K\)</span>，从而<span
+class="math inline">\(I_j\)</span>必与某个<span
+class="math inline">\(\tilde {J_i}\)</span>相交，而<span
+class="math inline">\(\Vert \pi \Vert &lt; \delta\)</span>，所以<span
+class="math inline">\(I_j \subset J_i\)</span>，所以<br />
+<span class="math display">\[
     \begin{aligned}
-    \sum \nolimits_2 &= \sum_{i=1}^t \sum_{I_j \subset J_i} (M_j - m_j) \sigma(I_j) \\
-    & \le \sum_{i=1}^t (\sup f(J_i) - \inf f(J_i)) \sum_{I_j \subset J_i} \sigma(I_j) \\
-    & \le \sum_{i=1}^t (\sup f(J_i) - \inf f(J_i)) \sigma(J_i) \\
-    & = \overline S(f, \pi) - \underline S(f, \pi) < \frac{\varepsilon}{2}
-    \end{aligned}</script><p>从而</p>
-<script type="math/tex; mode=display">
-    \sum \nolimits_1 + \sum \nolimits_2 < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon</script><p>即</p>
-<script type="math/tex; mode=display">
-    |S(f, \pi) - A| < \varepsilon</script><p>Q.E.D.</p>
-<h4 id="定理8"><a href="#定理8" class="headerlink" title="定理8"></a>定理8</h4><blockquote>
-<p>设$f$在$I = [a, b] \times [c, d]$上有界，那么以下条件等价： <br/><br>（1）$f$在$I$上可积； <br/><br>（2）$\displaystyle \lim_{\Vert \pi \Vert \to 0} \sum_{i=1}^k \omega_i \sigma(I_i) = 0$，其中$\omega_i = M_i - m_i (i=1,2,\cdots,k)$； <br/><br>（3）对任意的$\varepsilon &gt; 0$，存在$I$的一个分割$\pi$，使得</p>
-<script type="math/tex; mode=display">
-    \overline S(f, \pi) - \underline S(f, \pi) < \varepsilon</script><p>（4）$\displaystyle \underline \int_I f \mathrm{d} \sigma = \overline \int_I f \mathrm{d} \sigma$。</p>
+    \sum \nolimits_2 &amp;= \sum_{i=1}^t \sum_{I_j \subset J_i} (M_j -
+m_j) \sigma(I_j) \\
+    &amp; \le \sum_{i=1}^t (\sup f(J_i) - \inf f(J_i)) \sum_{I_j \subset
+J_i} \sigma(I_j) \\
+    &amp; \le \sum_{i=1}^t (\sup f(J_i) - \inf f(J_i)) \sigma(J_i) \\
+    &amp; = \overline S(f, \pi) - \underline S(f, \pi) &lt;
+\frac{\varepsilon}{2}
+    \end{aligned}
+\]</span><br />
+从而<br />
+<span class="math display">\[
+    \sum \nolimits_1 + \sum \nolimits_2 &lt; \frac{\varepsilon}{2} +
+\frac{\varepsilon}{2} = \varepsilon
+\]</span><br />
+即<br />
+<span class="math display">\[
+    |S(f, \pi) - A| &lt; \varepsilon
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理8">定理8</h4>
+<blockquote>
+<p>设<span class="math inline">\(f\)</span>在<span
+class="math inline">\(I = [a, b] \times [c,
+d]\)</span>上有界，那么以下条件等价：<br />
+（1）<span class="math inline">\(f\)</span>在<span
+class="math inline">\(I\)</span>上可积；<br />
+（2）<span class="math inline">\(\displaystyle \lim_{\Vert \pi \Vert \to
+0} \sum_{i=1}^k \omega_i \sigma(I_i) = 0\)</span>，其中<span
+class="math inline">\(\omega_i = M_i - m_i
+(i=1,2,\cdots,k)\)</span>；<br />
+（3）对任意的<span class="math inline">\(\varepsilon &gt;
+0\)</span>，存在<span class="math inline">\(I\)</span>的一个分割<span
+class="math inline">\(\pi\)</span>，使得<br />
+<span class="math display">\[
+    \overline S(f, \pi) - \underline S(f, \pi) &lt; \varepsilon
+\]</span><br />
+（4）<span class="math inline">\(\displaystyle \underline \int_I f
+\mathrm{d} \sigma = \overline \int_I f \mathrm{d} \sigma\)</span>。</p>
 </blockquote>
-<p>证：$(2) \Rightarrow (3)$显然；$(3) \Rightarrow (4)$由<a href="https://gamersover.github.io/2021/06/21/函数积分7/#定理6" target="_blank" rel="noopener">定理6</a>可知；$(4) \Rightarrow (1)$由<a href="https://gamersover.github.io/2021/06/21/函数积分7/#定理7" target="_blank" rel="noopener">定理7</a>可知；下面证$（1）\Rightarrow （2）$。假设$f$在$I$上的积分值为$A$，由可积的定义知，对任意的$\varepsilon &gt; 0$，存在$\delta &gt; 0$，使得对于分割$\pi = \{ I_1, I_2, \cdots, I_k \}$满足$\Vert \pi \Vert &lt; \delta$，则对任意的值点$\boldsymbol{\xi_i}$有</p>
-<script type="math/tex; mode=display">
-    A - \frac{\varepsilon}{2} < \sum_{i=1}^k f(\xi_i) < A + \frac{\varepsilon}{2}</script><p>由于$\boldsymbol{\xi_i}$是任取的，所以</p>
-<script type="math/tex; mode=display">
-    A - \frac{\varepsilon}{2} \le \underline S(f, \pi) \le \overline S(f, \pi) \le A + \frac{\varepsilon}{2}</script><p>即</p>
-<script type="math/tex; mode=display">
-    \overline S(f, \pi) - \underline S(f, \pi) = \sum_{i=1}^k \omega_i \sigma(I_i) < \varepsilon</script><p>所以</p>
-<script type="math/tex; mode=display">
-    \lim_{\Vert \pi \Vert \to 0} \sum_{i=1}^k \omega_i\sigma(I_i) = 0</script><p>Q.E.D.</p>
+<p>证：<span class="math inline">\((2) \Rightarrow
+(3)\)</span>显然；<span class="math inline">\((3) \Rightarrow
+(4)\)</span>由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/06/21/函数积分7/#定理6">定理6</a>可知；<span
+class="math inline">\((4) \Rightarrow (1)\)</span>由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/06/21/函数积分7/#定理7">定理7</a>可知；下面证<span
+class="math inline">\(（1）\Rightarrow （2）\)</span>。假设<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(I\)</span>上的积分值为<span
+class="math inline">\(A\)</span>，由可积的定义知，对任意的<span
+class="math inline">\(\varepsilon &gt; 0\)</span>，存在<span
+class="math inline">\(\delta &gt; 0\)</span>，使得对于分割<span
+class="math inline">\(\pi = \{ I_1, I_2, \cdots, I_k
+\}\)</span>满足<span class="math inline">\(\Vert \pi \Vert &lt;
+\delta\)</span>，则对任意的值点<span
+class="math inline">\(\boldsymbol{\xi_i}\)</span>有<br />
+<span class="math display">\[
+    A - \frac{\varepsilon}{2} &lt; \sum_{i=1}^k f(\xi_i) &lt; A +
+\frac{\varepsilon}{2}
+\]</span><br />
+由于<span
+class="math inline">\(\boldsymbol{\xi_i}\)</span>是任取的，所以<br />
+<span class="math display">\[
+    A - \frac{\varepsilon}{2} \le \underline S(f, \pi) \le \overline
+S(f, \pi) \le A + \frac{\varepsilon}{2}
+\]</span><br />
+即<br />
+<span class="math display">\[
+    \overline S(f, \pi) - \underline S(f, \pi) = \sum_{i=1}^k \omega_i
+\sigma(I_i) &lt; \varepsilon
+\]</span><br />
+所以<br />
+<span class="math display">\[
+    \lim_{\Vert \pi \Vert \to 0} \sum_{i=1}^k \omega_i\sigma(I_i) = 0
+\]</span></p>
+<p>Q.E.D.</p>
 
     </div>
 
@@ -511,7 +802,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义3"><span class="nav-text">定义3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义4"><span class="nav-text">定义4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义5"><span class="nav-text">定义5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理6"><span class="nav-text">定理6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理7"><span class="nav-text">定理7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理8"><span class="nav-text">定理8</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%891"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%892"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%893"><span class="nav-text">定义3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%894"><span class="nav-text">定义4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%863"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%864"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%895"><span class="nav-text">定义5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%866"><span class="nav-text">定理6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%867"><span class="nav-text">定理7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%868"><span class="nav-text">定理8</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -582,13 +873,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

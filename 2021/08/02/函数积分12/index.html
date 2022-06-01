@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定义1 定义$f: I \to \mathbb{R}$，其中$I$是$\mathbb{R}^n$中的一个闭长方体，即$I &#x3D; I_1 \times I_2 \times \cdots I_n$，其中$i_i&#x3D;[a_i, b_i] (i&#x3D;1,2,\cdots,n)$是$\mathbb{R}$中的有界闭区间。$I$的$n$维体积定义为      \mu(I) &#x3D; \prod_{i&#x3D;1}^n (b_i">
+  <meta name="description" content="定义1  定义\(f: I \to \mathbb{R}\)，其中\(I\)是\(\mathbb{R}^n\)中的一个闭长方体，即\(I &#x3D; I_1 \times I_2 \times \cdots I_n\)，其中\(i_i&#x3D;[a_i, b_i] (i&#x3D;1,2,\cdots,n)\)是\(\mathbb{R}\)中的有界闭区间。\(I\)的\(n\)维体积定义为 \[     \mu(I) &#x3D;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数积分十二：$n$重积分">
 <meta property="og:url" content="http://yoursite.com/2021/08/02/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%8612/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定义1 定义$f: I \to \mathbb{R}$，其中$I$是$\mathbb{R}^n$中的一个闭长方体，即$I &#x3D; I_1 \times I_2 \times \cdots I_n$，其中$i_i&#x3D;[a_i, b_i] (i&#x3D;1,2,\cdots,n)$是$\mathbb{R}$中的有界闭区间。$I$的$n$维体积定义为      \mu(I) &#x3D; \prod_{i&#x3D;1}^n (b_i">
+<meta property="og:description" content="定义1  定义\(f: I \to \mathbb{R}\)，其中\(I\)是\(\mathbb{R}^n\)中的一个闭长方体，即\(I &#x3D; I_1 \times I_2 \times \cdots I_n\)，其中\(i_i&#x3D;[a_i, b_i] (i&#x3D;1,2,\cdots,n)\)是\(\mathbb{R}\)中的有界闭区间。\(I\)的\(n\)维体积定义为 \[     \mu(I) &#x3D;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-02T12:26:01.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.736Z">
+<meta property="article:modified_time" content="2021-08-02T12:26:01.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数积分">
@@ -80,7 +80,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,13 +224,6 @@
 
               <time title="创建时间：2021-08-02 20:26:01" itemprop="dateCreated datePublished" datetime="2021-08-02T20:26:01+08:00">2021-08-02</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -250,7 +247,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.6k</span>
+              <span>4.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -269,82 +266,223 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>定义$f: I \to \mathbb{R}$，其中$I$是$\mathbb{R}^n$中的一个闭长方体，即$I = I_1 \times I_2 \times \cdots I_n$，其中$i_i=[a_i, b_i] (i=1,2,\cdots,n)$是$\mathbb{R}$中的有界闭区间。$I$的$n$维体积定义为</p>
-<script type="math/tex; mode=display">
-    \mu(I) = \prod_{i=1}^n (b_i - a_i)</script><p>用平行于各个坐标平面的$n$组超平面对$I$进行划分，得到有限多个小的子长方体，不妨设为$k$个，这称为$I$的一个分割$\pi$，这时可以定义Riemann和</p>
-<script type="math/tex; mode=display">
-    \sum_{i=1}^k f(\boldsymbol{\xi_i}) \mu(I_i)</script><p>其中$\boldsymbol{\xi_i} \in I_i$，$\mu(I_i)$表示子长方体$I_i$的体积。</p>
+        <h4 id="定义1">定义1</h4>
+<blockquote>
+<p>定义<span class="math inline">\(f: I \to
+\mathbb{R}\)</span>，其中<span class="math inline">\(I\)</span>是<span
+class="math inline">\(\mathbb{R}^n\)</span>中的一个闭长方体，即<span
+class="math inline">\(I = I_1 \times I_2 \times \cdots
+I_n\)</span>，其中<span class="math inline">\(i_i=[a_i, b_i]
+(i=1,2,\cdots,n)\)</span>是<span
+class="math inline">\(\mathbb{R}\)</span>中的有界闭区间。<span
+class="math inline">\(I\)</span>的<span
+class="math inline">\(n\)</span>维体积定义为<br />
+<span class="math display">\[
+    \mu(I) = \prod_{i=1}^n (b_i - a_i)
+\]</span><br />
+用平行于各个坐标平面的<span
+class="math inline">\(n\)</span>组超平面对<span
+class="math inline">\(I\)</span>进行划分，得到有限多个小的子长方体，不妨设为<span
+class="math inline">\(k\)</span>个，这称为<span
+class="math inline">\(I\)</span>的一个分割<span
+class="math inline">\(\pi\)</span>，这时可以定义Riemann和<br />
+<span class="math display">\[
+    \sum_{i=1}^k f(\boldsymbol{\xi_i}) \mu(I_i)
+\]</span><br />
+其中<span class="math inline">\(\boldsymbol{\xi_i} \in
+I_i\)</span>，<span
+class="math inline">\(\mu(I_i)\)</span>表示子长方体<span
+class="math inline">\(I_i\)</span>的体积。</p>
 </blockquote>
-<a id="more"></a>
-<p>有了定义1，仿照二重积分，三重积分的推理方法，可以定义和证明相似的定理。比如可以记$\Vert \pi \Vert$为这些子长方体的对角线的长度的最大值，若$\Vert \pi \Vert \to 0$时，上式的Riemann和极限存在且不依赖于子长方体中值点的选取，则称该极限为$f$在$I$上的积分，记作</p>
-<script type="math/tex; mode=display">
-    \idotsint \limits_I f(x_1, x_2, \cdots, x_n) \mathrm{d} x_1 \mathrm{d} x_2 \cdots \mathrm{d} x_n</script><p>也记为</p>
-<script type="math/tex; mode=display">
-    \int_I f \mathrm{d} \mu</script><p>这时称$f$在$I$上可积，而且若$f$在$I$可积，那么$f$在$I$上必有界。包括上和，下和以及可积性的充分必要条件都与前面二重积分的结论一样，以及$I$上的$n$重积分计算，也可以化为累次积分来进行，这时共有$n!$中不同的顺序。关于$n$重积分的Lebesgue定理，也可以引入零测集与零体积集的概念，可以证明：一个有界点集有体积的充分必要条件是它的边界是零体积集。同理，$n$重积分也可以化为一个$n-1$重积分和一个定积分来计算。</p>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>设$V \subset \mathbb{R}^n$是有体积的有界闭集，有界函数$f: V \to \mathbb{R}$连续，<br/><br>（1）如果<br>$V = \{ \boldsymbol{x} = (x_1, x_2,\cdots,x_n) \in \mathbb{R}^n \}$，当$(x_1, x_2, \cdots, x_{n-1}） \in D \subset \mathbb{R}^{n-1}$时，</p>
-<script type="math/tex; mode=display">
-    \varphi_1(x_1, x_2, \cdots, x_{n-1}) \le x_n \le \varphi_2(x_1, x_2, \cdots,x_{n-1})</script><p>其中$\varphi_1, \varphi_2$是$D$上的连续函数，那么</p>
-<script type="math/tex; mode=display">
-    \int_V f \mathrm{d} \mu = \idotsint \limits_D \mathrm{d} x_1 \mathrm{d} x_2 \mathrm{d} x_{n-1} \int_{\varphi_1(x_1, x_2, \cdots, x_{n-1})}^{\varphi_2(x_1, x_2, \cdots, x_{n-1})} f(x_1, x_2,\cdots,x_{n-1}, x_n) \mathrm{d} x_n</script><p>（2）如果<br>$V = \{ \boldsymbol{x} = (x_1, x_2, \cdots, x_{n}) \in \mathbb{R}^n\}$，当$x_n \in [a, b]$时, </p>
-<script type="math/tex; mode=display">
-    (x_1,x_2,\cdots, x_{n-1}) \in D_{x_n} \in \mathbb{R}^{n-1}</script><p>那么</p>
-<script type="math/tex; mode=display">
-    \int_V f \mathrm{d} \mu = \int_a^b \mathrm{d} x_n \idotsint \limits_{D_{x_n}} f(x_1, x_2,\cdots,x_n) \mathrm{d} x_1 \mathrm{d} x_2 \cdots \mathrm{d} x_{n-1}</script><p>（3）当然，也可把$n$重积分化成一个$k (1 \le k &lt; n)$重积分与一个$n-k$重积分来计算，即当$(x_{k+1}, \cdots, x_n) \in D_1 \subset \mathbb{R}^{n-k}$时，</p>
-<script type="math/tex; mode=display">
-    (x_1, x_2, \cdots, x_{k}) \in D_2 \subset \mathbb{R}^{k}</script><p>那么</p>
-<script type="math/tex; mode=display">
-    \int_V f \mathrm{d} \mu = \overbrace{\idotsint \limits_{D_1}}^{n-k \text{个}} \mathrm{d} x_{k+1} \cdots \mathrm{d} x_n  \overbrace{\idotsint \limits_{D_2}}^{k \text{个}} f(x_1, x_2,\cdots,x_n) \mathrm{d} x_{1} \cdots \mathrm{d} x_k</script></blockquote>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>设$\Omega$是$\mathbb{R}^n$中的开集，$\Delta \subset \Omega$有体积，映射$\boldsymbol{\varphi}: x_i = x_i(u_1,u_2,\cdots,u_n) (i=1,2,\cdots,n)$在$\Delta$上是正则的，那么对$\boldsymbol{\varphi} (\Delta)$上的连续函数$\boldsymbol{F}$，有</p>
-<script type="math/tex; mode=display">
-    \idotsint \limits_{\boldsymbol{\varphi}(\Delta)} \boldsymbol{F}(x_1, x_2, \cdots,x_n) \mathrm{d} x_1 \mathrm{d} x_2 \cdots \mathrm{d} x_n = \idotsint \limits_{\Delta} \boldsymbol{F}(x_1(u_1,\cdots,u_n), \cdots, x_n(u_1,\cdots,u_n)) \left| 
+<span id="more"></span>
+<p>有了定义1，仿照二重积分，三重积分的推理方法，可以定义和证明相似的定理。比如可以记<span
+class="math inline">\(\Vert \pi
+\Vert\)</span>为这些子长方体的对角线的长度的最大值，若<span
+class="math inline">\(\Vert \pi \Vert \to
+0\)</span>时，上式的Riemann和极限存在且不依赖于子长方体中值点的选取，则称该极限为<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(I\)</span>上的积分，记作<br />
+<span class="math display">\[
+    \idotsint \limits_I f(x_1, x_2, \cdots, x_n) \mathrm{d} x_1
+\mathrm{d} x_2 \cdots \mathrm{d} x_n
+\]</span><br />
+也记为<br />
+<span class="math display">\[
+    \int_I f \mathrm{d} \mu
+\]</span><br />
+这时称<span class="math inline">\(f\)</span>在<span
+class="math inline">\(I\)</span>上可积，而且若<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(I\)</span>可积，那么<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(I\)</span>上必有界。包括上和，下和以及可积性的充分必要条件都与前面二重积分的结论一样，以及<span
+class="math inline">\(I\)</span>上的<span
+class="math inline">\(n\)</span>重积分计算，也可以化为累次积分来进行，这时共有<span
+class="math inline">\(n!\)</span>中不同的顺序。关于<span
+class="math inline">\(n\)</span>重积分的Lebesgue定理，也可以引入零测集与零体积集的概念，可以证明：一个有界点集有体积的充分必要条件是它的边界是零体积集。同理，<span
+class="math inline">\(n\)</span>重积分也可以化为一个<span
+class="math inline">\(n-1\)</span>重积分和一个定积分来计算。</p>
+<h4 id="定理1">定理1</h4>
+<blockquote>
+<p>设<span class="math inline">\(V \subset
+\mathbb{R}^n\)</span>是有体积的有界闭集，有界函数<span
+class="math inline">\(f: V \to \mathbb{R}\)</span>连续，<br />
+（1）如果<br />
+<span class="math inline">\(V = \{ \boldsymbol{x} = (x_1,
+x_2,\cdots,x_n) \in \mathbb{R}^n \}\)</span>，当<span
+class="math inline">\((x_1, x_2, \cdots, x_{n-1}） \in D \subset
+\mathbb{R}^{n-1}\)</span>时，<br />
+<span class="math display">\[
+    \varphi_1(x_1, x_2, \cdots, x_{n-1}) \le x_n \le \varphi_2(x_1, x_2,
+\cdots,x_{n-1})
+\]</span><br />
+其中<span class="math inline">\(\varphi_1, \varphi_2\)</span>是<span
+class="math inline">\(D\)</span>上的连续函数，那么<br />
+<span class="math display">\[
+    \int_V f \mathrm{d} \mu = \idotsint \limits_D \mathrm{d} x_1
+\mathrm{d} x_2 \mathrm{d} x_{n-1} \int_{\varphi_1(x_1, x_2, \cdots,
+x_{n-1})}^{\varphi_2(x_1, x_2, \cdots, x_{n-1})} f(x_1,
+x_2,\cdots,x_{n-1}, x_n) \mathrm{d} x_n
+\]</span><br />
+（2）如果<br />
+<span class="math inline">\(V = \{ \boldsymbol{x} = (x_1, x_2, \cdots,
+x_{n}) \in \mathbb{R}^n\}\)</span>，当<span class="math inline">\(x_n
+\in [a, b]\)</span>时,<br />
+<span class="math display">\[
+    (x_1,x_2,\cdots, x_{n-1}) \in D_{x_n} \in \mathbb{R}^{n-1}
+\]</span><br />
+那么<br />
+<span class="math display">\[
+    \int_V f \mathrm{d} \mu = \int_a^b \mathrm{d} x_n \idotsint
+\limits_{D_{x_n}} f(x_1, x_2,\cdots,x_n) \mathrm{d} x_1 \mathrm{d} x_2
+\cdots \mathrm{d} x_{n-1}
+\]</span><br />
+（3）当然，也可把<span
+class="math inline">\(n\)</span>重积分化成一个<span
+class="math inline">\(k (1 \le k &lt; n)\)</span>重积分与一个<span
+class="math inline">\(n-k\)</span>重积分来计算，即当<span
+class="math inline">\((x_{k+1}, \cdots, x_n) \in D_1 \subset
+\mathbb{R}^{n-k}\)</span>时，<br />
+<span class="math display">\[
+    (x_1, x_2, \cdots, x_{k}) \in D_2 \subset \mathbb{R}^{k}
+\]</span><br />
+那么<br />
+<span class="math display">\[
+    \int_V f \mathrm{d} \mu = \overbrace{\idotsint \limits_{D_1}}^{n-k
+\text{个}} \mathrm{d} x_{k+1} \cdots \mathrm{d}
+x_n  \overbrace{\idotsint \limits_{D_2}}^{k \text{个}} f(x_1,
+x_2,\cdots,x_n) \mathrm{d} x_{1} \cdots \mathrm{d} x_k
+\]</span></p>
+</blockquote>
+<h4 id="定理2">定理2</h4>
+<blockquote>
+<p>设<span class="math inline">\(\Omega\)</span>是<span
+class="math inline">\(\mathbb{R}^n\)</span>中的开集，<span
+class="math inline">\(\Delta \subset \Omega\)</span>有体积，映射<span
+class="math inline">\(\boldsymbol{\varphi}: x_i =
+x_i(u_1,u_2,\cdots,u_n) (i=1,2,\cdots,n)\)</span>在<span
+class="math inline">\(\Delta\)</span>上是正则的，那么对<span
+class="math inline">\(\boldsymbol{\varphi}
+(\Delta)\)</span>上的连续函数<span
+class="math inline">\(\boldsymbol{F}\)</span>，有<br />
+<span class="math display">\[
+    \idotsint \limits_{\boldsymbol{\varphi}(\Delta)} \boldsymbol{F}(x_1,
+x_2, \cdots,x_n) \mathrm{d} x_1 \mathrm{d} x_2 \cdots \mathrm{d} x_n =
+\idotsint \limits_{\Delta} \boldsymbol{F}(x_1(u_1,\cdots,u_n), \cdots,
+x_n(u_1,\cdots,u_n)) \left|
         \frac{\partial (x_1, \cdots,x_n)}{\partial (u_1, \cdots, u_n)}
-    \right| \mathrm{d} u_1 \cdots \mathrm{d} u_n</script></blockquote>
-<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
-<p>令映射</p>
-<script type="math/tex; mode=display">
-    \left\{ 
-        \begin{matrix}
-        x_1 = & r \cos \theta_1,  \\
-        x_2 = & r \sin \theta_1 \cos \theta_2, \\
-        x_3 = & r \sin \theta_1 \sin \theta_2 \cos \theta_2, \\ 
-        \cdots\\
-        x_{n-1} = & r \sin \theta_1 \sin \theta_2 \cdots r \sin \theta_{n-2} \cos \theta_{n-1} \\
-        x_n = & r \sin \theta_1 \sin \theta_2 \cdots \sin \theta_{n-2} \sin \theta_{n-1}
-        \end{matrix}
-    \right.</script><p>称为$n$维球坐标变换，改变换将有界集$\Delta$映射到$V$，则</p>
-<script type="math/tex; mode=display">
-\int_V F(x_1,\cdots, x_n) \mathrm{d} \mu = \idotsint \limits_{\Delta} \boldsymbol{F}(\theta_1, \cdots, \theta_n) r^{n-1} \sin^{n-2} \theta_1 \sin ^{n-3} \theta_2 \cdots \sin \theta_{n-2} \mathrm{d} \theta_1 \cdots \mathrm{d} \theta_n</script></blockquote>
-<p>证：关键需要证明</p>
-<script type="math/tex; mode=display">
-    \frac{\partial (x_1, x_2, \cdots, x_n)}{\partial (r, \theta_1, \cdots, \theta_{n-1})} = r^{n-1} \sin^{n-2} \theta_1 \sin ^{n-3} \theta_2 \cdots \sin \theta_{n-2}</script><p>这时考虑方程组</p>
-<script type="math/tex; mode=display">
+    \right| \mathrm{d} u_1 \cdots \mathrm{d} u_n
+\]</span></p>
+</blockquote>
+<h4 id="定理3">定理3</h4>
+<blockquote>
+<p>令映射<br />
+<span class="math display">\[
     \left\{
-        \begin{matrix} 
-        F_1 = & r^2 - (x_1^2 + x_2^2 + \cdots + x_n^2) = 0 \\
-        F_2 = & r^2 \sin^2 \theta_1 - (x_2^2 + \cdots + x_n^2) = 0 \\
-        F_3 = & r^2 \sin^2 \theta_1 \sin^2 \theta_2 - (x_3^2 + \cdots + x_n^2) = 0 \\
-        \cdots \\
-        F_n = & r^2 \sin^2 \theta_1 \cdots \sin^ \theta_{n-1} - x_n^2 = 0
+        \begin{matrix}
+        x_1 = &amp; r \cos \theta_1,  \\
+        x_2 = &amp; r \sin \theta_1 \cos \theta_2, \\
+        x_3 = &amp; r \sin \theta_1 \sin \theta_2 \cos \theta_2, \\
+        \cdots\\
+        x_{n-1} = &amp; r \sin \theta_1 \sin \theta_2 \cdots r \sin
+\theta_{n-2} \cos \theta_{n-1} \\
+        x_n = &amp; r \sin \theta_1 \sin \theta_2 \cdots \sin
+\theta_{n-2} \sin \theta_{n-1}
         \end{matrix}
-    \right. \tag {1}</script><p>令$\boldsymbol{u} = (r, \theta_1, \cdots, \theta_{n-1}), \boldsymbol{x} = (x_1, x_2, \cdots, x_n)$，则根据<a href="https://gamersover.github.io/2021/04/13/函数导数10#定理3：隐映射定理" target="_blank" rel="noopener">隐映射定理</a>可知</p>
-<script type="math/tex; mode=display">
+    \right.
+\]</span><br />
+称为<span
+class="math inline">\(n\)</span>维球坐标变换，改变换将有界集<span
+class="math inline">\(\Delta\)</span>映射到<span
+class="math inline">\(V\)</span>，则<br />
+<span class="math display">\[
+\int_V F(x_1,\cdots, x_n) \mathrm{d} \mu = \idotsint \limits_{\Delta}
+\boldsymbol{F}(\theta_1, \cdots, \theta_n) r^{n-1} \sin^{n-2} \theta_1
+\sin ^{n-3} \theta_2 \cdots \sin \theta_{n-2} \mathrm{d} \theta_1 \cdots
+\mathrm{d} \theta_n
+\]</span></p>
+</blockquote>
+<p>证：关键需要证明<br />
+<span class="math display">\[
+    \frac{\partial (x_1, x_2, \cdots, x_n)}{\partial (r, \theta_1,
+\cdots, \theta_{n-1})} = r^{n-1} \sin^{n-2} \theta_1 \sin ^{n-3}
+\theta_2 \cdots \sin \theta_{n-2}
+\]</span><br />
+这时考虑方程组<br />
+<span class="math display">\[
+    \left\{
+        \begin{matrix}
+        F_1 = &amp; r^2 - (x_1^2 + x_2^2 + \cdots + x_n^2) = 0 \\
+        F_2 = &amp; r^2 \sin^2 \theta_1 - (x_2^2 + \cdots + x_n^2) = 0
+\\
+        F_3 = &amp; r^2 \sin^2 \theta_1 \sin^2 \theta_2 - (x_3^2 +
+\cdots + x_n^2) = 0 \\
+        \cdots \\
+        F_n = &amp; r^2 \sin^2 \theta_1 \cdots \sin^ \theta_{n-1} -
+x_n^2 = 0
+        \end{matrix}
+    \right. \tag {1}
+\]</span><br />
+令<span class="math inline">\(\boldsymbol{u} = (r, \theta_1, \cdots,
+\theta_{n-1}), \boldsymbol{x} = (x_1, x_2, \cdots,
+x_n)\)</span>，则根据<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/04/13/函数导数10#定理3：隐映射定理">隐映射定理</a>可知<br />
+<span class="math display">\[
     \left(\begin{matrix}
-    \frac{\partial r}{\partial \theta_1} & \cdots & \frac{\partial x_1}{\partial \theta_{n-1}} \\
-    \vdots & & \vdots \\
-    \frac{x_n}{\partial r} & \cdots & \frac{x_n}{\partial \theta_{n-1}}
-    \end{matrix} \right) = - (J_{\boldsymbol{x}}F(\boldsymbol{x}, \boldsymbol{u}))^{-1} J_{\boldsymbol{u}}F(\boldsymbol{x}, \boldsymbol{u})</script><p>两边取行列式即得</p>
-<script type="math/tex; mode=display">
-    \frac{\partial (x_1, x_2, \cdots, x_n)}{\partial (r, \theta_1, \cdots, \theta_{n-1})} = (-1)^n \frac{\det J_{\boldsymbol{u}}F(\boldsymbol{x}, \boldsymbol{u})}{\det J_{x}F(\boldsymbol{x}, \boldsymbol{u})}</script><p>通过方程组(1)可以求出</p>
-<script type="math/tex; mode=display">
+    \frac{\partial r}{\partial \theta_1} &amp; \cdots &amp;
+\frac{\partial x_1}{\partial \theta_{n-1}} \\
+    \vdots &amp; &amp; \vdots \\
+    \frac{x_n}{\partial r} &amp; \cdots &amp; \frac{x_n}{\partial
+\theta_{n-1}}
+    \end{matrix} \right) = - (J_{\boldsymbol{x}}F(\boldsymbol{x},
+\boldsymbol{u}))^{-1} J_{\boldsymbol{u}}F(\boldsymbol{x},
+\boldsymbol{u})
+\]</span><br />
+两边取行列式即得<br />
+<span class="math display">\[
+    \frac{\partial (x_1, x_2, \cdots, x_n)}{\partial (r, \theta_1,
+\cdots, \theta_{n-1})} = (-1)^n \frac{\det
+J_{\boldsymbol{u}}F(\boldsymbol{x}, \boldsymbol{u})}{\det
+J_{x}F(\boldsymbol{x}, \boldsymbol{u})}
+\]</span><br />
+通过方程组(1)可以求出<br />
+<span class="math display">\[
     \begin{aligned}
-    &\det J_{\boldsymbol{u}}F(\boldsymbol{x}, \boldsymbol{u}) = 2^n r^{2n-1} \sin^{2n-3} \theta_1 \cos \theta_1 \sin^{2n-5} \theta_2 \cos \theta_2 \cdots \sin \theta_{n-1} \cos \theta_{n-1} \\
-    &\det J_{\boldsymbol{x}} F(\boldsymbol{x}, \boldsymbol{u}) = (-1)^n 2^n r^n \sin^{n-1} \theta_1  \cos \theta_1 \sin^{n-2} \theta_2 \cos \theta_2 \cdots \sin \theta_{n-1} \cos \theta_{n-1}
-    \end{aligned}</script><p>所以</p>
-<script type="math/tex; mode=display">
- \frac{\partial (x_1, x_2, \cdots, x_n)}{\partial (r, \theta_1, \cdots, \theta_{n-1})} = r^{n-1} \sin^{n-2} \theta_1 \sin ^{n-3} \theta_2 \cdots \sin \theta_{n-2}</script><p>Q.E.D.</p>
+    &amp;\det J_{\boldsymbol{u}}F(\boldsymbol{x}, \boldsymbol{u}) = 2^n
+r^{2n-1} \sin^{2n-3} \theta_1 \cos \theta_1 \sin^{2n-5} \theta_2 \cos
+\theta_2 \cdots \sin \theta_{n-1} \cos \theta_{n-1} \\
+    &amp;\det J_{\boldsymbol{x}} F(\boldsymbol{x}, \boldsymbol{u}) =
+(-1)^n 2^n r^n \sin^{n-1} \theta_1  \cos \theta_1 \sin^{n-2} \theta_2
+\cos \theta_2 \cdots \sin \theta_{n-1} \cos \theta_{n-1}
+    \end{aligned}
+\]</span><br />
+所以<br />
+<span class="math display">\[
+\frac{\partial (x_1, x_2, \cdots, x_n)}{\partial (r, \theta_1, \cdots,
+\theta_{n-1})} = r^{n-1} \sin^{n-2} \theta_1 \sin ^{n-3} \theta_2 \cdots
+\sin \theta_{n-2}
+\]</span></p>
+<p>Q.E.D.</p>
 
     </div>
 
@@ -432,7 +570,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%891"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%863"><span class="nav-text">定理3</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -503,13 +641,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

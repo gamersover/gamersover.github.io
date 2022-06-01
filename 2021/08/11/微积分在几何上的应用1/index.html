@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定理1 设$\mathbb{R}^2$上的曲线$\Gamma$由极坐标方程      r &#x3D; r(\theta) \quad (\boldsymbol{\alpha} \le \theta \le \boldsymbol{\beta})表示，从而由此曲线和射线      \theta &#x3D; \alpha, \quad \theta &#x3D; \beta围城的区域的面积$S$为      S &#x3D; \frac">
+  <meta name="description" content="定理1  设\(\mathbb{R}^2\)上的曲线\(\Gamma\)由极坐标方程 \[     r &#x3D; r(\theta) \quad (\boldsymbol{\alpha} \le \theta \le \boldsymbol{\beta}) \] 表示，从而由此曲线和射线 \[     \theta &#x3D; \alpha, \quad \theta &#x3D; \beta \] 围城的区域的面积\(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微积分在几何上的应用一：弧长，旋转曲面的面积与体积">
 <meta property="og:url" content="http://yoursite.com/2021/08/11/%E5%BE%AE%E7%A7%AF%E5%88%86%E5%9C%A8%E5%87%A0%E4%BD%95%E4%B8%8A%E7%9A%84%E5%BA%94%E7%94%A81/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定理1 设$\mathbb{R}^2$上的曲线$\Gamma$由极坐标方程      r &#x3D; r(\theta) \quad (\boldsymbol{\alpha} \le \theta \le \boldsymbol{\beta})表示，从而由此曲线和射线      \theta &#x3D; \alpha, \quad \theta &#x3D; \beta围城的区域的面积$S$为      S &#x3D; \frac">
+<meta property="og:description" content="定理1  设\(\mathbb{R}^2\)上的曲线\(\Gamma\)由极坐标方程 \[     r &#x3D; r(\theta) \quad (\boldsymbol{\alpha} \le \theta \le \boldsymbol{\beta}) \] 表示，从而由此曲线和射线 \[     \theta &#x3D; \alpha, \quad \theta &#x3D; \beta \] 围城的区域的面积\(">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-11T12:49:41.000Z">
-<meta property="article:modified_time" content="2022-05-21T02:24:05.163Z">
+<meta property="article:modified_time" content="2021-08-11T12:49:41.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数导数">
@@ -80,7 +80,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,13 +224,6 @@
 
               <time title="创建时间：2021-08-11 20:49:41" itemprop="dateCreated datePublished" datetime="2021-08-11T20:49:41+08:00">2021-08-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-21 10:24:05" itemprop="dateModified" datetime="2022-05-21T10:24:05+08:00">2022-05-21</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -250,7 +247,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.3k</span>
+              <span>5.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -269,63 +266,141 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>设$\mathbb{R}^2$上的曲线$\Gamma$由极坐标方程</p>
-<script type="math/tex; mode=display">
-    r = r(\theta) \quad (\boldsymbol{\alpha} \le \theta \le \boldsymbol{\beta})</script><p>表示，从而由此曲线和射线</p>
-<script type="math/tex; mode=display">
-    \theta = \alpha, \quad \theta = \beta</script><p>围城的区域的面积$S$为</p>
-<script type="math/tex; mode=display">
-    S = \frac{1}{2} \int_{\alpha}^{\beta} r^2 (\theta) \mathrm{d}(\theta)</script></blockquote>
-<a id="more"></a>
-<p>证：对$\theta$的变化范围$[\alpha, \beta]$作一分割</p>
-<script type="math/tex; mode=display">
-    \alpha = \theta_1 < \theta_2 < \cdots < \theta_n = \beta</script><p>任取$\xi_i \in [\theta_{i-1}, \theta_{i}] (i=1,2,\cdots,n)$，从而夹在$\theta = \theta_{i-1}, \theta = \theta_i$与$r = r(\theta)$之间的区域的面积，在$\Delta \theta_i = \theta_{i} - \theta_{i-1}$很小时可表示为</p>
-<script type="math/tex; mode=display">
-    \Delta S_i \approx \frac{1}{2} r^2(\theta_{i}) \Delta \theta_i</script><p>令$\max \limits_{1 \le i \le n} \Delta \theta_i \to 0$，得到</p>
-<script type="math/tex; mode=display">
-    S = \frac{1}{2} \int_{\alpha}^{\beta} r^2 (\theta) \mathrm{d}(\theta)</script><p>Q.E.D.</p>
-<h4 id="引理1"><a href="#引理1" class="headerlink" title="引理1"></a>引理1</h4><blockquote>
-<p>设$x(t), y(t), z(t)$在$[\alpha, \beta]$上有连续的导函数，取$t$的一个分割</p>
-<script type="math/tex; mode=display">
-    \pi: \alpha = t_0 < t_1 < \cdots < t_n = \beta</script><p>那么有</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^n \sqrt{(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2 + (z^\prime(\zeta_i))^2} \Delta t_i= \int_{\alpha}^{\beta} \sqrt{(x^\prime(t))^2 + (y^\prime(t))^2 + (z^\prime(t))^2} \mathrm{d}t</script><p>其中$\xi_i, \eta_i, \zeta_i$分别为$x, y, z$函数的值点，即$\xi_i,\eta_i,\zeta_i \in [t_{i-1}, t_i]$。</p>
+        <h4 id="定理1">定理1</h4>
+<blockquote>
+<p>设<span class="math inline">\(\mathbb{R}^2\)</span>上的曲线<span
+class="math inline">\(\Gamma\)</span>由极坐标方程<br />
+<span class="math display">\[
+    r = r(\theta) \quad (\boldsymbol{\alpha} \le \theta \le
+\boldsymbol{\beta})
+\]</span><br />
+表示，从而由此曲线和射线<br />
+<span class="math display">\[
+    \theta = \alpha, \quad \theta = \beta
+\]</span><br />
+围城的区域的面积<span class="math inline">\(S\)</span>为<br />
+<span class="math display">\[
+    S = \frac{1}{2} \int_{\alpha}^{\beta} r^2 (\theta)
+\mathrm{d}(\theta)
+\]</span></p>
 </blockquote>
-<p>证： 由三角不等式</p>
-<script type="math/tex; mode=display">
-    | \Vert \boldsymbol{a} \Vert - \Vert \boldsymbol{b} \Vert|  \le  \Vert \boldsymbol{a} - \boldsymbol{b} \Vert</script><p>得</p>
-<script type="math/tex; mode=display">
+<span id="more"></span>
+<p>证：对<span class="math inline">\(\theta\)</span>的变化范围<span
+class="math inline">\([\alpha, \beta]\)</span>作一分割<br />
+<span class="math display">\[
+    \alpha = \theta_1 &lt; \theta_2 &lt; \cdots &lt; \theta_n = \beta
+\]</span><br />
+任取<span class="math inline">\(\xi_i \in [\theta_{i-1}, \theta_{i}]
+(i=1,2,\cdots,n)\)</span>，从而夹在<span class="math inline">\(\theta =
+\theta_{i-1}, \theta = \theta_i\)</span>与<span class="math inline">\(r
+= r(\theta)\)</span>之间的区域的面积，在<span
+class="math inline">\(\Delta \theta_i = \theta_{i} -
+\theta_{i-1}\)</span>很小时可表示为<br />
+<span class="math display">\[
+    \Delta S_i \approx \frac{1}{2} r^2(\theta_{i}) \Delta \theta_i
+\]</span><br />
+令<span class="math inline">\(\max \limits_{1 \le i \le n} \Delta
+\theta_i \to 0\)</span>，得到<br />
+<span class="math display">\[
+    S = \frac{1}{2} \int_{\alpha}^{\beta} r^2 (\theta)
+\mathrm{d}(\theta)
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="引理1">引理1</h4>
+<blockquote>
+<p>设<span class="math inline">\(x(t), y(t), z(t)\)</span>在<span
+class="math inline">\([\alpha, \beta]\)</span>上有连续的导函数，取<span
+class="math inline">\(t\)</span>的一个分割<br />
+<span class="math display">\[
+    \pi: \alpha = t_0 &lt; t_1 &lt; \cdots &lt; t_n = \beta
+\]</span><br />
+那么有<br />
+<span class="math display">\[
+    \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^n
+\sqrt{(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2 +
+(z^\prime(\zeta_i))^2} \Delta t_i= \int_{\alpha}^{\beta}
+\sqrt{(x^\prime(t))^2 + (y^\prime(t))^2 + (z^\prime(t))^2} \mathrm{d}t
+\]</span><br />
+其中<span class="math inline">\(\xi_i, \eta_i,
+\zeta_i\)</span>分别为<span class="math inline">\(x, y,
+z\)</span>函数的值点，即<span class="math inline">\(\xi_i,\eta_i,\zeta_i
+\in [t_{i-1}, t_i]\)</span>。</p>
+</blockquote>
+<p>证： 由三角不等式<br />
+<span class="math display">\[
+    | \Vert \boldsymbol{a} \Vert - \Vert \boldsymbol{b}
+\Vert|  \le  \Vert \boldsymbol{a} - \boldsymbol{b} \Vert
+\]</span><br />
+得<br />
+<span class="math display">\[
     \begin{aligned}
-    & \left| \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\xi_i))^2 + (z^\prime(\xi_i))^2} - \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2 + (z^\prime(\zeta_i))^2} \right| \\
-    & \le \sqrt {(y^\prime(\xi_i) - y^\prime(\eta_i))^2 + (z^\prime(\xi_i) - z^\prime(\zeta_i))^2} \\
-    & \le |y^\prime(\xi_i) - y^\prime(\eta_i)| + |z^\prime(\xi_i) - z^\prime(\zeta_i)|
-    \end{aligned}</script><p>由于$y^\prime(t)$与$z^\prime(t)$在$[\alpha, \beta]$上连续，从而一致连续，因此对任意的$\varepsilon &gt; 0$，存在$\delta_1 &gt; 0$，当$\Vert \pi \Vert &lt; \delta_1$时，</p>
-<script type="math/tex; mode=display">
+    &amp; \left| \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\xi_i))^2 +
+(z^\prime(\xi_i))^2} - \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2
++ (z^\prime(\zeta_i))^2} \right| \\
+    &amp; \le \sqrt {(y^\prime(\xi_i) - y^\prime(\eta_i))^2 +
+(z^\prime(\xi_i) - z^\prime(\zeta_i))^2} \\
+    &amp; \le |y^\prime(\xi_i) - y^\prime(\eta_i)| + |z^\prime(\xi_i) -
+z^\prime(\zeta_i)|
+    \end{aligned}
+\]</span><br />
+由于<span class="math inline">\(y^\prime(t)\)</span>与<span
+class="math inline">\(z^\prime(t)\)</span>在<span
+class="math inline">\([\alpha,
+\beta]\)</span>上连续，从而一致连续，因此对任意的<span
+class="math inline">\(\varepsilon &gt; 0\)</span>，存在<span
+class="math inline">\(\delta_1 &gt; 0\)</span>，当<span
+class="math inline">\(\Vert \pi \Vert &lt; \delta_1\)</span>时，<br />
+<span class="math display">\[
     \left\{
         \begin{aligned}
-            |y^\prime(\xi_i) - y^\prime(\eta_i)| < \frac{\varepsilon}{4(\beta - \alpha)} \\
-            |z^\prime(\xi_i) - z^\prime(\zeta_i)| < \frac{\varepsilon}{4(\beta - \alpha)} \\
+            |y^\prime(\xi_i) - y^\prime(\eta_i)| &lt;
+\frac{\varepsilon}{4(\beta - \alpha)} \\
+            |z^\prime(\xi_i) - z^\prime(\zeta_i)| &lt;
+\frac{\varepsilon}{4(\beta - \alpha)} \\
         \end{aligned}
-    \right.</script><p>对$i=1,2,\cdots,n$都成立，令</p>
-<script type="math/tex; mode=display">
+    \right.
+\]</span><br />
+对<span class="math inline">\(i=1,2,\cdots,n\)</span>都成立，令<br />
+<span class="math display">\[
     \begin{aligned}
-    I = \int_{\alpha}^{\beta} \sqrt{(x^\prime(t))^2 + (y^\prime(t))^2 + (z^\prime(t))^2} \mathrm{d}t \\
-    S = \sum_{i=1}^n \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\xi_i))^2 + (z^\prime(\xi_i))^2} \Delta t_i
-    \end{aligned}</script><p>由积分的定义可知，对上述$\varepsilon$，存在$\delta_2 &gt; 0$，当$\Vert \pi \Vert \le \delta_2$时，有</p>
-<script type="math/tex; mode=display">
-    |S - I| < \frac{\varepsilon}{2}</script><p>而不论$\xi_i \in [t_{i-1}, t_i] (i=1,2,\cdots,n)$如何选取，当$\Vert \pi \Vert &lt; \min(\delta_1, \delta_2)$时，有</p>
-<script type="math/tex; mode=display">
+    I = \int_{\alpha}^{\beta} \sqrt{(x^\prime(t))^2 + (y^\prime(t))^2 +
+(z^\prime(t))^2} \mathrm{d}t \\
+    S = \sum_{i=1}^n \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\xi_i))^2 +
+(z^\prime(\xi_i))^2} \Delta t_i
+    \end{aligned}
+\]</span><br />
+由积分的定义可知，对上述<span
+class="math inline">\(\varepsilon\)</span>，存在<span
+class="math inline">\(\delta_2 &gt; 0\)</span>，当<span
+class="math inline">\(\Vert \pi \Vert \le \delta_2\)</span>时，有<br />
+<span class="math display">\[
+    |S - I| &lt; \frac{\varepsilon}{2}
+\]</span><br />
+而不论<span class="math inline">\(\xi_i \in [t_{i-1}, t_i]
+(i=1,2,\cdots,n)\)</span>如何选取，当<span class="math inline">\(\Vert
+\pi \Vert &lt; \min(\delta_1, \delta_2)\)</span>时，有<br />
+<span class="math display">\[
     \begin{aligned}
-    & |\sum_{i=1}^n \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2 + (z^\prime(\zeta_i))^2} \Delta t_i- I| \\
-    & \le |\sum_{i=1}^n \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2 + (z^\prime(\zeta_i))^2} \Delta t_i - S| + |S - I| \\
-    & < \sum_{i=1}^n (|y^\prime(\xi_i) - y^\prime(\eta_i)| + |z^\prime(\xi_i) - z^\prime(\zeta_i)|) \Delta t_i + \frac{\varepsilon}{2} \\
-    & < \left( \frac{\varepsilon}{4(\beta - \alpha)}  + \frac{\varepsilon}{4(\beta - \alpha)} \right) \sum_{i=1}^n \Delta t_i + \frac{\varepsilon}{2} \\
-    & = \varepsilon
-    \end{aligned}</script><p>Q.E.D.</p>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>设$\mathbb{R}^3$的曲线$\Gamma$的参数方程为</p>
-<script type="math/tex; mode=display">
+    &amp; |\sum_{i=1}^n \sqrt {(x^\prime(\xi_i))^2 +
+(y^\prime(\eta_i))^2 + (z^\prime(\zeta_i))^2} \Delta t_i- I| \\
+    &amp; \le |\sum_{i=1}^n \sqrt {(x^\prime(\xi_i))^2 +
+(y^\prime(\eta_i))^2 + (z^\prime(\zeta_i))^2} \Delta t_i - S| + |S - I|
+\\
+    &amp; &lt; \sum_{i=1}^n (|y^\prime(\xi_i) - y^\prime(\eta_i)| +
+|z^\prime(\xi_i) - z^\prime(\zeta_i)|) \Delta t_i +
+\frac{\varepsilon}{2} \\
+    &amp; &lt; \left( \frac{\varepsilon}{4(\beta - \alpha)}  +
+\frac{\varepsilon}{4(\beta - \alpha)} \right) \sum_{i=1}^n \Delta t_i +
+\frac{\varepsilon}{2} \\
+    &amp; = \varepsilon
+    \end{aligned}
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理2">定理2</h4>
+<blockquote>
+<p>设<span class="math inline">\(\mathbb{R}^3\)</span>的曲线<span
+class="math inline">\(\Gamma\)</span>的参数方程为<br />
+<span class="math display">\[
     \left\{
         \begin{aligned}
             x = x(t), \\
@@ -333,58 +408,147 @@
             z = z(t),
         \end{aligned}
     \right.
-    \quad (\alpha \le t \le \beta)</script><p>或用向量形式表示为</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{r} = \boldsymbol{r}(t) \quad (\alpha \le t \le \beta)</script><p>其中$x(t), y(t), z(t)$在$[\alpha, \beta]$上有连续的导数，点$A = \boldsymbol{r}(\alpha)$与$B = \boldsymbol{r}(\beta)$分别是$\Gamma$的起点与终点。则该曲线的弧长公式为</p>
-<script type="math/tex; mode=display">
-    s(\Gamma) = \int_{\alpha}^{\beta} \sqrt{(x^\prime(t))^2 + (y^\prime(t))^2 + (z^\prime(t))^2} \mathrm{d}t</script></blockquote>
-<p>证：沿$A$到$B$的方向在$\Gamma$上取$n+1$个点：</p>
-<script type="math/tex; mode=display">
-    A = A_0, A_1, A_2, \cdots, A_n = B</script><p>并把这$n$条线段之和$\sum_{i=1}^n |A_{i-1}A_i|$作为$\Gamma$弧长的一个近似值，可知当分割点越来越细时，近似值的极限就是弧长。设点$A_i$对应着参数值$t_i (i=0,1,2,\cdots,n)$，则</p>
-<script type="math/tex; mode=display">
-    \alpha = t_0 < t_1 < t_2 < \cdots < t_n = \beta</script><p>记为分割$\pi$，从而</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-    |A_{i-1}A_i| &= \Vert \boldsymbol{r}(t_i) - \boldsymbol{r}(t_{i-1}) \Vert \\
-    &= \sqrt {((x(t_i) - x(t_{i-1}))^2 + (y(t_i) - y(t_{i-1}))^2 + (z(t_i) - z(t_{i-1}))^2)} \\
-    &= \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2 + (z^\prime(\zeta_i))^2} \Delta t_i
-    \end{aligned}</script><p>其中$\xi_i,\eta_i, \zeta_i \in (t_{i-1}, t_i)$，又由于$x^\prime, y^\prime, z^\prime$都是连续函数，所以存在一个常数$K$，使得</p>
-<script type="math/tex; mode=display">
-    |A_{i-1}A_i| \le K \Delta t_i \le K \Vert \pi \Vert</script><p>所以</p>
-<script type="math/tex; mode=display">
-    \max \limits_{1 \le i \le n} | A_{i-1}A_i | \le K \Vert \pi \Vert</script><p>这表明，将分割$\pi$无限加细，对应的曲线$\Gamma$上的分割也会无限加细，从而$\Gamma$的弧长为</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^n \sqrt{(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2 + (z^\prime(\zeta_i))^2} \Delta t_i</script><p>再由<a href="#引理1">引理1</a>可知，弧长</p>
-<script type="math/tex; mode=display">
-    S(\Gamma) = \int_{\alpha}^{\beta} \sqrt {(x^\prime(t))^2 + (y^\prime(t))^2 + (z^\prime(t))^2} \mathrm{d} t</script><p>Q.E.D.</p>
-<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
-<p>（1）设$y = f(x) \ge 0$是区间$[a,b]$上的一条连续曲线，让这条曲线绕$x$轴旋转一周，得到的旋转体的体积公式为</p>
-<script type="math/tex; mode=display">
-    V = \pi \int_a^b f^2(x) \mathrm{d} x</script><p>（2）设曲线$\Gamma$</p>
-<script type="math/tex; mode=display">
-    x= x(t), y = y(t) \quad (\alpha \le t \le \beta)</script><p>是一条在上半平面不自交的$C^1$类曲线，让这条曲线绕$Ox$轴旋转一周，生成的旋转曲面的面积为</p>
-<p>$$<br>    S = 2\pi \int_{\alpha}^{\beta} y(t) \sqrt {(x^\prime(t))^2 + (y^\prime(t))^2} \mathrm{d} t</p>
-<p>$$ b</p>
+    \quad (\alpha \le t \le \beta)
+\]</span><br />
+或用向量形式表示为<br />
+<span class="math display">\[
+    \boldsymbol{r} = \boldsymbol{r}(t) \quad (\alpha \le t \le \beta)
+\]</span><br />
+其中<span class="math inline">\(x(t), y(t), z(t)\)</span>在<span
+class="math inline">\([\alpha, \beta]\)</span>上有连续的导数，点<span
+class="math inline">\(A = \boldsymbol{r}(\alpha)\)</span>与<span
+class="math inline">\(B = \boldsymbol{r}(\beta)\)</span>分别是<span
+class="math inline">\(\Gamma\)</span>的起点与终点。则该曲线的弧长公式为<br />
+<span class="math display">\[
+    s(\Gamma) = \int_{\alpha}^{\beta} \sqrt{(x^\prime(t))^2 +
+(y^\prime(t))^2 + (z^\prime(t))^2} \mathrm{d}t
+\]</span></p>
 </blockquote>
-<p>证：（1）作区间$[a,b]$的一个分割</p>
-<script type="math/tex; mode=display">
-    \pi: a = x_0 < x_1 < \cdots < x_n = b</script><p>将旋转体介于平面$x = x_{k-1}, x= x_{k}$之间的体积记为$V_k$，任取$\xi_k \in [x_{k-1}, x_k]$，则</p>
-<script type="math/tex; mode=display">
-    V_k \approx \pi f^2(\xi_k) \Delta x_k</script><p>从而</p>
-<script type="math/tex; mode=display">
-    V = \lim \limits_{\Vert \pi \Vert \to 0} \sum_{k=1}^n \pi f^2(\xi_k) \Delta x_k = \pi \int_a^b f^2(x) \mathrm{d} x</script><p>（2）在$\Gamma$上取$n+1$个点</p>
-<script type="math/tex; mode=display">
-    A_0,A_1,\cdots,A_n</script><p>从而对应的参数区间$[\alpha, \beta]$也有分点</p>
-<script type="math/tex; mode=display">
-    \alpha = t_0 < t_1 < \cdots < t_n = \beta</script><p>这时曲线上的第$i$段$A_{i-1}A_i$的弧长可近似为</p>
-<script type="math/tex; mode=display">
-    \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2} \Delta t_i</script><p>其中$\xi_i, \eta_i \in [t_{i-1}, t_i]$，由这段曲线弧旋转而成的曲面面积可表示为</p>
-<script type="math/tex; mode=display">
-    \Delta S_i \approx 2 \pi y(\zeta_i) \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2} \Delta t_i</script><p>其中$\zeta_i \in [t_{i-1}, t_i]$，所以旋转曲面的总面积可表示为</p>
-<script type="math/tex; mode=display">
-    S \approx \sum_{i=1}^n 2\pi y(\zeta_i) \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2} \Delta t_i</script><p>当$\Vert \pi \Vert \to 0$时，利用类似<a href="#引理1">引理1</a>的证法，可得</p>
-<script type="math/tex; mode=display">
-    S = \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^n 2\pi y(\zeta_i) \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2} \Delta t_i = 2\pi \int_{\alpha}^{\beta} y(t) \sqrt {(x^\prime(t))^2 + (y^\prime(t))^2} \mathrm{d} t</script><p>Q.E.D.</p>
+<p>证：沿<span class="math inline">\(A\)</span>到<span
+class="math inline">\(B\)</span>的方向在<span
+class="math inline">\(\Gamma\)</span>上取<span
+class="math inline">\(n+1\)</span>个点：<br />
+<span class="math display">\[
+    A = A_0, A_1, A_2, \cdots, A_n = B
+\]</span><br />
+并把这<span class="math inline">\(n\)</span>条线段之和<span
+class="math inline">\(\sum_{i=1}^n |A_{i-1}A_i|\)</span>作为<span
+class="math inline">\(\Gamma\)</span>弧长的一个近似值，可知当分割点越来越细时，近似值的极限就是弧长。设点<span
+class="math inline">\(A_i\)</span>对应着参数值<span
+class="math inline">\(t_i (i=0,1,2,\cdots,n)\)</span>，则<br />
+<span class="math display">\[
+    \alpha = t_0 &lt; t_1 &lt; t_2 &lt; \cdots &lt; t_n = \beta
+\]</span><br />
+记为分割<span class="math inline">\(\pi\)</span>，从而<br />
+<span class="math display">\[
+    \begin{aligned}
+    |A_{i-1}A_i| &amp;= \Vert \boldsymbol{r}(t_i) -
+\boldsymbol{r}(t_{i-1}) \Vert \\
+    &amp;= \sqrt {((x(t_i) - x(t_{i-1}))^2 + (y(t_i) - y(t_{i-1}))^2 +
+(z(t_i) - z(t_{i-1}))^2)} \\
+    &amp;= \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2 +
+(z^\prime(\zeta_i))^2} \Delta t_i
+    \end{aligned}
+\]</span><br />
+其中<span class="math inline">\(\xi_i,\eta_i, \zeta_i \in (t_{i-1},
+t_i)\)</span>，又由于<span class="math inline">\(x^\prime, y^\prime,
+z^\prime\)</span>都是连续函数，所以存在一个常数<span
+class="math inline">\(K\)</span>，使得<br />
+<span class="math display">\[
+    |A_{i-1}A_i| \le K \Delta t_i \le K \Vert \pi \Vert
+\]</span><br />
+所以<br />
+<span class="math display">\[
+    \max \limits_{1 \le i \le n} | A_{i-1}A_i | \le K \Vert \pi \Vert
+\]</span><br />
+这表明，将分割<span
+class="math inline">\(\pi\)</span>无限加细，对应的曲线<span
+class="math inline">\(\Gamma\)</span>上的分割也会无限加细，从而<span
+class="math inline">\(\Gamma\)</span>的弧长为<br />
+<span class="math display">\[
+    \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^n
+\sqrt{(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2 +
+(z^\prime(\zeta_i))^2} \Delta t_i
+\]</span><br />
+再由<a href="#引理1">引理1</a>可知，弧长<br />
+<span class="math display">\[
+    S(\Gamma) = \int_{\alpha}^{\beta} \sqrt {(x^\prime(t))^2 +
+(y^\prime(t))^2 + (z^\prime(t))^2} \mathrm{d} t
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理3">定理3</h4>
+<blockquote>
+<p>（1）设<span class="math inline">\(y = f(x) \ge 0\)</span>是区间<span
+class="math inline">\([a,b]\)</span>上的一条连续曲线，让这条曲线绕<span
+class="math inline">\(x\)</span>轴旋转一周，得到的旋转体的体积公式为<br />
+<span class="math display">\[
+    V = \pi \int_a^b f^2(x) \mathrm{d} x
+\]</span><br />
+（2）设曲线<span class="math inline">\(\Gamma\)</span><br />
+<span class="math display">\[
+    x= x(t), y = y(t) \quad (\alpha \le t \le \beta)
+\]</span><br />
+是一条在上半平面不自交的<span
+class="math inline">\(C^1\)</span>类曲线，让这条曲线绕<span
+class="math inline">\(Ox\)</span>轴旋转一周，生成的旋转曲面的面积为<br />
+<span class="math display">\[
+    S = 2\pi \int_{\alpha}^{\beta} y(t) \sqrt {(x^\prime(t))^2 +
+(y^\prime(t))^2} \mathrm{d} t
+\]</span> b</p>
+</blockquote>
+<p>证：（1）作区间<span
+class="math inline">\([a,b]\)</span>的一个分割<br />
+<span class="math display">\[
+    \pi: a = x_0 &lt; x_1 &lt; \cdots &lt; x_n = b
+\]</span><br />
+将旋转体介于平面<span class="math inline">\(x = x_{k-1}, x=
+x_{k}\)</span>之间的体积记为<span
+class="math inline">\(V_k\)</span>，任取<span
+class="math inline">\(\xi_k \in [x_{k-1}, x_k]\)</span>，则<br />
+<span class="math display">\[
+    V_k \approx \pi f^2(\xi_k) \Delta x_k
+\]</span><br />
+从而<br />
+<span class="math display">\[
+    V = \lim \limits_{\Vert \pi \Vert \to 0} \sum_{k=1}^n \pi f^2(\xi_k)
+\Delta x_k = \pi \int_a^b f^2(x) \mathrm{d} x
+\]</span><br />
+（2）在<span class="math inline">\(\Gamma\)</span>上取<span
+class="math inline">\(n+1\)</span>个点<br />
+<span class="math display">\[
+    A_0,A_1,\cdots,A_n
+\]</span><br />
+从而对应的参数区间<span class="math inline">\([\alpha,
+\beta]\)</span>也有分点<br />
+<span class="math display">\[
+    \alpha = t_0 &lt; t_1 &lt; \cdots &lt; t_n = \beta
+\]</span><br />
+这时曲线上的第<span class="math inline">\(i\)</span>段<span
+class="math inline">\(A_{i-1}A_i\)</span>的弧长可近似为<br />
+<span class="math display">\[
+    \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2} \Delta t_i
+\]</span><br />
+其中<span class="math inline">\(\xi_i, \eta_i \in [t_{i-1},
+t_i]\)</span>，由这段曲线弧旋转而成的曲面面积可表示为<br />
+<span class="math display">\[
+    \Delta S_i \approx 2 \pi y(\zeta_i) \sqrt {(x^\prime(\xi_i))^2 +
+(y^\prime(\eta_i))^2} \Delta t_i
+\]</span><br />
+其中<span class="math inline">\(\zeta_i \in [t_{i-1},
+t_i]\)</span>，所以旋转曲面的总面积可表示为<br />
+<span class="math display">\[
+    S \approx \sum_{i=1}^n 2\pi y(\zeta_i) \sqrt {(x^\prime(\xi_i))^2 +
+(y^\prime(\eta_i))^2} \Delta t_i
+\]</span><br />
+当<span class="math inline">\(\Vert \pi \Vert \to
+0\)</span>时，利用类似<a href="#引理1">引理1</a>的证法，可得<br />
+<span class="math display">\[
+    S = \lim \limits_{\Vert \pi \Vert \to 0} \sum_{i=1}^n 2\pi
+y(\zeta_i) \sqrt {(x^\prime(\xi_i))^2 + (y^\prime(\eta_i))^2} \Delta t_i
+= 2\pi \int_{\alpha}^{\beta} y(t) \sqrt {(x^\prime(t))^2 +
+(y^\prime(t))^2} \mathrm{d} t
+\]</span></p>
+<p>Q.E.D.</p>
 
     </div>
 
@@ -472,7 +636,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引理1"><span class="nav-text">引理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E7%90%861"><span class="nav-text">引理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%863"><span class="nav-text">定理3</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -543,13 +707,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

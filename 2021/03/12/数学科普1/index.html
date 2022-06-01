@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="假设两个正数$a,b$，我们知道$\frac{a+b}{2}$称为算术平均数，$\sqrt{ab}$称为几何平均数，$\frac{2}{a^{-1}+b^{-1}}$称为调和平均数。对于任意$n$个正数也有同样的定义，观察到算术平均数为$\left(\frac{a^{1}+b^{1}}{2}\right)^1$，调和平均数为$\left(\frac{a^{-1}+b^{-1}}{2}\right)">
+  <meta name="description" content="假设两个正数\(a,b\)，我们知道\(\frac{a+b}{2}\)称为算术平均数，\(\sqrt{ab}\)称为几何平均数，\(\frac{2}{a^{-1}+b^{-1}}\)称为调和平均数。对于任意\(n\)个正数也有同样的定义，观察到算术平均数为\(\left(\frac{a^{1}+b^{1}}{2}\right)^1\)，调和平均数为\(\left(\frac{a^{-1}+b^{-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数学科普一：平均数">
 <meta property="og:url" content="http://yoursite.com/2021/03/12/%E6%95%B0%E5%AD%A6%E7%A7%91%E6%99%AE1/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="假设两个正数$a,b$，我们知道$\frac{a+b}{2}$称为算术平均数，$\sqrt{ab}$称为几何平均数，$\frac{2}{a^{-1}+b^{-1}}$称为调和平均数。对于任意$n$个正数也有同样的定义，观察到算术平均数为$\left(\frac{a^{1}+b^{1}}{2}\right)^1$，调和平均数为$\left(\frac{a^{-1}+b^{-1}}{2}\right)">
+<meta property="og:description" content="假设两个正数\(a,b\)，我们知道\(\frac{a+b}{2}\)称为算术平均数，\(\sqrt{ab}\)称为几何平均数，\(\frac{2}{a^{-1}+b^{-1}}\)称为调和平均数。对于任意\(n\)个正数也有同样的定义，观察到算术平均数为\(\left(\frac{a^{1}+b^{1}}{2}\right)^1\)，调和平均数为\(\left(\frac{a^{-1}+b^{-">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-12T12:33:33.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.737Z">
+<meta property="article:modified_time" content="2021-03-12T12:33:33.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学科普">
 <meta property="article:tag" content="平均数">
@@ -79,7 +79,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -219,13 +223,6 @@
 
               <time title="创建时间：2021-03-12 20:33:33" itemprop="dateCreated datePublished" datetime="2021-03-12T20:33:33+08:00">2021-03-12</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -249,7 +246,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.9k</span>
+              <span>4.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -268,68 +265,199 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>假设两个正数$a,b$，我们知道$\frac{a+b}{2}$称为算术平均数，$\sqrt{ab}$称为几何平均数，$\frac{2}{a^{-1}+b^{-1}}$称为调和平均数。对于任意$n$个正数也有同样的定义，观察到算术平均数为$\left(\frac{a^{1}+b^{1}}{2}\right)^1$，调和平均数为$\left(\frac{a^{-1}+b^{-1}}{2}\right)^{-1}$，可以猜想一类平均数的定义。</p>
-<a id="more"></a>
-<h4 id="定义1：-s-阶平均数"><a href="#定义1：-s-阶平均数" class="headerlink" title="定义1：$s$阶平均数"></a>定义1：$s$阶平均数</h4><blockquote>
-<p>设$a_1,a_2,\cdots,a_n$是$n$个正数，定义</p>
-<script type="math/tex; mode=display">
-    f(s) = \left\{ 
+        <p>假设两个正数<span class="math inline">\(a,b\)</span>，我们知道<span
+class="math inline">\(\frac{a+b}{2}\)</span>称为算术平均数，<span
+class="math inline">\(\sqrt{ab}\)</span>称为几何平均数，<span
+class="math inline">\(\frac{2}{a^{-1}+b^{-1}}\)</span>称为调和平均数。对于任意<span
+class="math inline">\(n\)</span>个正数也有同样的定义，观察到算术平均数为<span
+class="math inline">\(\left(\frac{a^{1}+b^{1}}{2}\right)^1\)</span>，调和平均数为<span
+class="math inline">\(\left(\frac{a^{-1}+b^{-1}}{2}\right)^{-1}\)</span>，可以猜想一类平均数的定义。</p>
+<span id="more"></span>
+<h4 id="定义1s阶平均数">定义1：<span
+class="math inline">\(s\)</span>阶平均数</h4>
+<blockquote>
+<p>设<span class="math inline">\(a_1,a_2,\cdots,a_n\)</span>是<span
+class="math inline">\(n\)</span>个正数，定义<br />
+<span class="math display">\[
+    f(s) = \left\{
         \begin{aligned}
-            & \left(\frac{a_1^s+a_2^s+\cdots+a_n^s}{n}\right)^{1/s} & \quad s \ne 0  \\
-            & \sqrt[n]{a_1a_2\cdots a_n} & \quad s = 0
-        \end{aligned} 
-        \right.</script><p>称$f(s)$为这$n$个正数的$s$阶平均数。</p>
+            &amp; \left(\frac{a_1^s+a_2^s+\cdots+a_n^s}{n}\right)^{1/s}
+&amp; \quad s \ne 0  \\
+            &amp; \sqrt[n]{a_1a_2\cdots a_n} &amp; \quad s = 0
+        \end{aligned}
+        \right.
+\]</span><br />
+称<span class="math inline">\(f(s)\)</span>为这<span
+class="math inline">\(n\)</span>个正数的<span
+class="math inline">\(s\)</span>阶平均数。</p>
 </blockquote>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>设$a_1,a_2,\cdots,a_n$是$n$个正数，则这$n$个数的$s$阶平均数$f(s)$是关于$s$在$(-\infty,+\infty)$上的连续函数。且</p>
-<script type="math/tex; mode=display">
+<h4 id="定理1">定理1</h4>
+<blockquote>
+<p>设<span class="math inline">\(a_1,a_2,\cdots,a_n\)</span>是<span
+class="math inline">\(n\)</span>个正数，则这<span
+class="math inline">\(n\)</span>个数的<span
+class="math inline">\(s\)</span>阶平均数<span
+class="math inline">\(f(s)\)</span>是关于<span
+class="math inline">\(s\)</span>在<span
+class="math inline">\((-\infty,+\infty)\)</span>上的连续函数。且<br />
+<span class="math display">\[
     \begin{aligned}
         \lim \limits_{s \to +\infty} f(s) = \max(a_1,a_2,\cdots,a_n) \\
         \lim \limits_{s \to -\infty} f(s) = \min(a_1,a_2,\cdots,a_n)
-    \end{aligned}</script></blockquote>
-<p>证：先证$f(s)$是连续函数。由于分段函数的两段都是初等函数，所以只需要证明$f(s)$在$s=0$处连续，即可。而</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-        \lim \limits_{s \to 0} \left(\frac{a_1^s+a_2^s+\cdots+a_n^s}{n}\right)^{1/s} & = \lim\limits_{s \to 0} e^{\frac{1}{s} \ln\left(\frac{a_1^s-1 + a_2^s - 1 + \cdots + a_n^s-1 + n}{n}\right)} \\
-        & = \lim\limits_{s \to 0} e^{\frac{1}{s} \ln \left(1 + \frac{a_1^s-1}{n} + \frac{a_2^s-1}{n} + \cdots + \frac{a_n^s-1}{n} \right)} \\
-        & = \lim\limits_{s \to 0} e^{\frac{1}{n} \left(\frac{a_1^s-1}{s} + \frac{a_2^s-1}{s} + \cdots + \frac{a_n^s-1}{s} \right)} \\
-        & = e^{\frac{1}{n} \ln(a_1a_2\cdots a_n)} = \sqrt[n]{a_1a_2\cdots a_n}
-    \end{aligned}</script><p>所以$f(s)$是连续的。<br/><br>再证后半段。不妨设$p = \max(a_1,a_2,\cdots,a_n)$，从而当$s &gt; 0$时，有</p>
-<script type="math/tex; mode=display">
-    \left(\frac{p^s}{n}\right)^{1/s} \le \left(\frac{a_1^s+a_2^s+\cdots+a_n^s}{n}\right)^{1/s} \le \left(\frac{p^s+p^s+\cdots+p^s}{n}\right)^{1/s} = p</script><p>而</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{s \to +\infty} \left(\frac{p^s}{n}\right)^{1/s}  = p</script><p>所以</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{s \to +\infty} f(s) = p = \max(a_1,a_2,\cdots,a_n)</script><p>同样设$q = \min(a_1,a_2,\cdots,a_n)$，当$s &lt; 0$时，有</p>
-<script type="math/tex; mode=display">
-    \left(\frac{q^s}{n}\right)^{1/s} \ge \left(\frac{a_1^s+a_2^s+\cdots+a_n^s}{n}\right)^{1/s} \ge \left(\frac{q^s+q^s+\cdots+q^s}{n}\right)^{1/s} = q</script><p>而</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{s \to -\infty} \left(\frac{q^s}{n}\right)^{1/s}  = q</script><p>所以</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{s \to -\infty} f(s) = q = \min(a_1,a_2,\cdots,a_n)</script><p>Q.E.D.</p>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>设$a_1,a_2,\cdots,a_n$是$n$个正数，则这$n$个数的$s$阶平均数$f(s)$是$(-\infty,+\infty)$上的递增函数。若$a_1,a_2,\cdots,a_n$不全相等，则$f(s)$是$(-\infty,+\infty)$上的严格递增函数。</p>
+    \end{aligned}
+\]</span></p>
 </blockquote>
-<p>证：先设$0 &lt; \alpha &lt; \beta$，我们证明$f(\alpha) \le f(\beta)$，即</p>
-<script type="math/tex; mode=display">
-    \left(\frac{a_1^\alpha+a_2^\alpha+\cdots+a_n^\alpha}{n} \right)^{1/\alpha} \le \left(\frac{a_1^\beta + a_2^\beta + \cdots+ a_n^\beta}{n}\right)^{1/\beta}</script><p>记$g(x) = x^m (x &gt; 0)$，则$g^\prime(x) = m x^{m-1}$，$g^{\prime\prime}(x) = m(m-1)x^{m-2}$，当$m &gt; 1$时，知$g(x)$是凸函数，从而由<a href="https://gamersover.github.io/2021/03/08/函数导数5/#定理7" target="_blank" rel="noopener">函数导数五的定理7</a>可知，有</p>
-<script type="math/tex; mode=display">
-    g\left(\frac{x_1}{n} + \frac{x_2}{n} + \cdots + \frac{x_n}{n}\right) \le \frac{g(x_1)+g(x_2)+\cdots+g(x_n)}{n}</script><p>即</p>
-<script type="math/tex; mode=display">
-    \left(\frac{x_1+x_2+\cdots+x_n}{n} \right)^m \le \frac{x_1^m + x_2^m + \cdots+ x_n^m}{n} \tag 1</script><p>令$x_i = a_i^\alpha, m = \beta / \alpha &gt; 1$，代入上式得</p>
-<script type="math/tex; mode=display">
-    \left(\frac{a_1^\alpha+a_2^\alpha+\cdots+a_n^\alpha}{n} \right)^{\beta / \alpha} \le \frac{a_1^\beta + a_2^\beta + \cdots+ a_n^\beta}{n}</script><p>即</p>
-<script type="math/tex; mode=display">
-    \left(\frac{a_1^\alpha+a_2^\alpha+\cdots+a_n^\alpha}{n} \right)^{1/\alpha} \le \left(\frac{a_1^\beta + a_2^\beta + \cdots+ a_n^\beta}{n}\right)^{1/\beta} \tag 2</script><p>再设$\alpha &lt; \beta &lt; 0$，我们证明$f(\alpha) &lt; f(\beta)$。由于$-\alpha &gt; -\beta &gt; 0$，这时设$n$个正数为$a_1^{-1},a_2^{-1},\cdots,a_n^{-1}$，并令$x_i = (a_i^{-1})^{-\beta}, m = (-\alpha) / (-\beta) &gt; 1$，代入(1)式得</p>
-<script type="math/tex; mode=display">
-    \left(\frac{a_1^{\beta}+a_2^{\beta}+\cdots+a_n^{\beta}}{n} \right)^{-\alpha / -\beta} \le \frac{a_1^{\alpha} + a_2^{\alpha} + \cdots+ a_n^{\alpha}}{n}</script><p>即</p>
-<script type="math/tex; mode=display">
-    \left(\frac{a_1^{\beta}+a_2^{\beta}+\cdots+a_n^{\beta}}{n} \right)^{-1 / \beta} \le \left(\frac{a_1^{\alpha} + a_2^{\alpha} + \cdots+ a_n^{\alpha}}{n} \right)^{-1 / \alpha}</script><p>进一步化简得</p>
-<script type="math/tex; mode=display">
-    \left(\frac{a_1^{\alpha} + a_2^{\alpha} + \cdots+ a_n^{\alpha}}{n} \right)^{1 / \alpha} \le \left(\frac{a_1^{\beta}+a_2^{\beta}+\cdots+a_n^{\beta}}{n} \right)^{1 / \beta} \tag 3</script><p>最后证明$f(\alpha) &lt; f(0) &lt; f(\beta)$，其中$\alpha &lt; 0 &lt; \beta$。在(2)式中令$\alpha \to 0^+$，得$\sqrt[n]{a_1a_2\cdots a_n} \le f(\beta)$；在(3)式中令$\beta \to 0^-$，得$f(\alpha) &lt; \sqrt[n]{a_1a_2\cdots a_n}$。从而$f(s)$是$(-\infty,+\infty)$上的递增函数。<br/></p>
-<p>而上面所有等式成立的充分必要条件是$a_1=a_2=\cdots=a_n$。所以当$a_1,a_2,\cdots,a_n$不全相等时，$f(s)$是$(-\infty,+\infty)$上的严格递增函数。</p>
+<p>证：先证<span
+class="math inline">\(f(s)\)</span>是连续函数。由于分段函数的两段都是初等函数，所以只需要证明<span
+class="math inline">\(f(s)\)</span>在<span
+class="math inline">\(s=0\)</span>处连续，即可。而<br />
+<span class="math display">\[
+    \begin{aligned}
+        \lim \limits_{s \to 0}
+\left(\frac{a_1^s+a_2^s+\cdots+a_n^s}{n}\right)^{1/s} &amp; =
+\lim\limits_{s \to 0} e^{\frac{1}{s} \ln\left(\frac{a_1^s-1 + a_2^s - 1
++ \cdots + a_n^s-1 + n}{n}\right)} \\
+        &amp; = \lim\limits_{s \to 0} e^{\frac{1}{s} \ln \left(1 +
+\frac{a_1^s-1}{n} + \frac{a_2^s-1}{n} + \cdots + \frac{a_n^s-1}{n}
+\right)} \\
+        &amp; = \lim\limits_{s \to 0} e^{\frac{1}{n}
+\left(\frac{a_1^s-1}{s} + \frac{a_2^s-1}{s} + \cdots + \frac{a_n^s-1}{s}
+\right)} \\
+        &amp; = e^{\frac{1}{n} \ln(a_1a_2\cdots a_n)} =
+\sqrt[n]{a_1a_2\cdots a_n}
+    \end{aligned}
+\]</span><br />
+所以<span class="math inline">\(f(s)\)</span>是连续的。<br />
+再证后半段。不妨设<span class="math inline">\(p =
+\max(a_1,a_2,\cdots,a_n)\)</span>，从而当<span class="math inline">\(s
+&gt; 0\)</span>时，有<br />
+<span class="math display">\[
+    \left(\frac{p^s}{n}\right)^{1/s} \le
+\left(\frac{a_1^s+a_2^s+\cdots+a_n^s}{n}\right)^{1/s} \le
+\left(\frac{p^s+p^s+\cdots+p^s}{n}\right)^{1/s} = p
+\]</span><br />
+而<br />
+<span class="math display">\[
+    \lim \limits_{s \to +\infty} \left(\frac{p^s}{n}\right)^{1/s}  = p
+\]</span><br />
+所以<br />
+<span class="math display">\[
+    \lim \limits_{s \to +\infty} f(s) = p = \max(a_1,a_2,\cdots,a_n)
+\]</span><br />
+同样设<span class="math inline">\(q =
+\min(a_1,a_2,\cdots,a_n)\)</span>，当<span class="math inline">\(s &lt;
+0\)</span>时，有<br />
+<span class="math display">\[
+    \left(\frac{q^s}{n}\right)^{1/s} \ge
+\left(\frac{a_1^s+a_2^s+\cdots+a_n^s}{n}\right)^{1/s} \ge
+\left(\frac{q^s+q^s+\cdots+q^s}{n}\right)^{1/s} = q
+\]</span><br />
+而<br />
+<span class="math display">\[
+    \lim \limits_{s \to -\infty} \left(\frac{q^s}{n}\right)^{1/s}  = q
+\]</span><br />
+所以<br />
+<span class="math display">\[
+    \lim \limits_{s \to -\infty} f(s) = q = \min(a_1,a_2,\cdots,a_n)
+\]</span></p>
 <p>Q.E.D.</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>从上面分析易知调和平均数是$-1$阶平均数，几何平均数是$0$阶平均数，算术平均数是$1$阶平均数；且有调和平均数$&lt;$几何平均数$&lt;$算术平均数。</p>
+<h4 id="定理2">定理2</h4>
+<blockquote>
+<p>设<span class="math inline">\(a_1,a_2,\cdots,a_n\)</span>是<span
+class="math inline">\(n\)</span>个正数，则这<span
+class="math inline">\(n\)</span>个数的<span
+class="math inline">\(s\)</span>阶平均数<span
+class="math inline">\(f(s)\)</span>是<span
+class="math inline">\((-\infty,+\infty)\)</span>上的递增函数。若<span
+class="math inline">\(a_1,a_2,\cdots,a_n\)</span>不全相等，则<span
+class="math inline">\(f(s)\)</span>是<span
+class="math inline">\((-\infty,+\infty)\)</span>上的严格递增函数。</p>
+</blockquote>
+<p>证：先设<span class="math inline">\(0 &lt; \alpha &lt;
+\beta\)</span>，我们证明<span class="math inline">\(f(\alpha) \le
+f(\beta)\)</span>，即<br />
+<span class="math display">\[
+    \left(\frac{a_1^\alpha+a_2^\alpha+\cdots+a_n^\alpha}{n}
+\right)^{1/\alpha} \le \left(\frac{a_1^\beta + a_2^\beta + \cdots+
+a_n^\beta}{n}\right)^{1/\beta}
+\]</span><br />
+记<span class="math inline">\(g(x) = x^m (x &gt; 0)\)</span>，则<span
+class="math inline">\(g^\prime(x) = m x^{m-1}\)</span>，<span
+class="math inline">\(g^{\prime\prime}(x) =
+m(m-1)x^{m-2}\)</span>，当<span class="math inline">\(m &gt;
+1\)</span>时，知<span
+class="math inline">\(g(x)\)</span>是凸函数，从而由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/03/08/函数导数5/#定理7">函数导数五的定理7</a>可知，有<br />
+<span class="math display">\[
+    g\left(\frac{x_1}{n} + \frac{x_2}{n} + \cdots + \frac{x_n}{n}\right)
+\le \frac{g(x_1)+g(x_2)+\cdots+g(x_n)}{n}
+\]</span><br />
+即<br />
+<span class="math display">\[
+    \left(\frac{x_1+x_2+\cdots+x_n}{n} \right)^m \le \frac{x_1^m + x_2^m
++ \cdots+ x_n^m}{n} \tag 1
+\]</span><br />
+令<span class="math inline">\(x_i = a_i^\alpha, m = \beta / \alpha &gt;
+1\)</span>，代入上式得<br />
+<span class="math display">\[
+    \left(\frac{a_1^\alpha+a_2^\alpha+\cdots+a_n^\alpha}{n}
+\right)^{\beta / \alpha} \le \frac{a_1^\beta + a_2^\beta + \cdots+
+a_n^\beta}{n}
+\]</span><br />
+即<br />
+<span class="math display">\[
+    \left(\frac{a_1^\alpha+a_2^\alpha+\cdots+a_n^\alpha}{n}
+\right)^{1/\alpha} \le \left(\frac{a_1^\beta + a_2^\beta + \cdots+
+a_n^\beta}{n}\right)^{1/\beta} \tag 2
+\]</span><br />
+再设<span class="math inline">\(\alpha &lt; \beta &lt;
+0\)</span>，我们证明<span class="math inline">\(f(\alpha) &lt;
+f(\beta)\)</span>。由于<span class="math inline">\(-\alpha &gt; -\beta
+&gt; 0\)</span>，这时设<span
+class="math inline">\(n\)</span>个正数为<span
+class="math inline">\(a_1^{-1},a_2^{-1},\cdots,a_n^{-1}\)</span>，并令<span
+class="math inline">\(x_i = (a_i^{-1})^{-\beta}, m = (-\alpha) /
+(-\beta) &gt; 1\)</span>，代入(1)式得<br />
+<span class="math display">\[
+    \left(\frac{a_1^{\beta}+a_2^{\beta}+\cdots+a_n^{\beta}}{n}
+\right)^{-\alpha / -\beta} \le \frac{a_1^{\alpha} + a_2^{\alpha} +
+\cdots+ a_n^{\alpha}}{n}
+\]</span><br />
+即<br />
+<span class="math display">\[
+    \left(\frac{a_1^{\beta}+a_2^{\beta}+\cdots+a_n^{\beta}}{n}
+\right)^{-1 / \beta} \le \left(\frac{a_1^{\alpha} + a_2^{\alpha} +
+\cdots+ a_n^{\alpha}}{n} \right)^{-1 / \alpha}
+\]</span><br />
+进一步化简得<br />
+<span class="math display">\[
+    \left(\frac{a_1^{\alpha} + a_2^{\alpha} + \cdots+ a_n^{\alpha}}{n}
+\right)^{1 / \alpha} \le
+\left(\frac{a_1^{\beta}+a_2^{\beta}+\cdots+a_n^{\beta}}{n} \right)^{1 /
+\beta} \tag 3
+\]</span><br />
+最后证明<span class="math inline">\(f(\alpha) &lt; f(0) &lt;
+f(\beta)\)</span>，其中<span class="math inline">\(\alpha &lt; 0 &lt;
+\beta\)</span>。在(2)式中令<span class="math inline">\(\alpha \to
+0^+\)</span>，得<span class="math inline">\(\sqrt[n]{a_1a_2\cdots a_n}
+\le f(\beta)\)</span>；在(3)式中令<span class="math inline">\(\beta \to
+0^-\)</span>，得<span class="math inline">\(f(\alpha) &lt;
+\sqrt[n]{a_1a_2\cdots a_n}\)</span>。从而<span
+class="math inline">\(f(s)\)</span>是<span
+class="math inline">\((-\infty,+\infty)\)</span>上的递增函数。</p>
+<p>而上面所有等式成立的充分必要条件是<span
+class="math inline">\(a_1=a_2=\cdots=a_n\)</span>。所以当<span
+class="math inline">\(a_1,a_2,\cdots,a_n\)</span>不全相等时，<span
+class="math inline">\(f(s)\)</span>是<span
+class="math inline">\((-\infty,+\infty)\)</span>上的严格递增函数。</p>
+<p>Q.E.D.</p>
+<h4 id="总结">总结</h4>
+<p>从上面分析易知调和平均数是<span
+class="math inline">\(-1\)</span>阶平均数，几何平均数是<span
+class="math inline">\(0\)</span>阶平均数，算术平均数是<span
+class="math inline">\(1\)</span>阶平均数；且有调和平均数<span
+class="math inline">\(&lt;\)</span>几何平均数<span
+class="math inline">\(&lt;\)</span>算术平均数。</p>
 
     </div>
 
@@ -416,7 +544,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1：-s-阶平均数"><span class="nav-text">定义1：$s$阶平均数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%891s%E9%98%B6%E5%B9%B3%E5%9D%87%E6%95%B0"><span class="nav-text">定义1：\(s\)阶平均数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -487,13 +615,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

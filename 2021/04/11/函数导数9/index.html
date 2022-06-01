@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m$。记$\boldsymbol{f}$的分量依次为$f_1,f_2,\cdots,f_m$，可以把$\boldsymbol{f}(\boldsymbol{x})$写成      \boldsymbol{f(x)} &#x3D; \left(         \begin{matrix">
+  <meta name="description" content="设开集\(D \subset \mathbb{R}^n\)，\(\boldsymbol{f}: D \to \mathbb{R}^m\)。记\(\boldsymbol{f}\)的分量依次为\(f_1,f_2,\cdots,f_m\)，可以把\(\boldsymbol{f}(\boldsymbol{x})\)写成 \[     \boldsymbol{f(x)} &#x3D; \left(         \">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数导数九：映射微分和复合求导">
 <meta property="og:url" content="http://yoursite.com/2021/04/11/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B09/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m$。记$\boldsymbol{f}$的分量依次为$f_1,f_2,\cdots,f_m$，可以把$\boldsymbol{f}(\boldsymbol{x})$写成      \boldsymbol{f(x)} &#x3D; \left(         \begin{matrix">
+<meta property="og:description" content="设开集\(D \subset \mathbb{R}^n\)，\(\boldsymbol{f}: D \to \mathbb{R}^m\)。记\(\boldsymbol{f}\)的分量依次为\(f_1,f_2,\cdots,f_m\)，可以把\(\boldsymbol{f}(\boldsymbol{x})\)写成 \[     \boldsymbol{f(x)} &#x3D; \left(         \">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-11T14:30:39.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.735Z">
+<meta property="article:modified_time" content="2021-04-11T14:30:39.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数导数">
@@ -81,7 +81,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -221,13 +225,6 @@
 
               <time title="创建时间：2021-04-11 22:30:39" itemprop="dateCreated datePublished" datetime="2021-04-11T22:30:39+08:00">2021-04-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -251,7 +248,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.2k</span>
+              <span>6.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -270,99 +267,264 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m$。记$\boldsymbol{f}$的分量依次为$f_1,f_2,\cdots,f_m$，可以把$\boldsymbol{f}(\boldsymbol{x})$写成</p>
-<script type="math/tex; mode=display">
+        <p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>，<span class="math inline">\(\boldsymbol{f}: D \to
+\mathbb{R}^m\)</span>。记<span
+class="math inline">\(\boldsymbol{f}\)</span>的分量依次为<span
+class="math inline">\(f_1,f_2,\cdots,f_m\)</span>，可以把<span
+class="math inline">\(\boldsymbol{f}(\boldsymbol{x})\)</span>写成<br />
+<span class="math display">\[
     \boldsymbol{f(x)} = \left(
-        \begin{matrix} 
+        \begin{matrix}
             f_1(\boldsymbol{x}) \\
             f_2(\boldsymbol{x}) \\
             \vdots \\
             f_m(\boldsymbol{x})
-        \end{matrix} 
-    \right) \quad (\boldsymbol{x} \in D)</script><p>设点$\boldsymbol{x}_0 \in D, \boldsymbol{h} \in \mathbb{R}^n$。由于$\boldsymbol{x}_0$是$D$的内点，所以总可以找到充分小的$\Vert \boldsymbol{h} \Vert$使得$\boldsymbol{x}_0 + \boldsymbol{h} \in D$。</p>
-<a id="more"></a>
-<h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>如果映射$\boldsymbol{f}$满足</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{f}(\boldsymbol{x}_0 + \boldsymbol{h}) - \boldsymbol{f}(\boldsymbol{x}_0) = \boldsymbol{Ah} + \boldsymbol{r}(\boldsymbol{h})</script><p>式中$\boldsymbol{A}$是一个$m \times n$矩阵，它的元素不依赖于$\boldsymbol{h}$，且</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{\boldsymbol{h} \to \boldsymbol{0}} \frac{\Vert \boldsymbol{r}(\boldsymbol{h}) \Vert}{\Vert \boldsymbol{h} \Vert} = 0</script><p>则称映射$\boldsymbol{f}$在点$\boldsymbol{x}_0$处可微，并称$\boldsymbol{Ah}$是$\boldsymbol{f}$在点$\boldsymbol{x}_0$处的微分，记作</p>
-<script type="math/tex; mode=display">
-    \mathrm{d}\boldsymbol{f}(\boldsymbol{x}_0) = \boldsymbol{Ah}</script></blockquote>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>若映射$\boldsymbol{f}$在点$\boldsymbol{x}_0$处可微，则有</p>
-<script type="math/tex; mode=display">
-    \mathrm{d}\boldsymbol{f}(\boldsymbol{x}_0) = \boldsymbol{Jf}(\boldsymbol{x}_0)\boldsymbol{h}</script><p>其中</p>
-<script type="math/tex; mode=display">
+        \end{matrix}
+    \right) \quad (\boldsymbol{x} \in D)
+\]</span><br />
+设点<span class="math inline">\(\boldsymbol{x}_0 \in D, \boldsymbol{h}
+\in \mathbb{R}^n\)</span>。由于<span
+class="math inline">\(\boldsymbol{x}_0\)</span>是<span
+class="math inline">\(D\)</span>的内点，所以总可以找到充分小的<span
+class="math inline">\(\Vert \boldsymbol{h} \Vert\)</span>使得<span
+class="math inline">\(\boldsymbol{x}_0 + \boldsymbol{h} \in
+D\)</span>。</p>
+<span id="more"></span>
+<h4 id="定义1">定义1</h4>
+<blockquote>
+<p>如果映射<span class="math inline">\(\boldsymbol{f}\)</span>满足<br />
+<span class="math display">\[
+    \boldsymbol{f}(\boldsymbol{x}_0 + \boldsymbol{h}) -
+\boldsymbol{f}(\boldsymbol{x}_0) = \boldsymbol{Ah} +
+\boldsymbol{r}(\boldsymbol{h})
+\]</span><br />
+式中<span class="math inline">\(\boldsymbol{A}\)</span>是一个<span
+class="math inline">\(m \times n\)</span>矩阵，它的元素不依赖于<span
+class="math inline">\(\boldsymbol{h}\)</span>，且<br />
+<span class="math display">\[
+    \lim \limits_{\boldsymbol{h} \to \boldsymbol{0}} \frac{\Vert
+\boldsymbol{r}(\boldsymbol{h}) \Vert}{\Vert \boldsymbol{h} \Vert} = 0
+\]</span><br />
+则称映射<span class="math inline">\(\boldsymbol{f}\)</span>在点<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处可微，并称<span
+class="math inline">\(\boldsymbol{Ah}\)</span>是<span
+class="math inline">\(\boldsymbol{f}\)</span>在点<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处的微分，记作<br />
+<span class="math display">\[
+    \mathrm{d}\boldsymbol{f}(\boldsymbol{x}_0) = \boldsymbol{Ah}
+\]</span></p>
+</blockquote>
+<h4 id="定理1">定理1</h4>
+<blockquote>
+<p>若映射<span class="math inline">\(\boldsymbol{f}\)</span>在点<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处可微，则有<br />
+<span class="math display">\[
+    \mathrm{d}\boldsymbol{f}(\boldsymbol{x}_0) =
+\boldsymbol{Jf}(\boldsymbol{x}_0)\boldsymbol{h}
+\]</span><br />
+其中<br />
+<span class="math display">\[
     \boldsymbol{Jf}(\boldsymbol{x}_0) = \left[
         \begin{matrix}
-            \frac{\partial f_1(\boldsymbol{x}_0)}{\partial x_1}  & \cdots & \frac{\partial f_1(\boldsymbol{x}_0)}{\partial x_n} \\
-            \vdots & & \vdots \\
-            \frac{\partial f_m(\boldsymbol{x}_0)}{\partial x_1}  & \cdots & \frac{\partial f_m(\boldsymbol{x}_0)}{\partial x_n}
+            \frac{\partial f_1(\boldsymbol{x}_0)}{\partial x_1}  &amp;
+\cdots &amp; \frac{\partial f_1(\boldsymbol{x}_0)}{\partial x_n} \\
+            \vdots &amp; &amp; \vdots \\
+            \frac{\partial f_m(\boldsymbol{x}_0)}{\partial x_1}  &amp;
+\cdots &amp; \frac{\partial f_m(\boldsymbol{x}_0)}{\partial x_n}
         \end{matrix}
-    \right]</script><p>称之为映射$\boldsymbol{f}$在点$\boldsymbol{x}_0$处的Jacobi矩阵，也称为导数。</p>
+    \right]
+\]</span><br />
+称之为映射<span class="math inline">\(\boldsymbol{f}\)</span>在点<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处的Jacobi矩阵，也称为导数。</p>
 </blockquote>
-<p>证：有定义可知，</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{f}(\boldsymbol{x}_0 + \boldsymbol{h}) - \boldsymbol{f}(\boldsymbol{x}_0) = \boldsymbol{Ah} + \boldsymbol{r}(\boldsymbol{h})</script><p>设</p>
-<script type="math/tex; mode=display">
+<p>证：有定义可知，<br />
+<span class="math display">\[
+    \boldsymbol{f}(\boldsymbol{x}_0 + \boldsymbol{h}) -
+\boldsymbol{f}(\boldsymbol{x}_0) = \boldsymbol{Ah} +
+\boldsymbol{r}(\boldsymbol{h})
+\]</span><br />
+设<br />
+<span class="math display">\[
     \boldsymbol{A} = \left[\begin{matrix}
-        a_{11} & \cdots & a_{1n} \\
-        \vdots & & \vdots \\
-        a_{m1} & \cdots & a_{mn}
-    \end{matrix}\right]</script><p>将其代入上式中得</p>
-<script type="math/tex; mode=display">
-    f_i(\boldsymbol{x}_0 + \boldsymbol{h}) - f_i(\boldsymbol{x}_0) = \sum_{j=1}^n a_{ij} h_j + r_i(\boldsymbol{h})</script><p>其中$r_i(\boldsymbol{h})$表示$\boldsymbol{r}(\boldsymbol{h})$的第$i$个分量，由$\boldsymbol{r}(\boldsymbol{h})$的性质可知</p>
-<script type="math/tex; mode=display">
-    r_i(\boldsymbol{h}) = o(\Vert \boldsymbol{h} \Vert) \quad (\boldsymbol{h} \to 0, i=1,2,\cdots,m)</script><p>从而继续由<a href="https://gamersover.github.io/2021/03/31/函数导数8/#定理1" target="_blank" rel="noopener">函数导数八定理1</a>可知</p>
-<script type="math/tex; mode=display">
-    a_{ij} = \frac{\partial f_i(\boldsymbol{x}_0)}{\partial x_j} (i=1,2,\cdots,m;j=1,2,\cdots,n)</script><p>从而得证。</p>
+        a_{11} &amp; \cdots &amp; a_{1n} \\
+        \vdots &amp; &amp; \vdots \\
+        a_{m1} &amp; \cdots &amp; a_{mn}
+    \end{matrix}\right]
+\]</span><br />
+将其代入上式中得<br />
+<span class="math display">\[
+    f_i(\boldsymbol{x}_0 + \boldsymbol{h}) - f_i(\boldsymbol{x}_0) =
+\sum_{j=1}^n a_{ij} h_j + r_i(\boldsymbol{h})
+\]</span><br />
+其中<span class="math inline">\(r_i(\boldsymbol{h})\)</span>表示<span
+class="math inline">\(\boldsymbol{r}(\boldsymbol{h})\)</span>的第<span
+class="math inline">\(i\)</span>个分量，由<span
+class="math inline">\(\boldsymbol{r}(\boldsymbol{h})\)</span>的性质可知<br />
+<span class="math display">\[
+    r_i(\boldsymbol{h}) = o(\Vert \boldsymbol{h} \Vert) \quad
+(\boldsymbol{h} \to 0, i=1,2,\cdots,m)
+\]</span><br />
+从而继续由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/03/31/函数导数8/#定理1">函数导数八定理1</a>可知<br />
+<span class="math display">\[
+    a_{ij} = \frac{\partial f_i(\boldsymbol{x}_0)}{\partial x_j}
+(i=1,2,\cdots,m;j=1,2,\cdots,n)
+\]</span><br />
+从而得证。</p>
 <p>Q.E.D.</p>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>若映射$\boldsymbol{f}$在点$\boldsymbol{x}_0$的某一邻域内存在Jacobi矩阵$\boldsymbol{Jf}$，且$\boldsymbol{Jf}$的各元素在$\boldsymbol{x}_0$处都连续，则映射$\boldsymbol{f}$在点$\boldsymbol{x}_0$处可微。</p>
+<h4 id="定理2">定理2</h4>
+<blockquote>
+<p>若映射<span class="math inline">\(\boldsymbol{f}\)</span>在点<span
+class="math inline">\(\boldsymbol{x}_0\)</span>的某一邻域内存在Jacobi矩阵<span
+class="math inline">\(\boldsymbol{Jf}\)</span>，且<span
+class="math inline">\(\boldsymbol{Jf}\)</span>的各元素在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处都连续，则映射<span
+class="math inline">\(\boldsymbol{f}\)</span>在点<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处可微。</p>
 </blockquote>
-<p>证：由<a href="https://gamersover.github.io/2021/04/11/函数导数9/#定理1" target="_blank" rel="noopener">定理1</a>与<a href="https://gamersover.github.io/2021/03/31/函数导数8/#定理2" target="_blank" rel="noopener">函数导数八的定理2</a>易证。</p>
+<p>证：由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/04/11/函数导数9/#定理1">定理1</a>与<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/03/31/函数导数8/#定理2">函数导数八的定理2</a>易证。</p>
 <p>Q.E.D.</p>
-<h4 id="定义2"><a href="#定义2" class="headerlink" title="定义2"></a>定义2</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m$。如果$\boldsymbol{f}$在$D$上的每一点处都连续，则记$\boldsymbol{f} \in C(D)$；如果$\boldsymbol{Jf}$在$\boldsymbol{D}$上的每一点处都连续，则记$\boldsymbol{f} \in C^1(D)$。</p>
+<h4 id="定义2">定义2</h4>
+<blockquote>
+<p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>，<span class="math inline">\(\boldsymbol{f}: D \to
+\mathbb{R}^m\)</span>。如果<span
+class="math inline">\(\boldsymbol{f}\)</span>在<span
+class="math inline">\(D\)</span>上的每一点处都连续，则记<span
+class="math inline">\(\boldsymbol{f} \in C(D)\)</span>；如果<span
+class="math inline">\(\boldsymbol{Jf}\)</span>在<span
+class="math inline">\(\boldsymbol{D}\)</span>上的每一点处都连续，则记<span
+class="math inline">\(\boldsymbol{f} \in C^1(D)\)</span>。</p>
 </blockquote>
-<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^n$，$\boldsymbol{g}: D \to \mathbb{R}^m$，$\boldsymbol{g}$在点$\boldsymbol{x}_0 \in D$处可微，又设$\boldsymbol{f}$把包含$\boldsymbol{g}(D)$的一个开集映射至$\mathbb{R}^l$，并且$\boldsymbol{f}$在$\boldsymbol{g}(\boldsymbol{x}_0)$处可微，那么复合映射$\boldsymbol{f} \circ \boldsymbol{g}$在点$\boldsymbol{x}_0$处可微，并且</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{J}(\boldsymbol{f}\circ \boldsymbol{g})(\boldsymbol{x}_0) = \boldsymbol{Jf}(\boldsymbol{g}(\boldsymbol{x}_0)) \boldsymbol{Jg}(\boldsymbol{x}_0)</script></blockquote>
-<p>证：令$\boldsymbol{y}_0 = \boldsymbol{g}(\boldsymbol{x}_0)$，$\boldsymbol{A} = \boldsymbol{Jf}(\boldsymbol{y}_0)，\boldsymbol{B} = \boldsymbol{Jg}(\boldsymbol{x}_0)$，易知$\boldsymbol{A}$是$l\times m$矩阵，$\boldsymbol{B}$是$m \times n$矩阵，从而若能证明</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{\Vert \boldsymbol{h} \Vert \to 0} \frac{\Vert (\boldsymbol{f} \circ \boldsymbol{g})(\boldsymbol{x}_0 + \boldsymbol{h}) - (\boldsymbol{f} \circ \boldsymbol{g})(\boldsymbol{x}_0) - \boldsymbol{ABh} \Vert}{\Vert \boldsymbol{h} \Vert} = 0 \tag{1}</script><p>则由<a href="https://gamersover.github.io/2021/04/11/函数导数9/#定义1" target="_blank" rel="noopener">定义1</a>可知，$\boldsymbol{J}(\boldsymbol{f}\circ \boldsymbol{g})(\boldsymbol{x}_0) = \boldsymbol{AB}$。<br/><br>由于$\boldsymbol{g},\boldsymbol{f}$分别在$\boldsymbol{x}_0,\boldsymbol{y}_0$处可微，从而有</p>
-<script type="math/tex; mode=display">
+<h4 id="定理3">定理3</h4>
+<blockquote>
+<p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>，<span class="math inline">\(\boldsymbol{g}: D \to
+\mathbb{R}^m\)</span>，<span
+class="math inline">\(\boldsymbol{g}\)</span>在点<span
+class="math inline">\(\boldsymbol{x}_0 \in D\)</span>处可微，又设<span
+class="math inline">\(\boldsymbol{f}\)</span>把包含<span
+class="math inline">\(\boldsymbol{g}(D)\)</span>的一个开集映射至<span
+class="math inline">\(\mathbb{R}^l\)</span>，并且<span
+class="math inline">\(\boldsymbol{f}\)</span>在<span
+class="math inline">\(\boldsymbol{g}(\boldsymbol{x}_0)\)</span>处可微，那么复合映射<span
+class="math inline">\(\boldsymbol{f} \circ
+\boldsymbol{g}\)</span>在点<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处可微，并且<br />
+<span class="math display">\[
+    \boldsymbol{J}(\boldsymbol{f}\circ \boldsymbol{g})(\boldsymbol{x}_0)
+= \boldsymbol{Jf}(\boldsymbol{g}(\boldsymbol{x}_0))
+\boldsymbol{Jg}(\boldsymbol{x}_0)
+\]</span></p>
+</blockquote>
+<p>证：令<span class="math inline">\(\boldsymbol{y}_0 =
+\boldsymbol{g}(\boldsymbol{x}_0)\)</span>，<span
+class="math inline">\(\boldsymbol{A} =
+\boldsymbol{Jf}(\boldsymbol{y}_0)，\boldsymbol{B} =
+\boldsymbol{Jg}(\boldsymbol{x}_0)\)</span>，易知<span
+class="math inline">\(\boldsymbol{A}\)</span>是<span
+class="math inline">\(l\times m\)</span>矩阵，<span
+class="math inline">\(\boldsymbol{B}\)</span>是<span
+class="math inline">\(m \times n\)</span>矩阵，从而若能证明<br />
+<span class="math display">\[
+    \lim \limits_{\Vert \boldsymbol{h} \Vert \to 0} \frac{\Vert
+(\boldsymbol{f} \circ \boldsymbol{g})(\boldsymbol{x}_0 + \boldsymbol{h})
+- (\boldsymbol{f} \circ \boldsymbol{g})(\boldsymbol{x}_0) -
+\boldsymbol{ABh} \Vert}{\Vert \boldsymbol{h} \Vert} = 0 \tag{1}
+\]</span><br />
+则由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/04/11/函数导数9/#定义1">定义1</a>可知，<span
+class="math inline">\(\boldsymbol{J}(\boldsymbol{f}\circ
+\boldsymbol{g})(\boldsymbol{x}_0) = \boldsymbol{AB}\)</span>。<br />
+由于<span
+class="math inline">\(\boldsymbol{g},\boldsymbol{f}\)</span>分别在<span
+class="math inline">\(\boldsymbol{x}_0,\boldsymbol{y}_0\)</span>处可微，从而有<br />
+<span class="math display">\[
     \begin{aligned}
-    \boldsymbol{g}(\boldsymbol{x}_0 + \boldsymbol{h}) - \boldsymbol{g}(\boldsymbol{x}_0) = \boldsymbol{Bh} + \boldsymbol{u}(\boldsymbol{h}) \\
-    \boldsymbol{f}(\boldsymbol{y}_0 + \boldsymbol{k}) - \boldsymbol{f}(\boldsymbol{y}_0) = \boldsymbol{Ak} + \boldsymbol{v}(\boldsymbol{k}) 
-    \end{aligned} \tag{2}</script><p>其中$\boldsymbol{h}，\boldsymbol{k}$分别为$n \times 1$矩阵和$m \times 1$矩阵，且</p>
-<script type="math/tex; mode=display">
+    \boldsymbol{g}(\boldsymbol{x}_0 + \boldsymbol{h}) -
+\boldsymbol{g}(\boldsymbol{x}_0) = \boldsymbol{Bh} +
+\boldsymbol{u}(\boldsymbol{h}) \\
+    \boldsymbol{f}(\boldsymbol{y}_0 + \boldsymbol{k}) -
+\boldsymbol{f}(\boldsymbol{y}_0) = \boldsymbol{Ak} +
+\boldsymbol{v}(\boldsymbol{k})
+    \end{aligned} \tag{2}
+\]</span><br />
+其中<span
+class="math inline">\(\boldsymbol{h}，\boldsymbol{k}\)</span>分别为<span
+class="math inline">\(n \times 1\)</span>矩阵和<span
+class="math inline">\(m \times 1\)</span>矩阵，且<br />
+<span class="math display">\[
     \begin{aligned}
-        \frac{\Vert \boldsymbol{u}(\boldsymbol{h}) \Vert}{\Vert \boldsymbol{h} \Vert} \to 0 \quad (\Vert \boldsymbol{h} \Vert \to 0) \\
-        \frac{\Vert \boldsymbol{v}(\boldsymbol{k}) \Vert}{\Vert \boldsymbol{k} \Vert} \to 0 \quad (\Vert \boldsymbol{k} \Vert \to 0)
-    \end{aligned}</script><p>记</p>
-<script type="math/tex; mode=display">
-    \frac{\Vert \boldsymbol{u}(\boldsymbol{h}) \Vert}{\Vert \boldsymbol{h} \Vert} = \varepsilon(\boldsymbol{h})， \quad \frac{\Vert \boldsymbol{v}(\boldsymbol{h}) \Vert}{\Vert \boldsymbol{h} \Vert} = \eta(\boldsymbol{h})</script><p>则</p>
-<script type="math/tex; mode=display">
-    \Vert \boldsymbol{u}(\boldsymbol{h}) \Vert = \varepsilon(\boldsymbol{h}) \Vert \boldsymbol{h} \Vert， \quad \Vert \boldsymbol{v}(\boldsymbol{k}) \Vert = \eta(\boldsymbol{k}) \Vert \boldsymbol{k} \Vert</script><p>且</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{\Vert \boldsymbol{h} \Vert \to 0} \varepsilon(\boldsymbol{h}) = 0， \quad \lim \limits_{\Vert \boldsymbol{k} \Vert \to 0} \eta(\boldsymbol{k}) = 0 \tag{3}</script><p>对给定的$\boldsymbol{h}$，令$\boldsymbol{k} = \boldsymbol{g}(\boldsymbol{x}_0 + \boldsymbol{h}) - \boldsymbol{g}(\boldsymbol{x}_0)$，由式(2)可得</p>
-<script type="math/tex; mode=display">
-    \Vert \boldsymbol{k} \Vert \le \Vert \boldsymbol{Bh} \Vert + \Vert \boldsymbol{u}(\boldsymbol{h})\Vert \le (\Vert \boldsymbol{B} \Vert + \varepsilon(\boldsymbol{h})) \Vert \boldsymbol{h} \Vert</script><p>从而有</p>
-<script type="math/tex; mode=display">
+        \frac{\Vert \boldsymbol{u}(\boldsymbol{h}) \Vert}{\Vert
+\boldsymbol{h} \Vert} \to 0 \quad (\Vert \boldsymbol{h} \Vert \to 0) \\
+        \frac{\Vert \boldsymbol{v}(\boldsymbol{k}) \Vert}{\Vert
+\boldsymbol{k} \Vert} \to 0 \quad (\Vert \boldsymbol{k} \Vert \to 0)
+    \end{aligned}
+\]</span><br />
+记<br />
+<span class="math display">\[
+    \frac{\Vert \boldsymbol{u}(\boldsymbol{h}) \Vert}{\Vert
+\boldsymbol{h} \Vert} = \varepsilon(\boldsymbol{h})， \quad \frac{\Vert
+\boldsymbol{v}(\boldsymbol{h}) \Vert}{\Vert \boldsymbol{h} \Vert} =
+\eta(\boldsymbol{h})
+\]</span><br />
+则<br />
+<span class="math display">\[
+    \Vert \boldsymbol{u}(\boldsymbol{h}) \Vert =
+\varepsilon(\boldsymbol{h}) \Vert \boldsymbol{h} \Vert， \quad \Vert
+\boldsymbol{v}(\boldsymbol{k}) \Vert = \eta(\boldsymbol{k}) \Vert
+\boldsymbol{k} \Vert
+\]</span><br />
+且<br />
+<span class="math display">\[
+    \lim \limits_{\Vert \boldsymbol{h} \Vert \to 0}
+\varepsilon(\boldsymbol{h}) = 0， \quad \lim \limits_{\Vert
+\boldsymbol{k} \Vert \to 0} \eta(\boldsymbol{k}) = 0 \tag{3}
+\]</span><br />
+对给定的<span class="math inline">\(\boldsymbol{h}\)</span>，令<span
+class="math inline">\(\boldsymbol{k} = \boldsymbol{g}(\boldsymbol{x}_0 +
+\boldsymbol{h}) -
+\boldsymbol{g}(\boldsymbol{x}_0)\)</span>，由式(2)可得<br />
+<span class="math display">\[
+    \Vert \boldsymbol{k} \Vert \le \Vert \boldsymbol{Bh} \Vert + \Vert
+\boldsymbol{u}(\boldsymbol{h})\Vert \le (\Vert \boldsymbol{B} \Vert +
+\varepsilon(\boldsymbol{h})) \Vert \boldsymbol{h} \Vert
+\]</span><br />
+从而有<br />
+<span class="math display">\[
     \begin{aligned}
-        & \Vert \boldsymbol{f} \circ \boldsymbol{g} (\boldsymbol{x}_0 + \boldsymbol{h}) - \boldsymbol{f} \circ \boldsymbol{g} (\boldsymbol{x}_0) - \boldsymbol{ABh} \Vert \\
-        & = \Vert \boldsymbol{f}(\boldsymbol{g} (\boldsymbol{x}_0 + \boldsymbol{h})) - \boldsymbol{f}(\boldsymbol{g} (\boldsymbol{x}_0)) - \boldsymbol{ABh} \Vert \\
-        & = \Vert \boldsymbol{f}(\boldsymbol{y}_0 + \boldsymbol{k}) - \boldsymbol{f}(\boldsymbol{y}_0) - \boldsymbol{ABh} \Vert \\
-        & = \Vert \boldsymbol{Ak} + \boldsymbol{v}(\boldsymbol{k}) - \boldsymbol{ABh} \Vert \\
-        & = \Vert \boldsymbol{A}(\boldsymbol{k} - \boldsymbol{Bh}) + \boldsymbol{v}{\boldsymbol{k}} \Vert \\
-        & \le \Vert \boldsymbol{A} \Vert u(\boldsymbol{h}) + \eta(\boldsymbol{k})\Vert \boldsymbol{k} \Vert \\
-        & \le \Vert \boldsymbol{A} \Vert \varepsilon(\boldsymbol{h}) \Vert \boldsymbol{h} \Vert + \eta(\boldsymbol{k})(\Vert \boldsymbol{B} \Vert + \varepsilon(\boldsymbol{h})) \Vert \boldsymbol{h} \Vert
-    \end{aligned}</script><p>所以</p>
-<script type="math/tex; mode=display">
-    \frac{\Vert (\boldsymbol{f} \circ \boldsymbol{g})(\boldsymbol{x}_0 + \boldsymbol{h}) - (\boldsymbol{f} \circ \boldsymbol{g})(\boldsymbol{x}_0) - \boldsymbol{ABh} \Vert}{\Vert \boldsymbol{h} \Vert} \le \Vert \boldsymbol{A} \Vert \varepsilon(\boldsymbol{h}) + \eta(\boldsymbol{k})(\Vert \boldsymbol{B} \Vert + \varepsilon(\boldsymbol{h}))</script><p>再由式(3)可知式(1)成立。</p>
+        &amp; \Vert \boldsymbol{f} \circ \boldsymbol{g}
+(\boldsymbol{x}_0 + \boldsymbol{h}) - \boldsymbol{f} \circ
+\boldsymbol{g} (\boldsymbol{x}_0) - \boldsymbol{ABh} \Vert \\
+        &amp; = \Vert \boldsymbol{f}(\boldsymbol{g} (\boldsymbol{x}_0 +
+\boldsymbol{h})) - \boldsymbol{f}(\boldsymbol{g} (\boldsymbol{x}_0)) -
+\boldsymbol{ABh} \Vert \\
+        &amp; = \Vert \boldsymbol{f}(\boldsymbol{y}_0 + \boldsymbol{k})
+- \boldsymbol{f}(\boldsymbol{y}_0) - \boldsymbol{ABh} \Vert \\
+        &amp; = \Vert \boldsymbol{Ak} + \boldsymbol{v}(\boldsymbol{k}) -
+\boldsymbol{ABh} \Vert \\
+        &amp; = \Vert \boldsymbol{A}(\boldsymbol{k} - \boldsymbol{Bh}) +
+\boldsymbol{v}{\boldsymbol{k}} \Vert \\
+        &amp; \le \Vert \boldsymbol{A} \Vert u(\boldsymbol{h}) +
+\eta(\boldsymbol{k})\Vert \boldsymbol{k} \Vert \\
+        &amp; \le \Vert \boldsymbol{A} \Vert \varepsilon(\boldsymbol{h})
+\Vert \boldsymbol{h} \Vert + \eta(\boldsymbol{k})(\Vert \boldsymbol{B}
+\Vert + \varepsilon(\boldsymbol{h})) \Vert \boldsymbol{h} \Vert
+    \end{aligned}
+\]</span><br />
+所以<br />
+<span class="math display">\[
+    \frac{\Vert (\boldsymbol{f} \circ \boldsymbol{g})(\boldsymbol{x}_0 +
+\boldsymbol{h}) - (\boldsymbol{f} \circ
+\boldsymbol{g})(\boldsymbol{x}_0) - \boldsymbol{ABh} \Vert}{\Vert
+\boldsymbol{h} \Vert} \le \Vert \boldsymbol{A} \Vert
+\varepsilon(\boldsymbol{h}) + \eta(\boldsymbol{k})(\Vert \boldsymbol{B}
+\Vert + \varepsilon(\boldsymbol{h}))
+\]</span><br />
+再由式(3)可知式(1)成立。</p>
 <p>Q.E.D.</p>
 
     </div>
@@ -452,7 +614,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%891"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%892"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%863"><span class="nav-text">定理3</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -523,13 +685,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

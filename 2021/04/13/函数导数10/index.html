@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定义1：隐式方程 设$D \subset \mathbb{R}^2$是一开集，$F: D \to \mathbb{R}$是一个含有两个自变量$x,y$的函数，对于$D$中的点$(x,y)$满足方程      F(x,y) &#x3D; 0的点的全体组成$D$内的一条曲线，而方程就称为该曲线的隐式方程。">
+  <meta name="description" content="定义1：隐式方程  设\(D \subset \mathbb{R}^2\)是一开集，\(F: D \to \mathbb{R}\)是一个含有两个自变量\(x,y\)的函数，对于\(D\)中的点\((x,y)\)满足方程 \[     F(x,y) &#x3D; 0 \] 的点的全体组成\(D\)内的一条曲线，而方程就称为该曲线的隐式方程。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数导数十：隐函数、隐映射定理">
 <meta property="og:url" content="http://yoursite.com/2021/04/13/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B010/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定义1：隐式方程 设$D \subset \mathbb{R}^2$是一开集，$F: D \to \mathbb{R}$是一个含有两个自变量$x,y$的函数，对于$D$中的点$(x,y)$满足方程      F(x,y) &#x3D; 0的点的全体组成$D$内的一条曲线，而方程就称为该曲线的隐式方程。">
+<meta property="og:description" content="定义1：隐式方程  设\(D \subset \mathbb{R}^2\)是一开集，\(F: D \to \mathbb{R}\)是一个含有两个自变量\(x,y\)的函数，对于\(D\)中的点\((x,y)\)满足方程 \[     F(x,y) &#x3D; 0 \] 的点的全体组成\(D\)内的一条曲线，而方程就称为该曲线的隐式方程。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-13T14:14:25.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.734Z">
+<meta property="article:modified_time" content="2021-04-13T14:14:25.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数导数">
@@ -82,7 +82,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -222,13 +226,6 @@
 
               <time title="创建时间：2021-04-13 22:14:25" itemprop="dateCreated datePublished" datetime="2021-04-13T22:14:25+08:00">2021-04-13</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -252,14 +249,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>11k</span>
+              <span>12k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>10 分钟</span>
+              <span>11 分钟</span>
             </span>
 
         </div>
@@ -271,53 +268,201 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="定义1：隐式方程"><a href="#定义1：隐式方程" class="headerlink" title="定义1：隐式方程"></a>定义1：隐式方程</h4><blockquote>
-<p>设$D \subset \mathbb{R}^2$是一开集，$F: D \to \mathbb{R}$是一个含有两个自变量$x,y$的函数，对于$D$中的点$(x,y)$满足方程</p>
-<script type="math/tex; mode=display">
-    F(x,y) = 0</script><p>的点的全体组成$D$内的一条曲线，而方程就称为该曲线的隐式方程。</p>
+        <h4 id="定义1隐式方程">定义1：隐式方程</h4>
+<blockquote>
+<p>设<span class="math inline">\(D \subset
+\mathbb{R}^2\)</span>是一开集，<span class="math inline">\(F: D \to
+\mathbb{R}\)</span>是一个含有两个自变量<span
+class="math inline">\(x,y\)</span>的函数，对于<span
+class="math inline">\(D\)</span>中的点<span
+class="math inline">\((x,y)\)</span>满足方程<br />
+<span class="math display">\[
+    F(x,y) = 0
+\]</span><br />
+的点的全体组成<span
+class="math inline">\(D\)</span>内的一条曲线，而方程就称为该曲线的隐式方程。</p>
 </blockquote>
-<a id="more"></a>
-<h4 id="定理1：隐函数定理"><a href="#定理1：隐函数定理" class="headerlink" title="定理1：隐函数定理"></a>定理1：隐函数定理</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^2$，函数$F: D \to \mathbb{R}$满足条件：<br/><br>（a）$F \in C^1(D)$； <br/><br>（b）点$(x_0,y_0) \in D$使得$F(x_0,y_0) = 0$；<br/><br>（c）$\frac{\partial F(x_0,y_0)}{\partial y} \ne 0$ <br/><br>那么存在一个包含$(x_0,y_0)$的开矩形$I \times J \subset D$，使得：<br/><br>（1）对每一个$x \in I$，方程$F(x,y)=0$在$J$中有唯一的解$f(x)$；<br /><br>（2）$y_0 = f(x_0)$； <br/><br>（3）$f \in C^1(I)$；<br/><br>（4）当$x \in I$时，有</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = -\frac{\frac{\partial F}{\partial x}(x,y)}{\frac{\partial F}{\partial y}(x,y)}</script><p>其中$y = f(x)$。</p>
+<span id="more"></span>
+<h4 id="定理1隐函数定理">定理1：隐函数定理</h4>
+<blockquote>
+<p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^2\)</span>，函数<span class="math inline">\(F: D \to
+\mathbb{R}\)</span>满足条件：<br />
+（a）<span class="math inline">\(F \in C^1(D)\)</span>；<br />
+（b）点<span class="math inline">\((x_0,y_0) \in D\)</span>使得<span
+class="math inline">\(F(x_0,y_0) = 0\)</span>；<br />
+（c）<span class="math inline">\(\frac{\partial F(x_0,y_0)}{\partial y}
+\ne 0\)</span><br />
+那么存在一个包含<span
+class="math inline">\((x_0,y_0)\)</span>的开矩形<span
+class="math inline">\(I \times J \subset D\)</span>，使得：<br />
+（1）对每一个<span class="math inline">\(x \in I\)</span>，方程<span
+class="math inline">\(F(x,y)=0\)</span>在<span
+class="math inline">\(J\)</span>中有唯一的解<span
+class="math inline">\(f(x)\)</span>；<br />
+（2）<span class="math inline">\(y_0 = f(x_0)\)</span>；<br />
+（3）<span class="math inline">\(f \in C^1(I)\)</span>；<br />
+（4）当<span class="math inline">\(x \in I\)</span>时，有<br />
+<span class="math display">\[
+    f^\prime(x) = -\frac{\frac{\partial F}{\partial
+x}(x,y)}{\frac{\partial F}{\partial y}(x,y)}
+\]</span><br />
+其中<span class="math inline">\(y = f(x)\)</span>。</p>
 </blockquote>
-<p>证：不妨设$\displaystyle \frac{\partial F(x_0,y_0)}{\partial y} &gt; 0$，由条件$(a)$可知，存在一个包含$(x_0,y_0)$的开矩形$I^\prime \times J$，满足$I^\prime \times \bar J \subset D$，且在$I^\prime \times \bar J$上有$\displaystyle \frac{\partial F}{\partial y} &gt; 0$。从而对任意给定的$x \in I^\prime$，$F(x,y)$在闭区间$\bar J$上是严格递增的连续函数。设$J = (c,d)$，由条件$(b)$可知必有</p>
-<script type="math/tex; mode=display">
-    F(x_0, c) < 0, \quad F(x_0, d) > 0</script><p>由条件$(a)$能推出$F \in C(D)$，因此存在含$x_0$的开区间$I \subset I^\prime$，使得当$x \in I$时，</p>
-<script type="math/tex; mode=display">
-    F(x, c) < 0, \quad F(x, d) > 0</script><p>由连续函数的零值定理和严格单调性可知，对每一个$x \in I$，存在唯一的一个数，记作$f(x) \in (c, d) = J$，使得$F(x, f(x)) = 0$，这就证明了（1），显然$f$满足（2）。<br/><br>为了证明（3）和（4），先证明$f$在开区间$I$上连续。特别地，$x_0 \in I$，由上面的证明可知无论区间$J$取得多小，一定存在足够小的区间$I$使得对每一个$x \in I$时，有$f(x) \in J$；这时$|f(x) - f(x_0)| &lt; |J|$，其中$|J|$表示区间$J$的长度。即证明了$f$在$x_0$处连续。现任取$x_1 \in I$，设$y_1 = f(x_1)$，则$(x_1,y_1) \in I \times J$。因为有$F(x_1,y_1)=0$，$\displaystyle \frac{\partial F(x_1,y_1)}{\partial y} &gt; 0$，所以$F$在点$(x_1,y_1)$处满足它在$(x_0,y_0)$处的同样条件，所以$f$在$x_1$处也是连续的，从而$f$在整个区间$I$上连续。<br/><br>再证$(3)$和$(4)$。设$x \in I$，取$h$很小，使得$x+h \in I$。令$y = f(x)$，$k = f(x+h) - f(x)$。由$F$的可微性，并利用<a href="https://gamersover.github.io/2021/03/31/函数导数8/#定理1" target="_blank" rel="noopener">函数导数八的定理1</a>可得</p>
-<script type="math/tex; mode=display">
-    0 = F(x+h, y+k) - F(x, y) = \frac{\partial F}{\partial x}(x, y) h + \frac{\partial F}{\partial y}(x, y) k + \alpha h + \beta k</script><p>其中当$h \to 0$时，$\alpha \to 0$，当$k \to 0$时，$\beta \to 0$。又由于$f \in C(I)$，所以当$h \to 0$时，$k \to 0$，从而$\beta \to 0$。从而</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{h \to 0} \frac{f(x + h) - f(x)}{h} = \lim \limits_{h \to 0} \frac{k}{h} = \lim\limits_{h \to 0} \frac{-\frac{\partial F}{\partial x} + \alpha}{\frac{\partial F}{\partial y} + \beta}</script><p>即</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = - \frac{\frac{\partial F}{\partial x} (x, y)}{\frac{\partial F}{\partial y} (x,y)}</script><p>其中$x \in I$且$y = f(x)$。由于$(a)$知，$f^\prime$在$I$上连续。</p>
+<p>证：不妨设<span class="math inline">\(\displaystyle \frac{\partial
+F(x_0,y_0)}{\partial y} &gt; 0\)</span>，由条件<span
+class="math inline">\((a)\)</span>可知，存在一个包含<span
+class="math inline">\((x_0,y_0)\)</span>的开矩形<span
+class="math inline">\(I^\prime \times J\)</span>，满足<span
+class="math inline">\(I^\prime \times \bar J \subset
+D\)</span>，且在<span class="math inline">\(I^\prime \times \bar
+J\)</span>上有<span class="math inline">\(\displaystyle \frac{\partial
+F}{\partial y} &gt; 0\)</span>。从而对任意给定的<span
+class="math inline">\(x \in I^\prime\)</span>，<span
+class="math inline">\(F(x,y)\)</span>在闭区间<span
+class="math inline">\(\bar J\)</span>上是严格递增的连续函数。设<span
+class="math inline">\(J = (c,d)\)</span>，由条件<span
+class="math inline">\((b)\)</span>可知必有<br />
+<span class="math display">\[
+    F(x_0, c) &lt; 0, \quad F(x_0, d) &gt; 0
+\]</span><br />
+由条件<span class="math inline">\((a)\)</span>能推出<span
+class="math inline">\(F \in C(D)\)</span>，因此存在含<span
+class="math inline">\(x_0\)</span>的开区间<span class="math inline">\(I
+\subset I^\prime\)</span>，使得当<span class="math inline">\(x \in
+I\)</span>时，<br />
+<span class="math display">\[
+    F(x, c) &lt; 0, \quad F(x, d) &gt; 0
+\]</span><br />
+由连续函数的零值定理和严格单调性可知，对每一个<span
+class="math inline">\(x \in I\)</span>，存在唯一的一个数，记作<span
+class="math inline">\(f(x) \in (c, d) = J\)</span>，使得<span
+class="math inline">\(F(x, f(x)) =
+0\)</span>，这就证明了（1），显然<span
+class="math inline">\(f\)</span>满足（2）。<br />
+为了证明（3）和（4），先证明<span
+class="math inline">\(f\)</span>在开区间<span
+class="math inline">\(I\)</span>上连续。特别地，<span
+class="math inline">\(x_0 \in I\)</span>，由上面的证明可知无论区间<span
+class="math inline">\(J\)</span>取得多小，一定存在足够小的区间<span
+class="math inline">\(I\)</span>使得对每一个<span
+class="math inline">\(x \in I\)</span>时，有<span
+class="math inline">\(f(x) \in J\)</span>；这时<span
+class="math inline">\(|f(x) - f(x_0)| &lt; |J|\)</span>，其中<span
+class="math inline">\(|J|\)</span>表示区间<span
+class="math inline">\(J\)</span>的长度。即证明了<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(x_0\)</span>处连续。现任取<span
+class="math inline">\(x_1 \in I\)</span>，设<span
+class="math inline">\(y_1 = f(x_1)\)</span>，则<span
+class="math inline">\((x_1,y_1) \in I \times J\)</span>。因为有<span
+class="math inline">\(F(x_1,y_1)=0\)</span>，<span
+class="math inline">\(\displaystyle \frac{\partial F(x_1,y_1)}{\partial
+y} &gt; 0\)</span>，所以<span class="math inline">\(F\)</span>在点<span
+class="math inline">\((x_1,y_1)\)</span>处满足它在<span
+class="math inline">\((x_0,y_0)\)</span>处的同样条件，所以<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(x_1\)</span>处也是连续的，从而<span
+class="math inline">\(f\)</span>在整个区间<span
+class="math inline">\(I\)</span>上连续。<br />
+再证（3）和（4）。设<span class="math inline">\(x \in
+I\)</span>，取<span class="math inline">\(h\)</span>很小，使得<span
+class="math inline">\(x+h \in I\)</span>。令<span
+class="math inline">\(y = f(x)\)</span>，<span class="math inline">\(k =
+f(x+h) - f(x)\)</span>。由<span
+class="math inline">\(F\)</span>的可微性，并利用<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/03/31/函数导数8/#定理1">函数导数八的定理1</a>可得<br />
+<span class="math display">\[
+    0 = F(x+h, y+k) - F(x, y) = \frac{\partial F}{\partial x}(x, y) h +
+\frac{\partial F}{\partial y}(x, y) k + \alpha h + \beta k
+\]</span><br />
+其中当<span class="math inline">\(h \to 0\)</span>时，<span
+class="math inline">\(\alpha \to 0\)</span>，当<span
+class="math inline">\(k \to 0\)</span>时，<span
+class="math inline">\(\beta \to 0\)</span>。又由于<span
+class="math inline">\(f \in C(I)\)</span>，所以当<span
+class="math inline">\(h \to 0\)</span>时，<span class="math inline">\(k
+\to 0\)</span>，从而<span class="math inline">\(\beta \to
+0\)</span>。从而<br />
+<span class="math display">\[
+    \lim \limits_{h \to 0} \frac{f(x + h) - f(x)}{h} = \lim \limits_{h
+\to 0} \frac{k}{h} = \lim\limits_{h \to 0} \frac{-\frac{\partial
+F}{\partial x} + \alpha}{\frac{\partial F}{\partial y} + \beta}
+\]</span><br />
+即<br />
+<span class="math display">\[
+    f^\prime(x) = - \frac{\frac{\partial F}{\partial x} (x,
+y)}{\frac{\partial F}{\partial y} (x,y)}
+\]</span><br />
+其中<span class="math inline">\(x \in I\)</span>且<span
+class="math inline">\(y = f(x)\)</span>。由于<span
+class="math inline">\((a)\)</span>知，<span
+class="math inline">\(f^\prime\)</span>在<span
+class="math inline">\(I\)</span>上连续。</p>
 <p>Q.E.D.</p>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^{n+1}$，$F: D \to \mathbb{R}$，满足条件：<br/><br>（a）$F \in C^1(D)$；<br/><br>（b）$F(\boldsymbol{x}_0, y_0) = 0$，这里$\boldsymbol{x}_0 \in \mathbb{R}^n,y_0 \in \mathbb{R}$且$(\boldsymbol{x}_0, y_0) \in D$；<br/><br>（c）$\frac{\partial F(\boldsymbol{x}_0, y_0)}{\partial y} \ne 0$。<br/><br>那么存在$(\boldsymbol{x}_0, y_0)$的一个邻域$G \times J$，其中$G$是$\boldsymbol{x_0}$在$\mathbb{R}^n$的一个邻域，$J$是$\mathbb{R}$中的一个开区间，使得：<br/><br>（1）对每一个$\boldsymbol{x} \in G$，方程</p>
-<script type="math/tex; mode=display">
-    F(\boldsymbol{x}, y) = 0</script><p>在$J$中存在唯一的解，记为$f(\boldsymbol{x})$；<br/><br>（2）$y_0 = f(\boldsymbol{x}_0)$； <br/><br>（3）$f \in C^1(G)$； <br/><br>（4）当$\boldsymbol{x} \in G$时，</p>
-<script type="math/tex; mode=display">
-    \frac{\partial f}{\partial x_i} = - \frac{\frac{\partial F}{\partial x_i}(\boldsymbol{x}, y)}{\frac{\partial F}{\partial y}(\boldsymbol{x}, y)} \quad (i=1,2,\cdots,n)</script><p>其中$y = f(\boldsymbol{x})$。</p>
+<h4 id="定理2">定理2</h4>
+<blockquote>
+<p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^{n+1}\)</span>，<span class="math inline">\(F: D \to
+\mathbb{R}\)</span>，满足条件：<br />
+（a）<span class="math inline">\(F \in C^1(D)\)</span>；<br />
+（b）<span class="math inline">\(F(\boldsymbol{x}_0, y_0) =
+0\)</span>，这里<span class="math inline">\(\boldsymbol{x}_0 \in
+\mathbb{R}^n,y_0 \in \mathbb{R}\)</span>且<span
+class="math inline">\((\boldsymbol{x}_0, y_0) \in D\)</span>；<br />
+（c）<span class="math inline">\(\frac{\partial F(\boldsymbol{x}_0,
+y_0)}{\partial y} \ne 0\)</span>。<br />
+那么存在<span class="math inline">\((\boldsymbol{x}_0,
+y_0)\)</span>的一个邻域<span class="math inline">\(G \times
+J\)</span>，其中<span class="math inline">\(G\)</span>是<span
+class="math inline">\(\boldsymbol{x_0}\)</span>在<span
+class="math inline">\(\mathbb{R}^n\)</span>的一个邻域，<span
+class="math inline">\(J\)</span>是<span
+class="math inline">\(\mathbb{R}\)</span>中的一个开区间，使得：<br />
+（1）对每一个<span class="math inline">\(\boldsymbol{x} \in
+G\)</span>，方程<br />
+<span class="math display">\[
+    F(\boldsymbol{x}, y) = 0
+\]</span><br />
+在<span class="math inline">\(J\)</span>中存在唯一的解，记为<span
+class="math inline">\(f(\boldsymbol{x})\)</span>；<br />
+（2）<span class="math inline">\(y_0 =
+f(\boldsymbol{x}_0)\)</span>；<br />
+（3）<span class="math inline">\(f \in C^1(G)\)</span>；<br />
+（4）当<span class="math inline">\(\boldsymbol{x} \in
+G\)</span>时，<br />
+<span class="math display">\[
+    \frac{\partial f}{\partial x_i} = - \frac{\frac{\partial F}{\partial
+x_i}(\boldsymbol{x}, y)}{\frac{\partial F}{\partial y}(\boldsymbol{x},
+y)} \quad (i=1,2,\cdots,n)
+\]</span><br />
+其中<span class="math inline">\(y = f(\boldsymbol{x})\)</span>。</p>
 </blockquote>
-<p>证：由<a href="https://gamersover.github.io/2021/04/13/函数导数10/#定理1：隐函数定理" target="_blank" rel="noopener">定理1</a>的证明，可知（1）（2）的证明方式一模一样；而在证明（3）（4）时，只需令$\boldsymbol{h} = (0, \cdots, h_i, \cdots, 0)^T$，固定$x_i$，其他证明过程一样，即可证得（3）和（4）。</p>
+<p>证：由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/04/13/函数导数10/#定理1：隐函数定理">定理1</a>的证明，可知（1）（2）的证明方式一模一样；而在证明（3）（4）时，只需令<span
+class="math inline">\(\boldsymbol{h} = (0, \cdots, h_i, \cdots,
+0)^T\)</span>，固定<span
+class="math inline">\(x_i\)</span>，其他证明过程一样，即可证得（3）和（4）。</p>
 <p>Q.E.D.</p>
-<hr>
-<p>设有$m$个方程组成的方程组</p>
-<script type="math/tex; mode=display">
+<hr />
+<p>设有<span class="math inline">\(m\)</span>个方程组成的方程组<br />
+<span class="math display">\[
     \left\{ \begin{aligned}
-        & F_1(x_1,x_2,\cdots,x_n, y_1,\cdots, y_m) = 0 \\
-        & \cdots, \\
-        & F_m(x_1,x_2,\cdots,x_n, y_1,\cdots, y_m) = 0 
-    \end{aligned} \right.</script><p>按照隐函数的想法，是否可以解出</p>
-<script type="math/tex; mode=display">
+        &amp; F_1(x_1,x_2,\cdots,x_n, y_1,\cdots, y_m) = 0 \\
+        &amp; \cdots, \\
+        &amp; F_m(x_1,x_2,\cdots,x_n, y_1,\cdots, y_m) = 0
+    \end{aligned} \right.
+\]</span><br />
+按照隐函数的想法，是否可以解出<br />
+<span class="math display">\[
     \left\{ \begin{aligned}
-        & y_1 = f_1(x_1,\cdots,x_n) \\
-        & \cdots \\
-        & y_m = f_m(x_1,\cdots,x_n)
-    \end{aligned} \right.</script><p>为了缩短记号，可令</p>
-<script type="math/tex; mode=display">
+        &amp; y_1 = f_1(x_1,\cdots,x_n) \\
+        &amp; \cdots \\
+        &amp; y_m = f_m(x_1,\cdots,x_n)
+    \end{aligned} \right.
+\]</span><br />
+为了缩短记号，可令<br />
+<span class="math display">\[
     \boldsymbol{F} = \left[ \begin{matrix}
          F_1 \\
          \vdots \\
@@ -327,111 +472,341 @@
          f_1 \\
          \vdots \\
          f_m
-    \end{matrix} \right]</script><p>从而可以把方程改写为</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y}) = \boldsymbol{0}</script><p>而解出式可改写为</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{y} = \boldsymbol{f}(\boldsymbol{x})</script><p>需要再定义几个记号，设$\boldsymbol{F}$定义在开集$D \subset \mathbb{R}^{m+n}$上，在$m \times (m+n)$矩阵</p>
-<script type="math/tex; mode=display">
+    \end{matrix} \right]
+\]</span><br />
+从而可以把方程改写为<br />
+<span class="math display">\[
+    \boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y}) = \boldsymbol{0}
+\]</span><br />
+而解出式可改写为<br />
+<span class="math display">\[
+    \boldsymbol{y} = \boldsymbol{f}(\boldsymbol{x})
+\]</span><br />
+需要再定义几个记号，设<span
+class="math inline">\(\boldsymbol{F}\)</span>定义在开集<span
+class="math inline">\(D \subset \mathbb{R}^{m+n}\)</span>上，在<span
+class="math inline">\(m \times (m+n)\)</span>矩阵<br />
+<span class="math display">\[
     J\boldsymbol{F} = \left[
         \begin{matrix}
-            \frac{\partial F_1}{\partial x_1} & \cdots & \frac{\partial F_1}{x_n} & \frac{\partial F_1}{\partial y_1} & \cdots & \frac{\partial F_1}{\partial y_m} \\
-            \vdots & & \vdots & \vdots & & \vdots \\
-            \frac{\partial F_m}{\partial x_1} & \cdots & \frac{\partial F_m}{x_n} & \frac{\partial F_m}{\partial y_1} & \cdots & \frac{\partial F_m}{\partial y_m}
+            \frac{\partial F_1}{\partial x_1} &amp; \cdots &amp;
+\frac{\partial F_1}{x_n} &amp; \frac{\partial F_1}{\partial y_1} &amp;
+\cdots &amp; \frac{\partial F_1}{\partial y_m} \\
+            \vdots &amp; &amp; \vdots &amp; \vdots &amp; &amp; \vdots \\
+            \frac{\partial F_m}{\partial x_1} &amp; \cdots &amp;
+\frac{\partial F_m}{x_n} &amp; \frac{\partial F_m}{\partial y_1} &amp;
+\cdots &amp; \frac{\partial F_m}{\partial y_m}
         \end{matrix}
-        \right]</script><p>中做分块：$J\boldsymbol{F} = (J_{\boldsymbol{x}}\boldsymbol{F}, J_{\boldsymbol{y}}\boldsymbol{F})$，其中</p>
-<script type="math/tex; mode=display">
+        \right]
+\]</span><br />
+中做分块：<span class="math inline">\(J\boldsymbol{F} =
+(J_{\boldsymbol{x}}\boldsymbol{F},
+J_{\boldsymbol{y}}\boldsymbol{F})\)</span>，其中<br />
+<span class="math display">\[
     J_{\boldsymbol{x}}\boldsymbol{F} = \left[
         \begin{matrix}
-            \frac{\partial F_1}{\partial x_1} & \cdots & \frac{\partial F_1}{x_n}  \\
-            \vdots & & \vdots\\
-            \frac{\partial F_m}{\partial x_1} & \cdots & \frac{\partial F_m}{x_n}
+            \frac{\partial F_1}{\partial x_1} &amp; \cdots &amp;
+\frac{\partial F_1}{x_n}  \\
+            \vdots &amp; &amp; \vdots\\
+            \frac{\partial F_m}{\partial x_1} &amp; \cdots &amp;
+\frac{\partial F_m}{x_n}
         \end{matrix}
         \right], \quad
     J_{\boldsymbol{y}}\boldsymbol{F} = \left[
         \begin{matrix}
-            \frac{\partial F_1}{\partial y_1} & \cdots & \frac{\partial F_1}{\partial y_m} \\
-            \vdots & & \vdots \\
-            \frac{\partial F_m}{\partial y_1} & \cdots & \frac{\partial F_m}{\partial y_m}
+            \frac{\partial F_1}{\partial y_1} &amp; \cdots &amp;
+\frac{\partial F_1}{\partial y_m} \\
+            \vdots &amp; &amp; \vdots \\
+            \frac{\partial F_m}{\partial y_1} &amp; \cdots &amp;
+\frac{\partial F_m}{\partial y_m}
         \end{matrix}
-        \right]</script><p>$J_{\boldsymbol{x}}\boldsymbol{F}$是一个$m \times n$矩阵，$J_{\boldsymbol{y}}\boldsymbol{F}$是一个$m$阶方阵。</p>
-<h4 id="定理3：隐映射定理"><a href="#定理3：隐映射定理" class="headerlink" title="定理3：隐映射定理"></a>定理3：隐映射定理</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^{n+m}$，$\boldsymbol{F}: D \to \mathbb{R}^m$，满足下列条件：<br/><br>（a）$\boldsymbol{F} \in C^1(D)$；<br/><br>（b）有一点$(\boldsymbol{x}_0, \boldsymbol{y}_0) \in D$，使得$\boldsymbol{F}(\boldsymbol{x}_0, \boldsymbol{y}_0) = \boldsymbol{0}$；<br/><br>（c）行列式$\det J_{\boldsymbol{y}} \boldsymbol{F}(\boldsymbol{x}_0, \boldsymbol{y}_0) \ne 0$ <br/><br>那么存在$(\boldsymbol{x}_0, \boldsymbol{y}_0)$的一个邻域$G \times H$，使得：<br/><br>（1）对每一个$\boldsymbol{x} \in G$，方程$\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y})=\boldsymbol{0}$在$H$中有唯一的解，记为$\boldsymbol{f}(\boldsymbol{x})$；<br/><br>（2）$\boldsymbol{y}_0 = \boldsymbol{f}(\boldsymbol{x}_0)$ <br/><br>（3）$\boldsymbol{f} \in C^1(D)$<br>（4）当$\boldsymbol{x} \in G$时，</p>
-<script type="math/tex; mode=display">
-    J\boldsymbol{f}(\boldsymbol{x}) = -(J_{\boldsymbol{y}}\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y})^{-1})J_{\boldsymbol{x}}\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y})</script><p>其中$\boldsymbol{y} = \boldsymbol{f}(\boldsymbol{x})$</p>
+        \right]
+\]</span><br />
+<span
+class="math inline">\(J_{\boldsymbol{x}}\boldsymbol{F}\)</span>是一个<span
+class="math inline">\(m \times n\)</span>矩阵，<span
+class="math inline">\(J_{\boldsymbol{y}}\boldsymbol{F}\)</span>是一个<span
+class="math inline">\(m\)</span>阶方阵。</p>
+<h4 id="定理3隐映射定理">定理3：隐映射定理</h4>
+<blockquote>
+<p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^{n+m}\)</span>，<span class="math inline">\(\boldsymbol{F}: D
+\to \mathbb{R}^m\)</span>，满足下列条件：<br />
+（a）<span class="math inline">\(\boldsymbol{F} \in
+C^1(D)\)</span>；<br />
+（b）有一点<span class="math inline">\((\boldsymbol{x}_0,
+\boldsymbol{y}_0) \in D\)</span>，使得<span
+class="math inline">\(\boldsymbol{F}(\boldsymbol{x}_0, \boldsymbol{y}_0)
+= \boldsymbol{0}\)</span>；<br />
+（c）行列式<span class="math inline">\(\det J_{\boldsymbol{y}}
+\boldsymbol{F}(\boldsymbol{x}_0, \boldsymbol{y}_0) \ne 0\)</span><br />
+那么存在<span class="math inline">\((\boldsymbol{x}_0,
+\boldsymbol{y}_0)\)</span>的一个邻域<span class="math inline">\(G \times
+H\)</span>，使得：<br />
+（1）对每一个<span class="math inline">\(\boldsymbol{x} \in
+G\)</span>，方程<span
+class="math inline">\(\boldsymbol{F}(\boldsymbol{x},
+\boldsymbol{y})=\boldsymbol{0}\)</span>在<span
+class="math inline">\(H\)</span>中有唯一的解，记为<span
+class="math inline">\(\boldsymbol{f}(\boldsymbol{x})\)</span>；<br />
+（2）<span class="math inline">\(\boldsymbol{y}_0 =
+\boldsymbol{f}(\boldsymbol{x}_0)\)</span><br />
+（3）<span class="math inline">\(\boldsymbol{f} \in
+C^1(D)\)</span><br />
+（4）当<span class="math inline">\(\boldsymbol{x} \in
+G\)</span>时，<br />
+<span class="math display">\[
+    J\boldsymbol{f}(\boldsymbol{x}) =
+-(J_{\boldsymbol{y}}\boldsymbol{F}(\boldsymbol{x},
+\boldsymbol{y})^{-1})J_{\boldsymbol{x}}\boldsymbol{F}(\boldsymbol{x},
+\boldsymbol{y})
+\]</span><br />
+其中<span class="math inline">\(\boldsymbol{y} =
+\boldsymbol{f}(\boldsymbol{x})\)</span></p>
 </blockquote>
-<p>证：对方程组的个数$m$进行归纳。当$m=1$时，即为该定理<a href="https://gamersover.github.io/2021/04/13/函数导数10/#定理2" target="_blank" rel="noopener">定理2</a>。先设方程组个数为$m-1$时该定理成立，再证明在$m$时依然成立即可。<br/><br>由于$\det J_{\boldsymbol{y}}\boldsymbol{F}(\boldsymbol{x}_0, \boldsymbol{y}_0) \ne 0$，且$\boldsymbol{F} \in C^1(D)$，所以总可以找到一个包含$(\boldsymbol{x}_0, \boldsymbol{y}_0)$的开集$D^\prime$满足$(\boldsymbol{x}_0, \boldsymbol{y}_0) \in D^\prime \subset D$，且在$D^\prime$上的每一个点处都有$\det J_{\boldsymbol{y}}\boldsymbol{F} \ne 0$。由条件$（c）$可知$m$阶方阵$J_{\boldsymbol{y}}\boldsymbol{F}(\boldsymbol{x}_0, \boldsymbol{y}_0)$的元素不全为$0$，不妨设</p>
-<script type="math/tex; mode=display">
-    \frac{\partial F_m}{\partial y_j}(\boldsymbol{x}_0, \boldsymbol{y}_0) \ne 0 \tag{1}</script><p>同时令</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{u} = (y_1, \cdots, y_{m-1}), \quad t = y_m, \quad \boldsymbol{y} = (\boldsymbol{u}, t)</script><p>同样可以定义$\boldsymbol{y}_0 = (\boldsymbol{u}_0, t_0)$来规定$\boldsymbol{u}_0$和$t_0$的意义，从而式(1)可写成</p>
-<script type="math/tex; mode=display">
-    \frac{\partial F_m}{\partial t}(\boldsymbol{x}_0, \boldsymbol{u}_0, t_0) \ne 0</script><p>又有</p>
-<script type="math/tex; mode=display">
-    F_m (\boldsymbol{x}_0, \boldsymbol{u}_0, t_0) = F_m(\boldsymbol{x}_0, \boldsymbol{y}_0) = 0</script><p>由<a href="https://gamersover.github.io/2021/04/13/函数导数10/#定理2" target="_blank" rel="noopener">定理2</a>可知，存在$(\boldsymbol{x}_0, \boldsymbol{u}_0, t_0)$的一个邻域$(G_n \times G_{m-1}) \times J \subset D^\prime$，使得：<br/><br>（i）对每一点$(\boldsymbol{x}, \boldsymbol{u}) \in G_{n} \times G_{m=1}$，方程</p>
-<script type="math/tex; mode=display">
-    F_m(\boldsymbol{x}, \boldsymbol{u}, t) = 0</script><p>在$J$中有唯一的解$t = \varphi(\boldsymbol{x}, \boldsymbol{u})$，这里函数$\varphi: G_n \times G_{m-1} \to J$；<br/><br>（ii）$\varphi(\boldsymbol{x}_0, \boldsymbol{u}_0) = t_0$；<br/><br>（iii）$\varphi \in C^1(G_{n} \times G_{m-1})$；<br/><br>这时将$t = \varphi(\boldsymbol{x}, \boldsymbol{u})$代入到原始方程中，即将$y_m$用$x_1,\cdots,x_n,y_1,\cdots,y_{m-1}$代入，</p>
-<script type="math/tex; mode=display">
- \Phi_i(\boldsymbol{x}, \boldsymbol{u}) = F_i(\boldsymbol{x}, \boldsymbol{u}, \varphi(\boldsymbol{x}, \boldsymbol{u})) = 0 \quad (i=1,2,\cdots,m-1) \tag{2}</script><p>考虑映射</p>
-<script type="math/tex; mode=display">
+<p>证：对方程组的个数<span
+class="math inline">\(m\)</span>进行归纳。当<span
+class="math inline">\(m=1\)</span>时，即为该定理<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/04/13/函数导数10/#定理2">定理2</a>。先设方程组个数为<span
+class="math inline">\(m-1\)</span>时该定理成立，再证明在<span
+class="math inline">\(m\)</span>时依然成立即可。<br />
+由于<span class="math inline">\(\det
+J_{\boldsymbol{y}}\boldsymbol{F}(\boldsymbol{x}_0, \boldsymbol{y}_0) \ne
+0\)</span>，且<span class="math inline">\(\boldsymbol{F} \in
+C^1(D)\)</span>，所以总可以找到一个包含<span
+class="math inline">\((\boldsymbol{x}_0,
+\boldsymbol{y}_0)\)</span>的开集<span
+class="math inline">\(D^\prime\)</span>满足<span
+class="math inline">\((\boldsymbol{x}_0, \boldsymbol{y}_0) \in D^\prime
+\subset D\)</span>，且在<span
+class="math inline">\(D^\prime\)</span>上的每一个点处都有<span
+class="math inline">\(\det J_{\boldsymbol{y}}\boldsymbol{F} \ne
+0\)</span>。由条件<span class="math inline">\(（c）\)</span>可知<span
+class="math inline">\(m\)</span>阶方阵<span
+class="math inline">\(J_{\boldsymbol{y}}\boldsymbol{F}(\boldsymbol{x}_0,
+\boldsymbol{y}_0)\)</span>的元素不全为<span
+class="math inline">\(0\)</span>，不妨设<br />
+<span class="math display">\[
+    \frac{\partial F_m}{\partial y_j}(\boldsymbol{x}_0,
+\boldsymbol{y}_0) \ne 0 \tag{1}
+\]</span><br />
+同时令<br />
+<span class="math display">\[
+    \boldsymbol{u} = (y_1, \cdots, y_{m-1}), \quad t = y_m, \quad
+\boldsymbol{y} = (\boldsymbol{u}, t)
+\]</span><br />
+同样可以定义<span class="math inline">\(\boldsymbol{y}_0 =
+(\boldsymbol{u}_0, t_0)\)</span>来规定<span
+class="math inline">\(\boldsymbol{u}_0\)</span>和<span
+class="math inline">\(t_0\)</span>的意义，从而式(1)可写成<br />
+<span class="math display">\[
+    \frac{\partial F_m}{\partial t}(\boldsymbol{x}_0, \boldsymbol{u}_0,
+t_0) \ne 0
+\]</span><br />
+又有<br />
+<span class="math display">\[
+    F_m (\boldsymbol{x}_0, \boldsymbol{u}_0, t_0) =
+F_m(\boldsymbol{x}_0, \boldsymbol{y}_0) = 0
+\]</span><br />
+由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/04/13/函数导数10/#定理2">定理2</a>可知，存在<span
+class="math inline">\((\boldsymbol{x}_0, \boldsymbol{u}_0,
+t_0)\)</span>的一个邻域<span class="math inline">\((G_n \times G_{m-1})
+\times J \subset D^\prime\)</span>，使得：<br />
+（i）对每一点<span class="math inline">\((\boldsymbol{x},
+\boldsymbol{u}) \in G_{n} \times G_{m=1}\)</span>，方程<br />
+<span class="math display">\[
+    F_m(\boldsymbol{x}, \boldsymbol{u}, t) = 0
+\]</span><br />
+在<span class="math inline">\(J\)</span>中有唯一的解<span
+class="math inline">\(t = \varphi(\boldsymbol{x},
+\boldsymbol{u})\)</span>，这里函数<span class="math inline">\(\varphi:
+G_n \times G_{m-1} \to J\)</span>；<br />
+（ii）<span class="math inline">\(\varphi(\boldsymbol{x}_0,
+\boldsymbol{u}_0) = t_0\)</span>；<br />
+（iii）<span class="math inline">\(\varphi \in C^1(G_{n} \times
+G_{m-1})\)</span>；<br />
+这时将<span class="math inline">\(t = \varphi(\boldsymbol{x},
+\boldsymbol{u})\)</span>代入到原始方程中，即将<span
+class="math inline">\(y_m\)</span>用<span
+class="math inline">\(x_1,\cdots,x_n,y_1,\cdots,y_{m-1}\)</span>代入，<br />
+<span class="math display">\[
+\Phi_i(\boldsymbol{x}, \boldsymbol{u}) = F_i(\boldsymbol{x},
+\boldsymbol{u}, \varphi(\boldsymbol{x}, \boldsymbol{u})) = 0 \quad
+(i=1,2,\cdots,m-1) \tag{2}
+\]</span><br />
+考虑映射<br />
+<span class="math display">\[
     \boldsymbol{\Phi} = \left[\begin{matrix}
             \Phi_1 \\
             \vdots \\
             \Phi_{m-1}
-        \end{matrix}\right]: G_n \times G_{m-1} \to \mathbb{R}^{m-1}</script><p>若能证明$\boldsymbol{\Phi}$满足定理的三个条件，便可使用归纳假设了。显然$\boldsymbol{\Phi} \in C^1$，并且</p>
-<script type="math/tex; mode=display">
-    \phi_i(\boldsymbol{x}_0, \boldsymbol{u}_0) = F_i(\boldsymbol{x}_0, \boldsymbol{u}_0, \varphi(\boldsymbol{x}_0, \boldsymbol{u}_0)) = 0 \quad (i=1,2\cdots,m-1)</script><p>所以$\boldsymbol{\Phi}(\boldsymbol{x}_0, \boldsymbol{y}_0)=\boldsymbol{0}$。对式(2)两边同时关于$u_j$（即$y_j$）$(j=1,2,\cdots,m-1)$求导，得</p>
-<script type="math/tex; mode=display">
-    \frac{\partial \Phi_i}{\partial u_j} = \frac{\partial F_i}{\partial y_j} + \frac{\partial F_i}{\partial y_m} \frac{\partial \varphi}{\partial u_j} \quad (i,j=1,2,\cdots,m-1)</script><p>又由（i）可知</p>
-<script type="math/tex; mode=display">
-    F_m(\boldsymbol{x}, \boldsymbol{u}, \varphi(\boldsymbol{x}, \boldsymbol{u})) = 0</script><p>对上式也关于$u_j$（即$y_j$）$(j=1,2,\cdots,m-1)$求导得</p>
-<script type="math/tex; mode=display">
-    \frac{\partial F_m}{\partial y_j} + \frac{\partial F_m}{\partial y_m} \frac{\partial \varphi}{\partial u_j} = 0 \quad (j=1,2,\cdots,m-1)</script><p>从而由</p>
-<script type="math/tex; mode=display">
+        \end{matrix}\right]: G_n \times G_{m-1} \to \mathbb{R}^{m-1}
+\]</span><br />
+若能证明<span
+class="math inline">\(\boldsymbol{\Phi}\)</span>满足定理的三个条件，便可使用归纳假设了。显然<span
+class="math inline">\(\boldsymbol{\Phi} \in C^1\)</span>，并且<br />
+<span class="math display">\[
+    \phi_i(\boldsymbol{x}_0, \boldsymbol{u}_0) = F_i(\boldsymbol{x}_0,
+\boldsymbol{u}_0, \varphi(\boldsymbol{x}_0, \boldsymbol{u}_0)) = 0 \quad
+(i=1,2\cdots,m-1)
+\]</span><br />
+所以<span class="math inline">\(\boldsymbol{\Phi}(\boldsymbol{x}_0,
+\boldsymbol{y}_0)=\boldsymbol{0}\)</span>。对式(2)两边同时关于<span
+class="math inline">\(u_j\)</span>（即<span
+class="math inline">\(y_j\)</span>）<span
+class="math inline">\((j=1,2,\cdots,m-1)\)</span>求导，得<br />
+<span class="math display">\[
+    \frac{\partial \Phi_i}{\partial u_j} = \frac{\partial F_i}{\partial
+y_j} + \frac{\partial F_i}{\partial y_m} \frac{\partial
+\varphi}{\partial u_j} \quad (i,j=1,2,\cdots,m-1)
+\]</span><br />
+又由（i）可知<br />
+<span class="math display">\[
+    F_m(\boldsymbol{x}, \boldsymbol{u}, \varphi(\boldsymbol{x},
+\boldsymbol{u})) = 0
+\]</span><br />
+对上式也关于<span class="math inline">\(u_j\)</span>（即<span
+class="math inline">\(y_j\)</span>）<span
+class="math inline">\((j=1,2,\cdots,m-1)\)</span>求导得<br />
+<span class="math display">\[
+    \frac{\partial F_m}{\partial y_j} + \frac{\partial F_m}{\partial
+y_m} \frac{\partial \varphi}{\partial u_j} = 0 \quad (j=1,2,\cdots,m-1)
+\]</span><br />
+从而由<br />
+<span class="math display">\[
     \begin{aligned}
-        \left| 
+        \left|
             \begin{matrix}
-                \frac{\partial F_1}{\partial y_1} & \cdots & \frac{\partial F_1}{\partial y_m} \\
-                \vdots & & \vdots \\
-                \frac{\partial F_m}{\partial y_1} & \cdots & \frac{\partial F_m}{\partial y_m} 
-            \end{matrix} 
-        \right| 
-        & = 
-        \left| 
+                \frac{\partial F_1}{\partial y_1} &amp; \cdots &amp;
+\frac{\partial F_1}{\partial y_m} \\
+                \vdots &amp; &amp; \vdots \\
+                \frac{\partial F_m}{\partial y_1} &amp; \cdots &amp;
+\frac{\partial F_m}{\partial y_m}
+            \end{matrix}
+        \right|
+        &amp; =
+        \left|
             \begin{matrix}
-                \frac{\partial F_1}{\partial y_1} + \frac{\partial F_1}{\partial y_m}\frac{\partial \varphi}{\partial u_1} & \frac{\partial F_1}{\partial y_2} + \frac{\partial F_1}{\partial y_m}\frac{\partial \varphi}{\partial u_2} & \cdots & \frac{\partial F_1}{\partial y_m} \\
-                \vdots & \vdots & & \vdots \\
-                \frac{\partial F_m}{\partial y_1} + \frac{\partial F_m}{\partial y_m}\frac{\partial \varphi}{\partial u_1} & \frac{\partial F_m}{\partial y_2} + \frac{\partial F_m}{\partial y_m}\frac{\partial \varphi}{\partial u_2} & \cdots & \frac{\partial F_m}{\partial y_m}
-            \end{matrix} 
+                \frac{\partial F_1}{\partial y_1} + \frac{\partial
+F_1}{\partial y_m}\frac{\partial \varphi}{\partial u_1} &amp;
+\frac{\partial F_1}{\partial y_2} + \frac{\partial F_1}{\partial
+y_m}\frac{\partial \varphi}{\partial u_2} &amp; \cdots &amp;
+\frac{\partial F_1}{\partial y_m} \\
+                \vdots &amp; \vdots &amp; &amp; \vdots \\
+                \frac{\partial F_m}{\partial y_1} + \frac{\partial
+F_m}{\partial y_m}\frac{\partial \varphi}{\partial u_1} &amp;
+\frac{\partial F_m}{\partial y_2} + \frac{\partial F_m}{\partial
+y_m}\frac{\partial \varphi}{\partial u_2} &amp; \cdots &amp;
+\frac{\partial F_m}{\partial y_m}
+            \end{matrix}
         \right| \\
-        & = 
-        \left| 
+        &amp; =
+        \left|
             \begin{matrix}
-                \frac{\partial \Phi_1}{\partial u_1} & \cdots & \frac{\partial \Phi_1}{\partial u_{m-1}} & \frac{\partial F_1}{\partial y_m} \\
-                \vdots & & \vdots & \vdots \\
-                \frac{\partial \Phi_{m-1}}{\partial u_1} & \cdots & \frac{\partial \Phi_{m-1}}{\partial u_{m-1}} & \frac{\partial F_{m-1}}{\partial y_m} \\
-                0 & \cdots & 0 & \frac{\partial F_m}{\partial y_m}
-            \end{matrix} 
+                \frac{\partial \Phi_1}{\partial u_1} &amp; \cdots &amp;
+\frac{\partial \Phi_1}{\partial u_{m-1}} &amp; \frac{\partial
+F_1}{\partial y_m} \\
+                \vdots &amp; &amp; \vdots &amp; \vdots \\
+                \frac{\partial \Phi_{m-1}}{\partial u_1} &amp; \cdots
+&amp; \frac{\partial \Phi_{m-1}}{\partial u_{m-1}} &amp; \frac{\partial
+F_{m-1}}{\partial y_m} \\
+                0 &amp; \cdots &amp; 0 &amp; \frac{\partial
+F_m}{\partial y_m}
+            \end{matrix}
         \right| \\
-        & = \frac{\partial F_m}{\partial y_m}(\boldsymbol{x}_0, \boldsymbol{u}_0, t_0) \det(J_{\boldsymbol{u}} \boldsymbol{\Phi}(\boldsymbol{x}_0, \boldsymbol{u}_0))
-    \end{aligned} \tag{3}</script><p>根据条件（c），式子(3)的左边不等于0，因为有</p>
-<script type="math/tex; mode=display">
-     \det(J_{\boldsymbol{u}} \boldsymbol{\Phi}(\boldsymbol{x}_0, \boldsymbol{u}_0)) \ne 0</script><p>从而证明了$\boldsymbol{\Phi}$满足本定理中的三个条件，从而对$\boldsymbol{\Phi}$使用归纳假设，可知定理中的结论（1），（2）和（3）对$\boldsymbol{\Phi}$都成立。即存在点$(\boldsymbol{x}_0, \boldsymbol{y}_0)$的邻域$G \times H_{m-1} \subset G_n \times G_{m-1}$使得：<br/><br>（aa）当$\boldsymbol{x} \in G$时，方程$\boldsymbol{\phi}(\boldsymbol{x}, \boldsymbol{u}) = \boldsymbol{0}$在$H_{m-1}$中有唯一解$\boldsymbol{u} = \boldsymbol{g}(\boldsymbol{x})$，其中映射$\boldsymbol{g}: G \to H_{m-1}$；<br/><br>（ab）$\boldsymbol{\boldsymbol{x}_0} = \boldsymbol{u}_0$；<br/><br>（ac）$\boldsymbol{g} \in C^1(G)$ <br/><br>令</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{f}(\boldsymbol{x}) = (\boldsymbol{g}(\boldsymbol{x}), \varphi(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}))) \quad (\boldsymbol{x} \in G)</script><script type="math/tex; mode=display">
-    H = H_{m-1} \times J</script><p>于是$\boldsymbol{f}: G \to H$。我们要证明$\boldsymbol{f}$满足条件（1），（2）和（3）。当$\boldsymbol{x} \in G$，$(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x})) \in G \times H_{m-1} \subset G_n \times G_{m-1}$，从而由（aa）可得</p>
-<script type="math/tex; mode=display">
-    F_i(\boldsymbol{x}, \boldsymbol{f}(\boldsymbol{x})) = F_i(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}), \varphi(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}))) = \Phi_i(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x})) = 0 \quad (i=1,2,\cdots,m-1)</script><p>另外由（i）可知</p>
-<script type="math/tex; mode=display">
-    F_m(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x})) = F_m(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}), \varphi(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}))) =  0</script><p>从而$\boldsymbol{f}$满足（1）。由（ab）和（ii）可知</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{f}(\boldsymbol{x}_0) = (\boldsymbol{g}(\boldsymbol{x}_0), \varphi(\boldsymbol{x}_0, \boldsymbol{g}(\boldsymbol{x}_0))) = (\boldsymbol{u}_0, \varphi(\boldsymbol{x}_0, \boldsymbol{u}_0)) = (\boldsymbol{u}_0, t_0) = \boldsymbol{y}_0</script><p>所以$\boldsymbol{f}$满足（2）。再由（ac）和（iii）即知$\boldsymbol{f}$满足（3）。再由恒等式</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{F}(\boldsymbol{x}, \boldsymbol{f}(\boldsymbol{x})) = \boldsymbol{0}</script><p>对上式复合求导，得</p>
-<script type="math/tex; mode=display">
-    J_{\boldsymbol{x}} \boldsymbol{F}(\boldsymbol{x}, \boldsymbol{f}(\boldsymbol{x})) + J_y \boldsymbol{F}(\boldsymbol{x}, \boldsymbol{f}(\boldsymbol{x})) J\boldsymbol{f}(\boldsymbol{x}) = \boldsymbol{0}</script><p>由于在$D^\prime$上$\det J_{\boldsymbol{y}}\boldsymbol{F}$处处不为0，所以$J_{\boldsymbol{y}}\boldsymbol{F}$是可逆方阵，在上式中取逆方阵，得出</p>
-<script type="math/tex; mode=display">
-    J\boldsymbol{f}(\boldsymbol{x}) = -(J_{\boldsymbol{y}}\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{f}(\boldsymbol{x})))^{-1}J_{\boldsymbol{x}}\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{f}(\boldsymbol{x}))</script><p>即表明$\boldsymbol{f}$满足（4）。</p>
+        &amp; = \frac{\partial F_m}{\partial y_m}(\boldsymbol{x}_0,
+\boldsymbol{u}_0, t_0) \det(J_{\boldsymbol{u}}
+\boldsymbol{\Phi}(\boldsymbol{x}_0, \boldsymbol{u}_0))
+    \end{aligned} \tag{3}
+\]</span><br />
+根据条件（c），式子(3)的左边不等于0，因为有<br />
+<span class="math display">\[
+     \det(J_{\boldsymbol{u}} \boldsymbol{\Phi}(\boldsymbol{x}_0,
+\boldsymbol{u}_0)) \ne 0
+\]</span><br />
+从而证明了<span
+class="math inline">\(\boldsymbol{\Phi}\)</span>满足本定理中的三个条件，从而对<span
+class="math inline">\(\boldsymbol{\Phi}\)</span>使用归纳假设，可知定理中的结论（1），（2）和（3）对<span
+class="math inline">\(\boldsymbol{\Phi}\)</span>都成立。即存在点<span
+class="math inline">\((\boldsymbol{x}_0,
+\boldsymbol{y}_0)\)</span>的邻域<span class="math inline">\(G \times
+H_{m-1} \subset G_n \times G_{m-1}\)</span>使得：<br />
+（aa）当<span class="math inline">\(\boldsymbol{x} \in
+G\)</span>时，方程<span
+class="math inline">\(\boldsymbol{\phi}(\boldsymbol{x}, \boldsymbol{u})
+= \boldsymbol{0}\)</span>在<span
+class="math inline">\(H_{m-1}\)</span>中有唯一解<span
+class="math inline">\(\boldsymbol{u} =
+\boldsymbol{g}(\boldsymbol{x})\)</span>，其中映射<span
+class="math inline">\(\boldsymbol{g}: G \to H_{m-1}\)</span>；<br />
+（ab）<span class="math inline">\(\boldsymbol{\boldsymbol{x}_0} =
+\boldsymbol{u}_0\)</span>；<br />
+（ac）<span class="math inline">\(\boldsymbol{g} \in
+C^1(G)\)</span><br />
+令<br />
+<span class="math display">\[
+    \boldsymbol{f}(\boldsymbol{x}) = (\boldsymbol{g}(\boldsymbol{x}),
+\varphi(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}))) \quad
+(\boldsymbol{x} \in G)
+\]</span><br />
+<span class="math display">\[
+    H = H_{m-1} \times J
+\]</span><br />
+于是<span class="math inline">\(\boldsymbol{f}: G \to
+H\)</span>。我们要证明<span
+class="math inline">\(\boldsymbol{f}\)</span>满足条件（1），（2）和（3）。当<span
+class="math inline">\(\boldsymbol{x} \in G\)</span>，<span
+class="math inline">\((\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}))
+\in G \times H_{m-1} \subset G_n \times
+G_{m-1}\)</span>，从而由（aa）可得<br />
+<span class="math display">\[
+    F_i(\boldsymbol{x}, \boldsymbol{f}(\boldsymbol{x})) =
+F_i(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}),
+\varphi(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}))) =
+\Phi_i(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x})) = 0 \quad
+(i=1,2,\cdots,m-1)
+\]</span><br />
+另外由（i）可知<br />
+<span class="math display">\[
+    F_m(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x})) =
+F_m(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}),
+\varphi(\boldsymbol{x}, \boldsymbol{g}(\boldsymbol{x}))) =  0
+\]</span><br />
+从而<span
+class="math inline">\(\boldsymbol{f}\)</span>满足（1）。由（ab）和（ii）可知<br />
+<span class="math display">\[
+    \boldsymbol{f}(\boldsymbol{x}_0) =
+(\boldsymbol{g}(\boldsymbol{x}_0), \varphi(\boldsymbol{x}_0,
+\boldsymbol{g}(\boldsymbol{x}_0))) = (\boldsymbol{u}_0,
+\varphi(\boldsymbol{x}_0, \boldsymbol{u}_0)) = (\boldsymbol{u}_0, t_0) =
+\boldsymbol{y}_0
+\]</span><br />
+所以<span
+class="math inline">\(\boldsymbol{f}\)</span>满足（2）。再由（ac）和（iii）即知<span
+class="math inline">\(\boldsymbol{f}\)</span>满足（3）。再由恒等式<br />
+<span class="math display">\[
+    \boldsymbol{F}(\boldsymbol{x}, \boldsymbol{f}(\boldsymbol{x})) =
+\boldsymbol{0}
+\]</span><br />
+对上式复合求导，得<br />
+<span class="math display">\[
+    J_{\boldsymbol{x}} \boldsymbol{F}(\boldsymbol{x},
+\boldsymbol{f}(\boldsymbol{x})) + J_y \boldsymbol{F}(\boldsymbol{x},
+\boldsymbol{f}(\boldsymbol{x})) J\boldsymbol{f}(\boldsymbol{x}) =
+\boldsymbol{0}
+\]</span><br />
+由于在<span class="math inline">\(D^\prime\)</span>上<span
+class="math inline">\(\det
+J_{\boldsymbol{y}}\boldsymbol{F}\)</span>处处不为0，所以<span
+class="math inline">\(J_{\boldsymbol{y}}\boldsymbol{F}\)</span>是可逆方阵，在上式中取逆方阵，得出<br />
+<span class="math display">\[
+    J\boldsymbol{f}(\boldsymbol{x}) =
+-(J_{\boldsymbol{y}}\boldsymbol{F}(\boldsymbol{x},
+\boldsymbol{f}(\boldsymbol{x})))^{-1}J_{\boldsymbol{x}}\boldsymbol{F}(\boldsymbol{x},
+\boldsymbol{f}(\boldsymbol{x}))
+\]</span><br />
+即表明<span class="math inline">\(\boldsymbol{f}\)</span>满足（4）。</p>
 <p>Q.E.D.</p>
 
     </div>
@@ -522,7 +897,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1：隐式方程"><span class="nav-text">定义1：隐式方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1：隐函数定理"><span class="nav-text">定理1：隐函数定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3：隐映射定理"><span class="nav-text">定理3：隐映射定理</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%891%E9%9A%90%E5%BC%8F%E6%96%B9%E7%A8%8B"><span class="nav-text">定义1：隐式方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861%E9%9A%90%E5%87%BD%E6%95%B0%E5%AE%9A%E7%90%86"><span class="nav-text">定理1：隐函数定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%863%E9%9A%90%E6%98%A0%E5%B0%84%E5%AE%9A%E7%90%86"><span class="nav-text">定理3：隐映射定理</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -593,13 +968,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

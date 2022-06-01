@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="描述该题来自于力扣第五题 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。">
+  <meta name="description" content="描述 该题来自于力扣第五题 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode题解5：最长回文子串">
 <meta property="og:url" content="http://yoursite.com/2020/11/21/leetcode%E9%A2%98%E8%A7%A35/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="描述该题来自于力扣第五题 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。">
+<meta property="og:description" content="描述 该题来自于力扣第五题 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-21T06:50:53.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.733Z">
+<meta property="article:modified_time" content="2020-11-21T06:50:53.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="leetcode">
 <meta property="article:tag" content="字符串">
@@ -80,7 +80,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,13 +224,6 @@
 
               <time title="创建时间：2020-11-21 14:50:53" itemprop="dateCreated datePublished" datetime="2020-11-21T14:50:53+08:00">2020-11-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -269,37 +266,51 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于<a href="https://leetcode-cn.com/problems/longest-palindromic-substring" target="_blank" rel="noopener">力扣第五题</a></p>
-<p>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。</p>
-<a id="more"></a>
+        <h2 id="描述">描述</h2>
+<p>该题来自于<a
+target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-palindromic-substring">力扣第五题</a></p>
+<p>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为
+1000。</p>
+<span id="more"></span>
 <p>示例 1：</p>
 <blockquote>
-<p>输入: “babad”<br>输出: “bab”<br>注意: “aba” 也是一个有效答案。</p>
+<p>输入: "babad"<br />
+输出: "bab"<br />
+注意: "aba" 也是一个有效答案。</p>
 </blockquote>
 <p>示例 2：</p>
 <blockquote>
-<p>输入: “cbbd”<br>输出: “bb”</p>
+<p>输入: "cbbd"<br />
+输出: "bb"</p>
 </blockquote>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>关键思路是如何尽量少的遍历？注意到要判断$a_1a_2a_3 \cdots a_{n-1} a_n$是否是回文串，等价于判断$a_2a_3 \cdots a_{n-1}$是否是回文串，而且$a_1=a_n$是否成立，如果两个都成立，那么原字符串是回文串，否则就不是；所以解法思路是动态规划，<br>状态：<code>dp[i][j]</code>表示下标从<code>i</code>到<code>j</code>构成的子串是否是回文串<br>状态转移方程：<code>dp[i][j] = dp[i+1][j-1] &amp;&amp; a[i]==a[j]</code></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><details open>
-<summary>python3</summary>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestPalindrome</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        n = len(s)</span><br><span class="line">        dp = [[<span class="literal">False</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(n)] <span class="keyword">for</span> j <span class="keyword">in</span> range(n)]</span><br><span class="line">        max_len = <span class="number">0</span></span><br><span class="line">        start, end = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(i, n):</span><br><span class="line">                <span class="keyword">if</span> i == j:</span><br><span class="line">                    dp[i][j] = <span class="literal">True</span></span><br><span class="line">               </span><br><span class="line">                <span class="keyword">elif</span> s[i] == s[j]:</span><br><span class="line">                    <span class="keyword">if</span> j - i &gt; <span class="number">1</span>:</span><br><span class="line">                        dp[i][j] = dp[i+<span class="number">1</span>][j<span class="number">-1</span>]</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        dp[i][j] = <span class="literal">True</span></span><br><span class="line">                        </span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    dp[i][j] = <span class="literal">False</span></span><br><span class="line">                    </span><br><span class="line">                <span class="keyword">if</span> dp[i][j] <span class="keyword">and</span> max_len &lt; j - i + <span class="number">1</span>:</span><br><span class="line">                    start = i</span><br><span class="line">                    end = j + <span class="number">1</span></span><br><span class="line">                    max_len = j - i + <span class="number">1</span> </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> s[start:end]</span><br></pre></td></tr></table></figure>
+<h2 id="分析">分析</h2>
+<p>关键思路是如何尽量少的遍历？注意到要判断<span
+class="math inline">\(a_1a_2a_3 \cdots a_{n-1}
+a_n\)</span>是否是回文串，等价于判断<span class="math inline">\(a_2a_3
+\cdots a_{n-1}\)</span>是否是回文串，而且<span
+class="math inline">\(a_1=a_n\)</span>是否成立，如果两个都成立，那么原字符串是回文串，否则就不是；所以解法思路是动态规划，<br />
+状态：<code>dp[i][j]</code>表示下标从<code>i</code>到<code>j</code>构成的子串是否是回文串<br />
+状态转移方程：<code>dp[i][j] = dp[i+1][j-1] &amp;&amp; a[i]==a[j]</code></p>
+<h2 id="代码">代码</h2>
+<details open>
+<summary>
+python3
+</summary>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">longestPalindrome</span>(<span class="params">self, s</span>):</span><br><span class="line">        n = <span class="built_in">len</span>(s)</span><br><span class="line">        dp = [[<span class="literal">False</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">        max_len = <span class="number">0</span></span><br><span class="line">        start, end = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n-<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i, n):</span><br><span class="line">                <span class="keyword">if</span> i == j:</span><br><span class="line">                    dp[i][j] = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">elif</span> s[i] == s[j]:</span><br><span class="line">                    <span class="keyword">if</span> j - i &gt; <span class="number">1</span>:</span><br><span class="line">                        dp[i][j] = dp[i+<span class="number">1</span>][j-<span class="number">1</span>]</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        dp[i][j] = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    dp[i][j] = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> dp[i][j] <span class="keyword">and</span> max_len &lt; j - i + <span class="number">1</span>:</span><br><span class="line">                    start = i</span><br><span class="line">                    end = j + <span class="number">1</span></span><br><span class="line">                    max_len = j - i + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> s[start:end]</span><br></pre></td></tr></table></figure>
 </details>
-
-
 <details>
-<summary>c++</summary>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="keyword">int</span> maxLen = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, end = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n, <span class="literal">false</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == j) dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (s[i] == s[j]) &#123;</span><br><span class="line">                    <span class="keyword">if</span> ((j - i) &gt; <span class="number">1</span>) dp[i][j] = dp[i + <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">else</span> dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[i][j] = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (dp[i][j] &amp;&amp; (j-i+<span class="number">1</span> &gt; maxLen)) &#123;</span><br><span class="line">                    maxLen = max(j - i + <span class="number">1</span>, maxLen);</span><br><span class="line">                    start = i;</span><br><span class="line">                    end = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substr(start, maxLen);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<summary>
+c++
+</summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">longestPalindrome</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> maxLen = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> start = <span class="number">0</span>, end = <span class="number">0</span>;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n, <span class="literal">false</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == j) dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (s[i] == s[j]) &#123;</span><br><span class="line">                    <span class="keyword">if</span> ((j - i) &gt; <span class="number">1</span>) dp[i][j] = dp[i + <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">else</span> dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[i][j] = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (dp[i][j] &amp;&amp; (j-i+<span class="number">1</span> &gt; maxLen)) &#123;</span><br><span class="line">                    maxLen = <span class="built_in">max</span>(j - i + <span class="number">1</span>, maxLen);</span><br><span class="line">                    start = i;</span><br><span class="line">                    end = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.<span class="built_in">substr</span>(start, maxLen);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </details>
-
-
 <details>
-<summary>java</summary>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.length();</span><br><span class="line">        <span class="keyword">int</span> maxLen = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, end = <span class="number">0</span>;</span><br><span class="line">        Boolean[][] dp = <span class="keyword">new</span> Boolean[n][n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n-<span class="number">1</span>; i&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i; j&lt;n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(i == j) dp[i][j] = <span class="keyword">true</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(i) == s.charAt(j))&#123;</span><br><span class="line">                    <span class="keyword">if</span>(j - i &gt; <span class="number">1</span>) dp[i][j] = dp[i+<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">else</span> dp[i][j] = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> dp[i][j] = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (dp[i][j] &amp;&amp; ((j - i + <span class="number">1</span>) &gt; maxLen))&#123;</span><br><span class="line">                    maxLen = j - i + <span class="number">1</span>;</span><br><span class="line">                    start = i;</span><br><span class="line">                    end = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substring(start, end+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<summary>
+java
+</summary>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">longestPalindrome</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> s.length();</span><br><span class="line">        <span class="type">int</span> <span class="variable">maxLen</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">start</span> <span class="operator">=</span> <span class="number">0</span>, end = <span class="number">0</span>;</span><br><span class="line">        Boolean[][] dp = <span class="keyword">new</span> <span class="title class_">Boolean</span>[n][n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=n-<span class="number">1</span>; i&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i; j&lt;n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(i == j) dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(i) == s.charAt(j))&#123;</span><br><span class="line">                    <span class="keyword">if</span>(j - i &gt; <span class="number">1</span>) dp[i][j] = dp[i+<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">else</span> dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> dp[i][j] = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (dp[i][j] &amp;&amp; ((j - i + <span class="number">1</span>) &gt; maxLen))&#123;</span><br><span class="line">                    maxLen = j - i + <span class="number">1</span>;</span><br><span class="line">                    start = i;</span><br><span class="line">                    end = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substring(start, end+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </details>
+
     </div>
 
     
@@ -386,7 +397,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -457,13 +468,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

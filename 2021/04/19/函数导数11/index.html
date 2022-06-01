@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定理1: 局部逆映射定理 设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^n$，满足：（a）$\boldsymbol{f} \in C^1(D)$； （b）有$\boldsymbol{x}_0 \in D$，使得      \det J\boldsymbol{f}(\boldsymbol{x}_0) \ne 0记$\bol">
+  <meta name="description" content="定理1: 局部逆映射定理  设开集\(D \subset \mathbb{R}^n\)，\(\boldsymbol{f}: D \to \mathbb{R}^n\)，满足： （a）\(\boldsymbol{f} \in C^1(D)\)； （b）有\(\boldsymbol{x}_0 \in D\)，使得 \[     \det J\boldsymbol{f}(\boldsymbol{x}_0)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数导数十一：逆映射定理">
 <meta property="og:url" content="http://yoursite.com/2021/04/19/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B011/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定理1: 局部逆映射定理 设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^n$，满足：（a）$\boldsymbol{f} \in C^1(D)$； （b）有$\boldsymbol{x}_0 \in D$，使得      \det J\boldsymbol{f}(\boldsymbol{x}_0) \ne 0记$\bol">
+<meta property="og:description" content="定理1: 局部逆映射定理  设开集\(D \subset \mathbb{R}^n\)，\(\boldsymbol{f}: D \to \mathbb{R}^n\)，满足： （a）\(\boldsymbol{f} \in C^1(D)\)； （b）有\(\boldsymbol{x}_0 \in D\)，使得 \[     \det J\boldsymbol{f}(\boldsymbol{x}_0)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-19T12:42:01.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.734Z">
+<meta property="article:modified_time" content="2021-04-19T12:42:01.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数导数">
@@ -81,7 +81,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -221,13 +225,6 @@
 
               <time title="创建时间：2021-04-19 20:42:01" itemprop="dateCreated datePublished" datetime="2021-04-19T20:42:01+08:00">2021-04-19</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -251,7 +248,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
+              <span>3.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -270,36 +267,161 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="定理1-局部逆映射定理"><a href="#定理1-局部逆映射定理" class="headerlink" title="定理1: 局部逆映射定理"></a>定理1: 局部逆映射定理</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^n$，满足：<br/><br>（a）$\boldsymbol{f} \in C^1(D)$； <br/><br>（b）有$\boldsymbol{x}_0 \in D$，使得</p>
-<script type="math/tex; mode=display">
-    \det J\boldsymbol{f}(\boldsymbol{x}_0) \ne 0</script><p>记$\boldsymbol{y}_0 = \boldsymbol{f}(\boldsymbol{x}_0)$，那么存在$\boldsymbol{x}_0$的一个邻域$U$和$\boldsymbol{y}_0$的一个邻域$V$，使得 <br/><br>（1）$\boldsymbol{f}(U) = V$，且$\boldsymbol{f}$在$U$上是单射；<br/><br>（2）记$\boldsymbol{g}$是$\boldsymbol{f}$在$U$上的逆映射，$\boldsymbol{g} \in C^1(V)$；<br/><br>（3）当$\boldsymbol{y} \in V$时，</p>
-<script type="math/tex; mode=display">
-    J\boldsymbol{g}(\boldsymbol{y}) = (J\boldsymbol{f}(\boldsymbol{x}))^{-1}</script><p>其中$\boldsymbol{x} = \boldsymbol{g}(\boldsymbol{y})$。</p>
+        <h4 id="定理1-局部逆映射定理">定理1: 局部逆映射定理</h4>
+<blockquote>
+<p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>，<span class="math inline">\(\boldsymbol{f}: D \to
+\mathbb{R}^n\)</span>，满足：<br />
+（a）<span class="math inline">\(\boldsymbol{f} \in
+C^1(D)\)</span>；<br />
+（b）有<span class="math inline">\(\boldsymbol{x}_0 \in
+D\)</span>，使得<br />
+<span class="math display">\[
+    \det J\boldsymbol{f}(\boldsymbol{x}_0) \ne 0
+\]</span><br />
+记<span class="math inline">\(\boldsymbol{y}_0 =
+\boldsymbol{f}(\boldsymbol{x}_0)\)</span>，那么存在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>的一个邻域<span
+class="math inline">\(U\)</span>和<span
+class="math inline">\(\boldsymbol{y}_0\)</span>的一个邻域<span
+class="math inline">\(V\)</span>，使得<br />
+（1）<span class="math inline">\(\boldsymbol{f}(U) = V\)</span>，且<span
+class="math inline">\(\boldsymbol{f}\)</span>在<span
+class="math inline">\(U\)</span>上是单射；<br />
+（2）记<span class="math inline">\(\boldsymbol{g}\)</span>是<span
+class="math inline">\(\boldsymbol{f}\)</span>在<span
+class="math inline">\(U\)</span>上的逆映射，<span
+class="math inline">\(\boldsymbol{g} \in C^1(V)\)</span>；<br />
+（3）当<span class="math inline">\(\boldsymbol{y} \in
+V\)</span>时，<br />
+<span class="math display">\[
+    J\boldsymbol{g}(\boldsymbol{y}) =
+(J\boldsymbol{f}(\boldsymbol{x}))^{-1}
+\]</span><br />
+其中<span class="math inline">\(\boldsymbol{x} =
+\boldsymbol{g}(\boldsymbol{y})\)</span>。</p>
 </blockquote>
-<a id="more"></a>
-<p>证：令</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y}) = \boldsymbol{f}(\boldsymbol{x}) - \boldsymbol{y}</script><p>这个映射定义在$D \times \mathbb{R}^n$上，显然有$\boldsymbol{F} \in C^1(D \times \mathbb{R}^n)$，并且、</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{F}(\boldsymbol{x}_0, \boldsymbol{y}_0) = \boldsymbol{f}(\boldsymbol{x}_0) - \boldsymbol{y}_0 = \boldsymbol{0}</script><p>再由条件（b）可知，</p>
-<script type="math/tex; mode=display">
-    \det J_{\boldsymbol{x}} \boldsymbol{F} (\boldsymbol{x}_0, \boldsymbol{y}_0) = \det J\boldsymbol{f}(\boldsymbol{x}_0) \ne 0</script><p>从而由<a href="https://gamersover.github.io/2021/04/13/函数导数10/#定理3：隐映射定理" target="_blank" rel="noopener">函数导数十的定理3</a>可知，存在$\boldsymbol{x}_0$的邻域$H$和$\boldsymbol{y}_0$的邻域$V$，其中$H \subset D$，使得对每一点$\boldsymbol{y} \in V$，方程$\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y}) = \boldsymbol{0}$即$\boldsymbol{f}(\boldsymbol{x}) = \boldsymbol{y}$在$H$中有唯一解，记作$\boldsymbol{g}(\boldsymbol{y})$，其中$\boldsymbol{g} \in C^1(V)$，并且当$\boldsymbol{y} \in V$时，</p>
-<script type="math/tex; mode=display">
+<span id="more"></span>
+<p>证：令<br />
+<span class="math display">\[
+    \boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y}) =
+\boldsymbol{f}(\boldsymbol{x}) - \boldsymbol{y}
+\]</span><br />
+这个映射定义在<span class="math inline">\(D \times
+\mathbb{R}^n\)</span>上，显然有<span
+class="math inline">\(\boldsymbol{F} \in C^1(D \times
+\mathbb{R}^n)\)</span>，并且、<br />
+<span class="math display">\[
+    \boldsymbol{F}(\boldsymbol{x}_0, \boldsymbol{y}_0) =
+\boldsymbol{f}(\boldsymbol{x}_0) - \boldsymbol{y}_0 = \boldsymbol{0}
+\]</span><br />
+再由条件（b）可知，<br />
+<span class="math display">\[
+    \det J_{\boldsymbol{x}} \boldsymbol{F} (\boldsymbol{x}_0,
+\boldsymbol{y}_0) = \det J\boldsymbol{f}(\boldsymbol{x}_0) \ne 0
+\]</span><br />
+从而由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/04/13/函数导数10/#定理3：隐映射定理">函数导数十的定理3</a>可知，存在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>的邻域<span
+class="math inline">\(H\)</span>和<span
+class="math inline">\(\boldsymbol{y}_0\)</span>的邻域<span
+class="math inline">\(V\)</span>，其中<span class="math inline">\(H
+\subset D\)</span>，使得对每一点<span
+class="math inline">\(\boldsymbol{y} \in V\)</span>，方程<span
+class="math inline">\(\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y}) =
+\boldsymbol{0}\)</span>即<span
+class="math inline">\(\boldsymbol{f}(\boldsymbol{x}) =
+\boldsymbol{y}\)</span>在<span
+class="math inline">\(H\)</span>中有唯一解，记作<span
+class="math inline">\(\boldsymbol{g}(\boldsymbol{y})\)</span>，其中<span
+class="math inline">\(\boldsymbol{g} \in C^1(V)\)</span>，并且当<span
+class="math inline">\(\boldsymbol{y} \in V\)</span>时，<br />
+<span class="math display">\[
     \begin{aligned}
-    J\boldsymbol{g}(\boldsymbol{y}) &= -(J_{\boldsymbol{x}}\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y}))^{-1}J_{\boldsymbol{y}}\boldsymbol{F}(\boldsymbol{x}, \boldsymbol{y}) \\
-    &= -(J\boldsymbol{f}(\boldsymbol{x}))^{-1}(-\boldsymbol{I}_n) \\
-    &= (J\boldsymbol{f}(\boldsymbol{x}))^{-1}
-    \end{aligned}</script><p>其中$\boldsymbol{x} = \boldsymbol{g}(\boldsymbol{y})$。令$U = \boldsymbol{g}(V)$，可见$V = \boldsymbol{f}(U)$，$\boldsymbol{f}$与$\boldsymbol{U}$互为逆映射，最后证明$U$是开集，事实上有$U = H \cap \boldsymbol{f}^{-1}(V)$，由于$V$是开集且$\boldsymbol{f}$是连续映射，从而根据<a href="https://gamersover.github.io/2021/01/21/函数极限7/#定理3" target="_blank" rel="noopener">函数极限七的定理3</a>知$\boldsymbol{f}^{-1}(V)$是开集，又英文$H$是开集，所以$U$也是开集。</p>
-<h4 id="定理2：逆映射定理"><a href="#定理2：逆映射定理" class="headerlink" title="定理2：逆映射定理"></a>定理2：逆映射定理</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^n$，满足：<br/><br>（a）$\boldsymbol{f} \in C^1(D)$；<br/><br>（b）对每一个$\boldsymbol{x} \in D$，有$\det J\boldsymbol{f}(\boldsymbol{x}) \ne 0$ <br /><br>那么$G = \boldsymbol{f}(D)$是一开集，又如果：<br/><br>（c）$\boldsymbol{f}$是$D$上的单射，<br/><br>那么：<br/><br>（1）存在从$G$到$D$上的映射$\boldsymbol{f}^{-1}$，满足：对一切$\boldsymbol{y} \in G$，有</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{f} \circ \boldsymbol{f}^{-1}(\boldsymbol{y}) = \boldsymbol{y}</script><p>（2）$\boldsymbol{f}^{-1} \in C^1(G)$；<br/><br>（3）</p>
-<script type="math/tex; mode=display">
-    J\boldsymbol{f}^{-1}(\boldsymbol{y}) = (J\boldsymbol{f}(\boldsymbol{x}))^{-1} \quad (\boldsymbol{x} = J\boldsymbol{f}^{-1}(\boldsymbol{y}))</script></blockquote>
-<p>证：由于$\boldsymbol{f}$是单射，所以逆映射$\boldsymbol{f}^{-1}$必然存在，所以（1）成立；再由<a href="https://gamersover.github.io/2021/04/19/函数导数11/#定理1-局部逆映射定理" target="_blank" rel="noopener">定理1</a>可知，（2）（3）自然也成立。接下来只需证明$\boldsymbol{f}(D)$是开集，任取$\boldsymbol{y} \in G$，由<a href="https://gamersover.github.io/2021/04/19/函数导数11/#定理1-局部逆映射定理" target="_blank" rel="noopener">定理1</a>可知，存在$\boldsymbol{x}$的一个邻域$U$和$\boldsymbol{y}$的一个邻域$V$，使得$V = \boldsymbol{f}(U) \subset \boldsymbol{f}(D) = G$，即$\boldsymbol{y}$是$G$的内点，从而$G$是开集。</p>
-<h4 id="定义2：正则映射"><a href="#定义2：正则映射" class="headerlink" title="定义2：正则映射"></a>定义2：正则映射</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^n$，满足以下三个条件：<br/><br>（1）$\boldsymbol{f} \in C^1(D)$；<br/><br>（2）$\boldsymbol{f}$是$D$上的单射；<br/><br>（3）$\det J\boldsymbol{f}(\boldsymbol{x}) \ne 0$对一切$\boldsymbol{x} \in D$成立。<br/><br>则称$\boldsymbol{f}$是$D$上的一个正则映射。</p>
+    J\boldsymbol{g}(\boldsymbol{y}) &amp;=
+-(J_{\boldsymbol{x}}\boldsymbol{F}(\boldsymbol{x},
+\boldsymbol{y}))^{-1}J_{\boldsymbol{y}}\boldsymbol{F}(\boldsymbol{x},
+\boldsymbol{y}) \\
+    &amp;= -(J\boldsymbol{f}(\boldsymbol{x}))^{-1}(-\boldsymbol{I}_n) \\
+    &amp;= (J\boldsymbol{f}(\boldsymbol{x}))^{-1}
+    \end{aligned}
+\]</span><br />
+其中<span class="math inline">\(\boldsymbol{x} =
+\boldsymbol{g}(\boldsymbol{y})\)</span>。令<span class="math inline">\(U
+= \boldsymbol{g}(V)\)</span>，可见<span class="math inline">\(V =
+\boldsymbol{f}(U)\)</span>，<span
+class="math inline">\(\boldsymbol{f}\)</span>与<span
+class="math inline">\(\boldsymbol{U}\)</span>互为逆映射，最后证明<span
+class="math inline">\(U\)</span>是开集，事实上有<span
+class="math inline">\(U = H \cap
+\boldsymbol{f}^{-1}(V)\)</span>，由于<span
+class="math inline">\(V\)</span>是开集且<span
+class="math inline">\(\boldsymbol{f}\)</span>是连续映射，从而根据<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/01/21/函数极限7/#定理3">函数极限七的定理3</a>知<span
+class="math inline">\(\boldsymbol{f}^{-1}(V)\)</span>是开集，又英文<span
+class="math inline">\(H\)</span>是开集，所以<span
+class="math inline">\(U\)</span>也是开集。</p>
+<h4 id="定理2逆映射定理">定理2：逆映射定理</h4>
+<blockquote>
+<p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>，<span class="math inline">\(\boldsymbol{f}: D \to
+\mathbb{R}^n\)</span>，满足：<br />
+（a）<span class="math inline">\(\boldsymbol{f} \in
+C^1(D)\)</span>；<br />
+（b）对每一个<span class="math inline">\(\boldsymbol{x} \in
+D\)</span>，有<span class="math inline">\(\det
+J\boldsymbol{f}(\boldsymbol{x}) \ne 0\)</span><br />
+那么<span class="math inline">\(G =
+\boldsymbol{f}(D)\)</span>是一开集，又如果：<br />
+（c）<span class="math inline">\(\boldsymbol{f}\)</span>是<span
+class="math inline">\(D\)</span>上的单射，<br />
+那么：<br />
+（1）存在从<span class="math inline">\(G\)</span>到<span
+class="math inline">\(D\)</span>上的映射<span
+class="math inline">\(\boldsymbol{f}^{-1}\)</span>，满足：对一切<span
+class="math inline">\(\boldsymbol{y} \in G\)</span>，有<br />
+<span class="math display">\[
+    \boldsymbol{f} \circ \boldsymbol{f}^{-1}(\boldsymbol{y}) =
+\boldsymbol{y}
+\]</span><br />
+（2）<span class="math inline">\(\boldsymbol{f}^{-1} \in
+C^1(G)\)</span>；<br />
+（3）<br />
+<span class="math display">\[
+    J\boldsymbol{f}^{-1}(\boldsymbol{y}) =
+(J\boldsymbol{f}(\boldsymbol{x}))^{-1} \quad (\boldsymbol{x} =
+J\boldsymbol{f}^{-1}(\boldsymbol{y}))
+\]</span></p>
+</blockquote>
+<p>证：由于<span
+class="math inline">\(\boldsymbol{f}\)</span>是单射，所以逆映射<span
+class="math inline">\(\boldsymbol{f}^{-1}\)</span>必然存在，所以（1）成立；再由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/04/19/函数导数11/#定理1-局部逆映射定理">定理1</a>可知，（2）（3）自然也成立。接下来只需证明<span
+class="math inline">\(\boldsymbol{f}(D)\)</span>是开集，任取<span
+class="math inline">\(\boldsymbol{y} \in G\)</span>，由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/04/19/函数导数11/#定理1-局部逆映射定理">定理1</a>可知，存在<span
+class="math inline">\(\boldsymbol{x}\)</span>的一个邻域<span
+class="math inline">\(U\)</span>和<span
+class="math inline">\(\boldsymbol{y}\)</span>的一个邻域<span
+class="math inline">\(V\)</span>，使得<span class="math inline">\(V =
+\boldsymbol{f}(U) \subset \boldsymbol{f}(D) = G\)</span>，即<span
+class="math inline">\(\boldsymbol{y}\)</span>是<span
+class="math inline">\(G\)</span>的内点，从而<span
+class="math inline">\(G\)</span>是开集。</p>
+<h4 id="定义2正则映射">定义2：正则映射</h4>
+<blockquote>
+<p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>，<span class="math inline">\(\boldsymbol{f}: D \to
+\mathbb{R}^n\)</span>，满足以下三个条件：<br />
+（1）<span class="math inline">\(\boldsymbol{f} \in
+C^1(D)\)</span>；<br />
+（2）<span class="math inline">\(\boldsymbol{f}\)</span>是<span
+class="math inline">\(D\)</span>上的单射；<br />
+（3）<span class="math inline">\(\det J\boldsymbol{f}(\boldsymbol{x})
+\ne 0\)</span>对一切<span class="math inline">\(\boldsymbol{x} \in
+D\)</span>成立。<br />
+则称<span class="math inline">\(\boldsymbol{f}\)</span>是<span
+class="math inline">\(D\)</span>上的一个正则映射。</p>
 </blockquote>
 
     </div>
@@ -389,7 +511,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1-局部逆映射定理"><span class="nav-text">定理1: 局部逆映射定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2：逆映射定理"><span class="nav-text">定理2：逆映射定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2：正则映射"><span class="nav-text">定义2：正则映射</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861-%E5%B1%80%E9%83%A8%E9%80%86%E6%98%A0%E5%B0%84%E5%AE%9A%E7%90%86"><span class="nav-text">定理1: 局部逆映射定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862%E9%80%86%E6%98%A0%E5%B0%84%E5%AE%9A%E7%90%86"><span class="nav-text">定理2：逆映射定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%892%E6%AD%A3%E5%88%99%E6%98%A0%E5%B0%84"><span class="nav-text">定义2：正则映射</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -460,13 +582,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

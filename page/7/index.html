@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -75,7 +75,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -215,13 +219,6 @@
 
               <time title="创建时间：2021-01-20 22:21:54" itemprop="dateCreated datePublished" datetime="2021-01-20T22:21:54+08:00">2021-01-20</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -238,7 +235,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
+              <span>3.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,8 +254,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定义1：多变量函数的一致连续性"><a href="#定义1：多变量函数的一致连续性" class="headerlink" title="定义1：多变量函数的一致连续性"></a>定义1：多变量函数的一致连续性</h4><blockquote>
-<p>设$D \subset \mathbb{R}^n$，$f: D \to \mathbb{R}$。如果$\forall \varepsilon &gt; 0$，$\exists \delta &gt; 0$，使得当$\boldsymbol{x},\boldsymbol{y} \in D$，且$\Vert \boldsymbol{x} - \boldsymbol{y} \Vert &lt; \delta$时，有$|f(\boldsymbol{x}) - f(\boldsymbol{y})| &lt; \varepsilon$，则称$f$在$D$上一致连续。 </p>
+          <h4 id="定义1多变量函数的一致连续性">定义1：多变量函数的一致连续性</h4>
+<blockquote>
+<p>设<span class="math inline">\(D \subset \mathbb{R}^n\)</span>，<span
+class="math inline">\(f: D \to \mathbb{R}\)</span>。如果<span
+class="math inline">\(\forall \varepsilon &gt; 0\)</span>，<span
+class="math inline">\(\exists \delta &gt; 0\)</span>，使得当<span
+class="math inline">\(\boldsymbol{x},\boldsymbol{y} \in
+D\)</span>，且<span class="math inline">\(\Vert \boldsymbol{x} -
+\boldsymbol{y} \Vert &lt; \delta\)</span>时，有<span
+class="math inline">\(|f(\boldsymbol{x}) - f(\boldsymbol{y})| &lt;
+\varepsilon\)</span>，则称<span class="math inline">\(f\)</span>在<span
+class="math inline">\(D\)</span>上一致连续。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -312,13 +319,6 @@
 
               <time title="创建时间：2021-01-18 21:13:19" itemprop="dateCreated datePublished" datetime="2021-01-18T21:13:19+08:00">2021-01-18</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-17 13:12:55" itemprop="dateModified" datetime="2022-05-17T13:12:55+08:00">2022-05-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -335,7 +335,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.1k</span>
+              <span>5.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -354,8 +354,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>设$D \subset \mathbb{R^n}$，那么映射$f: D \to \mathbb{R}$称为一个$n$元函数，其中$D$称为函数$f$的定义域，而$f(D) \subset \mathbb{R}$称为$f$的值域。</p>
+          <h4 id="定义1">定义1</h4>
+<blockquote>
+<p>设<span class="math inline">\(D \subset
+\mathbb{R^n}\)</span>，那么映射<span class="math inline">\(f: D \to
+\mathbb{R}\)</span>称为一个<span
+class="math inline">\(n\)</span>元函数，其中<span
+class="math inline">\(D\)</span>称为函数<span
+class="math inline">\(f\)</span>的定义域，而<span
+class="math inline">\(f(D) \subset \mathbb{R}\)</span>称为<span
+class="math inline">\(f\)</span>的值域。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -409,13 +417,6 @@
 
               <time title="创建时间：2021-01-11 22:36:11" itemprop="dateCreated datePublished" datetime="2021-01-11T22:36:11+08:00">2021-01-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -432,7 +433,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.9k</span>
+              <span>4.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -452,8 +453,17 @@
 
       
           <p>基本连续函数有哪些？这章来解答。</p>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>如果函数$f$与$g$在$x_0$处连续，那么$f \pm g$与$fg$都在$x_0$处连续，如果$g(x_0) \ne 0$，那么$f/g$也在$x_0$处连续。</p>
+<h4 id="定理1">定理1</h4>
+<blockquote>
+<p>如果函数<span class="math inline">\(f\)</span>与<span
+class="math inline">\(g\)</span>在<span
+class="math inline">\(x_0\)</span>处连续，那么<span
+class="math inline">\(f \pm g\)</span>与<span
+class="math inline">\(fg\)</span>都在<span
+class="math inline">\(x_0\)</span>处连续，如果<span
+class="math inline">\(g(x_0) \ne 0\)</span>，那么<span
+class="math inline">\(f/g\)</span>也在<span
+class="math inline">\(x_0\)</span>处连续。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -507,13 +517,6 @@
 
               <time title="创建时间：2021-01-11 20:11:59" itemprop="dateCreated datePublished" datetime="2021-01-11T20:11:59+08:00">2021-01-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-06 10:56:53" itemprop="dateModified" datetime="2022-01-06T10:56:53+08:00">2022-01-06</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -549,8 +552,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于力扣<a href="https://leetcode-cn.com/problems/container-with-most-water/" target="_blank" rel="noopener">第11题</a></p>
-<p>给你<code>n</code>个非负整数<code>a1，a2，...，an</code>，每个数代表坐标中的一个点<code>(i, ai)</code>。在坐标内画<code>n</code>条垂直线，垂直线<code>i</code>的两个端点分别为<code>(i, ai)</code>和<code>(i, 0)</code>。找出其中的两条线，使得它们与<code>x</code>轴共同构成的容器可以容纳最多的水。</p>
+          <h2 id="描述">描述</h2>
+<p>该题来自于力扣<a
+target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/container-with-most-water/">第11题</a></p>
+<p>给你<code>n</code>个非负整数<code>a1，a2，...，an</code>，每个数代表坐标中的一个点<code>(i, ai)</code>。在坐标内画<code>n</code>条垂直线，垂直线<code>i</code>的两个端点分别为<code>(i, ai)</code>和<code>(i, 0)</code>。找出其中的两条线，使得它们与<code>x</code>轴共同构成的容器可以容纳最多的水。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/01/11/leetcode%E9%A2%98%E8%A7%A311/#more" rel="contents">
@@ -603,13 +608,6 @@
 
               <time title="创建时间：2020-12-08 20:26:15" itemprop="dateCreated datePublished" datetime="2020-12-08T20:26:15+08:00">2020-12-08</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-17 13:12:55" itemprop="dateModified" datetime="2022-05-17T13:12:55+08:00">2022-05-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -626,7 +624,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.4k</span>
+              <span>4.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -645,10 +643,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定义1：某点连续"><a href="#定义1：某点连续" class="headerlink" title="定义1：某点连续"></a>定义1：某点连续</h4><blockquote>
-<p>设$f: [a,b] \to \mathbb{R} \quad (b&gt;a)$. 若有</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{x \to x_0} f(x) = f(x_0)</script><p>则称函数$f$在点$x_0 \in (a,b)$内连续。</p>
+          <h4 id="定义1某点连续">定义1：某点连续</h4>
+<blockquote>
+<p>设<span class="math inline">\(f: [a,b] \to \mathbb{R} \quad
+(b&gt;a)\)</span>. 若有<br />
+<span class="math display">\[
+    \lim \limits_{x \to x_0} f(x) = f(x_0)
+\]</span><br />
+则称函数<span class="math inline">\(f\)</span>在点<span
+class="math inline">\(x_0 \in (a,b)\)</span>内连续。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -702,13 +705,6 @@
 
               <time title="创建时间：2020-12-05 09:56:12" itemprop="dateCreated datePublished" datetime="2020-12-05T09:56:12+08:00">2020-12-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -744,9 +740,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于力扣<a href="https://leetcode-cn.com/problems/regular-expression-matching" target="_blank" rel="noopener">第10题</a></p>
-<p>给你一个字符串<code>s</code>和一个字符规律<code>p</code>，请你来实现一个支持<code>&#39;.&#39;</code>和<code>&#39;*&#39;</code>的正则表达式匹配。</p>
-<p><code>&#39;.&#39;</code>匹配任意单个字符<br><code>&#39;*&#39;</code>匹配零个或多个前面的那一个元素<br>所谓匹配，是要涵盖<strong>整个</strong>字符串<code>s</code>的，而不是部分字符串。</p>
+          <h2 id="描述">描述</h2>
+<p>该题来自于力扣<a
+target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/regular-expression-matching">第10题</a></p>
+<p>给你一个字符串<code>s</code>和一个字符规律<code>p</code>，请你来实现一个支持<code>'.'</code>和<code>'*'</code>的正则表达式匹配。</p>
+<p><code>'.'</code>匹配任意单个字符<br />
+<code>'*'</code>匹配零个或多个前面的那一个元素<br />
+所谓匹配，是要涵盖<strong>整个</strong>字符串<code>s</code>的，而不是部分字符串。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/12/05/leetcode%E9%A2%98%E8%A7%A310/#more" rel="contents">
@@ -799,13 +799,6 @@
 
               <time title="创建时间：2020-11-28 10:25:47" itemprop="dateCreated datePublished" datetime="2020-11-28T10:25:47+08:00">2020-11-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -822,14 +815,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.4k</span>
+              <span>5.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -841,7 +834,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于<a href="https://leetcode-cn.com/problems/string-to-integer-atoi" target="_blank" rel="noopener">力扣第八题</a></p>
+          <h2 id="描述">描述</h2>
+<p>该题来自于<a
+target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/string-to-integer-atoi">力扣第八题</a></p>
 <p>请你来实现一个<code>atoi</code>函数，使其能将字符串转换成整数。</p>
           <!--noindex-->
             <div class="post-button">
@@ -895,13 +890,6 @@
 
               <time title="创建时间：2020-11-27 21:24:12" itemprop="dateCreated datePublished" datetime="2020-11-27T21:24:12+08:00">2020-11-27</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -918,7 +906,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -937,12 +925,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定义1：自变量趋于-infty-的极限"><a href="#定义1：自变量趋于-infty-的极限" class="headerlink" title="定义1：自变量趋于$+\infty$的极限"></a>定义1：自变量趋于$+\infty$的极限</h4><blockquote>
-<p>若对$\forall \varepsilon&gt;0, \exists A &gt; 0$，使得当$x &gt; A$时，有$|f(x) - l| &lt; \varepsilon$，此时称在正无穷处函数有极限$l$，记为</p>
-<script type="math/tex; mode=display">
-    f(+\infty) = \lim \limits_{x \to +\infty} f(x) = l</script><p>或简单记作</p>
-<script type="math/tex; mode=display">
-    f(x) \to l (x \to +\infty)</script></blockquote>
+          <h4 id="定义1自变量趋于infty的极限">定义1：自变量趋于<span
+class="math inline">\(+\infty\)</span>的极限</h4>
+<blockquote>
+<p>若对<span class="math inline">\(\forall \varepsilon&gt;0, \exists A
+&gt; 0\)</span>，使得当<span class="math inline">\(x &gt;
+A\)</span>时，有<span class="math inline">\(|f(x) - l| &lt;
+\varepsilon\)</span>，此时称在正无穷处函数有极限<span
+class="math inline">\(l\)</span>，记为<br />
+<span class="math display">\[
+    f(+\infty) = \lim \limits_{x \to +\infty} f(x) = l
+\]</span><br />
+或简单记作<br />
+<span class="math display">\[
+    f(x) \to l (x \to +\infty)
+\]</span></p>
+</blockquote>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/11/27/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%902/#more" rel="contents">
@@ -995,13 +993,6 @@
 
               <time title="创建时间：2020-11-21 14:50:53" itemprop="dateCreated datePublished" datetime="2020-11-21T14:50:53+08:00">2020-11-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1037,8 +1028,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于<a href="https://leetcode-cn.com/problems/longest-palindromic-substring" target="_blank" rel="noopener">力扣第五题</a></p>
-<p>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。</p>
+          <h2 id="描述">描述</h2>
+<p>该题来自于<a
+target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-palindromic-substring">力扣第五题</a></p>
+<p>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为
+1000。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/11/21/leetcode%E9%A2%98%E8%A7%A35/#more" rel="contents">
@@ -1091,13 +1085,6 @@
 
               <time title="创建时间：2020-11-17 20:11:25" itemprop="dateCreated datePublished" datetime="2020-11-17T20:11:25+08:00">2020-11-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-17 13:12:55" itemprop="dateModified" datetime="2022-05-17T13:12:55+08:00">2022-05-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1114,7 +1101,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.1k</span>
+              <span>4.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1133,14 +1120,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定义1：函数在某点处极限"><a href="#定义1：函数在某点处极限" class="headerlink" title="定义1：函数在某点处极限"></a>定义1：函数在某点处极限</h4><blockquote>
-<p>设函数$f$在点$x_0$的近旁有定义，但$x_0$这一点自身可以是例外，设$l$是一个实数，如果对$\forall \varepsilon &gt; 0$，$\exists \delta&gt;0$，使得对一切满足等式$0 &lt; |x-x_0| &lt; \delta$都有</p>
-<script type="math/tex; mode=display">
-    |f(x) - l| < \varepsilon</script><p>则称当$x$趋于点$x_0$时函数$f$有极限$l$，记作</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{x \to x_0} f(x) = l</script><p>也可以记作</p>
-<script type="math/tex; mode=display">
-    f(x) \to l (x \to x_0)</script></blockquote>
+          <h4 id="定义1函数在某点处极限">定义1：函数在某点处极限</h4>
+<blockquote>
+<p>设函数<span class="math inline">\(f\)</span>在点<span
+class="math inline">\(x_0\)</span>的近旁有定义，但<span
+class="math inline">\(x_0\)</span>这一点自身可以是例外，设<span
+class="math inline">\(l\)</span>是一个实数，如果对<span
+class="math inline">\(\forall \varepsilon &gt; 0\)</span>，<span
+class="math inline">\(\exists
+\delta&gt;0\)</span>，使得对一切满足等式<span class="math inline">\(0
+&lt; |x-x_0| &lt; \delta\)</span>都有<br />
+<span class="math display">\[
+    |f(x) - l| &lt; \varepsilon
+\]</span><br />
+则称当<span class="math inline">\(x\)</span>趋于点<span
+class="math inline">\(x_0\)</span>时函数<span
+class="math inline">\(f\)</span>有极限<span
+class="math inline">\(l\)</span>，记作<br />
+<span class="math display">\[
+    \lim \limits_{x \to x_0} f(x) = l
+\]</span><br />
+也可以记作<br />
+<span class="math display">\[
+    f(x) \to l (x \to x_0)
+\]</span></p>
+</blockquote>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/11/17/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%901/#more" rel="contents">
@@ -1289,13 +1293,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

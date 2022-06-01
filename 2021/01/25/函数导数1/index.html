@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定义1：导数 设函数$f$在$x_0$的近旁处有定义，如果极限      \lim \limits_{h \to 0} \frac{f(x_0+h) - f(x_0)}{h}存在且有限，则称这个极限值为$f$在点$x_0$的导数，记作$f^{\prime}(x_0)$，并称函数$f$在点$x_0$处可导。">
+  <meta name="description" content="定义1：导数  设函数\(f\)在\(x_0\)的近旁处有定义，如果极限 \[     \lim \limits_{h \to 0} \frac{f(x_0+h) - f(x_0)}{h} \] 存在且有限，则称这个极限值为\(f\)在点\(x_0\)的导数，记作\(f^{\prime}(x_0)\)，并称函数\(f\)在点\(x_0\)处可导。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数导数一：导数的定义与基本性质">
 <meta property="og:url" content="http://yoursite.com/2021/01/25/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B01/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定义1：导数 设函数$f$在$x_0$的近旁处有定义，如果极限      \lim \limits_{h \to 0} \frac{f(x_0+h) - f(x_0)}{h}存在且有限，则称这个极限值为$f$在点$x_0$的导数，记作$f^{\prime}(x_0)$，并称函数$f$在点$x_0$处可导。">
+<meta property="og:description" content="定义1：导数  设函数\(f\)在\(x_0\)的近旁处有定义，如果极限 \[     \lim \limits_{h \to 0} \frac{f(x_0+h) - f(x_0)}{h} \] 存在且有限，则称这个极限值为\(f\)在点\(x_0\)的导数，记作\(f^{\prime}(x_0)\)，并称函数\(f\)在点\(x_0\)处可导。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-25T14:22:38.000Z">
-<meta property="article:modified_time" content="2022-05-17T05:15:32.627Z">
+<meta property="article:modified_time" content="2021-01-25T14:22:38.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数导数">
@@ -79,7 +79,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -219,13 +223,6 @@
 
               <time title="创建时间：2021-01-25 22:22:38" itemprop="dateCreated datePublished" datetime="2021-01-25T22:22:38+08:00">2021-01-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-17 13:15:32" itemprop="dateModified" datetime="2022-05-17T13:15:32+08:00">2022-05-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -249,7 +246,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.4k</span>
+              <span>4.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -268,110 +265,294 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="定义1：导数"><a href="#定义1：导数" class="headerlink" title="定义1：导数"></a>定义1：导数</h4><blockquote>
-<p>设函数$f$在$x_0$的近旁处有定义，如果极限</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{h \to 0} \frac{f(x_0+h) - f(x_0)}{h}</script><p>存在且有限，则称这个极限值为$f$在点$x_0$的导数，记作$f^{\prime}(x_0)$，并称函数$f$在点$x_0$处可导。</p>
+        <h4 id="定义1导数">定义1：导数</h4>
+<blockquote>
+<p>设函数<span class="math inline">\(f\)</span>在<span
+class="math inline">\(x_0\)</span>的近旁处有定义，如果极限<br />
+<span class="math display">\[
+    \lim \limits_{h \to 0} \frac{f(x_0+h) - f(x_0)}{h}
+\]</span><br />
+存在且有限，则称这个极限值为<span
+class="math inline">\(f\)</span>在点<span
+class="math inline">\(x_0\)</span>的导数，记作<span
+class="math inline">\(f^{\prime}(x_0)\)</span>，并称函数<span
+class="math inline">\(f\)</span>在点<span
+class="math inline">\(x_0\)</span>处可导。</p>
 </blockquote>
-<a id="more"></a>
-<h4 id="定义2：单边导数"><a href="#定义2：单边导数" class="headerlink" title="定义2：单边导数"></a>定义2：单边导数</h4><blockquote>
-<p>设函数$f$在点$x_0$的右边$[x_0,x_0+r)$上有定义，其中$r&gt;0$，若极限</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{h \to 0^+} \frac{f(x_0 + h) - f(x_0)}{h}</script><p>存在且有限，则称此极限为函数$f$在点$x_0$的右导数，记作$f_+^{\prime}(x_0)$。 <br/><br>类似地，设函数$f$在点$x_0$的右边$(x_0-r,x_0]$上有定义，其中$r&gt;0$，若极限</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{h \to 0^-} \frac{f(x_0 + h) - f(x_0)}{h}</script><p>存在且有限，则称此极限为函数$f$在点$x_0$的左导数，记作$f_-^{\prime}(x_0)$。</p>
+<span id="more"></span>
+<h4 id="定义2单边导数">定义2：单边导数</h4>
+<blockquote>
+<p>设函数<span class="math inline">\(f\)</span>在点<span
+class="math inline">\(x_0\)</span>的右边<span
+class="math inline">\([x_0,x_0+r)\)</span>上有定义，其中<span
+class="math inline">\(r&gt;0\)</span>，若极限<br />
+<span class="math display">\[
+    \lim \limits_{h \to 0^+} \frac{f(x_0 + h) - f(x_0)}{h}
+\]</span><br />
+存在且有限，则称此极限为函数<span
+class="math inline">\(f\)</span>在点<span
+class="math inline">\(x_0\)</span>的右导数，记作<span
+class="math inline">\(f_+^{\prime}(x_0)\)</span>。<br />
+类似地，设函数<span class="math inline">\(f\)</span>在点<span
+class="math inline">\(x_0\)</span>的右边<span
+class="math inline">\((x_0-r,x_0]\)</span>上有定义，其中<span
+class="math inline">\(r&gt;0\)</span>，若极限<br />
+<span class="math display">\[
+    \lim \limits_{h \to 0^-} \frac{f(x_0 + h) - f(x_0)}{h}
+\]</span><br />
+存在且有限，则称此极限为函数<span
+class="math inline">\(f\)</span>在点<span
+class="math inline">\(x_0\)</span>的左导数，记作<span
+class="math inline">\(f_-^{\prime}(x_0)\)</span>。</p>
 </blockquote>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>函数$f$在点$x_0$处可导的充分必要条件是$f$在$x_0$处的左、右导数存在且相等，即$f^\prime(x_0) = f_-^\prime(x_0) = f_+^\prime(x_0)$。</p>
+<h4 id="定理1">定理1</h4>
+<blockquote>
+<p>函数<span class="math inline">\(f\)</span>在点<span
+class="math inline">\(x_0\)</span>处可导的充分必要条件是<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(x_0\)</span>处的左、右导数存在且相等，即<span
+class="math inline">\(f^\prime(x_0) = f_-^\prime(x_0) =
+f_+^\prime(x_0)\)</span>。</p>
 </blockquote>
 <p>证：由定义1与定义2易证。</p>
 <p>Q.E.D.</p>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>若函数$f$在点$x_0$处可导，则$f$必在$x_0$处连续。</p>
+<h4 id="定理2">定理2</h4>
+<blockquote>
+<p>若函数<span class="math inline">\(f\)</span>在点<span
+class="math inline">\(x_0\)</span>处可导，则<span
+class="math inline">\(f\)</span>必在<span
+class="math inline">\(x_0\)</span>处连续。</p>
 </blockquote>
-<p>证：记$f$在$x_0$处的导数为$f^\prime(x_0)$，于是有</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{x \to x_0} (f(x) - f(x_0)) = \lim \limits_{x \to x_0} \frac{f(x) - f(x_0)}{x-x_0} \cdot (x-x_0)</script><p>上式中令$x-x_0 = h$，可得</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{x \to x_0} (f(x) - f(x_0)) = \lim \limits_{h \to 0} \frac{f(x_0+h) - f(x_0)}{h} \cdot h = f^\prime(x_0) \cdot 0 = 0</script><p>Q.E.D.</p>
-<h4 id="定义3"><a href="#定义3" class="headerlink" title="定义3"></a>定义3</h4><blockquote>
-<p>如果函数$f$在开区间$(a,b)$中的每一点可导，则称函数$f$在$(a,b)$上可导；如果函数$f$在$(a,b)$上可导，且在点$a$处有右导数，在点$b$处有左导数，则称函数$f$在闭区间$[a,b]$上可导。类似地，可以定义函数$f$在$[a,b)$与$(a,b]$上可导。</p>
-</blockquote>
-<h4 id="定理3：求导的四则运算"><a href="#定理3：求导的四则运算" class="headerlink" title="定理3：求导的四则运算"></a>定理3：求导的四则运算</h4><blockquote>
-<p>设函数$f$和$g$在点$x$处可导，则$f \pm g,fg$也在$x$处可导，如果$g(x)\ne 0$，那么函数$f/g$也在$x_0$处可导。精确地说，我们有以下公式：<br/><br>（1）$(f \pm g)^\prime (x) = f^\prime(x) \pm g^\prime(x)$ <br/><br>（2）$(fg)^\prime (x) = f^\prime(x)g(x) + f(x)g^\prime(x)$ <br/><br>（3）$\displaystyle (\frac{f}{g})^\prime(x) = \frac{f^\prime(x)g(x) - f(x)g^\prime(x)}{g^2(x)}$</p>
-</blockquote>
-<p>证：（1）有</p>
-<script type="math/tex; mode=display">
-    \frac{(f \pm g) (x + h) - (f \pm g) (x)}{h} = \frac{f(x+h) - f(x)}{h} \pm \frac{g(x+h) - g(x)}{h}</script><p>令$h \to 0$，从而得到（1）式；<br/><br>（2） 有</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-    \frac{f(x+h)g(x+h) - f(x)g(x)}{h} & = \frac{f(x+h)g(x+h) - f(x)g(x+h) + f(x)g(x+h) - f(x)g(x)}{h} \\
-    & = \frac{f(x+h) - f(x)}{h} \cdot g(x+h) + \frac{g(x+h) - g(x)}{h} \cdot f(x)
-    \end{aligned}</script><p>上式中令$h \to 0$，即可得到（2）式；<br/><br>（3）有</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-        \frac{1}{h}\left(\frac{f(x+h)}{g(x+h)} - \frac{f(x)}{g(x)} \right) & = \frac{1}{h}\left( \frac{f(x+h)g(x) - f(x)g(x+h)}{g(x+h)g(x)} \right) \\
-        & = \frac{1}{g(x+h)g(x)} \left( \frac{f(x+h) - f(x)}{h}g(x) - \frac{g(x+h) - g(x)}{h} f(x) \right)
-    \end{aligned}</script><p>令$h \to 0$，即可得（3）式。</p>
+<p>证：记<span class="math inline">\(f\)</span>在<span
+class="math inline">\(x_0\)</span>处的导数为<span
+class="math inline">\(f^\prime(x_0)\)</span>，于是有<br />
+<span class="math display">\[
+    \lim \limits_{x \to x_0} (f(x) - f(x_0)) = \lim \limits_{x \to x_0}
+\frac{f(x) - f(x_0)}{x-x_0} \cdot (x-x_0)
+\]</span><br />
+上式中令<span class="math inline">\(x-x_0 = h\)</span>，可得<br />
+<span class="math display">\[
+    \lim \limits_{x \to x_0} (f(x) - f(x_0)) = \lim \limits_{h \to 0}
+\frac{f(x_0+h) - f(x_0)}{h} \cdot h = f^\prime(x_0) \cdot 0 = 0
+\]</span></p>
 <p>Q.E.D.</p>
-<h4 id="定理4：链式法则"><a href="#定理4：链式法则" class="headerlink" title="定理4：链式法则"></a>定理4：链式法则</h4><blockquote>
-<p>设函数$\varphi$在点$t_0$处可导，函数$f$在点$x_0=\varphi(t_0)$处可导，那么复合函数$f\circ \varphi$在点$t_0$处可导，且</p>
-<script type="math/tex; mode=display">
-    (f \circ g)^\prime (t_0) = f^\prime(\varphi(t_0))\varphi^\prime(t_0)</script></blockquote>
-<p>证：记函数</p>
-<script type="math/tex; mode=display">
+<h4 id="定义3">定义3</h4>
+<blockquote>
+<p>如果函数<span class="math inline">\(f\)</span>在开区间<span
+class="math inline">\((a,b)\)</span>中的每一点可导，则称函数<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\((a,b)\)</span>上可导；如果函数<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\((a,b)\)</span>上可导，且在点<span
+class="math inline">\(a\)</span>处有右导数，在点<span
+class="math inline">\(b\)</span>处有左导数，则称函数<span
+class="math inline">\(f\)</span>在闭区间<span
+class="math inline">\([a,b]\)</span>上可导。类似地，可以定义函数<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b)\)</span>与<span
+class="math inline">\((a,b]\)</span>上可导。</p>
+</blockquote>
+<h4 id="定理3求导的四则运算">定理3：求导的四则运算</h4>
+<blockquote>
+<p>设函数<span class="math inline">\(f\)</span>和<span
+class="math inline">\(g\)</span>在点<span
+class="math inline">\(x\)</span>处可导，则<span class="math inline">\(f
+\pm g,fg\)</span>也在<span
+class="math inline">\(x\)</span>处可导，如果<span
+class="math inline">\(g(x)\ne 0\)</span>，那么函数<span
+class="math inline">\(f/g\)</span>也在<span
+class="math inline">\(x_0\)</span>处可导。精确地说，我们有以下公式：<br />
+（1）<span class="math inline">\((f \pm g)^\prime (x) = f^\prime(x) \pm
+g^\prime(x)\)</span><br />
+（2）<span class="math inline">\((fg)^\prime (x) = f^\prime(x)g(x) +
+f(x)g^\prime(x)\)</span><br />
+（3）<span class="math inline">\(\displaystyle (\frac{f}{g})^\prime(x) =
+\frac{f^\prime(x)g(x) - f(x)g^\prime(x)}{g^2(x)}\)</span></p>
+</blockquote>
+<p>证：（1）有<br />
+<span class="math display">\[
+    \frac{(f \pm g) (x + h) - (f \pm g) (x)}{h} = \frac{f(x+h) -
+f(x)}{h} \pm \frac{g(x+h) - g(x)}{h}
+\]</span><br />
+令<span class="math inline">\(h \to 0\)</span>，从而得到（1）式；<br />
+（2） 有<br />
+<span class="math display">\[
+    \begin{aligned}
+    \frac{f(x+h)g(x+h) - f(x)g(x)}{h} &amp; = \frac{f(x+h)g(x+h) -
+f(x)g(x+h) + f(x)g(x+h) - f(x)g(x)}{h} \\
+    &amp; = \frac{f(x+h) - f(x)}{h} \cdot g(x+h) + \frac{g(x+h) -
+g(x)}{h} \cdot f(x)
+    \end{aligned}
+\]</span><br />
+上式中令<span class="math inline">\(h \to
+0\)</span>，即可得到（2）式；<br />
+（3）有<br />
+<span class="math display">\[
+    \begin{aligned}
+        \frac{1}{h}\left(\frac{f(x+h)}{g(x+h)} - \frac{f(x)}{g(x)}
+\right) &amp; = \frac{1}{h}\left( \frac{f(x+h)g(x) -
+f(x)g(x+h)}{g(x+h)g(x)} \right) \\
+        &amp; = \frac{1}{g(x+h)g(x)} \left( \frac{f(x+h) - f(x)}{h}g(x)
+- \frac{g(x+h) - g(x)}{h} f(x) \right)
+    \end{aligned}
+\]</span><br />
+令<span class="math inline">\(h \to 0\)</span>，即可得（3）式。</p>
+<p>Q.E.D.</p>
+<h4 id="定理4链式法则">定理4：链式法则</h4>
+<blockquote>
+<p>设函数<span class="math inline">\(\varphi\)</span>在点<span
+class="math inline">\(t_0\)</span>处可导，函数<span
+class="math inline">\(f\)</span>在点<span
+class="math inline">\(x_0=\varphi(t_0)\)</span>处可导，那么复合函数<span
+class="math inline">\(f\circ \varphi\)</span>在点<span
+class="math inline">\(t_0\)</span>处可导，且<br />
+<span class="math display">\[
+    (f \circ g)^\prime (t_0) = f^\prime(\varphi(t_0))\varphi^\prime(t_0)
+\]</span></p>
+</blockquote>
+<p>证：记函数<br />
+<span class="math display">\[
         g(x) = \left\{
              \begin{aligned}
-                & \frac{f(x) - f(x_0)}{x - x_0}  \quad &x \ne x_0\\
-                & f^\prime(x_0) \quad & x = x_0
+                &amp; \frac{f(x) - f(x_0)}{x - x_0}  \quad &amp;x \ne
+x_0\\
+                &amp; f^\prime(x_0) \quad &amp; x = x_0
              \end{aligned}
-             \right.</script><p>可知</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{x \to x_0} g(x) = \lim \limits_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} = f^\prime(x_0) = g(x_0)</script><p>所以$g(x)$在$x_0$处连续。<br>（1）当$\varphi(t) \ne \varphi(t_0)$时，有</p>
-<script type="math/tex; mode=display">
-    \frac{f(\varphi(t)) - f(\varphi(t_0))}{t-t_0} = \frac{f(\varphi(t)) - f(\varphi(t_0))}{\varphi(t)-\varphi(t_0)} \cdot \frac{\varphi(t) - \varphi(t_0)}{t - t_0} = g(\varphi(t)) \cdot \frac{\varphi(t) - \varphi(t_0)}{t - t_0}</script><p>（2）当$\varphi(t) = \varphi(t_0)$时，有</p>
-<script type="math/tex; mode=display">
-    0 = \frac{f(\varphi(t)) - f(\varphi(t_0))}{t-t_0} = g(\varphi(t)) \cdot \frac{\varphi(t) - \varphi(t_0)}{t - t_0} = 0</script><p>从而有</p>
-<script type="math/tex; mode=display">
-   \frac{f(\varphi(t)) - f(\varphi(t_0))}{t-t_0} = g(\varphi(t)) \cdot \frac{\varphi(t) - \varphi(t_0)}{t - t_0} \tag 1</script><p>又由于</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{t \to t_0} g(\varphi(t)) = g(\varphi(t_0)) = g(x_0) = f^\prime(x_0)</script><p>再令（1）式中$t \to t_0$，可得</p>
-<script type="math/tex; mode=display">
-    (f \circ g)^\prime (t) = f^\prime(x_0) \varphi^\prime(t_0) = f^\prime(\varphi(t_0))\varphi^\prime(t_0)</script><p>Q.E.D.</p>
-<h4 id="定理5：反函数的求导"><a href="#定理5：反函数的求导" class="headerlink" title="定理5：反函数的求导"></a>定理5：反函数的求导</h4><blockquote>
-<p>设$y = f(x)$在包含$x_0$的区间$I$上连续且严格单调。如果它在$x_0$处可导，且$f^\prime(x_0) \ne 0$，那么它的反函数$x = f^{-1}(y)$在$y_0 = f(x_0)$处可导，且</p>
-<script type="math/tex; mode=display">
-    (f^{-1})^\prime(y_0) = \frac{1}{f^\prime(x_0)}</script></blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    \frac{f^{-1}(y) - f^{-1}(y_0)}{y - y_0} = \frac{x - x_0}{f(x) - f(x_0)} = \left(\frac{f(x) - f(x_0)}{x - x_0}\right)^{-1}</script><p>又因为$f$单调连续，所以当$y \to y_0$时，有$x \to x_0$，令上式中$y \to y_0$，可得</p>
-<script type="math/tex; mode=display">
-    (f^{-1})^\prime(y_0) = (f^\prime(x_0))^{-1}</script><p>Q.E.D.</p>
-<h4 id="定义4：导函数与-n-阶导函数"><a href="#定义4：导函数与-n-阶导函数" class="headerlink" title="定义4：导函数与$n$阶导函数"></a>定义4：导函数与$n$阶导函数</h4><blockquote>
-<p>设函数$f$在区间$I$上可导，那么$f^\prime(x)(x \in I)$在$I$上定义了一个函数$f^\prime$，称之为$f$的导函数。如果$f^\prime$在$I$上可导，那么$(f^\prime)^\prime$称为$f$的二阶导函数，记作$f^{\prime\prime}$。由归纳可知，对任何正整数$n$，可以定义$f$的$n$阶导函数$f^{(n)}$。</p>
+             \right.
+\]</span><br />
+可知<br />
+<span class="math display">\[
+    \lim \limits_{x \to x_0} g(x) = \lim \limits_{x \to x_0} \frac{f(x)
+- f(x_0)}{x - x_0} = f^\prime(x_0) = g(x_0)
+\]</span><br />
+所以<span class="math inline">\(g(x)\)</span>在<span
+class="math inline">\(x_0\)</span>处连续。<br />
+（1）当<span class="math inline">\(\varphi(t) \ne
+\varphi(t_0)\)</span>时，有<br />
+<span class="math display">\[
+    \frac{f(\varphi(t)) - f(\varphi(t_0))}{t-t_0} = \frac{f(\varphi(t))
+- f(\varphi(t_0))}{\varphi(t)-\varphi(t_0)} \cdot \frac{\varphi(t) -
+\varphi(t_0)}{t - t_0} = g(\varphi(t)) \cdot \frac{\varphi(t) -
+\varphi(t_0)}{t - t_0}
+\]</span><br />
+（2）当<span class="math inline">\(\varphi(t) =
+\varphi(t_0)\)</span>时，有<br />
+<span class="math display">\[
+    0 = \frac{f(\varphi(t)) - f(\varphi(t_0))}{t-t_0} = g(\varphi(t))
+\cdot \frac{\varphi(t) - \varphi(t_0)}{t - t_0} = 0
+\]</span><br />
+从而有<br />
+<span class="math display">\[
+   \frac{f(\varphi(t)) - f(\varphi(t_0))}{t-t_0} = g(\varphi(t)) \cdot
+\frac{\varphi(t) - \varphi(t_0)}{t - t_0} \tag 1
+\]</span><br />
+又由于<br />
+<span class="math display">\[
+    \lim \limits_{t \to t_0} g(\varphi(t)) = g(\varphi(t_0)) = g(x_0) =
+f^\prime(x_0)
+\]</span><br />
+再令（1）式中<span class="math inline">\(t \to t_0\)</span>，可得<br />
+<span class="math display">\[
+    (f \circ g)^\prime (t) = f^\prime(x_0) \varphi^\prime(t_0) =
+f^\prime(\varphi(t_0))\varphi^\prime(t_0)
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理5反函数的求导">定理5：反函数的求导</h4>
+<blockquote>
+<p>设<span class="math inline">\(y = f(x)\)</span>在包含<span
+class="math inline">\(x_0\)</span>的区间<span
+class="math inline">\(I\)</span>上连续且严格单调。如果它在<span
+class="math inline">\(x_0\)</span>处可导，且<span
+class="math inline">\(f^\prime(x_0) \ne 0\)</span>，那么它的反函数<span
+class="math inline">\(x = f^{-1}(y)\)</span>在<span
+class="math inline">\(y_0 = f(x_0)\)</span>处可导，且<br />
+<span class="math display">\[
+    (f^{-1})^\prime(y_0) = \frac{1}{f^\prime(x_0)}
+\]</span></p>
 </blockquote>
-<h4 id="定理6：Leibniz"><a href="#定理6：Leibniz" class="headerlink" title="定理6：Leibniz"></a>定理6：Leibniz</h4><blockquote>
-<p>设函数$f$与$g$在区间$I$上都有$n$阶导数，那么乘积$fg$在区间$I$上也有$n$阶导数，并且</p>
-<script type="math/tex; mode=display">
-    (fg)^{(n)} = \sum_{k=0}^n \binom{n}{k} f^{(n-k)}g^{(k)}</script><p>这里$f^{(0)} = f, g^{(0)} = g$，其中组合系数</p>
-<script type="math/tex; mode=display">
-    \binom{n}{k} = \frac{n!}{(n-k)!k!} \quad (k = 0,1,2,\cdots)</script></blockquote>
-<p>证：我们对$n$矩形归纳。当$n = 1$时，命题显然成立。现假设$m \ge 1$时，有</p>
-<script type="math/tex; mode=display">
-    (fg)^{(m)} = \sum_{k=0}^m \binom{m}{k} f^{(m-k)}g^{(k)}</script><p>这时对上式两边求导，得</p>
-<script type="math/tex; mode=display">
+<p>证：由于<br />
+<span class="math display">\[
+    \frac{f^{-1}(y) - f^{-1}(y_0)}{y - y_0} = \frac{x - x_0}{f(x) -
+f(x_0)} = \left(\frac{f(x) - f(x_0)}{x - x_0}\right)^{-1}
+\]</span><br />
+又因为<span class="math inline">\(f\)</span>单调连续，所以当<span
+class="math inline">\(y \to y_0\)</span>时，有<span
+class="math inline">\(x \to x_0\)</span>，令上式中<span
+class="math inline">\(y \to y_0\)</span>，可得<br />
+<span class="math display">\[
+    (f^{-1})^\prime(y_0) = (f^\prime(x_0))^{-1}
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定义4导函数与n阶导函数">定义4：导函数与<span
+class="math inline">\(n\)</span>阶导函数</h4>
+<blockquote>
+<p>设函数<span class="math inline">\(f\)</span>在区间<span
+class="math inline">\(I\)</span>上可导，那么<span
+class="math inline">\(f^\prime(x)(x \in I)\)</span>在<span
+class="math inline">\(I\)</span>上定义了一个函数<span
+class="math inline">\(f^\prime\)</span>，称之为<span
+class="math inline">\(f\)</span>的导函数。如果<span
+class="math inline">\(f^\prime\)</span>在<span
+class="math inline">\(I\)</span>上可导，那么<span
+class="math inline">\((f^\prime)^\prime\)</span>称为<span
+class="math inline">\(f\)</span>的二阶导函数，记作<span
+class="math inline">\(f^{\prime\prime}\)</span>。由归纳可知，对任何正整数<span
+class="math inline">\(n\)</span>，可以定义<span
+class="math inline">\(f\)</span>的<span
+class="math inline">\(n\)</span>阶导函数<span
+class="math inline">\(f^{(n)}\)</span>。</p>
+</blockquote>
+<h4 id="定理6leibniz">定理6：Leibniz</h4>
+<blockquote>
+<p>设函数<span class="math inline">\(f\)</span>与<span
+class="math inline">\(g\)</span>在区间<span
+class="math inline">\(I\)</span>上都有<span
+class="math inline">\(n\)</span>阶导数，那么乘积<span
+class="math inline">\(fg\)</span>在区间<span
+class="math inline">\(I\)</span>上也有<span
+class="math inline">\(n\)</span>阶导数，并且<br />
+<span class="math display">\[
+    (fg)^{(n)} = \sum_{k=0}^n \binom{n}{k} f^{(n-k)}g^{(k)}
+\]</span><br />
+这里<span class="math inline">\(f^{(0)} = f, g^{(0)} =
+g\)</span>，其中组合系数<br />
+<span class="math display">\[
+    \binom{n}{k} = \frac{n!}{(n-k)!k!} \quad (k = 0,1,2,\cdots)
+\]</span></p>
+</blockquote>
+<p>证：我们对<span class="math inline">\(n\)</span>矩形归纳。当<span
+class="math inline">\(n = 1\)</span>时，命题显然成立。现假设<span
+class="math inline">\(m \ge 1\)</span>时，有<br />
+<span class="math display">\[
+    (fg)^{(m)} = \sum_{k=0}^m \binom{m}{k} f^{(m-k)}g^{(k)}
+\]</span><br />
+这时对上式两边求导，得<br />
+<span class="math display">\[
     \begin{aligned}
-        (fg)^{(m+1)} & = \sum_{k=0}^m \binom{m}{k} (f^{(m-k)}g^{(k)})^\prime \\
-        & = \sum_{k=0}^m \binom{m}{k} (f^{(m-k+1)}g^{(k)} + f^{(m-k)}g^{(k+1)}) \\
-        & = \binom{m}{0}f^{(m+1)}g^{(0)} + \sum_{k=1}^m \left(\binom{m}{k}  +\binom{m}{k-1}\right)  f^{(m-k+1)}g^{(k)} + \binom{m}{m}f^{(m+1)}g^{(0)}
-    \end{aligned}</script><p>而</p>
-<script type="math/tex; mode=display">
+        (fg)^{(m+1)} &amp; = \sum_{k=0}^m \binom{m}{k}
+(f^{(m-k)}g^{(k)})^\prime \\
+        &amp; = \sum_{k=0}^m \binom{m}{k} (f^{(m-k+1)}g^{(k)} +
+f^{(m-k)}g^{(k+1)}) \\
+        &amp; = \binom{m}{0}f^{(m+1)}g^{(0)} + \sum_{k=1}^m
+\left(\binom{m}{k}  +\binom{m}{k-1}\right)  f^{(m-k+1)}g^{(k)} +
+\binom{m}{m}f^{(m+1)}g^{(0)}
+    \end{aligned}
+\]</span><br />
+而<br />
+<span class="math display">\[
     \begin{aligned}
-        \binom{m}{k} + \binom{m}{k-1} &= \frac{m!}{(m-k)!k!} + \frac{m!}{(m-k+1)!(k-1)!} \\
-        & = \frac{m!(m-k+1+k)}{(m-k+1)!k!} = \frac{(m+1)!}{(m-k+1)!k!} = \binom{m+1}{k}
-    \end{aligned}</script><p>且$\binom{m}{0} = \binom{m+1}{0}，\binom{m}{m} = \binom{m+1}{m+1}$，从而</p>
-<script type="math/tex; mode=display">
-     (fg)^{(m+1)} = \sum_{k=0}^{m+1} \binom{m+1}{k} f^{(m+1-k)}g^{(k)}</script><p>即对$m+1$命题也成立。</p>
+        \binom{m}{k} + \binom{m}{k-1} &amp;= \frac{m!}{(m-k)!k!} +
+\frac{m!}{(m-k+1)!(k-1)!} \\
+        &amp; = \frac{m!(m-k+1+k)}{(m-k+1)!k!} =
+\frac{(m+1)!}{(m-k+1)!k!} = \binom{m+1}{k}
+    \end{aligned}
+\]</span><br />
+且<span class="math inline">\(\binom{m}{0} =
+\binom{m+1}{0}，\binom{m}{m} = \binom{m+1}{m+1}\)</span>，从而<br />
+<span class="math display">\[
+     (fg)^{(m+1)} = \sum_{k=0}^{m+1} \binom{m+1}{k} f^{(m+1-k)}g^{(k)}
+\]</span><br />
+即对<span class="math inline">\(m+1\)</span>命题也成立。</p>
 <p>Q.E.D.</p>
 
     </div>
@@ -459,7 +640,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1：导数"><span class="nav-text">定义1：导数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2：单边导数"><span class="nav-text">定义2：单边导数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义3"><span class="nav-text">定义3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3：求导的四则运算"><span class="nav-text">定理3：求导的四则运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4：链式法则"><span class="nav-text">定理4：链式法则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5：反函数的求导"><span class="nav-text">定理5：反函数的求导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义4：导函数与-n-阶导函数"><span class="nav-text">定义4：导函数与$n$阶导函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理6：Leibniz"><span class="nav-text">定理6：Leibniz</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%891%E5%AF%BC%E6%95%B0"><span class="nav-text">定义1：导数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%892%E5%8D%95%E8%BE%B9%E5%AF%BC%E6%95%B0"><span class="nav-text">定义2：单边导数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%893"><span class="nav-text">定义3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%863%E6%B1%82%E5%AF%BC%E7%9A%84%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97"><span class="nav-text">定理3：求导的四则运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%864%E9%93%BE%E5%BC%8F%E6%B3%95%E5%88%99"><span class="nav-text">定理4：链式法则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%865%E5%8F%8D%E5%87%BD%E6%95%B0%E7%9A%84%E6%B1%82%E5%AF%BC"><span class="nav-text">定理5：反函数的求导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%894%E5%AF%BC%E5%87%BD%E6%95%B0%E4%B8%8En%E9%98%B6%E5%AF%BC%E5%87%BD%E6%95%B0"><span class="nav-text">定义4：导函数与\(n\)阶导函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%866leibniz"><span class="nav-text">定理6：Leibniz</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -530,13 +711,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

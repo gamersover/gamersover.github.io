@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="描述该题来自于力扣第39题">
+  <meta name="description" content="描述 该题来自于力扣第39题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode题解39：组合总数">
 <meta property="og:url" content="http://yoursite.com/2022/05/21/leetcode%E9%A2%98%E8%A7%A339/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="描述该题来自于力扣第39题">
+<meta property="og:description" content="描述 该题来自于力扣第39题">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-21T02:26:20.000Z">
-<meta property="article:modified_time" content="2022-05-21T03:21:35.228Z">
+<meta property="article:modified_time" content="2022-05-21T02:26:20.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="leetcode">
 <meta property="article:tag" content="数组">
@@ -81,7 +81,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -218,9 +222,8 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-05-21 10:26:20 / 修改时间：11:21:35" itemprop="dateCreated datePublished" datetime="2022-05-21T10:26:20+08:00">2022-05-21</time>
+              <time title="创建时间：2022-05-21 10:26:20" itemprop="dateCreated datePublished" datetime="2022-05-21T10:26:20+08:00">2022-05-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,22 +267,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于<a href="https://leetcode.cn/problems/combination-sum/" target="_blank" rel="noopener">力扣第39题</a><br><a id="more"></a></p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这题简单分析发现可以用递归解决，但是递归的写法怎么写比较难想，将整个过程推理下来，发现是个深度优先遍历问题，以<code>candidates = [2,3,6,7], target=7</code>为例，取第一个数<code>2</code>，然后求<code>[2,3,6,7]</code>中和为<code>7-2=5</code>的解，即转化为了一个更小的相同问题，具体构建过程为一棵树，记录树中满足条件的所有路径即可，具体做法：</p>
-<ol>
-<li><code>candidates</code>排序，使其递增；</li>
-<li>所有解的数组为<code>res</code>，当前记录路径为<code>tmp</code>，剩下的和为<code>target</code>，当前遍历的数在<code>candidates</code>中的<code>index</code>；递归函数则为求解<code>candidates[index:]</code>中满足和为<code>target</code>的路径。</li>
-<li>进入递归函数主体，判断</li>
-<li>如果剩余的和<code>target==0</code>，表示当前路径满足条件，将<code>tmp</code>加入到<code>res</code>中；</li>
-<li>如果<code>target&lt;0</code>，表示当前路径已不满足，直接退出该函数，返回上一层</li>
-<li>如果<code>target&gt;0</code>，则需要求解以<code>candidates[index:]</code>中每个元素为根的树的满足条件的路径，从而遍历<code>i: [index, len(candidates)]</code>；遍历时执行以下操作；</li>
-<li>如果<code>target-candidates]i]&lt;0</code>，表示第一个数就已经超过了，由于数组是递增的，直接退出循环了，退出函数；否则将当前值<code>candidates[i]</code>加入到路径<code>tmp</code>中，由于数可以重复取，继续求解从<code>i</code>开始和为<code>target-candidates[i]</code>的路径，进入递归，当求解完毕后，在继续下次循环之前，需要回溯现场，将<code>candidates[i]</code>踢出<code>tmp</code></li>
-<li>当第3步的递归结束后，<code>res</code>就是所有解了</li>
-</ol>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><details open>
-<summary>python</summary>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combinationSum</span><span class="params">(self, candidates: List[int], target: int)</span> -&gt; List[List[int]]:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(candidates, target, combinations, tmp, index)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> target &lt; <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">if</span> target == <span class="number">0</span>:</span><br><span class="line">                combinations.append(tmp[:])</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(index, len(candidates)):</span><br><span class="line">                <span class="keyword">if</span> target - candidates[i] &lt; <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                tmp.append(candidates[i])</span><br><span class="line">                dfs(candidates, target - candidates[i], combinations, tmp, i)</span><br><span class="line">                tmp.pop()</span><br><span class="line"></span><br><span class="line">        combinations = []</span><br><span class="line">        tmp = []</span><br><span class="line">        candidates = sorted(candidates)</span><br><span class="line">        dfs(candidates, target, combinations, tmp, <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> combinations</span><br></pre></td></tr></table></figure>
+        <h2 id="描述">描述</h2>
+<p>该题来自于<a
+target="_blank" rel="noopener" href="https://leetcode.cn/problems/combination-sum/">力扣第39题</a><br />
+<span id="more"></span></p>
+<h2 id="分析">分析</h2>
+<p>这题简单分析发现可以用递归解决，但是递归的写法怎么写比较难想，将整个过程推理下来，发现是个深度优先遍历问题，以<code>candidates = [2,3,6,7], target=7</code>为例，取第一个数<code>2</code>，然后求<code>[2,3,6,7]</code>中和为<code>7-2=5</code>的解，即转化为了一个更小的相同问题，具体构建过程为一棵树，记录树中满足条件的所有路径即可，具体做法：<br />
+1. <code>candidates</code>排序，使其递增；<br />
+2.
+所有解的数组为<code>res</code>，当前记录路径为<code>tmp</code>，剩下的和为<code>target</code>，当前遍历的数在<code>candidates</code>中的<code>index</code>；递归函数则为求解<code>candidates[index:]</code>中满足和为<code>target</code>的路径。<br />
+3. 进入递归函数主体，判断<br />
+4.
+如果剩余的和<code>target==0</code>，表示当前路径满足条件，将<code>tmp</code>加入到<code>res</code>中；<br />
+5.
+如果<code>target&lt;0</code>，表示当前路径已不满足，直接退出该函数，返回上一层<br />
+6.
+如果<code>target&gt;0</code>，则需要求解以<code>candidates[index:]</code>中每个元素为根的树的满足条件的路径，从而遍历<code>i: [index, len(candidates)]</code>；遍历时执行以下操作；<br />
+7.
+如果<code>target-candidates]i]&lt;0</code>，表示第一个数就已经超过了，由于数组是递增的，直接退出循环了，退出函数；否则将当前值<code>candidates[i]</code>加入到路径<code>tmp</code>中，由于数可以重复取，继续求解从<code>i</code>开始和为<code>target-candidates[i]</code>的路径，进入递归，当求解完毕后，在继续下次循环之前，需要回溯现场，将<code>candidates[i]</code>踢出<code>tmp</code><br />
+8. 当第3步的递归结束后，<code>res</code>就是所有解了</p>
+<h2 id="算法">算法</h2>
+<details open>
+<summary>
+python
+</summary>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">combinationSum</span>(<span class="params">self, candidates: <span class="type">List</span>[<span class="built_in">int</span>], target: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]:</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">candidates, target, combinations, tmp, index</span>):</span><br><span class="line">            <span class="keyword">if</span> target &lt; <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">if</span> target == <span class="number">0</span>:</span><br><span class="line">                combinations.append(tmp[:])</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(index, <span class="built_in">len</span>(candidates)):</span><br><span class="line">                <span class="keyword">if</span> target - candidates[i] &lt; <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                tmp.append(candidates[i])</span><br><span class="line">                dfs(candidates, target - candidates[i], combinations, tmp, i)</span><br><span class="line">                tmp.pop()</span><br><span class="line"></span><br><span class="line">        combinations = []</span><br><span class="line">        tmp = []</span><br><span class="line">        candidates = <span class="built_in">sorted</span>(candidates)</span><br><span class="line">        dfs(candidates, target, combinations, tmp, <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> combinations</span><br></pre></td></tr></table></figure>
 </details>
 
     </div>
@@ -369,7 +381,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-text">算法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-text">算法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,13 +452,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

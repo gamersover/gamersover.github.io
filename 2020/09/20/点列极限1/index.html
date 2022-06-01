@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定义1 在$\mathbb{R}$上，设$\{a_n\}$是一个数列，$a \in \mathbb{R}$，若$\forall \varepsilon&gt;0$，$\exists N(\varepsilon)\in \mathbb{N^+}$，使得$\forall n&gt;N(\varepsilon)$，有$|a_n-a|&lt;\varepsilon$，则称$\{a_n\}$当$n$趋于无穷">
+  <meta name="description" content="定义1  在\(\mathbb{R}\)上，设\(\{a_n\}\)是一个数列，\(a \in \mathbb{R}\)，若\(\forall \varepsilon&gt;0\)，\(\exists N(\varepsilon)\in \mathbb{N^+}\)，使得\(\forall n&gt;N(\varepsilon)\)，有\(|a_n-a|&lt;\varepsilon\)，则称\(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="点列极限一：数列极限定义与基本性质">
 <meta property="og:url" content="http://yoursite.com/2020/09/20/%E7%82%B9%E5%88%97%E6%9E%81%E9%99%901/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定义1 在$\mathbb{R}$上，设$\{a_n\}$是一个数列，$a \in \mathbb{R}$，若$\forall \varepsilon&gt;0$，$\exists N(\varepsilon)\in \mathbb{N^+}$，使得$\forall n&gt;N(\varepsilon)$，有$|a_n-a|&lt;\varepsilon$，则称$\{a_n\}$当$n$趋于无穷">
+<meta property="og:description" content="定义1  在\(\mathbb{R}\)上，设\(\{a_n\}\)是一个数列，\(a \in \mathbb{R}\)，若\(\forall \varepsilon&gt;0\)，\(\exists N(\varepsilon)\in \mathbb{N^+}\)，使得\(\forall n&gt;N(\varepsilon)\)，有\(|a_n-a|&lt;\varepsilon\)，则称\(">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-20T02:16:27.000Z">
-<meta property="article:modified_time" content="2022-05-17T05:12:54.999Z">
+<meta property="article:modified_time" content="2020-09-20T02:16:27.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="点列极限">
@@ -80,7 +80,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,13 +224,6 @@
 
               <time title="创建时间：2020-09-20 10:16:27" itemprop="dateCreated datePublished" datetime="2020-09-20T10:16:27+08:00">2020-09-20</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-17 13:12:54" itemprop="dateModified" datetime="2022-05-17T13:12:54+08:00">2022-05-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -250,14 +247,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>441</span>
+              <span>6.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -269,121 +266,396 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a><span id="define1">定义1</span></h4><blockquote>
-<p>在$\mathbb{R}$上，设$\{a_n\}$是一个数列，$a \in \mathbb{R}$，若$\forall \varepsilon&gt;0$，$\exists N(\varepsilon)\in \mathbb{N^+}$，使得$\forall n&gt;N(\varepsilon)$，有$|a_n-a|&lt;\varepsilon$，则称$\{a_n\}$当$n$趋于无穷大时以$a$为极限，记为</p>
-<script type="math/tex; mode=display">
-    \lim_{n\to \infty} a_n = a</script><p>或</p>
-<script type="math/tex; mode=display">
-a_n \to a \quad (n \to \infty)</script><p>也称数列$\{a_n\}$收敛于$a$； 存在极限的数列称为收敛数列，否则称为发散数列。</p>
+        <h4 id="定义1"><span id="define1">定义1</span></h4>
+<blockquote>
+<p>在<span class="math inline">\(\mathbb{R}\)</span>上，设<span
+class="math inline">\(\{a_n\}\)</span>是一个数列，<span
+class="math inline">\(a \in \mathbb{R}\)</span>，若<span
+class="math inline">\(\forall \varepsilon&gt;0\)</span>，<span
+class="math inline">\(\exists N(\varepsilon)\in
+\mathbb{N^+}\)</span>，使得<span class="math inline">\(\forall
+n&gt;N(\varepsilon)\)</span>，有<span
+class="math inline">\(|a_n-a|&lt;\varepsilon\)</span>，则称<span
+class="math inline">\(\{a_n\}\)</span>当<span
+class="math inline">\(n\)</span>趋于无穷大时以<span
+class="math inline">\(a\)</span>为极限，记为<br />
+<span class="math display">\[
+    \lim_{n\to \infty} a_n = a
+\]</span><br />
+或<br />
+<span class="math display">\[
+a_n \to a \quad (n \to \infty)
+\]</span><br />
+也称数列<span class="math inline">\(\{a_n\}\)</span>收敛于<span
+class="math inline">\(a\)</span>；
+存在极限的数列称为收敛数列，否则称为发散数列。</p>
 </blockquote>
-<a id="more"></a>
-<h4 id="定理1：数列极限唯一性"><a href="#定理1：数列极限唯一性" class="headerlink" title="定理1：数列极限唯一性"></a>定理1：数列极限唯一性</h4><blockquote>
-<p>如果数列$\{a_n\}$收敛，那么极限只有一个。</p>
+<span id="more"></span>
+<h4 id="定理1数列极限唯一性">定理1：数列极限唯一性</h4>
+<blockquote>
+<p>如果数列<span
+class="math inline">\(\{a_n\}\)</span>收敛，那么极限只有一个。</p>
 </blockquote>
-<p>证：反证法。假设存在两个不同的极限$a, b$，不妨设 $a &lt; b$，由<a href="#define1">定义1</a>可知，对$\frac{b-a}{2}&gt;0$，存在$N_1 \in \mathbb{N^+}$，使得当$n&gt;N_1$时，有</p>
-<script type="math/tex; mode=display">
-    |a_n-a|<\frac{b-a}{2} \tag 1</script><p>同理存在$N_2 \in \mathbb{N^+}$，使得当$n&gt;N_2$时，有</p>
-<script type="math/tex; mode=display">
-    |a_n-b|<\frac{b-a}{2} \tag 2</script><p>令$N=\max(N_1,N_2)$，可知当$n&gt;N$时，式(1)(2)同时成立，由式(1)可得$a_n&lt;\frac{a+b}{2}$，由式(2)可得$a_n&gt;\frac{a+b}{2}$，从而矛盾，所以假设不成立，记极限唯一。<br>Q.E.D.</p>
-<h4 id="定义2"><a href="#定义2" class="headerlink" title="定义2"></a>定义2</h4><blockquote>
-<p>设$\{a_n\}$是一个数列，若$\exists A \in \mathbb{R}$，使得 $\forall n \in \mathbb{N^+}$ ，有$a_n \le A$，则称$\{a_n\}$有上界，$A$是此数列的一个上界；若$\exists B \in \mathbb{R}$，使得$\forall n \in \mathbb{N^+}$，有$a_n \ge B$，则称$\{a_n\}$有下界，$B$是此数列的一个下界；若数列既有上界又有下界，则称此数列是一个有界数列。</p>
+<p>证：反证法。假设存在两个不同的极限<span class="math inline">\(a,
+b\)</span>，不妨设 <span class="math inline">\(a &lt; b\)</span>，由<a
+href="#define1">定义1</a>可知，对<span
+class="math inline">\(\frac{b-a}{2}&gt;0\)</span>，存在<span
+class="math inline">\(N_1 \in \mathbb{N^+}\)</span>，使得当<span
+class="math inline">\(n&gt;N_1\)</span>时，有<br />
+<span class="math display">\[
+    |a_n-a|&lt;\frac{b-a}{2} \tag 1
+\]</span><br />
+同理存在<span class="math inline">\(N_2 \in
+\mathbb{N^+}\)</span>，使得当<span
+class="math inline">\(n&gt;N_2\)</span>时，有<br />
+<span class="math display">\[
+    |a_n-b|&lt;\frac{b-a}{2} \tag 2
+\]</span><br />
+令<span class="math inline">\(N=\max(N_1,N_2)\)</span>，可知当<span
+class="math inline">\(n&gt;N\)</span>时，式(1)(2)同时成立，由式(1)可得<span
+class="math inline">\(a_n&lt;\frac{a+b}{2}\)</span>，由式(2)可得<span
+class="math inline">\(a_n&gt;\frac{a+b}{2}\)</span>，从而矛盾，所以假设不成立，记极限唯一。<br />
+Q.E.D.</p>
+<h4 id="定义2">定义2</h4>
+<blockquote>
+<p>设<span class="math inline">\(\{a_n\}\)</span>是一个数列，若<span
+class="math inline">\(\exists A \in \mathbb{R}\)</span>，使得 <span
+class="math inline">\(\forall n \in \mathbb{N^+}\)</span> ，有<span
+class="math inline">\(a_n \le A\)</span>，则称<span
+class="math inline">\(\{a_n\}\)</span>有上界，<span
+class="math inline">\(A\)</span>是此数列的一个上界；若<span
+class="math inline">\(\exists B \in \mathbb{R}\)</span>，使得<span
+class="math inline">\(\forall n \in \mathbb{N^+}\)</span>，有<span
+class="math inline">\(a_n \ge B\)</span>，则称<span
+class="math inline">\(\{a_n\}\)</span>有下界，<span
+class="math inline">\(B\)</span>是此数列的一个下界；若数列既有上界又有下界，则称此数列是一个有界数列。</p>
 </blockquote>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a><span id="theorem2">定理2</span></h4><blockquote>
+<h4 id="定理2"><span id="theorem2">定理2</span></h4>
+<blockquote>
 <p>收敛数列是有界的。</p>
 </blockquote>
-<p>证：设数列$\{a_n\}$收敛于$a$，由<a href="#define1">定义1</a>可知，对于$1&gt;0$，存在$N \in \mathbb{N^+}$，使得当$n &gt; N$时，有$|a_n-a| &lt; 1$，从而$|a_n|=|a_n-a+a|&lt;=|a_n-a|+|a|&lt;1+|a|$，令$M=|a_1|+|a_2|+\cdots+|a_N|+|a|+1$，可知对所有的$n \in \mathbb{N^+}$，有$|a_n|&lt;M$。<br>Q.E.D.</p>
-<h4 id="定义3"><a href="#定义3" class="headerlink" title="定义3"></a>定义3</h4><blockquote>
-<p>设$\{a_n\}$是一个数列，$k_i \in \mathbb{N^+} (i=1,2,3,\cdots)$，且满足$k_1&lt;k_2&lt;k_3&lt;\cdots$，那么数列$\{a_{k_n}\}$称为$\{a_n\}$的一个子列。</p>
+<p>证：设数列<span class="math inline">\(\{a_n\}\)</span>收敛于<span
+class="math inline">\(a\)</span>，由<a
+href="#define1">定义1</a>可知，对于<span
+class="math inline">\(1&gt;0\)</span>，存在<span class="math inline">\(N
+\in \mathbb{N^+}\)</span>，使得当<span class="math inline">\(n &gt;
+N\)</span>时，有<span class="math inline">\(|a_n-a| &lt;
+1\)</span>，从而<span
+class="math inline">\(|a_n|=|a_n-a+a|&lt;=|a_n-a|+|a|&lt;1+|a|\)</span>，令<span
+class="math inline">\(M=|a_1|+|a_2|+\cdots+|a_N|+|a|+1\)</span>，可知对所有的<span
+class="math inline">\(n \in \mathbb{N^+}\)</span>，有<span
+class="math inline">\(|a_n|&lt;M\)</span>。<br />
+Q.E.D.</p>
+<h4 id="定义3">定义3</h4>
+<blockquote>
+<p>设<span class="math inline">\(\{a_n\}\)</span>是一个数列，<span
+class="math inline">\(k_i \in \mathbb{N^+}
+(i=1,2,3,\cdots)\)</span>，且满足<span
+class="math inline">\(k_1&lt;k_2&lt;k_3&lt;\cdots\)</span>，那么数列<span
+class="math inline">\(\{a_{k_n}\}\)</span>称为<span
+class="math inline">\(\{a_n\}\)</span>的一个子列。</p>
 </blockquote>
-<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
-<p>设数列$\{a_n\}$的极限为$a$，那么该数列的任何一个子列都收敛于$a$。</p>
+<h4 id="定理3">定理3</h4>
+<blockquote>
+<p>设数列<span class="math inline">\(\{a_n\}\)</span>的极限为<span
+class="math inline">\(a\)</span>，那么该数列的任何一个子列都收敛于<span
+class="math inline">\(a\)</span>。</p>
 </blockquote>
-<p>证：任取$\{a_n\}$的一个子列$\{a_{k_n}\}，$由<a href="#define1">定义1</a>可知，任取$\varepsilon&gt;0$，存在$N\in \mathbb{N^+}$，使得当$n&gt;N$时，有$|a_n-a|&lt;\varepsilon$，而$k_n \ge n$，所以当$k_n \ge n &gt; N$时， 有$|a_{k_n}-a|&lt;\varepsilon$，所以$\{a_{k_n}\}$收敛于$a$。<br>Q.E.D.</p>
-<h4 id="定理4：极限的四则运算"><a href="#定理4：极限的四则运算" class="headerlink" title="定理4：极限的四则运算"></a>定理4：极限的四则运算</h4><blockquote>
-<p>设$\{a_n\}$与$\{b_n\}$都是收敛数列，则$\{a_n+b_n\}$，$\{a_nb_n\}$也是收敛数列，如果$\lim \limits_{n\to\infty}b_n \ne 0$，则$\{\frac{a_n}{b_n}\}$也收敛，并且有： <br /><br>（1）$\lim \limits_{n\to\infty}(a_n \pm b_n)=\lim \limits_{n\to\infty}a_n \pm \lim \limits_{n\to\infty}b_n$  <br /><br>（2）$\lim \limits_{n\to\infty}(a_nb_n)=\lim \limits_{n\to\infty}a_n \cdot \lim \limits_{n\to\infty}b_n$   <br /><br>（3）$\lim \limits_{n\to\infty}\frac{a_n}{b_n}=\frac{\lim \limits_{n\to\infty}a_n}{\lim \limits_{n\to\infty}b_n}$</p>
+<p>证：任取<span class="math inline">\(\{a_n\}\)</span>的一个子列<span
+class="math inline">\(\{a_{k_n}\}，\)</span>由<a
+href="#define1">定义1</a>可知，任取<span
+class="math inline">\(\varepsilon&gt;0\)</span>，存在<span
+class="math inline">\(N\in \mathbb{N^+}\)</span>，使得当<span
+class="math inline">\(n&gt;N\)</span>时，有<span
+class="math inline">\(|a_n-a|&lt;\varepsilon\)</span>，而<span
+class="math inline">\(k_n \ge n\)</span>，所以当<span
+class="math inline">\(k_n \ge n &gt; N\)</span>时， 有<span
+class="math inline">\(|a_{k_n}-a|&lt;\varepsilon\)</span>，所以<span
+class="math inline">\(\{a_{k_n}\}\)</span>收敛于<span
+class="math inline">\(a\)</span>。<br />
+Q.E.D.</p>
+<h4 id="定理4极限的四则运算">定理4：极限的四则运算</h4>
+<blockquote>
+<p>设<span class="math inline">\(\{a_n\}\)</span>与<span
+class="math inline">\(\{b_n\}\)</span>都是收敛数列，则<span
+class="math inline">\(\{a_n+b_n\}\)</span>，<span
+class="math inline">\(\{a_nb_n\}\)</span>也是收敛数列，如果<span
+class="math inline">\(\lim \limits_{n\to\infty}b_n \ne
+0\)</span>，则<span
+class="math inline">\(\{\frac{a_n}{b_n}\}\)</span>也收敛，并且有：<br />
+（1）<span class="math inline">\(\lim \limits_{n\to\infty}(a_n \pm
+b_n)=\lim \limits_{n\to\infty}a_n \pm \lim
+\limits_{n\to\infty}b_n\)</span><br />
+（2）<span class="math inline">\(\lim \limits_{n\to\infty}(a_nb_n)=\lim
+\limits_{n\to\infty}a_n \cdot \lim
+\limits_{n\to\infty}b_n\)</span><br />
+（3）<span class="math inline">\(\lim
+\limits_{n\to\infty}\frac{a_n}{b_n}=\frac{\lim
+\limits_{n\to\infty}a_n}{\lim \limits_{n\to\infty}b_n}\)</span></p>
 </blockquote>
-<p>证：设$\lim \limits_{n\to\infty}a_n=a$，$\lim \limits_{n\to\infty}b_n=b$</p>
-<p>（1）由<a href="#define1">定义1</a>可知，任取$\varepsilon&gt;0$，存在$N_1 \in \mathbb{N^+}$，使得当$n&gt;N_1$时，有$|a_n-a|&lt;\frac{\varepsilon}{2}$；存在$N_2 \in \mathbb{N^+}$，使得当$n&gt;N_2$时，有$|b_n-b|&lt;\frac{\varepsilon}{2}$；取$N=\max(N_1,N_2)$，可知当$n&gt;N$时，有</p>
-<script type="math/tex; mode=display">
+<p>证：设<span class="math inline">\(\lim
+\limits_{n\to\infty}a_n=a\)</span>，<span class="math inline">\(\lim
+\limits_{n\to\infty}b_n=b\)</span></p>
+<p>（1）由<a href="#define1">定义1</a>可知，任取<span
+class="math inline">\(\varepsilon&gt;0\)</span>，存在<span
+class="math inline">\(N_1 \in \mathbb{N^+}\)</span>，使得当<span
+class="math inline">\(n&gt;N_1\)</span>时，有<span
+class="math inline">\(|a_n-a|&lt;\frac{\varepsilon}{2}\)</span>；存在<span
+class="math inline">\(N_2 \in \mathbb{N^+}\)</span>，使得当<span
+class="math inline">\(n&gt;N_2\)</span>时，有<span
+class="math inline">\(|b_n-b|&lt;\frac{\varepsilon}{2}\)</span>；取<span
+class="math inline">\(N=\max(N_1,N_2)\)</span>，可知当<span
+class="math inline">\(n&gt;N\)</span>时，有<br />
+<span class="math display">\[
 \begin{aligned}
-    |(a_n \pm b_n) - (a \pm b)| & = |(a_n-a) \pm (b_n-b)| \\
-    & \le |a_n-a| + |b_n-b| \\
-    & < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
-\end{aligned}</script><p>（2） 由于$\{a_n\}$收敛，由<a href="#theorem2">定理2</a>可知$\{a_n\}$有界，即存在$M \in N^<em>$，使得$|a_n|&lt;M$对一切$n \in N^</em>$成立，从而有</p>
-<script type="math/tex; mode=display">
+    |(a_n \pm b_n) - (a \pm b)| &amp; = |(a_n-a) \pm (b_n-b)| \\
+    &amp; \le |a_n-a| + |b_n-b| \\
+    &amp; &lt; \frac{\varepsilon}{2} + \frac{\varepsilon}{2} =
+\varepsilon
+\end{aligned}
+\]</span></p>
+<p>（2） 由于<span class="math inline">\(\{a_n\}\)</span>收敛，由<a
+href="#theorem2">定理2</a>可知<span
+class="math inline">\(\{a_n\}\)</span>有界，即存在<span
+class="math inline">\(M \in N^*\)</span>，使得<span
+class="math inline">\(|a_n|&lt;M\)</span>对一切<span
+class="math inline">\(n \in N^*\)</span>成立，从而有<br />
+<span class="math display">\[
 \begin{aligned}
-    |a_nb_n-ab| & = |a_nb_n-a_nb+a_nb-ab| \\
-    & \le |a_n||b_n-b| + |b||a_n-a| \\
-    & \le M|b_n-b| + |b||a_n-a|
-\end{aligned}</script><p>类似（1），因为$\{a_n\}$，$\{b_n\}$分别收敛于$a,b$，所以对任意的$\varepsilon&gt;0$，存在$n \in N^*$，使得当$n&gt;N$时，有</p>
-<script type="math/tex; mode=display">
-    |a_n-a|<\frac{\varepsilon}{2(|b|+1)}， |b_n-b|<\frac{\varepsilon}{2M}</script><p>同时成立；从而</p>
-<script type="math/tex; mode=display">
-    |a_nb_n-ab| < M \frac{\varepsilon}{2M} + |b|\frac{\varepsilon}{2(|b|+1)} < \varepsilon</script><p>（3）先证明，当$b\ne0$时，有</p>
-<script type="math/tex; mode=display">
-   \lim \limits_{n\to\infty}\frac{1}{b_n}=\frac{1}{b}</script><p>对$\frac{|b|}{2}&gt;0$，存在$N_1 \in N^<em>$，当$n&gt;N^</em>$时，有</p>
-<script type="math/tex; mode=display">
-    |b_n-b|<\frac{|b|}{2}</script><p>此时，有$|b_n| \ge |b| - |b_n-b| &gt; \frac{|b|}{2} &gt; 0$，并且有</p>
-<script type="math/tex; mode=display">
-    \left|\frac{1}{b_n} - \frac{1}{b}\right| = \frac{|b_n - b|}{|b_nb|} \le \frac{2}{b^2} |b_n-b|</script><p>由于$\{b_n\}$收敛于$b$，对任意的$\varepsilon&gt;0$，存在$N_2\in N^*$，使得当$n&gt;N_2$时，有$|b_n-b|&lt;\frac{b^2}{2}\varepsilon$；从而当$n&gt;\max(N_1,N_2)$时，有</p>
-<script type="math/tex; mode=display">
-    \left|\frac{1}{b_n} - \frac{1}{b}\right| < \frac{2}{b^2}\frac{b^2}{2}\varepsilon=\varepsilon</script><p>所以</p>
-<script type="math/tex; mode=display">
-\lim \limits_{n\to\infty}\frac{1}{b_n}=\frac{1}{b}</script><p>再由前面已证的（2），可知</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{n\to\infty}\frac{a_n}{b_n}=\lim \limits_{n\to\infty}a_n(\frac{1}{b_n})=\frac{b}{a}</script><p>Q.E.D.</p>
-<h4 id="定理5：极限保号性"><a href="#定理5：极限保号性" class="headerlink" title="定理5：极限保号性"></a><span id="theorem5">定理5</span>：极限保号性</h4><blockquote>
-<p>（1）设$\lim \limits_{n\to\infty}a_n=a$，$\alpha，\beta$满足$\alpha &lt; a &lt; \beta$，那么当$n$充分大时，有$\alpha &lt; a_n &lt; \beta$。 <br /><br>（2）设$\lim \limits_{n\to\infty}a_n=a，\lim \limits_{n\to\infty}b_n=b$，且$a &lt; b$，那么当$n$充分大时，一定有$a_n &lt; b_n$。<br/><br>（3）设$\lim \limits_{n\to\infty}a_n=a，\lim \limits_{n\to\infty}b_n=b$，并且当$n$充分大时$a_n \le b_n$，那么有$a \le b$。<br/></p>
+    |a_nb_n-ab| &amp; = |a_nb_n-a_nb+a_nb-ab| \\
+    &amp; \le |a_n||b_n-b| + |b||a_n-a| \\
+    &amp; \le M|b_n-b| + |b||a_n-a|
+\end{aligned}
+\]</span><br />
+类似（1），因为<span class="math inline">\(\{a_n\}\)</span>，<span
+class="math inline">\(\{b_n\}\)</span>分别收敛于<span
+class="math inline">\(a,b\)</span>，所以对任意的<span
+class="math inline">\(\varepsilon&gt;0\)</span>，存在<span
+class="math inline">\(n \in N^*\)</span>，使得当<span
+class="math inline">\(n&gt;N\)</span>时，有<br />
+<span class="math display">\[
+    |a_n-a|&lt;\frac{\varepsilon}{2(|b|+1)}，
+|b_n-b|&lt;\frac{\varepsilon}{2M}
+\]</span><br />
+同时成立；从而<br />
+<span class="math display">\[
+    |a_nb_n-ab| &lt; M \frac{\varepsilon}{2M} +
+|b|\frac{\varepsilon}{2(|b|+1)} &lt; \varepsilon
+\]</span></p>
+<p>（3）先证明，当<span class="math inline">\(b\ne0\)</span>时，有<br />
+<span class="math display">\[
+   \lim \limits_{n\to\infty}\frac{1}{b_n}=\frac{1}{b}
+\]</span><br />
+对<span class="math inline">\(\frac{|b|}{2}&gt;0\)</span>，存在<span
+class="math inline">\(N_1 \in N^*\)</span>，当<span
+class="math inline">\(n&gt;N^*\)</span>时，有<br />
+<span class="math display">\[
+    |b_n-b|&lt;\frac{|b|}{2}
+\]</span><br />
+此时，有<span class="math inline">\(|b_n| \ge |b| - |b_n-b| &gt;
+\frac{|b|}{2} &gt; 0\)</span>，并且有<br />
+<span class="math display">\[
+    \left|\frac{1}{b_n} - \frac{1}{b}\right| = \frac{|b_n - b|}{|b_nb|}
+\le \frac{2}{b^2} |b_n-b|
+\]</span><br />
+由于<span class="math inline">\(\{b_n\}\)</span>收敛于<span
+class="math inline">\(b\)</span>，对任意的<span
+class="math inline">\(\varepsilon&gt;0\)</span>，存在<span
+class="math inline">\(N_2\in N^*\)</span>，使得当<span
+class="math inline">\(n&gt;N_2\)</span>时，有<span
+class="math inline">\(|b_n-b|&lt;\frac{b^2}{2}\varepsilon\)</span>；从而当<span
+class="math inline">\(n&gt;\max(N_1,N_2)\)</span>时，有<br />
+<span class="math display">\[
+    \left|\frac{1}{b_n} - \frac{1}{b}\right| &lt;
+\frac{2}{b^2}\frac{b^2}{2}\varepsilon=\varepsilon
+\]</span><br />
+所以<br />
+<span class="math display">\[
+\lim \limits_{n\to\infty}\frac{1}{b_n}=\frac{1}{b}
+\]</span><br />
+再由前面已证的（2），可知<br />
+<span class="math display">\[
+    \lim \limits_{n\to\infty}\frac{a_n}{b_n}=\lim
+\limits_{n\to\infty}a_n(\frac{1}{b_n})=\frac{b}{a}
+\]</span><br />
+Q.E.D.</p>
+<h4 id="定理5极限保号性"><span
+id="theorem5">定理5</span>：极限保号性</h4>
+<blockquote>
+<p>（1）设<span class="math inline">\(\lim
+\limits_{n\to\infty}a_n=a\)</span>，<span
+class="math inline">\(\alpha，\beta\)</span>满足<span
+class="math inline">\(\alpha &lt; a &lt; \beta\)</span>，那么当<span
+class="math inline">\(n\)</span>充分大时，有<span
+class="math inline">\(\alpha &lt; a_n &lt; \beta\)</span>。<br />
+（2）设<span class="math inline">\(\lim \limits_{n\to\infty}a_n=a，\lim
+\limits_{n\to\infty}b_n=b\)</span>，且<span class="math inline">\(a &lt;
+b\)</span>，那么当<span
+class="math inline">\(n\)</span>充分大时，一定有<span
+class="math inline">\(a_n &lt; b_n\)</span>。<br />
+（3）设<span class="math inline">\(\lim \limits_{n\to\infty}a_n=a，\lim
+\limits_{n\to\infty}b_n=b\)</span>，并且当<span
+class="math inline">\(n\)</span>充分大时<span class="math inline">\(a_n
+\le b_n\)</span>，那么有<span class="math inline">\(a \le
+b\)</span>。</p>
 </blockquote>
-<p>证：（1）对$\varepsilon = \beta-a&gt;0$，则存在$N_1 \in \mathbb{N^+}$，使得当$n&gt;N_1$时，有</p>
-<script type="math/tex; mode=display">
-    |a_n-a|<\beta-a \Rightarrow a_n<\beta</script><p>同理，对$\varepsilon = a-\alpha&gt;0$，则存在$N_2 \in \mathbb{N^+}$，使得当$n&gt;N_2$时，有</p>
-<script type="math/tex; mode=display">
-    |a_n-a|<a-\alpha \Rightarrow a_n>\alpha</script><p>从而当$n&gt;\max(N_1,N_2)$时，有</p>
-<script type="math/tex; mode=display">
-    \alpha < a <\beta</script><p>（2）取$m=\frac{a+b}{2}$，则有$a&lt;m&lt;b$，此时由（1）可知，当$n$充分大时，有</p>
-<script type="math/tex; mode=display">
-    a_n < m < b_n</script><p>（3）反证法。假设$a&gt;b$，则由（2）可知，当$n$充分大时，有$a_n&gt;b_n$，与条件$a_n \le b_n$矛盾，所以$a \le b$。</p>
+<p>证：（1）对<span class="math inline">\(\varepsilon =
+\beta-a&gt;0\)</span>，则存在<span class="math inline">\(N_1 \in
+\mathbb{N^+}\)</span>，使得当<span
+class="math inline">\(n&gt;N_1\)</span>时，有<br />
+<span class="math display">\[
+    |a_n-a|&lt;\beta-a \Rightarrow a_n&lt;\beta
+\]</span><br />
+同理，对<span class="math inline">\(\varepsilon =
+a-\alpha&gt;0\)</span>，则存在<span class="math inline">\(N_2 \in
+\mathbb{N^+}\)</span>，使得当<span
+class="math inline">\(n&gt;N_2\)</span>时，有<br />
+<span class="math display">\[
+    |a_n-a|&lt;a-\alpha \Rightarrow a_n&gt;\alpha
+\]</span><br />
+从而当<span
+class="math inline">\(n&gt;\max(N_1,N_2)\)</span>时，有<br />
+<span class="math display">\[
+    \alpha &lt; a &lt;\beta
+\]</span></p>
+<p>（2）取<span
+class="math inline">\(m=\frac{a+b}{2}\)</span>，则有<span
+class="math inline">\(a&lt;m&lt;b\)</span>，此时由（1）可知，当<span
+class="math inline">\(n\)</span>充分大时，有<br />
+<span class="math display">\[
+    a_n &lt; m &lt; b_n
+\]</span></p>
+<p>（3）反证法。假设<span
+class="math inline">\(a&gt;b\)</span>，则由（2）可知，当<span
+class="math inline">\(n\)</span>充分大时，有<span
+class="math inline">\(a_n&gt;b_n\)</span>，与条件<span
+class="math inline">\(a_n \le b_n\)</span>矛盾，所以<span
+class="math inline">\(a \le b\)</span>。</p>
 <p>Q.E.D.</p>
-<h4 id="定理6：夹逼定理"><a href="#定理6：夹逼定理" class="headerlink" title="定理6：夹逼定理"></a>定理6：夹逼定理</h4><blockquote>
-<p>三个实数域上的数列$\{a_n\},\{b_n\},\{c_n\}$，若满足</p>
-<script type="math/tex; mode=display">
-    a_n \le b_n \le c_n \quad  (n \in \mathbb{N^+})</script><p>若$\lim \limits_{n\to\infty}a_n=\lim \limits_{n\to\infty}c_n=a$，那么</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{n\to\infty}b_n = a</script></blockquote>
-<p>证：由<a href="#theorem5">定理5</a>的（3）可知，有</p>
-<script type="math/tex; mode=display">
-    a = \lim \limits_{n\to\infty}a_n \le \lim \limits_{n\to\infty}b_n \le \lim \limits_{n\to\infty}c_n = a</script><p>从而有</p>
-<script type="math/tex; mode=display">
-\lim \limits_{n\to\infty}b_n = a</script><p>Q.E.D.</p>
-<h4 id="定义4"><a href="#定义4" class="headerlink" title="定义4"></a>定义4</h4><blockquote>
-<p>如果数列$\{a_n\}$满足条件，对任何正数$A$，都存在$N\in \mathbb{N^+}$，使得当$n&gt;N$时，有$a_n&gt;A$，则称数列$\{a_n\}$趋向于$+\infty$，记作</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{n\to\infty}a_n = +\infty</script><p>如果对任何正数$A$，都存在$N\in \mathbb{N^+}$，使得当$n&gt;N$时，有$a_n&lt;-A$，则称数列$\{a_n\}$趋向于$-\infty$，记作</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{n\to\infty}a_n = -\infty</script></blockquote>
-<h4 id="定义5"><a href="#定义5" class="headerlink" title="定义5"></a>定义5</h4><blockquote>
-<p>如果收敛数列$\{a_n\}$的极限为0，则称该数列为无穷小数列，简称无穷小；如果$\lim \limits_{n\to\infty}|a_n|=\infty$，则称该数列趋向于$\infty$，记作$\lim \limits_{n\to\infty}a_n=\infty$，也称该数列为无穷大数列，简称无穷大。</p>
+<h4 id="定理6夹逼定理">定理6：夹逼定理</h4>
+<blockquote>
+<p>三个实数域上的数列<span
+class="math inline">\(\{a_n\},\{b_n\},\{c_n\}\)</span>，若满足<br />
+<span class="math display">\[
+    a_n \le b_n \le c_n \quad  (n \in \mathbb{N^+})
+\]</span><br />
+若<span class="math inline">\(\lim \limits_{n\to\infty}a_n=\lim
+\limits_{n\to\infty}c_n=a\)</span>，那么<br />
+<span class="math display">\[
+    \lim \limits_{n\to\infty}b_n = a
+\]</span></p>
 </blockquote>
-<h4 id="定义6：单调数列"><a href="#定义6：单调数列" class="headerlink" title="定义6：单调数列"></a>定义6：单调数列</h4><blockquote>
-<p>如果数列$\{a_n\}$满足</p>
-<script type="math/tex; mode=display">
-    a_n \le a_{n+1} \quad (n=1,2,\cdots)</script><p>则称此数列为递增数列；如果$\{a_n\}$满足</p>
-<script type="math/tex; mode=display">
-    a_n \ge a_{n+1} \quad (n=1,2,\cdots)</script><p>则称此数列为递减数列；如果上面两个不等式都是严格的，即$a_n &lt; a_{n+1}$（或$a_n &gt; a_{n+1}$）（$n=1,2,\cdots$），则称此数列为严格递增的（或严格递减的）</p>
+<p>证：由<a href="#theorem5">定理5</a>的（3）可知，有<br />
+<span class="math display">\[
+    a = \lim \limits_{n\to\infty}a_n \le \lim \limits_{n\to\infty}b_n
+\le \lim \limits_{n\to\infty}c_n = a
+\]</span><br />
+从而有<br />
+<span class="math display">\[
+\lim \limits_{n\to\infty}b_n = a
+\]</span><br />
+Q.E.D.</p>
+<h4 id="定义4">定义4</h4>
+<blockquote>
+<p>如果数列<span
+class="math inline">\(\{a_n\}\)</span>满足条件，对任何正数<span
+class="math inline">\(A\)</span>，都存在<span class="math inline">\(N\in
+\mathbb{N^+}\)</span>，使得当<span
+class="math inline">\(n&gt;N\)</span>时，有<span
+class="math inline">\(a_n&gt;A\)</span>，则称数列<span
+class="math inline">\(\{a_n\}\)</span>趋向于<span
+class="math inline">\(+\infty\)</span>，记作<br />
+<span class="math display">\[
+    \lim \limits_{n\to\infty}a_n = +\infty
+\]</span></p>
 </blockquote>
-<h4 id="定理7：单调且有界的数列一定有界。"><a href="#定理7：单调且有界的数列一定有界。" class="headerlink" title="定理7：单调且有界的数列一定有界。"></a>定理7：单调且有界的数列一定有界。</h4><p>证：不妨设数列$\{a_n\}$为递增的且有上界，利用实数都可以表示成十进制无尽小数的性质，将该数列的每项表示为无尽小数：</p>
-<script type="math/tex; mode=display">
+<blockquote>
+<p>如果对任何正数<span class="math inline">\(A\)</span>，都存在<span
+class="math inline">\(N\in \mathbb{N^+}\)</span>，使得当<span
+class="math inline">\(n&gt;N\)</span>时，有<span
+class="math inline">\(a_n&lt;-A\)</span>，则称数列<span
+class="math inline">\(\{a_n\}\)</span>趋向于<span
+class="math inline">\(-\infty\)</span>，记作<br />
+<span class="math display">\[
+    \lim \limits_{n\to\infty}a_n = -\infty
+\]</span></p>
+</blockquote>
+<h4 id="定义5">定义5</h4>
+<blockquote>
+<p>如果收敛数列<span
+class="math inline">\(\{a_n\}\)</span>的极限为0，则称该数列为无穷小数列，简称无穷小；如果<span
+class="math inline">\(\lim
+\limits_{n\to\infty}|a_n|=\infty\)</span>，则称该数列趋向于<span
+class="math inline">\(\infty\)</span>，记作<span
+class="math inline">\(\lim
+\limits_{n\to\infty}a_n=\infty\)</span>，也称该数列为无穷大数列，简称无穷大。</p>
+</blockquote>
+<h4 id="定义6单调数列">定义6：单调数列</h4>
+<blockquote>
+<p>如果数列<span class="math inline">\(\{a_n\}\)</span>满足<br />
+<span class="math display">\[
+    a_n \le a_{n+1} \quad (n=1,2,\cdots)
+\]</span><br />
+则称此数列为递增数列；如果<span
+class="math inline">\(\{a_n\}\)</span>满足<br />
+<span class="math display">\[
+    a_n \ge a_{n+1} \quad (n=1,2,\cdots)
+\]</span><br />
+则称此数列为递减数列；如果上面两个不等式都是严格的，即<span
+class="math inline">\(a_n &lt; a_{n+1}\)</span>（或<span
+class="math inline">\(a_n &gt; a_{n+1}\)</span>）（<span
+class="math inline">\(n=1,2,\cdots\)</span>），则称此数列为严格递增的（或严格递减的）</p>
+</blockquote>
+<h4
+id="定理7单调且有界的数列一定有界">定理7：单调且有界的数列一定有界。</h4>
+<p>证：不妨设数列<span
+class="math inline">\(\{a_n\}\)</span>为递增的且有上界，利用实数都可以表示成十进制无尽小数的性质，将该数列的每项表示为无尽小数：<br />
+<span class="math display">\[
     \begin{aligned}
-    a_1 & = A_1.b_{11}b_{12}\cdots \\
-    a_2 & = A_2.b_{21}b_{22}\cdots \\
-    a_3 & = A_3.b_{31}b_{32}\cdots \\
-    & \cdots
-    \end{aligned}</script><p>其中$A_1,A_2,A_3,\cdots$都是整数，而$b_{ij}$是0到9中的数。由于$\{a_n\}$有上界，从而$\{A_n\}$必有上界，记该数为$A$，而$\{a_n\}$又是单调递增的，从而存在$N_0 \in \mathbb{N^+}$，使得当$n \ge N_0$时，有$A_n=A$；此时考虑$\{a_n\}$数列$n \ge N_0$的项，对$b_{N_01},b_{(N_0+1)1},b_{(N_0+2)1},\cdots$类似前面的讨论，可知$\{b_{i1}\}(i \ge N_0)$存在上界，记为$x_1$，同时存在$N_1 \ge N_0$，使得当$n \ge N_1$时，有$b_{n1}=x_1$；对其他列类比讨论，可以得到一列数$x_1,x_2,x_3,\cdots$，以及相应的正整数$N_0 \le N_1 \le N_2 \le \cdots$。令$a=A.x_1x_2x_3\cdots$，下面证明$a$就是数列$\{a_n\}$的极限。任取$\varepsilon&gt;0$，总存在$m \in \mathbb{N^+}$，使得$10^{-m}&lt;\varepsilon$，而当$n&gt;N_m$，有$a_n$的整数部分和小数点后的前$m$位上的数与$a$完全一致，所以</p>
-<script type="math/tex; mode=display">
-    |a_n-a| < 10^{-m} < \varepsilon</script><p>从而证明了</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{n\to\infty}a_n = a</script>
+    a_1 &amp; = A_1.b_{11}b_{12}\cdots \\
+    a_2 &amp; = A_2.b_{21}b_{22}\cdots \\
+    a_3 &amp; = A_3.b_{31}b_{32}\cdots \\
+    &amp; \cdots
+    \end{aligned}
+\]</span><br />
+其中<span
+class="math inline">\(A_1,A_2,A_3,\cdots\)</span>都是整数，而<span
+class="math inline">\(b_{ij}\)</span>是0到9中的数。由于<span
+class="math inline">\(\{a_n\}\)</span>有上界，从而<span
+class="math inline">\(\{A_n\}\)</span>必有上界，记该数为<span
+class="math inline">\(A\)</span>，而<span
+class="math inline">\(\{a_n\}\)</span>又是单调递增的，从而存在<span
+class="math inline">\(N_0 \in \mathbb{N^+}\)</span>，使得当<span
+class="math inline">\(n \ge N_0\)</span>时，有<span
+class="math inline">\(A_n=A\)</span>；此时考虑<span
+class="math inline">\(\{a_n\}\)</span>数列<span class="math inline">\(n
+\ge N_0\)</span>的项，对<span
+class="math inline">\(b_{N_01},b_{(N_0+1)1},b_{(N_0+2)1},\cdots\)</span>类似前面的讨论，可知<span
+class="math inline">\(\{b_{i1}\}(i \ge N_0)\)</span>存在上界，记为<span
+class="math inline">\(x_1\)</span>，同时存在<span
+class="math inline">\(N_1 \ge N_0\)</span>，使得当<span
+class="math inline">\(n \ge N_1\)</span>时，有<span
+class="math inline">\(b_{n1}=x_1\)</span>；对其他列类比讨论，可以得到一列数<span
+class="math inline">\(x_1,x_2,x_3,\cdots\)</span>，以及相应的正整数<span
+class="math inline">\(N_0 \le N_1 \le N_2 \le \cdots\)</span>。令<span
+class="math inline">\(a=A.x_1x_2x_3\cdots\)</span>，下面证明<span
+class="math inline">\(a\)</span>就是数列<span
+class="math inline">\(\{a_n\}\)</span>的极限。任取<span
+class="math inline">\(\varepsilon&gt;0\)</span>，总存在<span
+class="math inline">\(m \in \mathbb{N^+}\)</span>，使得<span
+class="math inline">\(10^{-m}&lt;\varepsilon\)</span>，而当<span
+class="math inline">\(n&gt;N_m\)</span>，有<span
+class="math inline">\(a_n\)</span>的整数部分和小数点后的前<span
+class="math inline">\(m\)</span>位上的数与<span
+class="math inline">\(a\)</span>完全一致，所以<br />
+<span class="math display">\[
+    |a_n-a| &lt; 10^{-m} &lt; \varepsilon
+\]</span><br />
+从而证明了<br />
+<span class="math display">\[
+    \lim \limits_{n\to\infty}a_n = a
+\]</span></p>
+
     </div>
 
     
@@ -470,7 +742,7 @@ a_n \to a \quad (n \to \infty)</script><p>也称数列$\{a_n\}$收敛于$a$； �
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1：数列极限唯一性"><span class="nav-text">定理1：数列极限唯一性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义3"><span class="nav-text">定义3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4：极限的四则运算"><span class="nav-text">定理4：极限的四则运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5：极限保号性"><span class="nav-text">定理5：极限保号性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理6：夹逼定理"><span class="nav-text">定理6：夹逼定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义4"><span class="nav-text">定义4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义5"><span class="nav-text">定义5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义6：单调数列"><span class="nav-text">定义6：单调数列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理7：单调且有界的数列一定有界。"><span class="nav-text">定理7：单调且有界的数列一定有界。</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%891"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861%E6%95%B0%E5%88%97%E6%9E%81%E9%99%90%E5%94%AF%E4%B8%80%E6%80%A7"><span class="nav-text">定理1：数列极限唯一性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%892"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%893"><span class="nav-text">定义3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%863"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%864%E6%9E%81%E9%99%90%E7%9A%84%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97"><span class="nav-text">定理4：极限的四则运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%865%E6%9E%81%E9%99%90%E4%BF%9D%E5%8F%B7%E6%80%A7"><span class="nav-text">定理5：极限保号性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%866%E5%A4%B9%E9%80%BC%E5%AE%9A%E7%90%86"><span class="nav-text">定理6：夹逼定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%894"><span class="nav-text">定义4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%895"><span class="nav-text">定义5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%896%E5%8D%95%E8%B0%83%E6%95%B0%E5%88%97"><span class="nav-text">定义6：单调数列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%867%E5%8D%95%E8%B0%83%E4%B8%94%E6%9C%89%E7%95%8C%E7%9A%84%E6%95%B0%E5%88%97%E4%B8%80%E5%AE%9A%E6%9C%89%E7%95%8C"><span class="nav-text">定理7：单调且有界的数列一定有界。</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -541,13 +813,13 @@ a_n \to a \quad (n \to \infty)</script><p>也称数列$\{a_n\}$收敛于$a$； �
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

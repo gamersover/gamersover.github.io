@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,16 +21,16 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="描述该题来自于力扣第22题 数字n代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且有效的括号组合。">
+  <meta name="description" content="描述 该题来自于力扣第22题 数字n代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且有效的括号组合。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode题解22：括号生成">
 <meta property="og:url" content="http://yoursite.com/2021/04/05/leetcode%E9%A2%98%E8%A7%A322/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="描述该题来自于力扣第22题 数字n代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且有效的括号组合。">
+<meta property="og:description" content="描述 该题来自于力扣第22题 数字n代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且有效的括号组合。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/leetcode/No1.jpg">
 <meta property="article:published_time" content="2021-04-05T06:54:04.000Z">
-<meta property="article:modified_time" content="2021-12-24T11:33:52.948Z">
+<meta property="article:modified_time" content="2021-04-05T06:54:04.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="leetcode">
 <meta property="article:tag" content="递归">
@@ -82,7 +82,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -222,13 +226,6 @@
 
               <time title="创建时间：2021-04-05 14:54:04" itemprop="dateCreated datePublished" datetime="2021-04-05T14:54:04+08:00">2021-04-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-24 19:33:52" itemprop="dateModified" datetime="2021-12-24T19:33:52+08:00">2021-12-24</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -252,7 +249,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -271,53 +268,63 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于<a href="https://leetcode-cn.com/problems/generate-parentheses/" target="_blank" rel="noopener">力扣第22题</a></p>
-<p>数字<code>n</code>代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且有效的括号组合。<br><a id="more"></a> </p>
+        <h2 id="描述">描述</h2>
+<p>该题来自于<a
+target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/generate-parentheses/">力扣第22题</a></p>
+<p>数字<code>n</code>代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且有效的括号组合。<br />
+<span id="more"></span> </p>
 <p>示例 1：</p>
 <blockquote>
-<p>输入：n = 3<br>输出：[“((()))”,”(()())”,”(())()”,”()(())”,”()()()”]</p>
+<p>输入：n = 3<br />
+输出：["((()))","(()())","(())()","()(())","()()()"]</p>
 </blockquote>
 <p>示例 2：</p>
 <blockquote>
-<p>输入：n = 1<br>输出：[“()”]</p>
+<p>输入：n = 1<br />
+输出：["()"]</p>
 </blockquote>
 <p>提示：</p>
 <ul>
 <li><code>1 &lt;= n &lt;= 8</code></li>
 </ul>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>要生成有效的括号，第一个字符必然是左括号<code>(</code>，那么第二个有可能是<code>(</code>或者<code>)</code>，以<code>n=3</code>为例，生成有效括号的过程应该如下：<br><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/leetcode/No1.jpg" width="25%"></p>
+<h2 id="分析">分析</h2>
+<p>要生成有效的括号，第一个字符必然是左括号<code>(</code>，那么第二个有可能是<code>(</code>或者<code>)</code>，以<code>n=3</code>为例，生成有效括号的过程应该如下：<br />
+<img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/leetcode/No1.jpg" width="25%"></p>
 <p>可以看出是一颗二叉树，二叉树的每条路径对应着一个有效括号组合，所以关键在于如何生成这颗树。思路也很简单，第一层已经确定只能是<code>(</code>，由于<code>n=3</code>表示最多可以有<code>3</code>个<code>(</code>，所以第二层可能是<code>(</code>，也可能是<code>)</code>，那第三层如何确定呢？</p>
 <p>假如第二层选择的是<code>(</code>，由于左括号的个数为2，小于<code>n</code>，所以第三层也可能是<code>(</code>或者<code>)</code>；如果第二层选择的是<code>)</code>，一样的分析。</p>
 <p>第三层如果选择的是<code>(</code>，这是左括号的个数已经等于<code>n</code>，所以第四层只能添加<code>)</code>了。</p>
 <p>综上分析可知，假设当前层已有的左括号个数为<code>left</code>，已有右括号个数为<code>right</code>，若<code>left&lt;n</code>，则当前层可以为<code>(</code>，同时若<code>right&lt;left</code>，那么当前层也可以是<code>)</code>；否则结束，所有括号添加完毕。</p>
 <p>树生成后，可以使用深度优先遍历所有的路径得到结果，这里可以采用递归的写法，注意一点就是遍历到叶子结点后，需要回溯到初始状态，具体可以看算法说明。</p>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><ol>
-<li>初始化<code>n</code>,<code>left=right=0</code>，以及路径<code>s=&quot;&quot;</code></li>
+<h2 id="算法">算法</h2>
+<ol type="1">
+<li>初始化<code>n</code>,<code>left=right=0</code>，以及路径<code>s=""</code></li>
 <li>递归函数<code>f(n, left, rihgt, s)</code></li>
 <li>进入递归主体，如果<code>len(s)==2*n</code>，表明<code>s</code>已经包含了所有括号，添加到结果列表中，并退出函数</li>
-<li>如果<code>left &lt; n</code>，这时添加<code>(</code>，进入函数<code>f(n, left+1, right, s+&quot;(&quot;)</code>，这里<code>s+&quot;(&quot;</code>写在函数形参内，刚好避免回溯时<code>s</code>不受影响，<code>s</code>的变化至于该路径的前面所有层有关。</li>
-<li>如果<code>right &lt; n</code>，这时添加<code>)</code>，进入函数<code>f(n, left, right, s+&quot;)&quot;)</code></li>
+<li>如果<code>left &lt; n</code>，这时添加<code>(</code>，进入函数<code>f(n, left+1, right, s+"(")</code>，这里<code>s+"("</code>写在函数形参内，刚好避免回溯时<code>s</code>不受影响，<code>s</code>的变化至于该路径的前面所有层有关。</li>
+<li>如果<code>right &lt; n</code>，这时添加<code>)</code>，进入函数<code>f(n, left, right, s+")")</code></li>
 </ol>
-<p>具体算法执行步骤可以这么理解：<br>首先一直添加<code>(</code>直到无法添加为止，然后添加<code>)</code>直到无法添加为止，即一直遍历树的左节点，然后开始回溯，这时<code>s</code>为<code>((()))</code>，根据算法会回溯到<code>s=&quot;((&quot;</code>即第二层的左节点也是步骤4的结尾，之后进入步骤5。依次下去。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><details open>
-<summary>python3</summary>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">generateParenthesis</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        self.n = n</span><br><span class="line">        self.result = []</span><br><span class="line">        self.generate(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> self.result</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">generate</span><span class="params">(self, left, right, s=<span class="string">""</span>)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(s) == self.n * <span class="number">2</span>:</span><br><span class="line">            self.result.append(s)</span><br><span class="line">            <span class="keyword">return</span> </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> left &lt; self.n:</span><br><span class="line">            self.generate(left+<span class="number">1</span>, right, s+<span class="string">"("</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> right &lt; left:</span><br><span class="line">            self.generate(left, right+<span class="number">1</span>, s+<span class="string">")"</span>)</span><br></pre></td></tr></table></figure>
+<p>具体算法执行步骤可以这么理解：<br />
+首先一直添加<code>(</code>直到无法添加为止，然后添加<code>)</code>直到无法添加为止，即一直遍历树的左节点，然后开始回溯，这时<code>s</code>为<code>((()))</code>，根据算法会回溯到<code>s="(("</code>即第二层的左节点也是步骤4的结尾，之后进入步骤5。依次下去。</p>
+<h2 id="代码">代码</h2>
+<details open>
+<summary>
+python3
+</summary>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">generateParenthesis</span>(<span class="params">self, n</span>):</span><br><span class="line">        self.n = n</span><br><span class="line">        self.result = []</span><br><span class="line">        self.generate(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> self.result</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">generate</span>(<span class="params">self, left, right, s=<span class="string">&quot;&quot;</span></span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(s) == self.n * <span class="number">2</span>:</span><br><span class="line">            self.result.append(s)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> left &lt; self.n:</span><br><span class="line">            self.generate(left+<span class="number">1</span>, right, s+<span class="string">&quot;(&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> right &lt; left:</span><br><span class="line">            self.generate(left, right+<span class="number">1</span>, s+<span class="string">&quot;)&quot;</span>)</span><br></pre></td></tr></table></figure>
 </details>
-
-
 <details>
-<summary>c++</summary>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; arr;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; generateParenthesis(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        generate(<span class="number">0</span>, <span class="number">0</span>, <span class="string">""</span>, n);</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">generate</span><span class="params">(<span class="keyword">int</span> left, <span class="keyword">int</span> right, <span class="built_in">string</span> s, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.size() == <span class="number">2</span> * n) &#123;</span><br><span class="line">            arr.push_back(s);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(left &lt; n)&#123;</span><br><span class="line">            generate(left+<span class="number">1</span>, right, s+<span class="string">"("</span>, n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right &lt; left)&#123;</span><br><span class="line">            generate(left, right+<span class="number">1</span>, s+<span class="string">")"</span>, n);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<summary>
+c++
+</summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">vector&lt;string&gt; arr;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">generate</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="string">&quot;&quot;</span>, n);</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">generate</span><span class="params">(<span class="type">int</span> left, <span class="type">int</span> right, string s, <span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.<span class="built_in">size</span>() == <span class="number">2</span> * n) &#123;</span><br><span class="line">            arr.<span class="built_in">push_back</span>(s);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(left &lt; n)&#123;</span><br><span class="line">            <span class="built_in">generate</span>(left+<span class="number">1</span>, right, s+<span class="string">&quot;(&quot;</span>, n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right &lt; left)&#123;</span><br><span class="line">            <span class="built_in">generate</span>(left, right+<span class="number">1</span>, s+<span class="string">&quot;)&quot;</span>, n);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </details>
-
-
 <details>
-<summary>java</summary>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        generate(n, <span class="number">0</span>, <span class="number">0</span>, <span class="string">""</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">generate</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> left, <span class="keyword">int</span> right, String s)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">2</span>*n) &#123;</span><br><span class="line">            res.add(s);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (left &lt; n)&#123;</span><br><span class="line">            generate(n, left+<span class="number">1</span>, right, s+<span class="string">"("</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (right &lt; left)&#123;</span><br><span class="line">            generate(n, left, right+<span class="number">1</span>, s+<span class="string">")"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<summary>
+java
+</summary>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    List&lt;String&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">public</span> List&lt;String&gt; <span class="title function_">generateParenthesis</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        generate(n, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">generate</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> left, <span class="type">int</span> right, String s)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">2</span>*n) &#123;</span><br><span class="line">            res.add(s);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (left &lt; n)&#123;</span><br><span class="line">            generate(n, left+<span class="number">1</span>, right, s+<span class="string">&quot;(&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (right &lt; left)&#123;</span><br><span class="line">            generate(n, left, right+<span class="number">1</span>, s+<span class="string">&quot;)&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </details>
+
     </div>
 
     
@@ -404,7 +411,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -475,13 +482,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

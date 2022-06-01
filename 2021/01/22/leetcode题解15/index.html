@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="描述该题来自于力扣第15题给你一个包含n个整数的数组nums，判断nums中是否存在三个元素a，b，c ，使得a + b + c &#x3D; 0？请你找出所有和为0且不重复的三元组。 注意：答案中不可以包含重复的三元组。">
+  <meta name="description" content="描述 该题来自于力扣第15题 给你一个包含n个整数的数组nums，判断nums中是否存在三个元素a，b，c ，使得a + b + c &#x3D; 0？请你找出所有和为0且不重复的三元组。 注意：答案中不可以包含重复的三元组。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode题解15：三数之和">
 <meta property="og:url" content="http://yoursite.com/2021/01/22/leetcode%E9%A2%98%E8%A7%A315/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="描述该题来自于力扣第15题给你一个包含n个整数的数组nums，判断nums中是否存在三个元素a，b，c ，使得a + b + c &#x3D; 0？请你找出所有和为0且不重复的三元组。 注意：答案中不可以包含重复的三元组。">
+<meta property="og:description" content="描述 该题来自于力扣第15题 给你一个包含n个整数的数组nums，判断nums中是否存在三个元素a，b，c ，使得a + b + c &#x3D; 0？请你找出所有和为0且不重复的三元组。 注意：答案中不可以包含重复的三元组。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-22T12:16:33.000Z">
-<meta property="article:modified_time" content="2022-01-06T02:56:56.068Z">
+<meta property="article:modified_time" content="2021-01-22T12:16:33.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="leetcode">
 <meta property="article:tag" content="数组">
@@ -80,7 +80,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,13 +224,6 @@
 
               <time title="创建时间：2021-01-22 20:16:33" itemprop="dateCreated datePublished" datetime="2021-01-22T20:16:33+08:00">2021-01-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-06 10:56:56" itemprop="dateModified" datetime="2022-01-06T10:56:56+08:00">2022-01-06</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -269,42 +266,51 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于<a href="https://leetcode-cn.com/problems/3sum" target="_blank" rel="noopener">力扣第15题</a><br>给你一个包含<code>n</code>个整数的数组<code>nums</code>，判断<code>nums</code>中是否存在三个元素<code>a</code>，<code>b</code>，<code>c</code> ，使得<code>a + b + c = 0</code>？请你找出所有和为<code>0</code>且不重复的三元组。</p>
-<p>注意：答案中不可以包含重复的三元组。<br><a id="more"></a></p>
+        <h2 id="描述">描述</h2>
+<p>该题来自于<a
+target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/3sum">力扣第15题</a><br />
+给你一个包含<code>n</code>个整数的数组<code>nums</code>，判断<code>nums</code>中是否存在三个元素<code>a</code>，<code>b</code>，<code>c</code>
+，使得<code>a + b + c = 0</code>？请你找出所有和为<code>0</code>且不重复的三元组。</p>
+<p>注意：答案中不可以包含重复的三元组。<br />
+<span id="more"></span></p>
 <p>示例 1：</p>
 <blockquote>
-<p>输入：nums = [-1,0,1,2,-1,-4]<br>输出：[[-1,-1,2],[-1,0,1]]</p>
+<p>输入：nums = [-1,0,1,2,-1,-4]<br />
+输出：[[-1,-1,2],[-1,0,1]]</p>
 </blockquote>
 <p>示例 2：</p>
 <blockquote>
-<p>输入：nums = []<br>输出：[]</p>
+<p>输入：nums = []<br />
+输出：[]</p>
 </blockquote>
 <p>示例 3：</p>
 <blockquote>
-<p>输入：nums = [0]<br>输出：[]</p>
+<p>输入：nums = [0]<br />
+输出：[]</p>
 </blockquote>
 <p>提示：</p>
 <ul>
 <li><code>0 &lt;= nums.length &lt;= 3000</code></li>
 <li><code>-105 &lt;= nums[i] &lt;= 105</code></li>
 </ul>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>思考关键点在于确定了第一个数后，相当于找到和为固定的其他两个数，就可以联想到两数之和的做法了。回顾下两数之和的做法：先对数组排序，然后使用双指针法。由于该题需要找出所有满足条件的三元组，那么就需要找到所有满足条件的两数。假设初始状态下，左右指针分别指向<code>1,4</code>，如下：</p>
+<h2 id="分析">分析</h2>
+<p>思考关键点在于确定了第一个数后，相当于找到和为固定的其他两个数，就可以联想到两数之和的做法了。回顾下两数之和的做法：先对数组排序，然后使用双指针法。由于该题需要找出所有满足条件的三元组，那么就需要找到所有满足条件的两数。假设初始状态下，左右指针分别指向<code>1,4</code>，如下：</p>
 <blockquote>
-<font color='red'>1</font> 1 2 2 3 4 <font color='blue'>4</font>
-
+<p><font color='red'>1</font> 1 2 2 3 4 <font color='blue'>4</font></p>
 </blockquote>
 <p>这时使用双指针法有以下三种情况：</p>
 <ul>
 <li>左指针left指向的数与右指针指向的数之和大于目标值4，这时需要将右指针向左移动</li>
 <li>左指针left指向的数与右指针指向的数之和小于目标值6，这时需要将左指针向右移动</li>
-<li>左指针left指向的数与右指针指向的数之和等于目标值5，这时记录这个两数。为了找到所有满足条件的两个数（而且不能重复），需要继续遍历，这时显然将左指针向右移动直到所指向的值不是原来的值，将右指针向左移动直到所指向的值不是原来的值，此时左右指针分别指向<code>2,3</code><blockquote>
+<li>左指针left指向的数与右指针指向的数之和等于目标值5，这时记录这个两数。为了找到所有满足条件的两个数（而且不能重复），需要继续遍历，这时显然将左指针向右移动直到所指向的值不是原来的值，将右指针向左移动直到所指向的值不是原来的值，此时左右指针分别指向<code>2,3</code></li>
+</ul>
+<blockquote>
 <p>1 1 <font color='red'>2</font> 2 <font color='blue'>3</font> 4 4</p>
 </blockquote>
-</li>
-</ul>
 <p>如此下去，直到左指针遇到右指针，就找到了所有满足条件的两个数了。</p>
 <p>在遍历第一个数时，为了避免找到重复解，每到一个新数时可以和前面数比较，如果一样直接跳过，因为前面已经遍历过该数的情况了。</p>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><ol>
+<h2 id="算法">算法</h2>
+<ol type="1">
 <li>对数组排序</li>
 <li>遍历数组，下标<code>i</code>从<code>0</code>到<code>nums.length - 3</code>，如果<code>i&gt;0 &amp;&amp; nums[i]==nums[i-1]</code>，表示该数和前面一样，跳过该下标，遍历<code>i+1</code></li>
 <li>进入循环，找到两数之和为<code>-nums[i]</code>，初始化左指针<code>left=i+1</code>，右指针<code>right=nums.length-1</code>，循环条件左指针比右指针小<code>left&lt;right</code></li>
@@ -313,27 +319,25 @@
 <li>如果<code>nums[left]+nums[right]==-nums[i]</code>，记录三元组<code>[[nums[i], nums[left], nums[right]]</code>，并移动左指针直到<code>nums[left]!=nums[left+1]</code>，移动右指针直到<code>nums[right]!=nums[right-1]</code></li>
 <li>回到3判断循环是否结束，如果结束回到2，否则继续4</li>
 </ol>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><details open>
-<summary>python3</summary>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">threeSum</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        nums.sort()</span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(nums)<span class="number">-2</span>):</span><br><span class="line">            <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> nums[i] == nums[i<span class="number">-1</span>]:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            </span><br><span class="line">            left = i + <span class="number">1</span></span><br><span class="line">            right = len(nums) - <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> left &lt; right:</span><br><span class="line">                <span class="keyword">if</span> nums[left] + nums[right] &gt; -nums[i]:</span><br><span class="line">                    right -= <span class="number">1</span></span><br><span class="line">                <span class="keyword">elif</span> nums[left] + nums[right] &lt; -nums[i]:</span><br><span class="line">                    left += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    res.append([nums[i], nums[left], nums[right]])</span><br><span class="line">                    <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] == nums[left+<span class="number">1</span>]:</span><br><span class="line">                        left += <span class="number">1</span></span><br><span class="line">                    <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[right] == nums[right<span class="number">-1</span>]:</span><br><span class="line">                        right -= <span class="number">1</span></span><br><span class="line">                    left += <span class="number">1</span></span><br><span class="line">                    right -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<details open>
+<summary>
+python3
+</summary>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">threeSum</span>(<span class="params">self, nums</span>):</span><br><span class="line">        nums.sort()</span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(nums)-<span class="number">2</span>):</span><br><span class="line">            <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> nums[i] == nums[i-<span class="number">1</span>]:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            left = i + <span class="number">1</span></span><br><span class="line">            right = <span class="built_in">len</span>(nums) - <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> left &lt; right:</span><br><span class="line">                <span class="keyword">if</span> nums[left] + nums[right] &gt; -nums[i]:</span><br><span class="line">                    right -= <span class="number">1</span></span><br><span class="line">                <span class="keyword">elif</span> nums[left] + nums[right] &lt; -nums[i]:</span><br><span class="line">                    left += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    res.append([nums[i], nums[left], nums[right]])</span><br><span class="line">                    <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] == nums[left+<span class="number">1</span>]:</span><br><span class="line">                        left += <span class="number">1</span></span><br><span class="line">                    <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[right] == nums[right-<span class="number">1</span>]:</span><br><span class="line">                        right -= <span class="number">1</span></span><br><span class="line">                    left += <span class="number">1</span></span><br><span class="line">                    right -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
 </details>
-
-
 <details>
-<summary>c++</summary>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; threeSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.size() &lt; <span class="number">3</span>) <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size() - <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">int</span> left = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> right = nums.size() - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[left] + nums[right] &gt; -nums[i]) right--;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (nums[left] + nums[right] &lt; -nums[i]) left++;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    res.push_back(&#123;nums[i], nums[left], nums[right]&#125;);</span><br><span class="line">                    <span class="keyword">while</span> ((left &lt; right) &amp;&amp; (nums[left] == nums[left+<span class="number">1</span>])) left++;</span><br><span class="line">                    <span class="keyword">while</span> ((left &lt; right) &amp;&amp; (nums[right] == nums[right<span class="number">-1</span>])) right--;</span><br><span class="line">                    left++; right--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<summary>
+c++
+</summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt; &amp;nums) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.<span class="built_in">size</span>() &lt; <span class="number">3</span>) <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>() - <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="type">int</span> left = i + <span class="number">1</span>;</span><br><span class="line">            <span class="type">int</span> right = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[left] + nums[right] &gt; -nums[i]) right--;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (nums[left] + nums[right] &lt; -nums[i]) left++;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    res.<span class="built_in">push_back</span>(&#123;nums[i], nums[left], nums[right]&#125;);</span><br><span class="line">                    <span class="keyword">while</span> ((left &lt; right) &amp;&amp; (nums[left] == nums[left+<span class="number">1</span>])) left++;</span><br><span class="line">                    <span class="keyword">while</span> ((left &lt; right) &amp;&amp; (nums[right] == nums[right<span class="number">-1</span>])) right--;</span><br><span class="line">                    left++; right--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </details>
-
-
 <details>
-<summary>java</summary>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; threeSum(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (nums.length &lt; <span class="number">3</span>)</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length - <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">int</span> left = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[left] + nums[right] &gt; -nums[i])</span><br><span class="line">                    right--;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (nums[left] + nums[right] &lt; -nums[i])</span><br><span class="line">                    left++;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    List&lt;Integer&gt; tmp = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">                    tmp.add(nums[i]);</span><br><span class="line">                    tmp.add(nums[left]);</span><br><span class="line">                    tmp.add(nums[right]);</span><br><span class="line">                    res.add(tmp);</span><br><span class="line">                    <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[left] == nums[left+<span class="number">1</span>]) left++;</span><br><span class="line">                    <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[right] == nums[right-<span class="number">1</span>]) right--;</span><br><span class="line">                    left++;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<summary>
+java
+</summary>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; <span class="title function_">threeSum</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (nums.length &lt; <span class="number">3</span>)</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length - <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> i + <span class="number">1</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> nums.length - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[left] + nums[right] &gt; -nums[i])</span><br><span class="line">                    right--;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (nums[left] + nums[right] &lt; -nums[i])</span><br><span class="line">                    left++;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    List&lt;Integer&gt; tmp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">                    tmp.add(nums[i]);</span><br><span class="line">                    tmp.add(nums[left]);</span><br><span class="line">                    tmp.add(nums[right]);</span><br><span class="line">                    res.add(tmp);</span><br><span class="line">                    <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[left] == nums[left+<span class="number">1</span>]) left++;</span><br><span class="line">                    <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[right] == nums[right-<span class="number">1</span>]) right--;</span><br><span class="line">                    left++;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </details>
-
-
 
     </div>
 
@@ -421,7 +425,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -492,13 +496,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

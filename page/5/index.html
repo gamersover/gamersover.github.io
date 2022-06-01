@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -75,7 +75,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -215,13 +219,6 @@
 
               <time title="创建时间：2021-04-19 20:42:01" itemprop="dateCreated datePublished" datetime="2021-04-19T20:42:01+08:00">2021-04-19</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -238,7 +235,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
+              <span>3.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,12 +254,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定理1-局部逆映射定理"><a href="#定理1-局部逆映射定理" class="headerlink" title="定理1: 局部逆映射定理"></a>定理1: 局部逆映射定理</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^n$，满足：<br/><br>（a）$\boldsymbol{f} \in C^1(D)$； <br/><br>（b）有$\boldsymbol{x}_0 \in D$，使得</p>
-<script type="math/tex; mode=display">
-    \det J\boldsymbol{f}(\boldsymbol{x}_0) \ne 0</script><p>记$\boldsymbol{y}_0 = \boldsymbol{f}(\boldsymbol{x}_0)$，那么存在$\boldsymbol{x}_0$的一个邻域$U$和$\boldsymbol{y}_0$的一个邻域$V$，使得 <br/><br>（1）$\boldsymbol{f}(U) = V$，且$\boldsymbol{f}$在$U$上是单射；<br/><br>（2）记$\boldsymbol{g}$是$\boldsymbol{f}$在$U$上的逆映射，$\boldsymbol{g} \in C^1(V)$；<br/><br>（3）当$\boldsymbol{y} \in V$时，</p>
-<script type="math/tex; mode=display">
-    J\boldsymbol{g}(\boldsymbol{y}) = (J\boldsymbol{f}(\boldsymbol{x}))^{-1}</script><p>其中$\boldsymbol{x} = \boldsymbol{g}(\boldsymbol{y})$。</p>
+          <h4 id="定理1-局部逆映射定理">定理1: 局部逆映射定理</h4>
+<blockquote>
+<p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>，<span class="math inline">\(\boldsymbol{f}: D \to
+\mathbb{R}^n\)</span>，满足：<br />
+（a）<span class="math inline">\(\boldsymbol{f} \in
+C^1(D)\)</span>；<br />
+（b）有<span class="math inline">\(\boldsymbol{x}_0 \in
+D\)</span>，使得<br />
+<span class="math display">\[
+    \det J\boldsymbol{f}(\boldsymbol{x}_0) \ne 0
+\]</span><br />
+记<span class="math inline">\(\boldsymbol{y}_0 =
+\boldsymbol{f}(\boldsymbol{x}_0)\)</span>，那么存在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>的一个邻域<span
+class="math inline">\(U\)</span>和<span
+class="math inline">\(\boldsymbol{y}_0\)</span>的一个邻域<span
+class="math inline">\(V\)</span>，使得<br />
+（1）<span class="math inline">\(\boldsymbol{f}(U) = V\)</span>，且<span
+class="math inline">\(\boldsymbol{f}\)</span>在<span
+class="math inline">\(U\)</span>上是单射；<br />
+（2）记<span class="math inline">\(\boldsymbol{g}\)</span>是<span
+class="math inline">\(\boldsymbol{f}\)</span>在<span
+class="math inline">\(U\)</span>上的逆映射，<span
+class="math inline">\(\boldsymbol{g} \in C^1(V)\)</span>；<br />
+（3）当<span class="math inline">\(\boldsymbol{y} \in
+V\)</span>时，<br />
+<span class="math display">\[
+    J\boldsymbol{g}(\boldsymbol{y}) =
+(J\boldsymbol{f}(\boldsymbol{x}))^{-1}
+\]</span><br />
+其中<span class="math inline">\(\boldsymbol{x} =
+\boldsymbol{g}(\boldsymbol{y})\)</span>。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -316,13 +340,6 @@
 
               <time title="创建时间：2021-04-16 23:29:31" itemprop="dateCreated datePublished" datetime="2021-04-16T23:29:31+08:00">2021-04-16</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-24 19:34:07" itemprop="dateModified" datetime="2021-12-24T19:34:07+08:00">2021-12-24</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -339,7 +356,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.5k</span>
+              <span>3.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -358,7 +375,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>PyQt5是一个用来开发UI的python第三方库，UI不外乎显示控件，布局与交互，简单说就是确定UI需要展示哪些东西，这些东西如何排布在界面上以及操作这些东西的逻辑是什么。而PyQt5的控件与布局几乎都在QtWidgets这个类里面，至于交互就是后面所要讲的信号与槽。</p>
+          <h2 id="介绍">介绍</h2>
+<p>PyQt5是一个用来开发UI的python第三方库，UI不外乎显示控件，布局与交互，简单说就是确定UI需要展示哪些东西，这些东西如何排布在界面上以及操作这些东西的逻辑是什么。而PyQt5的控件与布局几乎都在QtWidgets这个类里面，至于交互就是后面所要讲的信号与槽。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/04/16/UI%E5%BC%80%E5%8F%91%E4%B9%8BpyQt5-1/#more" rel="contents">
@@ -411,13 +429,6 @@
 
               <time title="创建时间：2021-04-16 23:23:36" itemprop="dateCreated datePublished" datetime="2021-04-16T23:23:36+08:00">2021-04-16</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -460,7 +471,8 @@
     2. 接着介绍sql关键词的书写顺序和执行顺序
     3. 再介绍一些实践操作和join等等操作
 -->
-<h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h1><p>数据库，顾名思义用来存放数据的地方，可以把数据库比作图书馆，图书馆里面有不同区域相当于不同的数据库（database），而每个区域又存放着不同的书籍，相当于每个database含有很多表（table），图中表现了这种关系。<br>
+<h1 id="概述">1. 概述</h1>
+<p>数据库，顾名思义用来存放数据的地方，可以把数据库比作图书馆，图书馆里面有不同区域相当于不同的数据库（database），而每个区域又存放着不同的书籍，相当于每个database含有很多表（table），图中表现了这种关系。<br />
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/04/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8Bsql%E5%AE%9E%E8%B7%B5/#more" rel="contents">
@@ -513,13 +525,6 @@
 
               <time title="创建时间：2021-04-13 22:14:25" itemprop="dateCreated datePublished" datetime="2021-04-13T22:14:25+08:00">2021-04-13</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -536,14 +541,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>11k</span>
+              <span>12k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>10 分钟</span>
+              <span>11 分钟</span>
             </span>
 
         </div>
@@ -555,10 +560,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定义1：隐式方程"><a href="#定义1：隐式方程" class="headerlink" title="定义1：隐式方程"></a>定义1：隐式方程</h4><blockquote>
-<p>设$D \subset \mathbb{R}^2$是一开集，$F: D \to \mathbb{R}$是一个含有两个自变量$x,y$的函数，对于$D$中的点$(x,y)$满足方程</p>
-<script type="math/tex; mode=display">
-    F(x,y) = 0</script><p>的点的全体组成$D$内的一条曲线，而方程就称为该曲线的隐式方程。</p>
+          <h4 id="定义1隐式方程">定义1：隐式方程</h4>
+<blockquote>
+<p>设<span class="math inline">\(D \subset
+\mathbb{R}^2\)</span>是一开集，<span class="math inline">\(F: D \to
+\mathbb{R}\)</span>是一个含有两个自变量<span
+class="math inline">\(x,y\)</span>的函数，对于<span
+class="math inline">\(D\)</span>中的点<span
+class="math inline">\((x,y)\)</span>满足方程<br />
+<span class="math display">\[
+    F(x,y) = 0
+\]</span><br />
+的点的全体组成<span
+class="math inline">\(D\)</span>内的一条曲线，而方程就称为该曲线的隐式方程。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -612,13 +626,6 @@
 
               <time title="创建时间：2021-04-11 22:30:39" itemprop="dateCreated datePublished" datetime="2021-04-11T22:30:39+08:00">2021-04-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -635,7 +642,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.2k</span>
+              <span>6.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -654,16 +661,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>设开集$D \subset \mathbb{R}^n$，$\boldsymbol{f}: D \to \mathbb{R}^m$。记$\boldsymbol{f}$的分量依次为$f_1,f_2,\cdots,f_m$，可以把$\boldsymbol{f}(\boldsymbol{x})$写成</p>
-<script type="math/tex; mode=display">
+          <p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>，<span class="math inline">\(\boldsymbol{f}: D \to
+\mathbb{R}^m\)</span>。记<span
+class="math inline">\(\boldsymbol{f}\)</span>的分量依次为<span
+class="math inline">\(f_1,f_2,\cdots,f_m\)</span>，可以把<span
+class="math inline">\(\boldsymbol{f}(\boldsymbol{x})\)</span>写成<br />
+<span class="math display">\[
     \boldsymbol{f(x)} = \left(
-        \begin{matrix} 
+        \begin{matrix}
             f_1(\boldsymbol{x}) \\
             f_2(\boldsymbol{x}) \\
             \vdots \\
             f_m(\boldsymbol{x})
-        \end{matrix} 
-    \right) \quad (\boldsymbol{x} \in D)</script><p>设点$\boldsymbol{x}_0 \in D, \boldsymbol{h} \in \mathbb{R}^n$。由于$\boldsymbol{x}_0$是$D$的内点，所以总可以找到充分小的$\Vert \boldsymbol{h} \Vert$使得$\boldsymbol{x}_0 + \boldsymbol{h} \in D$。</p>
+        \end{matrix}
+    \right) \quad (\boldsymbol{x} \in D)
+\]</span><br />
+设点<span class="math inline">\(\boldsymbol{x}_0 \in D, \boldsymbol{h}
+\in \mathbb{R}^n\)</span>。由于<span
+class="math inline">\(\boldsymbol{x}_0\)</span>是<span
+class="math inline">\(D\)</span>的内点，所以总可以找到充分小的<span
+class="math inline">\(\Vert \boldsymbol{h} \Vert\)</span>使得<span
+class="math inline">\(\boldsymbol{x}_0 + \boldsymbol{h} \in
+D\)</span>。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/04/11/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B09/#more" rel="contents">
@@ -716,13 +736,6 @@
 
               <time title="创建时间：2021-04-05 14:54:04" itemprop="dateCreated datePublished" datetime="2021-04-05T14:54:04+08:00">2021-04-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-24 19:33:52" itemprop="dateModified" datetime="2021-12-24T19:33:52+08:00">2021-12-24</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -739,7 +752,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -758,8 +771,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于<a href="https://leetcode-cn.com/problems/generate-parentheses/" target="_blank" rel="noopener">力扣第22题</a></p>
-<p>数字<code>n</code>代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且有效的括号组合。<br>
+          <h2 id="描述">描述</h2>
+<p>该题来自于<a
+target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/generate-parentheses/">力扣第22题</a></p>
+<p>数字<code>n</code>代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且有效的括号组合。<br />
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/04/05/leetcode%E9%A2%98%E8%A7%A322/#more" rel="contents">
@@ -812,13 +827,6 @@
 
               <time title="创建时间：2021-03-31 21:04:32" itemprop="dateCreated datePublished" datetime="2021-03-31T21:04:32+08:00">2021-03-31</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -835,7 +843,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.1k</span>
+              <span>6.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -854,10 +862,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^n$，$f: D \to \mathbb{R}$，$\boldsymbol{u}$是一个方向，$x_0 \in D$，如果极限</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{t \to 0} \frac{f(\boldsymbol{x}_0 + t\boldsymbol{u}) - f(\boldsymbol{x})}{t}</script><p>存在且有限，则称这个极限为函数$f$在$\boldsymbol{x}_0$处沿方向$u$的方向导数，记为$\frac{\partial f}{\partial \boldsymbol{u}}(\boldsymbol{x}_0)$。</p>
+          <h4 id="定义1">定义1</h4>
+<blockquote>
+<p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>，<span class="math inline">\(f: D \to
+\mathbb{R}\)</span>，<span
+class="math inline">\(\boldsymbol{u}\)</span>是一个方向，<span
+class="math inline">\(x_0 \in D\)</span>，如果极限<br />
+<span class="math display">\[
+    \lim \limits_{t \to 0} \frac{f(\boldsymbol{x}_0 + t\boldsymbol{u}) -
+f(\boldsymbol{x})}{t}
+\]</span><br />
+存在且有限，则称这个极限为函数<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处沿方向<span
+class="math inline">\(u\)</span>的方向导数，记为<span
+class="math inline">\(\frac{\partial f}{\partial
+\boldsymbol{u}}(\boldsymbol{x}_0)\)</span>。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -911,13 +932,6 @@
 
               <time title="创建时间：2021-03-28 15:01:39" itemprop="dateCreated datePublished" datetime="2021-03-28T15:01:39+08:00">2021-03-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -934,14 +948,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>3.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -953,10 +967,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>设函数$f$在$x_0$处有直到$n$阶的导数，这里$n$是任意给定的正整数，令</p>
-<script type="math/tex; mode=display">
-    T_n(f,x_0;x) = f(x_0) + \frac{1}{1!}f^\prime(x_0)(x - x_0) + \frac{1}{2!}f^{\prime\prime}(x_0)(x-x_0)^2 + \cdots + \frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n</script><p>称它为$f$在$x_0$处的$n$次Taylor多项式。</p>
+          <h4 id="定义1">定义1</h4>
+<blockquote>
+<p>设函数<span class="math inline">\(f\)</span>在<span
+class="math inline">\(x_0\)</span>处有直到<span
+class="math inline">\(n\)</span>阶的导数，这里<span
+class="math inline">\(n\)</span>是任意给定的正整数，令<br />
+<span class="math display">\[
+    T_n(f,x_0;x) = f(x_0) + \frac{1}{1!}f^\prime(x_0)(x - x_0) +
+\frac{1}{2!}f^{\prime\prime}(x_0)(x-x_0)^2 + \cdots +
+\frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n
+\]</span><br />
+称它为<span class="math inline">\(f\)</span>在<span
+class="math inline">\(x_0\)</span>处的<span
+class="math inline">\(n\)</span>次Taylor多项式。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -1010,13 +1034,6 @@
 
               <time title="创建时间：2021-03-28 11:45:23" itemprop="dateCreated datePublished" datetime="2021-03-28T11:45:23+08:00">2021-03-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-06 10:57:09" itemprop="dateModified" datetime="2022-01-06T10:57:09+08:00">2022-01-06</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1052,8 +1069,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于<a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener">力扣第19题</a></p>
-<p>给你一个链表，删除链表的倒数第<code>n</code>个结点，并且返回链表的头结点。<br>进阶：你能尝试使用一趟扫描实现吗？</p>
+          <h2 id="描述">描述</h2>
+<p>该题来自于<a
+target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/">力扣第19题</a></p>
+<p>给你一个链表，删除链表的倒数第<code>n</code>个结点，并且返回链表的头结点。<br />
+进阶：你能尝试使用一趟扫描实现吗？</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/03/28/leetcode%E9%A2%98%E8%A7%A319/#more" rel="contents">
@@ -1106,13 +1126,6 @@
 
               <time title="创建时间：2021-03-16 20:38:30" itemprop="dateCreated datePublished" datetime="2021-03-16T20:38:30+08:00">2021-03-16</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1129,7 +1142,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1148,10 +1161,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定义1：微分"><a href="#定义1：微分" class="headerlink" title="定义1：微分"></a>定义1：微分</h4><blockquote>
-<p>设函数$f$在$(a,b)$上有定义，且$x_0 \in (a,b)$，如果存在一个常熟$\lambda$，使得</p>
-<script type="math/tex; mode=display">
-    f(x_0 + \Delta x) - f(x_0) = \lambda \Delta x + o(\Delta x)  \quad (\Delta x \to 0)</script><p>则称函数$f$在点$x_0$处可微，$\lambda \Delta x$称为$f$在$x_0$处的微分，记作$\mathrm{d}f(x_0)$。如果$f$在$(a,b)$上任意一点都可微，则称$f$在$(a,b)$上可微。</p>
+          <h4 id="定义1微分">定义1：微分</h4>
+<blockquote>
+<p>设函数<span class="math inline">\(f\)</span>在<span
+class="math inline">\((a,b)\)</span>上有定义，且<span
+class="math inline">\(x_0 \in (a,b)\)</span>，如果存在一个常熟<span
+class="math inline">\(\lambda\)</span>，使得<br />
+<span class="math display">\[
+    f(x_0 + \Delta x) - f(x_0) = \lambda \Delta x + o(\Delta x)  \quad
+(\Delta x \to 0)
+\]</span><br />
+则称函数<span class="math inline">\(f\)</span>在点<span
+class="math inline">\(x_0\)</span>处可微，<span
+class="math inline">\(\lambda \Delta x\)</span>称为<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(x_0\)</span>处的微分，记作<span
+class="math inline">\(\mathrm{d}f(x_0)\)</span>。如果<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\((a,b)\)</span>上任意一点都可微，则称<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\((a,b)\)</span>上可微。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -1301,13 +1330,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

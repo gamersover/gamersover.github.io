@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="描述该题来自于力扣第23题 给你一个链表数组，每个链表都已经按升序排列。请你将所有链表合并到一个升序链表中，返回合并后的链表。">
+  <meta name="description" content="描述 该题来自于力扣第23题 给你一个链表数组，每个链表都已经按升序排列。 请你将所有链表合并到一个升序链表中，返回合并后的链表。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode题解23：合并K个升序链表">
 <meta property="og:url" content="http://yoursite.com/2021/05/05/leetcode%E9%A2%98%E8%A7%A323/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="描述该题来自于力扣第23题 给你一个链表数组，每个链表都已经按升序排列。请你将所有链表合并到一个升序链表中，返回合并后的链表。">
+<meta property="og:description" content="描述 该题来自于力扣第23题 给你一个链表数组，每个链表都已经按升序排列。 请你将所有链表合并到一个升序链表中，返回合并后的链表。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-05T02:33:06.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.733Z">
+<meta property="article:modified_time" content="2021-05-05T02:33:06.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="leetcode">
 <meta property="article:tag" content="链表">
@@ -81,7 +81,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -221,13 +225,6 @@
 
               <time title="创建时间：2021-05-05 10:33:06" itemprop="dateCreated datePublished" datetime="2021-05-05T10:33:06+08:00">2021-05-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -270,19 +267,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于<a href="https://leetcode-cn.com/problems/merge-k-sorted-lists" target="_blank" rel="noopener">力扣第23题</a></p>
-<p>给你一个链表数组，每个链表都已经按升序排列。<br>请你将所有链表合并到一个升序链表中，返回合并后的链表。<br><a id="more"></a></p>
-<p>示例 1：</p>
+        <h2 id="描述">描述</h2>
+<p>该题来自于<a
+target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-k-sorted-lists">力扣第23题</a></p>
+<p>给你一个链表数组，每个链表都已经按升序排列。<br />
+请你将所有链表合并到一个升序链表中，返回合并后的链表。<br />
+<span id="more"></span><br />
+ <br />
+示例 1：</p>
 <blockquote>
-<p>输入：lists = [[1,4,5],[1,3,4],[2,6]]<br>输出：[1,1,2,3,4,4,5,6]<br>解释：链表数组如下：<br>[<br>    1-&gt;4-&gt;5,<br>    1-&gt;3-&gt;4,<br>    2-&gt;6<br>]<br>将它们合并到一个有序链表中得到。<br>1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</p>
+<p>输入：lists = [[1,4,5],[1,3,4],[2,6]]<br />
+输出：[1,1,2,3,4,4,5,6]<br />
+解释：链表数组如下：<br />
+[<br />
+1-&gt;4-&gt;5,<br />
+1-&gt;3-&gt;4,<br />
+2-&gt;6]<br />
+将它们合并到一个有序链表中得到。<br />
+1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</p>
 </blockquote>
 <p>示例 2：</p>
 <blockquote>
-<p>输入：lists = []<br>输出：[]</p>
+<p>输入：lists = []<br />
+输出：[]</p>
 </blockquote>
 <p>示例 3：</p>
 <blockquote>
-<p>输入：lists = [[]]<br>输出：[]</p>
+<p>输入：lists = [[]]<br />
+输出：[]</p>
 </blockquote>
 <p>提示：</p>
 <ul>
@@ -293,9 +305,12 @@
 <li><code>lists[i]</code> 按 升序 排列</li>
 <li><code>lists[i].length</code> 的总和不超过 <code>10^4</code></li>
 </ul>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>该题的想法应该很简单：利用归并排序的思想，利用<code>k</code>个指针分别指向<code>k</code>个链表的头，然后比较<code>k</code>个指针指向的数的大小，将最小的那个添加到结果链表中，然后将取得最小值的那个链表的指针指向下个结点，接着继续比较<code>k</code>个指针指向的数的大小，重复上述步骤。</p>
-<p>该题关键在于是不是每次都需要重新比较<code>k</code>个数的大小，这样比较每次都要<code>o(klogk)</code>的时间复杂度。显然不是，对于一个已经排好序的数列，每次只需要进出一个数，这时可以考虑用最小堆实现的优先队列，该数据结构可以在排好序的数组中插入一个新的数，且时间复杂度降到<code>o(logk)</code>。关于最大堆最小堆的原理可以查看这篇博客<a href="https://blog.csdn.net/cetrol_chen/article/details/80377552" target="_blank" rel="noopener">java数据结构：基于树的堆</a>。</p>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><ol>
+<h2 id="分析">分析</h2>
+<p>该题的想法应该很简单：利用归并排序的思想，利用<code>k</code>个指针分别指向<code>k</code>个链表的头，然后比较<code>k</code>个指针指向的数的大小，将最小的那个添加到结果链表中，然后将取得最小值的那个链表的指针指向下个结点，接着继续比较<code>k</code>个指针指向的数的大小，重复上述步骤。</p>
+<p>该题关键在于是不是每次都需要重新比较<code>k</code>个数的大小，这样比较每次都要<code>o(klogk)</code>的时间复杂度。显然不是，对于一个已经排好序的数列，每次只需要进出一个数，这时可以考虑用最小堆实现的优先队列，该数据结构可以在排好序的数组中插入一个新的数，且时间复杂度降到<code>o(logk)</code>。关于最大堆最小堆的原理可以查看这篇博客<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/cetrol_chen/article/details/80377552">java数据结构：基于树的堆</a>。</p>
+<h2 id="算法">算法</h2>
+<ol type="1">
 <li>使用最小堆维护一个优先队列<code>pqueue</code></li>
 <li>遍历所有链表的头指针，并添加到<code>pqueue</code></li>
 <li>初始化结果伪链表头<code>fhead</code>和当前结点<code>curr=fhead</code>，进入循环体，直到<code>pqueue</code>为空</li>
@@ -303,25 +318,26 @@
 <li>如果<code>node.next</code>不为空指针，则将<code>node.next</code>添加到<code>pqueue</code>中，回到第4步，并直到循环结束</li>
 <li>返回<code>fhead-&gt;next</code></li>
 </ol>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><details open>
-<summary>python3</summary>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, val=<span class="number">0</span>, next=None)</span>:</span></span><br><span class="line">        self.val = val</span><br><span class="line">        self.next = next</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergeKLists</span><span class="params">(self, lists)</span>:</span></span><br><span class="line">        plist = []</span><br><span class="line">        <span class="comment"># 由于headq不能自定义比较器，所以需要一个序号i，在结点的val相同时，比较序号来排序</span></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> node <span class="keyword">in</span> lists:</span><br><span class="line">            <span class="keyword">if</span> node <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                heapq.heappush(plist, (node.val, i, node))</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        fhead = ListNode()</span><br><span class="line">        curr = fhead</span><br><span class="line">        <span class="keyword">while</span> len(plist) &gt; <span class="number">0</span>:</span><br><span class="line">            node = heapq.heappop(plist)[<span class="number">2</span>]</span><br><span class="line">            curr.next = node</span><br><span class="line">            curr = curr.next</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> node.next <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                heapq.heappush(plist, (node.next.val, i, node.next))</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> fhead.next</span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<details open>
+<summary>
+python3
+</summary>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ListNode</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, val=<span class="number">0</span>, <span class="built_in">next</span>=<span class="literal">None</span></span>):</span><br><span class="line">        self.val = val</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="built_in">next</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">mergeKLists</span>(<span class="params">self, lists</span>):</span><br><span class="line">        plist = []</span><br><span class="line">        <span class="comment"># 由于headq不能自定义比较器，所以需要一个序号i，在结点的val相同时，比较序号来排序</span></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> node <span class="keyword">in</span> lists:</span><br><span class="line">            <span class="keyword">if</span> node <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                heapq.heappush(plist, (node.val, i, node))</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        fhead = ListNode()</span><br><span class="line">        curr = fhead</span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">len</span>(plist) &gt; <span class="number">0</span>:</span><br><span class="line">            node = heapq.heappop(plist)[<span class="number">2</span>]</span><br><span class="line">            curr.<span class="built_in">next</span> = node</span><br><span class="line">            curr = curr.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> node.<span class="built_in">next</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                heapq.heappush(plist, (node.<span class="built_in">next</span>.val, i, node.<span class="built_in">next</span>))</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> fhead.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
 </details>
-
-
 <details>
-<summary>c++</summary>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Item</span> &#123;</span></span><br><span class="line">        ListNode *node;</span><br><span class="line">        <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> Item &amp;item) <span class="keyword">const</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> node-&gt;val &gt; item.node-&gt;val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(<span class="built_in">vector</span>&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line">        priority_queue&lt;Item&gt; plist;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> node : lists) &#123;</span><br><span class="line">            <span class="keyword">if</span> (node) plist.push(&#123; node &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode fhead, *curr = &amp;fhead;</span><br><span class="line">        <span class="keyword">while</span> (!plist.empty()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> item = plist.top();</span><br><span class="line">            plist.pop();</span><br><span class="line">            curr-&gt;next = item.node;</span><br><span class="line">            curr = curr-&gt;next;</span><br><span class="line">            <span class="keyword">if</span> (item.node-&gt;next) plist.push(&#123; item.node-&gt;next &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fhead.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<summary>
+c++
+</summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Item</span> &#123;</span><br><span class="line">        ListNode *node;</span><br><span class="line">        <span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> Item &amp;item) <span class="type">const</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> node-&gt;val &gt; item.node-&gt;val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(vector&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line">        priority_queue&lt;Item&gt; plist;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> node : lists) &#123;</span><br><span class="line">            <span class="keyword">if</span> (node) plist.<span class="built_in">push</span>(&#123; node &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode fhead, *curr = &amp;fhead;</span><br><span class="line">        <span class="keyword">while</span> (!plist.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> item = plist.<span class="built_in">top</span>();</span><br><span class="line">            plist.<span class="built_in">pop</span>();</span><br><span class="line">            curr-&gt;next = item.node;</span><br><span class="line">            curr = curr-&gt;next;</span><br><span class="line">            <span class="keyword">if</span> (item.node-&gt;next) plist.<span class="built_in">push</span>(&#123; item.node-&gt;next &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fhead.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </details>
-
-
 <details>
-<summary>java</summary>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.PriorityQueue;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Item</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</span><br><span class="line">        ListNode node;</span><br><span class="line"></span><br><span class="line">        Item(ListNode node)&#123;</span><br><span class="line">            <span class="keyword">this</span>.node = node;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Item item2)</span></span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.node.val - item2.node.val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeKLists</span><span class="params">(ListNode[] lists)</span> </span>&#123;</span><br><span class="line">        PriorityQueue&lt;Item&gt; pqueue = <span class="keyword">new</span> PriorityQueue&lt;Item&gt;();</span><br><span class="line">        <span class="keyword">for</span> (ListNode node : lists)&#123;</span><br><span class="line">            <span class="keyword">if</span>(node != <span class="keyword">null</span>) pqueue.offer(<span class="keyword">new</span> Item(node));</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode fhead = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode curr = fhead;</span><br><span class="line">        <span class="keyword">while</span> (!pqueue.isEmpty())&#123;</span><br><span class="line">            Item item = pqueue.poll();</span><br><span class="line">            curr.next = item.node;</span><br><span class="line">            curr = curr.next;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(item.node.next != <span class="keyword">null</span>) pqueue.offer(<span class="keyword">new</span> Item(item.node.next));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fhead.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<summary>
+java
+</summary>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.PriorityQueue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Item</span> <span class="keyword">implements</span> <span class="title class_">Comparable</span>&lt;Item&gt;&#123;</span><br><span class="line">        ListNode node;</span><br><span class="line"></span><br><span class="line">        Item(ListNode node)&#123;</span><br><span class="line">            <span class="built_in">this</span>.node = node;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(Item item2)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.node.val - item2.node.val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">mergeKLists</span><span class="params">(ListNode[] lists)</span> &#123;</span><br><span class="line">        PriorityQueue&lt;Item&gt; pqueue = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;Item&gt;();</span><br><span class="line">        <span class="keyword">for</span> (ListNode node : lists)&#123;</span><br><span class="line">            <span class="keyword">if</span>(node != <span class="literal">null</span>) pqueue.offer(<span class="keyword">new</span> <span class="title class_">Item</span>(node));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">fhead</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">curr</span> <span class="operator">=</span> fhead;</span><br><span class="line">        <span class="keyword">while</span> (!pqueue.isEmpty())&#123;</span><br><span class="line">            <span class="type">Item</span> <span class="variable">item</span> <span class="operator">=</span> pqueue.poll();</span><br><span class="line">            curr.next = item.node;</span><br><span class="line">            curr = curr.next;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(item.node.next != <span class="literal">null</span>) pqueue.offer(<span class="keyword">new</span> <span class="title class_">Item</span>(item.node.next));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fhead.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </details>
+
     </div>
 
     
@@ -409,7 +425,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -480,13 +496,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

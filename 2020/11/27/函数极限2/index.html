@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定义1：自变量趋于$+\infty$的极限 若对$\forall \varepsilon&gt;0, \exists A &gt; 0$，使得当$x &gt; A$时，有$|f(x) - l| &lt; \varepsilon$，此时称在正无穷处函数有极限$l$，记为      f(+\infty) &#x3D; \lim \limits_{x \to +\infty} f(x) &#x3D; l或简单记作">
+  <meta name="description" content="定义1：自变量趋于\(+\infty\)的极限  若对\(\forall \varepsilon&gt;0, \exists A &gt; 0\)，使得当\(x &gt; A\)时，有\(|f(x) - l| &lt; \varepsilon\)，此时称在正无穷处函数有极限\(l\)，记为 \[     f(+\infty) &#x3D; \lim \limits_{x \to +\infty} f(x)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数极限二：其它类型的函数极限">
 <meta property="og:url" content="http://yoursite.com/2020/11/27/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%902/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定义1：自变量趋于$+\infty$的极限 若对$\forall \varepsilon&gt;0, \exists A &gt; 0$，使得当$x &gt; A$时，有$|f(x) - l| &lt; \varepsilon$，此时称在正无穷处函数有极限$l$，记为      f(+\infty) &#x3D; \lim \limits_{x \to +\infty} f(x) &#x3D; l或简单记作">
+<meta property="og:description" content="定义1：自变量趋于\(+\infty\)的极限  若对\(\forall \varepsilon&gt;0, \exists A &gt; 0\)，使得当\(x &gt; A\)时，有\(|f(x) - l| &lt; \varepsilon\)，此时称在正无穷处函数有极限\(l\)，记为 \[     f(+\infty) &#x3D; \lim \limits_{x \to +\infty} f(x)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-27T13:24:12.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.735Z">
+<meta property="article:modified_time" content="2020-11-27T13:24:12.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数极限">
@@ -79,7 +79,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -219,13 +223,6 @@
 
               <time title="创建时间：2020-11-27 21:24:12" itemprop="dateCreated datePublished" datetime="2020-11-27T21:24:12+08:00">2020-11-27</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -249,7 +246,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -268,68 +265,196 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="定义1：自变量趋于-infty-的极限"><a href="#定义1：自变量趋于-infty-的极限" class="headerlink" title="定义1：自变量趋于$+\infty$的极限"></a>定义1：自变量趋于$+\infty$的极限</h4><blockquote>
-<p>若对$\forall \varepsilon&gt;0, \exists A &gt; 0$，使得当$x &gt; A$时，有$|f(x) - l| &lt; \varepsilon$，此时称在正无穷处函数有极限$l$，记为</p>
-<script type="math/tex; mode=display">
-    f(+\infty) = \lim \limits_{x \to +\infty} f(x) = l</script><p>或简单记作</p>
-<script type="math/tex; mode=display">
-    f(x) \to l (x \to +\infty)</script></blockquote>
-<a id="more"></a>
-<p>类似地可以定义$f(-\infty) = \lim \limits_{x \to -\infty} f(x) = l$</p>
-<h4 id="定义2：自变量趋于-infty-的极限"><a href="#定义2：自变量趋于-infty-的极限" class="headerlink" title="定义2：自变量趋于$\infty$的极限"></a>定义2：自变量趋于$\infty$的极限</h4><blockquote>
-<p>若对$\forall \varepsilon&gt;0, \exists A &gt; 0$，使得当$|x| &gt; A$时，有$|f(x) - l| &lt; \varepsilon$，此时称当$x$趋于无穷时，函数有极限$l$，记为</p>
-<script type="math/tex; mode=display">
-    f(\infty) = \lim \limits_{x \to \infty} f(x) = l</script><p>或简单记作</p>
-<script type="math/tex; mode=display">
-    f(x) \to l (x \to \infty)</script></blockquote>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>$\lim \limits_{x \to \infty} f(x) = l$当且仅当</p>
-<script type="math/tex; mode=display">
-    f(-\infty) = f(+\infty) = l</script></blockquote>
-<p>证：必要性和充分性都由定义显然。<br>Q.E.D.</p>
-<h4 id="定义3：无穷大"><a href="#定义3：无穷大" class="headerlink" title="定义3：无穷大"></a>定义3：无穷大</h4><blockquote>
-<p>设$x_0$是一个实数，函数$f(x)$在$x_0$的一个近旁（可能除$x_0$之外）有定义，若对$\forall A&gt;0, \exists \delta &gt; 0$，使得当$0&lt; |x - x_0| &lt; \delta$时，有$|f(x)| &gt; A$，则称函数$f$趋向于无穷大，记作</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{x \to x_0} f(x) = \infty</script><p>或者</p>
-<script type="math/tex; mode=display">
-    f(x) \to \infty (x \to x_0)</script></blockquote>
+        <h4 id="定义1自变量趋于infty的极限">定义1：自变量趋于<span
+class="math inline">\(+\infty\)</span>的极限</h4>
+<blockquote>
+<p>若对<span class="math inline">\(\forall \varepsilon&gt;0, \exists A
+&gt; 0\)</span>，使得当<span class="math inline">\(x &gt;
+A\)</span>时，有<span class="math inline">\(|f(x) - l| &lt;
+\varepsilon\)</span>，此时称在正无穷处函数有极限<span
+class="math inline">\(l\)</span>，记为<br />
+<span class="math display">\[
+    f(+\infty) = \lim \limits_{x \to +\infty} f(x) = l
+\]</span><br />
+或简单记作<br />
+<span class="math display">\[
+    f(x) \to l (x \to +\infty)
+\]</span></p>
+</blockquote>
+<span id="more"></span>
+<p>类似地可以定义<span class="math inline">\(f(-\infty) = \lim
+\limits_{x \to -\infty} f(x) = l\)</span></p>
+<h4 id="定义2自变量趋于infty的极限">定义2：自变量趋于<span
+class="math inline">\(\infty\)</span>的极限</h4>
+<blockquote>
+<p>若对<span class="math inline">\(\forall \varepsilon&gt;0, \exists A
+&gt; 0\)</span>，使得当<span class="math inline">\(|x| &gt;
+A\)</span>时，有<span class="math inline">\(|f(x) - l| &lt;
+\varepsilon\)</span>，此时称当<span
+class="math inline">\(x\)</span>趋于无穷时，函数有极限<span
+class="math inline">\(l\)</span>，记为<br />
+<span class="math display">\[
+    f(\infty) = \lim \limits_{x \to \infty} f(x) = l
+\]</span><br />
+或简单记作<br />
+<span class="math display">\[
+    f(x) \to l (x \to \infty)
+\]</span></p>
+</blockquote>
+<h4 id="定理1">定理1</h4>
+<blockquote>
+<p><span class="math inline">\(\lim \limits_{x \to \infty} f(x) =
+l\)</span>当且仅当<br />
+<span class="math display">\[
+    f(-\infty) = f(+\infty) = l
+\]</span></p>
+</blockquote>
+<p>证：必要性和充分性都由定义显然。<br />
+Q.E.D.</p>
+<h4 id="定义3无穷大">定义3：无穷大</h4>
+<blockquote>
+<p>设<span class="math inline">\(x_0\)</span>是一个实数，函数<span
+class="math inline">\(f(x)\)</span>在<span
+class="math inline">\(x_0\)</span>的一个近旁（可能除<span
+class="math inline">\(x_0\)</span>之外）有定义，若对<span
+class="math inline">\(\forall A&gt;0, \exists \delta &gt;
+0\)</span>，使得当<span class="math inline">\(0&lt; |x - x_0| &lt;
+\delta\)</span>时，有<span class="math inline">\(|f(x)| &gt;
+A\)</span>，则称函数<span
+class="math inline">\(f\)</span>趋向于无穷大，记作<br />
+<span class="math display">\[
+    \lim \limits_{x \to x_0} f(x) = \infty
+\]</span><br />
+或者<br />
+<span class="math display">\[
+    f(x) \to \infty (x \to x_0)
+\]</span></p>
+</blockquote>
 <p>类似地可以定义</p>
 <blockquote>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
     \begin{aligned}
-    \lim \limits_{x \to x_0} f(x) = +\infty \quad \lim \limits_{x \to x_0} f(x) = -\infty \\
-    \lim \limits_{x \to -\infty} f(x) = \infty \quad \lim \limits_{x \to +\infty} f(x) = \infty    
-    \end{aligned}</script></blockquote>
+    \lim \limits_{x \to x_0} f(x) = +\infty \quad \lim \limits_{x \to
+x_0} f(x) = -\infty \\
+    \lim \limits_{x \to -\infty} f(x) = \infty \quad \lim \limits_{x \to
++\infty} f(x) = \infty
+    \end{aligned}
+\]</span></p>
+</blockquote>
 <p>等等</p>
-<h4 id="定义4：无穷小"><a href="#定义4：无穷小" class="headerlink" title="定义4：无穷小"></a>定义4：无穷小</h4><blockquote>
-<p>设$x_0$是一个实数，函数$f(x)$在$x_0$的一个近旁（可能除$x_0$之外）有定义，若对$\forall \varepsilon&gt;0, \exists \delta &gt; 0$，使得当$0&lt; |x - x_0| &lt; \delta$时，有$|f(x)| &lt; \varepsilon$，则称函数$f$趋向于无穷小，记作</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{x \to x_0} f(x) = 0</script><p>或者</p>
-<script type="math/tex; mode=display">
-    f(x) \to 0 (x \to x_0)</script></blockquote>
+<h4 id="定义4无穷小">定义4：无穷小</h4>
+<blockquote>
+<p>设<span class="math inline">\(x_0\)</span>是一个实数，函数<span
+class="math inline">\(f(x)\)</span>在<span
+class="math inline">\(x_0\)</span>的一个近旁（可能除<span
+class="math inline">\(x_0\)</span>之外）有定义，若对<span
+class="math inline">\(\forall \varepsilon&gt;0, \exists \delta &gt;
+0\)</span>，使得当<span class="math inline">\(0&lt; |x - x_0| &lt;
+\delta\)</span>时，有<span class="math inline">\(|f(x)| &lt;
+\varepsilon\)</span>，则称函数<span
+class="math inline">\(f\)</span>趋向于无穷小，记作<br />
+<span class="math display">\[
+    \lim \limits_{x \to x_0} f(x) = 0
+\]</span><br />
+或者<br />
+<span class="math display">\[
+    f(x) \to 0 (x \to x_0)
+\]</span></p>
+</blockquote>
 <p>类似地可以定义</p>
 <blockquote>
-<script type="math/tex; mode=display">
-    \lim \limits_{x \to -\infty} f(x) = 0 \quad \lim \limits_{x \to +\infty} f(x) = 0</script></blockquote>
+<p><span class="math display">\[
+    \lim \limits_{x \to -\infty} f(x) = 0 \quad \lim \limits_{x \to
++\infty} f(x) = 0
+\]</span></p>
+</blockquote>
 <p>等等</p>
-<h4 id="定义5"><a href="#定义5" class="headerlink" title="定义5"></a>定义5</h4><blockquote>
-<p>设当$x \to x_0$时，函数$f$和$g$都是无穷小，并且$g$在$x_0$的一个无穷小近旁（除$x_0$外）不等于0 <br /><br>（1）如果$\lim \limits_{x \to x_0} \frac{f(x)}{g(x)} = 0$，则称$f$是比$g$更高阶的无穷小； <br /><br>（2） 如果$\lim \limits_{x \to x_0} \frac{f(x)}{g(x)} = l \ne 0$，则称$f$与$g$是同阶的无穷小；<br /><br>（3） 如果$\lim \limits_{x \to x_0} \frac{f(x)}{g(x)} = 1$，则称$f$与$g$是等价的无穷小，记作</p>
-<script type="math/tex; mode=display">
-    f \sim g \quad (x \to x_0)</script><p>（4） 当$x \to x_0$时，如果$f$与$(x-x_0)^\alpha$是同阶无穷小，则称$f$为$\alpha$阶的无穷小</p>
-</blockquote>
-<p>类似地，可以定义，如果$f$与$g$都是无穷大</p>
+<h4 id="定义5">定义5</h4>
 <blockquote>
-<p>（1） 如果$\lim \limits_{x \to x_0} \frac{f(x)}{g(x)} = 0$，则称$g$是比$f$更高阶的无穷大；<br /><br>（2） 如果$\lim \limits_{x \to x_0} \frac{f(x)}{g(x)} = l \ne 0$，则称$f$与$g$是同阶的无穷大； <br /><br>（3） 如果$\lim \limits_{x \to x_0} \frac{f(x)}{g(x)} = 1$，则称$f$与$g$是等价的无穷大</p>
+<p>设当<span class="math inline">\(x \to x_0\)</span>时，函数<span
+class="math inline">\(f\)</span>和<span
+class="math inline">\(g\)</span>都是无穷小，并且<span
+class="math inline">\(g\)</span>在<span
+class="math inline">\(x_0\)</span>的一个无穷小近旁（除<span
+class="math inline">\(x_0\)</span>外）不等于0<br />
+（1）如果<span class="math inline">\(\lim \limits_{x \to x_0}
+\frac{f(x)}{g(x)} = 0\)</span>，则称<span
+class="math inline">\(f\)</span>是比<span
+class="math inline">\(g\)</span>更高阶的无穷小；<br />
+（2） 如果<span class="math inline">\(\lim \limits_{x \to x_0}
+\frac{f(x)}{g(x)} = l \ne 0\)</span>，则称<span
+class="math inline">\(f\)</span>与<span
+class="math inline">\(g\)</span>是同阶的无穷小；<br />
+（3） 如果<span class="math inline">\(\lim \limits_{x \to x_0}
+\frac{f(x)}{g(x)} = 1\)</span>，则称<span
+class="math inline">\(f\)</span>与<span
+class="math inline">\(g\)</span>是等价的无穷小，记作<br />
+<span class="math display">\[
+    f \sim g \quad (x \to x_0)
+\]</span><br />
+（4） 当<span class="math inline">\(x \to x_0\)</span>时，如果<span
+class="math inline">\(f\)</span>与<span
+class="math inline">\((x-x_0)^\alpha\)</span>是同阶无穷小，则称<span
+class="math inline">\(f\)</span>为<span
+class="math inline">\(\alpha\)</span>阶的无穷小</p>
 </blockquote>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>如果当$x \to x_0$（$x_0$可以是$\pm\infty$）时，$f,g$是等价的无穷小或无穷大，则 <br /><br>（1） $\lim \limits_{x \to x_0} f(x) h(x) = \lim \limits_{x \to x_0} g(x)h(x)$ <br /><br>（2） $\lim \limits_{x \to x_0} \frac{f(x)}{h(x)} = \lim \limits_{x \to x_0} \frac{g(x)}{h(x)}$ <br /></p>
+<p>类似地，可以定义，如果<span class="math inline">\(f\)</span>与<span
+class="math inline">\(g\)</span>都是无穷大</p>
+<blockquote>
+<p>（1） 如果<span class="math inline">\(\lim \limits_{x \to x_0}
+\frac{f(x)}{g(x)} = 0\)</span>，则称<span
+class="math inline">\(g\)</span>是比<span
+class="math inline">\(f\)</span>更高阶的无穷大；<br />
+（2） 如果<span class="math inline">\(\lim \limits_{x \to x_0}
+\frac{f(x)}{g(x)} = l \ne 0\)</span>，则称<span
+class="math inline">\(f\)</span>与<span
+class="math inline">\(g\)</span>是同阶的无穷大；<br />
+（3） 如果<span class="math inline">\(\lim \limits_{x \to x_0}
+\frac{f(x)}{g(x)} = 1\)</span>，则称<span
+class="math inline">\(f\)</span>与<span
+class="math inline">\(g\)</span>是等价的无穷大</p>
 </blockquote>
-<p>证：（1） $\lim \limits_{x \to x_0} f(x) h(x) = \lim \limits_{x \to x_0} g(x) h(x) \frac{f(x)}{g(x)} = \lim \limits_{x \to x_0} g(x) h(x)$；<br /><br>（2） 证明与（1）一样。</p>
+<h4 id="定理2">定理2</h4>
+<blockquote>
+<p>如果当<span class="math inline">\(x \to x_0\)</span>（<span
+class="math inline">\(x_0\)</span>可以是<span
+class="math inline">\(\pm\infty\)</span>）时，<span
+class="math inline">\(f,g\)</span>是等价的无穷小或无穷大，则<br />
+（1） <span class="math inline">\(\lim \limits_{x \to x_0} f(x) h(x) =
+\lim \limits_{x \to x_0} g(x)h(x)\)</span><br />
+（2） <span class="math inline">\(\lim \limits_{x \to x_0}
+\frac{f(x)}{h(x)} = \lim \limits_{x \to x_0}
+\frac{g(x)}{h(x)}\)</span></p>
+</blockquote>
+<p>证：（1） <span class="math inline">\(\lim \limits_{x \to x_0} f(x)
+h(x) = \lim \limits_{x \to x_0} g(x) h(x) \frac{f(x)}{g(x)} = \lim
+\limits_{x \to x_0} g(x) h(x)\)</span>；<br />
+（2） 证明与（1）一样。</p>
 <p>Q.E.D.</p>
-<h4 id="定义6：-O-与-o-表示法"><a href="#定义6：-O-与-o-表示法" class="headerlink" title="定义6：$O$与$o$表示法"></a>定义6：$O$与$o$表示法</h4><blockquote>
-<p>设函数$f$与$g$在$x_0$的近旁（$x_0$除外）有定义，并且$g(x)\ne 0$ <br /><br>（1）当$x \to x_0$，若比值$f(x)/g(x)$保持有界，即存在一个正常数$M$，使得$|f(x)|\le M|g(x)|$，就用$f(x) = O(g(x))(x\to x_0)$来表示；<br /><br>（2）当$x \to x_0$，若比值$f(x)/g(x)$是一个无穷小，即</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{x \to x_0} \frac{f(x)}{g(x)} = 0</script><p>就用$f(x) = o(g(x))(x\to x_0)$表示 <br /><br>特别地，$f(x)=O(1)(x\to x_0)$表示有界的函数，$g(x)=o(1)(x \to x_0)$表示一个无穷小。</p>
+<h4 id="定义6o与o表示法">定义6：<span
+class="math inline">\(O\)</span>与<span
+class="math inline">\(o\)</span>表示法</h4>
+<blockquote>
+<p>设函数<span class="math inline">\(f\)</span>与<span
+class="math inline">\(g\)</span>在<span
+class="math inline">\(x_0\)</span>的近旁（<span
+class="math inline">\(x_0\)</span>除外）有定义，并且<span
+class="math inline">\(g(x)\ne 0\)</span><br />
+（1）当<span class="math inline">\(x \to x_0\)</span>，若比值<span
+class="math inline">\(f(x)/g(x)\)</span>保持有界，即存在一个正常数<span
+class="math inline">\(M\)</span>，使得<span
+class="math inline">\(|f(x)|\le M|g(x)|\)</span>，就用<span
+class="math inline">\(f(x) = O(g(x))(x\to x_0)\)</span>来表示；<br />
+（2）当<span class="math inline">\(x \to x_0\)</span>，若比值<span
+class="math inline">\(f(x)/g(x)\)</span>是一个无穷小，即<br />
+<span class="math display">\[
+    \lim \limits_{x \to x_0} \frac{f(x)}{g(x)} = 0
+\]</span><br />
+就用<span class="math inline">\(f(x) = o(g(x))(x\to
+x_0)\)</span>表示<br />
+特别地，<span class="math inline">\(f(x)=O(1)(x\to
+x_0)\)</span>表示有界的函数，<span class="math inline">\(g(x)=o(1)(x \to
+x_0)\)</span>表示一个无穷小。</p>
 </blockquote>
 
     </div>
@@ -417,7 +542,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1：自变量趋于-infty-的极限"><span class="nav-text">定义1：自变量趋于$+\infty$的极限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2：自变量趋于-infty-的极限"><span class="nav-text">定义2：自变量趋于$\infty$的极限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义3：无穷大"><span class="nav-text">定义3：无穷大</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义4：无穷小"><span class="nav-text">定义4：无穷小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义5"><span class="nav-text">定义5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义6：-O-与-o-表示法"><span class="nav-text">定义6：$O$与$o$表示法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%891%E8%87%AA%E5%8F%98%E9%87%8F%E8%B6%8B%E4%BA%8Einfty%E7%9A%84%E6%9E%81%E9%99%90"><span class="nav-text">定义1：自变量趋于\(+\infty\)的极限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%892%E8%87%AA%E5%8F%98%E9%87%8F%E8%B6%8B%E4%BA%8Einfty%E7%9A%84%E6%9E%81%E9%99%90"><span class="nav-text">定义2：自变量趋于\(\infty\)的极限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%893%E6%97%A0%E7%A9%B7%E5%A4%A7"><span class="nav-text">定义3：无穷大</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%894%E6%97%A0%E7%A9%B7%E5%B0%8F"><span class="nav-text">定义4：无穷小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%895"><span class="nav-text">定义5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%896o%E4%B8%8Eo%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="nav-text">定义6：\(O\)与\(o\)表示法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -488,13 +613,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

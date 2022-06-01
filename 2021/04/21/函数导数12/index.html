@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定义1 设函数$f$在开集$D$上的每一点处存在偏导数：      D_if(\boldsymbol{x}) &#x3D; \frac{\partial f}{\partial x_i}(\boldsymbol{x}) \quad (i&#x3D;1,2,\cdots,n)称它们为$f$的一阶偏导函数，如果对这些偏导函数又可以取偏导数，得出的就是$f$的二阶偏导函数，依次可以定义三阶偏导数以及更高阶的偏导数。对于二阶">
+  <meta name="description" content="定义1  设函数\(f\)在开集\(D\)上的每一点处存在偏导数： \[     D_if(\boldsymbol{x}) &#x3D; \frac{\partial f}{\partial x_i}(\boldsymbol{x}) \quad (i&#x3D;1,2,\cdots,n) \] 称它们为\(f\)的一阶偏导函数，如果对这些偏导函数又可以取偏导数，得出的就是\(f\)的二阶偏导函数，依次可以定义三阶偏导">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数导数十二：高阶偏导数和Taylor公式">
 <meta property="og:url" content="http://yoursite.com/2021/04/21/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B012/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定义1 设函数$f$在开集$D$上的每一点处存在偏导数：      D_if(\boldsymbol{x}) &#x3D; \frac{\partial f}{\partial x_i}(\boldsymbol{x}) \quad (i&#x3D;1,2,\cdots,n)称它们为$f$的一阶偏导函数，如果对这些偏导函数又可以取偏导数，得出的就是$f$的二阶偏导函数，依次可以定义三阶偏导数以及更高阶的偏导数。对于二阶">
+<meta property="og:description" content="定义1  设函数\(f\)在开集\(D\)上的每一点处存在偏导数： \[     D_if(\boldsymbol{x}) &#x3D; \frac{\partial f}{\partial x_i}(\boldsymbol{x}) \quad (i&#x3D;1,2,\cdots,n) \] 称它们为\(f\)的一阶偏导函数，如果对这些偏导函数又可以取偏导数，得出的就是\(f\)的二阶偏导函数，依次可以定义三阶偏导">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-21T12:36:33.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.734Z">
+<meta property="article:modified_time" content="2021-04-21T12:36:33.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数导数">
@@ -81,7 +81,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -221,13 +225,6 @@
 
               <time title="创建时间：2021-04-21 20:36:33" itemprop="dateCreated datePublished" datetime="2021-04-21T20:36:33+08:00">2021-04-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -251,14 +248,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>12k</span>
+              <span>13k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>11 分钟</span>
+              <span>12 分钟</span>
             </span>
 
         </div>
@@ -270,167 +267,531 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>设函数$f$在开集$D$上的每一点处存在偏导数：</p>
-<script type="math/tex; mode=display">
-    D_if(\boldsymbol{x}) = \frac{\partial f}{\partial x_i}(\boldsymbol{x}) \quad (i=1,2,\cdots,n)</script><p>称它们为$f$的一阶偏导函数，如果对这些偏导函数又可以取偏导数，得出的就是$f$的二阶偏导函数，依次可以定义三阶偏导数以及更高阶的偏导数。对于二阶偏导数，将一阶偏导函数$\displaystyle \frac{\partial f}{\partial x_j}$再对$x_i$求偏导数，即$\displaystyle \frac{\partial f}{\partial x_i}\left(\frac{\partial f}{\partial x_j}\right)$记作$\displaystyle \frac{\partial^2 f}{\partial x_i \partial x_j}$，这里$i,j$独立地从$1$变到$n$，如果$i=j$，那么把$\displaystyle \frac{\partial^2 f}{\partial x_i \partial x_i}$记作$\displaystyle \frac{\partial^2 f}{\partial x_i^2}(i=1,2,\cdots,n)$；如果$i\ne j$，这类二阶偏导数称为混合偏导数。</p>
+        <h4 id="定义1">定义1</h4>
+<blockquote>
+<p>设函数<span class="math inline">\(f\)</span>在开集<span
+class="math inline">\(D\)</span>上的每一点处存在偏导数：<br />
+<span class="math display">\[
+    D_if(\boldsymbol{x}) = \frac{\partial f}{\partial
+x_i}(\boldsymbol{x}) \quad (i=1,2,\cdots,n)
+\]</span><br />
+称它们为<span
+class="math inline">\(f\)</span>的一阶偏导函数，如果对这些偏导函数又可以取偏导数，得出的就是<span
+class="math inline">\(f\)</span>的二阶偏导函数，依次可以定义三阶偏导数以及更高阶的偏导数。对于二阶偏导数，将一阶偏导函数<span
+class="math inline">\(\displaystyle \frac{\partial f}{\partial
+x_j}\)</span>再对<span
+class="math inline">\(x_i\)</span>求偏导数，即<span
+class="math inline">\(\displaystyle \frac{\partial f}{\partial
+x_i}\left(\frac{\partial f}{\partial x_j}\right)\)</span>记作<span
+class="math inline">\(\displaystyle \frac{\partial^2 f}{\partial x_i
+\partial x_j}\)</span>，这里<span
+class="math inline">\(i,j\)</span>独立地从<span
+class="math inline">\(1\)</span>变到<span
+class="math inline">\(n\)</span>，如果<span
+class="math inline">\(i=j\)</span>，那么把<span
+class="math inline">\(\displaystyle \frac{\partial^2 f}{\partial x_i
+\partial x_i}\)</span>记作<span class="math inline">\(\displaystyle
+\frac{\partial^2 f}{\partial x_i^2}(i=1,2,\cdots,n)\)</span>；如果<span
+class="math inline">\(i\ne
+j\)</span>，这类二阶偏导数称为混合偏导数。</p>
 </blockquote>
-<a id="more"></a>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^2$，$f: D \to \mathbb{R}$，如果$\displaystyle \frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial^2 f}{\partial y \partial x}$在$(x_0,y_0)$的某个邻域上存在，且$\displaystyle \frac{\partial^2 f}{\partial y\partial x}$在$(x_0,y_0)$处连续，那么$\displaystyle \frac{\partial^2 f}{\partial x \partial y}$在$(x_0,y_0)$处存在，而且</p>
-<script type="math/tex; mode=display">
-    \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}</script></blockquote>
-<p>证：记</p>
-<script type="math/tex; mode=display">
-    \varphi(h, k) = f(x_0 + h, y_0 + k) - f(x_0+h, y_0) - f(x_0, y_0+k) + f(x_0, y_0)</script><p>令</p>
-<script type="math/tex; mode=display">
-    g(x) = f(x, y_0+k) - f(x, y_0)</script><p>从而由微分中值定理可知</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-    \varphi(h, k) & = g(x_0 + h) - g(x_0) \\
-    & = g^\prime(x_0 + \theta_1 h)h \\
-    & = \left(\frac{\partial f}{\partial x}(x_0 + \theta_1 h, y_0 + k) - \frac{\partial f}{\partial x}(x_0 + \theta_1 h, y_0) \right)h \\
-    & = \frac{\partial^2 f}{\partial y \partial x}(x_0 + \theta_1h, y_0 + \theta_2k)hk
-    \end{aligned}</script><p>由于$\displaystyle \frac{\partial^2 f}{\partial y \partial x}$在$(x_0, y_0)$处连续，从而有</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{h\to 0, k \to 0} \frac{\varphi(h ,k)}{hk} = \frac{\partial^2 f}{\partial y \partial x}(x_0, y_0)</script><p>而又有</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{k \to 0} \frac{\varphi(h ,k)}{hk} = \lim \limits_{k \to 0} \frac{1}{h} \left( \frac{f(x_0+h, y_0+k) - f(x_0+h, y_0)}{k} - \frac{f(x_0, y_0+k) - f(x_0, y_0)}{k}\right) = \frac{1}{h}\left( \frac{\partial f}{\partial y}(x_0 +h, y_0) - \frac{\partial f}{\partial y}(x_0, y_0)\right)</script><p>所以</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{h \to 0, k \to 0} \frac{\varphi(h ,k)}{hk} = \lim \limits_{h \to 0} \frac{1}{h}\left( \frac{\partial f}{\partial y}(x_0 +h, y_0) - \frac{\partial f}{\partial y}(x_0, y_0)\right) = \frac{\partial^2 f}{\partial x \partial y}(x_0, y_0)</script><p>所以$\displaystyle \frac{\partial^2 f}{\partial x \partial y}(x_0, y_0)$存在，而且</p>
-<script type="math/tex; mode=display">
-    \frac{\partial^2 f}{\partial x \partial y}(x_0, y_0) = \frac{\partial^2 f}{\partial y \partial x}(x_0, y_0)</script><p>Q.E.D.</p>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>设定义在凸区域$D \subset \mathbb{R}^n$上的函数$f$可微，则对任何两点$\boldsymbol{a}, \boldsymbol{b} \in D$，在由$\boldsymbol{a},\boldsymbol{b}$确定的线段上存在一点$\boldsymbol{\xi}$，使得</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{b}) - f(\boldsymbol{a}) = Jf(\boldsymbol{\xi})(\boldsymbol{b} - \boldsymbol{a})</script></blockquote>
-<p>证：由$\boldsymbol{a}$与$\boldsymbol{b}$确定的线段上的点可表示为$\boldsymbol{a} + t(\boldsymbol{b} - \boldsymbol{a})$，这里$t \in [0, 1]$，令</p>
-<script type="math/tex; mode=display">
-    \varphi(t) = f(\boldsymbol{a} + t(\boldsymbol{b} - \boldsymbol{a}))</script><p>那么$\varphi$是$[0, 1]$上的可微函数，由单变量的微分中值定理可知，存在$\theta \in (0,1)$，使得</p>
-<script type="math/tex; mode=display">
-    \varphi(1) - \varphi(0) = \varphi^\prime(\theta)</script><p>即</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{b}) - f(\boldsymbol{a}) = \boldsymbol{J}f(\boldsymbol{a} + \theta (\boldsymbol{b} - \boldsymbol{a}))(\boldsymbol{b} - \boldsymbol{a})</script><p>再令$\boldsymbol{\xi} = \boldsymbol{a} + \theta(\boldsymbol{b} - \boldsymbol{a})$即证得结论。</p>
-<p>Q.E.D.</p>
-<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
-<p>设$D$是$\mathbb{R}^n$中的区域，如果对任意的$\boldsymbol{x} \in D$，有</p>
-<script type="math/tex; mode=display">
-    \frac{\partial f}{\partial x_1}(\boldsymbol{x}) = \cdots = \frac{\partial f}{\partial x_n}(\boldsymbol{x}) = 0</script><p>那么$f$在$D$上为一个常数。</p>
+<span id="more"></span>
+<h4 id="定理1">定理1</h4>
+<blockquote>
+<p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^2\)</span>，<span class="math inline">\(f: D \to
+\mathbb{R}\)</span>，如果<span class="math inline">\(\displaystyle
+\frac{\partial f}{\partial x},\frac{\partial f}{\partial
+y},\frac{\partial^2 f}{\partial y \partial x}\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>的某个邻域上存在，且<span
+class="math inline">\(\displaystyle \frac{\partial^2 f}{\partial
+y\partial x}\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>处连续，那么<span
+class="math inline">\(\displaystyle \frac{\partial^2 f}{\partial x
+\partial y}\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>处存在，而且<br />
+<span class="math display">\[
+    \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2
+f}{\partial y \partial x}
+\]</span></p>
 </blockquote>
-<p>证：如果$D$是凸区域，则由<a href="https://gamersover.github.io/2021/04/21/函数导数12/#定理1" target="_blank" rel="noopener">定理1</a>立即得出结论。如果$D$不是凸区域，任取$\boldsymbol{x}_0 \in D$，令</p>
-<script type="math/tex; mode=display">
+<p>证：记<br />
+<span class="math display">\[
+    \varphi(h, k) = f(x_0 + h, y_0 + k) - f(x_0+h, y_0) - f(x_0, y_0+k)
++ f(x_0, y_0)
+\]</span><br />
+令<br />
+<span class="math display">\[
+    g(x) = f(x, y_0+k) - f(x, y_0)
+\]</span><br />
+从而由微分中值定理可知<br />
+<span class="math display">\[
     \begin{aligned}
-    A = \{ \boldsymbol{x} \in D: f(\boldsymbol{x}) = f(\boldsymbol{x_0})\} \\
-    B = \{ \boldsymbol{x} \in D: f(\boldsymbol{x}) \ne f(\boldsymbol{x_0}) \}
-    \end{aligned}</script><p>显然$A$非空，而$D=A \cup B$，由于$D$是连通开集，若能证明$A,B$是开集，则由<a href="https://gamersover.github.io/2020/11/10/点列极限6/#定理3" target="_blank" rel="noopener">点列极限六的定理3</a>可知，$B = \varnothing$，从而证得结论。为了证明$A$是开集，任取$\boldsymbol{a} \in A \subset D$，存在$B_{\boldsymbol{r}}(\boldsymbol{a}) \in D$，由于$B_{\boldsymbol{r}}(\boldsymbol{a})$是凸区域，从而$f$在$B_{\boldsymbol{r}}(\boldsymbol{a})$上是常数，且对任意的$\boldsymbol{x} \in B_{\boldsymbol{r}}(\boldsymbol{a})$，有</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{x}) = f(\boldsymbol{a}) = f(\boldsymbol{x}_0)</script><p>从而$B_{\boldsymbol{r}}(\boldsymbol{a}) \subset A$，也就说明$A$是开集。同样的方法也可以证明$B$是开集。再由上面分析可知命题成立。</p>
+    \varphi(h, k) &amp; = g(x_0 + h) - g(x_0) \\
+    &amp; = g^\prime(x_0 + \theta_1 h)h \\
+    &amp; = \left(\frac{\partial f}{\partial x}(x_0 + \theta_1 h, y_0 +
+k) - \frac{\partial f}{\partial x}(x_0 + \theta_1 h, y_0) \right)h \\
+    &amp; = \frac{\partial^2 f}{\partial y \partial x}(x_0 + \theta_1h,
+y_0 + \theta_2k)hk
+    \end{aligned}
+\]</span><br />
+由于<span class="math inline">\(\displaystyle \frac{\partial^2
+f}{\partial y \partial x}\)</span>在<span class="math inline">\((x_0,
+y_0)\)</span>处连续，从而有<br />
+<span class="math display">\[
+    \lim \limits_{h\to 0, k \to 0} \frac{\varphi(h ,k)}{hk} =
+\frac{\partial^2 f}{\partial y \partial x}(x_0, y_0)
+\]</span><br />
+而又有<br />
+<span class="math display">\[
+    \lim \limits_{k \to 0} \frac{\varphi(h ,k)}{hk} = \lim \limits_{k
+\to 0} \frac{1}{h} \left( \frac{f(x_0+h, y_0+k) - f(x_0+h, y_0)}{k} -
+\frac{f(x_0, y_0+k) - f(x_0, y_0)}{k}\right) = \frac{1}{h}\left(
+\frac{\partial f}{\partial y}(x_0 +h, y_0) - \frac{\partial f}{\partial
+y}(x_0, y_0)\right)
+\]</span><br />
+所以<br />
+<span class="math display">\[
+    \lim \limits_{h \to 0, k \to 0} \frac{\varphi(h ,k)}{hk} = \lim
+\limits_{h \to 0} \frac{1}{h}\left( \frac{\partial f}{\partial y}(x_0
++h, y_0) - \frac{\partial f}{\partial y}(x_0, y_0)\right) =
+\frac{\partial^2 f}{\partial x \partial y}(x_0, y_0)
+\]</span><br />
+所以<span class="math inline">\(\displaystyle \frac{\partial^2
+f}{\partial x \partial y}(x_0, y_0)\)</span>存在，而且<br />
+<span class="math display">\[
+    \frac{\partial^2 f}{\partial x \partial y}(x_0, y_0) =
+\frac{\partial^2 f}{\partial y \partial x}(x_0, y_0)
+\]</span></p>
 <p>Q.E.D.</p>
-<h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><blockquote>
-<p>设$k,n$是两个正整数，那么</p>
-<script type="math/tex; mode=display">
-    (x_1 + \cdots + x_n)^k = \sum_{\alpha_1 + \cdots + \alpha_n = k} \frac{k!}{\alpha_1!\cdots\alpha_n!}x_1^{\alpha_1} \cdots x_n^{\alpha_n}</script><p>这里$\alpha_1,\cdots,\alpha_n$是非负整数。如果记$\boldsymbol{\alpha} = (\alpha_1, \cdots, \alpha_n)$，$\boldsymbol{x}=(x_1,\cdots,x_n)$，且</p>
-<script type="math/tex; mode=display">
+<h4 id="定理2">定理2</h4>
+<blockquote>
+<p>设定义在凸区域<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>上的函数<span
+class="math inline">\(f\)</span>可微，则对任何两点<span
+class="math inline">\(\boldsymbol{a}, \boldsymbol{b} \in
+D\)</span>，在由<span
+class="math inline">\(\boldsymbol{a},\boldsymbol{b}\)</span>确定的线段上存在一点<span
+class="math inline">\(\boldsymbol{\xi}\)</span>，使得<br />
+<span class="math display">\[
+    f(\boldsymbol{b}) - f(\boldsymbol{a}) =
+Jf(\boldsymbol{\xi})(\boldsymbol{b} - \boldsymbol{a})
+\]</span></p>
+</blockquote>
+<p>证：由<span class="math inline">\(\boldsymbol{a}\)</span>与<span
+class="math inline">\(\boldsymbol{b}\)</span>确定的线段上的点可表示为<span
+class="math inline">\(\boldsymbol{a} + t(\boldsymbol{b} -
+\boldsymbol{a})\)</span>，这里<span class="math inline">\(t \in [0,
+1]\)</span>，令<br />
+<span class="math display">\[  
+    \varphi(t) = f(\boldsymbol{a} + t(\boldsymbol{b} - \boldsymbol{a}))
+\]</span><br />
+那么<span class="math inline">\(\varphi\)</span>是<span
+class="math inline">\([0,
+1]\)</span>上的可微函数，由单变量的微分中值定理可知，存在<span
+class="math inline">\(\theta \in (0,1)\)</span>，使得<br />
+<span class="math display">\[
+    \varphi(1) - \varphi(0) = \varphi^\prime(\theta)
+\]</span><br />
+即<br />
+<span class="math display">\[
+    f(\boldsymbol{b}) - f(\boldsymbol{a}) =
+\boldsymbol{J}f(\boldsymbol{a} + \theta (\boldsymbol{b} -
+\boldsymbol{a}))(\boldsymbol{b} - \boldsymbol{a})
+\]</span><br />
+再令<span class="math inline">\(\boldsymbol{\xi} = \boldsymbol{a} +
+\theta(\boldsymbol{b} - \boldsymbol{a})\)</span>即证得结论。</p>
+<p>Q.E.D.</p>
+<h4 id="定理3">定理3</h4>
+<blockquote>
+<p>设<span class="math inline">\(D\)</span>是<span
+class="math inline">\(\mathbb{R}^n\)</span>中的区域，如果对任意的<span
+class="math inline">\(\boldsymbol{x} \in D\)</span>，有<br />
+<span class="math display">\[
+    \frac{\partial f}{\partial x_1}(\boldsymbol{x}) = \cdots =
+\frac{\partial f}{\partial x_n}(\boldsymbol{x}) = 0
+\]</span><br />
+那么<span class="math inline">\(f\)</span>在<span
+class="math inline">\(D\)</span>上为一个常数。</p>
+</blockquote>
+<p>证：如果<span class="math inline">\(D\)</span>是凸区域，则由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/04/21/函数导数12/#定理1">定理1</a>立即得出结论。如果<span
+class="math inline">\(D\)</span>不是凸区域，任取<span
+class="math inline">\(\boldsymbol{x}_0 \in D\)</span>，令<br />
+<span class="math display">\[
+    \begin{aligned}
+    A = \{ \boldsymbol{x} \in D: f(\boldsymbol{x}) =
+f(\boldsymbol{x_0})\} \\
+    B = \{ \boldsymbol{x} \in D: f(\boldsymbol{x}) \ne
+f(\boldsymbol{x_0}) \}
+    \end{aligned}
+\]</span><br />
+显然<span class="math inline">\(A\)</span>非空，而<span
+class="math inline">\(D=A \cup B\)</span>，由于<span
+class="math inline">\(D\)</span>是连通开集，若能证明<span
+class="math inline">\(A,B\)</span>是开集，则由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2020/11/10/点列极限6/#定理3">点列极限六的定理3</a>可知，<span
+class="math inline">\(B =
+\varnothing\)</span>，从而证得结论。为了证明<span
+class="math inline">\(A\)</span>是开集，任取<span
+class="math inline">\(\boldsymbol{a} \in A \subset D\)</span>，存在<span
+class="math inline">\(B_{\boldsymbol{r}}(\boldsymbol{a}) \in
+D\)</span>，由于<span
+class="math inline">\(B_{\boldsymbol{r}}(\boldsymbol{a})\)</span>是凸区域，从而<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(B_{\boldsymbol{r}}(\boldsymbol{a})\)</span>上是常数，且对任意的<span
+class="math inline">\(\boldsymbol{x} \in
+B_{\boldsymbol{r}}(\boldsymbol{a})\)</span>，有<br />
+<span class="math display">\[
+    f(\boldsymbol{x}) = f(\boldsymbol{a}) = f(\boldsymbol{x}_0)
+\]</span><br />
+从而<span class="math inline">\(B_{\boldsymbol{r}}(\boldsymbol{a})
+\subset A\)</span>，也就说明<span
+class="math inline">\(A\)</span>是开集。同样的方法也可以证明<span
+class="math inline">\(B\)</span>是开集。再由上面分析可知命题成立。</p>
+<p>Q.E.D.</p>
+<h4 id="定理4">定理4</h4>
+<blockquote>
+<p>设<span class="math inline">\(k,n\)</span>是两个正整数，那么<br />
+<span class="math display">\[
+    (x_1 + \cdots + x_n)^k = \sum_{\alpha_1 + \cdots + \alpha_n = k}
+\frac{k!}{\alpha_1!\cdots\alpha_n!}x_1^{\alpha_1} \cdots x_n^{\alpha_n}
+\]</span><br />
+这里<span
+class="math inline">\(\alpha_1,\cdots,\alpha_n\)</span>是非负整数。如果记<span
+class="math inline">\(\boldsymbol{\alpha} = (\alpha_1, \cdots,
+\alpha_n)\)</span>，<span
+class="math inline">\(\boldsymbol{x}=(x_1,\cdots,x_n)\)</span>，且<br />
+<span class="math display">\[
 \begin{aligned}
-|\boldsymbol{\alpha}| &= \alpha_1 + \cdots + \alpha_n \\
-\boldsymbol{\alpha}! &= \alpha_1!\cdots\alpha_n! \\
-\boldsymbol{x}^{\boldsymbol{\alpha}} &= x_1^{\alpha_1} \cdots x_n^{\alpha_n}
-\end{aligned}</script><p>则上式可简写为</p>
-<script type="math/tex; mode=display">
-    (x_1 + \cdots + x_n)^k = \sum_{|\boldsymbol{\alpha}|=k}\frac{k!}{\boldsymbol{\alpha}!}\boldsymbol{x}^{\boldsymbol{\alpha}}</script></blockquote>
-<p>证：对加项的个数$n$作归纳。当$n=2$时，该定理就是二项式定理，固然成立。先设$n-1$时命题成立，那么当加项的个数为$n$时，有</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-    (x_1 + \cdots + x_n)^k &= ((x_1 + \cdots + x_{n-1}) + x_n)^k \\
-    &= \sum_{\alpha_n=0}^k \frac{k!}{\alpha_n!(k-\alpha_n)!}(x_1+\cdots+x_{n-1})^{k-\alpha_n}x_n^{\alpha_n} \\
-    &= \sum_{\alpha_n=0}^k \frac{k!}{\alpha_n!(k-\alpha_n)!} \sum_{\alpha_1 + \alpha_{n-1}=k-\alpha_n}\frac{(k-\alpha_n)!}{\alpha_1!\cdots\alpha_{n-1}!} x_1^{\alpha_1} \cdots x_{n-1}^{\alpha_{n-1}} x_n^{\alpha_n} \\
-    & = \sum_{\alpha_1 + \cdots + \alpha_n = k} \frac{k!}{\alpha_1!\cdots\alpha_n!}x_1^{\alpha_1} \cdots x_n^{\alpha_n}
-    \end{aligned}</script><p>Q.E.D.</p>
-<h4 id="定理5：Taylor公式"><a href="#定理5：Taylor公式" class="headerlink" title="定理5：Taylor公式"></a>定理5：Taylor公式</h4><blockquote>
-<p>设$D \subset \mathbb{R}^n$是一个凸区域，$f \in C^{m+1}(D)$，$\boldsymbol{a}=(a_1,\cdots,a_n)$，$\boldsymbol{a}+\boldsymbol{h} = (a_1+h_1,\cdots,a_n+h_n)$是$D$中的两个点，则必存在$\theta \in (0, 1)$，使得</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{a} + \boldsymbol{h}) = \sum_{k=0}^m \sum_{|\boldsymbol{a}|=k} \frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} + \boldsymbol{R}_m</script><p>其中</p>
-<script type="math/tex; mode=display">
-    D^{\boldsymbol{\alpha}}f(\boldsymbol{a}) = \frac{\partial^{\alpha_1+\cdots+\alpha_n}f}{\partial x_1^{\alpha_1} \cdots \partial x_n^{\alpha_n}}(\boldsymbol{a})</script><p>且</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{R}_m = \sum_{|\boldsymbol{\alpha}|=m+1} \frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + \theta \boldsymbol{h})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}}</script><p>称为Lagrange余项。</p>
+|\boldsymbol{\alpha}| &amp;= \alpha_1 + \cdots + \alpha_n \\
+\boldsymbol{\alpha}! &amp;= \alpha_1!\cdots\alpha_n! \\
+\boldsymbol{x}^{\boldsymbol{\alpha}} &amp;= x_1^{\alpha_1} \cdots
+x_n^{\alpha_n}
+\end{aligned}
+\]</span><br />
+则上式可简写为<br />
+<span class="math display">\[
+    (x_1 + \cdots + x_n)^k =
+\sum_{|\boldsymbol{\alpha}|=k}\frac{k!}{\boldsymbol{\alpha}!}\boldsymbol{x}^{\boldsymbol{\alpha}}
+\]</span></p>
 </blockquote>
-<p>证：固定$\boldsymbol{a},\boldsymbol{h}$，设$t \in [0,1]$，考虑$[0,1]$上的函数$\varphi(t) = f(\boldsymbol{a} + t \boldsymbol{h})$，显然$\varphi$在$[0,1]$上有$m+1$阶的连续导数，对$\varphi$用单变量函数的Taylor公式，得</p>
-<script type="math/tex; mode=display">
-    \varphi(1) = \varphi(0) + \varphi^\prime(0) + \frac{1}{2!}\varphi^{\prime\prime}(0) + \cdots + \frac{1}{m!}\varphi^{(m)}(0) + \frac{1}{(m+1)!}\varphi^{(m+1)}(\theta) \tag{1}</script><p>其中$\theta \in (0, 1)$。显然$\varphi(1) = f(\boldsymbol{a} + \boldsymbol{h})$，$\varphi(0) = f(\boldsymbol{a})$，根据复合函数的求导公式得</p>
-<script type="math/tex; mode=display">
-    \varphi^\prime(t) = \frac{\partial f}{\partial x_1}(\boldsymbol{a} + t \boldsymbol{h})h_1 + \cdots + \frac{\partial f}{\partial x_n}(\boldsymbol{a} + t \boldsymbol{h})h_n = \left(h_1\frac{\partial}{\partial x_1} + \cdots + h_n\frac{\partial}{\partial x_n}\right)f(\boldsymbol{a} + t \boldsymbol{h})</script><p>从而可得</p>
-<script type="math/tex; mode=display">
+<p>证：对加项的个数<span class="math inline">\(n\)</span>作归纳。当<span
+class="math inline">\(n=2\)</span>时，该定理就是二项式定理，固然成立。先设<span
+class="math inline">\(n-1\)</span>时命题成立，那么当加项的个数为<span
+class="math inline">\(n\)</span>时，有<br />
+<span class="math display">\[
     \begin{aligned}
-        \varphi^{\prime\prime}(t) &= \left(h_1\frac{\partial}{\partial x_1} + \cdots + h_n\frac{\partial}{\partial x_n}\right)^2f(\boldsymbol{a} + t\boldsymbol{h}) \\
+    (x_1 + \cdots + x_n)^k &amp;= ((x_1 + \cdots + x_{n-1}) + x_n)^k \\
+    &amp;= \sum_{\alpha_n=0}^k
+\frac{k!}{\alpha_n!(k-\alpha_n)!}(x_1+\cdots+x_{n-1})^{k-\alpha_n}x_n^{\alpha_n}
+\\
+    &amp;= \sum_{\alpha_n=0}^k \frac{k!}{\alpha_n!(k-\alpha_n)!}
+\sum_{\alpha_1 +
+\alpha_{n-1}=k-\alpha_n}\frac{(k-\alpha_n)!}{\alpha_1!\cdots\alpha_{n-1}!}
+x_1^{\alpha_1} \cdots x_{n-1}^{\alpha_{n-1}} x_n^{\alpha_n} \\
+    &amp; = \sum_{\alpha_1 + \cdots + \alpha_n = k}
+\frac{k!}{\alpha_1!\cdots\alpha_n!}x_1^{\alpha_1} \cdots x_n^{\alpha_n}
+    \end{aligned}
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理5taylor公式">定理5：Taylor公式</h4>
+<blockquote>
+<p>设<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>是一个凸区域，<span class="math inline">\(f \in
+C^{m+1}(D)\)</span>，<span
+class="math inline">\(\boldsymbol{a}=(a_1,\cdots,a_n)\)</span>，<span
+class="math inline">\(\boldsymbol{a}+\boldsymbol{h} =
+(a_1+h_1,\cdots,a_n+h_n)\)</span>是<span
+class="math inline">\(D\)</span>中的两个点，则必存在<span
+class="math inline">\(\theta \in (0, 1)\)</span>，使得<br />
+<span class="math display">\[
+    f(\boldsymbol{a} + \boldsymbol{h}) = \sum_{k=0}^m
+\sum_{|\boldsymbol{a}|=k}
+\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!}
+\boldsymbol{h}^{\boldsymbol{\alpha}} + \boldsymbol{R}_m
+\]</span><br />
+其中<br />
+<span class="math display">\[
+    D^{\boldsymbol{\alpha}}f(\boldsymbol{a}) =
+\frac{\partial^{\alpha_1+\cdots+\alpha_n}f}{\partial x_1^{\alpha_1}
+\cdots \partial x_n^{\alpha_n}}(\boldsymbol{a})
+\]</span><br />
+且<br />
+<span class="math display">\[
+    \boldsymbol{R}_m = \sum_{|\boldsymbol{\alpha}|=m+1}
+\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + \theta
+\boldsymbol{h})}{\boldsymbol{\alpha}!}
+\boldsymbol{h}^{\boldsymbol{\alpha}}
+\]</span><br />
+称为Lagrange余项。</p>
+</blockquote>
+<p>证：固定<span
+class="math inline">\(\boldsymbol{a},\boldsymbol{h}\)</span>，设<span
+class="math inline">\(t \in [0,1]\)</span>，考虑<span
+class="math inline">\([0,1]\)</span>上的函数<span
+class="math inline">\(\varphi(t) = f(\boldsymbol{a} + t
+\boldsymbol{h})\)</span>，显然<span
+class="math inline">\(\varphi\)</span>在<span
+class="math inline">\([0,1]\)</span>上有<span
+class="math inline">\(m+1\)</span>阶的连续导数，对<span
+class="math inline">\(\varphi\)</span>用单变量函数的Taylor公式，得<br />
+<span class="math display">\[
+    \varphi(1) = \varphi(0) + \varphi^\prime(0) +
+\frac{1}{2!}\varphi^{\prime\prime}(0) + \cdots +
+\frac{1}{m!}\varphi^{(m)}(0) + \frac{1}{(m+1)!}\varphi^{(m+1)}(\theta)
+\tag{1}
+\]</span><br />
+其中<span class="math inline">\(\theta \in (0, 1)\)</span>。显然<span
+class="math inline">\(\varphi(1) = f(\boldsymbol{a} +
+\boldsymbol{h})\)</span>，<span class="math inline">\(\varphi(0) =
+f(\boldsymbol{a})\)</span>，根据复合函数的求导公式得<br />
+<span class="math display">\[
+    \varphi^\prime(t) = \frac{\partial f}{\partial x_1}(\boldsymbol{a} +
+t \boldsymbol{h})h_1 + \cdots + \frac{\partial f}{\partial
+x_n}(\boldsymbol{a} + t \boldsymbol{h})h_n =
+\left(h_1\frac{\partial}{\partial x_1} + \cdots +
+h_n\frac{\partial}{\partial x_n}\right)f(\boldsymbol{a} + t
+\boldsymbol{h})
+\]</span><br />
+从而可得<br />
+<span class="math display">\[
+    \begin{aligned}
+        \varphi^{\prime\prime}(t) &amp;=
+\left(h_1\frac{\partial}{\partial x_1} + \cdots +
+h_n\frac{\partial}{\partial x_n}\right)^2f(\boldsymbol{a} +
+t\boldsymbol{h}) \\
         \cdots, \\
-        \varphi^{(m)}(t) &= \left(h_1\frac{\partial}{\partial x_1} + \cdots + h_n\frac{\partial}{\partial x_n}\right)^mf(\boldsymbol{a} + t\boldsymbol{h})
-    \end{aligned}</script><p>根据<a href="https://gamersover.github.io/2021/04/21/函数导数12/#定理4" target="_blank" rel="noopener">定理4</a>可知，</p>
-<script type="math/tex; mode=display">
-    \varphi^{(k)}(t) = \sum_{|\boldsymbol{\alpha}|=k}\frac{k!}{\boldsymbol{\alpha}!}\frac{\partial^{\alpha_1}}{\partial x_1^{\alpha_1}}\cdots \frac{\partial ^{\alpha_n}}{\partial x_n^{\alpha_n}}f(\boldsymbol{a} + t\boldsymbol{h})\boldsymbol{h}^{\boldsymbol{\alpha}} = \sum_{|\boldsymbol{\alpha}|=k} \frac{k!}{\boldsymbol{\alpha}!}D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + t\boldsymbol{h}) \boldsymbol{h}^{\boldsymbol{\alpha}}</script><p>所以</p>
-<script type="math/tex; mode=display">
-    \varphi^{(k)}(0) = \sum_{|\boldsymbol{\alpha}|=k} \frac{k!}{\boldsymbol{\alpha}!}D^{\boldsymbol{\alpha}}f(\boldsymbol{a}) \boldsymbol{h}^{\boldsymbol{\alpha}}</script><p>将其代入(1)式，即得证明的结论。</p>
+        \varphi^{(m)}(t) &amp;= \left(h_1\frac{\partial}{\partial x_1} +
+\cdots + h_n\frac{\partial}{\partial x_n}\right)^mf(\boldsymbol{a} +
+t\boldsymbol{h})
+    \end{aligned}
+\]</span><br />
+根据<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/04/21/函数导数12/#定理4">定理4</a>可知，<br />
+<span class="math display">\[
+    \varphi^{(k)}(t) =
+\sum_{|\boldsymbol{\alpha}|=k}\frac{k!}{\boldsymbol{\alpha}!}\frac{\partial^{\alpha_1}}{\partial
+x_1^{\alpha_1}}\cdots \frac{\partial ^{\alpha_n}}{\partial
+x_n^{\alpha_n}}f(\boldsymbol{a} +
+t\boldsymbol{h})\boldsymbol{h}^{\boldsymbol{\alpha}} =
+\sum_{|\boldsymbol{\alpha}|=k}
+\frac{k!}{\boldsymbol{\alpha}!}D^{\boldsymbol{\alpha}}f(\boldsymbol{a} +
+t\boldsymbol{h}) \boldsymbol{h}^{\boldsymbol{\alpha}}
+\]</span><br />
+所以<br />
+<span class="math display">\[
+    \varphi^{(k)}(0) = \sum_{|\boldsymbol{\alpha}|=k}
+\frac{k!}{\boldsymbol{\alpha}!}D^{\boldsymbol{\alpha}}f(\boldsymbol{a})
+\boldsymbol{h}^{\boldsymbol{\alpha}}
+\]</span><br />
+将其代入(1)式，即得证明的结论。</p>
 <p>Q.E.D.</p>
-<h5 id="特别地"><a href="#特别地" class="headerlink" title="特别地"></a>特别地</h5><p>Taylor公式的前三项写出来就是</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{a} + \boldsymbol{h}) = f(\boldsymbol{a}) + \frac{\partial f}{\partial x_1}(\boldsymbol{a})h_1 + \cdots + \frac{\partial f}{\partial x_n}(\boldsymbol{a})h_n + \frac{1}{2} \sum_{i,j=1}^n\frac{\partial^2 f}{\partial x_i \partial x_j}(\boldsymbol{a})h_ih_j + \cdots</script><p>如果记</p>
-<script type="math/tex; mode=display">
-    Hf(\boldsymbol{a}) = \begin{bmatrix} 
-            \frac{\partial^2 f}{\partial x_1^2}(\boldsymbol{a}) & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_n}(\boldsymbol{a}) \\
-            \vdots & & \vdots \\
-            \frac{\partial^2 f}{\partial x_n \partial x_1}(\boldsymbol{a}) & \cdots & \frac{\partial^2 f}{\partial x_n^2}(\boldsymbol{a})
-    \end{bmatrix}</script><p>那么上式可写成</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{a} + \boldsymbol{h}) = f(\boldsymbol{a}) + Jf(\boldsymbol{a})\boldsymbol{h} + \frac{1}{2}\boldsymbol{h}^T Hf(\boldsymbol{a}) \boldsymbol{h} + \cdots</script><p>这里$Hf$称为$f$的Hesse方阵，它是一个$n$阶对称方阵。</p>
-<h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><blockquote>
-<p>设$D \subset \mathbb{R}^n$是一个凸区域，$f \in C^m(D)$，$\boldsymbol{a}$和$\boldsymbol{a}+\boldsymbol{h}$是$D$中的两个点，那么</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{a} + \boldsymbol{h}) = \sum_{k=0}^m \sum_{|\boldsymbol{\alpha}|=k} \frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} + o(\Vert \boldsymbol{h} \Vert^m) \quad (\boldsymbol{h} \to \boldsymbol{0})</script></blockquote>
-<p>证：由<a href="https://gamersover.github.io/2021/04/21/函数导数12/#定理5：Taylor公式" target="_blank" rel="noopener">定理5</a>可知</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{a} + \boldsymbol{h}) = \sum_{k=0}^{m-1} \sum_{|\boldsymbol{\alpha}|=k} \frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} + \sum_{|\boldsymbol{\alpha}|=m}\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + \theta \boldsymbol{h})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} \tag{2}</script><p>其中$\theta \in (0, 1)$，因为$f$的$m$阶偏导数连续，所以</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{\boldsymbol{h} \to \boldsymbol{0}} D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + \theta \boldsymbol{h}) = D^{\boldsymbol{\alpha}}f(\boldsymbol{a}) \quad (|\boldsymbol{\alpha}|=m)</script><p>从而有</p>
-<script type="math/tex; mode=display">
-    D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + \theta \boldsymbol{h}) = D^{\boldsymbol{\alpha}}f(\boldsymbol{a}) + o(1)  \quad (\boldsymbol{h} \to 0)</script><p>所以</p>
-<script type="math/tex; mode=display">
-    \frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + \theta \boldsymbol{h})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} = \frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} + o(\boldsymbol{h}^{\boldsymbol{\alpha}}) \quad (\boldsymbol{h} \to \boldsymbol{0})</script><p>当$|\boldsymbol{\alpha}|=m$时，有</p>
-<script type="math/tex; mode=display">
-    |\boldsymbol{h}^{\boldsymbol{\alpha}}| = |h_1^{\alpha_1} \cdots h_n^{\alpha_n}| = |h_1|^{\alpha_1} \cdots |h_n|^{\alpha_n} \le \Vert \boldsymbol{h} \Vert^{m}</script><p>从而</p>
-<script type="math/tex; mode=display">
-    \sum_{|\boldsymbol{\alpha}| = m}\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + \theta \boldsymbol{h})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} = \sum_{|\boldsymbol{\alpha}| = m}\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!} \boldsymbol{h}^{\boldsymbol{\alpha}} + o(\Vert \boldsymbol{h} \Vert^{m}) \quad (\boldsymbol{h} \to \boldsymbol{0})</script><p>将上式代入(2)式中，即证得命题成立。</p>
+<h5 id="特别地">特别地</h5>
+<p>Taylor公式的前三项写出来就是<br />
+<span class="math display">\[
+    f(\boldsymbol{a} + \boldsymbol{h}) = f(\boldsymbol{a}) +
+\frac{\partial f}{\partial x_1}(\boldsymbol{a})h_1 + \cdots +
+\frac{\partial f}{\partial x_n}(\boldsymbol{a})h_n + \frac{1}{2}
+\sum_{i,j=1}^n\frac{\partial^2 f}{\partial x_i \partial
+x_j}(\boldsymbol{a})h_ih_j + \cdots
+\]</span><br />
+如果记<br />
+<span class="math display">\[
+    Hf(\boldsymbol{a}) = \begin{bmatrix}
+            \frac{\partial^2 f}{\partial x_1^2}(\boldsymbol{a}) &amp;
+\cdots &amp; \frac{\partial^2 f}{\partial x_1 \partial
+x_n}(\boldsymbol{a}) \\
+            \vdots &amp; &amp; \vdots \\
+            \frac{\partial^2 f}{\partial x_n \partial
+x_1}(\boldsymbol{a}) &amp; \cdots &amp; \frac{\partial^2 f}{\partial
+x_n^2}(\boldsymbol{a})
+    \end{bmatrix}
+\]</span><br />
+那么上式可写成<br />
+<span class="math display">\[
+    f(\boldsymbol{a} + \boldsymbol{h}) = f(\boldsymbol{a}) +
+Jf(\boldsymbol{a})\boldsymbol{h} + \frac{1}{2}\boldsymbol{h}^T
+Hf(\boldsymbol{a}) \boldsymbol{h} + \cdots
+\]</span><br />
+这里<span class="math inline">\(Hf\)</span>称为<span
+class="math inline">\(f\)</span>的Hesse方阵，它是一个<span
+class="math inline">\(n\)</span>阶对称方阵。</p>
+<h4 id="定理6">定理6</h4>
+<blockquote>
+<p>设<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>是一个凸区域，<span class="math inline">\(f \in
+C^m(D)\)</span>，<span
+class="math inline">\(\boldsymbol{a}\)</span>和<span
+class="math inline">\(\boldsymbol{a}+\boldsymbol{h}\)</span>是<span
+class="math inline">\(D\)</span>中的两个点，那么<br />
+<span class="math display">\[
+    f(\boldsymbol{a} + \boldsymbol{h}) = \sum_{k=0}^m
+\sum_{|\boldsymbol{\alpha}|=k}
+\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!}
+\boldsymbol{h}^{\boldsymbol{\alpha}} + o(\Vert \boldsymbol{h} \Vert^m)
+\quad (\boldsymbol{h} \to \boldsymbol{0})
+\]</span></p>
+</blockquote>
+<p>证：由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/04/21/函数导数12/#定理5：Taylor公式">定理5</a>可知<br />
+<span class="math display">\[
+    f(\boldsymbol{a} + \boldsymbol{h}) = \sum_{k=0}^{m-1}
+\sum_{|\boldsymbol{\alpha}|=k}
+\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!}
+\boldsymbol{h}^{\boldsymbol{\alpha}} +
+\sum_{|\boldsymbol{\alpha}|=m}\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a}
++ \theta \boldsymbol{h})}{\boldsymbol{\alpha}!}
+\boldsymbol{h}^{\boldsymbol{\alpha}} \tag{2}
+\]</span><br />
+其中<span class="math inline">\(\theta \in (0, 1)\)</span>，因为<span
+class="math inline">\(f\)</span>的<span
+class="math inline">\(m\)</span>阶偏导数连续，所以<br />
+<span class="math display">\[
+    \lim \limits_{\boldsymbol{h} \to \boldsymbol{0}}
+D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + \theta \boldsymbol{h}) =
+D^{\boldsymbol{\alpha}}f(\boldsymbol{a}) \quad (|\boldsymbol{\alpha}|=m)
+\]</span><br />
+从而有<br />
+<span class="math display">\[
+    D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + \theta \boldsymbol{h}) =
+D^{\boldsymbol{\alpha}}f(\boldsymbol{a}) + o(1)  \quad (\boldsymbol{h}
+\to 0)
+\]</span><br />
+所以<br />
+<span class="math display">\[
+    \frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + \theta
+\boldsymbol{h})}{\boldsymbol{\alpha}!}
+\boldsymbol{h}^{\boldsymbol{\alpha}} =
+\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!}
+\boldsymbol{h}^{\boldsymbol{\alpha}} +
+o(\boldsymbol{h}^{\boldsymbol{\alpha}}) \quad (\boldsymbol{h} \to
+\boldsymbol{0})
+\]</span><br />
+当<span
+class="math inline">\(|\boldsymbol{\alpha}|=m\)</span>时，有<br />
+<span class="math display">\[
+    |\boldsymbol{h}^{\boldsymbol{\alpha}}| = |h_1^{\alpha_1} \cdots
+h_n^{\alpha_n}| = |h_1|^{\alpha_1} \cdots |h_n|^{\alpha_n} \le \Vert
+\boldsymbol{h} \Vert^{m}
+\]</span><br />
+从而<br />
+<span class="math display">\[
+    \sum_{|\boldsymbol{\alpha}| =
+m}\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a} + \theta
+\boldsymbol{h})}{\boldsymbol{\alpha}!}
+\boldsymbol{h}^{\boldsymbol{\alpha}} = \sum_{|\boldsymbol{\alpha}| =
+m}\frac{D^{\boldsymbol{\alpha}}f(\boldsymbol{a})}{\boldsymbol{\alpha}!}
+\boldsymbol{h}^{\boldsymbol{\alpha}} + o(\Vert \boldsymbol{h} \Vert^{m})
+\quad (\boldsymbol{h} \to \boldsymbol{0})
+\]</span><br />
+将上式代入(2)式中，即证得命题成立。</p>
 <p>Q.E.D.</p>
-<h4 id="定理7：拟微分平均值定理"><a href="#定理7：拟微分平均值定理" class="headerlink" title="定理7：拟微分平均值定理"></a>定理7：拟微分平均值定理</h4><blockquote>
-<p>设$\boldsymbol{f}: [a,b] \to \mathbb{R}^m$是$[a,b]$上的连续映射，在开区间$(a,b)$上可微，那么存在一点$\xi \in (a,b)$使得</p>
-<script type="math/tex; mode=display">
-    \Vert \boldsymbol{f}(b) - \boldsymbol{f}(a) \Vert \le \Vert J\boldsymbol{f}(\xi) \Vert (b-a)</script></blockquote>
-<p>证：设$\boldsymbol{u} = \boldsymbol{f}(b) - \boldsymbol{f}(a)$，利用$\mathbb{R}^m$中的内积来定义函数</p>
-<script type="math/tex; mode=display">
-    \varphi(t) = \left<\boldsymbol{u}, \boldsymbol{f}(t)\right> \quad (a \le t \le b)</script><p>易知$\varphi$是$[a,b]$上的连续函数，并在开区间$(a,b)$上可微，对$\varphi$使用微分中值定理，可知存在一点$\xi \in (a,b)$使得</p>
-<script type="math/tex; mode=display">
-    \varphi(b) - \varphi(a) = (b-a)\varphi^\prime(\xi) = (b-a)\left<\boldsymbol{u}, J\boldsymbol{f}(\xi) \right></script><p>而</p>
-<script type="math/tex; mode=display">
-    \varphi(b) - \varphi(a) = \left< \boldsymbol{u}, \boldsymbol{f}(b) \right> - \left< \boldsymbol{u}, \boldsymbol{f}(a) \right> = \left< \boldsymbol{u}, \boldsymbol{f}(b) - \boldsymbol{f}(a)\right> = \left< \boldsymbol{u}, \boldsymbol{u} \right> = \Vert \boldsymbol{u} \Vert^2</script><p>由Cauchy-Schwarz不等式，可得</p>
-<script type="math/tex; mode=display">
-    \Vert \boldsymbol{u} \Vert^2 = (b-a)\left< \boldsymbol{u}, J\boldsymbol{f}(\xi) \right> \le (b-a)\Vert \boldsymbol{u} \Vert \Vert J\boldsymbol{f}(\xi) \Vert</script><p>当$\boldsymbol{u} \ne \boldsymbol{0}$时，式子两边消去$\Vert \boldsymbol{u} \Vert$即得证原命题；若$\boldsymbol{u} = \boldsymbol{0}$，命题自然成立。</p>
+<h4 id="定理7拟微分平均值定理">定理7：拟微分平均值定理</h4>
+<blockquote>
+<p>设<span class="math inline">\(\boldsymbol{f}: [a,b] \to
+\mathbb{R}^m\)</span>是<span
+class="math inline">\([a,b]\)</span>上的连续映射，在开区间<span
+class="math inline">\((a,b)\)</span>上可微，那么存在一点<span
+class="math inline">\(\xi \in (a,b)\)</span>使得<br />
+<span class="math display">\[
+    \Vert \boldsymbol{f}(b) - \boldsymbol{f}(a) \Vert \le \Vert
+J\boldsymbol{f}(\xi) \Vert (b-a)
+\]</span></p>
+</blockquote>
+<p>证：设<span class="math inline">\(\boldsymbol{u} = \boldsymbol{f}(b)
+- \boldsymbol{f}(a)\)</span>，利用<span
+class="math inline">\(\mathbb{R}^m\)</span>中的内积来定义函数<br />
+<span class="math display">\[
+    \varphi(t) = \left&lt;\boldsymbol{u}, \boldsymbol{f}(t)\right&gt;
+\quad (a \le t \le b)
+\]</span><br />
+易知<span class="math inline">\(\varphi\)</span>是<span
+class="math inline">\([a,b]\)</span>上的连续函数，并在开区间<span
+class="math inline">\((a,b)\)</span>上可微，对<span
+class="math inline">\(\varphi\)</span>使用微分中值定理，可知存在一点<span
+class="math inline">\(\xi \in (a,b)\)</span>使得<br />
+<span class="math display">\[
+    \varphi(b) - \varphi(a) = (b-a)\varphi^\prime(\xi) =
+(b-a)\left&lt;\boldsymbol{u}, J\boldsymbol{f}(\xi) \right&gt;
+\]</span><br />
+而<br />
+<span class="math display">\[
+    \varphi(b) - \varphi(a) = \left&lt; \boldsymbol{u},
+\boldsymbol{f}(b) \right&gt; - \left&lt; \boldsymbol{u},
+\boldsymbol{f}(a) \right&gt; = \left&lt; \boldsymbol{u},
+\boldsymbol{f}(b) - \boldsymbol{f}(a)\right&gt; = \left&lt;
+\boldsymbol{u}, \boldsymbol{u} \right&gt; = \Vert \boldsymbol{u} \Vert^2
+\]</span><br />
+由Cauchy-Schwarz不等式，可得<br />
+<span class="math display">\[
+    \Vert \boldsymbol{u} \Vert^2 = (b-a)\left&lt; \boldsymbol{u},
+J\boldsymbol{f}(\xi) \right&gt; \le (b-a)\Vert \boldsymbol{u} \Vert
+\Vert J\boldsymbol{f}(\xi) \Vert
+\]</span><br />
+当<span class="math inline">\(\boldsymbol{u} \ne
+\boldsymbol{0}\)</span>时，式子两边消去<span class="math inline">\(\Vert
+\boldsymbol{u} \Vert\)</span>即得证原命题；若<span
+class="math inline">\(\boldsymbol{u} =
+\boldsymbol{0}\)</span>，命题自然成立。</p>
 <p>Q.E.D.</p>
-<h4 id="定理8"><a href="#定理8" class="headerlink" title="定理8"></a>定理8</h4><blockquote>
-<p>设凸区域$D \subset \mathbb{R}^n$，且映射$\boldsymbol{f}: D \to \mathbb{R}^m$在$D$上可微，则对任何$\boldsymbol{a},\boldsymbol{b} \in D$，在由$\boldsymbol{a}, \boldsymbol{b}$所决定的线段上必有一点$\boldsymbol{\xi}$，使得</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{f}(\boldsymbol{b}) - \boldsymbol{f}(\boldsymbol{a}) \le \Vert J\boldsymbol{f}(\boldsymbol{\xi}) \Vert \Vert \boldsymbol{b} - \boldsymbol{a}\Vert</script></blockquote>
-<p>证：由$\boldsymbol{a}$与$\boldsymbol{b}$所决定的线段可表示为</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{r}(t) = \boldsymbol{a} + t (\boldsymbol{b} - \boldsymbol{a}) \quad (0 \le t \le 1)</script><p>令</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{g}(t) = \boldsymbol{f} \circ \boldsymbol{r}(t)</script><p>映射$g$在$[0,1]$上连续，在$(0,1)$内可微，从而</p>
-<script type="math/tex; mode=display">
-    J\boldsymbol{g}(t) = J\boldsymbol{f}(\boldsymbol{r}(t))(\boldsymbol{b} - \boldsymbol{a})</script><p>由<a href="https://gamersover.github.io/2021/04/21/函数导数12/#定理7：拟微分平均值定理" target="_blank" rel="noopener">定理7</a>可知存在$\tau \in (0, 1)$，使得</p>
-<script type="math/tex; mode=display">
-    \Vert \boldsymbol{g}(1) - \boldsymbol{g}(0)\Vert = \Vert J\boldsymbol{g}(\tau)\Vert</script><p>即</p>
-<script type="math/tex; mode=display">
-    \Vert \boldsymbol{f}(\boldsymbol{b}) - \boldsymbol{f}(\boldsymbol{a}) \Vert \le \Vert J\boldsymbol{f}(\boldsymbol{r}(\tau))(\boldsymbol{b} - \boldsymbol{a}) \Vert</script><p>令$\boldsymbol{\xi} = \boldsymbol{r}(\tau)$，可得</p>
-<script type="math/tex; mode=display">
-    \Vert \boldsymbol{f}(\boldsymbol{b}) - \boldsymbol{f}(\boldsymbol{a}) \Vert \le \Vert J\boldsymbol{f}(\boldsymbol{\xi})(\boldsymbol{b} - \boldsymbol{a}) \Vert \le \Vert J\boldsymbol{f}(\boldsymbol{\xi}) \Vert \Vert \boldsymbol{b} - \boldsymbol{a} \Vert</script><p>Q.E.D.</p>
+<h4 id="定理8">定理8</h4>
+<blockquote>
+<p>设凸区域<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>，且映射<span class="math inline">\(\boldsymbol{f}:
+D \to \mathbb{R}^m\)</span>在<span
+class="math inline">\(D\)</span>上可微，则对任何<span
+class="math inline">\(\boldsymbol{a},\boldsymbol{b} \in
+D\)</span>，在由<span class="math inline">\(\boldsymbol{a},
+\boldsymbol{b}\)</span>所决定的线段上必有一点<span
+class="math inline">\(\boldsymbol{\xi}\)</span>，使得<br />
+<span class="math display">\[
+    \boldsymbol{f}(\boldsymbol{b}) - \boldsymbol{f}(\boldsymbol{a}) \le
+\Vert J\boldsymbol{f}(\boldsymbol{\xi}) \Vert \Vert \boldsymbol{b} -
+\boldsymbol{a}\Vert
+\]</span></p>
+</blockquote>
+<p>证：由<span class="math inline">\(\boldsymbol{a}\)</span>与<span
+class="math inline">\(\boldsymbol{b}\)</span>所决定的线段可表示为<br />
+<span class="math display">\[
+    \boldsymbol{r}(t) = \boldsymbol{a} + t (\boldsymbol{b} -
+\boldsymbol{a}) \quad (0 \le t \le 1)
+\]</span><br />
+令<br />
+<span class="math display">\[
+    \boldsymbol{g}(t) = \boldsymbol{f} \circ \boldsymbol{r}(t)
+\]</span><br />
+映射<span class="math inline">\(g\)</span>在<span
+class="math inline">\([0,1]\)</span>上连续，在<span
+class="math inline">\((0,1)\)</span>内可微，从而<br />
+<span class="math display">\[
+    J\boldsymbol{g}(t) =
+J\boldsymbol{f}(\boldsymbol{r}(t))(\boldsymbol{b} - \boldsymbol{a})
+\]</span><br />
+由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/04/21/函数导数12/#定理7：拟微分平均值定理">定理7</a>可知存在<span
+class="math inline">\(\tau \in (0, 1)\)</span>，使得<br />
+<span class="math display">\[
+    \Vert \boldsymbol{g}(1) - \boldsymbol{g}(0)\Vert = \Vert
+J\boldsymbol{g}(\tau)\Vert
+\]</span><br />
+即<br />
+<span class="math display">\[
+    \Vert \boldsymbol{f}(\boldsymbol{b}) -
+\boldsymbol{f}(\boldsymbol{a}) \Vert \le \Vert
+J\boldsymbol{f}(\boldsymbol{r}(\tau))(\boldsymbol{b} - \boldsymbol{a})
+\Vert
+\]</span><br />
+令<span class="math inline">\(\boldsymbol{\xi} =
+\boldsymbol{r}(\tau)\)</span>，可得<br />
+<span class="math display">\[
+    \Vert \boldsymbol{f}(\boldsymbol{b}) -
+\boldsymbol{f}(\boldsymbol{a}) \Vert \le \Vert
+J\boldsymbol{f}(\boldsymbol{\xi})(\boldsymbol{b} - \boldsymbol{a}) \Vert
+\le \Vert J\boldsymbol{f}(\boldsymbol{\xi}) \Vert \Vert \boldsymbol{b} -
+\boldsymbol{a} \Vert
+\]</span></p>
+<p>Q.E.D.</p>
 
     </div>
 
@@ -519,7 +880,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5：Taylor公式"><span class="nav-text">定理5：Taylor公式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#特别地"><span class="nav-text">特别地</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理6"><span class="nav-text">定理6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理7：拟微分平均值定理"><span class="nav-text">定理7：拟微分平均值定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理8"><span class="nav-text">定理8</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%891"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%863"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%864"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%865taylor%E5%85%AC%E5%BC%8F"><span class="nav-text">定理5：Taylor公式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%B9%E5%88%AB%E5%9C%B0"><span class="nav-text">特别地</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%866"><span class="nav-text">定理6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%867%E6%8B%9F%E5%BE%AE%E5%88%86%E5%B9%B3%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86"><span class="nav-text">定理7：拟微分平均值定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%868"><span class="nav-text">定理8</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -590,13 +951,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

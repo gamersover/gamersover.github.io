@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="描述该题来自于力扣第42题">
+  <meta name="description" content="描述 该题来自于力扣第42题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode题解42：接雨水">
 <meta property="og:url" content="http://yoursite.com/2022/05/21/leetcode%E9%A2%98%E8%A7%A342/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="描述该题来自于力扣第42题">
+<meta property="og:description" content="描述 该题来自于力扣第42题">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-21T03:59:39.000Z">
-<meta property="article:modified_time" content="2022-05-22T03:26:40.942Z">
+<meta property="article:modified_time" content="2022-05-21T03:59:39.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="leetcode">
 <meta property="article:tag" content="数组">
@@ -80,7 +80,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,13 +224,6 @@
 
               <time title="创建时间：2022-05-21 11:59:39" itemprop="dateCreated datePublished" datetime="2022-05-21T11:59:39+08:00">2022-05-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-22 11:26:40" itemprop="dateModified" datetime="2022-05-22T11:26:40+08:00">2022-05-22</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -250,7 +247,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>894</span>
+              <span>898</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -269,21 +266,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于<a href="https://leetcode.cn/problems/trapping-rain-water/" target="_blank" rel="noopener">力扣第42题</a><br><a id="more"></a></p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>最直接的想法就是求出哪两个柱子之间可以接雨水，然后算出每两个柱子之间能够接的雨水量；但是效率不高，仔细分析下计算过程，现假设编号<code>i</code>到<code>i+k-1</code>这<code>k</code>个柱子之间可以接雨水，那么有两个性质：</p>
-<ol>
-<li>雨水的最大高度是两个边界柱子的最小高度，记<code>h=min(arr[i], arr[i+k-1])</code>，<code>h</code>也是每根柱子接雨水的高度</li>
-<li>接的雨水的单位是<code>h*k - (arr[i] + arr[i+1] + arr[i+k-1])</code>，分解下得到<code>(h - arr[i]) + (h - arr[i+1]) + (h - arr[i+k-1])</code>，发现能接的雨水的总单位就是每跟柱子能接雨水的高度减去自身的高度，然后求和即可</li>
-</ol>
-<p>性质2说明能接雨水总单位等于 每跟柱子能接的雨水单位的总和，而性质1说明，每根柱子接雨水的高度就是，自身左边最大高度与自身右边最大高度的最小值。举个例子：</p>
+        <h2 id="描述">描述</h2>
+<p>该题来自于<a
+target="_blank" rel="noopener" href="https://leetcode.cn/problems/trapping-rain-water/">力扣第42题</a><br />
+<span id="more"></span></p>
+<h2 id="分析">分析</h2>
+<p>最直接的想法就是求出哪两个柱子之间可以接雨水，然后算出每两个柱子之间能够接的雨水量；但是效率不高，仔细分析下计算过程，现假设编号<code>i</code>到<code>i+k-1</code>这<code>k</code>个柱子之间可以接雨水，那么有两个性质：<br />
+1.
+雨水的最大高度是两个边界柱子的最小高度，记<code>h=min(arr[i], arr[i+k-1])</code>，<code>h</code>也是每根柱子接雨水的高度<br />
+2.
+接的雨水的单位是<code>h*k - (arr[i] + arr[i+1] + arr[i+k-1])</code>，分解下得到<code>(h - arr[i]) + (h - arr[i+1]) + (h - arr[i+k-1])</code>，发现能接的雨水的总单位就是每跟柱子能接雨水的高度减去自身的高度，然后求和即可</p>
+<p>性质2说明能接雨水总单位等于
+每跟柱子能接的雨水单位的总和，而性质1说明，每根柱子接雨水的高度就是，自身左边最大高度与自身右边最大高度的最小值。举个例子：</p>
 <blockquote>
-<p>1 0 <font color="blue">2</font> 1 <font color="red">0</font> <font color="blue">1</font></p>
+<p>1 0 <font color="blue">2</font> 1 <font color="red">0</font>
+<font color="blue">1</font></p>
 </blockquote>
 <p>红色0左边的最大值为2，右边最大值为1，从而红色1接雨水的高度为1，而自身高度为<code>0</code>，所以该柱子能接雨水的单位是<code>1-0=1</code>；对于每个柱子接雨水的高度可以这样求解：先求出每个柱子的左边最大高度，再求出每个柱子的右边高度，然后求两个最小值即可。设编号为<code>i</code>的柱子左边最大高度为<code>f(i)</code>，显然有<code>f(i) = max(f(i-1), arr[i])</code>，所以在求解时可以使用动态规划。</p>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><details open>
-<summary>python</summary>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">trap</span><span class="params">(self, height: List[int])</span> -&gt; int:</span></span><br><span class="line">        left = [height[<span class="number">0</span>]]*len(height)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(height)):</span><br><span class="line">            left[i] = max(left[i<span class="number">-1</span>], height[i])</span><br><span class="line"></span><br><span class="line">        right = [height[<span class="number">-1</span>]]*len(height)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(height)<span class="number">-2</span>, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">            right[i] = max(right[i+<span class="number">1</span>], height[i])</span><br><span class="line"></span><br><span class="line">        area = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(height)):</span><br><span class="line">            area += min(left[i], right[i]) - height[i]</span><br><span class="line">        <span class="keyword">return</span> area</span><br></pre></td></tr></table></figure>
+<h2 id="算法">算法</h2>
+<details open>
+<summary>
+python
+</summary>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">trap</span>(<span class="params">self, height: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        left = [height[<span class="number">0</span>]]*<span class="built_in">len</span>(height)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(height)):</span><br><span class="line">            left[i] = <span class="built_in">max</span>(left[i-<span class="number">1</span>], height[i])</span><br><span class="line"></span><br><span class="line">        right = [height[-<span class="number">1</span>]]*<span class="built_in">len</span>(height)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(height)-<span class="number">2</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">            right[i] = <span class="built_in">max</span>(right[i+<span class="number">1</span>], height[i])</span><br><span class="line"></span><br><span class="line">        area = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(height)):</span><br><span class="line">            area += <span class="built_in">min</span>(left[i], right[i]) - height[i]</span><br><span class="line">        <span class="keyword">return</span> area</span><br></pre></td></tr></table></figure>
 </details>
 
     </div>
@@ -369,7 +374,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-text">算法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-text">算法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,13 +445,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

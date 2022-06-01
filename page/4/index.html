@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -75,7 +75,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -215,13 +219,6 @@
 
               <time title="创建时间：2021-05-28 20:33:11" itemprop="dateCreated datePublished" datetime="2021-05-28T20:33:11+08:00">2021-05-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -238,14 +235,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -257,10 +254,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定理1：积分的可加性"><a href="#定理1：积分的可加性" class="headerlink" title="定理1：积分的可加性"></a>定理1：积分的可加性</h4><blockquote>
-<p>设$c \in (a,b)$，函数$f$在$[a,c],[c,b]$上可积，那么$f$在$[a,b]$上也可积，且</p>
-<script type="math/tex; mode=display">
-    \int_a^b f(x) \mathrm{d} x = \int_a^c f(x) \mathrm{d} x + \int_c^b f(x) \mathrm{d} x</script></blockquote>
+          <h4 id="定理1积分的可加性">定理1：积分的可加性</h4>
+<blockquote>
+<p>设<span class="math inline">\(c \in (a,b)\)</span>，函数<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\([a,c],[c,b]\)</span>上可积，那么<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上也可积，且<br />
+<span class="math display">\[
+    \int_a^b f(x) \mathrm{d} x = \int_a^c f(x) \mathrm{d} x + \int_c^b
+f(x) \mathrm{d} x
+\]</span></p>
+</blockquote>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/05/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%865/#more" rel="contents">
@@ -313,13 +318,6 @@
 
               <time title="创建时间：2021-05-25 21:14:07" itemprop="dateCreated datePublished" datetime="2021-05-25T21:14:07+08:00">2021-05-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-17 13:12:55" itemprop="dateModified" datetime="2022-05-17T13:12:55+08:00">2022-05-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -336,14 +334,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6k</span>
+              <span>6.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -355,8 +353,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定义1：零测度集"><a href="#定义1：零测度集" class="headerlink" title="定义1：零测度集"></a>定义1：零测度集</h4><blockquote>
-<p>设$A$为实数的集合，如果对任意给定的$\varepsilon &gt; 0$， 存在至多可数个开区间$\{I_n: n \in \mathbb{N}^*\}$组成$A$的一个开覆盖，并且$\displaystyle \sum_{n=1}^{\infty} |I_n| \le \varepsilon$($|I_n|$表示开区间$I_n$的长度)，那么称$A$是零测度集，简称零测集。</p>
+          <h4 id="定义1零测度集">定义1：零测度集</h4>
+<blockquote>
+<p>设<span
+class="math inline">\(A\)</span>为实数的集合，如果对任意给定的<span
+class="math inline">\(\varepsilon &gt; 0\)</span>，
+存在至多可数个开区间<span class="math inline">\(\{I_n: n \in
+\mathbb{N}^*\}\)</span>组成<span
+class="math inline">\(A\)</span>的一个开覆盖，并且<span
+class="math inline">\(\displaystyle \sum_{n=1}^{\infty} |I_n| \le
+\varepsilon\)</span>(<span
+class="math inline">\(|I_n|\)</span>表示开区间<span
+class="math inline">\(I_n\)</span>的长度)，那么称<span
+class="math inline">\(A\)</span>是零测度集，简称零测集。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -410,13 +419,6 @@
 
               <time title="创建时间：2021-05-14 20:05:35" itemprop="dateCreated datePublished" datetime="2021-05-14T20:05:35+08:00">2021-05-14</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -433,7 +435,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.1k</span>
+              <span>6.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -452,8 +454,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>设函数$f$在$[a,b]$上Riemann可积，则$f$在$[a,b]$上有界。</p>
+          <h4 id="定理1">定理1</h4>
+<blockquote>
+<p>设函数<span class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上Riemann可积，则<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上有界。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -507,13 +513,6 @@
 
               <time title="创建时间：2021-05-14 20:03:30" itemprop="dateCreated datePublished" datetime="2021-05-14T20:03:30+08:00">2021-05-14</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-24 19:34:24" itemprop="dateModified" datetime="2021-12-24T19:34:24+08:00">2021-12-24</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -607,13 +606,6 @@
 
               <time title="创建时间：2021-05-05 10:33:06" itemprop="dateCreated datePublished" datetime="2021-05-05T10:33:06+08:00">2021-05-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -649,8 +641,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于<a href="https://leetcode-cn.com/problems/merge-k-sorted-lists" target="_blank" rel="noopener">力扣第23题</a></p>
-<p>给你一个链表数组，每个链表都已经按升序排列。<br>请你将所有链表合并到一个升序链表中，返回合并后的链表。<br>
+          <h2 id="描述">描述</h2>
+<p>该题来自于<a
+target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-k-sorted-lists">力扣第23题</a></p>
+<p>给你一个链表数组，每个链表都已经按升序排列。<br />
+请你将所有链表合并到一个升序链表中，返回合并后的链表。<br />
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/05/05/leetcode%E9%A2%98%E8%A7%A323/#more" rel="contents">
@@ -703,13 +698,6 @@
 
               <time title="创建时间：2021-05-02 18:28:35" itemprop="dateCreated datePublished" datetime="2021-05-02T18:28:35+08:00">2021-05-02</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-24 19:34:18" itemprop="dateModified" datetime="2021-12-24T19:34:18+08:00">2021-12-24</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -802,13 +790,6 @@
 
               <time title="创建时间：2021-04-28 21:12:18" itemprop="dateCreated datePublished" datetime="2021-04-28T21:12:18+08:00">2021-04-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -825,14 +806,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
+              <span>2.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -844,12 +825,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定义1：分割"><a href="#定义1：分割" class="headerlink" title="定义1：分割"></a>定义1：分割</h4><blockquote>
-<p>在区间$[a,b]$上，记分割</p>
-<script type="math/tex; mode=display">
-    \pi : a = x_0 < x_1 < \cdots < x_n = b</script><p>把$[a,b]$分成$n$个小区间$[x_{i-1},x_i]$，其长度为$\Delta x_i = x_i - x_{i-1} (i=-1,2,\cdots,n)$。并称$\{x_0, x_1, \cdots,x_n\}$为$\pi$的分点序列。令</p>
-<script type="math/tex; mode=display">
-    \Vert \pi \Vert = \max \limits_{1 \le i \le n} \{ \Delta x_i \}</script><p>称$\Vert \pi \Vert$为分割$\pi$的宽度。</p>
+          <h4 id="定义1分割">定义1：分割</h4>
+<blockquote>
+<p>在区间<span class="math inline">\([a,b]\)</span>上，记分割<br />
+<span class="math display">\[
+    \pi : a = x_0 &lt; x_1 &lt; \cdots &lt; x_n = b
+\]</span><br />
+把<span class="math inline">\([a,b]\)</span>分成<span
+class="math inline">\(n\)</span>个小区间<span
+class="math inline">\([x_{i-1},x_i]\)</span>，其长度为<span
+class="math inline">\(\Delta x_i = x_i - x_{i-1}
+(i=-1,2,\cdots,n)\)</span>。并称<span class="math inline">\(\{x_0, x_1,
+\cdots,x_n\}\)</span>为<span
+class="math inline">\(\pi\)</span>的分点序列。令<br />
+<span class="math display">\[
+    \Vert \pi \Vert = \max \limits_{1 \le i \le n} \{ \Delta x_i \}
+\]</span><br />
+称<span class="math inline">\(\Vert \pi \Vert\)</span>为分割<span
+class="math inline">\(\pi\)</span>的宽度。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -903,13 +896,6 @@
 
               <time title="创建时间：2021-04-28 20:19:42" itemprop="dateCreated datePublished" datetime="2021-04-28T20:19:42+08:00">2021-04-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -926,7 +912,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -945,10 +931,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定义1：原函数"><a href="#定义1：原函数" class="headerlink" title="定义1：原函数"></a>定义1：原函数</h4><blockquote>
-<p>已知区间$D$和函数$f: D \to \mathbb{R}, F: D \to \mathbb{R}$，如果两个函数满足关系</p>
-<script type="math/tex; mode=display">
-    F^\prime(x) = f(x)</script><p>则称$F$为$f$在$D$上的一个原函数。</p>
+          <h4 id="定义1原函数">定义1：原函数</h4>
+<blockquote>
+<p>已知区间<span class="math inline">\(D\)</span>和函数<span
+class="math inline">\(f: D \to \mathbb{R}, F: D \to
+\mathbb{R}\)</span>，如果两个函数满足关系<br />
+<span class="math display">\[
+    F^\prime(x) = f(x)
+\]</span><br />
+则称<span class="math inline">\(F\)</span>为<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(D\)</span>上的一个原函数。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -1002,13 +995,6 @@
 
               <time title="创建时间：2021-04-25 20:44:15" itemprop="dateCreated datePublished" datetime="2021-04-25T20:44:15+08:00">2021-04-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1025,14 +1011,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7.8k</span>
+              <span>8.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
+              <span>8 分钟</span>
             </span>
 
         </div>
@@ -1044,8 +1030,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^n$，函数$f: D \to \mathbb{R}$，点$\boldsymbol{x}_0 \in D$，如果存在一个去心球$B_r(\boldsymbol{\check x}_0) \subset D$，使得对任意的$\boldsymbol{x} \in B_r(\boldsymbol{\check x}_0)$，都有$f(\boldsymbol{x}) \ge f(\boldsymbol{x}_0)(f(\boldsymbol{x}) &gt; f(\boldsymbol{x}_0))$，那么$\boldsymbol{x}_0$称为$f$的一个(严格)极小值点，$f(\boldsymbol{x}_0)$称为函数$f$的一个(严格)极小值。同样可以定义(严格)极大值点与(严格)极大值。极小值与极大值统称为极值。</p>
+          <h4 id="定义1">定义1</h4>
+<blockquote>
+<p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>，函数<span class="math inline">\(f: D \to
+\mathbb{R}\)</span>，点<span class="math inline">\(\boldsymbol{x}_0 \in
+D\)</span>，如果存在一个去心球<span
+class="math inline">\(B_r(\boldsymbol{\check x}_0) \subset
+D\)</span>，使得对任意的<span class="math inline">\(\boldsymbol{x} \in
+B_r(\boldsymbol{\check x}_0)\)</span>，都有<span
+class="math inline">\(f(\boldsymbol{x}) \ge
+f(\boldsymbol{x}_0)(f(\boldsymbol{x}) &gt;
+f(\boldsymbol{x}_0))\)</span>，那么<span
+class="math inline">\(\boldsymbol{x}_0\)</span>称为<span
+class="math inline">\(f\)</span>的一个(严格)极小值点，<span
+class="math inline">\(f(\boldsymbol{x}_0)\)</span>称为函数<span
+class="math inline">\(f\)</span>的一个(严格)极小值。同样可以定义(严格)极大值点与(严格)极大值。极小值与极大值统称为极值。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -1099,13 +1099,6 @@
 
               <time title="创建时间：2021-04-21 20:36:33" itemprop="dateCreated datePublished" datetime="2021-04-21T20:36:33+08:00">2021-04-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1122,14 +1115,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>12k</span>
+              <span>13k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>11 分钟</span>
+              <span>12 分钟</span>
             </span>
 
         </div>
@@ -1141,10 +1134,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>设函数$f$在开集$D$上的每一点处存在偏导数：</p>
-<script type="math/tex; mode=display">
-    D_if(\boldsymbol{x}) = \frac{\partial f}{\partial x_i}(\boldsymbol{x}) \quad (i=1,2,\cdots,n)</script><p>称它们为$f$的一阶偏导函数，如果对这些偏导函数又可以取偏导数，得出的就是$f$的二阶偏导函数，依次可以定义三阶偏导数以及更高阶的偏导数。对于二阶偏导数，将一阶偏导函数$\displaystyle \frac{\partial f}{\partial x_j}$再对$x_i$求偏导数，即$\displaystyle \frac{\partial f}{\partial x_i}\left(\frac{\partial f}{\partial x_j}\right)$记作$\displaystyle \frac{\partial^2 f}{\partial x_i \partial x_j}$，这里$i,j$独立地从$1$变到$n$，如果$i=j$，那么把$\displaystyle \frac{\partial^2 f}{\partial x_i \partial x_i}$记作$\displaystyle \frac{\partial^2 f}{\partial x_i^2}(i=1,2,\cdots,n)$；如果$i\ne j$，这类二阶偏导数称为混合偏导数。</p>
+          <h4 id="定义1">定义1</h4>
+<blockquote>
+<p>设函数<span class="math inline">\(f\)</span>在开集<span
+class="math inline">\(D\)</span>上的每一点处存在偏导数：<br />
+<span class="math display">\[
+    D_if(\boldsymbol{x}) = \frac{\partial f}{\partial
+x_i}(\boldsymbol{x}) \quad (i=1,2,\cdots,n)
+\]</span><br />
+称它们为<span
+class="math inline">\(f\)</span>的一阶偏导函数，如果对这些偏导函数又可以取偏导数，得出的就是<span
+class="math inline">\(f\)</span>的二阶偏导函数，依次可以定义三阶偏导数以及更高阶的偏导数。对于二阶偏导数，将一阶偏导函数<span
+class="math inline">\(\displaystyle \frac{\partial f}{\partial
+x_j}\)</span>再对<span
+class="math inline">\(x_i\)</span>求偏导数，即<span
+class="math inline">\(\displaystyle \frac{\partial f}{\partial
+x_i}\left(\frac{\partial f}{\partial x_j}\right)\)</span>记作<span
+class="math inline">\(\displaystyle \frac{\partial^2 f}{\partial x_i
+\partial x_j}\)</span>，这里<span
+class="math inline">\(i,j\)</span>独立地从<span
+class="math inline">\(1\)</span>变到<span
+class="math inline">\(n\)</span>，如果<span
+class="math inline">\(i=j\)</span>，那么把<span
+class="math inline">\(\displaystyle \frac{\partial^2 f}{\partial x_i
+\partial x_i}\)</span>记作<span class="math inline">\(\displaystyle
+\frac{\partial^2 f}{\partial x_i^2}(i=1,2,\cdots,n)\)</span>；如果<span
+class="math inline">\(i\ne
+j\)</span>，这类二阶偏导数称为混合偏导数。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -1294,13 +1310,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

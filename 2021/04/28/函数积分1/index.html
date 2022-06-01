@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定义1：原函数 已知区间$D$和函数$f: D \to \mathbb{R}, F: D \to \mathbb{R}$，如果两个函数满足关系      F^\prime(x) &#x3D; f(x)则称$F$为$f$在$D$上的一个原函数。">
+  <meta name="description" content="定义1：原函数  已知区间\(D\)和函数\(f: D \to \mathbb{R}, F: D \to \mathbb{R}\)，如果两个函数满足关系 \[     F^\prime(x) &#x3D; f(x) \] 则称\(F\)为\(f\)在\(D\)上的一个原函数。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数积分一：原函数">
 <meta property="og:url" content="http://yoursite.com/2021/04/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%861/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定义1：原函数 已知区间$D$和函数$f: D \to \mathbb{R}, F: D \to \mathbb{R}$，如果两个函数满足关系      F^\prime(x) &#x3D; f(x)则称$F$为$f$在$D$上的一个原函数。">
+<meta property="og:description" content="定义1：原函数  已知区间\(D\)和函数\(f: D \to \mathbb{R}, F: D \to \mathbb{R}\)，如果两个函数满足关系 \[     F^\prime(x) &#x3D; f(x) \] 则称\(F\)为\(f\)在\(D\)上的一个原函数。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-28T12:19:42.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.735Z">
+<meta property="article:modified_time" content="2021-04-28T12:19:42.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数积分">
@@ -80,7 +80,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,13 +224,6 @@
 
               <time title="创建时间：2021-04-28 20:19:42" itemprop="dateCreated datePublished" datetime="2021-04-28T20:19:42+08:00">2021-04-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -250,7 +247,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -269,52 +266,117 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="定义1：原函数"><a href="#定义1：原函数" class="headerlink" title="定义1：原函数"></a>定义1：原函数</h4><blockquote>
-<p>已知区间$D$和函数$f: D \to \mathbb{R}, F: D \to \mathbb{R}$，如果两个函数满足关系</p>
-<script type="math/tex; mode=display">
-    F^\prime(x) = f(x)</script><p>则称$F$为$f$在$D$上的一个原函数。</p>
+        <h4 id="定义1原函数">定义1：原函数</h4>
+<blockquote>
+<p>已知区间<span class="math inline">\(D\)</span>和函数<span
+class="math inline">\(f: D \to \mathbb{R}, F: D \to
+\mathbb{R}\)</span>，如果两个函数满足关系<br />
+<span class="math display">\[
+    F^\prime(x) = f(x)
+\]</span><br />
+则称<span class="math inline">\(F\)</span>为<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(D\)</span>上的一个原函数。</p>
 </blockquote>
-<a id="more"></a>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>如果$F$为$f$的一个原函数，那么函数族$\{ F + c: c \in \mathbb{R} \}$是由$f$的全体原函数构成的，且将该集合记为</p>
-<script type="math/tex; mode=display">
-    \int f(x) \mathrm{d} x</script><p>该式子又称为函数$f$的不定积分。其中$f$称为被积函数。</p>
+<span id="more"></span>
+<h4 id="定理1">定理1</h4>
+<blockquote>
+<p>如果<span class="math inline">\(F\)</span>为<span
+class="math inline">\(f\)</span>的一个原函数，那么函数族<span
+class="math inline">\(\{ F + c: c \in \mathbb{R} \}\)</span>是由<span
+class="math inline">\(f\)</span>的全体原函数构成的，且将该集合记为<br />
+<span class="math display">\[
+    \int f(x) \mathrm{d} x
+\]</span><br />
+该式子又称为函数<span
+class="math inline">\(f\)</span>的不定积分。其中<span
+class="math inline">\(f\)</span>称为被积函数。</p>
 </blockquote>
-<p>证：如果$F$是$f$的一个原函数，那么对任何常数$c$，有</p>
-<script type="math/tex; mode=display">
-    (F(x) + c)^\prime = F^\prime(x) + c^\prime = f(x)</script><p>所以$F(x) + c$也是$f$的一个原函数。又假设$F$和$G$都是$f$的原函数，则有</p>
-<script type="math/tex; mode=display">
-    (F(x) - G(x))^\prime = F^\prime(x) - G^\prime(x) = f(x) - f(x) = 0</script><p>即$F - G$是个常数，所以$G(x) = F(x) + c$，从而$f$全体原函数</p>
-<script type="math/tex; mode=display">
-    \int f(x) \mathrm{d} x = F(x) + c</script><p>Q.E.D.</p>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>（1）$\displaystyle \left(\int f(x) \mathrm{d} x\right)^\prime = f(x)$ <br/><br>（2）$\displaystyle \int F^\prime(x) \mathrm{d} x = F(x) + c$ <br/><br>（3）$\displaystyle \int (f(x) + g(x)) \mathrm{d} x = \int f(x) \mathrm{d} x + \int g(x) \mathrm{d} x$ <br/><br>（4）如果$c$是不为$0$的常数，则有</p>
-<script type="math/tex; mode=display">
-    \int cf(x) \mathrm{d} x = c \int f(x) \mathrm{d} x</script></blockquote>
+<p>证：如果<span class="math inline">\(F\)</span>是<span
+class="math inline">\(f\)</span>的一个原函数，那么对任何常数<span
+class="math inline">\(c\)</span>，有<br />
+<span class="math display">\[
+    (F(x) + c)^\prime = F^\prime(x) + c^\prime = f(x)
+\]</span><br />
+所以<span class="math inline">\(F(x) + c\)</span>也是<span
+class="math inline">\(f\)</span>的一个原函数。又假设<span
+class="math inline">\(F\)</span>和<span
+class="math inline">\(G\)</span>都是<span
+class="math inline">\(f\)</span>的原函数，则有<br />
+<span class="math display">\[
+    (F(x) - G(x))^\prime = F^\prime(x) - G^\prime(x) = f(x) - f(x) = 0
+\]</span><br />
+即<span class="math inline">\(F - G\)</span>是个常数，所以<span
+class="math inline">\(G(x) = F(x) + c\)</span>，从而<span
+class="math inline">\(f\)</span>全体原函数<br />
+<span class="math display">\[
+    \int f(x) \mathrm{d} x = F(x) + c
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理2">定理2</h4>
+<blockquote>
+<p>（1）<span class="math inline">\(\displaystyle \left(\int f(x)
+\mathrm{d} x\right)^\prime = f(x)\)</span><br />
+（2）<span class="math inline">\(\displaystyle \int F^\prime(x)
+\mathrm{d} x = F(x) + c\)</span><br />
+（3）<span class="math inline">\(\displaystyle \int (f(x) + g(x))
+\mathrm{d} x = \int f(x) \mathrm{d} x + \int g(x) \mathrm{d}
+x\)</span><br />
+（4）如果<span class="math inline">\(c\)</span>是不为<span
+class="math inline">\(0\)</span>的常数，则有<br />
+<span class="math display">\[
+    \int cf(x) \mathrm{d} x = c \int f(x) \mathrm{d} x
+\]</span></p>
+</blockquote>
 <p>证：利用原函数的性质易证。</p>
-<h4 id="定理3：分部积分公式"><a href="#定理3：分部积分公式" class="headerlink" title="定理3：分部积分公式"></a>定理3：分部积分公式</h4><blockquote>
-<p>设$u,v$是两个可导的函数，则</p>
-<script type="math/tex; mode=display">
-    \int u(x)v^\prime(x) \mathrm{d} x = u(x)v(x) - \int u^\prime(x)v(x) \mathrm{d} x</script><p>利用微分的记号，也可以表示为</p>
-<script type="math/tex; mode=display">
-    \int u \mathrm{d} v = uv - \int v \mathrm{d} u</script></blockquote>
-<p>证：由求导法则可知</p>
-<script type="math/tex; mode=display">
-    (uv)^\prime = uv^\prime + vu^\prime</script><p>对上式两边求不定积分得</p>
-<script type="math/tex; mode=display">
-    uv + c_1= \int uv^\prime \mathrm{d}x + \int vu^\prime \mathrm{d}x</script><p>从而</p>
-<script type="math/tex; mode=display">
-    \int uv^\prime \mathrm{d}x = uv - \int u^\prime v \mathrm{d}x</script><p>Q.E.D.</p>
-<h4 id="定理4：换元法"><a href="#定理4：换元法" class="headerlink" title="定理4：换元法"></a>定理4：换元法</h4><blockquote>
-<p>设可导函数$\varphi(x)$有复合函数$f(\varphi(x))$，则</p>
-<script type="math/tex; mode=display">
-    \int f(\varphi(x)) \varphi^\prime(x) \mathrm{d} x = \int f(u) \mathrm{d} u \tag{1}</script><p>其中$u = \varphi(x)$。</p>
+<h4 id="定理3分部积分公式">定理3：分部积分公式</h4>
+<blockquote>
+<p>设<span class="math inline">\(u,v\)</span>是两个可导的函数，则<br />
+<span class="math display">\[
+    \int u(x)v^\prime(x) \mathrm{d} x = u(x)v(x) - \int u^\prime(x)v(x)
+\mathrm{d} x
+\]</span><br />
+利用微分的记号，也可以表示为<br />
+<span class="math display">\[
+    \int u \mathrm{d} v = uv - \int v \mathrm{d} u
+\]</span></p>
 </blockquote>
-<p>证：式(1)两边分别$x$求导，得</p>
-<script type="math/tex; mode=display">
-    f(\varphi(x))\varphi^\prime(x) = f(u) \frac{\mathrm{d} u}{\mathrm{d}x}</script><p>而右边将$u = \varphi(x)$代入，正是</p>
-<script type="math/tex; mode=display">
-    f(u) \frac{\mathrm{d} u}{\mathrm{d}x} = f(\varphi(x)) \varphi^\prime(x)</script><p>Q.E.D.</p>
+<p>证：由求导法则可知<br />
+<span class="math display">\[
+    (uv)^\prime = uv^\prime + vu^\prime
+\]</span><br />
+对上式两边求不定积分得<br />
+<span class="math display">\[
+    uv + c_1= \int uv^\prime \mathrm{d}x + \int vu^\prime \mathrm{d}x
+\]</span><br />
+从而<br />
+<span class="math display">\[
+    \int uv^\prime \mathrm{d}x = uv - \int u^\prime v \mathrm{d}x
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理4换元法">定理4：换元法</h4>
+<blockquote>
+<p>设可导函数<span
+class="math inline">\(\varphi(x)\)</span>有复合函数<span
+class="math inline">\(f(\varphi(x))\)</span>，则<br />
+<span class="math display">\[
+    \int f(\varphi(x)) \varphi^\prime(x) \mathrm{d} x = \int f(u)
+\mathrm{d} u \tag{1}
+\]</span><br />
+其中<span class="math inline">\(u = \varphi(x)\)</span>。</p>
+</blockquote>
+<p>证：式(1)两边分别<span class="math inline">\(x\)</span>求导，得<br />
+<span class="math display">\[
+    f(\varphi(x))\varphi^\prime(x) = f(u) \frac{\mathrm{d}
+u}{\mathrm{d}x}
+\]</span><br />
+而右边将<span class="math inline">\(u =
+\varphi(x)\)</span>代入，正是<br />
+<span class="math display">\[
+    f(u) \frac{\mathrm{d} u}{\mathrm{d}x} = f(\varphi(x))
+\varphi^\prime(x)
+\]</span></p>
+<p>Q.E.D.</p>
 
     </div>
 
@@ -402,7 +464,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1：原函数"><span class="nav-text">定义1：原函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3：分部积分公式"><span class="nav-text">定理3：分部积分公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4：换元法"><span class="nav-text">定理4：换元法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%891%E5%8E%9F%E5%87%BD%E6%95%B0"><span class="nav-text">定义1：原函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%863%E5%88%86%E9%83%A8%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F"><span class="nav-text">定理3：分部积分公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%864%E6%8D%A2%E5%85%83%E6%B3%95"><span class="nav-text">定理4：换元法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -473,13 +535,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

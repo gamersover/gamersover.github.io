@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="对于任意给定的数列$\{a_n\}$，如果$\{a_n\}$有界，由列紧性可知，必然存在收敛子列，如果$\{a_n\}$无解，则总可以找到一个子列趋向于$-\infty$或$+\infty$。我们把数列$\{a_n\}$的收敛子列的极限称为$\{a_n\}$的一个极限点，若还有趋于$-\infty$或$+\infty$的子列，也将$-\infty$或$+\infty$称为$\{a_n\}$的一个极">
+  <meta name="description" content="对于任意给定的数列\(\{a_n\}\)，如果\(\{a_n\}\)有界，由列紧性可知，必然存在收敛子列，如果\(\{a_n\}\)无解，则总可以找到一个子列趋向于\(-\infty\)或\(+\infty\)。我们把数列\(\{a_n\}\)的收敛子列的极限称为\(\{a_n\}\)的一个极限点，若还有趋于\(-\infty\)或\(+\infty\)的子列，也将\(-\infty\)或\(+\">
 <meta property="og:type" content="article">
 <meta property="og:title" content="点列极限三：数列极限的上极限与下极限，Stolz定理">
 <meta property="og:url" content="http://yoursite.com/2020/09/28/%E7%82%B9%E5%88%97%E6%9E%81%E9%99%903/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="对于任意给定的数列$\{a_n\}$，如果$\{a_n\}$有界，由列紧性可知，必然存在收敛子列，如果$\{a_n\}$无解，则总可以找到一个子列趋向于$-\infty$或$+\infty$。我们把数列$\{a_n\}$的收敛子列的极限称为$\{a_n\}$的一个极限点，若还有趋于$-\infty$或$+\infty$的子列，也将$-\infty$或$+\infty$称为$\{a_n\}$的一个极">
+<meta property="og:description" content="对于任意给定的数列\(\{a_n\}\)，如果\(\{a_n\}\)有界，由列紧性可知，必然存在收敛子列，如果\(\{a_n\}\)无解，则总可以找到一个子列趋向于\(-\infty\)或\(+\infty\)。我们把数列\(\{a_n\}\)的收敛子列的极限称为\(\{a_n\}\)的一个极限点，若还有趋于\(-\infty\)或\(+\infty\)的子列，也将\(-\infty\)或\(+\">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-28T12:35:28.000Z">
-<meta property="article:modified_time" content="2022-05-17T05:12:55.022Z">
+<meta property="article:modified_time" content="2020-09-28T12:35:28.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="上极限与下极限">
@@ -80,7 +80,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,13 +224,6 @@
 
               <time title="创建时间：2020-09-28 20:35:28" itemprop="dateCreated datePublished" datetime="2020-09-28T20:35:28+08:00">2020-09-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-17 13:12:55" itemprop="dateModified" datetime="2022-05-17T13:12:55+08:00">2022-05-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -250,14 +247,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6k</span>
+              <span>6.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -269,94 +266,351 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>对于任意给定的数列$\{a_n\}$，如果$\{a_n\}$有界，由列紧性可知，必然存在收敛子列，如果$\{a_n\}$无解，则总可以找到一个子列趋向于$-\infty$或$+\infty$。我们把数列$\{a_n\}$的收敛子列的极限称为$\{a_n\}$的一个极限点，若还有趋于$-\infty$或$+\infty$的子列，也将$-\infty$或$+\infty$称为$\{a_n\}$的一个极限点。</p>
-<a id="more"></a>
-<h4 id="定义1：上极限与下极限"><a href="#定义1：上极限与下极限" class="headerlink" title="定义1：上极限与下极限"></a><span id="define1">定义1：上极限与下极限<span></h4><blockquote>
-<p>设$\{a_n\}$是一个数列，$E$是由$\{a_n\}$的全部极限点构成的集合，记</p>
-<script type="math/tex; mode=display">
-    a^* = \sup E, \quad a_*=\inf E</script><p>则$a^{<em>}$和$a_{</em>}$分别称为数列$\{a_n\}$的<strong>上极限</strong>和<strong>下极限</strong>，记为</p>
-<script type="math/tex; mode=display">
-    a^* = \limsup \limits_{n\to\infty} a_n, \quad a_* = \liminf \limits_{n\to\infty} a_n</script></blockquote>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a><span id="theorem1">定理1<span></h4><blockquote>
-<p>设$\{a_n\}$是一个数列，$E$与$a^<em>$的含义与<a href="#define1">定义1</a>中一样，那么<br>（1）$a^</em> \in E$; <br/><br>（2）若$x&gt;a^<em>$，则存在$N&gt;\mathbb{N^{</em>}}$，当$n \ge N$时，有$a_n &lt; x$; <br/><br>（3）$a^*$是满足前两条性质的唯一的数。即由（1）（2）也可以定理上极限。</p>
+        <p>对于任意给定的数列<span
+class="math inline">\(\{a_n\}\)</span>，如果<span
+class="math inline">\(\{a_n\}\)</span>有界，由列紧性可知，必然存在收敛子列，如果<span
+class="math inline">\(\{a_n\}\)</span>无解，则总可以找到一个子列趋向于<span
+class="math inline">\(-\infty\)</span>或<span
+class="math inline">\(+\infty\)</span>。我们把数列<span
+class="math inline">\(\{a_n\}\)</span>的收敛子列的极限称为<span
+class="math inline">\(\{a_n\}\)</span>的一个极限点，若还有趋于<span
+class="math inline">\(-\infty\)</span>或<span
+class="math inline">\(+\infty\)</span>的子列，也将<span
+class="math inline">\(-\infty\)</span>或<span
+class="math inline">\(+\infty\)</span>称为<span
+class="math inline">\(\{a_n\}\)</span>的一个极限点。</p>
+<span id="more"></span>
+<h4
+id="定义1上极限与下极限"><span id="define1">定义1：上极限与下极限<span></h4>
+<blockquote>
+<p>设<span class="math inline">\(\{a_n\}\)</span>是一个数列，<span
+class="math inline">\(E\)</span>是由<span
+class="math inline">\(\{a_n\}\)</span>的全部极限点构成的集合，记<br />
+<span class="math display">\[
+    a^* = \sup E, \quad a_*=\inf E
+\]</span><br />
+则<span class="math inline">\(a^{*}\)</span>和<span
+class="math inline">\(a_{*}\)</span>分别称为数列<span
+class="math inline">\(\{a_n\}\)</span>的<strong>上极限</strong>和<strong>下极限</strong>，记为<br />
+<span class="math display">\[
+    a^* = \limsup \limits_{n\to\infty} a_n, \quad a_* = \liminf
+\limits_{n\to\infty} a_n
+\]</span></p>
 </blockquote>
-<p>证：（1）若$a^<em>=+\infty$，则$E$无上界，可知$\{a_n\}$也没有上界，所以必然可以从$\{a_n\}$中选取一个趋于$+\infty$的子列，即$a^</em> \in E$，<br>如果$a^<em>=-\infty$，则$E={-\infty}$，显然由$a^</em> \in E$<br>如果$a^<em>$是一个有限数，由于$a^</em>=\sup E$，从而必存在$l_1\in E$，使得</p>
-<script type="math/tex; mode=display">
-    a^* - 1 < l_1 < a^* + 1</script><p>又由于$l_1$是$\{a_n\}$某个子列的极限，则一定存在正整数$k_1$，使得</p>
-<script type="math/tex; mode=display">
-    a^* - 1 < a_{k_1} < a^* + 1</script><p>同理，存在$l_2 \in E$，使得</p>
-<script type="math/tex; mode=display">
-    a^* - \frac{1}{2} < l_2 < a^* + \frac{1}{2}</script><p>$l_2$是$\{a_n\}$的某个子列的极限，则一定存在正整数$k_2 &gt; k_1$，使得</p>
-<script type="math/tex; mode=display">
-    a^* - \frac{1}{2} < a_{k_2} < a^* + \frac{1}{2}</script><p>归纳可得，对任何$n \in \mathbb{N^+}$，存在$k_n$，满足$k_n&gt;k_{n-1}&gt;\cdots&gt;k_1$，使得</p>
-<script type="math/tex; mode=display">
-    a^* - \frac{1}{n} < a_{k_n} < a^* + \frac{1}{n}</script><p>所以有$\lim \limits_{n \to \infty}a_{k_n} = a^<em>$，即找到了$\{a_n\}$的一个子列收敛于$a^</em>$，所以$a^<em> \in E$。<br/><br>（2）反证法。假设存在无穷多个$n$，满足$a_n \ge x$，则存在一个$y \in E$，使得$y \ge x &gt; a^</em>$，这与$a^*$是$E$的上确界矛盾。<br/><br>（3）反证法。假设存在两个不同的数$p，q$同时满足（1）（2），不妨设$p&lt;q$，取$x$，使得$p&lt;x&lt;q$，由（2）可知，存在$N \in \mathbb{N^+}$，使得当$n \ge N$时，有$a_n &lt; x$，易知$E$中的点不可能超过$x$，这是$q$不能满足（1）。</p>
+<h4 id="定理1"><span id="theorem1">定理1<span></h4>
+<blockquote>
+<p>设<span class="math inline">\(\{a_n\}\)</span>是一个数列，<span
+class="math inline">\(E\)</span>与<span
+class="math inline">\(a^*\)</span>的含义与<a
+href="#define1">定义1</a>中一样，那么<br />
+（1）<span class="math inline">\(a^* \in E\)</span>;<br />
+（2）若<span class="math inline">\(x&gt;a^*\)</span>，则存在<span
+class="math inline">\(N&gt;\mathbb{N^{*}}\)</span>，当<span
+class="math inline">\(n \ge N\)</span>时，有<span
+class="math inline">\(a_n &lt; x\)</span>;<br />
+（3）<span
+class="math inline">\(a^*\)</span>是满足前两条性质的唯一的数。即由（1）（2）也可以定理上极限。</p>
+</blockquote>
+<p>证：（1）若<span class="math inline">\(a^*=+\infty\)</span>，则<span
+class="math inline">\(E\)</span>无上界，可知<span
+class="math inline">\(\{a_n\}\)</span>也没有上界，所以必然可以从<span
+class="math inline">\(\{a_n\}\)</span>中选取一个趋于<span
+class="math inline">\(+\infty\)</span>的子列，即<span
+class="math inline">\(a^* \in E\)</span>，<br />
+如果<span class="math inline">\(a^*=-\infty\)</span>，则<span
+class="math inline">\(E={-\infty}\)</span>，显然由<span
+class="math inline">\(a^* \in E\)</span><br />
+如果<span class="math inline">\(a^*\)</span>是一个有限数，由于<span
+class="math inline">\(a^*=\sup E\)</span>，从而必存在<span
+class="math inline">\(l_1\in E\)</span>，使得<br />
+<span class="math display">\[
+    a^* - 1 &lt; l_1 &lt; a^* + 1
+\]</span><br />
+又由于<span class="math inline">\(l_1\)</span>是<span
+class="math inline">\(\{a_n\}\)</span>某个子列的极限，则一定存在正整数<span
+class="math inline">\(k_1\)</span>，使得<br />
+<span class="math display">\[
+    a^* - 1 &lt; a_{k_1} &lt; a^* + 1
+\]</span><br />
+同理，存在<span class="math inline">\(l_2 \in E\)</span>，使得<br />
+<span class="math display">\[
+    a^* - \frac{1}{2} &lt; l_2 &lt; a^* + \frac{1}{2}
+\]</span><br />
+<span class="math inline">\(l_2\)</span>是<span
+class="math inline">\(\{a_n\}\)</span>的某个子列的极限，则一定存在正整数<span
+class="math inline">\(k_2 &gt; k_1\)</span>，使得<br />
+<span class="math display">\[
+    a^* - \frac{1}{2} &lt; a_{k_2} &lt; a^* + \frac{1}{2}
+\]</span><br />
+归纳可得，对任何<span class="math inline">\(n \in
+\mathbb{N^+}\)</span>，存在<span
+class="math inline">\(k_n\)</span>，满足<span
+class="math inline">\(k_n&gt;k_{n-1}&gt;\cdots&gt;k_1\)</span>，使得<br />
+<span class="math display">\[
+    a^* - \frac{1}{n} &lt; a_{k_n} &lt; a^* + \frac{1}{n}
+\]</span><br />
+所以有<span class="math inline">\(\lim \limits_{n \to \infty}a_{k_n} =
+a^*\)</span>，即找到了<span
+class="math inline">\(\{a_n\}\)</span>的一个子列收敛于<span
+class="math inline">\(a^*\)</span>，所以<span class="math inline">\(a^*
+\in E\)</span>。<br />
+（2）反证法。假设存在无穷多个<span
+class="math inline">\(n\)</span>，满足<span class="math inline">\(a_n
+\ge x\)</span>，则存在一个<span class="math inline">\(y \in
+E\)</span>，使得<span class="math inline">\(y \ge x &gt;
+a^*\)</span>，这与<span class="math inline">\(a^*\)</span>是<span
+class="math inline">\(E\)</span>的上确界矛盾。<br />
+（3）反证法。假设存在两个不同的数<span
+class="math inline">\(p，q\)</span>同时满足（1）（2），不妨设<span
+class="math inline">\(p&lt;q\)</span>，取<span
+class="math inline">\(x\)</span>，使得<span
+class="math inline">\(p&lt;x&lt;q\)</span>，由（2）可知，存在<span
+class="math inline">\(N \in \mathbb{N^+}\)</span>，使得当<span
+class="math inline">\(n \ge N\)</span>时，有<span
+class="math inline">\(a_n &lt; x\)</span>，易知<span
+class="math inline">\(E\)</span>中的点不可能超过<span
+class="math inline">\(x\)</span>，这是<span
+class="math inline">\(q\)</span>不能满足（1）。</p>
 <p>Q.E.D.</p>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>设$\{a_n\}$是一个数列，$E$与$a_<em>$的含义与<a href="#define1">定义1</a>中一样，那么<br>（1）$a_</em> \in E$; <br/><br>（2）若$x &lt; a_<em>$，则存在$N&gt;\mathbb{N^{</em>}}$，当$n \ge N$时，有$a_n &gt; x$; <br/><br>（3）$a_*$是满足前两条性质的唯一的数。即由（1）（2）也可以定理下极限。</p>
+<h4 id="定理2">定理2</h4>
+<blockquote>
+<p>设<span class="math inline">\(\{a_n\}\)</span>是一个数列，<span
+class="math inline">\(E\)</span>与<span
+class="math inline">\(a_*\)</span>的含义与<a
+href="#define1">定义1</a>中一样，那么<br />
+（1）<span class="math inline">\(a_* \in E\)</span>;<br />
+（2）若<span class="math inline">\(x &lt; a_*\)</span>，则存在<span
+class="math inline">\(N&gt;\mathbb{N^{*}}\)</span>，当<span
+class="math inline">\(n \ge N\)</span>时，有<span
+class="math inline">\(a_n &gt; x\)</span>;<br />
+（3）<span
+class="math inline">\(a_*\)</span>是满足前两条性质的唯一的数。即由（1）（2）也可以定理下极限。</p>
 </blockquote>
 <p>证法与<a href="#theorem1">定理1</a>的证明方法几乎一样（从略）。</p>
-<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
-<p>设$\{a_n\},\{b_n\}$是两个数列，<br/><br>（1）$\liminf \limits_{n \to \infty}a_n \le \limsup \limits_{n \to \infty}a_n$ <br/><br>（2）$\lim \limits_{n \to \infty}a_n = a$当且仅当$\liminf \limits_{n \to \infty}a_n = \limsup \limits_{n \to \infty}a_n = a$ <br/><br>（3）若$N$是某个正整数，当$n&gt;N$时，有$a_n \le b_n$，那么</p>
-<script type="math/tex; mode=display">
-    \liminf \limits_{n \to \infty}a_n \le \liminf \limits_{n \to \infty}b_n，\quad \limsup \limits_{n \to \infty}a_n \le \limsup \limits_{n \to \infty}b_n</script></blockquote>
-<p>证：（1）（2）显然，下面只证（3）的右边等式，左边等式可以相似的证明。记</p>
-<script type="math/tex; mode=display">
-    \limsup \limits_{n \to \infty}a_n = a^*, \quad \limsup \limits_{n \to \infty}b_n = b^*</script><p>若$b^<em>=+\infty$，不等式自然成立；当$a^</em>=+\infty$，存在子列$a_{k_n} \to +\infty (n \to \infty)$，这时也有$b_{k_n} \to +\infty (n \to \infty)$，从而有$b^<em> = +\infty$，不等式等号成立；同样若$a^</em>$与$b^<em>$中有一个为$-\infty$时，结论也成立。现在设$a^</em>$与$b^<em>$都是有限数，采用反证法，假设$b^</em> &lt; a^<em>$，取$x$，使得$b^</em> &lt; x &lt; a^*$，由<a href="#theorem1">定理1</a>（2）可知，存在正整数$N_1$，使得当$n&gt;N_1$时，有$b_n &lt; x$，取$n&gt;\max(N, N_1)$时，有</p>
-<script type="math/tex; mode=display">
-    a_n \le b_n < x < a^*</script><p>这与$a^*$的定义矛盾。</p>
-<p>（3）也可以不采用反证法。由$a^<em>$的性质可知，可从$\{a_n\}$中取出一个子列$\{a_{k_n}\}$，使得$\lim \limits_{n \to \infty}a_{k_n} = a^</em>$，又当$k_n \ge n &gt; N$，$a_{k_n} \le b_{k_n}$，这时可以从$b_{k_n}$中取出一个收敛子列$\{b_{i_{k_{n}}}\}$，相应的$\{a_{k_n}\}$的子列为$\{a_{i_{k_{n}}}\}$，由$\lim \limits_{n \to \infty}a_{k_n} = a^*$，可得</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{n \to \infty}a_{i_{k_n}} = a^*</script><p>又由$a_{i_{k_{n}}} \le b_{i_{k_{n}}}$，可得</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{n \to \infty}b_{i_{k_n}} \ge a^*</script><p>而$\{b_{i_{k_{n}}}\}$显然也是$\{b_n\}$的子列，从而有</p>
-<script type="math/tex; mode=display">
-    b^* \ge \lim \limits_{n \to \infty}b_{i_{k_n}} \ge a^*</script><p>Q.E.D.</p>
-<h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><blockquote>
-<p>对数列$\{a_n\}$，定义$\alpha_n=\inf \limits_{k \ge n}a_k，\beta_n = \sup \limits_{k \ge n}a_k$，那么 <br/><br>（1）$\{\alpha_n\}$是递增数列，$\{\beta_n\}$是递减数列； </br><br>（2）$\lim \limits_{n \to \infty} \alpha_n = a_<em>，\lim \limits_{n \to\infty} \beta_n =a^</em>$。</p>
+<h4 id="定理3">定理3</h4>
+<blockquote>
+<p>设<span
+class="math inline">\(\{a_n\},\{b_n\}\)</span>是两个数列，<br />
+（1）<span class="math inline">\(\liminf \limits_{n \to \infty}a_n \le
+\limsup \limits_{n \to \infty}a_n\)</span><br />
+（2）<span class="math inline">\(\lim \limits_{n \to \infty}a_n =
+a\)</span>当且仅当<span class="math inline">\(\liminf \limits_{n \to
+\infty}a_n = \limsup \limits_{n \to \infty}a_n = a\)</span><br />
+（3）若<span class="math inline">\(N\)</span>是某个正整数，当<span
+class="math inline">\(n&gt;N\)</span>时，有<span
+class="math inline">\(a_n \le b_n\)</span>，那么<br />
+<span class="math display">\[
+    \liminf \limits_{n \to \infty}a_n \le \liminf \limits_{n \to
+\infty}b_n，\quad \limsup \limits_{n \to \infty}a_n \le \limsup
+\limits_{n \to \infty}b_n
+\]</span></p>
 </blockquote>
-<p>证：（1）按定义，有$\alpha_n = \inf\{a_n,a_{n+1},\cdots\}, \quad \alpha_{n+1}=\inf\{a_{n+1}, a_{n+2}, \cdots\}$，显然有$\alpha_n \le \alpha_{n+1}$，同理可得$\beta_n \ge \beta_{n+1}$。<br>（2）这里只证明右边等式，左边等式的证明是类似的。<br>（a）先设$a^<em>$是一个有限数，由<a href="#theorem1">定理1</a>（1）可知$a^</em> \in E$，所以存在$\{a_n\}$的一个子列$\{a_{k_n}\}$，使得$\lim \limits_{n \to \infty}a_{k_n} = a^*$，而$k_n \ge n$，所以$a_{k_n} \le \sup\{a_n,a_{n+1},\cdots\}=\beta_n$，从而有</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{n \to \infty}a_{k_n} \le \lim \limits_{n \to \infty}\beta_n \Rightarrow a^* \le \lim \limits_{n \to \infty}\beta_n \tag 1</script><p>对任意的$\varepsilon&gt;0$，由<a href="#theorem1">定理1</a>（2）可知，存在$n_0 \in N^<em>$，当$n \ge n_0$时，有$a_n \le a^</em> + \varepsilon$，因此$\sup \limits_{k \ge n_0}a_n \le a^<em> + \varepsilon$，即$\beta_{n_0} \le a^</em> + \varepsilon$<br>，又由于$\{\beta_n\}$是递减的，所以当$n&gt;n_0$时，$\beta_n \le \beta_{n_0} \le a^<em> + \varepsilon$，再令$\varepsilon \to 0$，从而有$\lim \limits_{n \to \infty}\beta_n \le a^</em> + \varepsilon$，得</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{n \to \infty}\beta_n \le a^* \tag 2</script><p>由（1）（2）可得$\lim \limits_{n \to \infty}\beta_n = a^<em>$<br>（b）设$a^</em> = +\infty$，则有一子列趋于$+\infty$，从而有</p>
-<script type="math/tex; mode=display">
-    \beta_n = \sup\{a_n, a_{n+1},\cdots\} = +\infty</script><p>从而有$\lim \limits_{n \to \infty}\beta_n = +\infty$。</p>
+<p>证：（1）（2）显然，下面只证（3）的右边等式，左边等式可以相似的证明。记<br />
+<span class="math display">\[
+    \limsup \limits_{n \to \infty}a_n = a^*, \quad \limsup \limits_{n
+\to \infty}b_n = b^*
+\]</span><br />
+若<span
+class="math inline">\(b^*=+\infty\)</span>，不等式自然成立；当<span
+class="math inline">\(a^*=+\infty\)</span>，存在子列<span
+class="math inline">\(a_{k_n} \to +\infty (n \to
+\infty)\)</span>，这时也有<span class="math inline">\(b_{k_n} \to
++\infty (n \to \infty)\)</span>，从而有<span class="math inline">\(b^* =
++\infty\)</span>，不等式等号成立；同样若<span
+class="math inline">\(a^*\)</span>与<span
+class="math inline">\(b^*\)</span>中有一个为<span
+class="math inline">\(-\infty\)</span>时，结论也成立。现在设<span
+class="math inline">\(a^*\)</span>与<span
+class="math inline">\(b^*\)</span>都是有限数，采用反证法，假设<span
+class="math inline">\(b^* &lt; a^*\)</span>，取<span
+class="math inline">\(x\)</span>，使得<span class="math inline">\(b^*
+&lt; x &lt; a^*\)</span>，由<a
+href="#theorem1">定理1</a>（2）可知，存在正整数<span
+class="math inline">\(N_1\)</span>，使得当<span
+class="math inline">\(n&gt;N_1\)</span>时，有<span
+class="math inline">\(b_n &lt; x\)</span>，取<span
+class="math inline">\(n&gt;\max(N, N_1)\)</span>时，有<br />
+<span class="math display">\[
+    a_n \le b_n &lt; x &lt; a^*
+\]</span><br />
+这与<span class="math inline">\(a^*\)</span>的定义矛盾。</p>
+<p>（3）也可以不采用反证法。由<span
+class="math inline">\(a^*\)</span>的性质可知，可从<span
+class="math inline">\(\{a_n\}\)</span>中取出一个子列<span
+class="math inline">\(\{a_{k_n}\}\)</span>，使得<span
+class="math inline">\(\lim \limits_{n \to \infty}a_{k_n} =
+a^*\)</span>，又当<span class="math inline">\(k_n \ge n &gt;
+N\)</span>，<span class="math inline">\(a_{k_n} \le
+b_{k_n}\)</span>，这时可以从<span
+class="math inline">\(b_{k_n}\)</span>中取出一个收敛子列<span
+class="math inline">\(\{b_{i_{k_{n}}}\}\)</span>，相应的<span
+class="math inline">\(\{a_{k_n}\}\)</span>的子列为<span
+class="math inline">\(\{a_{i_{k_{n}}}\}\)</span>，由<span
+class="math inline">\(\lim \limits_{n \to \infty}a_{k_n} =
+a^*\)</span>，可得<br />
+<span class="math display">\[
+    \lim \limits_{n \to \infty}a_{i_{k_n}} = a^*
+\]</span><br />
+又由<span class="math inline">\(a_{i_{k_{n}}} \le
+b_{i_{k_{n}}}\)</span>，可得<br />
+<span class="math display">\[
+    \lim \limits_{n \to \infty}b_{i_{k_n}} \ge a^*
+\]</span><br />
+而<span class="math inline">\(\{b_{i_{k_{n}}}\}\)</span>显然也是<span
+class="math inline">\(\{b_n\}\)</span>的子列，从而有<br />
+<span class="math display">\[
+    b^* \ge \lim \limits_{n \to \infty}b_{i_{k_n}} \ge a^*
+\]</span><br />
+Q.E.D.</p>
+<h4 id="定理4">定理4</h4>
+<blockquote>
+<p>对数列<span class="math inline">\(\{a_n\}\)</span>，定义<span
+class="math inline">\(\alpha_n=\inf \limits_{k \ge n}a_k，\beta_n = \sup
+\limits_{k \ge n}a_k\)</span>，那么<br />
+（1）<span class="math inline">\(\{\alpha_n\}\)</span>是递增数列，<span
+class="math inline">\(\{\beta_n\}\)</span>是递减数列；<br />
+（2）<span class="math inline">\(\lim \limits_{n \to \infty} \alpha_n =
+a_*，\lim \limits_{n \to\infty} \beta_n =a^*\)</span>。</p>
+</blockquote>
+<p>证：（1）按定义，有<span class="math inline">\(\alpha_n =
+\inf\{a_n,a_{n+1},\cdots\}, \quad \alpha_{n+1}=\inf\{a_{n+1}, a_{n+2},
+\cdots\}\)</span>，显然有<span class="math inline">\(\alpha_n \le
+\alpha_{n+1}\)</span>，同理可得<span class="math inline">\(\beta_n \ge
+\beta_{n+1}\)</span>。<br />
+（2）这里只证明右边等式，左边等式的证明是类似的。<br />
+（a）先设<span class="math inline">\(a^*\)</span>是一个有限数，由<a
+href="#theorem1">定理1</a>（1）可知<span class="math inline">\(a^* \in
+E\)</span>，所以存在<span
+class="math inline">\(\{a_n\}\)</span>的一个子列<span
+class="math inline">\(\{a_{k_n}\}\)</span>，使得<span
+class="math inline">\(\lim \limits_{n \to \infty}a_{k_n} =
+a^*\)</span>，而<span class="math inline">\(k_n \ge
+n\)</span>，所以<span class="math inline">\(a_{k_n} \le
+\sup\{a_n,a_{n+1},\cdots\}=\beta_n\)</span>，从而有<br />
+<span class="math display">\[
+    \lim \limits_{n \to \infty}a_{k_n} \le \lim \limits_{n \to
+\infty}\beta_n \Rightarrow a^* \le \lim \limits_{n \to \infty}\beta_n
+\tag 1
+\]</span><br />
+对任意的<span class="math inline">\(\varepsilon&gt;0\)</span>，由<a
+href="#theorem1">定理1</a>（2）可知，存在<span class="math inline">\(n_0
+\in N^*\)</span>，当<span class="math inline">\(n \ge
+n_0\)</span>时，有<span class="math inline">\(a_n \le a^* +
+\varepsilon\)</span>，因此<span class="math inline">\(\sup \limits_{k
+\ge n_0}a_n \le a^* + \varepsilon\)</span>，即<span
+class="math inline">\(\beta_{n_0} \le a^* + \varepsilon\)</span><br />
+，又由于<span
+class="math inline">\(\{\beta_n\}\)</span>是递减的，所以当<span
+class="math inline">\(n&gt;n_0\)</span>时，<span
+class="math inline">\(\beta_n \le \beta_{n_0} \le a^* +
+\varepsilon\)</span>，再令<span class="math inline">\(\varepsilon \to
+0\)</span>，从而有<span class="math inline">\(\lim \limits_{n \to
+\infty}\beta_n \le a^* + \varepsilon\)</span>，得<br />
+<span class="math display">\[
+    \lim \limits_{n \to \infty}\beta_n \le a^* \tag 2
+\]</span><br />
+由（1）（2）可得<span class="math inline">\(\lim \limits_{n \to
+\infty}\beta_n = a^*\)</span><br />
+（b）设<span class="math inline">\(a^* =
++\infty\)</span>，则有一子列趋于<span
+class="math inline">\(+\infty\)</span>，从而有<br />
+<span class="math display">\[
+    \beta_n = \sup\{a_n, a_{n+1},\cdots\} = +\infty
+\]</span><br />
+从而有<span class="math inline">\(\lim \limits_{n \to \infty}\beta_n =
++\infty\)</span>。</p>
 <p>Q.E.D.</p>
-<h4 id="定理5：Stolz定理"><a href="#定理5：Stolz定理" class="headerlink" title="定理5：Stolz定理"></a>定理5：Stolz定理</h4><blockquote>
-<p>设$\{b_n\}$是严格递增且趋于$+\infty$的数列，如果</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{n \to \infty}\frac{a_n - a_{n-1}}{b_n - b_{n-1}}=A</script><p>那么</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{n \to \infty}\frac{a_n}{b_n} = A</script><p>其中$A$可以是$+\infty,-\infty$或有限数。</p>
+<h4 id="定理5stolz定理">定理5：Stolz定理</h4>
+<blockquote>
+<p>设<span class="math inline">\(\{b_n\}\)</span>是严格递增且趋于<span
+class="math inline">\(+\infty\)</span>的数列，如果<br />
+<span class="math display">\[
+    \lim \limits_{n \to \infty}\frac{a_n - a_{n-1}}{b_n - b_{n-1}}=A
+\]</span><br />
+那么<br />
+<span class="math display">\[
+    \lim \limits_{n \to \infty}\frac{a_n}{b_n} = A
+\]</span><br />
+其中<span class="math inline">\(A\)</span>可以是<span
+class="math inline">\(+\infty,-\infty\)</span>或有限数。</p>
 </blockquote>
-<p>证：（a）先设$A$是有限数，由极限定义可知，对任意$\varepsilon&gt;0$，存在$n_0 \in \mathbb{N^+}$，使得当$n \ge n_0$时，有</p>
-<script type="math/tex; mode=display">
-    A-\varepsilon < \frac{a_n-a_{n-1}}{b_n-b_{n-1}} < A+\varepsilon</script><p>从而有</p>
-<script type="math/tex; mode=display">
+<p>证：（a）先设<span
+class="math inline">\(A\)</span>是有限数，由极限定义可知，对任意<span
+class="math inline">\(\varepsilon&gt;0\)</span>，存在<span
+class="math inline">\(n_0 \in \mathbb{N^+}\)</span>，使得当<span
+class="math inline">\(n \ge n_0\)</span>时，有<br />
+<span class="math display">\[
+    A-\varepsilon &lt; \frac{a_n-a_{n-1}}{b_n-b_{n-1}} &lt;
+A+\varepsilon
+\]</span><br />
+从而有<br />
+<span class="math display">\[
     \begin{aligned}
-    A-\varepsilon & < \frac{a_{n_0}-a_{n_0-1}}{b_{n_0}-b_{n_0-1}} < A+\varepsilon \Rightarrow (A-\varepsilon)(b_{n_0}-b_{n_0-1}) < a_{n_0} - a_{n_0-1} < (A+\varepsilon)(b_{n_0}-b_{n_0}-1) \\
-    A-\varepsilon & < \frac{a_{n_0+1}-a_{n_0}}{b_{n_0+1}-b_{n_0}} < A+\varepsilon \Rightarrow (A-\varepsilon)(b_{n_0+1}-b_{n_0}) < a_{n_0+1} - a_{n_0} < (A+\varepsilon)(b_{n_0+1}-b_{n_0}) \\
-    & \cdots \\
-    A-\varepsilon &< \frac{a_{n}-a_{n-1}}{b_{n}-b_{n-1}} < A+\varepsilon \Rightarrow (A-\varepsilon)(b_{n}-b_{n-1}) < a_{n} - a_{n-1} < (A+\varepsilon)(b_{n}-b_{n-1})
-    \end{aligned}</script><p>得</p>
-<script type="math/tex; mode=display">
-    (A-\varepsilon)(b_n - b_{n_0-1}) < a_n - a_{n_0-1} < (A+\varepsilon)(b_n - b_{n_0-1}) \Rightarrow A-\varepsilon < \frac{a_n - a_{n_0-1}}{b_n - b_{n_0-1}} < A+\varepsilon</script><p>即</p>
-<script type="math/tex; mode=display">
-    A-\varepsilon < \frac{\frac{a_n}{b_n} - \frac{a_{n_0-1}}{b_n}}{1-\frac{b_{n_0-1}}{b_n}} < A+\varepsilon</script><p>于是得</p>
-<script type="math/tex; mode=display">
-    (A-\varepsilon)(1-\frac{b_{n_0-1}}{b_n}) + \frac{a_{n_0-1}}{b_n} < \frac{a_n}{b_n} < (A+\varepsilon)(1-\frac{b_{n_0-1}}{b_n}) + \frac{a_{n_0-1}}{b_n}</script><p>从而得</p>
-<script type="math/tex; mode=display">
-    A - \varepsilon \le \liminf \limits_{n\to\infty} \frac{a_n}{b_n} \le \limsup \limits_{n\to\infty} \frac{a_n}{b_n} \le A + \varepsilon</script><p>此时令$\varepsilon \to 0$，即得</p>
-<script type="math/tex; mode=display">
-    \liminf \limits_{n\to\infty} \frac{a_n}{b_n} = \limsup \limits_{n\to\infty} \frac{a_n}{b_n} = A</script><p>所以</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{n\to\infty} \frac{a_n}{b_n} = A</script><p>（b）设$A=+\infty$，当$n$充分大时，$a_n - a_{n-1} &gt; b_n - b_{n-1} &gt; 0$，所以$\{a_n\}$从某项开始也是严格递增且趋于$+\infty$，从而有</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{n \to \infty}\frac{b_n - b_{n-1}}{a_n - a_{n-1}}=0</script><p>由（a）可知，$\lim \limits_{n\to\infty} \frac{b_n}{a_n} = 0$，从而有$\lim \limits_{n\to\infty} \frac{a_n}{b_n} = +\infty$；</p>
-<p>（c）设$A=-\infty$，设$c_n = -a_n$，可知</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{n \to \infty}\frac{c_n - c_{n-1}}{b_n - b_{n-1}} = - \lim \limits_{n \to \infty}\frac{a_n - a_{n-1}}{b_n - b_{n-1}}=+\infty</script><p>由（b）可知，有$\lim \limits_{n\to\infty} \frac{c_n}{b_n} = +\infty$，从而有$\lim \limits_{n\to\infty} \frac{a_n}{b_n} = -\infty$</p>
+    A-\varepsilon &amp; &lt; \frac{a_{n_0}-a_{n_0-1}}{b_{n_0}-b_{n_0-1}}
+&lt; A+\varepsilon \Rightarrow (A-\varepsilon)(b_{n_0}-b_{n_0-1}) &lt;
+a_{n_0} - a_{n_0-1} &lt; (A+\varepsilon)(b_{n_0}-b_{n_0}-1) \\
+    A-\varepsilon &amp; &lt; \frac{a_{n_0+1}-a_{n_0}}{b_{n_0+1}-b_{n_0}}
+&lt; A+\varepsilon \Rightarrow (A-\varepsilon)(b_{n_0+1}-b_{n_0}) &lt;
+a_{n_0+1} - a_{n_0} &lt; (A+\varepsilon)(b_{n_0+1}-b_{n_0}) \\
+    &amp; \cdots \\
+    A-\varepsilon &amp;&lt; \frac{a_{n}-a_{n-1}}{b_{n}-b_{n-1}} &lt;
+A+\varepsilon \Rightarrow (A-\varepsilon)(b_{n}-b_{n-1}) &lt; a_{n} -
+a_{n-1} &lt; (A+\varepsilon)(b_{n}-b_{n-1})
+    \end{aligned}
+\]</span><br />
+得<br />
+<span class="math display">\[
+    (A-\varepsilon)(b_n - b_{n_0-1}) &lt; a_n - a_{n_0-1} &lt;
+(A+\varepsilon)(b_n - b_{n_0-1}) \Rightarrow A-\varepsilon &lt;
+\frac{a_n - a_{n_0-1}}{b_n - b_{n_0-1}} &lt; A+\varepsilon
+\]</span><br />
+即<br />
+<span class="math display">\[
+    A-\varepsilon &lt; \frac{\frac{a_n}{b_n} -
+\frac{a_{n_0-1}}{b_n}}{1-\frac{b_{n_0-1}}{b_n}} &lt; A+\varepsilon
+\]</span><br />
+于是得<br />
+<span class="math display">\[
+    (A-\varepsilon)(1-\frac{b_{n_0-1}}{b_n}) + \frac{a_{n_0-1}}{b_n}
+&lt; \frac{a_n}{b_n} &lt; (A+\varepsilon)(1-\frac{b_{n_0-1}}{b_n}) +
+\frac{a_{n_0-1}}{b_n}
+\]</span><br />
+从而得<br />
+<span class="math display">\[
+    A - \varepsilon \le \liminf \limits_{n\to\infty} \frac{a_n}{b_n} \le
+\limsup \limits_{n\to\infty} \frac{a_n}{b_n} \le A + \varepsilon
+\]</span><br />
+此时令<span class="math inline">\(\varepsilon \to 0\)</span>，即得<br />
+<span class="math display">\[
+    \liminf \limits_{n\to\infty} \frac{a_n}{b_n} = \limsup
+\limits_{n\to\infty} \frac{a_n}{b_n} = A
+\]</span><br />
+所以<br />
+<span class="math display">\[
+    \lim \limits_{n\to\infty} \frac{a_n}{b_n} = A
+\]</span><br />
+（b）设<span class="math inline">\(A=+\infty\)</span>，当<span
+class="math inline">\(n\)</span>充分大时，<span
+class="math inline">\(a_n - a_{n-1} &gt; b_n - b_{n-1} &gt;
+0\)</span>，所以<span
+class="math inline">\(\{a_n\}\)</span>从某项开始也是严格递增且趋于<span
+class="math inline">\(+\infty\)</span>，从而有<br />
+<span class="math display">\[
+    \lim \limits_{n \to \infty}\frac{b_n - b_{n-1}}{a_n - a_{n-1}}=0
+\]</span><br />
+由（a）可知，<span class="math inline">\(\lim \limits_{n\to\infty}
+\frac{b_n}{a_n} = 0\)</span>，从而有<span class="math inline">\(\lim
+\limits_{n\to\infty} \frac{a_n}{b_n} = +\infty\)</span>；</p>
+<p>（c）设<span class="math inline">\(A=-\infty\)</span>，设<span
+class="math inline">\(c_n = -a_n\)</span>，可知<br />
+<span class="math display">\[
+    \lim \limits_{n \to \infty}\frac{c_n - c_{n-1}}{b_n - b_{n-1}} = -
+\lim \limits_{n \to \infty}\frac{a_n - a_{n-1}}{b_n - b_{n-1}}=+\infty
+\]</span><br />
+由（b）可知，有<span class="math inline">\(\lim \limits_{n\to\infty}
+\frac{c_n}{b_n} = +\infty\)</span>，从而有<span
+class="math inline">\(\lim \limits_{n\to\infty} \frac{a_n}{b_n} =
+-\infty\)</span></p>
 <p>Q.E.D.</p>
 
     </div>
@@ -445,7 +699,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1：上极限与下极限"><span class="nav-text">定义1：上极限与下极限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5：Stolz定理"><span class="nav-text">定理5：Stolz定理</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%891%E4%B8%8A%E6%9E%81%E9%99%90%E4%B8%8E%E4%B8%8B%E6%9E%81%E9%99%90"><span class="nav-text">定义1：上极限与下极限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%863"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%864"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%865stolz%E5%AE%9A%E7%90%86"><span class="nav-text">定理5：Stolz定理</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -516,13 +770,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

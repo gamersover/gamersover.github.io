@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,18 +21,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="介绍PyQt5是一个用来开发UI的python第三方库，UI不外乎显示控件，布局与交互，简单说就是确定UI需要展示哪些东西，这些东西如何排布在界面上以及操作这些东西的逻辑是什么。而PyQt5的控件与布局几乎都在QtWidgets这个类里面，至于交互就是后面所要讲的信号与槽。">
+  <meta name="description" content="介绍 PyQt5是一个用来开发UI的python第三方库，UI不外乎显示控件，布局与交互，简单说就是确定UI需要展示哪些东西，这些东西如何排布在界面上以及操作这些东西的逻辑是什么。而PyQt5的控件与布局几乎都在QtWidgets这个类里面，至于交互就是后面所要讲的信号与槽。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UI开发之PyQt5一：控件和布局的关系">
 <meta property="og:url" content="http://yoursite.com/2021/04/16/UI%E5%BC%80%E5%8F%91%E4%B9%8BpyQt5-1/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="介绍PyQt5是一个用来开发UI的python第三方库，UI不外乎显示控件，布局与交互，简单说就是确定UI需要展示哪些东西，这些东西如何排布在界面上以及操作这些东西的逻辑是什么。而PyQt5的控件与布局几乎都在QtWidgets这个类里面，至于交互就是后面所要讲的信号与槽。">
+<meta property="og:description" content="介绍 PyQt5是一个用来开发UI的python第三方库，UI不外乎显示控件，布局与交互，简单说就是确定UI需要展示哪些东西，这些东西如何排布在界面上以及操作这些东西的逻辑是什么。而PyQt5的控件与布局几乎都在QtWidgets这个类里面，至于交互就是后面所要讲的信号与槽。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No1.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No3.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No2.jpg">
 <meta property="article:published_time" content="2021-04-16T15:29:31.000Z">
-<meta property="article:modified_time" content="2021-12-24T11:34:07.731Z">
+<meta property="article:modified_time" content="2021-04-16T15:29:31.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="UI开发">
 <meta property="article:tag" content="Qt">
@@ -84,7 +84,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -224,13 +228,6 @@
 
               <time title="创建时间：2021-04-16 23:29:31" itemprop="dateCreated datePublished" datetime="2021-04-16T23:29:31+08:00">2021-04-16</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-24 19:34:07" itemprop="dateModified" datetime="2021-12-24T19:34:07+08:00">2021-12-24</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -254,7 +251,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.5k</span>
+              <span>3.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -273,14 +270,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>PyQt5是一个用来开发UI的python第三方库，UI不外乎显示控件，布局与交互，简单说就是确定UI需要展示哪些东西，这些东西如何排布在界面上以及操作这些东西的逻辑是什么。而PyQt5的控件与布局几乎都在QtWidgets这个类里面，至于交互就是后面所要讲的信号与槽。</p>
-<a id="more"></a>
-<h3 id="显示控件"><a href="#显示控件" class="headerlink" title="显示控件"></a>显示控件</h3><p>PyQt5要显示控件，需要依附在顶层类中，这些顶层类作为主入口来显示其他控件，而顶层显示类大概有三种：</p>
-<ol>
-<li><strong>QMainWindow</strong><br>最常用的顶层显示类，具有菜单栏、工具栏、状态栏、标题栏等</li>
-<li><strong>QDialog</strong><br>一般用在对话窗口，属于非长时间展示的窗口，没有菜单栏，工具栏等</li>
-<li><strong>Qwidget</strong><br>所有显示控件的父类，可以作为UI显示的主窗口，也可以作为子窗口嵌入到其他控件，比较灵活</li>
-</ol>
+        <h2 id="介绍">介绍</h2>
+<p>PyQt5是一个用来开发UI的python第三方库，UI不外乎显示控件，布局与交互，简单说就是确定UI需要展示哪些东西，这些东西如何排布在界面上以及操作这些东西的逻辑是什么。而PyQt5的控件与布局几乎都在QtWidgets这个类里面，至于交互就是后面所要讲的信号与槽。</p>
+<span id="more"></span>
+<h3 id="显示控件">显示控件</h3>
+<p>PyQt5要显示控件，需要依附在顶层类中，这些顶层类作为主入口来显示其他控件，而顶层显示类大概有三种：<br />
+1. <strong>QMainWindow</strong><br />
+最常用的顶层显示类，具有菜单栏、工具栏、状态栏、标题栏等<br />
+2. <strong>QDialog</strong><br />
+一般用在对话窗口，属于非长时间展示的窗口，没有菜单栏，工具栏等<br />
+3. <strong>Qwidget</strong><br />
+所有显示控件的父类，可以作为UI显示的主窗口，也可以作为子窗口嵌入到其他控件，比较灵活</p>
 <p>以上三个类都在<code>PyQt5.QtWidgets</code>类下面。</p>
 <p>常用显示控件有：</p>
 <ul>
@@ -294,85 +294,103 @@
 <li><code>QLable</code>：标签类，用来显示文本或图片</li>
 </ul>
 <p>以上控件也在<code>PyQt5.QtWidgets</code>类下面。</p>
-<h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><p>一个父控件下面可以包含许多子控件，而子控件的显示方式就依赖于布局，PyQt5中的布局方式有很多，这里先简单介绍几种：</p>
-<ol>
-<li><strong>QHBoxLayout</strong><br> 水平显示布局，所有的控件水平排列</li>
-<li><strong>QVBoxLayout</strong><br> 垂直显示布局，所有的控件垂直排列</li>
-<li><strong>QGridLayout</strong><br> 网格布局，可以指定控件的具体位置（哪行哪列）</li>
-</ol>
+<h3 id="布局">布局</h3>
+<p>一个父控件下面可以包含许多子控件，而子控件的显示方式就依赖于布局，PyQt5中的布局方式有很多，这里先简单介绍几种：<br />
+1. <strong>QHBoxLayout</strong><br />
+水平显示布局，所有的控件水平排列<br />
+2. <strong>QVBoxLayout</strong><br />
+垂直显示布局，所有的控件垂直排列<br />
+3. <strong>QGridLayout</strong><br />
+网格布局，可以指定控件的具体位置（哪行哪列）</p>
 <p>以上布局在<code>PyQt5.QtWidgets</code>类下面。</p>
-<p>PyQt5控件布局的基本逻辑是：</p>
-<ol>
-<li>父控件假设为<code>pWidget</code>，<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pWidget = QWidget()</span><br></pre></td></tr></table></figure></li>
-<li>给该控件添加一种布局<code>layout</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pWidget.setLayout(layout)</span><br></pre></td></tr></table></figure></li>
-<li>在layout里面添加子控件<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">layout.addWidget(widget1)</span><br><span class="line">layout.addWidget(widget2)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="主窗口写法"><a href="#主窗口写法" class="headerlink" title="主窗口写法"></a>主窗口写法</h3><p>界面展示：<br><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No1.jpg" width="25%"><br>代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, QApplication</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainWindow</span><span class="params">(QMainWindow)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, parent=None)</span>:</span></span><br><span class="line">        super(MainWindow, self).__init__(parent)   </span><br><span class="line">        self.init_ui()</span><br><span class="line">        self.show()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">init_ui</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.setGeometry(<span class="number">200</span>, <span class="number">200</span>, <span class="number">1600</span>, <span class="number">800</span>)</span><br><span class="line">        self.setWindowTitle(<span class="string">"主窗口"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app = QApplication(sys.argv[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line">    window = MainWindow()</span><br><span class="line">    window.show()</span><br><span class="line"></span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
+<p>PyQt5控件布局的基本逻辑是：<br />
+1. 父控件假设为<code>pWidget</code>，<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pWidget = QWidget()</span><br></pre></td></tr></table></figure><br />
+2. 给该控件添加一种布局<code>layout</code><br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pWidget.setLayout(layout)</span><br></pre></td></tr></table></figure><br />
+3. 在layout里面添加子控件<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">layout.addWidget(widget1)</span><br><span class="line">layout.addWidget(widget2)</span><br></pre></td></tr></table></figure></p>
+<h2 id="例子">例子</h2>
+<h3 id="主窗口写法">主窗口写法</h3>
+<p>界面展示：<br />
+<img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No1.jpg" width="25%"><br />
+代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, QApplication</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MainWindow</span>(<span class="title class_ inherited__">QMainWindow</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, parent=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="built_in">super</span>(MainWindow, self).__init__(parent)</span><br><span class="line">        self.init_ui()</span><br><span class="line">        self.show()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">init_ui</span>(<span class="params">self</span>):</span><br><span class="line">        self.setGeometry(<span class="number">200</span>, <span class="number">200</span>, <span class="number">1600</span>, <span class="number">800</span>)</span><br><span class="line">        self.setWindowTitle(<span class="string">&quot;主窗口&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    app = QApplication(sys.argv[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line">    window = MainWindow()</span><br><span class="line">    window.show()</span><br><span class="line"></span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
 <p>可以看到初始化了一个主窗口<code>QMainWindow</code>，其中Qt程序的入口使用<code>QApplication</code>类实现，主窗口的属性如下：</p>
-<div class="table-container">
 <table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 38%" />
+<col style="width: 49%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left"></th>
-<th style="text-align:left">API</th>
-<th style="text-align:left">描述</th>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">API</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left">窗口大小与位置</td>
-<td style="text-align:left">setGeometry(ax: int, ay: int, aw: int, ah: int)</td>
-<td style="text-align:left">统一设置窗口的显示位置和大小，ax,ay表示窗口左上角坐标，aw,ah表示窗口的宽和高，都是以像素为单位</td>
+<tr class="odd">
+<td style="text-align: left;">窗口大小与位置</td>
+<td style="text-align: left;">setGeometry(ax: int, ay: int, aw: int, ah:
+int)</td>
+<td
+style="text-align: left;">统一设置窗口的显示位置和大小，ax,ay表示窗口左上角坐标，aw,ah表示窗口的宽和高，都是以像素为单位</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">move(ax: int, ay: int)</td>
-<td style="text-align:left">单独设置窗口的显示位置即左上角坐标</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">move(ax: int, ay: int)</td>
+<td style="text-align: left;">单独设置窗口的显示位置即左上角坐标</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setFixedSize(w: int, h: int)</td>
-<td style="text-align:left">单独设置窗口的大小即宽和高</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setFixedSize(w: int, h: int)</td>
+<td style="text-align: left;">单独设置窗口的大小即宽和高</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setFixedWidth(w: int)</td>
-<td style="text-align:left">单独设置窗口的宽</td>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setFixedWidth(w: int)</td>
+<td style="text-align: left;">单独设置窗口的宽</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setFixedHeight(h: int)</td>
-<td style="text-align:left">单独设置窗口的高</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setFixedHeight(h: int)</td>
+<td style="text-align: left;">单独设置窗口的高</td>
 </tr>
-<tr>
-<td style="text-align:left">窗口标题与图标</td>
-<td style="text-align:left">setWindowTitle(a0: str)</td>
-<td style="text-align:left">设置窗口标题</td>
+<tr class="even">
+<td style="text-align: left;">窗口标题与图标</td>
+<td style="text-align: left;">setWindowTitle(a0: str)</td>
+<td style="text-align: left;">设置窗口标题</td>
 </tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">setWindowIcon(icon: QIcon)</td>
-<td style="text-align:left">设置窗口图标</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">setWindowIcon(icon: QIcon)</td>
+<td style="text-align: left;">设置窗口图标</td>
 </tr>
-<tr>
-<td style="text-align:left">控件显示</td>
-<td style="text-align:left">show()</td>
-<td style="text-align:left">显示控件与其子控件</td>
+<tr class="even">
+<td style="text-align: left;">控件显示</td>
+<td style="text-align: left;">show()</td>
+<td style="text-align: left;">显示控件与其子控件</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h3 id="设置布局和添加控件"><a href="#设置布局和添加控件" class="headerlink" title="设置布局和添加控件"></a>设置布局和添加控件</h3><p>有了主窗口后，就可以添加想要添加的控件了，如下面代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">init_ui</span><span class="params">(self)</span>:</span></span><br><span class="line">    self.setGeometry(<span class="number">200</span>, <span class="number">200</span>, <span class="number">1600</span>, <span class="number">800</span>)</span><br><span class="line">    self.setWindowTitle(<span class="string">"主窗口"</span>)</span><br><span class="line"></span><br><span class="line">    main_widget = QWidget()</span><br><span class="line">    main_layout = QVBoxLayout()</span><br><span class="line">    main_widget.setLayout(main_layout)</span><br><span class="line">    line_edit1 = QLineEdit()</span><br><span class="line">    line_edit1.setPlaceholderText(<span class="string">"用户名"</span>)</span><br><span class="line">    line_edit2 = QLineEdit()</span><br><span class="line">    line_edit2.setPlaceholderText(<span class="string">"密码"</span>)</span><br><span class="line">    main_layout.addWidget(line_edit1)</span><br><span class="line">    main_layout.addWidget(line_edit2)</span><br><span class="line"></span><br><span class="line">    self.setCentralWidget(main_widget)</span><br></pre></td></tr></table></figure>
+<h3 id="设置布局和添加控件">设置布局和添加控件</h3>
+<p>有了主窗口后，就可以添加想要添加的控件了，如下面代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">init_ui</span>(<span class="params">self</span>):</span><br><span class="line">    self.setGeometry(<span class="number">200</span>, <span class="number">200</span>, <span class="number">1600</span>, <span class="number">800</span>)</span><br><span class="line">    self.setWindowTitle(<span class="string">&quot;主窗口&quot;</span>)</span><br><span class="line"></span><br><span class="line">    main_widget = QWidget()</span><br><span class="line">    main_layout = QVBoxLayout()</span><br><span class="line">    main_widget.setLayout(main_layout)</span><br><span class="line">    line_edit1 = QLineEdit()</span><br><span class="line">    line_edit1.setPlaceholderText(<span class="string">&quot;用户名&quot;</span>)</span><br><span class="line">    line_edit2 = QLineEdit()</span><br><span class="line">    line_edit2.setPlaceholderText(<span class="string">&quot;密码&quot;</span>)</span><br><span class="line">    main_layout.addWidget(line_edit1)</span><br><span class="line">    main_layout.addWidget(line_edit2)</span><br><span class="line"></span><br><span class="line">    self.setCentralWidget(main_widget)</span><br></pre></td></tr></table></figure>
 <p>其中创建了一个主控件<code>main_widget</code>用来显示其他控件，使用<code>setCentralWidget(main_widget)</code>可以将<code>main_widget</code>设置为主窗口<code>QMainWindow</code>的中央控件，该控件使用了垂直布局方式<code>QVBoxlayout</code>，其中包含两个文本编辑子控件<code>QLineEdit</code>。从这里也可以看出widget和layout的关系：</p>
 <blockquote>
-<p>widget.setLayout(layout)<br>layout.addWidget(widget)</p>
+<p>widget.setLayout(layout)<br />
+layout.addWidget(widget)</p>
 </blockquote>
 <p><code>widget</code>通过<code>setLayout</code>方法添加布局，而<code>layout</code>通过<code>addWidget</code>方法添加子控件。</p>
-<h3 id="控件的嵌套"><a href="#控件的嵌套" class="headerlink" title="控件的嵌套"></a>控件的嵌套</h3><p>当需要实现复杂的UI界面时，控件之间嵌套必不可少，比如要实现下图中的界面：<br><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No3.jpg" width="25%"><br>可以先整理下该界面中的有哪些控件以及包含关系：<br><img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No2.jpg" width="60%"><br>其中主控件(<code>main_widget</code>)包含左右两个控件，而右边控件(<code>right_widget</code>)又包含两个控件，所以代码实现为：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, QApplication, QVBoxLayout, QWidget, QHBoxLayout</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainWindow</span><span class="params">(QMainWindow)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, parent=None)</span>:</span></span><br><span class="line">        super(MainWindow, self).__init__(parent)   </span><br><span class="line">        self.init_ui()</span><br><span class="line">        self.show()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">init_ui</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.setStyleSheet(<span class="string">"border:2px solid black"</span>)</span><br><span class="line">        self.setGeometry(<span class="number">1000</span>, <span class="number">400</span>, <span class="number">300</span>, <span class="number">300</span>)</span><br><span class="line">        self.setWindowTitle(<span class="string">"主窗口"</span>)</span><br><span class="line"></span><br><span class="line">        main_widget = QWidget()</span><br><span class="line">        self.setCentralWidget(main_widget)</span><br><span class="line"></span><br><span class="line">        main_layout = QHBoxLayout()</span><br><span class="line">        main_widget.setLayout(main_layout)</span><br><span class="line">        </span><br><span class="line">        left_widget = QWidget()</span><br><span class="line">        right_widget = QWidget()</span><br><span class="line">        main_layout.addWidget(left_widget)</span><br><span class="line">        main_layout.addWidget(right_widget)</span><br><span class="line"></span><br><span class="line">        right_layout = QVBoxLayout()</span><br><span class="line">        right_widget.setLayout(right_layout)</span><br><span class="line">        </span><br><span class="line">        top_widget = QWidget()</span><br><span class="line">        buttom_widget = QWidget()</span><br><span class="line">        right_layout.addWidget(top_widget)</span><br><span class="line">        right_layout.addWidget(buttom_widget)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app = QApplication(sys.argv[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line">    window = MainWindow()</span><br><span class="line">    window.show()</span><br><span class="line"></span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
+<h3 id="控件的嵌套">控件的嵌套</h3>
+<p>当需要实现复杂的UI界面时，控件之间嵌套必不可少，比如要实现下图中的界面：<br />
+<img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No3.jpg" width="25%"><br />
+可以先整理下该界面中的有哪些控件以及包含关系：<br />
+<img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No2.jpg" width="60%"><br />
+其中主控件(<code>main_widget</code>)包含左右两个控件，而右边控件(<code>right_widget</code>)又包含两个控件，所以代码实现为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, QApplication, QVBoxLayout, QWidget, QHBoxLayout</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MainWindow</span>(<span class="title class_ inherited__">QMainWindow</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, parent=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="built_in">super</span>(MainWindow, self).__init__(parent)</span><br><span class="line">        self.init_ui()</span><br><span class="line">        self.show()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">init_ui</span>(<span class="params">self</span>):</span><br><span class="line">        self.setStyleSheet(<span class="string">&quot;border:2px solid black&quot;</span>)</span><br><span class="line">        self.setGeometry(<span class="number">1000</span>, <span class="number">400</span>, <span class="number">300</span>, <span class="number">300</span>)</span><br><span class="line">        self.setWindowTitle(<span class="string">&quot;主窗口&quot;</span>)</span><br><span class="line"></span><br><span class="line">        main_widget = QWidget()</span><br><span class="line">        self.setCentralWidget(main_widget)</span><br><span class="line"></span><br><span class="line">        main_layout = QHBoxLayout()</span><br><span class="line">        main_widget.setLayout(main_layout)</span><br><span class="line"></span><br><span class="line">        left_widget = QWidget()</span><br><span class="line">        right_widget = QWidget()</span><br><span class="line">        main_layout.addWidget(left_widget)</span><br><span class="line">        main_layout.addWidget(right_widget)</span><br><span class="line"></span><br><span class="line">        right_layout = QVBoxLayout()</span><br><span class="line">        right_widget.setLayout(right_layout)</span><br><span class="line"></span><br><span class="line">        top_widget = QWidget()</span><br><span class="line">        buttom_widget = QWidget()</span><br><span class="line">        right_layout.addWidget(top_widget)</span><br><span class="line">        right_layout.addWidget(buttom_widget)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    app = QApplication(sys.argv[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line">    window = MainWindow()</span><br><span class="line">    window.show()</span><br><span class="line"></span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
 <p><code>main_widget</code>使用了<code>QHBoxLayout</code>布局方式，包含<code>left_widget</code>和<code>right_widget</code>两个子控件；而<code>right_widget</code>使用了<code>QVBoxLayout</code>布局方式，包含了<code>top_widget</code>和<code>buttom_widget</code>两个子控件。</p>
 
     </div>
@@ -461,7 +479,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显示控件"><span class="nav-text">显示控件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局"><span class="nav-text">布局</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主窗口写法"><span class="nav-text">主窗口写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置布局和添加控件"><span class="nav-text">设置布局和添加控件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控件的嵌套"><span class="nav-text">控件的嵌套</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E6%8E%A7%E4%BB%B6"><span class="nav-text">显示控件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%83%E5%B1%80"><span class="nav-text">布局</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E7%AA%97%E5%8F%A3%E5%86%99%E6%B3%95"><span class="nav-text">主窗口写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%B8%83%E5%B1%80%E5%92%8C%E6%B7%BB%E5%8A%A0%E6%8E%A7%E4%BB%B6"><span class="nav-text">设置布局和添加控件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E4%BB%B6%E7%9A%84%E5%B5%8C%E5%A5%97"><span class="nav-text">控件的嵌套</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -532,13 +550,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
@@ -659,59 +677,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 

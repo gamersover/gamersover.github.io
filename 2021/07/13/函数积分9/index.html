@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定义1 设$B \subset \mathbb{R}^2$是有界集，函数$f: B \to \mathbb{R}$，令      f_B(\boldsymbol{p}) &#x3D; \left\{           \begin{aligned}             &amp; f(\boldsymbol{p}), &amp; \boldsymbol{p} \in B \\             &amp; 0, &amp; \">
+  <meta name="description" content="定义1  设\(B \subset \mathbb{R}^2\)是有界集，函数\(f: B \to \mathbb{R}\)，令 \[     f_B(\boldsymbol{p}) &#x3D; \left\{           \begin{aligned}             &amp; f(\boldsymbol{p}), &amp; \boldsymbol{p} \in B \\">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数积分九：有界区域上的二重积分">
 <meta property="og:url" content="http://yoursite.com/2021/07/13/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%869/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定义1 设$B \subset \mathbb{R}^2$是有界集，函数$f: B \to \mathbb{R}$，令      f_B(\boldsymbol{p}) &#x3D; \left\{           \begin{aligned}             &amp; f(\boldsymbol{p}), &amp; \boldsymbol{p} \in B \\             &amp; 0, &amp; \">
+<meta property="og:description" content="定义1  设\(B \subset \mathbb{R}^2\)是有界集，函数\(f: B \to \mathbb{R}\)，令 \[     f_B(\boldsymbol{p}) &#x3D; \left\{           \begin{aligned}             &amp; f(\boldsymbol{p}), &amp; \boldsymbol{p} \in B \\">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-13T12:31:23.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.736Z">
+<meta property="article:modified_time" content="2021-07-13T12:31:23.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数积分">
@@ -80,7 +80,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,13 +224,6 @@
 
               <time title="创建时间：2021-07-13 20:31:23" itemprop="dateCreated datePublished" datetime="2021-07-13T20:31:23+08:00">2021-07-13</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -250,14 +247,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7.1k</span>
+              <span>7.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>7 分钟</span>
             </span>
 
         </div>
@@ -269,140 +266,450 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>设$B \subset \mathbb{R}^2$是有界集，函数$f: B \to \mathbb{R}$，令</p>
-<script type="math/tex; mode=display">
+        <h4 id="定义1">定义1</h4>
+<blockquote>
+<p>设<span class="math inline">\(B \subset
+\mathbb{R}^2\)</span>是有界集，函数<span class="math inline">\(f: B \to
+\mathbb{R}\)</span>，令<br />
+<span class="math display">\[
     f_B(\boldsymbol{p}) = \left\{  
         \begin{aligned}
-            & f(\boldsymbol{p}), & \boldsymbol{p} \in B \\
-            & 0, & \boldsymbol{p} \in B^c
+            &amp; f(\boldsymbol{p}), &amp; \boldsymbol{p} \in B \\
+            &amp; 0, &amp; \boldsymbol{p} \in B^c
         \end{aligned}
-     \right.</script><p>则函数$f_B$在全平面$\mathbb{R}^2$上有定义，如果限制在集合$B$上，$f_B$与$f$相等。</p>
+     \right.
+\]</span><br />
+则函数<span class="math inline">\(f_B\)</span>在全平面<span
+class="math inline">\(\mathbb{R}^2\)</span>上有定义，如果限制在集合<span
+class="math inline">\(B\)</span>上，<span
+class="math inline">\(f_B\)</span>与<span
+class="math inline">\(f\)</span>相等。</p>
 </blockquote>
-<a id="more"></a>
-<h4 id="定义2"><a href="#定义2" class="headerlink" title="定义2"></a>定义2</h4><blockquote>
-<p>任取有界的闭矩形$I \supset B$，如果函数$f_B$在$I$上可积，则称函数$f$在$B$上可积，并称数值$\displaystyle \int_I f_B \mathrm{d} \sigma$为函数$f$在$B$上的（二重）积分，记作</p>
-<script type="math/tex; mode=display">
-    \iint \limits_B f(x, y) \mathrm{d} x \mathrm{d} y \quad 或 \quad \int_B f \mathrm{d} \sigma</script></blockquote>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>设有界集$B \subset \mathbb{R}^2$，函数$f: B \to \mathbb{R}$有界，如果集合$B$的边界$\partial B$和$f$在$B$上的间断点都是零测集，那么$f$在$B$上可积。</p>
+<span id="more"></span>
+<h4 id="定义2">定义2</h4>
+<blockquote>
+<p>任取有界的闭矩形<span class="math inline">\(I \supset
+B\)</span>，如果函数<span class="math inline">\(f_B\)</span>在<span
+class="math inline">\(I\)</span>上可积，则称函数<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(B\)</span>上可积，并称数值<span
+class="math inline">\(\displaystyle \int_I f_B \mathrm{d}
+\sigma\)</span>为函数<span class="math inline">\(f\)</span>在<span
+class="math inline">\(B\)</span>上的（二重）积分，记作<br />
+<span class="math display">\[
+    \iint \limits_B f(x, y) \mathrm{d} x \mathrm{d} y \quad 或 \quad
+\int_B f \mathrm{d} \sigma
+\]</span></p>
 </blockquote>
-<p>证：取闭矩形$I$，满足$I^\circ \supset \overline B$，由于$f_B$在$\overline B^c$上处处为零，所以$\overline B^c$中的每个点都是$f_B$的连续点，在$B^\circ$上，$f_B = f$，所以在$B^\circ$上$f_B$的不连续点就是$f$的不连续点，从而</p>
-<script type="math/tex; mode=display">
-    D(f_B) \subset D(f) \cup \partial B</script><p>由于$D(f)$与$\partial B$都是零测集，所以$D(f_B)$也是零测集，即$f_B$在$I$上可积，从而$f$在$B$上可积。</p>
+<h4 id="定理1">定理1</h4>
+<blockquote>
+<p>设有界集<span class="math inline">\(B \subset
+\mathbb{R}^2\)</span>，函数<span class="math inline">\(f: B \to
+\mathbb{R}\)</span>有界，如果集合<span
+class="math inline">\(B\)</span>的边界<span
+class="math inline">\(\partial B\)</span>和<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(B\)</span>上的间断点都是零测集，那么<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(B\)</span>上可积。</p>
+</blockquote>
+<p>证：取闭矩形<span class="math inline">\(I\)</span>，满足<span
+class="math inline">\(I^\circ \supset \overline B\)</span>，由于<span
+class="math inline">\(f_B\)</span>在<span
+class="math inline">\(\overline B^c\)</span>上处处为零，所以<span
+class="math inline">\(\overline B^c\)</span>中的每个点都是<span
+class="math inline">\(f_B\)</span>的连续点，在<span
+class="math inline">\(B^\circ\)</span>上，<span
+class="math inline">\(f_B = f\)</span>，所以在<span
+class="math inline">\(B^\circ\)</span>上<span
+class="math inline">\(f_B\)</span>的不连续点就是<span
+class="math inline">\(f\)</span>的不连续点，从而<br />
+<span class="math display">\[
+    D(f_B) \subset D(f) \cup \partial B
+\]</span><br />
+由于<span class="math inline">\(D(f)\)</span>与<span
+class="math inline">\(\partial B\)</span>都是零测集，所以<span
+class="math inline">\(D(f_B)\)</span>也是零测集，即<span
+class="math inline">\(f_B\)</span>在<span
+class="math inline">\(I\)</span>上可积，从而<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(B\)</span>上可积。</p>
 <p>Q.E.D.</p>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>设有界集$B \subset \mathbb{R}^2$，$f: B \to \mathbb{R}$在$B$上可积，那么对任意常数$c$，函数$cf$在$B$上也可积，并且</p>
-<script type="math/tex; mode=display">
-    \int_B cf \mathrm{d} \sigma = c \int_B f \mathrm{d} \sigma</script><p>又若$g: B \to \mathbb{R}$在$B$上可积，那么$f \pm g$也在$B$上可积，且</p>
-<script type="math/tex; mode=display">
-    \int_B (f \pm g) \mathrm{d} \sigma = \int_B f \mathrm{d} \sigma \pm \int_B g \mathrm{d} \sigma</script></blockquote>
-<p>证：对于第一个等式，设闭矩形$I \supset B$，有</p>
-<script type="math/tex; mode=display">
-    \int_B cf \mathrm{d} \sigma = \int_I cf_B \mathrm{d} \sigma = c \int_I f_B \mathrm{d} \sigma = c \int_B f \mathrm{d} \sigma</script><p>对于第二个等式，同样有</p>
-<script type="math/tex; mode=display">
-    \int_B (f \pm g) \mathrm{d} \sigma = \int_I (f_B \pm g_B) \mathrm{d} \sigma = \int_I f_B \mathrm{d} \sigma \pm \int_I g_B \mathrm{d} \sigma = \int_B f \mathrm{d} \sigma \pm \int_B g \mathrm{d} \sigma</script><p>Q.E.D.</p>
-<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
-<p>设$B_1, B_2 \subset \mathbb{R}^2$有界，且$B_1 \cap B_2$是零面积集，若函数$f$在$B_1$和$B_2$上都可积，那么$f$在$B_1 \cup B_2$上可积，且</p>
-<script type="math/tex; mode=display">
-    \int_{B_1 \cup B_2} f \mathrm{d} \sigma = \int_{B_1} f \mathrm{d} \sigma + \int_{B_2} f \mathrm{d} \sigma</script></blockquote>
-<p>证：易知，只要$\boldsymbol{x} \notin B_1 \cap B_2$，有$f_{B_1 \cup B_2}(\boldsymbol{x}) = f_{B_1}(\boldsymbol{x}) + f_{B_2}(\boldsymbol{x})$，从而使得$f_{B_1 \cup B_2}$与$f_{B_1} + f_{B_2}$不相等的集合必属于$B_1 \cap B_2$，即为零面积集。所以由<a href="https://gamersover.github.io/2021/06/29/函数积分8/#定理9" target="_blank" rel="noopener">函数积分八的定理9</a>可知，</p>
-<script type="math/tex; mode=display">
-    \int_I (f_{B_1} + f_{B_2}) \mathrm{d} \sigma = \int_I f_{B_1 \cap B_2} \mathrm{d} \sigma</script><p>设矩形$I \supset B$，则有</p>
-<script type="math/tex; mode=display">
-    \int_{B_1} f \mathrm{d} \sigma + \int_{B_2} f \mathrm{d} \sigma = \int_I f_{B_1} \mathrm{d} \sigma + \int_I f_{B_2} \mathrm{d} \sigma = \int_I (f_{B_1} + f_{B_2}) \mathrm{d} \sigma = \int_I f_{B_1 \cap B_2} \mathrm{d} \sigma</script><p>Q.E.D.</p>
-<h4 id="定义3"><a href="#定义3" class="headerlink" title="定义3"></a>定义3</h4><blockquote>
-<p>设$B \subset \mathbb{R}^2$有界，若常值函数$1$在$B$上可积，那么积分$\displaystyle \int_B 1 \mathrm{d} \sigma$称为点集$B$的面积，记为$\sigma(B)$，这时称$B$是有面积的。记函数</p>
-<script type="math/tex; mode=display">
+<h4 id="定理2">定理2</h4>
+<blockquote>
+<p>设有界集<span class="math inline">\(B \subset
+\mathbb{R}^2\)</span>，<span class="math inline">\(f: B \to
+\mathbb{R}\)</span>在<span
+class="math inline">\(B\)</span>上可积，那么对任意常数<span
+class="math inline">\(c\)</span>，函数<span
+class="math inline">\(cf\)</span>在<span
+class="math inline">\(B\)</span>上也可积，并且<br />
+<span class="math display">\[
+    \int_B cf \mathrm{d} \sigma = c \int_B f \mathrm{d} \sigma
+\]</span><br />
+又若<span class="math inline">\(g: B \to \mathbb{R}\)</span>在<span
+class="math inline">\(B\)</span>上可积，那么<span
+class="math inline">\(f \pm g\)</span>也在<span
+class="math inline">\(B\)</span>上可积，且<br />
+<span class="math display">\[
+    \int_B (f \pm g) \mathrm{d} \sigma = \int_B f \mathrm{d} \sigma \pm
+\int_B g \mathrm{d} \sigma
+\]</span></p>
+</blockquote>
+<p>证：对于第一个等式，设闭矩形<span class="math inline">\(I \supset
+B\)</span>，有<br />
+<span class="math display">\[
+    \int_B cf \mathrm{d} \sigma = \int_I cf_B \mathrm{d} \sigma = c
+\int_I f_B \mathrm{d} \sigma = c \int_B f \mathrm{d} \sigma
+\]</span><br />
+对于第二个等式，同样有<br />
+<span class="math display">\[
+    \int_B (f \pm g) \mathrm{d} \sigma = \int_I (f_B \pm g_B) \mathrm{d}
+\sigma = \int_I f_B \mathrm{d} \sigma \pm \int_I g_B \mathrm{d} \sigma =
+\int_B f \mathrm{d} \sigma \pm \int_B g \mathrm{d} \sigma
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理3">定理3</h4>
+<blockquote>
+<p>设<span class="math inline">\(B_1, B_2 \subset
+\mathbb{R}^2\)</span>有界，且<span class="math inline">\(B_1 \cap
+B_2\)</span>是零面积集，若函数<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(B_1\)</span>和<span
+class="math inline">\(B_2\)</span>上都可积，那么<span
+class="math inline">\(f\)</span>在<span class="math inline">\(B_1 \cup
+B_2\)</span>上可积，且<br />
+<span class="math display">\[
+    \int_{B_1 \cup B_2} f \mathrm{d} \sigma = \int_{B_1} f \mathrm{d}
+\sigma + \int_{B_2} f \mathrm{d} \sigma
+\]</span></p>
+</blockquote>
+<p>证：易知，只要<span class="math inline">\(\boldsymbol{x} \notin B_1
+\cap B_2\)</span>，有<span class="math inline">\(f_{B_1 \cup
+B_2}(\boldsymbol{x}) = f_{B_1}(\boldsymbol{x}) +
+f_{B_2}(\boldsymbol{x})\)</span>，从而使得<span
+class="math inline">\(f_{B_1 \cup B_2}\)</span>与<span
+class="math inline">\(f_{B_1} + f_{B_2}\)</span>不相等的集合必属于<span
+class="math inline">\(B_1 \cap B_2\)</span>，即为零面积集。所以由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/06/29/函数积分8/#定理9">函数积分八的定理9</a>可知，<br />
+<span class="math display">\[
+    \int_I (f_{B_1} + f_{B_2}) \mathrm{d} \sigma = \int_I f_{B_1 \cap
+B_2} \mathrm{d} \sigma
+\]</span><br />
+设矩形<span class="math inline">\(I \supset B\)</span>，则有<br />
+<span class="math display">\[
+    \int_{B_1} f \mathrm{d} \sigma + \int_{B_2} f \mathrm{d} \sigma =
+\int_I f_{B_1} \mathrm{d} \sigma + \int_I f_{B_2} \mathrm{d} \sigma =
+\int_I (f_{B_1} + f_{B_2}) \mathrm{d} \sigma = \int_I f_{B_1 \cap B_2}
+\mathrm{d} \sigma
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定义3">定义3</h4>
+<blockquote>
+<p>设<span class="math inline">\(B \subset
+\mathbb{R}^2\)</span>有界，若常值函数<span
+class="math inline">\(1\)</span>在<span
+class="math inline">\(B\)</span>上可积，那么积分<span
+class="math inline">\(\displaystyle \int_B 1 \mathrm{d}
+\sigma\)</span>称为点集<span
+class="math inline">\(B\)</span>的面积，记为<span
+class="math inline">\(\sigma(B)\)</span>，这时称<span
+class="math inline">\(B\)</span>是有面积的。记函数<br />
+<span class="math display">\[
     \chi_B (\boldsymbol{p}) = \left\{
         \begin{aligned}
-        1, & \quad \boldsymbol{p} \in B \\
-        0, & \quad \boldsymbol{p} \notin B
+        1, &amp; \quad \boldsymbol{p} \in B \\
+        0, &amp; \quad \boldsymbol{p} \notin B
         \end{aligned}
-        \right.</script><p>称为$B$的特征函数，从而$B$的面积也可以写为</p>
-<script type="math/tex; mode=display">
-    \sigma(B) = \int_B 1 \mathrm{d} \sigma = \int_I \chi_B \mathrm{d} \sigma</script><p>这里$I$是任何一个包含$B$的闭矩形。  </p>
+        \right.
+\]</span><br />
+称为<span class="math inline">\(B\)</span>的特征函数，从而<span
+class="math inline">\(B\)</span>的面积也可以写为<br />
+<span class="math display">\[
+    \sigma(B) = \int_B 1 \mathrm{d} \sigma = \int_I \chi_B \mathrm{d}
+\sigma
+\]</span><br />
+这里<span class="math inline">\(I\)</span>是任何一个包含<span
+class="math inline">\(B\)</span>的闭矩形。</p>
 </blockquote>
-<h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><blockquote>
-<p>设$B \subset \mathbb{R}^2$是一个有界集，且$\displaystyle \sigma(B) = \int_B 1 \mathrm{d} \sigma$存在，则</p>
-<script type="math/tex; mode=display">
-    D(\chi_B) = \partial B</script></blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    \mathbb{R}^2 = B^\circ \cup \partial B \cup (B^c)^\circ</script><p>而在开集$B^\circ$和$(B^c)^\circ$上，$\chi_B$分别为$1$和$0$，所以$\chi_B$在$B^\circ$和$(B^c)^\circ$上连续，从而</p>
-<script type="math/tex; mode=display">
-    D(\chi_B) \subset \partial B   \tag {1}</script><p>任取$\boldsymbol{p} \in \partial B$，则在$\boldsymbol{p}$的任意小的领域内即有$B$中的点$\boldsymbol{p}^\prime$，又有$B^c$中的点$\boldsymbol{p}^{\prime\prime}$，而$\chi_B(\boldsymbol{p}^\prime) = 1, \chi_B(\boldsymbol{p}^{\prime\prime})=0$，所以$\chi_B$在$\boldsymbol{p}$处不连续，所以</p>
-<script type="math/tex; mode=display">
-    \partial B \subset D(\chi_B) \tag {2}</script><p>由$(1)(2)$即得$D(\chi_B) = \partial B$。</p>
-<p>Q.E.D.</p>
-<h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h4><blockquote>
-<p>设$B \subset \mathbb{R}^2$是一个有界集，则点集$B$为零面积集的充分必要条件是</p>
-<script type="math/tex; mode=display">
-    \sigma (B) = \int_B 1 \mathrm{d} \sigma = 0</script></blockquote>
-<p>证：必要性。作闭矩形$I$使得$I^{\circ} \supset \overline B$，则$B$上的特征函数$\chi_B$在$I$上取非零值的点集正好是$B$，而$B$是零面积集，由<a href="https://gamersover.github.io/2021/06/29/函数积分8/#定理8" target="_blank" rel="noopener">函数积分八的定理8</a>可知， $\chi_B$在$I$上可积且</p>
-<script type="math/tex; mode=display">
-    \sigma(B) = \int_B 1 \mathrm{d} \sigma = \int_I \chi_B \mathrm{d} \sigma = 0</script><p>这表明$B$的面积为零。</p>
-<p>充分性。由于$\sigma(B) = 0$，从而$B^\circ = \varnothing$，又因为$\chi_B$可积，从而$D(\chi_B)$是零测集，再由<a href="https://gamersover.github.io/2021/07/13/函数积分9/#定理4" target="_blank" rel="noopener">定理4</a>可知$\partial B$是零测集，而$\partial B$又是有界闭集，从而由<a href="https://gamersover.github.io/2021/06/29/函数积分8/#定理1" target="_blank" rel="noopener">函数积分八的定理1</a>可知$\partial B$是零面积集，由$B \subset \partial B \cup B^\circ = \partial B$，得$B \subset \partial B$，所以$B$也是零面积集。</p>
-<p>Q.E.D.</p>
-<h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><blockquote>
-<p>设有界集$B \subset \mathbb{R}^2$，则$B$有面积当且仅当$B$的边界$\partial B$是一零面积集。</p>
+<h4 id="定理4">定理4</h4>
+<blockquote>
+<p>设<span class="math inline">\(B \subset
+\mathbb{R}^2\)</span>是一个有界集，且<span
+class="math inline">\(\displaystyle \sigma(B) = \int_B 1 \mathrm{d}
+\sigma\)</span>存在，则<br />
+<span class="math display">\[
+    D(\chi_B) = \partial B
+\]</span></p>
 </blockquote>
-<p>证：由于$\partial B$是有界闭集，所以$\partial B$是零面积集$\Leftrightarrow \partial B$是零测集$\Leftrightarrow D(\chi_B)$是零测集$\Leftrightarrow \sigma(B)$存在$\Leftrightarrow B$有面积。</p>
+<p>证：由于<br />
+<span class="math display">\[
+    \mathbb{R}^2 = B^\circ \cup \partial B \cup (B^c)^\circ
+\]</span><br />
+而在开集<span class="math inline">\(B^\circ\)</span>和<span
+class="math inline">\((B^c)^\circ\)</span>上，<span
+class="math inline">\(\chi_B\)</span>分别为<span
+class="math inline">\(1\)</span>和<span
+class="math inline">\(0\)</span>，所以<span
+class="math inline">\(\chi_B\)</span>在<span
+class="math inline">\(B^\circ\)</span>和<span
+class="math inline">\((B^c)^\circ\)</span>上连续，从而<br />
+<span class="math display">\[
+    D(\chi_B) \subset \partial B   \tag {1}
+\]</span><br />
+任取<span class="math inline">\(\boldsymbol{p} \in \partial
+B\)</span>，则在<span
+class="math inline">\(\boldsymbol{p}\)</span>的任意小的领域内即有<span
+class="math inline">\(B\)</span>中的点<span
+class="math inline">\(\boldsymbol{p}^\prime\)</span>，又有<span
+class="math inline">\(B^c\)</span>中的点<span
+class="math inline">\(\boldsymbol{p}^{\prime\prime}\)</span>，而<span
+class="math inline">\(\chi_B(\boldsymbol{p}^\prime) = 1,
+\chi_B(\boldsymbol{p}^{\prime\prime})=0\)</span>，所以<span
+class="math inline">\(\chi_B\)</span>在<span
+class="math inline">\(\boldsymbol{p}\)</span>处不连续，所以<br />
+<span class="math display">\[
+    \partial B \subset D(\chi_B) \tag {2}
+\]</span><br />
+由<span class="math inline">\((1)(2)\)</span>即得<span
+class="math inline">\(D(\chi_B) = \partial B\)</span>。</p>
 <p>Q.E.D.</p>
-<h4 id="定理7"><a href="#定理7" class="headerlink" title="定理7"></a>定理7</h4><blockquote>
-<p>设$B$是$\mathbb{R}^2$中的有面积的点集，$f$在$B$上可积，对$B$的任意分割$T$作Riemann和，那么对任意的$\boldsymbol{\xi}_i \in D_i(i=1,2,\cdots,m)$有</p>
-<script type="math/tex; mode=display">
-    \lim_{\Vert T \Vert \to 0} \sum_{i=1}^m f(\boldsymbol{\xi}_i) \sigma(D_i) = \int_B f \mathrm{d} \sigma</script><p>其中$\Vert T \Vert = \max \limits_{1 \le i \le m} \mathrm{diam}(D_i)$。也就是说，对任意的$\varepsilon &gt; 0$，存在$\delta&gt;0$，只要分割$T = \{D_1, D_2, \cdots, D_n\}$满足$\Vert T \Vert &lt; \delta$，就有</p>
-<script type="math/tex; mode=display">
-    \left|\sum_{i=1}^m f(\boldsymbol{\xi}_i) \sigma(D_i) - \int_B f \mathrm{d} \sigma \right| < \varepsilon</script></blockquote>
-<p>证：由于$f$在$B$上可积，从而对任意的$\varepsilon &gt; 0$，存在矩形网的分割$\pi_{\varepsilon} = \{J_1, J_2, \cdots, J_t \}$，使得</p>
-<script type="math/tex; mode=display">
-    \overline S(f, \pi_{\varepsilon}) - \underline S(f, \pi_{\varepsilon}) < \frac{\varepsilon}{2}</script><p>即</p>
-<script type="math/tex; mode=display">
-    \sum_{i=1}^t (\sup f(J_i) - \inf f(J_i)) \sigma(J_i) < \frac{\varepsilon}{2}</script><p>这里$J_i \subset B (i=1,2,\cdots,t)$，现将子矩形$J_i$的每一边平行地向内部收缩同一距离$\delta &gt; 0$，作成一个开矩形$\tilde {J_i} \subset J_i (i=1,2,\cdots,t)$。记</p>
-<script type="math/tex; mode=display">
-    K = I \bigcap (\bigcup \limits_{i=1}^t \tilde J_i)^c</script><p>这里$I$是所有包含在$B$中的闭子矩形$J_i$的并，显然$K$是闭集，现取$\delta &gt; 0$充分小，使得$\sigma(K) &lt; \varepsilon / 2\omega$，这里$\omega$是$f$在$B$上的振幅。对这个$\delta &gt; 0$，任取分割$T = \{D_1, D_2, \cdots, D_m\}$，使得$\Vert T \Vert &lt; \delta$，记$\displaystyle A = \int_B f \mathrm{d} \sigma$，则有</p>
-<script type="math/tex; mode=display">
-    A = \sum_{i=1}^m \int_{D_i} f \mathrm{d} \sigma</script><p>设$f$在$D_i$上的上、下确界分别为$M_i, m_i$，则</p>
-<script type="math/tex; mode=display">
-    m_i \sigma(D_i) \le \int_{D_i} f \mathrm{d} \sigma \le M_i \sigma(D_i)</script><p>记$\displaystyle \mu_i = \frac{1}{\sigma(D_i)} \int_{D_i} f \mathrm{d} \sigma$，从而$m_i \le \mu_i \le M_i$，又有</p>
-<script type="math/tex; mode=display">
+<h4 id="定理5">定理5</h4>
+<blockquote>
+<p>设<span class="math inline">\(B \subset
+\mathbb{R}^2\)</span>是一个有界集，则点集<span
+class="math inline">\(B\)</span>为零面积集的充分必要条件是<br />
+<span class="math display">\[
+    \sigma (B) = \int_B 1 \mathrm{d} \sigma = 0
+\]</span></p>
+</blockquote>
+<p>证：必要性。作闭矩形<span class="math inline">\(I\)</span>使得<span
+class="math inline">\(I^{\circ} \supset \overline B\)</span>，则<span
+class="math inline">\(B\)</span>上的特征函数<span
+class="math inline">\(\chi_B\)</span>在<span
+class="math inline">\(I\)</span>上取非零值的点集正好是<span
+class="math inline">\(B\)</span>，而<span
+class="math inline">\(B\)</span>是零面积集，由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/06/29/函数积分8/#定理8">函数积分八的定理8</a>可知，
+<span class="math inline">\(\chi_B\)</span>在<span
+class="math inline">\(I\)</span>上可积且<br />
+<span class="math display">\[
+    \sigma(B) = \int_B 1 \mathrm{d} \sigma = \int_I \chi_B \mathrm{d}
+\sigma = 0
+\]</span><br />
+这表明<span class="math inline">\(B\)</span>的面积为零。</p>
+<p>充分性。由于<span class="math inline">\(\sigma(B) =
+0\)</span>，从而<span class="math inline">\(B^\circ =
+\varnothing\)</span>，又因为<span
+class="math inline">\(\chi_B\)</span>可积，从而<span
+class="math inline">\(D(\chi_B)\)</span>是零测集，再由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/07/13/函数积分9/#定理4">定理4</a>可知<span
+class="math inline">\(\partial B\)</span>是零测集，而<span
+class="math inline">\(\partial B\)</span>又是有界闭集，从而由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/06/29/函数积分8/#定理1">函数积分八的定理1</a>可知<span
+class="math inline">\(\partial B\)</span>是零面积集，由<span
+class="math inline">\(B \subset \partial B \cup B^\circ = \partial
+B\)</span>，得<span class="math inline">\(B \subset \partial
+B\)</span>，所以<span class="math inline">\(B\)</span>也是零面积集。</p>
+<p>Q.E.D.</p>
+<h4 id="定理6">定理6</h4>
+<blockquote>
+<p>设有界集<span class="math inline">\(B \subset
+\mathbb{R}^2\)</span>，则<span
+class="math inline">\(B\)</span>有面积当且仅当<span
+class="math inline">\(B\)</span>的边界<span
+class="math inline">\(\partial B\)</span>是一零面积集。</p>
+</blockquote>
+<p>证：由于<span class="math inline">\(\partial
+B\)</span>是有界闭集，所以<span class="math inline">\(\partial
+B\)</span>是零面积集<span class="math inline">\(\Leftrightarrow \partial
+B\)</span>是零测集<span class="math inline">\(\Leftrightarrow
+D(\chi_B)\)</span>是零测集<span class="math inline">\(\Leftrightarrow
+\sigma(B)\)</span>存在<span class="math inline">\(\Leftrightarrow
+B\)</span>有面积。</p>
+<p>Q.E.D.</p>
+<h4 id="定理7">定理7</h4>
+<blockquote>
+<p>设<span class="math inline">\(B\)</span>是<span
+class="math inline">\(\mathbb{R}^2\)</span>中的有面积的点集，<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(B\)</span>上可积，对<span
+class="math inline">\(B\)</span>的任意分割<span
+class="math inline">\(T\)</span>作Riemann和，那么对任意的<span
+class="math inline">\(\boldsymbol{\xi}_i \in
+D_i(i=1,2,\cdots,m)\)</span>有<br />
+<span class="math display">\[
+    \lim_{\Vert T \Vert \to 0} \sum_{i=1}^m f(\boldsymbol{\xi}_i)
+\sigma(D_i) = \int_B f \mathrm{d} \sigma
+\]</span><br />
+其中<span class="math inline">\(\Vert T \Vert = \max \limits_{1 \le i
+\le m} \mathrm{diam}(D_i)\)</span>。也就是说，对任意的<span
+class="math inline">\(\varepsilon &gt; 0\)</span>，存在<span
+class="math inline">\(\delta&gt;0\)</span>，只要分割<span
+class="math inline">\(T = \{D_1, D_2, \cdots, D_n\}\)</span>满足<span
+class="math inline">\(\Vert T \Vert &lt; \delta\)</span>，就有<br />
+<span class="math display">\[
+    \left|\sum_{i=1}^m f(\boldsymbol{\xi}_i) \sigma(D_i) - \int_B f
+\mathrm{d} \sigma \right| &lt; \varepsilon
+\]</span></p>
+</blockquote>
+<p>证：由于<span class="math inline">\(f\)</span>在<span
+class="math inline">\(B\)</span>上可积，从而对任意的<span
+class="math inline">\(\varepsilon &gt; 0\)</span>，存在矩形网的分割<span
+class="math inline">\(\pi_{\varepsilon} = \{J_1, J_2, \cdots, J_t
+\}\)</span>，使得<br />
+<span class="math display">\[
+    \overline S(f, \pi_{\varepsilon}) - \underline S(f,
+\pi_{\varepsilon}) &lt; \frac{\varepsilon}{2}
+\]</span><br />
+即<br />
+<span class="math display">\[
+    \sum_{i=1}^t (\sup f(J_i) - \inf f(J_i)) \sigma(J_i) &lt;
+\frac{\varepsilon}{2}
+\]</span><br />
+这里<span class="math inline">\(J_i \subset B
+(i=1,2,\cdots,t)\)</span>，现将子矩形<span
+class="math inline">\(J_i\)</span>的每一边平行地向内部收缩同一距离<span
+class="math inline">\(\delta &gt; 0\)</span>，作成一个开矩形<span
+class="math inline">\(\tilde {J_i} \subset J_i
+(i=1,2,\cdots,t)\)</span>。记<br />
+<span class="math display">\[
+    K = I \bigcap (\bigcup \limits_{i=1}^t \tilde J_i)^c
+\]</span><br />
+这里<span class="math inline">\(I\)</span>是所有包含在<span
+class="math inline">\(B\)</span>中的闭子矩形<span
+class="math inline">\(J_i\)</span>的并，显然<span
+class="math inline">\(K\)</span>是闭集，现取<span
+class="math inline">\(\delta &gt; 0\)</span>充分小，使得<span
+class="math inline">\(\sigma(K) &lt; \varepsilon /
+2\omega\)</span>，这里<span class="math inline">\(\omega\)</span>是<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(B\)</span>上的振幅。对这个<span
+class="math inline">\(\delta &gt; 0\)</span>，任取分割<span
+class="math inline">\(T = \{D_1, D_2, \cdots, D_m\}\)</span>，使得<span
+class="math inline">\(\Vert T \Vert &lt; \delta\)</span>，记<span
+class="math inline">\(\displaystyle A = \int_B f \mathrm{d}
+\sigma\)</span>，则有<br />
+<span class="math display">\[
+    A = \sum_{i=1}^m \int_{D_i} f \mathrm{d} \sigma
+\]</span><br />
+设<span class="math inline">\(f\)</span>在<span
+class="math inline">\(D_i\)</span>上的上、下确界分别为<span
+class="math inline">\(M_i, m_i\)</span>，则<br />
+<span class="math display">\[
+    m_i \sigma(D_i) \le \int_{D_i} f \mathrm{d} \sigma \le M_i
+\sigma(D_i)
+\]</span><br />
+记<span class="math inline">\(\displaystyle \mu_i =
+\frac{1}{\sigma(D_i)} \int_{D_i} f \mathrm{d} \sigma\)</span>，从而<span
+class="math inline">\(m_i \le \mu_i \le M_i\)</span>，又有<br />
+<span class="math display">\[
     \begin{aligned}
-    \left| A - \sum_{i=1}^m f(\boldsymbol{\xi}_i)\sigma(D_i) \right| &= \left| \sum_{i=1}^m (\mu_i - f(\boldsymbol{\xi}_i)) \sigma(D_i) \right| \\
-    & \le \sum_{i=1}^m \left| \mu_i - f(\boldsymbol{\xi}_i) \right| \sigma(D_i) \\
-    & \le \sum_{i=1}^m (M_i - m_i) \sigma(D_i) \\
-    & = \sum_{i=1}^m \omega_i \sigma(D_i) \\
-    & = \sum \nolimits_1 + \sum \nolimits_2
-    \end{aligned}</script><p>其中</p>
-<script type="math/tex; mode=display">
-    \sum \nolimits_1 = \sum_{D_i \subset K} \omega_i \sigma(D_i) \quad \sum \nolimits_2 = \sum_{D_i \nsubseteq K}\omega_i \sigma(D_i)</script><p>而</p>
-<script type="math/tex; mode=display">
-    \sum \nolimits_1 \le \omega \sum_{D_1 \subset K} \sigma(D_i) \le \omega_i \sigma(K) < \frac{\varepsilon}{2}</script><p>对于$\sum_2$，由于$D_i \nsubseteq K$，从而$D_i$必与某个$\tilde {J_j}$相交，所以必有$D_i \subset J_j$，从而有</p>
-<script type="math/tex; mode=display">
+    \left| A - \sum_{i=1}^m f(\boldsymbol{\xi}_i)\sigma(D_i) \right|
+&amp;= \left| \sum_{i=1}^m (\mu_i - f(\boldsymbol{\xi}_i)) \sigma(D_i)
+\right| \\
+    &amp; \le \sum_{i=1}^m \left| \mu_i - f(\boldsymbol{\xi}_i) \right|
+\sigma(D_i) \\
+    &amp; \le \sum_{i=1}^m (M_i - m_i) \sigma(D_i) \\
+    &amp; = \sum_{i=1}^m \omega_i \sigma(D_i) \\
+    &amp; = \sum \nolimits_1 + \sum \nolimits_2
+    \end{aligned}
+\]</span><br />
+其中<br />
+<span class="math display">\[
+    \sum \nolimits_1 = \sum_{D_i \subset K} \omega_i \sigma(D_i) \quad
+\sum \nolimits_2 = \sum_{D_i \nsubseteq K}\omega_i \sigma(D_i)
+\]</span><br />
+而<br />
+<span class="math display">\[
+    \sum \nolimits_1 \le \omega \sum_{D_1 \subset K} \sigma(D_i) \le
+\omega_i \sigma(K) &lt; \frac{\varepsilon}{2}
+\]</span><br />
+对于<span class="math inline">\(\sum_2\)</span>，由于<span
+class="math inline">\(D_i \nsubseteq K\)</span>，从而<span
+class="math inline">\(D_i\)</span>必与某个<span
+class="math inline">\(\tilde {J_j}\)</span>相交，所以必有<span
+class="math inline">\(D_i \subset J_j\)</span>，从而有<br />
+<span class="math display">\[
     \begin{aligned}
-    \sum \nolimits_2 = \sum_{j=1}^t \sum_{D_i \subset J_j} \omega_i \sigma(D_i) & \le \sum_{j=1}^t (\sup f(J_j) - \inf f(J_j)) \sum_{D_i \subset J_j} \sigma(D_i) \\
-    & \le \sum_{j=1}^t (\sup f(J_j) - \inf f(J_j)) \sigma(J_i) < \frac{\varepsilon}{2}
-    \end{aligned}</script><p>所以有</p>
-<script type="math/tex; mode=display">
-    \left| A - \sum_{i=1}^m f(\boldsymbol{\xi}_i)\sigma(D_i)  \right| \le \sum \nolimits_1 + \sum \nolimits_2 < \varepsilon</script><p>Q.E.D.</p>
-<h4 id="定理8：积分平均值定理"><a href="#定理8：积分平均值定理" class="headerlink" title="定理8：积分平均值定理"></a>定理8：积分平均值定理</h4><blockquote>
-<p>设$K$是$\mathbb{R}^2$中的有线条光滑曲线围成的有界闭区域，函数$f, g: K \to \mathbb{R}$连续且$g$在$K$上不变号，于是存在一点$\boldsymbol{\xi} \in K$，满足</p>
-<script type="math/tex; mode=display">
-    \int_K fg \mathrm{d} \sigma = f(\boldsymbol{\xi}) \int_K g \mathrm{d} \sigma</script></blockquote>
-<p>证：连续函数$g$与$fg$在$K$上都可积，因为$K$是紧致集，所以连续函数$f$在$K$上取得最小值$f(\boldsymbol{a})$与最大值$f(\boldsymbol{b})$，不妨设在$K$上$g \le 0$，于是</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{a})g(\boldsymbol{p}) \le g(\boldsymbol{p})g(\boldsymbol{p}) \le f(\boldsymbol{b})g(\boldsymbol{p})</script><p>对一切$\boldsymbol{p} \in K$都成立，从而有</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{a})\int_K g \mathrm{d} \sigma \le \int_K fg \mathrm{d} \sigma \le f(\boldsymbol{b}) \int_K g \mathrm{d} \sigma</script><p>若$\displaystyle \int_K g \mathrm{d} \sigma = 0$，这时$g = 0$，定理自然成立。现设$\displaystyle \int_K g \mathrm{d} \sigma &gt; 0$，于是</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{a}) \le \left( \int_k g \mathrm{d} \sigma \right)^{-1} \int_K fg \mathrm{d} \sigma \le f(\boldsymbol{b})</script><p>由于$K$是连通集，而$f$在$K$上连续，从而由介值定理可知，存在一点$\boldsymbol{\xi} \in K$，使得</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{\xi}) = \left( \int_K g \mathrm{d} \sigma \right)^{-1} \int_K fg \mathrm{d} \sigma</script><p>Q.E.D.</p>
-<h4 id="定理9"><a href="#定理9" class="headerlink" title="定理9"></a>定理9</h4><blockquote>
-<p>设$K$是$\mathbb{R}^2$中的有界闭区域，函数$f$在$K$上连续，那么存在一点$\boldsymbol{\xi} \in K$，使得</p>
-<script type="math/tex; mode=display">
-    \int_K f \mathrm{d} \sigma = f(\boldsymbol{\xi}) \sigma(K)</script></blockquote>
-<p>证：由<a href="https://gamersover.github.io/2021/07/13/函数积分9/#定理8：积分平均值定理" target="_blank" rel="noopener">定理8</a>，令$g = 1$即得。</p>
+    \sum \nolimits_2 = \sum_{j=1}^t \sum_{D_i \subset J_j} \omega_i
+\sigma(D_i) &amp; \le \sum_{j=1}^t (\sup f(J_j) - \inf f(J_j)) \sum_{D_i
+\subset J_j} \sigma(D_i) \\
+    &amp; \le \sum_{j=1}^t (\sup f(J_j) - \inf f(J_j)) \sigma(J_i) &lt;
+\frac{\varepsilon}{2}
+    \end{aligned}
+\]</span><br />
+所以有<br />
+<span class="math display">\[
+    \left| A - \sum_{i=1}^m f(\boldsymbol{\xi}_i)\sigma(D_i)  \right|
+\le \sum \nolimits_1 + \sum \nolimits_2 &lt; \varepsilon
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理8积分平均值定理">定理8：积分平均值定理</h4>
+<blockquote>
+<p>设<span class="math inline">\(K\)</span>是<span
+class="math inline">\(\mathbb{R}^2\)</span>中的有线条光滑曲线围成的有界闭区域，函数<span
+class="math inline">\(f, g: K \to \mathbb{R}\)</span>连续且<span
+class="math inline">\(g\)</span>在<span
+class="math inline">\(K\)</span>上不变号，于是存在一点<span
+class="math inline">\(\boldsymbol{\xi} \in K\)</span>，满足<br />
+<span class="math display">\[
+    \int_K fg \mathrm{d} \sigma = f(\boldsymbol{\xi}) \int_K g
+\mathrm{d} \sigma
+\]</span></p>
+</blockquote>
+<p>证：连续函数<span class="math inline">\(g\)</span>与<span
+class="math inline">\(fg\)</span>在<span
+class="math inline">\(K\)</span>上都可积，因为<span
+class="math inline">\(K\)</span>是紧致集，所以连续函数<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(K\)</span>上取得最小值<span
+class="math inline">\(f(\boldsymbol{a})\)</span>与最大值<span
+class="math inline">\(f(\boldsymbol{b})\)</span>，不妨设在<span
+class="math inline">\(K\)</span>上<span class="math inline">\(g \le
+0\)</span>，于是<br />
+<span class="math display">\[
+    f(\boldsymbol{a})g(\boldsymbol{p}) \le
+g(\boldsymbol{p})g(\boldsymbol{p}) \le
+f(\boldsymbol{b})g(\boldsymbol{p})
+\]</span><br />
+对一切<span class="math inline">\(\boldsymbol{p} \in
+K\)</span>都成立，从而有<br />
+<span class="math display">\[
+    f(\boldsymbol{a})\int_K g \mathrm{d} \sigma \le \int_K fg \mathrm{d}
+\sigma \le f(\boldsymbol{b}) \int_K g \mathrm{d} \sigma
+\]</span><br />
+若<span class="math inline">\(\displaystyle \int_K g \mathrm{d} \sigma =
+0\)</span>，这时<span class="math inline">\(g =
+0\)</span>，定理自然成立。现设<span class="math inline">\(\displaystyle
+\int_K g \mathrm{d} \sigma &gt; 0\)</span>，于是<br />
+<span class="math display">\[
+    f(\boldsymbol{a}) \le \left( \int_k g \mathrm{d} \sigma \right)^{-1}
+\int_K fg \mathrm{d} \sigma \le f(\boldsymbol{b})
+\]</span><br />
+由于<span class="math inline">\(K\)</span>是连通集，而<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(K\)</span>上连续，从而由介值定理可知，存在一点<span
+class="math inline">\(\boldsymbol{\xi} \in K\)</span>，使得<br />
+<span class="math display">\[
+    f(\boldsymbol{\xi}) = \left( \int_K g \mathrm{d} \sigma \right)^{-1}
+\int_K fg \mathrm{d} \sigma
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理9">定理9</h4>
+<blockquote>
+<p>设<span class="math inline">\(K\)</span>是<span
+class="math inline">\(\mathbb{R}^2\)</span>中的有界闭区域，函数<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(K\)</span>上连续，那么存在一点<span
+class="math inline">\(\boldsymbol{\xi} \in K\)</span>，使得<br />
+<span class="math display">\[
+    \int_K f \mathrm{d} \sigma = f(\boldsymbol{\xi}) \sigma(K)
+\]</span></p>
+</blockquote>
+<p>证：由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/07/13/函数积分9/#定理8：积分平均值定理">定理8</a>，令<span
+class="math inline">\(g = 1\)</span>即得。</p>
 
     </div>
 
@@ -490,7 +797,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义3"><span class="nav-text">定义3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5"><span class="nav-text">定理5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理6"><span class="nav-text">定理6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理7"><span class="nav-text">定理7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理8：积分平均值定理"><span class="nav-text">定理8：积分平均值定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理9"><span class="nav-text">定理9</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%891"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%892"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%863"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%893"><span class="nav-text">定义3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%864"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%865"><span class="nav-text">定理5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%866"><span class="nav-text">定理6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%867"><span class="nav-text">定理7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%868%E7%A7%AF%E5%88%86%E5%B9%B3%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86"><span class="nav-text">定理8：积分平均值定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%869"><span class="nav-text">定理9</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -561,13 +868,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

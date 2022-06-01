@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定义1 设开集$D \subset \mathbb{R}^n$，$f: D \to \mathbb{R}$，$\boldsymbol{u}$是一个方向，$x_0 \in D$，如果极限      \lim \limits_{t \to 0} \frac{f(\boldsymbol{x}_0 + t\boldsymbol{u}) - f(\boldsymbol{x})}{t}存在且有限，则称这个极限">
+  <meta name="description" content="定义1  设开集\(D \subset \mathbb{R}^n\)，\(f: D \to \mathbb{R}\)，\(\boldsymbol{u}\)是一个方向，\(x_0 \in D\)，如果极限 \[     \lim \limits_{t \to 0} \frac{f(\boldsymbol{x}_0 + t\boldsymbol{u}) - f(\boldsymbol{x})}{t}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数导数八：多变量函数的微分">
 <meta property="og:url" content="http://yoursite.com/2021/03/31/%E5%87%BD%E6%95%B0%E5%AF%BC%E6%95%B08/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定义1 设开集$D \subset \mathbb{R}^n$，$f: D \to \mathbb{R}$，$\boldsymbol{u}$是一个方向，$x_0 \in D$，如果极限      \lim \limits_{t \to 0} \frac{f(\boldsymbol{x}_0 + t\boldsymbol{u}) - f(\boldsymbol{x})}{t}存在且有限，则称这个极限">
+<meta property="og:description" content="定义1  设开集\(D \subset \mathbb{R}^n\)，\(f: D \to \mathbb{R}\)，\(\boldsymbol{u}\)是一个方向，\(x_0 \in D\)，如果极限 \[     \lim \limits_{t \to 0} \frac{f(\boldsymbol{x}_0 + t\boldsymbol{u}) - f(\boldsymbol{x})}{t}">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-31T13:04:32.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.735Z">
+<meta property="article:modified_time" content="2021-03-31T13:04:32.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数导数">
@@ -81,7 +81,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -221,13 +225,6 @@
 
               <time title="创建时间：2021-03-31 21:04:32" itemprop="dateCreated datePublished" datetime="2021-03-31T21:04:32+08:00">2021-03-31</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -251,7 +248,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.1k</span>
+              <span>6.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -270,111 +267,324 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^n$，$f: D \to \mathbb{R}$，$\boldsymbol{u}$是一个方向，$x_0 \in D$，如果极限</p>
-<script type="math/tex; mode=display">
-    \lim \limits_{t \to 0} \frac{f(\boldsymbol{x}_0 + t\boldsymbol{u}) - f(\boldsymbol{x})}{t}</script><p>存在且有限，则称这个极限为函数$f$在$\boldsymbol{x}_0$处沿方向$u$的方向导数，记为$\frac{\partial f}{\partial \boldsymbol{u}}(\boldsymbol{x}_0)$。</p>
+        <h4 id="定义1">定义1</h4>
+<blockquote>
+<p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>，<span class="math inline">\(f: D \to
+\mathbb{R}\)</span>，<span
+class="math inline">\(\boldsymbol{u}\)</span>是一个方向，<span
+class="math inline">\(x_0 \in D\)</span>，如果极限<br />
+<span class="math display">\[
+    \lim \limits_{t \to 0} \frac{f(\boldsymbol{x}_0 + t\boldsymbol{u}) -
+f(\boldsymbol{x})}{t}
+\]</span><br />
+存在且有限，则称这个极限为函数<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处沿方向<span
+class="math inline">\(u\)</span>的方向导数，记为<span
+class="math inline">\(\frac{\partial f}{\partial
+\boldsymbol{u}}(\boldsymbol{x}_0)\)</span>。</p>
 </blockquote>
-<a id="more"></a>
-<h4 id="定义2"><a href="#定义2" class="headerlink" title="定义2"></a>定义2</h4><blockquote>
-<p>记单位坐标向量</p>
-<script type="math/tex; mode=display">
+<span id="more"></span>
+<h4 id="定义2">定义2</h4>
+<blockquote>
+<p>记单位坐标向量<br />
+<span class="math display">\[
     \begin{aligned}
-        & \boldsymbol{e}_1 = (1, 0, 0, \cdots, 0) \\
-        & \boldsymbol{e}_2 = (0, 1, 0, \cdots, 0) \\
-        & \cdots \\
-        & \boldsymbol{e}_n = (0, 0, 0, \cdots, 1)
-    \end{aligned}</script><p>称函数$f$在点$\boldsymbol{x}_0$处沿方向$\boldsymbol{e}_i$的方向导数为$f$在$\boldsymbol{x}_0$处的第$i$个一阶偏导数，记作</p>
-<script type="math/tex; mode=display">
-    \frac{\partial f}{\partial x_i} (\boldsymbol{x}_0) 或 \mathrm{D}_if(\boldsymbol{x}_0)</script><p>并称$\mathrm{D}_i = \frac{\partial}{\partial x_i}$为第$i$个偏微分算子$(i=1,2,\cdots,n)$；令</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{J}f(\boldsymbol{x}) = (\mathrm{D_1}f(\boldsymbol{x}),\mathrm{D_2}f(\boldsymbol{x}),\cdots,\mathrm{D_n}f(\boldsymbol{x}))</script><p>并称它为函数$f$在点$\boldsymbol{x}$处的Jacobi矩阵$1 \times n$矩阵。Jacobi矩阵也常记作$\mathrm{grad} f$或$\nabla f$，也称为数量函数$f$的梯度。</p>
+        &amp; \boldsymbol{e}_1 = (1, 0, 0, \cdots, 0) \\
+        &amp; \boldsymbol{e}_2 = (0, 1, 0, \cdots, 0) \\
+        &amp; \cdots \\
+        &amp; \boldsymbol{e}_n = (0, 0, 0, \cdots, 1)
+    \end{aligned}
+\]</span><br />
+称函数<span class="math inline">\(f\)</span>在点<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处沿方向<span
+class="math inline">\(\boldsymbol{e}_i\)</span>的方向导数为<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处的第<span
+class="math inline">\(i\)</span>个一阶偏导数，记作<br />
+<span class="math display">\[
+    \frac{\partial f}{\partial x_i} (\boldsymbol{x}_0) 或
+\mathrm{D}_if(\boldsymbol{x}_0)
+\]</span><br />
+并称<span class="math inline">\(\mathrm{D}_i = \frac{\partial}{\partial
+x_i}\)</span>为第<span class="math inline">\(i\)</span>个偏微分算子<span
+class="math inline">\((i=1,2,\cdots,n)\)</span>；令<br />
+<span class="math display">\[
+    \boldsymbol{J}f(\boldsymbol{x}) =
+(\mathrm{D_1}f(\boldsymbol{x}),\mathrm{D_2}f(\boldsymbol{x}),\cdots,\mathrm{D_n}f(\boldsymbol{x}))
+\]</span><br />
+并称它为函数<span class="math inline">\(f\)</span>在点<span
+class="math inline">\(\boldsymbol{x}\)</span>处的Jacobi矩阵<span
+class="math inline">\(1 \times n\)</span>矩阵。Jacobi矩阵也常记作<span
+class="math inline">\(\mathrm{grad} f\)</span>或<span
+class="math inline">\(\nabla f\)</span>，也称为数量函数<span
+class="math inline">\(f\)</span>的梯度。</p>
 </blockquote>
-<hr>
-<p>设开集$D \subset \mathbb{R}^n$，$f: D \to \mathbb{R}$，取定一点$\boldsymbol{x}_0 \in D$，$\boldsymbol{h} \in \mathbb{R}^n$。由于$\boldsymbol{x}_0$是$D$的一个内点，故当$\Vert \boldsymbol{h} \Vert$充分小时，可以使$\boldsymbol{x}_0+\boldsymbol{h}$完全在$D$之内。</p>
-<h4 id="定义3"><a href="#定义3" class="headerlink" title="定义3"></a>定义3</h4><blockquote>
-<p>设$\boldsymbol{h}=(h_1,h_2,\cdots,h_n)$，如果成立</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{x}_0 + \boldsymbol{h}) - f(\boldsymbol{x}_0) = \sum_{i=1}^n \lambda_i h_i + o(\Vert \boldsymbol{h} \Vert) \quad (\Vert \boldsymbol{h} \Vert \to 0)</script><p>其中$\lambda_i(i=1,2,\cdots,n)$是不依赖于$\boldsymbol{h}$的常数，那么称函数$f$在点$\boldsymbol{x}_0$处可微，并称$\sum \limits_{i=1}^n \lambda_i h_i$为$f$在$\boldsymbol{x}_0$处的微分，记作</p>
-<script type="math/tex; mode=display">
-    \mathrm{d}f(\boldsymbol{x}_0) (\boldsymbol{h}) = \sum_{i=1}^n \lambda_i h_i</script><p>如果$f$在开集$D$上的每一点处都可微，则称$f$是$D$上的可微函数。</p>
+<hr />
+<p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>，<span class="math inline">\(f: D \to
+\mathbb{R}\)</span>，取定一点<span
+class="math inline">\(\boldsymbol{x}_0 \in D\)</span>，<span
+class="math inline">\(\boldsymbol{h} \in
+\mathbb{R}^n\)</span>。由于<span
+class="math inline">\(\boldsymbol{x}_0\)</span>是<span
+class="math inline">\(D\)</span>的一个内点，故当<span
+class="math inline">\(\Vert \boldsymbol{h}
+\Vert\)</span>充分小时，可以使<span
+class="math inline">\(\boldsymbol{x}_0+\boldsymbol{h}\)</span>完全在<span
+class="math inline">\(D\)</span>之内。</p>
+<h4 id="定义3">定义3</h4>
+<blockquote>
+<p>设<span
+class="math inline">\(\boldsymbol{h}=(h_1,h_2,\cdots,h_n)\)</span>，如果成立<br />
+<span class="math display">\[
+    f(\boldsymbol{x}_0 + \boldsymbol{h}) - f(\boldsymbol{x}_0) =
+\sum_{i=1}^n \lambda_i h_i + o(\Vert \boldsymbol{h} \Vert) \quad (\Vert
+\boldsymbol{h} \Vert \to 0)
+\]</span><br />
+其中<span
+class="math inline">\(\lambda_i(i=1,2,\cdots,n)\)</span>是不依赖于<span
+class="math inline">\(\boldsymbol{h}\)</span>的常数，那么称函数<span
+class="math inline">\(f\)</span>在点<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处可微，并称<span
+class="math inline">\(\sum \limits_{i=1}^n \lambda_i h_i\)</span>为<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处的微分，记作<br />
+<span class="math display">\[
+    \mathrm{d}f(\boldsymbol{x}_0) (\boldsymbol{h}) = \sum_{i=1}^n
+\lambda_i h_i
+\]</span><br />
+如果<span class="math inline">\(f\)</span>在开集<span
+class="math inline">\(D\)</span>上的每一点处都可微，则称<span
+class="math inline">\(f\)</span>是<span
+class="math inline">\(D\)</span>上的可微函数。</p>
 </blockquote>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>为了方便，将$\boldsymbol{x}_0,\boldsymbol{h}$表示列向量形式，设函数$f$在$\boldsymbol{x}_0 = (x_1,x_2,\cdots,x_n)^T$处可微，则</p>
-<script type="math/tex; mode=display">
-    \mathrm{d}f(\boldsymbol{x}_0) (\boldsymbol{h}) = \boldsymbol{J}f(\boldsymbol{x_0}) \boldsymbol{h}</script></blockquote>
-<p>证：<a href="https://gamersover.github.io/2021/03/31/函数导数8/#定义3" target="_blank" rel="noopener">定义3</a>中令$\boldsymbol{h} = (h_1,0,\cdots, 0)^T$，此时</p>
-<script type="math/tex; mode=display">
-    f(x_1+h_1, x_2, \cdots, x_n) - f(x_1,x_2,\cdots,x_n) = \lambda_1 h_1 + o(|h_1|)</script><p>从而</p>
-<script type="math/tex; mode=display">
-    \frac{f(x_1+h_1, x_2, \cdots, x_n) - f(x_1,x_2,\cdots,x_n)}{h_1} = \lambda_1 + o(1)</script><p>令$h_1 \to 0$，得</p>
-<script type="math/tex; mode=display">
-    \lambda_1 = \mathrm{D}_1f(\boldsymbol{x}_0)</script><p>一般地，有</p>
-<script type="math/tex; mode=display">
-    \lambda_i = \mathrm{D}_if(\boldsymbol{x}_0) \quad (i=1,2,\cdots,n)</script><p>所以有</p>
-<script type="math/tex; mode=display">
-    \mathrm{d}f(\boldsymbol{x}_0) (\boldsymbol{h}) = \boldsymbol{J}f(\boldsymbol{x_0}) \boldsymbol{h}</script><p>Q.E.D.</p>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>设$f$在$\boldsymbol{x}_0$处可微，则$f$必在$\boldsymbol{x}_0$处连续。</p>
+<h4 id="定理1">定理1</h4>
+<blockquote>
+<p>为了方便，将<span
+class="math inline">\(\boldsymbol{x}_0,\boldsymbol{h}\)</span>表示列向量形式，设函数<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\boldsymbol{x}_0 =
+(x_1,x_2,\cdots,x_n)^T\)</span>处可微，则<br />
+<span class="math display">\[
+    \mathrm{d}f(\boldsymbol{x}_0) (\boldsymbol{h}) =
+\boldsymbol{J}f(\boldsymbol{x_0}) \boldsymbol{h}
+\]</span></p>
 </blockquote>
-<p>证：由于$f$在$\boldsymbol{x}_0$处可微，当$\boldsymbol{h} \to \boldsymbol{0}$时，有$h_i \to 0 (i=1,2,\cdots,n)$，此时$\mathrm{d}f(\boldsymbol{x}_0) (\boldsymbol{h}) = \sum \limits_{i=1}^n \lambda_i h_i \to 0$，从而$f(\boldsymbol{x_0} + \boldsymbol{h}) - f(\boldsymbol{x}_0) \to 0$，所以$f$在$\boldsymbol{x}_0$处连续。<br>Q.E.D.</p>
-<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
-<p>函数$f$在$\boldsymbol{x}_0$处可微当且仅当等式</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{x}_0 + \boldsymbol{h}) - f(\boldsymbol{x}_0) = \boldsymbol{J}f(\boldsymbol{x}_0) \boldsymbol{h} + \sum_{i=1}^n \beta_i(\boldsymbol{h}) h_i</script><p>成立。其中，当$\Vert \boldsymbol{h} \Vert \to 0$时，</p>
-<script type="math/tex; mode=display">
-    \beta_i(\boldsymbol{h}) \to 0 \quad (i=1,2,\cdots,n)</script></blockquote>
-<p>证：充分性。当$\boldsymbol{h} \to \boldsymbol{0}$时，有</p>
-<script type="math/tex; mode=display">
-    \frac{1}{\Vert \boldsymbol{h} \Vert} |\sum_{i=1}^n \beta_i(\boldsymbol{h})h_i| = \left| \sum_{i=1}^n \beta_i(\boldsymbol{h}) \frac{h_i}{\boldsymbol{\Vert h \Vert}} \right| \le \left| \sum_{i=1}^n \beta_i(\boldsymbol{h}) \right| \to 0</script><p>即</p>
-<script type="math/tex; mode=display">
-    \sum_{i=1}^n \beta_i(\boldsymbol{h}) h_i = o(\Vert \boldsymbol{h} \Vert)</script><p>由<a href="https://gamersover.github.io/2021/03/31/函数导数8/#定义3" target="_blank" rel="noopener">定义3</a>可知，函数$f$在$\boldsymbol{x}_0$处可微。 <br/><br>必要性。记</p>
-<script type="math/tex; mode=display">
-    r(\boldsymbol{h}) = f(\boldsymbol{x}_0 + \boldsymbol{h}) - f(\boldsymbol{x}_0) - \boldsymbol{J}f(\boldsymbol{x_0}) \boldsymbol{h}</script><p>可知当$\Vert \boldsymbol{h} \Vert \to 0$时，有$r(\boldsymbol{h}) = o(\Vert \boldsymbol{h} \Vert)$，由于</p>
-<script type="math/tex; mode=display">
-    r(\boldsymbol{h}) = \left(\sum_{i=1}^n \frac{h_i}{\Vert \boldsymbol{h} \Vert} h_i \right)\frac{r(\boldsymbol{h})}{\Vert \boldsymbol{h} \Vert}</script><p>故令</p>
-<script type="math/tex; mode=display">
-    \beta_i(\boldsymbol{h}) = \frac{r(\boldsymbol{h})}{\Vert \boldsymbol{h} \Vert} \frac{h_i}{\Vert \boldsymbol{h} \Vert}</script><p>由于</p>
-<script type="math/tex; mode=display">
-    \frac{h_i}{\Vert \boldsymbol{h} \Vert} \le 1 \quad (i=1,2,\cdots,n)</script><p>从而可知$\beta_i(\boldsymbol{h}) \to 0$，且</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{x}_0 + \boldsymbol{h}) - f(\boldsymbol{x}_0) = \boldsymbol{J}f(\boldsymbol{x}_0) \boldsymbol{h} + \sum_{i=1}^n \beta_i(\boldsymbol{h}) h_i</script><p>Q.E.D.</p>
-<h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><blockquote>
-<p>设开集$D \subset \mathbb{R}^n$，$f: D \to \mathbb{R}$，$\boldsymbol{x}_0 \in D$，如果$\mathrm{D}_if(\boldsymbol{x}) (i=1,2,\cdots,n)$在$\boldsymbol{x}_0$的一个邻域中存在且在点$\boldsymbol{x}_0$处连续，则$f$在点$\boldsymbol{x}_0$处可微。</p>
+<p>证：<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/03/31/函数导数8/#定义3">定义3</a>中令<span
+class="math inline">\(\boldsymbol{h} = (h_1,0,\cdots,
+0)^T\)</span>，此时<br />
+<span class="math display">\[
+    f(x_1+h_1, x_2, \cdots, x_n) - f(x_1,x_2,\cdots,x_n) = \lambda_1 h_1
++ o(|h_1|)
+\]</span><br />
+从而<br />
+<span class="math display">\[
+    \frac{f(x_1+h_1, x_2, \cdots, x_n) - f(x_1,x_2,\cdots,x_n)}{h_1} =
+\lambda_1 + o(1)
+\]</span><br />
+令<span class="math inline">\(h_1 \to 0\)</span>，得<br />
+<span class="math display">\[
+    \lambda_1 = \mathrm{D}_1f(\boldsymbol{x}_0)
+\]</span><br />
+一般地，有<br />
+<span class="math display">\[
+    \lambda_i = \mathrm{D}_if(\boldsymbol{x}_0) \quad (i=1,2,\cdots,n)
+\]</span><br />
+所以有<br />
+<span class="math display">\[
+    \mathrm{d}f(\boldsymbol{x}_0) (\boldsymbol{h}) =
+\boldsymbol{J}f(\boldsymbol{x_0}) \boldsymbol{h}
+\]</span><br />
+Q.E.D.</p>
+<h4 id="定理2">定理2</h4>
+<blockquote>
+<p>设<span class="math inline">\(f\)</span>在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处可微，则<span
+class="math inline">\(f\)</span>必在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处连续。</p>
 </blockquote>
-<p>证：使用数学归纳法。当$n=1$时自然成立，因为单变量函数的导数存在即可微。设定理对$n-1$维成立，令</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{x}_0 + \boldsymbol{h}) - f(\boldsymbol{x}_0) = K_1 + K_2</script><p>其中</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-    & K_1 = f(x_1+h_1,x_2+h_2,\cdots,x_n+h_n) - f(x_1+h_1,\cdots,x_{n-1}+h_{n-1},x_n) \\
-    & K_2 = f(x_1+h_1,\cdots,x_{n-1}+h_{n-1},x_n) - f(x_1,x_2,\cdots,x_n)
-    \end{aligned}</script><p>对$K_1$运用一元微分中值定理，得到</p>
-<script type="math/tex; mode=display">
-    K_1 = \frac{\partial f}{\partial x_n}(x_1+h_1,\cdots,x_{n-1}+h_{n-1},x_n+\theta h_n) h_n</script><p>其中$\theta \in (0, 1)$，可以令</p>
-<script type="math/tex; mode=display">
-    K_1 = \frac{\partial f}{\partial x_n}(\boldsymbol{x}_0) h_n + r_1</script><p>其中</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-    r_1 & = \left( \frac{\partial f}{\partial x_n}(x_1+h_1,\cdots,x_{n-1}+h_{n-1},x_n+\theta h_n) - \frac{\partial f}{\partial x_n}(\boldsymbol{x}_0) \right) h_n \\
-    & = \beta_n(\boldsymbol{h}) h_n
-    \end{aligned}</script><p>由$\frac{\partial f}{\partial x_n}$函数的连续性可知，当$\Vert \boldsymbol{h} \Vert \to 0$时，$\beta_n(\boldsymbol{h}) \to 0$，从而</p>
-<script type="math/tex; mode=display">
-    K_1 = \frac{\partial f}{\partial x_n}(\boldsymbol{x}_0)h_n + \beta_n(\boldsymbol{h})h_n</script><p>对$K_2$使用$n-1$维的归纳假设，可知</p>
-<script type="math/tex; mode=display">
-    K_2 = \sum_{i=1}^{n-1} \frac{\partial f}{\partial x_i} h_i + \sum_{i=1}^{n-1} \beta_i(\boldsymbol{h}) h_i</script><p>当$\Vert \boldsymbol{h} \Vert \to 0$时，$\beta_i(\boldsymbol{h}) \to 0 (i=1,2,\cdots,n-1)$，从而</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{x}_0 + \boldsymbol{h}) - f(\boldsymbol{x}_0) = K_1+K_2 = \sum \limits_{i=1}^n \frac{\partial f}{\partial x_i} (\boldsymbol{x}_0) h_i + \sum_{i=1}^{n-1} \beta_i(\boldsymbol{h})h_i</script><p>其中$\beta_i(\boldsymbol{h}) \to 0 (\Vert \boldsymbol{h} \Vert \to 0)(i=1,2,\cdots,n)$。所以$f$在$\boldsymbol{x}_0$处可微。即对$n$维定理也成立。</p>
+<p>证：由于<span class="math inline">\(f\)</span>在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处可微，当<span
+class="math inline">\(\boldsymbol{h} \to
+\boldsymbol{0}\)</span>时，有<span class="math inline">\(h_i \to 0
+(i=1,2,\cdots,n)\)</span>，此时<span
+class="math inline">\(\mathrm{d}f(\boldsymbol{x}_0) (\boldsymbol{h}) =
+\sum \limits_{i=1}^n \lambda_i h_i \to 0\)</span>，从而<span
+class="math inline">\(f(\boldsymbol{x_0} + \boldsymbol{h}) -
+f(\boldsymbol{x}_0) \to 0\)</span>，所以<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处连续。<br />
+Q.E.D.</p>
+<h4 id="定理3">定理3</h4>
+<blockquote>
+<p>函数<span class="math inline">\(f\)</span>在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处可微当且仅当等式<br />
+<span class="math display">\[
+    f(\boldsymbol{x}_0 + \boldsymbol{h}) - f(\boldsymbol{x}_0) =
+\boldsymbol{J}f(\boldsymbol{x}_0) \boldsymbol{h} + \sum_{i=1}^n
+\beta_i(\boldsymbol{h}) h_i
+\]</span><br />
+成立。其中，当<span class="math inline">\(\Vert \boldsymbol{h} \Vert \to
+0\)</span>时，<br />
+<span class="math display">\[
+    \beta_i(\boldsymbol{h}) \to 0 \quad (i=1,2,\cdots,n)
+\]</span></p>
+</blockquote>
+<p>证：充分性。当<span class="math inline">\(\boldsymbol{h} \to
+\boldsymbol{0}\)</span>时，有<br />
+<span class="math display">\[
+    \frac{1}{\Vert \boldsymbol{h} \Vert} |\sum_{i=1}^n
+\beta_i(\boldsymbol{h})h_i| = \left| \sum_{i=1}^n
+\beta_i(\boldsymbol{h}) \frac{h_i}{\boldsymbol{\Vert h \Vert}} \right|
+\le \left| \sum_{i=1}^n \beta_i(\boldsymbol{h}) \right| \to 0
+\]</span><br />
+即<br />
+<span class="math display">\[
+    \sum_{i=1}^n \beta_i(\boldsymbol{h}) h_i = o(\Vert \boldsymbol{h}
+\Vert)
+\]</span><br />
+由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/03/31/函数导数8/#定义3">定义3</a>可知，函数<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处可微。<br />
+必要性。记<br />
+<span class="math display">\[
+    r(\boldsymbol{h}) = f(\boldsymbol{x}_0 + \boldsymbol{h}) -
+f(\boldsymbol{x}_0) - \boldsymbol{J}f(\boldsymbol{x_0}) \boldsymbol{h}
+\]</span><br />
+可知当<span class="math inline">\(\Vert \boldsymbol{h} \Vert \to
+0\)</span>时，有<span class="math inline">\(r(\boldsymbol{h}) = o(\Vert
+\boldsymbol{h} \Vert)\)</span>，由于<br />
+<span class="math display">\[
+    r(\boldsymbol{h}) = \left(\sum_{i=1}^n \frac{h_i}{\Vert
+\boldsymbol{h} \Vert} h_i \right)\frac{r(\boldsymbol{h})}{\Vert
+\boldsymbol{h} \Vert}
+\]</span><br />
+故令<br />
+<span class="math display">\[
+    \beta_i(\boldsymbol{h}) = \frac{r(\boldsymbol{h})}{\Vert
+\boldsymbol{h} \Vert} \frac{h_i}{\Vert \boldsymbol{h} \Vert}
+\]</span><br />
+由于<br />
+<span class="math display">\[
+    \frac{h_i}{\Vert \boldsymbol{h} \Vert} \le 1 \quad (i=1,2,\cdots,n)
+\]</span><br />
+从而可知<span class="math inline">\(\beta_i(\boldsymbol{h}) \to
+0\)</span>，且<br />
+<span class="math display">\[
+    f(\boldsymbol{x}_0 + \boldsymbol{h}) - f(\boldsymbol{x}_0) =
+\boldsymbol{J}f(\boldsymbol{x}_0) \boldsymbol{h} + \sum_{i=1}^n
+\beta_i(\boldsymbol{h}) h_i
+\]</span></p>
 <p>Q.E.D.</p>
-<h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h4><blockquote>
-<p>若$f$在$\boldsymbol{x}_0$处可微，则$f$在$\boldsymbol{x}_0$处的任意方向$\boldsymbol{u} = (u_1,u_2,\cdots,u_n)$的方向导数都存在，且</p>
-<script type="math/tex; mode=display">
-    \frac{\partial f}{\partial \boldsymbol{u}}(\boldsymbol{x}_0) = \frac{\partial f}{\partial x_1}(\boldsymbol{x}_0) u_1 +  \frac{\partial f}{\partial x_2}(\boldsymbol{x}_0) u_2 + \cdots + \frac{\partial f}{\partial x_n}(\boldsymbol{x}_0) u_n</script></blockquote>
-<p>证：由于$f$在$\boldsymbol{x}_0$处可微，从而</p>
-<script type="math/tex; mode=display">
-    f(\boldsymbol{x}_0 + t \boldsymbol{u}) - f(\boldsymbol{x}_0) = \sum_{i=1}^n \frac{\partial f}{\partial x_i} (\boldsymbol{x}_0) tu_i + o(t)</script><p>而</p>
-<script type="math/tex; mode=display">
-    \frac{\partial f}{\partial \boldsymbol{u}}(\boldsymbol{x}_0) = \lim \limits_{t \to 0} \frac{f(\boldsymbol{x}_0+t \boldsymbol{u}) - f(\boldsymbol{x})}{t} = \sum_{i=1}^n \frac{\partial f}{\partial x_i} u_i</script><p>Q.E.D.</p>
+<h4 id="定理4">定理4</h4>
+<blockquote>
+<p>设开集<span class="math inline">\(D \subset
+\mathbb{R}^n\)</span>，<span class="math inline">\(f: D \to
+\mathbb{R}\)</span>，<span class="math inline">\(\boldsymbol{x}_0 \in
+D\)</span>，如果<span
+class="math inline">\(\mathrm{D}_if(\boldsymbol{x})
+(i=1,2,\cdots,n)\)</span>在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>的一个邻域中存在且在点<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处连续，则<span
+class="math inline">\(f\)</span>在点<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处可微。</p>
+</blockquote>
+<p>证：使用数学归纳法。当<span
+class="math inline">\(n=1\)</span>时自然成立，因为单变量函数的导数存在即可微。设定理对<span
+class="math inline">\(n-1\)</span>维成立，令<br />
+<span class="math display">\[
+    f(\boldsymbol{x}_0 + \boldsymbol{h}) - f(\boldsymbol{x}_0) = K_1 +
+K_2
+\]</span><br />
+其中<br />
+<span class="math display">\[
+    \begin{aligned}
+    &amp; K_1 = f(x_1+h_1,x_2+h_2,\cdots,x_n+h_n) -
+f(x_1+h_1,\cdots,x_{n-1}+h_{n-1},x_n) \\
+    &amp; K_2 = f(x_1+h_1,\cdots,x_{n-1}+h_{n-1},x_n) -
+f(x_1,x_2,\cdots,x_n)
+    \end{aligned}
+\]</span><br />
+对<span
+class="math inline">\(K_1\)</span>运用一元微分中值定理，得到<br />
+<span class="math display">\[
+    K_1 = \frac{\partial f}{\partial
+x_n}(x_1+h_1,\cdots,x_{n-1}+h_{n-1},x_n+\theta h_n) h_n
+\]</span><br />
+其中<span class="math inline">\(\theta \in (0, 1)\)</span>，可以令<br />
+<span class="math display">\[
+    K_1 = \frac{\partial f}{\partial x_n}(\boldsymbol{x}_0) h_n + r_1
+\]</span><br />
+其中<br />
+<span class="math display">\[
+    \begin{aligned}
+    r_1 &amp; = \left( \frac{\partial f}{\partial
+x_n}(x_1+h_1,\cdots,x_{n-1}+h_{n-1},x_n+\theta h_n) - \frac{\partial
+f}{\partial x_n}(\boldsymbol{x}_0) \right) h_n \\
+    &amp; = \beta_n(\boldsymbol{h}) h_n
+    \end{aligned}
+\]</span><br />
+由<span class="math inline">\(\frac{\partial f}{\partial
+x_n}\)</span>函数的连续性可知，当<span class="math inline">\(\Vert
+\boldsymbol{h} \Vert \to 0\)</span>时，<span
+class="math inline">\(\beta_n(\boldsymbol{h}) \to 0\)</span>，从而<br />
+<span class="math display">\[
+    K_1 = \frac{\partial f}{\partial x_n}(\boldsymbol{x}_0)h_n +
+\beta_n(\boldsymbol{h})h_n
+\]</span><br />
+对<span class="math inline">\(K_2\)</span>使用<span
+class="math inline">\(n-1\)</span>维的归纳假设，可知<br />
+<span class="math display">\[
+    K_2 = \sum_{i=1}^{n-1} \frac{\partial f}{\partial x_i} h_i +
+\sum_{i=1}^{n-1} \beta_i(\boldsymbol{h}) h_i
+\]</span><br />
+当<span class="math inline">\(\Vert \boldsymbol{h} \Vert \to
+0\)</span>时，<span class="math inline">\(\beta_i(\boldsymbol{h}) \to 0
+(i=1,2,\cdots,n-1)\)</span>，从而<br />
+<span class="math display">\[
+    f(\boldsymbol{x}_0 + \boldsymbol{h}) - f(\boldsymbol{x}_0) = K_1+K_2
+= \sum \limits_{i=1}^n \frac{\partial f}{\partial x_i}
+(\boldsymbol{x}_0) h_i + \sum_{i=1}^{n-1} \beta_i(\boldsymbol{h})h_i
+\]</span><br />
+其中<span class="math inline">\(\beta_i(\boldsymbol{h}) \to 0 (\Vert
+\boldsymbol{h} \Vert \to 0)(i=1,2,\cdots,n)\)</span>。所以<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处可微。即对<span
+class="math inline">\(n\)</span>维定理也成立。</p>
+<p>Q.E.D.</p>
+<h4 id="定理5">定理5</h4>
+<blockquote>
+<p>若<span class="math inline">\(f\)</span>在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处可微，则<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处的任意方向<span
+class="math inline">\(\boldsymbol{u} =
+(u_1,u_2,\cdots,u_n)\)</span>的方向导数都存在，且<br />
+<span class="math display">\[
+    \frac{\partial f}{\partial \boldsymbol{u}}(\boldsymbol{x}_0) =
+\frac{\partial f}{\partial x_1}(\boldsymbol{x}_0) u_1 +  \frac{\partial
+f}{\partial x_2}(\boldsymbol{x}_0) u_2 + \cdots + \frac{\partial
+f}{\partial x_n}(\boldsymbol{x}_0) u_n
+\]</span></p>
+</blockquote>
+<p>证：由于<span class="math inline">\(f\)</span>在<span
+class="math inline">\(\boldsymbol{x}_0\)</span>处可微，从而<br />
+<span class="math display">\[
+    f(\boldsymbol{x}_0 + t \boldsymbol{u}) - f(\boldsymbol{x}_0) =
+\sum_{i=1}^n \frac{\partial f}{\partial x_i} (\boldsymbol{x}_0) tu_i +
+o(t)
+\]</span><br />
+而<br />
+<span class="math display">\[
+    \frac{\partial f}{\partial \boldsymbol{u}}(\boldsymbol{x}_0) = \lim
+\limits_{t \to 0} \frac{f(\boldsymbol{x}_0+t \boldsymbol{u}) -
+f(\boldsymbol{x})}{t} = \sum_{i=1}^n \frac{\partial f}{\partial x_i} u_i
+\]</span></p>
+<p>Q.E.D.</p>
 
     </div>
 
@@ -463,7 +673,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义3"><span class="nav-text">定义3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5"><span class="nav-text">定理5</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%891"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%892"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%893"><span class="nav-text">定义3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%863"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%864"><span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%865"><span class="nav-text">定理5</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -534,13 +744,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

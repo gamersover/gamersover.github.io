@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定理1：积分的可加性 设$c \in (a,b)$，函数$f$在$[a,c],[c,b]$上可积，那么$f$在$[a,b]$上也可积，且      \int_a^b f(x) \mathrm{d} x &#x3D; \int_a^c f(x) \mathrm{d} x + \int_c^b f(x) \mathrm{d} x">
+  <meta name="description" content="定理1：积分的可加性  设\(c \in (a,b)\)，函数\(f\)在\([a,c],[c,b]\)上可积，那么\(f\)在\([a,b]\)上也可积，且 \[     \int_a^b f(x) \mathrm{d} x &#x3D; \int_a^c f(x) \mathrm{d} x + \int_c^b f(x) \mathrm{d} x \]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数积分五：可积函数的性质">
 <meta property="og:url" content="http://yoursite.com/2021/05/28/%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%865/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定理1：积分的可加性 设$c \in (a,b)$，函数$f$在$[a,c],[c,b]$上可积，那么$f$在$[a,b]$上也可积，且      \int_a^b f(x) \mathrm{d} x &#x3D; \int_a^c f(x) \mathrm{d} x + \int_c^b f(x) \mathrm{d} x">
+<meta property="og:description" content="定理1：积分的可加性  设\(c \in (a,b)\)，函数\(f\)在\([a,c],[c,b]\)上可积，那么\(f\)在\([a,b]\)上也可积，且 \[     \int_a^b f(x) \mathrm{d} x &#x3D; \int_a^c f(x) \mathrm{d} x + \int_c^b f(x) \mathrm{d} x \]">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-28T12:33:11.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.736Z">
+<meta property="article:modified_time" content="2021-05-28T12:33:11.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数积分">
@@ -80,7 +80,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,13 +224,6 @@
 
               <time title="创建时间：2021-05-28 20:33:11" itemprop="dateCreated datePublished" datetime="2021-05-28T20:33:11+08:00">2021-05-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -250,14 +247,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -269,79 +266,186 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="定理1：积分的可加性"><a href="#定理1：积分的可加性" class="headerlink" title="定理1：积分的可加性"></a>定理1：积分的可加性</h4><blockquote>
-<p>设$c \in (a,b)$，函数$f$在$[a,c],[c,b]$上可积，那么$f$在$[a,b]$上也可积，且</p>
-<script type="math/tex; mode=display">
-    \int_a^b f(x) \mathrm{d} x = \int_a^c f(x) \mathrm{d} x + \int_c^b f(x) \mathrm{d} x</script></blockquote>
-<a id="more"></a>
-<p>证：由<a href="https://gamersover.github.io/2021/05/25/函数积分4/#定理7：Lebesgue" target="_blank" rel="noopener">Lebesgue定理</a>易知$f$在$[a,b]$上可积，取分割</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-    & \pi_1: a < a + \frac{1}{n}(c-a) < a+\frac{2}{n}(c-a) < \cdots < c \\
-    & \pi_2: c < c + \frac{1}{n}(b-c) < a+\frac{2}{n}(b-c) < \cdots < b
-    \end{aligned}</script><p>而</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-    \int_a^c f(x) \mathrm{d} x = \lim_{n \to \infty} \sum_{i=1}^n f(a + \frac{i}{n}(c-a)) \frac{1}{n} \\
-    \int_c^b f(x) \mathrm{d} x = \lim_{n \to \infty} \sum_{i=1}^n f(c + \frac{i}{n}(b-c)) \frac{1}{n}
-    \end{aligned}</script><p>取分割$\pi = \pi_1 + \pi_2$，即</p>
-<script type="math/tex; mode=display">
-    \pi: a = x_0 < x_1 < \cdots < x_n < x_{n+1} < \cdots < x_{2n} = b</script><p>其中</p>
-<script type="math/tex; mode=display">
- x_i = \left\{ 
-    \begin{aligned}
-    &a+\frac{i}{n}(c - a) &(i=1, 2, \cdots, n) \\
-    &c+\frac{i-n}{n}(b - c) &(i=n+1, \cdots, 2n)
-    \end{aligned}
- \right.</script><p>此时有</p>
-<script type="math/tex; mode=display">
-    \int_a^c f(x) \mathrm{d} x + \int_c^b f(x) \mathrm{d} x = \lim_{n \to \infty} \sum_{i=1}^{2n} f(x_i) \frac{1}{n}</script><p>有因为$f$在$[a,b]$上可积，所以</p>
-<script type="math/tex; mode=display">
-    \int_a^b f(x) \mathrm{d} x = \lim_{n \to \infty} \sum_{i=1}^{2n} f(x_i) \frac{1}{n} = \int_a^c f(x) \mathrm{d} x + \int_c^b f(x) \mathrm{d} x</script><p>Q.E.D.</p>
-<h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>为了后续积分的扩展，这里定义两个等式。设函数$f$在$[a,b]$上可积，则定义 <br/><br>（1）$\displaystyle \int_a^a f(x) \mathrm{d} x = 0$ <br/><br>（2）$\displaystyle \int_b^a f(x) \mathrm{d} x = - \int_a^b f(x) \mathrm{d} x$</p>
+        <h4 id="定理1积分的可加性">定理1：积分的可加性</h4>
+<blockquote>
+<p>设<span class="math inline">\(c \in (a,b)\)</span>，函数<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\([a,c],[c,b]\)</span>上可积，那么<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上也可积，且<br />
+<span class="math display">\[
+    \int_a^b f(x) \mathrm{d} x = \int_a^c f(x) \mathrm{d} x + \int_c^b
+f(x) \mathrm{d} x
+\]</span></p>
 </blockquote>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>如果$f$在$[a,b]$上连续且非负，但$f$不恒等于$0$，那么</p>
-<script type="math/tex; mode=display">
-    \int_a^b f(x) \mathrm{d} x > 0</script></blockquote>
-<p>证：设有一点$x_0 \in [a,b]$，使得$f(x_0) &gt; 0$，则由连续函数的性质可知，存在一个子区间$[\alpha, \beta]$，满足$x_0 \in [\alpha, \beta] \subset [a,b]$，使得对一切$x \in [\alpha, \beta]$有</p>
-<script type="math/tex; mode=display">
-    f(x) \ge \frac{f(x_0)}{2}</script><p>从而</p>
-<script type="math/tex; mode=display">
+<span id="more"></span>
+<p>证：由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/05/25/函数积分4/#定理7：Lebesgue">Lebesgue定理</a>易知<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上可积，取分割<br />
+<span class="math display">\[
     \begin{aligned}
-    \int_a^b f(x) \mathrm{d} x &= \int_a^\alpha f(x) \mathrm{d} x + \int_{\alpha}^{\beta} f(x) \mathrm{d} x + \int_{\beta}^b f(x) \mathrm{d}x \\
-    &\ge \int_{\alpha}^{\beta} f(x) \mathrm{d} x \ge \int_{\alpha}^{\beta} \frac{f(x_0)}{2} \mathrm{d} x = \frac{f(x_0)}{2} (\beta - \alpha) > 0
-    \end{aligned}</script><p>Q.E.D.</p>
-<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
-<p>设$f$在$[a,b]$上可积，那么$|f|$也在$[a,b]$上可积，且</p>
-<script type="math/tex; mode=display">
-    \left| \int_a^b f(x) \mathrm{d} x\right| \le \int_a^b |f(x)| \mathrm{d}x</script></blockquote>
-<p>证：由于$D(|f|) \subset D(f)$，所以$|f|$在$[a,b]$上可积，而</p>
-<script type="math/tex; mode=display">
-    - |f(x)| \le f(x) \le |f(x)|</script><p>所以</p>
-<script type="math/tex; mode=display">
-    - \int_a^b |f(x)| \mathrm{d}x \le \int_a^b f(x) \mathrm{d}x \le \int_a^b |f(x)| \mathrm{d}x</script><p>Q.E.D.</p>
-<h4 id="定理4：积分平均值定理"><a href="#定理4：积分平均值定理" class="headerlink" title="定理4：积分平均值定理"></a>定理4：积分平均值定理</h4><blockquote>
-<p>设函数$f$与$g$在$[a,b]$上连续，$g$在$[a,b]$上不改变符号，则存在$\xi \in (a,b)$，使得</p>
-<script type="math/tex; mode=display">
-    \int_a^b f(x)g(x) \mathrm{d} x = f(\xi) \int_a^b g(x) \mathrm{d} x</script></blockquote>
-<p>证：不妨设当$x \in [a,b]$时，$g(x) \le 0$但不恒等于0，从而$\displaystyle \int_a^b g(x) \mathrm{d} x &gt; 0$。设$m,M$分别是$f$在$[a,b]$上的最小值和最大值，则</p>
-<script type="math/tex; mode=display">
-    m \le f(x) \le M \quad (a \le x \le b)</script><p>从而</p>
-<script type="math/tex; mode=display">
-    mg(x) \le f(x)g(x) \le M g(x)</script><p>求积分可得</p>
-<script type="math/tex; mode=display">
-    m\int_a^b g(x) \mathrm{d} x \le \int_a^b f(x)g(x) \mathrm{d} x \le M\int_a^b g(x) \mathrm{d}x</script><p>所以</p>
-<script type="math/tex; mode=display">
-    m \le \int_a^b f(x)g(x) \mathrm{d} x (\int_a^b g(x) \mathrm{d} x)^{-1} \le M</script><p>由连续函数的介值定理可知，存在一点$\xi \in (a,b)$，使得</p>
-<script type="math/tex; mode=display">
-    f(\xi) = \int_a^b f(x)g(x) \mathrm{d} x (\int_a^b g(x) \mathrm{d} x)^{-1}</script><p>Q.E.D.</p>
-<h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h4><blockquote>
-<p>设函数$f$在区间$[a,b]$上连续，则存在一点$\xi \in [a,b]$，使得</p>
-<script type="math/tex; mode=display">
-    \int_a^b f(x) \mathrm{d} x = f(\xi)(b - a)</script></blockquote>
-<p>证：令<a href="https://gamersover.github.io/2021/05/28/函数积分5/#定理4：积分平均值定理" target="_blank" rel="noopener">定理4</a>中的$g = 1$，即可得。</p>
+    &amp; \pi_1: a &lt; a + \frac{1}{n}(c-a) &lt; a+\frac{2}{n}(c-a)
+&lt; \cdots &lt; c \\
+    &amp; \pi_2: c &lt; c + \frac{1}{n}(b-c) &lt; a+\frac{2}{n}(b-c)
+&lt; \cdots &lt; b
+    \end{aligned}
+\]</span><br />
+而<br />
+<span class="math display">\[
+    \begin{aligned}
+    \int_a^c f(x) \mathrm{d} x = \lim_{n \to \infty} \sum_{i=1}^n f(a +
+\frac{i}{n}(c-a)) \frac{1}{n} \\
+    \int_c^b f(x) \mathrm{d} x = \lim_{n \to \infty} \sum_{i=1}^n f(c +
+\frac{i}{n}(b-c)) \frac{1}{n}
+    \end{aligned}
+\]</span><br />
+取分割<span class="math inline">\(\pi = \pi_1 + \pi_2\)</span>，即<br />
+<span class="math display">\[
+    \pi: a = x_0 &lt; x_1 &lt; \cdots &lt; x_n &lt; x_{n+1} &lt; \cdots
+&lt; x_{2n} = b
+\]</span><br />
+其中<br />
+<span class="math display">\[
+x_i = \left\{
+    \begin{aligned}
+    &amp;a+\frac{i}{n}(c - a) &amp;(i=1, 2, \cdots, n) \\
+    &amp;c+\frac{i-n}{n}(b - c) &amp;(i=n+1, \cdots, 2n)
+    \end{aligned}
+\right.
+\]</span><br />
+此时有<br />
+<span class="math display">\[
+    \int_a^c f(x) \mathrm{d} x + \int_c^b f(x) \mathrm{d} x = \lim_{n
+\to \infty} \sum_{i=1}^{2n} f(x_i) \frac{1}{n}
+\]</span><br />
+有因为<span class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上可积，所以<br />
+<span class="math display">\[
+    \int_a^b f(x) \mathrm{d} x = \lim_{n \to \infty} \sum_{i=1}^{2n}
+f(x_i) \frac{1}{n} = \int_a^c f(x) \mathrm{d} x + \int_c^b f(x)
+\mathrm{d} x
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定义1">定义1</h4>
+<blockquote>
+<p>为了后续积分的扩展，这里定义两个等式。设函数<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上可积，则定义<br />
+（1）<span class="math inline">\(\displaystyle \int_a^a f(x) \mathrm{d}
+x = 0\)</span><br />
+（2）<span class="math inline">\(\displaystyle \int_b^a f(x) \mathrm{d}
+x = - \int_a^b f(x) \mathrm{d} x\)</span></p>
+</blockquote>
+<h4 id="定理2">定理2</h4>
+<blockquote>
+<p>如果<span class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上连续且非负，但<span
+class="math inline">\(f\)</span>不恒等于<span
+class="math inline">\(0\)</span>，那么<br />
+<span class="math display">\[
+    \int_a^b f(x) \mathrm{d} x &gt; 0
+\]</span></p>
+</blockquote>
+<p>证：设有一点<span class="math inline">\(x_0 \in
+[a,b]\)</span>，使得<span class="math inline">\(f(x_0) &gt;
+0\)</span>，则由连续函数的性质可知，存在一个子区间<span
+class="math inline">\([\alpha, \beta]\)</span>，满足<span
+class="math inline">\(x_0 \in [\alpha, \beta] \subset
+[a,b]\)</span>，使得对一切<span class="math inline">\(x \in [\alpha,
+\beta]\)</span>有<br />
+<span class="math display">\[
+    f(x) \ge \frac{f(x_0)}{2}
+\]</span><br />
+从而<br />
+<span class="math display">\[
+    \begin{aligned}
+    \int_a^b f(x) \mathrm{d} x &amp;= \int_a^\alpha f(x) \mathrm{d} x +
+\int_{\alpha}^{\beta} f(x) \mathrm{d} x + \int_{\beta}^b f(x)
+\mathrm{d}x \\
+    &amp;\ge \int_{\alpha}^{\beta} f(x) \mathrm{d} x \ge
+\int_{\alpha}^{\beta} \frac{f(x_0)}{2} \mathrm{d} x = \frac{f(x_0)}{2}
+(\beta - \alpha) &gt; 0
+    \end{aligned}
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理3">定理3</h4>
+<blockquote>
+<p>设<span class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上可积，那么<span
+class="math inline">\(|f|\)</span>也在<span
+class="math inline">\([a,b]\)</span>上可积，且<br />
+<span class="math display">\[
+    \left| \int_a^b f(x) \mathrm{d} x\right| \le \int_a^b |f(x)|
+\mathrm{d}x
+\]</span></p>
+</blockquote>
+<p>证：由于<span class="math inline">\(D(|f|) \subset
+D(f)\)</span>，所以<span class="math inline">\(|f|\)</span>在<span
+class="math inline">\([a,b]\)</span>上可积，而<br />
+<span class="math display">\[
+    - |f(x)| \le f(x) \le |f(x)|
+\]</span><br />
+所以<br />
+<span class="math display">\[
+    - \int_a^b |f(x)| \mathrm{d}x \le \int_a^b f(x) \mathrm{d}x \le
+\int_a^b |f(x)| \mathrm{d}x
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理4积分平均值定理">定理4：积分平均值定理</h4>
+<blockquote>
+<p>设函数<span class="math inline">\(f\)</span>与<span
+class="math inline">\(g\)</span>在<span
+class="math inline">\([a,b]\)</span>上连续，<span
+class="math inline">\(g\)</span>在<span
+class="math inline">\([a,b]\)</span>上不改变符号，则存在<span
+class="math inline">\(\xi \in (a,b)\)</span>，使得<br />
+<span class="math display">\[
+    \int_a^b f(x)g(x) \mathrm{d} x = f(\xi) \int_a^b g(x) \mathrm{d} x
+\]</span></p>
+</blockquote>
+<p>证：不妨设当<span class="math inline">\(x \in [a,b]\)</span>时，<span
+class="math inline">\(g(x) \le 0\)</span>但不恒等于0，从而<span
+class="math inline">\(\displaystyle \int_a^b g(x) \mathrm{d} x &gt;
+0\)</span>。设<span class="math inline">\(m,M\)</span>分别是<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上的最小值和最大值，则<br />
+<span class="math display">\[
+    m \le f(x) \le M \quad (a \le x \le b)
+\]</span><br />
+从而<br />
+<span class="math display">\[
+    mg(x) \le f(x)g(x) \le M g(x)
+\]</span><br />
+求积分可得<br />
+<span class="math display">\[
+    m\int_a^b g(x) \mathrm{d} x \le \int_a^b f(x)g(x) \mathrm{d} x \le
+M\int_a^b g(x) \mathrm{d}x
+\]</span><br />
+所以<br />
+<span class="math display">\[
+    m \le \int_a^b f(x)g(x) \mathrm{d} x (\int_a^b g(x) \mathrm{d}
+x)^{-1} \le M
+\]</span><br />
+由连续函数的介值定理可知，存在一点<span class="math inline">\(\xi \in
+(a,b)\)</span>，使得<br />
+<span class="math display">\[
+    f(\xi) = \int_a^b f(x)g(x) \mathrm{d} x (\int_a^b g(x) \mathrm{d}
+x)^{-1}
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理5">定理5</h4>
+<blockquote>
+<p>设函数<span class="math inline">\(f\)</span>在区间<span
+class="math inline">\([a,b]\)</span>上连续，则存在一点<span
+class="math inline">\(\xi \in [a,b]\)</span>，使得<br />
+<span class="math display">\[
+    \int_a^b f(x) \mathrm{d} x = f(\xi)(b - a)
+\]</span></p>
+</blockquote>
+<p>证：令<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/05/28/函数积分5/#定理4：积分平均值定理">定理4</a>中的<span
+class="math inline">\(g = 1\)</span>，即可得。</p>
 <p>Q.E.D.</p>
 
     </div>
@@ -430,7 +534,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1：积分的可加性"><span class="nav-text">定理1：积分的可加性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4：积分平均值定理"><span class="nav-text">定理4：积分平均值定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理5"><span class="nav-text">定理5</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861%E7%A7%AF%E5%88%86%E7%9A%84%E5%8F%AF%E5%8A%A0%E6%80%A7"><span class="nav-text">定理1：积分的可加性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%891"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%863"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%864%E7%A7%AF%E5%88%86%E5%B9%B3%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86"><span class="nav-text">定理4：积分平均值定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%865"><span class="nav-text">定理5</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -501,13 +605,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

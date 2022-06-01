@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="定义1 设空间曲线段$\Gamma$有参数方程      \left\{         \begin{aligned}             &amp; x &#x3D; x(t), \\             &amp; y &#x3D; y(t), \\             &amp; z &#x3D; z(t),         \end{aligned}     \right.     \quad (\alpha \le t \le">
+  <meta name="description" content="定义1  设空间曲线段\(\Gamma\)有参数方程 \[     \left\{         \begin{aligned}             &amp; x &#x3D; x(t), \\             &amp; y &#x3D; y(t), \\             &amp; z &#x3D; z(t),         \end{aligned}     \right.     \quad">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微积分在几何上的应用二：曲线的切线与曲面的切平面">
 <meta property="og:url" content="http://yoursite.com/2021/08/11/%E5%BE%AE%E7%A7%AF%E5%88%86%E5%9C%A8%E5%87%A0%E4%BD%95%E4%B8%8A%E7%9A%84%E5%BA%94%E7%94%A82/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="定义1 设空间曲线段$\Gamma$有参数方程      \left\{         \begin{aligned}             &amp; x &#x3D; x(t), \\             &amp; y &#x3D; y(t), \\             &amp; z &#x3D; z(t),         \end{aligned}     \right.     \quad (\alpha \le t \le">
+<meta property="og:description" content="定义1  设空间曲线段\(\Gamma\)有参数方程 \[     \left\{         \begin{aligned}             &amp; x &#x3D; x(t), \\             &amp; y &#x3D; y(t), \\             &amp; z &#x3D; z(t),         \end{aligned}     \right.     \quad">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-11T12:19:50.000Z">
-<meta property="article:modified_time" content="2022-05-22T03:37:02.268Z">
+<meta property="article:modified_time" content="2021-08-11T12:19:50.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数导数">
@@ -81,7 +81,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -221,13 +225,6 @@
 
               <time title="创建时间：2021-08-11 20:19:50" itemprop="dateCreated datePublished" datetime="2021-08-11T20:19:50+08:00">2021-08-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-22 11:37:02" itemprop="dateModified" datetime="2022-05-22T11:37:02+08:00">2022-05-22</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -251,7 +248,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
+              <span>3.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -270,71 +267,180 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="定义1"><a href="#定义1" class="headerlink" title="定义1"></a>定义1</h4><blockquote>
-<p>设空间曲线段$\Gamma$有参数方程</p>
-<script type="math/tex; mode=display">
+        <h4 id="定义1">定义1</h4>
+<blockquote>
+<p>设空间曲线段<span
+class="math inline">\(\Gamma\)</span>有参数方程<br />
+<span class="math display">\[
     \left\{
         \begin{aligned}
-            & x = x(t), \\
-            & y = y(t), \\
-            & z = z(t),
+            &amp; x = x(t), \\
+            &amp; y = y(t), \\
+            &amp; z = z(t),
         \end{aligned}
     \right.
-    \quad (\alpha \le t \le \beta)</script><p>或用向量形式表示为</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{r} = \boldsymbol{r}(t) \quad (\alpha \le t \le \beta)</script><p>其中$x(t),y(t),z(t)$都在区间$I = [\alpha, \beta]$上连续可导，且满足条件</p>
-<script type="math/tex; mode=display">
-    (x^\prime(t))^2 + (y^\prime(t))^2 + (z^\prime(t))^2 \ne 0 \quad (\alpha \le t \le \beta)</script><p>称满足这些条件的曲线为光滑曲线。</p>
+    \quad (\alpha \le t \le \beta)
+\]</span><br />
+或用向量形式表示为<br />
+<span class="math display">\[
+    \boldsymbol{r} = \boldsymbol{r}(t) \quad (\alpha \le t \le \beta)
+\]</span><br />
+其中<span class="math inline">\(x(t),y(t),z(t)\)</span>都在区间<span
+class="math inline">\(I = [\alpha,
+\beta]\)</span>上连续可导，且满足条件<br />
+<span class="math display">\[
+    (x^\prime(t))^2 + (y^\prime(t))^2 + (z^\prime(t))^2 \ne 0 \quad
+(\alpha \le t \le \beta)
+\]</span><br />
+称满足这些条件的曲线为光滑曲线。</p>
 </blockquote>
-<a id="more"></a>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><blockquote>
-<p>设光滑曲线$\Gamma$上有一点$P_0(x(t_0), y(t_0), z(t_0))$，则曲线$\Gamma$在$P_0$处的切线方程为</p>
-<script type="math/tex; mode=display">
-    \frac{x - x(t_0)}{x^\prime(t_0)} = \frac{y - y(t_0)}{y^(t_0)} = \frac{z - z(t_0)}{z^\prime(t_0))}</script></blockquote>
-<p>证：切线方向的一个向量为</p>
-<script type="math/tex; mode=display">
-    \boldsymbol{r}^\prime(t) = \lim \limits_{t \to 0} \frac{\boldsymbol{r}(t) - \boldsymbol{r}(t_0)}{t - t_0} = (x^\prime(t_0), y^\prime(t_0), z^\prime(t_0))</script><p>称为曲线$\Gamma$在点$P_0$出的切向量，又由于切线过点$P_0$，所以切线方程为</p>
-<script type="math/tex; mode=display">
-    \frac{x - x(t_0)}{x^\prime(t_0)} = \frac{y - y(t_0)}{y^\prime(t_0)} = \frac{z - z(t_0)}{z^\prime(t_0))}</script><p>Q.E.D.</p>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><blockquote>
-<p>光滑曲线的弧长$s$也可以作为曲线的参数，即$\boldsymbol{r} = \boldsymbol{r}(s)$，且有</p>
-<script type="math/tex; mode=display">
-    \Vert \boldsymbol{r}^\prime(s) \Vert = 1</script></blockquote>
-<p>证明：由<a href="https://gamersover.github.io/2021/08/11/微积分在几何上的应用1/#定理2" target="_blank" rel="noopener">微积分在几何上的应用一的定理2</a>可知，在曲线参数为$t \in [\alpha, \beta]$时，弧长</p>
-<script type="math/tex; mode=display">
-    s(\Gamma) = \int_\alpha^\beta \Vert \boldsymbol{r}^{\prime}(t) \Vert \mathrm{d} t</script><p>记函数$s(t)$为从曲线起点$\boldsymbol{r}(\alpha)$沿着曲线到曲线上任意一点$\boldsymbol{r}(t)$这一段弧长，则</p>
-<script type="math/tex; mode=display">
-    s(t) = \int_\alpha^t \Vert \boldsymbol{r}^\prime(\tau)\Vert \mathrm{d} \tau \quad (\alpha \le t \le \beta)</script><p>而$s(t)$是一个变上限积分，将其对$t$求导得</p>
-<script type="math/tex; mode=display">
-    \frac{\partial s}{\partial t} = \Vert \boldsymbol{r}^\prime(t) \Vert > 0 \tag {1}</script><p>这表明$s(t)$是关于$t$的严格递增函数，意味着可以将$t$作为$s$得函数反解出来得到$t = t(s)$，且这也是一个严格递增函数，所以$s$也可以作为弧长的参数，映射关系为</p>
-<script type="math/tex; mode=display">
-    s \rightarrow t \rightarrow \boldsymbol{r}</script><p>记以弧长$s$为参数的曲线方程$\boldsymbol{r} = \boldsymbol{r}(s)$，由式$(1)$可知</p>
-<script type="math/tex; mode=display">
-   1 = \frac{\partial s}{\partial s} = \Vert \boldsymbol{r}^\prime(s) \Vert</script><p>Q.E.D.</p>
-<h4 id="定义2"><a href="#定义2" class="headerlink" title="定义2"></a>定义2</h4><blockquote>
-<p>设$\Gamma: \boldsymbol{r} = \boldsymbol{r}(t)(\alpha \le t \le \beta)$是一段光滑曲线，$\boldsymbol{r}^\prime(t_0)$与$\boldsymbol{r}^\prime(t_0 + \Delta t)$之间的夹角记为$\Delta \theta$，$\boldsymbol{r}(t_0)$与$\boldsymbol{r}(t_0 + \Delta t)$之间的弧长记为$\Delta s$，如果$\lim \limits_{\Delta t \to 0} |\Delta \theta / \Delta s|$存在，就称此极限为$\Gamma$在$\boldsymbol{r}(t_0)$处的曲率，记为</p>
-<script type="math/tex; mode=display">
-    k(t_0) = \lim \limits_{\Delta t \to 0} \left|\frac{\Delta \theta}{\Delta s} \right|</script></blockquote>
-<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><blockquote>
-<p>设曲线$\Gamma: \boldsymbol{r} = \boldsymbol{r}(s)(s$是弧长参数$)$的每一点处有一个单位向量$\boldsymbol{s}$，记$ \boldsymbol{a}(s+\Delta s)$和$\boldsymbol{a}(s)$之间的夹角为$\Delta \theta$，如果$\boldsymbol{a}(s)$可导，那么</p>
-<script type="math/tex; mode=display">
-    \Vert \boldsymbol{a}^\prime(s) \Vert = \lim \limits_{\Delta s \to 0} \left| \frac{\Delta \theta}{\Delta s} \right|</script></blockquote>
-<p>证明：由于</p>
-<script type="math/tex; mode=display">
+<span id="more"></span>
+<h4 id="定理1">定理1</h4>
+<blockquote>
+<p>设光滑曲线<span class="math inline">\(\Gamma\)</span>上有一点<span
+class="math inline">\(P_0(x(t_0), y(t_0), z(t_0))\)</span>，则曲线<span
+class="math inline">\(\Gamma\)</span>在<span
+class="math inline">\(P_0\)</span>处的切线方程为<br />
+<span class="math display">\[
+    \frac{x - x(t_0)}{x^\prime(t_0)} = \frac{y - y(t_0)}{y^(t_0)} =
+\frac{z - z(t_0)}{z^\prime(t_0))}
+\]</span></p>
+</blockquote>
+<p>证：切线方向的一个向量为<br />
+<span class="math display">\[
+    \boldsymbol{r}^\prime(t) = \lim \limits_{t \to 0}
+\frac{\boldsymbol{r}(t) - \boldsymbol{r}(t_0)}{t - t_0} =
+(x^\prime(t_0), y^\prime(t_0), z^\prime(t_0))
+\]</span><br />
+称为曲线<span class="math inline">\(\Gamma\)</span>在点<span
+class="math inline">\(P_0\)</span>出的切向量，又由于切线过点<span
+class="math inline">\(P_0\)</span>，所以切线方程为<br />
+<span class="math display">\[
+    \frac{x - x(t_0)}{x^\prime(t_0)} = \frac{y - y(t_0)}{y^\prime(t_0)}
+= \frac{z - z(t_0)}{z^\prime(t_0))}
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理2">定理2</h4>
+<blockquote>
+<p>光滑曲线的弧长<span
+class="math inline">\(s\)</span>也可以作为曲线的参数，即<span
+class="math inline">\(\boldsymbol{r} =
+\boldsymbol{r}(s)\)</span>，且有<br />
+<span class="math display">\[
+    \Vert \boldsymbol{r}^\prime(s) \Vert = 1
+\]</span></p>
+</blockquote>
+<p>证明：由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/08/11/微积分在几何上的应用1/#定理2">微积分在几何上的应用一的定理2</a>可知，在曲线参数为<span
+class="math inline">\(t \in [\alpha, \beta]\)</span>时，弧长<br />
+<span class="math display">\[
+    s(\Gamma) = \int_\alpha^\beta \Vert \boldsymbol{r}^{\prime}(t) \Vert
+\mathrm{d} t
+\]</span><br />
+记函数<span class="math inline">\(s(t)\)</span>为从曲线起点<span
+class="math inline">\(\boldsymbol{r}(\alpha)\)</span>沿着曲线到曲线上任意一点<span
+class="math inline">\(\boldsymbol{r}(t)\)</span>这一段弧长，则<br />
+<span class="math display">\[
+    s(t) = \int_\alpha^t \Vert \boldsymbol{r}^\prime(\tau)\Vert
+\mathrm{d} \tau \quad (\alpha \le t \le \beta)
+\]</span><br />
+而<span class="math inline">\(s(t)\)</span>是一个变上限积分，将其对<span
+class="math inline">\(t\)</span>求导得<br />
+<span class="math display">\[
+    \frac{\partial s}{\partial t} = \Vert \boldsymbol{r}^\prime(t) \Vert
+&gt; 0 \tag {1}
+\]</span><br />
+这表明<span class="math inline">\(s(t)\)</span>是关于<span
+class="math inline">\(t\)</span>的严格递增函数，意味着可以将<span
+class="math inline">\(t\)</span>作为<span
+class="math inline">\(s\)</span>得函数反解出来得到<span
+class="math inline">\(t =
+t(s)\)</span>，且这也是一个严格递增函数，所以<span
+class="math inline">\(s\)</span>也可以作为弧长的参数，映射关系为<br />
+<span class="math display">\[
+    s \rightarrow t \rightarrow \boldsymbol{r}
+\]</span><br />
+记以弧长<span class="math inline">\(s\)</span>为参数的曲线方程<span
+class="math inline">\(\boldsymbol{r} =
+\boldsymbol{r}(s)\)</span>，由式<span
+class="math inline">\((1)\)</span>可知<br />
+<span class="math display">\[
+   1 = \frac{\partial s}{\partial s} = \Vert \boldsymbol{r}^\prime(s)
+\Vert
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定义2">定义2</h4>
+<blockquote>
+<p>设<span class="math inline">\(\Gamma: \boldsymbol{r} =
+\boldsymbol{r}(t)(\alpha \le t \le \beta)\)</span>是一段光滑曲线，<span
+class="math inline">\(\boldsymbol{r}^\prime(t_0)\)</span>与<span
+class="math inline">\(\boldsymbol{r}^\prime(t_0 + \Delta
+t)\)</span>之间的夹角记为<span class="math inline">\(\Delta
+\theta\)</span>，<span
+class="math inline">\(\boldsymbol{r}(t_0)\)</span>与<span
+class="math inline">\(\boldsymbol{r}(t_0 + \Delta
+t)\)</span>之间的弧长记为<span class="math inline">\(\Delta
+s\)</span>，如果<span class="math inline">\(\lim \limits_{\Delta t \to
+0} |\Delta \theta / \Delta s|\)</span>存在，就称此极限为<span
+class="math inline">\(\Gamma\)</span>在<span
+class="math inline">\(\boldsymbol{r}(t_0)\)</span>处的曲率，记为<br />
+<span class="math display">\[
+    k(t_0) = \lim \limits_{\Delta t \to 0} \left|\frac{\Delta
+\theta}{\Delta s} \right|
+\]</span></p>
+</blockquote>
+<h4 id="定理3">定理3</h4>
+<blockquote>
+<p>设曲线<span class="math inline">\(\Gamma: \boldsymbol{r} =
+\boldsymbol{r}(s)(s\)</span>是弧长参数<span
+class="math inline">\()\)</span>的每一点处有一个单位向量<span
+class="math inline">\(\boldsymbol{s}\)</span>，记$ (s+s)<span
+class="math inline">\(和\)</span>(s)<span
+class="math inline">\(之间的夹角为\)</span><span
+class="math inline">\(，如果\)</span>(s)$可导，那么<br />
+<span class="math display">\[
+    \Vert \boldsymbol{a}^\prime(s) \Vert = \lim \limits_{\Delta s \to 0}
+\left| \frac{\Delta \theta}{\Delta s} \right|
+\]</span></p>
+</blockquote>
+<p>证明：由于<br />
+<span class="math display">\[
     \begin{aligned}
-    \Vert \boldsymbol{a}^\prime(s) \Vert & = \left\Vert \lim \limits_{\Delta s \to 0} \frac{\boldsymbol{a}(s + \Delta s) - \boldsymbol{a}(s)}{\Delta s} \right\Vert \\
-    & = \lim \limits_{\Delta s \to 0} \frac{\Vert \boldsymbol{a}(s + \Delta s) - \boldsymbol{a}(s) \Vert}{\Vert \Delta s \Vert} \\
-    &= \lim \limits_{\Delta s \to 0} \left| \frac{2 \sin (\Delta \theta / 2)}{\Delta s} \right| = \lim \limits_{\Delta s \to 0} \left| \frac{ \sin (\Delta \theta / 2)}{\Delta \theta / 2} \right| \left|
+    \Vert \boldsymbol{a}^\prime(s) \Vert &amp; = \left\Vert \lim
+\limits_{\Delta s \to 0} \frac{\boldsymbol{a}(s + \Delta s) -
+\boldsymbol{a}(s)}{\Delta s} \right\Vert \\
+    &amp; = \lim \limits_{\Delta s \to 0} \frac{\Vert \boldsymbol{a}(s +
+\Delta s) - \boldsymbol{a}(s) \Vert}{\Vert \Delta s \Vert} \\
+    &amp;= \lim \limits_{\Delta s \to 0} \left| \frac{2 \sin (\Delta
+\theta / 2)}{\Delta s} \right| = \lim \limits_{\Delta s \to 0} \left|
+\frac{ \sin (\Delta \theta / 2)}{\Delta \theta / 2} \right| \left|
     \frac{2 \Delta \theta}{2\Delta s} \right| \\
-    & = \lim \limits_{\Delta s \to 0} \left| \frac{\Delta \theta}{\Delta s} \right|
-    \end{aligned}</script><p>Q.E.D.</p>
-<h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><blockquote>
-<p>设$\Gamma: \boldsymbol{r} = \boldsymbol{r}(s)$是一条以弧长$s$为参数的光滑曲线，且$\boldsymbol{r}^{\prime\prime}(s)$存在，那么它的曲率为</p>
-<script type="math/tex; mode=display">
-    k(s) = \Vert \boldsymbol{r}^{\prime\prime}(s) \Vert</script></blockquote>
-<p>证明：由<a href="https://gamersover.github.io/2021/08/11/微积分在几何上的应用2/#定理2" target="_blank" rel="noopener">定理2</a>可知，曲线在$s$处的切线向量为单位向量，令$\boldsymbol{a}(s) = \boldsymbol{r}^\prime(s)$，此时再由<a href="https://gamersover.github.io/2021/08/11/微积分在几何上的应用2/#定理3" target="_blank" rel="noopener">定理3</a>可知，</p>
-<script type="math/tex; mode=display">
-    k(s) = \lim \limits_{\Delta s \to 0} \left| \frac{\Delta \theta}{\Delta s} \right| = \Vert \boldsymbol{r}^{\prime\prime}(s) \Vert</script><p>Q.E.D.</p>
+    &amp; = \lim \limits_{\Delta s \to 0} \left| \frac{\Delta
+\theta}{\Delta s} \right|
+    \end{aligned}
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="定理4">定理4</h4>
+<blockquote>
+<p>设<span class="math inline">\(\Gamma: \boldsymbol{r} =
+\boldsymbol{r}(s)\)</span>是一条以弧长<span
+class="math inline">\(s\)</span>为参数的光滑曲线，且<span
+class="math inline">\(\boldsymbol{r}^{\prime\prime}(s)\)</span>存在，那么它的曲率为<br />
+<span class="math display">\[
+    k(s) = \Vert \boldsymbol{r}^{\prime\prime}(s) \Vert
+\]</span></p>
+</blockquote>
+<p>证明：由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/08/11/微积分在几何上的应用2/#定理2">定理2</a>可知，曲线在<span
+class="math inline">\(s\)</span>处的切线向量为单位向量，令<span
+class="math inline">\(\boldsymbol{a}(s) =
+\boldsymbol{r}^\prime(s)\)</span>，此时再由<a
+target="_blank" rel="noopener" href="https://gamersover.github.io/2021/08/11/微积分在几何上的应用2/#定理3">定理3</a>可知，<br />
+<span class="math display">\[
+    k(s) = \lim \limits_{\Delta s \to 0} \left| \frac{\Delta
+\theta}{\Delta s} \right| = \Vert \boldsymbol{r}^{\prime\prime}(s) \Vert
+\]</span></p>
+<p>Q.E.D.</p>
 
     </div>
 
@@ -423,7 +529,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义1"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理1"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理2"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义2"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理3"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定理4"><span class="nav-text">定理4</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%891"><span class="nav-text">定义1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%861"><span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%862"><span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%892"><span class="nav-text">定义2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%863"><span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%864"><span class="nav-text">定理4</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -494,13 +600,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

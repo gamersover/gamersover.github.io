@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -29,7 +29,7 @@
 <meta property="og:description" content="本章介绍常见初等函数的导函数及其求法。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-27T12:23:04.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.734Z">
+<meta property="article:modified_time" content="2021-01-27T12:23:04.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="数学分析">
 <meta property="article:tag" content="函数导数">
@@ -80,7 +80,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,13 +224,6 @@
 
               <time title="创建时间：2021-01-27 20:23:04" itemprop="dateCreated datePublished" datetime="2021-01-27T20:23:04+08:00">2021-01-27</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -250,7 +247,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -269,87 +266,170 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>本章介绍常见初等函数的导函数及其求法。<br><a id="more"></a></p>
-<h4 id="常值函数"><a href="#常值函数" class="headerlink" title="常值函数"></a>常值函数</h4><blockquote>
-<p>函数$f = c$为常值函数，证：$f^\prime = 0$。</p>
-</blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \frac{f(x+h) - f(x)}{h} = \frac{c-c}{h} = 0</script><p>Q.E.D.</p>
-<h4 id="指数函数"><a href="#指数函数" class="headerlink" title="指数函数"></a>指数函数</h4><blockquote>
-<p>函数$f(x) = x^\alpha (x &gt; 0, \alpha \in \mathbb{R})$，证：$f^\prime(x) = \alpha x^{\alpha - 1}$。</p>
-</blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \lim\limits_{h \to 0} \frac{(x+h)^\alpha - x^\alpha}{h} = x^{\alpha-1}\lim\limits_{h \to 0} \frac{(1 + h/x)^{\alpha} - 1}{h/x}</script><p>而</p>
-<script type="math/tex; mode=display">
-    \lim\limits_{t \to 0} \frac{(1+t)^\alpha - 1}{t} = \lim\limits_{t \to 0} \frac{e^{\alpha \ln(1+t)} - 1}{\alpha \ln (1+t)} \frac{\alpha \ln (1+t)}{t}</script><p>由于$\ln(1+x) \sim x, e^x-1 \sim x \quad (x \to 0)$，从而</p>
-<script type="math/tex; mode=display">
-    \lim\limits_{t \to 0} \frac{(1+t)^\alpha - 1}{t} = \alpha</script><p>所以</p>
-<script type="math/tex; mode=display">
-     f^\prime(x) = \alpha x^{\alpha - 1}</script><p>Q.E.D.</p>
-<h4 id="正弦函数"><a href="#正弦函数" class="headerlink" title="正弦函数"></a>正弦函数</h4><blockquote>
-<p>函数$f(x) = \sin x$，证$f^\prime(x) = \cos x$。</p>
-</blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \lim\limits_{h \to 0} \frac{\sin(x+h) - \sin x}{h} = \lim\limits_{h \to 0} \frac{\cos (x+h/2) \sin (h/2)}{h/2} = \cos x</script><p>Q.E.D.</p>
-<h4 id="余弦函数"><a href="#余弦函数" class="headerlink" title="余弦函数"></a>余弦函数</h4><blockquote>
-<p>函数$f(x) = \cos x$，证$f^\prime(x) = -\sin x$。</p>
-</blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \lim \limits_{h \to 0} \frac{\cos (x+h) - \cos x}{h} = \lim\limits_{h \to 0} \frac{-\sin(x+h)\sin (h/2)}{h/2} = -\sin x</script><p>Q.E.D.</p>
-<h4 id="正切函数"><a href="#正切函数" class="headerlink" title="正切函数"></a>正切函数</h4><blockquote>
-<p>函数$f(x) = \tan x$，证$f^\prime(x) = \sec^2x$。</p>
-</blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    (\tan x)^\prime = \begin{aligned} \left( \frac{\sin x}{\cos x} \right)\end{aligned} ^\prime = \frac{(\sin x)^\prime \cos x - \sin x (\cos x)^\prime}{\cos^2x} = \frac{1}{\cos^2 x} = \sec^2x</script><p>Q.E.D.</p>
-<h4 id="余切函数"><a href="#余切函数" class="headerlink" title="余切函数"></a>余切函数</h4><blockquote>
-<p>函数$f(x) = \cot x$，证$f^\prime(x) = -\csc^2x$。</p>
-</blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    (\tan x)^\prime = \begin{aligned} \left( \frac{\cos x}{\sin x} \right)\end{aligned} ^\prime = \frac{(\cos x)^\prime \sin x - \cos x (\sin x)^\prime}{\sin^2x} = - \frac{1}{\cos^2 x} = -\csc^2x</script><p>Q.E.D.</p>
-<h4 id="反正弦函数"><a href="#反正弦函数" class="headerlink" title="反正弦函数"></a>反正弦函数</h4><blockquote>
-<p>函数$f(x) = \arcsin x$，证$f^\prime(x) = \frac{1}{\sqrt{1-x^2}}$。</p>
-</blockquote>
-<p>证：函数$f(x)$的反函数为$x = \sin y$，从而</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \frac{1}{(\sin y)^\prime} = \frac{1}{\cos y} = \frac{1}{\sqrt{1-x^2}}</script><p>Q.E.D.</p>
-<h4 id="反余弦函数"><a href="#反余弦函数" class="headerlink" title="反余弦函数"></a>反余弦函数</h4><blockquote>
-<p>函数$f(x) = \arccos x$，证$f^\prime(x) = -\frac{1}{\sqrt{1-x^2}}$。</p>
-</blockquote>
-<p>证：函数$f(x)$的反函数为$x = \cos y$，从而</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \frac{1}{(\cos y)^\prime} = \frac{1}{-\sin y} = -\frac{1}{\sqrt{1-x^2}}</script><p>Q.E.D.</p>
-<h4 id="反正切函数"><a href="#反正切函数" class="headerlink" title="反正切函数"></a>反正切函数</h4><blockquote>
-<p>函数$f(x) = \arctan x$，证$f^\prime(x) = \frac{1}{1+x^2}$。</p>
-</blockquote>
-<p>证：函数$f(x)$的反函数为$x = \tan y$，从而</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \frac{1}{(\tan y)^\prime} = {\cos^2 y} = \frac{1}{1+\tan^2y} = \frac{1}{1+x^2}</script><p>Q.E.D.</p>
-<h4 id="反余切函数"><a href="#反余切函数" class="headerlink" title="反余切函数"></a>反余切函数</h4><!--todo：markdown 不支持\arccot-->
+        <p>本章介绍常见初等函数的导函数及其求法。<br />
+<span id="more"></span></p>
+<h4 id="常值函数">常值函数</h4>
 <blockquote>
-<p>函数$f(x) = \arccot x$，证$f^\prime(x) = -\frac{1}{1+x^2}$。</p>
+<p>函数<span class="math inline">\(f = c\)</span>为常值函数，证：<span
+class="math inline">\(f^\prime = 0\)</span>。</p>
 </blockquote>
-<p>证：函数$f(x)$的反函数为$x = \cot y$，从而</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \frac{1}{(\cot y)^\prime} = -{\sin^2 y} = -\frac{1}{1+\cot^2y} = -\frac{1}{1+x^2}</script><p>Q.E.D.</p>
-<h4 id="幂函数"><a href="#幂函数" class="headerlink" title="幂函数"></a>幂函数</h4><blockquote>
-<p>函数$f(x) = a^x (a&gt;0)$，证$f^\prime(x) = a^x \ln a$。</p>
-</blockquote>
-<p>证：由于</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \lim\limits_{h \to 0} \frac{a^{x+h} - a^x}{h} = a^x \lim\limits_{h \to 0} \frac{a^{h} - 1}{h} = a^x \ln a</script><p>特别地，当$a= e$时，有$(e^x)^\prime = e^x$。</p>
+<p>证：由于<br />
+<span class="math display">\[
+    f^\prime(x) = \frac{f(x+h) - f(x)}{h} = \frac{c-c}{h} = 0
+\]</span></p>
 <p>Q.E.D.</p>
-<h4 id="对数函数"><a href="#对数函数" class="headerlink" title="对数函数"></a>对数函数</h4><blockquote>
-<p>函数$f(x) = \log_a x \quad (a &gt; 0)$，证$f^\prime(x) = \frac{1}{x \ln a}$。</p>
+<h4 id="指数函数">指数函数</h4>
+<blockquote>
+<p>函数<span class="math inline">\(f(x) = x^\alpha (x &gt; 0, \alpha \in
+\mathbb{R})\)</span>，证：<span class="math inline">\(f^\prime(x) =
+\alpha x^{\alpha - 1}\)</span>。</p>
 </blockquote>
-<p>证：由于$f(x)$的反函数为$x = a^y$，所以</p>
-<script type="math/tex; mode=display">
-    f^\prime(x) = \frac{1}{(a^y)^\prime} = \frac{1}{a^y \ln a} = \frac{1}{x \ln a}</script><p>特别地，当$a=e$时，有$(\ln x)^\prime = \frac{1}{x}$。</p>
+<p>证：由于<br />
+<span class="math display">\[
+    f^\prime(x) = \lim\limits_{h \to 0} \frac{(x+h)^\alpha -
+x^\alpha}{h} = x^{\alpha-1}\lim\limits_{h \to 0} \frac{(1 +
+h/x)^{\alpha} - 1}{h/x}
+\]</span><br />
+而<br />
+<span class="math display">\[  
+    \lim\limits_{t \to 0} \frac{(1+t)^\alpha - 1}{t} = \lim\limits_{t
+\to 0} \frac{e^{\alpha \ln(1+t)} - 1}{\alpha \ln (1+t)} \frac{\alpha \ln
+(1+t)}{t}
+\]</span><br />
+由于<span class="math inline">\(\ln(1+x) \sim x, e^x-1 \sim x \quad (x
+\to 0)\)</span>，从而<br />
+<span class="math display">\[
+    \lim\limits_{t \to 0} \frac{(1+t)^\alpha - 1}{t} = \alpha
+\]</span><br />
+所以<br />
+<span class="math display">\[
+     f^\prime(x) = \alpha x^{\alpha - 1}
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="正弦函数">正弦函数</h4>
+<blockquote>
+<p>函数<span class="math inline">\(f(x) = \sin x\)</span>，证<span
+class="math inline">\(f^\prime(x) = \cos x\)</span>。</p>
+</blockquote>
+<p>证：由于<br />
+<span class="math display">\[
+    f^\prime(x) = \lim\limits_{h \to 0} \frac{\sin(x+h) - \sin x}{h} =
+\lim\limits_{h \to 0} \frac{\cos (x+h/2) \sin (h/2)}{h/2} = \cos x
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="余弦函数">余弦函数</h4>
+<blockquote>
+<p>函数<span class="math inline">\(f(x) = \cos x\)</span>，证<span
+class="math inline">\(f^\prime(x) = -\sin x\)</span>。</p>
+</blockquote>
+<p>证：由于<br />
+<span class="math display">\[
+    f^\prime(x) = \lim \limits_{h \to 0} \frac{\cos (x+h) - \cos x}{h} =
+\lim\limits_{h \to 0} \frac{-\sin(x+h)\sin (h/2)}{h/2} = -\sin x
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="正切函数">正切函数</h4>
+<blockquote>
+<p>函数<span class="math inline">\(f(x) = \tan x\)</span>，证<span
+class="math inline">\(f^\prime(x) = \sec^2x\)</span>。</p>
+</blockquote>
+<p>证：由于<br />
+<span class="math display">\[
+    (\tan x)^\prime = \begin{aligned} \left( \frac{\sin x}{\cos x}
+\right)\end{aligned} ^\prime = \frac{(\sin x)^\prime \cos x - \sin x
+(\cos x)^\prime}{\cos^2x} = \frac{1}{\cos^2 x} = \sec^2x
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="余切函数">余切函数</h4>
+<blockquote>
+<p>函数<span class="math inline">\(f(x) = \cot x\)</span>，证<span
+class="math inline">\(f^\prime(x) = -\csc^2x\)</span>。</p>
+</blockquote>
+<p>证：由于<br />
+<span class="math display">\[
+    (\tan x)^\prime = \begin{aligned} \left( \frac{\cos x}{\sin x}
+\right)\end{aligned} ^\prime = \frac{(\cos x)^\prime \sin x - \cos x
+(\sin x)^\prime}{\sin^2x} = - \frac{1}{\cos^2 x} = -\csc^2x
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="反正弦函数">反正弦函数</h4>
+<blockquote>
+<p>函数<span class="math inline">\(f(x) = \arcsin x\)</span>，证<span
+class="math inline">\(f^\prime(x) =
+\frac{1}{\sqrt{1-x^2}}\)</span>。</p>
+</blockquote>
+<p>证：函数<span class="math inline">\(f(x)\)</span>的反函数为<span
+class="math inline">\(x = \sin y\)</span>，从而<br />
+<span class="math display">\[
+    f^\prime(x) = \frac{1}{(\sin y)^\prime} = \frac{1}{\cos y} =
+\frac{1}{\sqrt{1-x^2}}
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="反余弦函数">反余弦函数</h4>
+<blockquote>
+<p>函数<span class="math inline">\(f(x) = \arccos x\)</span>，证<span
+class="math inline">\(f^\prime(x) =
+-\frac{1}{\sqrt{1-x^2}}\)</span>。</p>
+</blockquote>
+<p>证：函数<span class="math inline">\(f(x)\)</span>的反函数为<span
+class="math inline">\(x = \cos y\)</span>，从而<br />
+<span class="math display">\[
+    f^\prime(x) = \frac{1}{(\cos y)^\prime} = \frac{1}{-\sin y} =
+-\frac{1}{\sqrt{1-x^2}}
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="反正切函数">反正切函数</h4>
+<blockquote>
+<p>函数<span class="math inline">\(f(x) = \arctan x\)</span>，证<span
+class="math inline">\(f^\prime(x) = \frac{1}{1+x^2}\)</span>。</p>
+</blockquote>
+<p>证：函数<span class="math inline">\(f(x)\)</span>的反函数为<span
+class="math inline">\(x = \tan y\)</span>，从而<br />
+<span class="math display">\[
+    f^\prime(x) = \frac{1}{(\tan y)^\prime} = {\cos^2 y} =
+\frac{1}{1+\tan^2y} = \frac{1}{1+x^2}
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="反余切函数">反余切函数</h4>
+<!--todo：markdown 不支持\arccot-->
+<blockquote>
+<p>函数<span class="math inline">\(f(x) = \arccot x\)</span>，证<span
+class="math inline">\(f^\prime(x) = -\frac{1}{1+x^2}\)</span>。</p>
+</blockquote>
+<p>证：函数<span class="math inline">\(f(x)\)</span>的反函数为<span
+class="math inline">\(x = \cot y\)</span>，从而<br />
+<span class="math display">\[
+    f^\prime(x) = \frac{1}{(\cot y)^\prime} = -{\sin^2 y} =
+-\frac{1}{1+\cot^2y} = -\frac{1}{1+x^2}
+\]</span></p>
+<p>Q.E.D.</p>
+<h4 id="幂函数">幂函数</h4>
+<blockquote>
+<p>函数<span class="math inline">\(f(x) = a^x (a&gt;0)\)</span>，证<span
+class="math inline">\(f^\prime(x) = a^x \ln a\)</span>。</p>
+</blockquote>
+<p>证：由于<br />
+<span class="math display">\[
+    f^\prime(x) = \lim\limits_{h \to 0} \frac{a^{x+h} - a^x}{h} = a^x
+\lim\limits_{h \to 0} \frac{a^{h} - 1}{h} = a^x \ln a
+\]</span><br />
+特别地，当<span class="math inline">\(a= e\)</span>时，有<span
+class="math inline">\((e^x)^\prime = e^x\)</span>。</p>
+<p>Q.E.D.</p>
+<h4 id="对数函数">对数函数</h4>
+<blockquote>
+<p>函数<span class="math inline">\(f(x) = \log_a x \quad (a &gt;
+0)\)</span>，证<span class="math inline">\(f^\prime(x) = \frac{1}{x \ln
+a}\)</span>。</p>
+</blockquote>
+<p>证：由于<span class="math inline">\(f(x)\)</span>的反函数为<span
+class="math inline">\(x = a^y\)</span>，所以<br />
+<span class="math display">\[
+    f^\prime(x) = \frac{1}{(a^y)^\prime} = \frac{1}{a^y \ln a} =
+\frac{1}{x \ln a}
+\]</span><br />
+特别地，当<span class="math inline">\(a=e\)</span>时，有<span
+class="math inline">\((\ln x)^\prime = \frac{1}{x}\)</span>。</p>
 <p>Q.E.D.</p>
 
     </div>
@@ -438,7 +518,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#常值函数"><span class="nav-text">常值函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指数函数"><span class="nav-text">指数函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正弦函数"><span class="nav-text">正弦函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#余弦函数"><span class="nav-text">余弦函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正切函数"><span class="nav-text">正切函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#余切函数"><span class="nav-text">余切函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反正弦函数"><span class="nav-text">反正弦函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反余弦函数"><span class="nav-text">反余弦函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反正切函数"><span class="nav-text">反正切函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反余切函数"><span class="nav-text">反余切函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#幂函数"><span class="nav-text">幂函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对数函数"><span class="nav-text">对数函数</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E5%80%BC%E5%87%BD%E6%95%B0"><span class="nav-text">常值函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E6%95%B0%E5%87%BD%E6%95%B0"><span class="nav-text">指数函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E5%BC%A6%E5%87%BD%E6%95%B0"><span class="nav-text">正弦函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%99%E5%BC%A6%E5%87%BD%E6%95%B0"><span class="nav-text">余弦函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E5%88%87%E5%87%BD%E6%95%B0"><span class="nav-text">正切函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%99%E5%88%87%E5%87%BD%E6%95%B0"><span class="nav-text">余切函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E6%AD%A3%E5%BC%A6%E5%87%BD%E6%95%B0"><span class="nav-text">反正弦函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E4%BD%99%E5%BC%A6%E5%87%BD%E6%95%B0"><span class="nav-text">反余弦函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E6%AD%A3%E5%88%87%E5%87%BD%E6%95%B0"><span class="nav-text">反正切函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E4%BD%99%E5%88%87%E5%87%BD%E6%95%B0"><span class="nav-text">反余切函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%82%E5%87%BD%E6%95%B0"><span class="nav-text">幂函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%95%B0%E5%87%BD%E6%95%B0"><span class="nav-text">对数函数</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -509,13 +589,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

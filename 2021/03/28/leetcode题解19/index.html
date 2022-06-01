@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="描述该题来自于力扣第19题 给你一个链表，删除链表的倒数第n个结点，并且返回链表的头结点。进阶：你能尝试使用一趟扫描实现吗？">
+  <meta name="description" content="描述 该题来自于力扣第19题 给你一个链表，删除链表的倒数第n个结点，并且返回链表的头结点。 进阶：你能尝试使用一趟扫描实现吗？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode题解19：删除链表的倒数第N个结点">
 <meta property="og:url" content="http://yoursite.com/2021/03/28/leetcode%E9%A2%98%E8%A7%A319/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="描述该题来自于力扣第19题 给你一个链表，删除链表的倒数第n个结点，并且返回链表的头结点。进阶：你能尝试使用一趟扫描实现吗？">
+<meta property="og:description" content="描述 该题来自于力扣第19题 给你一个链表，删除链表的倒数第n个结点，并且返回链表的头结点。 进阶：你能尝试使用一趟扫描实现吗？">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-28T03:45:23.000Z">
-<meta property="article:modified_time" content="2022-01-06T02:57:09.073Z">
+<meta property="article:modified_time" content="2021-03-28T03:45:23.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="leetcode">
 <meta property="article:tag" content="双指针法">
@@ -80,7 +80,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,13 +224,6 @@
 
               <time title="创建时间：2021-03-28 11:45:23" itemprop="dateCreated datePublished" datetime="2021-03-28T11:45:23+08:00">2021-03-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-06 10:57:09" itemprop="dateModified" datetime="2022-01-06T10:57:09+08:00">2022-01-06</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -269,20 +266,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于<a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener">力扣第19题</a></p>
-<p>给你一个链表，删除链表的倒数第<code>n</code>个结点，并且返回链表的头结点。<br>进阶：你能尝试使用一趟扫描实现吗？</p>
-<a id="more"></a>
+        <h2 id="描述">描述</h2>
+<p>该题来自于<a
+target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/">力扣第19题</a></p>
+<p>给你一个链表，删除链表的倒数第<code>n</code>个结点，并且返回链表的头结点。<br />
+进阶：你能尝试使用一趟扫描实现吗？</p>
+<span id="more"></span>
 <p>示例 1：</p>
 <blockquote>
-<p>输入：head = [1,2,3,4,5], n = 2<br>输出：[1,2,3,5]</p>
+<p>输入：head = [1,2,3,4,5], n = 2<br />
+输出：[1,2,3,5]</p>
 </blockquote>
 <p>示例 2：</p>
 <blockquote>
-<p>输入：head = [1], n = 1<br>输出：[]</p>
+<p>输入：head = [1], n = 1<br />
+输出：[]</p>
 </blockquote>
 <p>示例 3：</p>
 <blockquote>
-<p>输入：head = [1,2], n = 1<br>输出：[1]</p>
+<p>输入：head = [1,2], n = 1<br />
+输出：[1]</p>
 </blockquote>
 <p>提示：</p>
 <ul>
@@ -291,37 +294,41 @@
 <li>0 &lt;= <code>Node.val</code> &lt;= 100</li>
 <li>1 &lt;= <code>n</code> &lt;= sz</li>
 </ul>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>想找到倒数第<code>n</code>个结点，就相当于找到第<code>sz - n + 1</code>个结点，但是<code>sz</code>不知道，需要一趟遍历整个链表才能获得，这样看来无论如何都需要两遍扫描；还记得找到中点结点的方法吗？快慢指针，一遍扫描即可；这里也可以用类似的想法；比如，现有一链表如下，要删除倒数第2个结点：</p>
+<h2 id="分析">分析</h2>
+<p>想找到倒数第<code>n</code>个结点，就相当于找到第<code>sz - n + 1</code>个结点，但是<code>sz</code>不知道，需要一趟遍历整个链表才能获得，这样看来无论如何都需要两遍扫描；还记得找到中点结点的方法吗？快慢指针，一遍扫描即可；这里也可以用类似的想法；比如，现有一链表如下，要删除倒数第2个结点：</p>
 <blockquote>
-<p>1 -&gt; 2 -&gt; 3 -&gt; <font color='blue'>4</font> -&gt; 5 -&gt; <font color='red'>6</font></p>
+<p>1 -&gt; 2 -&gt; 3 -&gt; <font color='blue'>4</font> -&gt; 5 -&gt;
+<font color='red'>6</font></p>
 </blockquote>
 <p>如果我们能够让第一个指针<code>p1</code>指向4，那么就可以进行删除操作了；利用快慢指针的想法，第二个指针<code>p2</code>需要指向最后一个结点即6，所以两个指针相差2个结点，如果最开始让<code>p1</code>指向1，<code>p2</code>指向3，然后只需让<code>p1++,p2++</code>直到<code>p2</code>到达最后一个结点，这时<code>p1</code>自然达到了倒数第<code>n</code>个结点了。</p>
 <p>所以先让<code>p2</code>指针往右走<code>n</code>步，达到第<code>n+1</code>个结点，然后<code>p1,p2</code>指针同时走动1步，直到<code>p2</code>指针指向<code>sz</code>，这时<code>p1</code>自然会指向<code>sz -n</code>，即要删除结点的父结点位置，然后就可以删除了。当然，还要考虑特殊情况：删除一个结点的时候的特殊处理。或者用一个虚假的头指向链表原有head，这样就不用考虑特殊情况了。</p>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>采用双指针法，</p>
-<ol>
-<li>初始化<code>p1=head,p2=head</code></li>
-<li>进入循环<code>p2 = p2-&gt;next</code>，直到<code>i==n</code>，如果<code>p2==null</code>，表明删除的是头结点，则让<code>head = p1-&gt;next</code>退出程序，或则进入3</li>
-<li>进入循环<code>p1 = p1-&gt;next, p2=p2-&gt;next</code>，直到<code>p2-&gt;next == null</code>，表明<code>p2</code>已到达最后一个结点，此时让<code>p1-&gt;next = p1-&gt;next-&gt;next</code></li>
-</ol>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><details open>
-<summary>python3</summary>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeNthFromEnd</span><span class="params">(self, head, n)</span>:</span></span><br><span class="line">        p1, p2 = head, head</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; n <span class="keyword">and</span> p2 <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            p2 = p2.next</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> p2 <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            head = p1.next</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> p2.next <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            p1 = p1.next</span><br><span class="line">            p2 = p2.next        </span><br><span class="line">        p1.next = p1.next.next</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> head</span><br></pre></td></tr></table></figure>
+<h2 id="算法">算法</h2>
+<p>采用双指针法，<br />
+1. 初始化<code>p1=head,p2=head</code><br />
+2.
+进入循环<code>p2 = p2-&gt;next</code>，直到<code>i==n</code>，如果<code>p2==null</code>，表明删除的是头结点，则让<code>head = p1-&gt;next</code>退出程序，或则进入3<br />
+3.
+进入循环<code>p1 = p1-&gt;next, p2=p2-&gt;next</code>，直到<code>p2-&gt;next == null</code>，表明<code>p2</code>已到达最后一个结点，此时让<code>p1-&gt;next = p1-&gt;next-&gt;next</code></p>
+<h2 id="代码">代码</h2>
+<details open>
+<summary>
+python3
+</summary>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeNthFromEnd</span>(<span class="params">self, head, n</span>):</span><br><span class="line">        p1, p2 = head, head</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; n <span class="keyword">and</span> p2 <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            p2 = p2.<span class="built_in">next</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> p2 <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            head = p1.<span class="built_in">next</span></span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> p2.<span class="built_in">next</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            p1 = p1.<span class="built_in">next</span></span><br><span class="line">            p2 = p2.<span class="built_in">next</span></span><br><span class="line">        p1.<span class="built_in">next</span> = p1.<span class="built_in">next</span>.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> head</span><br></pre></td></tr></table></figure>
 </details>
-
-
 <details>
-<summary>c++</summary>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode* p1 = head;</span><br><span class="line">        ListNode* p2 = head;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; n &amp;&amp; p2 != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            p2 = p2-&gt;next;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p2 == <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(p2-&gt;next != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            p1 = p1-&gt;next;</span><br><span class="line">            p2 = p2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        p1-&gt;next = p1-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<summary>
+c++
+</summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode* p1 = head;</span><br><span class="line">        ListNode* p2 = head;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; n &amp;&amp; p2 != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            p2 = p2-&gt;next;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p2 == <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(p2-&gt;next != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            p1 = p1-&gt;next;</span><br><span class="line">            p2 = p2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        p1-&gt;next = p1-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </details>
-
-
 <details>
-<summary>java</summary>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">removeNthFromEnd</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode p1 = head;</span><br><span class="line">        ListNode p2 = head;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; n &amp;&amp; p2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">            p2 = p2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p2 == <span class="keyword">null</span>)&#123;</span><br><span class="line">            head = head.next;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(p2.next != <span class="keyword">null</span>)&#123;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">            p2 = p2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        p1.next = p1.next.next;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<summary>
+java
+</summary>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">removeNthFromEnd</span><span class="params">(ListNode head, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p2</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; n &amp;&amp; p2 != <span class="literal">null</span>)&#123;</span><br><span class="line">            p2 = p2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p2 == <span class="literal">null</span>)&#123;</span><br><span class="line">            head = head.next;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(p2.next != <span class="literal">null</span>)&#123;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">            p2 = p2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        p1.next = p1.next.next;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </details>
+
     </div>
 
     
@@ -408,7 +415,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -479,13 +486,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

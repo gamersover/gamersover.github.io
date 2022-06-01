@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="描述该题来自于力扣第10题 给你一个字符串s和一个字符规律p，请你来实现一个支持&#39;.&#39;和&#39;*&#39;的正则表达式匹配。 &#39;.&#39;匹配任意单个字符&#39;*&#39;匹配零个或多个前面的那一个元素所谓匹配，是要涵盖整个字符串s的，而不是部分字符串。">
+  <meta name="description" content="描述 该题来自于力扣第10题 给你一个字符串s和一个字符规律p，请你来实现一个支持&#39;.&#39;和&#39;*&#39;的正则表达式匹配。 &#39;.&#39;匹配任意单个字符 &#39;*&#39;匹配零个或多个前面的那一个元素 所谓匹配，是要涵盖整个字符串s的，而不是部分字符串。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode题解10：正则表达式匹配">
 <meta property="og:url" content="http://yoursite.com/2020/12/05/leetcode%E9%A2%98%E8%A7%A310/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="描述该题来自于力扣第10题 给你一个字符串s和一个字符规律p，请你来实现一个支持&#39;.&#39;和&#39;*&#39;的正则表达式匹配。 &#39;.&#39;匹配任意单个字符&#39;*&#39;匹配零个或多个前面的那一个元素所谓匹配，是要涵盖整个字符串s的，而不是部分字符串。">
+<meta property="og:description" content="描述 该题来自于力扣第10题 给你一个字符串s和一个字符规律p，请你来实现一个支持&#39;.&#39;和&#39;*&#39;的正则表达式匹配。 &#39;.&#39;匹配任意单个字符 &#39;*&#39;匹配零个或多个前面的那一个元素 所谓匹配，是要涵盖整个字符串s的，而不是部分字符串。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-05T01:56:12.000Z">
-<meta property="article:modified_time" content="2021-10-27T05:27:17.732Z">
+<meta property="article:modified_time" content="2020-12-05T01:56:12.000Z">
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="leetcode">
 <meta property="article:tag" content="字符串">
@@ -81,7 +81,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -221,13 +225,6 @@
 
               <time title="创建时间：2020-12-05 09:56:12" itemprop="dateCreated datePublished" datetime="2020-12-05T09:56:12+08:00">2020-12-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-27 13:27:17" itemprop="dateModified" datetime="2021-10-27T13:27:17+08:00">2021-10-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -270,62 +267,92 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>该题来自于力扣<a href="https://leetcode-cn.com/problems/regular-expression-matching" target="_blank" rel="noopener">第10题</a></p>
-<p>给你一个字符串<code>s</code>和一个字符规律<code>p</code>，请你来实现一个支持<code>&#39;.&#39;</code>和<code>&#39;*&#39;</code>的正则表达式匹配。</p>
-<p><code>&#39;.&#39;</code>匹配任意单个字符<br><code>&#39;*&#39;</code>匹配零个或多个前面的那一个元素<br>所谓匹配，是要涵盖<strong>整个</strong>字符串<code>s</code>的，而不是部分字符串。</p>
-<a id="more"></a>
-<p>示例 1：</p>
+        <h2 id="描述">描述</h2>
+<p>该题来自于力扣<a
+target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/regular-expression-matching">第10题</a></p>
+<p>给你一个字符串<code>s</code>和一个字符规律<code>p</code>，请你来实现一个支持<code>'.'</code>和<code>'*'</code>的正则表达式匹配。</p>
+<p><code>'.'</code>匹配任意单个字符<br />
+<code>'*'</code>匹配零个或多个前面的那一个元素<br />
+所谓匹配，是要涵盖<strong>整个</strong>字符串<code>s</code>的，而不是部分字符串。</p>
+<span id="more"></span>
+<p> <br />
+示例 1:</p>
 <blockquote>
-<p>输入：s = “aa” p = “a”<br>输出：false<br>解释：”a” 无法匹配 “aa” 整个字符串。</p>
-<p>示例 2:<br>输入：s = “aa” p = “a<em>“<br>输出：true<br>解释：因为 ‘</em>‘ 代表可以匹配零个或多个前面的那一个元素, 在这里前面的元素就是 ‘a’。因此，字符串 “aa” 可被视为 ‘a’ 重复了一次。</p>
-<p>示例 3：<br>输入：s = “ab” p = “.*“<br>输出：true<br>解释：”.<em>“ 表示可匹配零个或多个（’</em>‘）任意字符（’.’）。</p>
-<p>示例 4：<br>输入：s = “aab” p = “c*a*b”<br>输出：true<br>解释：因为 ‘*’ 表示零个或多个，这里 ‘c’ 为 0 个, ‘a’ 被重复一次。因此可以匹配字符串 “aab”。</p>
+<p>输入：s = "aa" p = "a"<br />
+输出：false<br />
+解释："a" 无法匹配 "aa" 整个字符串。</p>
 </blockquote>
-<p>示例 5：</p>
+<p>示例 2:</p>
 <blockquote>
-<p>输入：s = “mississippi” p = “mis*is*p*.”<br>输出：false</p>
+<p>输入：s = "aa" p = "a<em>"<br />
+输出：true<br />
+解释：因为 '</em>' 代表可以匹配零个或多个前面的那一个元素,
+在这里前面的元素就是 'a'。因此，字符串 "aa" 可被视为 'a'
+重复了一次。</p>
+</blockquote>
+<p>示例 3：</p>
+<blockquote>
+<p>输入：s = "ab" p = ".*"<br />
+输出：true<br />
+解释：".<em>" 表示可匹配零个或多个（'</em>'）任意字符（'.'）。</p>
+</blockquote>
+<p>示例 4：</p>
+<blockquote>
+<p>输入：s = "aab" p = "c*a*b"<br />
+输出：true<br />
+解释：因为 '*' 表示零个或多个，这里 'c' 为 0 个, 'a'
+被重复一次。因此可以匹配字符串 "aab"。</p>
+</blockquote>
+<p>示例 5:</p>
+<blockquote>
+<p>输入：s = "mississippi" p = "mis*is*p*."<br />
+输出：false</p>
 </blockquote>
 <p>提示：</p>
 <ul>
-<li><code>0 &lt;= s.length &lt;= 20</code></li>
-<li><code>0 &lt;= p.length &lt;= 30</code></li>
-<li><code>s</code> 可能为空，且只包含从 <code>a-z</code> 的小写字母。</li>
-<li><code>p</code> 可能为空，且只包含从 <code>a-z</code> 的小写字母，以及字符 <code>.</code> 和 <code>*</code>。</li>
-<li>保证每次出现字符 `* 时，前面都匹配到有效的字符</li>
+<li><code>0 &lt;= s.length &lt;= 20</code></li>
+<li><code>0 &lt;= p.length &lt;= 30</code></li>
+<li><code>s</code> 可能为空，且只包含从 <code>a-z</code> 的小写字母。</li>
+<li><code>p</code> 可能为空，且只包含从 <code>a-z</code> 的小写字母，以及字符 <code>.</code> 和 <code>*</code>。</li>
+<li>保证每次出现字符 <code>*</code> 时，前面都匹配到有效的字符</li>
 </ul>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
+<h2 id="分析">分析</h2>
+<ul>
 <li>该题可以采用状态机来解，类似的已在leetcode题解8中介绍了；该题还有其他解法——动态规划，用<code>dp[i][j]</code>来表示<code>s</code>的前<code>i</code>个字符与<code>p</code>的前<code>j</code>个字符是否匹配，那么可以注意到:</li>
-<li>先不考虑<code>*</code>，如果<code>p[j]</code>与<code>s[i]</code>匹配到了，即要么<code>s[i]=p[j]</code>，要么<code>p[j]=&#39;.&#39;</code>，那么<code>dp[i][j]=dp[i-1][j-1]</code>，否则就为<code>false</code></li>
-<li>再考虑<code>*</code>，即如果<code>p[j]=&#39;*&#39;</code><ul>
-<li>如果<code>s[i]</code>与<code>p[j-1]</code>匹配<ul>
+<li>先不考虑<code>*</code>，如果<code>p[j]</code>与<code>s[i]</code>匹配到了，即要么<code>s[i]=p[j]</code>，要么<code>p[j]='.'</code>，那么<code>dp[i][j]=dp[i-1][j-1]</code>，否则就为<code>false</code></li>
+<li>再考虑<code>*</code>，即如果<code>p[j]='*'</code>
+<ul>
+<li>如果<code>s[i]</code>与<code>p[j-1]</code>匹配
+<ul>
 <li>则<code>*</code>前面的字符<code>p[j-1]</code>可能匹配<code>s</code>中多个，比如<code>s=aaa</code>，<code>p=a*</code>，这时<code>dp[i][j]=dp[i-1][j]</code></li>
 <li>也可能<code>*</code>前面的字符不匹配<code>s</code>中的字符，比如<code>s=aa</code>，<code>p=aaa*</code>，这时<code>dp[i][j]=dp[i][j-2]</code></li>
-</ul>
-</li>
+</ul></li>
 <li>如果<code>s[i]</code>与<code>p[j-1]</code>不匹配，那么<code>*</code>前面的字符不匹配<code>s</code>中的字符，这时<code>dp[i][j]=dp[i][j-2]</code></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>根据前面分析知道，麻烦在于<code>p[j]=&#39;*&#39;</code>时的处理，实际上无论<code>s[i]</code>与<code>p[j-1]</code>是否匹配到了，<code>*</code>前面的字符都可能不匹配<code>s</code>中的字符，也就是说<code>dp[i][j] = dp[i][j-2]</code>或者<code>dp[i][j] = dp[i][j-2] | dp[i-1][j]</code>；<br>所以实现的时候可以让<code>dp[i][j]</code>初始化为<code>false</code>，按照<code>dp[i][j]</code>的定义，<code>i,j</code>都必须大于0，这时可以让<code>dp[i][j]</code>表示两个空字符串是否匹配，当然设为<code>true</code>了，最后按照方程进行状态转移就可以了</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><details open>
-<summary>python3</summary>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">match</span><span class="params">(self, schar, pchar)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> pchar == <span class="string">"."</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> pchar == schar</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isMatch</span><span class="params">(self, s, p)</span>:</span></span><br><span class="line">        m, n = len(s), len(p)</span><br><span class="line">        dp = [[<span class="literal">False</span>]*(n+<span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(m+<span class="number">1</span>)]</span><br><span class="line">        <span class="comment"># 空字符比较设为匹配，最终结果为dp[m][n]</span></span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(m+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> p[j<span class="number">-1</span>] != <span class="string">'*'</span>:</span><br><span class="line">                    <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> self.match(s[i<span class="number">-1</span>], p[j<span class="number">-1</span>]):</span><br><span class="line">                        dp[i][j] |= dp[i<span class="number">-1</span>][j<span class="number">-1</span>]</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="comment"># 末位是'*'，则先与上`*`前面的字符不匹配`s`中字符的情况，</span></span><br><span class="line">                    <span class="comment"># 比如s=aa p=aaa*或s=ab p=abc*</span></span><br><span class="line">                    dp[i][j] |= dp[i][j<span class="number">-2</span>]</span><br><span class="line">                    <span class="comment"># 然后判断`s[i]`与`p[j-1]`匹配且`*`前面的字符匹配`s`中多个的情况</span></span><br><span class="line">                    <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> self.match(s[i<span class="number">-1</span>], p[j<span class="number">-2</span>]):</span><br><span class="line">                        dp[i][j] |= dp[i<span class="number">-1</span>][j]</span><br><span class="line">        <span class="keyword">return</span> dp[m][n]</span><br></pre></td></tr></table></figure>
+<h2 id="算法">算法</h2>
+<p>根据前面分析知道，麻烦在于<code>p[j]='*'</code>时的处理，实际上无论<code>s[i]</code>与<code>p[j-1]</code>是否匹配到了，<code>*</code>前面的字符都可能不匹配<code>s</code>中的字符，也就是说<code>dp[i][j] = dp[i][j-2]</code>或者<code>dp[i][j] = dp[i][j-2] | dp[i-1][j]</code>；<br />
+所以实现的时候可以让<code>dp[i][j]</code>初始化为<code>false</code>，按照<code>dp[i][j]</code>的定义，<code>i,j</code>都必须大于0，这时可以让<code>dp[i][j]</code>表示两个空字符串是否匹配，当然设为<code>true</code>了，最后按照方程进行状态转移就可以了</p>
+<h2 id="代码">代码</h2>
+<details open>
+<summary>
+python3
+</summary>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">match</span>(<span class="params">self, schar, pchar</span>):</span><br><span class="line">        <span class="keyword">if</span> pchar == <span class="string">&quot;.&quot;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> pchar == schar</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isMatch</span>(<span class="params">self, s, p</span>):</span><br><span class="line">        m, n = <span class="built_in">len</span>(s), <span class="built_in">len</span>(p)</span><br><span class="line">        dp = [[<span class="literal">False</span>]*(n+<span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(m+<span class="number">1</span>)]</span><br><span class="line">        <span class="comment"># 空字符比较设为匹配，最终结果为dp[m][n]</span></span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> p[j-<span class="number">1</span>] != <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">                    <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> self.match(s[i-<span class="number">1</span>], p[j-<span class="number">1</span>]):</span><br><span class="line">                        dp[i][j] |= dp[i-<span class="number">1</span>][j-<span class="number">1</span>]</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="comment"># 末位是&#x27;*&#x27;，则先与上`*`前面的字符不匹配`s`中字符的情况，</span></span><br><span class="line">                    <span class="comment"># 比如s=aa p=aaa*或s=ab p=abc*</span></span><br><span class="line">                    dp[i][j] |= dp[i][j-<span class="number">2</span>]</span><br><span class="line">                    <span class="comment"># 然后判断`s[i]`与`p[j-1]`匹配且`*`前面的字符匹配`s`中多个的情况</span></span><br><span class="line">                    <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> self.match(s[i-<span class="number">1</span>], p[j-<span class="number">2</span>]):</span><br><span class="line">                        dp[i][j] |= dp[i-<span class="number">1</span>][j]</span><br><span class="line">        <span class="keyword">return</span> dp[m][n]</span><br></pre></td></tr></table></figure>
 </details>
-
-
 <details>
-<summary>c++</summary>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">match</span><span class="params">(<span class="keyword">char</span> ch1, <span class="keyword">char</span> ch2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (ch2 == <span class="string">'.'</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> ch1 == ch2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = s.size(), n = p.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(m + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n + <span class="number">1</span>, <span class="literal">false</span>));</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (p[j - <span class="number">1</span>] != <span class="string">'*'</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; match(s[i - <span class="number">1</span>], p[j - <span class="number">1</span>]))</span><br><span class="line">                        dp[i][j] |= dp[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] |= dp[i][j - <span class="number">2</span>];</span><br><span class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; match(s[i - <span class="number">1</span>], p[j - <span class="number">2</span>]))</span><br><span class="line">                        dp[i][j] |= dp[i - <span class="number">1</span>][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<summary>
+c++
+</summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">match</span><span class="params">(<span class="type">char</span> ch1, <span class="type">char</span> ch2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (ch2 == <span class="string">&#x27;.&#x27;</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> ch1 == ch2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isMatch</span><span class="params">(string s, string p)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = s.<span class="built_in">size</span>(), n = p.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(m + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n + <span class="number">1</span>, <span class="literal">false</span>));</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (p[j - <span class="number">1</span>] != <span class="string">&#x27;*&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; <span class="built_in">match</span>(s[i - <span class="number">1</span>], p[j - <span class="number">1</span>]))</span><br><span class="line">                        dp[i][j] |= dp[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] |= dp[i][j - <span class="number">2</span>];</span><br><span class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; <span class="built_in">match</span>(s[i - <span class="number">1</span>], p[j - <span class="number">2</span>]))</span><br><span class="line">                        dp[i][j] |= dp[i - <span class="number">1</span>][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </details>
-
-
 <details>
-<summary>java</summary>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">match</span><span class="params">(<span class="keyword">char</span> ch1, <span class="keyword">char</span> ch2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(ch2 == <span class="string">'.'</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">return</span> ch1 == ch2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMatch</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = s.length(), n = p.length();</span><br><span class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[m+<span class="number">1</span>][n+<span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;m+<span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;n+<span class="number">1</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(p.charAt(j-<span class="number">1</span>) != <span class="string">'*'</span>)&#123;</span><br><span class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; match(s.charAt(i-<span class="number">1</span>), p.charAt(j-<span class="number">1</span>)))</span><br><span class="line">                        dp[i][j] |= dp[i-<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[i][j] |= dp[i][j-<span class="number">2</span>];</span><br><span class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; match(s.charAt(i-<span class="number">1</span>), p.charAt(j-<span class="number">2</span>)))</span><br><span class="line">                        dp[i][j] |= dp[i-<span class="number">1</span>][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<summary>
+java
+</summary>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">match</span><span class="params">(<span class="type">char</span> ch1, <span class="type">char</span> ch2)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(ch2 == <span class="string">&#x27;.&#x27;</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="type">return</span> <span class="variable">ch1</span> <span class="operator">=</span>= ch2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isMatch</span><span class="params">(String s, String p)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> s.length(), n = p.length();</span><br><span class="line">        <span class="type">boolean</span>[][] dp = <span class="keyword">new</span> <span class="title class_">boolean</span>[m+<span class="number">1</span>][n+<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;m+<span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>; j&lt;n+<span class="number">1</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(p.charAt(j-<span class="number">1</span>) != <span class="string">&#x27;*&#x27;</span>)&#123;</span><br><span class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; match(s.charAt(i-<span class="number">1</span>), p.charAt(j-<span class="number">1</span>)))</span><br><span class="line">                        dp[i][j] |= dp[i-<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[i][j] |= dp[i][j-<span class="number">2</span>];</span><br><span class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; match(s.charAt(i-<span class="number">1</span>), p.charAt(j-<span class="number">2</span>)))</span><br><span class="line">                        dp[i][j] |= dp[i-<span class="number">1</span>][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </details>
+
     </div>
 
     
@@ -413,7 +440,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -484,13 +511,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
