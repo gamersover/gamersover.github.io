@@ -18,17 +18,20 @@ mathjax: true
 
 
 示例 1：
+
 > 输入：nums = [-1,0,1,2,-1,-4]
 输出：\[[-1,-1,2],[-1,0,1]]
 
 示例 2：
+
 > 输入：nums = []
 输出：[]
 
 示例 3：
+
 > 输入：nums = [0]
 输出：[]
- 
+
 
 提示：
 
@@ -42,10 +45,12 @@ mathjax: true
 > <font color='red'>1</font> 1 2 2 3 4 <font color='blue'>4</font>
 
 这时使用双指针法有以下三种情况：
+
 * 左指针left指向的数与右指针指向的数之和大于目标值4，这时需要将右指针向左移动
 * 左指针left指向的数与右指针指向的数之和小于目标值6，这时需要将左指针向右移动
 * 左指针left指向的数与右指针指向的数之和等于目标值5，这时记录这个两数。为了找到所有满足条件的两个数（而且不能重复），需要继续遍历，这时显然将左指针向右移动直到所指向的值不是原来的值，将右指针向左移动直到所指向的值不是原来的值，此时左右指针分别指向`2,3`
-    > 1 1 <font color='red'>2</font> 2 <font color='blue'>3</font> 4 4
+
+> 1 1 <font color='red'>2</font> 2 <font color='blue'>3</font> 4 4
 
 如此下去，直到左指针遇到右指针，就找到了所有满足条件的两个数了。
 
@@ -74,7 +79,7 @@ class Solution:
         for i in range(0, len(nums)-2):
             if i > 0 and nums[i] == nums[i-1]:
                 continue
-            
+
             left = i + 1
             right = len(nums) - 1
             while left < right:

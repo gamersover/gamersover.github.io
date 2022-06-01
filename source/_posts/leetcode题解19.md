@@ -18,19 +18,23 @@ mathjax: true
 <!--more-->
 
 示例 1：
+
 > 输入：head = [1,2,3,4,5], n = 2
 输出：[1,2,3,5]
 
 示例 2：
+
 > 输入：head = [1], n = 1
 输出：[]
 
 示例 3：
+
 > 输入：head = [1,2], n = 1
 输出：[1]
- 
+
 
 提示：
+
 * 链表中结点的数目为`sz`
 * 1 <= `sz` <= 30
 * 0 <= `Node.val` <= 100
@@ -38,6 +42,7 @@ mathjax: true
 
 ## 分析
 想找到倒数第`n`个结点，就相当于找到第`sz - n + 1`个结点，但是`sz`不知道，需要一趟遍历整个链表才能获得，这样看来无论如何都需要两遍扫描；还记得找到中点结点的方法吗？快慢指针，一遍扫描即可；这里也可以用类似的想法；比如，现有一链表如下，要删除倒数第2个结点：
+
 > 1 -> 2 -> 3 -> <font color='blue'>4</font> -> 5 -> <font color='red'>6</font>
 
 如果我们能够让第一个指针`p1`指向4，那么就可以进行删除操作了；利用快慢指针的想法，第二个指针`p2`需要指向最后一个结点即6，所以两个指针相差2个结点，如果最开始让`p1`指向1，`p2`指向3，然后只需让`p1++,p2++`直到`p2`到达最后一个结点，这时`p1`自然达到了倒数第`n`个结点了。
@@ -62,14 +67,14 @@ class Solution:
         while i < n and p2 is not None:
             p2 = p2.next
             i += 1
-        
+
         if p2 is None:
             head = p1.next
             return head
-        
+
         while p2.next is not None:
             p1 = p1.next
-            p2 = p2.next        
+            p2 = p2.next
         p1.next = p1.next.next
 
         return head

@@ -16,15 +16,18 @@ mathjax: true
 <!--more--> 
 
 示例 1：
+
 > 输入：n = 3
 输出：["((()))","(()())","(())()","()(())","()()()"]
 
 示例 2：
+
 > 输入：n = 1
 输出：["()"]
 
 
 提示：
+
 * `1 <= n <= 8`
 
 ## 分析
@@ -66,11 +69,11 @@ class Solution:
     def generate(self, left, right, s=""):
         if len(s) == self.n * 2:
             self.result.append(s)
-            return 
-        
+            return
+
         if left < self.n:
             self.generate(left+1, right, s+"(")
-        
+
         if right < left:
             self.generate(left, right+1, s+")")
 ```
@@ -122,7 +125,7 @@ class Solution {
             res.add(s);
             return;
         };
-        
+
         if (left < n){
             generate(n, left+1, right, s+"(");
         }

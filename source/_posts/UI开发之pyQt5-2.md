@@ -9,6 +9,7 @@ categories: 教程
 ---
 
 文本类控件主要包含：
+
 * QLineEdit：单行文本编辑框
 * QTextEdit：多行文本编辑框
 
@@ -92,6 +93,7 @@ text_edit.setPlaceholderText("请输入")
 ```python
 font = QFont(family: str, pointSize: int, weight: int, italic: bool)
 ```
+
 * family：字体风格
 * pointSize：字体大小，可选参数
 * weight：字体粗细，可选参数

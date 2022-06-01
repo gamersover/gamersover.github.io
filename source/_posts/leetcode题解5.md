@@ -18,11 +18,13 @@ mathjax: true
 <!--more-->
 
 示例 1：
+
 > 输入: "babad"
 输出: "bab"
 注意: "aba" 也是一个有效答案。
 
 示例 2：
+
 > 输入: "cbbd"
 输出: "bb"
 
@@ -49,21 +51,21 @@ class Solution:
             for j in range(i, n):
                 if i == j:
                     dp[i][j] = True
-               
+
                 elif s[i] == s[j]:
                     if j - i > 1:
                         dp[i][j] = dp[i+1][j-1]
                     else:
                         dp[i][j] = True
-                        
+
                 else:
                     dp[i][j] = False
-                    
+
                 if dp[i][j] and max_len < j - i + 1:
                     start = i
                     end = j + 1
-                    max_len = j - i + 1 
-        
+                    max_len = j - i + 1
+
         return s[start:end]
 ```
 </details>

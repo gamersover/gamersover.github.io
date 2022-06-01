@@ -16,18 +16,22 @@ mathjax: true
 
 <!--more-->
 示例1：
+
 > 输入：head = [1,2,3,4]
 输出：[2,1,4,3]
 
 示例2：
+
 > 输入：head = []
 输出：[]
 
 示例3：
+
 > 输入：head = [1]
 输出：[1]
 
 提示：
+
 * 链表中节点的数目在范围`[0, 100]`内
 * `0 <= Node.val <= 100`
 
@@ -92,7 +96,7 @@ struct ListNode {
 	ListNode(int x) : val(x), next(nullptr) {}
 	ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
- 
+
 class Solution {
 public:
 	ListNode* swapPairs(ListNode* head) {
@@ -124,12 +128,12 @@ public class ListNode {
     ListNode(int val) { this.val = val; }
     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  }
- 
+
 class Solution {
     public ListNode swapPairs(ListNode head) {
         ListNode fakeHead = new ListNode(0, head);
         ListNode curr = fakeHead;
-        while ((curr.next != null) && (curr.next.next != null)) { 
+        while ((curr.next != null) && (curr.next.next != null)) {
             ListNode first = curr.next;
             ListNode second = first.next;
             first.next = second.next;

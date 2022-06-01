@@ -1,17 +1,17 @@
 ---
 title: WSL和windows的zsh终端配置教程
 date: 2019-12-23 20:50:16
-tags: 
+tags:
     - shell
     - zsh
-    - WSL 
+    - WSL
     - windows
     - 终端美化
 categories: 技术
 ---
 
 ## 1 WSL终端配置
----
+
 ### 1.1 更换配色
 
 背景rgb（0，43，53），文字rgb(147,161,161)
@@ -53,7 +53,7 @@ DEFAULTUSER='cetrol
 ```
 
 ## 2 powershell终端配置
----
+
 ### 2.1 管理员运行powershell
 ```powershell
 # 允许powershell运行任何脚本
@@ -108,7 +108,7 @@ Install-Module -Name PSReadLine -Force -SkipPublisherCheck
 if (!(Test-Path -Path $PROFILE )) { New-Item -Type File -Path $PROFILE -Force }
 @"
 #requires -Version 2 -Modules posh-git
- 
+
 function Write-Theme {
     param(
         [bool]
@@ -116,27 +116,27 @@ function Write-Theme {
         [string]
         `$with
     )
- 
+
     `$lastColor = `$sl.Colors.PromptBackgroundColor
     `$prompt = Write-Prompt -Object `$sl.PromptSymbols.StartSymbol -ForegroundColor `$sl.Colors.PromptForegroundColor -BackgroundColor `$sl.Colors.SessionInfoBackgroundColor
- 
+
     #check the last command state and indicate if failed
     If (`$lastCommandFailed) {
         `$prompt += Write-Prompt -Object "`$(`$sl.PromptSymbols.FailedCommandSymbol) " -ForegroundColor `$sl.Colors.CommandFailedIconForegroundColor -BackgroundColor `$sl.Colors.SessionInfoBackgroundColor
     }
- 
+
     #check for elevated prompt
     If (Test-Administrator) {
         `$prompt += Write-Prompt -Object "`$(`$sl.PromptSymbols.ElevatedSymbol) " -ForegroundColor `$sl.Colors.AdminIconForegroundColor -BackgroundColor `$sl.Colors.SessionInfoBackgroundColor
     }
- 
+
     `$user = [System.Environment]::UserName
     `$computer = [System.Environment]::MachineName
     `$path = Get-FullPath -dir `$pwd
     if (Test-NotDefaultUser(`$user)) {
         `$prompt += Write-Prompt -Object "`$user@`$computer " -ForegroundColor `$sl.Colors.SessionInfoForegroundColor -BackgroundColor `$sl.Colors.SessionInfoBackgroundColor
     }
- 
+
     if (Test-VirtualEnv) {
         `$prompt += Write-Prompt -Object "`$(`$sl.PromptSymbols.SegmentForwardSymbol) " -ForegroundColor `$sl.Colors.SessionInfoBackgroundColor -BackgroundColor `$sl.Colors.VirtualEnvBackgroundColor
         `$prompt += Write-Prompt -Object "`$(`$sl.PromptSymbols.VirtualEnvSymbol) `$(Get-VirtualEnvName) " -ForegroundColor `$sl.Colors.VirtualEnvForegroundColor -BackgroundColor `$sl.Colors.VirtualEnvBackgroundColor
@@ -145,10 +145,10 @@ function Write-Theme {
     else {
         `$prompt += Write-Prompt -Object "`$(`$sl.PromptSymbols.SegmentForwardSymbol) " -ForegroundColor `$sl.Colors.SessionInfoBackgroundColor -BackgroundColor `$sl.Colors.PromptBackgroundColor
     }
- 
+
     ## Writes the drive portion
     `$prompt += Write-Prompt -Object "`$path " -ForegroundColor `$sl.Colors.PromptForegroundColor -BackgroundColor `$sl.Colors.PromptBackgroundColor
- 
+
     `$status = Get-VCSStatus
     if (`$status) {
         `$themeInfo = Get-VcsInfo -status (`$status)
@@ -156,18 +156,18 @@ function Write-Theme {
         `$prompt += Write-Prompt -Object `$(`$sl.PromptSymbols.SegmentForwardSymbol) -ForegroundColor `$sl.Colors.PromptBackgroundColor -BackgroundColor `$lastColor
         `$prompt += Write-Prompt -Object " `$(`$themeInfo.VcInfo) " -BackgroundColor `$lastColor -ForegroundColor `$sl.Colors.GitForegroundColor
     }
- 
+
     ## Writes the postfix to the prompt
     `$prompt += Write-Prompt -Object `$sl.PromptSymbols.SegmentForwardSymbol -ForegroundColor `$lastColor
- 
+
     `$timeStamp = Get-Date -UFormat %r
     `$timestamp = "[`$timeStamp]"
- 
+
     `$prompt += Set-CursorForRightBlockWrite -textLength (`$timestamp.Length + 1)
     `$prompt += Write-Prompt `$timeStamp -ForegroundColor `$sl.Colors.PromptForegroundColor
- 
+
     `$prompt += Set-Newline
- 
+
     if (`$with) {
         `$prompt += Write-Prompt -Object "`$(`$with.ToUpper()) " -BackgroundColor `$sl.Colors.WithBackgroundColor -ForegroundColor `$sl.Colors.WithForegroundColor
     }
@@ -175,7 +175,7 @@ function Write-Theme {
     `$prompt += ' '
     `$prompt
 }
- 
+
 `$sl = `$global:ThemeSettings #local settings
 `$sl.PromptSymbols.StartSymbol = ''
 `$sl.PromptSymbols.PromptIndicator = [char]::ConvertFromUtf32(0x276F)
@@ -209,6 +209,6 @@ if (Test-Path($ChocolateyProfile)) {
 
 
 ## 3 Vscode终端配置
----
+
 * 设置->用户->功能->终端  设置可以正确显示Agnoster的字体，比如fira code retina字体
 

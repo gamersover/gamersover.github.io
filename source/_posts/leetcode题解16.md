@@ -15,14 +15,15 @@ mathjax: true
 
 <!--more-->
  
-
 示例：
+
 > 输入：nums = [-1,2,1,-4], target = 1
 输出：2
 解释：与 target 最接近的和是 2 (-1 + 2 + 1 = 2) 。
- 
+
 
 提示：
+
 * `3 <= nums.length <= 10^3`
 * `-10^3 <= nums[i] <= 10^3`
 * `-10^4 <= target <= 10^4`
@@ -45,6 +46,7 @@ mathjax: true
 7. 判断`second`是否大于等于`third`，如果是，退出循环；否则`first++`，并进入循环体（第4步）
 
 小优化：
+
 > 在三数之和中，为了避免找到重复解，每到一个新数时可以和前面数比较，如果一样直接跳过。这里在遍历`first,second,third`三个数时都可以跳过重复值，避免重复计算。
 ## 代码
 
@@ -73,11 +75,11 @@ class Solution:
                     while second < third and nums[second] == nums[second+1]:
                         second += 1
                     second += 1
-            
+
             while first < len(nums) - 2 and nums[first] == nums[first+1]:
                 first += 1
             first += 1
-        
+
         return closest
 ```
 </details>

@@ -20,29 +20,35 @@ mathjax: true
 <!--more-->
 
 示例 1：
+
 > 输入：nums1 = [1,3], nums2 = [2]
 输出：2.00000
 解释：合并数组 = [1,2,3] ，中位数 2
 
 示例 2：
+
 > 输入：nums1 = [1,2], nums2 = [3,4]
 输出：2.50000
 解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5
 
 示例 3：
+
 > 输入：nums1 = [0,0], nums2 = [0,0]
 输出：0.00000
 
 示例 4：
+
 > 输入：nums1 = [], nums2 = [1]
 输出：1.00000
 
 示例 5：
+
 > 输入：nums1 = [2], nums2 = []
 输出：2.00000
  
 
 提示：
+
 > * nums1.length == m
 > * nums2.length == n
 > * 0 <= m <= 1000
@@ -57,9 +63,11 @@ mathjax: true
 ### 中位数特点
 
 中位数的特点是比它小的数和比它大的数一样多，如下面例子
-> 1 2 3 4 <font color='blue'>5</font> 6 7 8 9    
+
+> 1 2 3 4 <font color='blue'>5</font> 6 7 8 9
 
 `5`的前面有四个数`1 2 3 4`，后面有四个数`6 7 8 9`，从而`5`是中位数
+
 > 1 2 3 4 <font color='blue'>5 6</font> 7 8 9 10
 
 `5 6`的前面有四个数`1 2 3 4`，后面有四个数`6 7 8 9`，从而`(5+6)/2=5.5`是中位数
@@ -71,12 +79,13 @@ mathjax: true
 ### 两个排序数组的中位数寻找
 
 对于两个排序数组，比如
+
 > 1 4 5 7 8 9
 > 2 3 6
 
 这时分割应该是
 
-> <font color='red'>1 4 5</font> <font color='blue'>7 8 9</font> <br/>
+> <font color='red'>1 4 5</font> <font color='blue'>7 8 9</font>
 > <font color='red'>2 3</font> <font color='blue'>6</font>
 
 可以看到分割的左边为`1 4 5 2 3`，右边为`6 7 8 9`，满足上述两点。
@@ -88,35 +97,42 @@ mathjax: true
     找分割无非就是如何划分，使得左边有5个数罢了，而这5个数来自于上面数组和下面数组，从而以`2 3 6`作为基准，如果`2 3 6`中没有划分到左边的，那么左边5个数都是来自上面数组的`1 4 5 7 8`；如果`2 3 6`中只有`2`划分到左边，那显然是上面数组的`1 4 5 7`划分到左边。
     所有分割情况如下四种：
     （1）
-    > <font color='red'>1 4 5 7 8</font> <font color='blue'>9</font> <br/>
+
+    > <font color='red'>1 4 5 7 8</font> <font color='blue'>9</font>
     > <font color='blue'>2 3 6</font>
-    
+
     （2）
-    > <font color='red'>1 4 5 7</font> <font color='blue'>8 9</font> <br/>
+
+    > <font color='red'>1 4 5 7</font> <font color='blue'>8 9</font>
     > <font color='red'>2</font> <font color='blue'>3 6</font>
-    
+
     （3）
-    > <font color='red'>1 4 5</font> <font color='blue'>7 8 9</font> <br/>
+
+    > <font color='red'>1 4 5</font> <font color='blue'>7 8 9</font>
     > <font color='red'>2 3</font> <font color='blue'>6</font>
-    
+
     （4）
-    > <font color='red'>1 4</font> <font color='blue'>5 7 8 9</font> <br/>
+
+    > <font color='red'>1 4</font> <font color='blue'>5 7 8 9</font>
     > <font color='red'>2 3 6</font>
 
 * 满足第2点的分割
 
    以下面分割为例
-    > <font color='red'>1 4 5 7</font> <font color='blue'>8 9</font> <br/>
+
+    > <font color='red'>1 4 5 7</font> <font color='blue'>8 9</font>
     > <font color='red'>2</font> <font color='blue'>3 6</font>
-   
+
    要判断右边元素是否都要大于左边，只需判断`8 3`是否都要大于`7 2`，由于上下两个数组已经排好序了，表示$(8,7),(3,2)$已经满足条件了，所以只需比较$(8,2),(3,7)$是否满足条件，显然$3 < 7$，所以该分割不满足第2点。
 
 ### 最终算法
 经过以上例子的分析，下面解释一般的情况，比如两个数组
+
 > $a_0 a_1 a_2 a_3 a_4 a_5$
 > $b_0 b_1 b_2$
 
 假设任取分割$(4,1)$，表示分割点分别在$a_4$的左边和$b_1$的左边
+
 > <font color="red">$a_0 a_1 a_2 a_3$</font> $a_4 a_5 a_6$
 > <font color="red">$b_0$</font> $b_1 b_2$
 
@@ -132,7 +148,8 @@ mathjax: true
 
 由于二分法每次可以筛选掉一半，所以初始化`jleft=0,jright=n`，然后执行
 
-1. `j = (jleft+jright) // 2`，显然此时`nums1`的分割点`i = (m+n+1)//2 - j`，如下图所示
+1. `j = (jleft+jright) // 2`，显然此时`nums1`的分割点`i = (m+n+1)//2 - j`，如下
+
     > ... `nums1[i-1], nums1[i]`, ...
     > ... `nums2[j-1], nums2[j]`, ...
 
@@ -147,24 +164,28 @@ mathjax: true
 最后注意边界:
 
 边界1：若`j=0,i<m`，此时如下
+
 > ...,`nums1[i-1],nums1[i]`,...
 > `nums2[0],nums2[1]`,...
 
 可知左边只有`nums1[i-1]`，所以`max_left=nums1[i-1]`；而`min_right=min(nums[i],nums2[k])`；
 
 边界2：若`j=0,i=m`，此时如下
+
 > ...,`nums1[m-1]`
 > `nums2[0],nums2[1]`,...
 
 可知`max_left=nums1[m-1]`，`min_right=nums2[0]`;
 
 边界3：若`j=n,i>0`，此时如下
+
 > ...,`nums1[i-1],nums1[i]`,...
 > ...,`nums2[n-2],nums2[n-1]`
 
 `max_left=max(nums1[i-1],nums2[n-1])`；`min_right=nums1[i]`;
 
 边界3：若`j=n,i=0`，此时如下
+
 > `nums1[0],nums1[1]`,...
 > ...,`nums2[n-2],nums2[n-1]`
 
@@ -183,7 +204,7 @@ class Solution:
         m, n = len(nums1), len(nums2)
         if m < n:
             m, n, nums1, nums2 = n, m, nums2, nums1
-        
+
         half_len = (m + n + 1) >> 1
         jleft, jright = 0, n
         while jleft <= jright:
@@ -195,24 +216,24 @@ class Solution:
                 jright = j - 1
             else:
                 break
-        
+
         if j == 0:
             max_left = nums1[i-1]
         elif j == n and i == 0:
             max_left = nums2[j-1]
         else:
             max_left = max(nums1[i-1], nums2[j-1])
-        
+
         if (m + n) % 2 == 1:
             return max_left
-        
+
         if j == n:
             min_right = nums1[i]
         elif j == 0 and i == m:
             min_right = nums2[j]
         else:
             min_right = min(nums1[i], nums2[j])
-        
+
         return (max_left + min_right) / 2
 ```
 </details>
@@ -297,7 +318,7 @@ class Solution {
         if (j == n) minRight = nums1[i];
         else if(j == 0 && i == m) minRight = nums2[j];
         else minRight = Math.min(nums1[i], nums2[j]);
-    
+
         return (maxLeft + minRight) / 2;
     }
 }

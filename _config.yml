@@ -74,7 +74,7 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## Use post's date for updated date unless set in front-matter
-use_date_for_updated: false
+updated_option: 'date'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -108,9 +108,21 @@ symbols_count_time:
   total_symbols: true
   total_time: true
 
-# Search 
+# Search
 search:
   path: ./public/search.xml
   field: post
   format: html
   limit: 10000
+
+# hexo-renderer-pandoc (https://github.com/wzpan/hexo-renderer-pandoc)
+pandoc:
+  # extra:
+    # - toc: # will be passed as `--toc`. Note the colon，如果不需要自动生成目录无需添加此行
+  extensions:
+    - '+hard_line_breaks'
+    - '+emoji'
+    - '-implicit_figures'
+  # template:
+  #   ./pandoc_template.html # 如果不需要自动生成目录无需添加此行
+# -----------------------------------------------------

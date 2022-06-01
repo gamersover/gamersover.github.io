@@ -4,3 +4,5 @@ db.json
 debug.json
 node_modules/
 themes/
+.obsidian/
+.DS_store

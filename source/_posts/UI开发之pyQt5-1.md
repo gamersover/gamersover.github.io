@@ -25,6 +25,7 @@ PyQt5要显示控件，需要依附在顶层类中，这些顶层类作为主入
 以上三个类都在`PyQt5.QtWidgets`类下面。
 
 常用显示控件有：
+
 * `QMenu`：菜单栏
 * `QLineEdit`：单行文本编辑框
 * `QTextEdit`：多行文本编辑框
@@ -76,7 +77,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
-        super(MainWindow, self).__init__(parent)   
+        super(MainWindow, self).__init__(parent)
         self.init_ui()
         self.show()
 
@@ -130,6 +131,7 @@ def init_ui(self):
 ```
 
 其中创建了一个主控件`main_widget`用来显示其他控件，使用`setCentralWidget(main_widget)`可以将`main_widget`设置为主窗口`QMainWindow`的中央控件，该控件使用了垂直布局方式`QVBoxlayout`，其中包含两个文本编辑子控件`QLineEdit`。从这里也可以看出widget和layout的关系：
+
 > widget.setLayout(layout)
 > layout.addWidget(widget)
 
@@ -149,7 +151,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QVBoxLayout, QWidget, QHB
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
-        super(MainWindow, self).__init__(parent)   
+        super(MainWindow, self).__init__(parent)
         self.init_ui()
         self.show()
 
@@ -163,7 +165,7 @@ class MainWindow(QMainWindow):
 
         main_layout = QHBoxLayout()
         main_widget.setLayout(main_layout)
-        
+
         left_widget = QWidget()
         right_widget = QWidget()
         main_layout.addWidget(left_widget)
@@ -171,7 +173,7 @@ class MainWindow(QMainWindow):
 
         right_layout = QVBoxLayout()
         right_widget.setLayout(right_layout)
-        
+
         top_widget = QWidget()
         buttom_widget = QWidget()
         right_layout.addWidget(top_widget)

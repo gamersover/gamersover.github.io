@@ -17,13 +17,13 @@ mathjax: true
 请你将所有链表合并到一个升序链表中，返回合并后的链表。
 <!--more-->
  
-
 示例 1：
-> 输入：lists = \[[1,4,5],[1,3,4],[2,6]]
+
+> 输入：lists = [[1,4,5],[1,3,4],[2,6]]
 输出：[1,1,2,3,4,4,5,6]
 解释：链表数组如下：
 [
-    1->4->5,    
+    1->4->5,
     1->3->4,
     2->6
 ]
@@ -31,13 +31,15 @@ mathjax: true
 1->1->2->3->4->4->5->6
 
 示例 2：
+
 > 输入：lists = []
 输出：[]
 
 示例 3：
+
 > 输入：lists = [[]]
 输出：[]
- 
+
 
 提示：
 
@@ -83,7 +85,7 @@ class Solution:
             if node is not None:
                 heapq.heappush(plist, (node.val, i, node))
                 i += 1
-        
+
         fhead = ListNode()
         curr = fhead
         while len(plist) > 0:
@@ -94,7 +96,7 @@ class Solution:
             if node.next is not None:
                 heapq.heappush(plist, (node.next.val, i, node.next))
                 i += 1
-        
+
         return fhead.next
 ```
 </details>

@@ -1,7 +1,7 @@
 ---
 title: 数据库之sql实践
 date: 2021-04-16 23:23:36
-tags: 
+tags:
     - 大数据
     - sql
 categories: 技术
@@ -31,7 +31,7 @@ categories: 技术
 对于数据库，表，记录，字段都有增、删、改、查的操作，而sql（Structured Query Language）即结构化查询语言就是用来完成这些操作的，对于不同的对象有着不同的sql语句。大致包含对数据库的操作，对表的操作，对字段的操作，对记录的操作。在执行单条sql语句时可以不以`;`结束，但是执行多条语句时需要以`;`结束。而且sql语句大小写不敏感，即不区分大小写。
 
 # 2. 数据库操作sql
-## 2.1 查 
+## 2.1 查
 * **show databases**：查询当前所有数据库
 
   ```shell
@@ -63,7 +63,7 @@ categories: 技术
   | component                                            |
   | db                                                   |
   | default_roles                                        |
-  ...                                                  
+  ...
   | engine_cost                                          |
   | func                                                 |
   | time_zone_name                                       |
@@ -114,7 +114,7 @@ categories: 技术
 # 3. 表操作sql
 ## 3.1 增
 * **create table**： 创建表
-语法：  
+语法：
   ```
   CREATE TABLE 表名
   (
@@ -462,6 +462,7 @@ join c on (a.a1=c.c1)
 
 #### 3.6.1.4 子查询
 以上语法中`from`语法后的表名都可以替换为`select`查询语句得到的中间结果，相当于从中间查询结果中再次查询，具体语法是
+
 * **select ... from (select ... from ...) ...**：嵌套查询，从中间查询结果中再次查询，一般会将中间查询结果与原表`join`后再查询
   ```sql
   mysql> select dc.* from dc inner join (select age, max(powerlevel) as mp from dc group by age) t1 on (dc.age=t1.age and dc.powerlevel=t1.mp); -- 查询年龄age相同的数据中，powerlevel最大的记录并包含名字name等所有原始信息的数据
@@ -478,6 +479,7 @@ join c on (a.a1=c.c1)
 
 #### 3.6.1.5 查询结果合并
 union语法，可以合并多个`select`语句的查询结果，具体语法：
+  
 * **select ... from ... [distinct] union select ... from ...**
 
 ```sql
@@ -536,7 +538,7 @@ mysql> select * from dc t1 left join dc_name t2 on (t1.name=t2.name)
 * **insert (into|overwrite) 表名 select查询语句**：从另一表中中导入数据
   * into是追加方式
   * overwirte是重写方式
-  
+
   ```sql
   mysql> create table dc_name (id int, name varchar(255)); -- 创建新表dc_name
   Query OK, 0 rows affected (2.56 sec)
@@ -608,7 +610,7 @@ mysql> select * from dc t1 left join dc_name t2 on (t1.name=t2.name)
   |  2 | wonderwoman |   30 |          8 |
   +----+-------------+------+------------+
   2 rows in set (0.00 sec)
-  
+
   mysql> update dc set age=35; -- 不加where条件，默认修改所有行的age字段值
   Query OK, 1 row affected (1.94 sec)
   Rows matched: 2  Changed: 1  Warnings: 0
