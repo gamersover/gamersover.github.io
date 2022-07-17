@@ -128,7 +128,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">67</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">68</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -138,7 +138,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">85</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">88</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -316,7 +316,7 @@ wordgood<font color='red'>goodgoodbestword</font> -&gt; ...<br />
 <p>优化后的方法同样可以遍历完所有子串，而且由于每次移出一个单词，移入一个单词，从而可以很好的维护窗口中的元素。</p>
 <p>在模拟窗口移动时发现可以继续优化，比如即将移入的元素不存在于words中，表明直到将该元素移出为止，不可能存在满足条件的子串。另外一种可以优化的情况，如果即将移入的元素在words中，但是元素个数超过了words中的该元素个数呢？显然这时候需要移出该元素前面的所有元素（包含自身），这样才能让该元素的个数少一个。</p>
 <p>考虑了上面的两种情况就可以保证子串里的元素都在words中，且每个元素的个数不超过words中的元素，所以该窗口必为words中的某个组合，因为如果某个元素的个数小与words中的该元素个数，那么窗口的长度必然小于16。</p>
-<h2 id="算法">算法</h2>
+<h2 id="代码">代码</h2>
 <details open>
 <summary>
 python
@@ -345,7 +345,7 @@ python
       <div class="popular-posts-title"><a href="/2021/01/22/leetcode题解15/" rel="bookmark">leetcode题解15：三数之和</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2021/03/28/leetcode题解19/" rel="bookmark">leetcode题解19：删除链表的倒数第N个结点</a></div>
+      <div class="popular-posts-title"><a href="/2021/03/13/leetcode题解16/" rel="bookmark">leetcode题解16：最接近的三数之和</a></div>
     </li>
   </ul>
 
@@ -429,7 +429,7 @@ python
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-text">算法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -445,7 +445,7 @@ python
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">88</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -458,7 +458,7 @@ python
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -500,13 +500,13 @@ python
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">397k</span>
+    <span title="站点总字数">399k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:01</span>
+    <span title="站点阅读时长">6:03</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">67</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">68</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -139,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">85</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">88</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -298,7 +298,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-valid-
 <p>注意嵌套括号也算，比如<code>())(())</code>的最长有效括号子串为<code>(())</code>。碰到括号匹配问题首先应该想到<strong>栈</strong>，由于存在嵌套，想要一次循环解决有点难，因为有些左括号必须到最后才知道是否有匹配的又括号，从而必须分两次解决，第一次循环通过压栈模拟获得每个匹配到的括号，如<code>())(()))()</code>，压栈过程（压栈记录索引，不需要记录元素）：<br />
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">1</span>. 栈内（从而栈底到栈顶）：<span class="number">0</span>       出栈：null</span><br><span class="line"><span class="attribute">2</span>. 栈内（从而栈底到栈顶）：null    出栈：<span class="number">01</span></span><br><span class="line"><span class="attribute">3</span>. 栈内（从而栈底到栈顶）：<span class="number">2</span>       出栈：<span class="number">01</span></span><br><span class="line"><span class="attribute">4</span>. 栈内（从而栈底到栈顶）：<span class="number">23</span>      出栈：<span class="number">01</span></span><br><span class="line"><span class="attribute">5</span>. 栈内（从而栈底到栈顶）：<span class="number">234</span>     出栈：<span class="number">01</span></span><br><span class="line"><span class="attribute">6</span>. 栈内（从而栈底到栈顶）：<span class="number">23</span>      出栈：<span class="number">0145</span></span><br><span class="line"><span class="attribute">7</span>. 栈内（从而栈底到栈顶）：<span class="number">2</span>       出栈：<span class="number">014536</span></span><br><span class="line"><span class="attribute">8</span>. 栈内（从而栈底到栈顶）：<span class="number">27</span>      出栈：<span class="number">014536</span></span><br><span class="line"><span class="attribute">9</span>. 栈内（从而栈底到栈顶）：<span class="number">278</span>      出栈：<span class="number">014536</span></span><br><span class="line"><span class="attribute">10</span>. 栈内（从而栈底到栈顶）：<span class="number">27</span>      出栈：<span class="number">01453689</span></span><br></pre></td></tr></table></figure><br />
 最终发现栈内为是<code>27</code>，为了计算方便可以在最后得到的栈内首位插入-1，末尾插入<code>len(s)</code>，这时栈内为<code>-1 2 7 10</code>，表示<code>0-1</code>，<code>3-6</code>，<code>8-9</code>都是连续括号，这样再循环一次就可以求得最长的连续括号子串了</p>
-<h2 id="算法">算法</h2>
+<h2 id="代码">代码</h2>
 <details open>
 <summary>
 python
@@ -324,16 +324,16 @@ c++
       <div class="popular-posts-title"><a href="/2020/12/05/leetcode题解10/" rel="bookmark">leetcode题解10：正则表达式匹配</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2020/11/21/leetcode题解5/" rel="bookmark">leetcode题解5：最长回文子串</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2020/11/28/leetcode题解8/" rel="bookmark">leetcode题解8：字符串转换整数 (atoi)</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2022/07/10/leetcode题解43/" rel="bookmark">leetcode题解43：字符串相乘</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2022/07/10/leetcode题解44/" rel="bookmark">leetcode题解44：通配符匹配</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/11/21/leetcode题解5/" rel="bookmark">leetcode题解5：最长回文子串</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/11/28/leetcode题解8/" rel="bookmark">leetcode题解8：字符串转换整数 (atoi)</a></div>
     </li>
   </ul>
 
@@ -418,7 +418,7 @@ c++
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-text">算法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -434,7 +434,7 @@ c++
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">88</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -447,7 +447,7 @@ c++
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -489,13 +489,13 @@ c++
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">397k</span>
+    <span title="站点总字数">399k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:01</span>
+    <span title="站点阅读时长">6:03</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>

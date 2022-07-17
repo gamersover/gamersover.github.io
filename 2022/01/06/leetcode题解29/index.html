@@ -128,7 +128,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">67</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">68</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -138,7 +138,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">85</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">88</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -301,12 +301,12 @@ target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/divide-two
 由于<code>sum+sum</code>可能会溢出，所以改为<code>sum &lt; dividend - sum</code>就好。</p>
 <p>最后无非是考虑边界了，由于int32的数值范围是<code>[-2^31, 2^31-1]</code>，所以如果把值转为正数，那么范围会变成<code>[0, 2^31]</code>，这时候<code>2^31</code>就会溢出，怎么办呢？其实这里有个小技巧，不都转为正数，而是都转为负数，因为转为负数后的范围是<code>[-2^31, 0]</code>，这样就不会溢出了。当然被除数与除数全部转为负数后，要注意代码中的大小关系与全转为正数时的不同。</p>
 <p>当然如果全部使用<code>long long</code>长整型，就没有那么多边界的问题需要考虑了。但是题目应该是倾向于只使用<code>int</code>整型。</p>
-<h2 id="算法">算法</h2>
+<h2 id="代码">代码</h2>
 <details open>
 <summary>
 c++
 </summary>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">divide</span><span class="params">(<span class="type">int</span> dividend, <span class="type">int</span> divisor)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 当dividend和divisor为INT_MIN时，不能使用绝对值，因为会溢出</span></span><br><span class="line">        <span class="keyword">if</span> (dividend == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (dividend == INT_MIN)&#123;</span><br><span class="line">            <span class="keyword">if</span> (divisor == <span class="number">-1</span>) <span class="keyword">return</span> INT_MAX;</span><br><span class="line">            <span class="keyword">if</span> (divisor == <span class="number">1</span>) <span class="keyword">return</span> INT_MIN;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">if</span> (divisor == INT_MIN) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dividend == INT_MIN) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">bool</span> isPositive = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (dividend &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            dividend = -dividend;</span><br><span class="line">            isPositive = !isPositive;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (divisor &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            divisor = -divisor;</span><br><span class="line">            isPositive = !isPositive;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> result = <span class="built_in">div</span>(dividend, divisor);</span><br><span class="line">        <span class="keyword">return</span> isPositive ? result : -result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">div</span><span class="params">(<span class="type">int</span> dividend, <span class="type">int</span> divisor)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (dividend &gt; divisor) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> sum = divisor;</span><br><span class="line">        <span class="type">int</span> result = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 注意： 不能使用sum - dividend，可能会先计算-dividend，从而导致溢出</span></span><br><span class="line">        <span class="keyword">while</span> ((dividend - sum) &lt;= sum)&#123;</span><br><span class="line">            sum += sum;</span><br><span class="line">            result += result;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result + <span class="built_in">div</span>(dividend - sum, divisor);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">divide</span><span class="params">(<span class="type">int</span> dividend, <span class="type">int</span> divisor)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 当dividend和divisor为INT_MIN时，不能使用绝对值，因为会溢出</span></span><br><span class="line">        <span class="keyword">if</span> (dividend == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (dividend == INT_MIN)&#123;</span><br><span class="line">            <span class="keyword">if</span> (divisor == <span class="number">-1</span>) <span class="keyword">return</span> INT_MAX;</span><br><span class="line">            <span class="keyword">if</span> (divisor == <span class="number">1</span>) <span class="keyword">return</span> INT_MIN;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (divisor == INT_MIN) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dividend == INT_MIN) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">bool</span> isPositive = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (dividend &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            dividend = -dividend;</span><br><span class="line">            isPositive = !isPositive;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (divisor &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            divisor = -divisor;</span><br><span class="line">            isPositive = !isPositive;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> result = <span class="built_in">div</span>(dividend, divisor);</span><br><span class="line">        <span class="keyword">return</span> isPositive ? result : -result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">div</span><span class="params">(<span class="type">int</span> dividend, <span class="type">int</span> divisor)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (dividend &gt; divisor) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> sum = divisor;</span><br><span class="line">        <span class="type">int</span> result = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 注意： 不能使用sum - dividend，可能会先计算-dividend，从而导致溢出</span></span><br><span class="line">        <span class="keyword">while</span> ((dividend - sum) &lt;= sum)&#123;</span><br><span class="line">            sum += sum;</span><br><span class="line">            result += result;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result + <span class="built_in">div</span>(dividend - sum, divisor);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </details>
 
     </div>
@@ -321,10 +321,10 @@ c++
       <div class="popular-posts-title"><a href="/2022/05/14/leetcode题解33/" rel="bookmark">leetcode题解33：搜索旋转排序数组</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2020/11/14/leetcode题解4/" rel="bookmark">leetcode题解4：寻找两个正序数组的中位数</a></div>
+      <div class="popular-posts-title"><a href="/2022/05/14/leetcode题解34/" rel="bookmark">leetcode题解34：在排序数组中查找元素的第一个和最后一个位置</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2022/05/14/leetcode题解34/" rel="bookmark">leetcode题解34：在排序数组中查找元素的第一个和最后一个位置</a></div>
+      <div class="popular-posts-title"><a href="/2020/11/14/leetcode题解4/" rel="bookmark">leetcode题解4：寻找两个正序数组的中位数</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2020/11/07/leetcode题解1/" rel="bookmark">leetcode题解1：两数之和</a></div>
@@ -414,7 +414,7 @@ c++
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-text">算法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -430,7 +430,7 @@ c++
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">88</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -443,7 +443,7 @@ c++
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -485,13 +485,13 @@ c++
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">397k</span>
+    <span title="站点总字数">399k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:01</span>
+    <span title="站点阅读时长">6:03</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
