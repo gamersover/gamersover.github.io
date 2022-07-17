@@ -21,7 +21,7 @@ mathjax: true
 2. 当遍历完整个数组后，第一个不满足`arr[k-1]==k`的`k`就是解了；如果都满足表示`1~len(arr)`都在数组中，那么解就是`len(arr)+1`。
 
 
-## 算法
+## 代码
 
 <details open>
 <summary>python</summary>

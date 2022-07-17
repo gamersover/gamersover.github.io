@@ -69,7 +69,7 @@ func div(dividend, divisor):
 当然如果全部使用`long long`长整型，就没有那么多边界的问题需要考虑了。但是题目应该是倾向于只使用`int`整型。
 
 
-## 算法
+## 代码
 
 <details open>
 <summary>c++</summary>
@@ -83,7 +83,7 @@ public:
         if (dividend == INT_MIN){
             if (divisor == -1) return INT_MAX;
             if (divisor == 1) return INT_MIN;
-        } 
+        }
         if (divisor == INT_MIN) {
             if (dividend == INT_MIN) return 1;
             return 0;

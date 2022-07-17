@@ -17,7 +17,7 @@ mathjax: true
 ## 分析
 典型的二分查找，要找第一个，那就当`nums[mid]>=target`，选左边，否则选右边；要找最后一个，那就当`nums[mid] <= target`时，选右边，否则选左边。
 
-## 算法
+## 代码
 
 <details open>
 <summary>python</summary>

@@ -23,7 +23,7 @@ mathjax: true
 4. 若遍历完所有`candidate_nums`，结果还是没有返回`True`，则表示前面的数字有误，则回溯还原现场`board[i][j]="."`，并且函数返回`False`，这样会回到递归上一层
 5. 最终由于函数遍历完所有的待补充区域了，所以直接返回`True`
 
-## 算法
+## 代码
 
 <details open>
 <summary>python</summary>

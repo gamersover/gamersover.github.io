@@ -27,7 +27,7 @@ $$
 
 最后注意边界，主要是`dp[0][j]`这种情况。
 
-## 算法
+## 代码
 
 <details open>
 <summary>python</summary>

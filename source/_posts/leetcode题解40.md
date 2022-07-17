@@ -23,7 +23,7 @@ mathjax: true
 2. 由于`candidates`存在重复的数，表示第6步中，遍历`i: [index, len(candidates)]`；执行的操作应该加一步去掉重复的，即如果以`candidates[i]`数开始的情况已经求解过一遍了，那么后面再遇到与`candidates[i]`相同的数就不需要继续考虑了。
 
 
-## 算法
+## 代码
 
 <details open>
 <summary>python</summary>

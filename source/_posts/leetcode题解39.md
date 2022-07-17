@@ -30,7 +30,7 @@ mathjax: true
 8. 当第3步的递归结束后，`res`就是所有解了
 
 
-## 算法
+## 代码
 
 <details open>
 <summary>python</summary>

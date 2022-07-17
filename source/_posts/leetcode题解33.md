@@ -59,7 +59,7 @@ mathjax: true
 2. 如果`nums[mid] < target`，可以仿照`1`的分析，看什么条件下，一定是递增的，从而判断`target`在`mid`的左边还是右边
 
 
-## 算法
+## 代码
 
 <details open>
 <summary>python</summary>

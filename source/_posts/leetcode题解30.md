@@ -59,7 +59,7 @@ mathjax: true
 
 考虑了上面的两种情况就可以保证子串里的元素都在words中，且每个元素的个数不超过words中的元素，所以该窗口必为words中的某个组合，因为如果某个元素的个数小与words中的该元素个数，那么窗口的长度必然小于16。
 
-## 算法
+## 代码
 
 <details open>
 <summary>python</summary>
