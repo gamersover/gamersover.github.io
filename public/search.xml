@@ -4,6 +4,97 @@
   
     
     <entry>
+      <title>leetcode题解53</title>
+      <link href="/2022/07/24/leetcode%E9%A2%98%E8%A7%A353/"/>
+      <url>/2022/07/24/leetcode%E9%A2%98%E8%A7%A353/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/maximum-subarray/">力扣第53题</a><br /><span id="more"></span></p><h2 id="分析">分析</h2><p>先说一种相对直观的思路：初始化当前和为0，遍历数组，求当前和，与全局最大和比较大小，并更新全局最大和；如果当前和小于0，则表示包含当前值得子数组的和一定不可能是最大值，所以当前和重置为0。</p><p>另一种等价的思路是动态规划，记<code>dp[i]</code>是以第<code>i</code>个数结尾的子数组的最大和，那么考虑以第<code>i+1</code>个数结尾的子数组的最大和，以第<code>i+1</code>个数结尾的子数组的最大和有两种情况，一种是<code>dp[i]+nums[i+1]</code>，一种是<code>nums[i+1]</code>；从而<code>dp[i+1]=max(nums[i], dp[i]+nums[i+1])</code>。然后再求<code>dp</code>数组的最大值就可以，这里也可以用全局最大来更新。这里可以看到<code>dp[i+1]</code>只与<code>dp[i]</code>有关，所以可以压缩数组，用一个数表示就好了。</p><h2 id="代码">代码</h2><details open><summary>python</summary><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maxSubArray</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        ans, curr = nums[<span class="number">0</span>], nums[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">            curr = <span class="built_in">max</span>(nums[i], curr+nums[i])</span><br><span class="line">            ans = <span class="built_in">max</span>(ans, curr)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解52</title>
+      <link href="/2022/07/24/leetcode%E9%A2%98%E8%A7%A352/"/>
+      <url>/2022/07/24/leetcode%E9%A2%98%E8%A7%A352/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/n-queens-ii/">力扣第51题</a><br /><span id="more"></span></p><h2 id="分析">分析</h2><p>思路和<ahref="#todo">第52题</a>一样，只不过不是输出数组，而是计数</p><h2 id="代码">代码</h2><details open><summary>python</summary><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">totalNQueens</span>(<span class="params">self, n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        self.ans = <span class="number">0</span></span><br><span class="line">        self.dfs([], n)</span><br><span class="line">        <span class="keyword">return</span> self.ans</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">self, all_cols, n</span>):</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> self.find_candidates(all_cols, n):</span><br><span class="line">            all_cols.append(c)</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(all_cols) == n:</span><br><span class="line">                self.ans += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            self.dfs(all_cols, n)</span><br><span class="line">            all_cols.pop()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">find_candidates</span>(<span class="params">self, all_cols, n</span>):</span><br><span class="line">        all_valid = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> self.isvalid(all_cols, i):</span><br><span class="line">                all_valid.append(i)</span><br><span class="line">        <span class="keyword">return</span> all_valid</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isvalid</span>(<span class="params">self, all_cols, col</span>):</span><br><span class="line">        row = <span class="built_in">len</span>(all_cols)</span><br><span class="line">        <span class="keyword">for</span> r, c <span class="keyword">in</span> <span class="built_in">enumerate</span>(all_cols):</span><br><span class="line">            <span class="keyword">if</span> c == col <span class="keyword">or</span> <span class="built_in">abs</span>(row - r) == <span class="built_in">abs</span>(col - c):</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 递归 </tag>
+            
+            <tag> 回溯 </tag>
+            
+            <tag> 深度优先遍历 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解51</title>
+      <link href="/2022/07/24/leetcode%E9%A2%98%E8%A7%A351/"/>
+      <url>/2022/07/24/leetcode%E9%A2%98%E8%A7%A351/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/n-queens/">力扣第51题</a><br /><span id="more"></span></p><h2 id="分析">分析</h2><p>首先每个皇后只能在一行，同一行的不行，那么就可以用一个长度为<code>n</code>的数组记录当前的状态，比如<code>[1, 3, 0, 2]</code>表示，第<code>0</code>、<code>1</code>、<code>2</code>，<code>3</code>个皇后分别在<code>1</code>、<code>3</code>、<code>0</code>、<code>2</code>列；要放置<code>n</code>个皇后，大致用一下过程解决：<br />1.由于每行必有且只有一个皇后，所以在第一行放置一个，可以放置到任意列；<br />2.考虑下一行的皇后能够放到的位置，即可以放置的列有哪些？遍历所有可能，并继续考虑下一行</p><p>这样的过程，可以考虑为一棵树，然后深度优先遍历这棵树，得到的就是所有可能的方案；考虑遍历到其中某个结点<code>node</code>时，当前<code>k</code>个皇后的放置状态为数组<code>arr</code>，那么先找出第<code>k+1</code>个皇后的所有可能列<code>candidates</code>，然后遍历<code>candidates</code>，首先将第<code>k+1</code>个皇后的状态更新到<code>arr</code>，然后判断<code>arr</code>的长度是否达到了<code>n</code>，如果是，表明找到了一个解，记录下来；没有继续放置<code>k+2</code>，当<code>node</code>结点下面的所有可能都遍历完后，表示<code>node</code>结点已经完成了，应该要更新<code>node</code>结点的兄弟结点了，这是需要还原第<code>k</code>个皇后放置前的状态，即回溯下<code>arr</code>。</p><p>在已知前<code>k</code>个皇后状态数组<code>arr</code>的情况下，如何找到第<code>k+1</code>个皇后的所有可能列呢？仔细推导下发现，同一列的去掉，同一斜线的去掉，同一列的简单，就是<code>arr</code>中的值，同一斜线的就是列之差的绝对值和行之差的绝对值相等。</p><h2 id="代码">代码</h2><details open><summary>python</summary><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">solveNQueens</span>(<span class="params">self, n: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">str</span>]]:</span><br><span class="line">        ans = []</span><br><span class="line">        self.dfs([], n, ans)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">self, all_cols, n, ans</span>):</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> self.find_candidates(all_cols, n):</span><br><span class="line">            all_cols.append(c)</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(all_cols) == n:</span><br><span class="line">                ans.append(self.format_ans(all_cols))</span><br><span class="line"></span><br><span class="line">            self.dfs(all_cols, n, ans)</span><br><span class="line">            all_cols.pop()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">find_candidates</span>(<span class="params">self, all_cols, n</span>):</span><br><span class="line">        all_valid = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> self.isvalid(all_cols, i):</span><br><span class="line">                all_valid.append(i)</span><br><span class="line">        <span class="keyword">return</span> all_valid</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isvalid</span>(<span class="params">self, all_cols, col</span>):</span><br><span class="line">        row = <span class="built_in">len</span>(all_cols)</span><br><span class="line">        <span class="keyword">for</span> r, c <span class="keyword">in</span> <span class="built_in">enumerate</span>(all_cols):</span><br><span class="line">            <span class="keyword">if</span> c == col <span class="keyword">or</span> <span class="built_in">abs</span>(row - r) == <span class="built_in">abs</span>(col - c):</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">format_ans</span>(<span class="params">self, ans</span>):</span><br><span class="line">        s = [<span class="string">&#x27;.&#x27;</span>*i + <span class="string">&#x27;Q&#x27;</span> + <span class="string">&#x27;.&#x27;</span>*(<span class="built_in">len</span>(ans)-i-<span class="number">1</span>) <span class="keyword">for</span> i <span class="keyword">in</span> ans]</span><br><span class="line">        <span class="keyword">return</span> s</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 递归 </tag>
+            
+            <tag> 回溯 </tag>
+            
+            <tag> 深度优先遍历 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode题解50</title>
       <link href="/2022/07/23/leetcode%E9%A2%98%E8%A7%A350/"/>
       <url>/2022/07/23/leetcode%E9%A2%98%E8%A7%A350/</url>
