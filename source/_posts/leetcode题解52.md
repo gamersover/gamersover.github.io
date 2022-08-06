@@ -1,5 +1,5 @@
 ---
-title: leetcode题解52
+title: leetcode题解52：N皇后 II
 date: 2022-07-24 12:49:04
 tags:
     - leetcode

@@ -1,5 +1,5 @@
 ---
-title: leetcode题解51
+title: leetcode题解51：N皇后
 date: 2022-07-24 12:27:00
 tags:
     - leetcode

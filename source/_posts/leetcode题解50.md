@@ -1,5 +1,5 @@
 ---
-title: leetcode题解50
+title: leetcode题解50：Pow(x, n)
 date: 2022-07-23 15:52:29
 tags:
     - leetcode
@@ -20,7 +20,7 @@ mathjax: true
 
 这里介绍另一种方法，使用迭代。考虑$x^n$时，将$n$表示成二进制$a_k \times 2^k + a_{k-1} \times 2^(k-1) + \cdots + a_0 \times 2^0$，从而
 $$
-    x^n = x^{a_k 2^k} \times x^{a_{k-1} 2^(k-1)} \times \cdots \times x^{a_0 2^0}
+    x^n = x^{a_k 2^k} \times x^{a_{k-1} 2^{k-1}} \times \cdots \times x^{a_0 2^0}
 $$
 其中$a_i (i=0,1,\cdots,k)$取值为$0$或$1$；
 
