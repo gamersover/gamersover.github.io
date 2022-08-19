@@ -4,6 +4,8 @@ date: 2022-08-06 13:23:54
 tags:
     - leetcode
     - 链表
+categories: 算法
+mathjax: true
 ---
 
 ## 描述

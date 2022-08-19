@@ -5,6 +5,8 @@ tags:
     - leetcode
     - 数组
     - 排序
+categories: 算法
+mathjax: true
 ---
 
 ## 描述

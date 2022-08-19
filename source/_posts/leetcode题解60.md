@@ -5,6 +5,8 @@ tags:
     - leetcode
     - 数学
     - 字符串
+categories: 算法
+mathjax: true
 ---
 
 ## 描述

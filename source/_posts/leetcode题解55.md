@@ -5,6 +5,8 @@ tags:
     - leetcode
     - 数组
     - 贪心
+categories: 算法
+mathjax: true
 ---
 
 ## 描述
