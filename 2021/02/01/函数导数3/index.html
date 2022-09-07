@@ -342,7 +342,7 @@ class="math inline">\(m, M\)</span>至少有一个时<span
 class="math inline">\(f\)</span>在内点<span class="math inline">\(\xi
 \in (a,b)\)</span>上所取得的。这时<span
 class="math inline">\(\xi\)</span>为一个极值点，由<a
-href="函数导数3/#定理1：Fermat">定理1</a>可知<span
+href="#定理1：Fermat">定理1</a>可知<span
 class="math inline">\(f^\prime(\xi) = 0\)</span>。</p>
 <p>Q.E.D.</p>
 <h4 id="定理3">定理3</h4>
@@ -385,8 +385,7 @@ class="math inline">\(\xi \in (a,b)\)</span>使得<br />
     \frac{f(a) - f(b)}{a - b} = f^\prime(\xi)
 \]</span></p>
 </blockquote>
-<p>证：在<a
-target="_blank" rel="noopener" href="https://gamersover.github.io/2021/02/01/函数导数3/#定理3">定理3</a>中取<br />
+<p>证：在<a href="#定理3">定理3</a>中取<br />
 <span class="math display">\[
     \lambda (x) = \frac{b-x}{b-a} \quad (a \le x \le b)
 \]</span><br />
@@ -426,8 +425,7 @@ class="math inline">\(\xi \in (a,b)\)</span>，使得<br />
 \frac{f^\prime(\xi)}{g^\prime(\xi)}
 \]</span></p>
 </blockquote>
-<p>证：在<a
-target="_blank" rel="noopener" href="https://gamersover.github.io/2021/02/01/函数导数3/#定理3">定理3</a>中取<br />
+<p>证：在<a href="#定理3">定理3</a>中取<br />
 <span class="math display">\[
     \lambda (x) = \frac{g(b) - g(x)}{g(b) - g(a)} \quad (a \le x \le b)
 \]</span><br />
@@ -454,7 +452,7 @@ f^\prime(b) &lt; 0\)</span>。由于<br />
 \]</span><br />
 所以存在<span class="math inline">\(\delta_1 &gt; 0\)</span>，当<span
 class="math inline">\(x \in (a, a+\delta_1)\)</span>时，<span
-class="math inline">\(\frac{f(x) - f(a)}{x - a} &gt;
+class="math inline">\(\dfrac{f(x) - f(a)}{x - a} &gt;
 0\)</span>，由于<span class="math inline">\(x &gt; a\)</span>，所以<span
 class="math inline">\(f(x) &gt; f(a)\)</span>。同理可知存在<span
 class="math inline">\(\delta_2 &gt; 0\)</span>，当<span
@@ -473,34 +471,35 @@ class="math inline">\(\gamma\)</span>，即<br />
 <span class="math display">\[
     f^\prime(a) &lt; \gamma &lt; f^\prime(b)
 \]</span><br />
-记<span class="math inline">\(F(x) = f(x) - \lambda
-x\)</span>，那么<span class="math inline">\(F^\prime(x) = f^\prime(x) -
-\lambda\)</span>，可知<span class="math inline">\(F^\prime(a)F^\prime(b)
+记<span class="math inline">\(F(x) = f(x) - \gamma x\)</span>，那么<span
+class="math inline">\(F^\prime(x) = f^\prime(x) -
+\gamma\)</span>，可知<span class="math inline">\(F^\prime(a)F^\prime(b)
 &lt; 0\)</span>，从而利用上面所证的结论可知，存在<span
 class="math inline">\(\xi \in (a,b)\)</span>，使得<span
 class="math inline">\(F^\prime(\xi) = 0\)</span>，即<br />
 <span class="math display">\[
-    f^\prime(\xi) = \lambda
+    f^\prime(\xi) = \gamma
 \]</span></p>
 <p>（2）用反证法。如果<span class="math inline">\(x_0\)</span>是<span
 class="math inline">\(f^\prime\)</span>的一个第一类间断点，那么<span
 class="math inline">\(f^\prime(x_0+)\)</span>和<span
 class="math inline">\(f^\prime(x_0-)\)</span>都存在，于是由<a
-target="_blank" rel="noopener" href="https://gamersover.github.io/2021/02/01/函数导数3/#定理4：Lagrange">定理4</a>可得<br />
+href="#定理4lagrange">定理4</a>可得<br />
 <span class="math display">\[
     f^\prime(x_0) = f_+^\prime(x_0) = \lim\limits_{x \to x_0+}
 \frac{f(x) - f(x_0)}{x - x_0} = \lim\limits_{x \to x_0^+}
 \frac{f^\prime(\xi_+)(x-x_0)}{x - x_0}  = \lim\limits_{x \to x_0^+}
 f^\prime(\xi_+)
-\]</span><br />
-其中<span class="math inline">\(\xi_+ \in (x_0, x)\)</span>。由于当<span
-class="math inline">\(x \to x_0^+\)</span>，<span
-class="math inline">\(\xi_+ \to x_0^+\)</span>，且已知<span
+\]</span></p>
+<p>其中<span class="math inline">\(\xi_+ \in (x_0,
+x)\)</span>。由于当<span class="math inline">\(x \to
+x_0^+\)</span>，<span class="math inline">\(\xi_+ \to
+x_0^+\)</span>，且已知<span
 class="math inline">\(f^\prime(x_0+)\)</span>存在，所以得<br />
 <span class="math display">\[
     f^\prime(x_0) = f^\prime(x_0+)
-\]</span><br />
-同理可证<span class="math inline">\(f^\prime(x_0) =
+\]</span></p>
+<p>同理可证<span class="math inline">\(f^\prime(x_0) =
 f^\prime(x_0-)\)</span>。由此可知<span
 class="math inline">\(f^\prime\)</span>在<span
 class="math inline">\(x_0\)</span>处连续，这与<span
