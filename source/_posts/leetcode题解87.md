@@ -14,6 +14,8 @@ mathjax: true
 
 该题来自于[力扣第87题](https://leetcode.cn/problems/scramble-string/)
 
+<!--more-->
+
 ## 分析
 
 没什么好的办法，直接递归暴力，遍历切割点，然后判断字符串的两边是否互为扰乱字符串就好。比如`great`和`rgeat`，如果切割点在`g reat`，那么递归查看`g`与`r`，`reat`与`geat`是否互为扰乱字符串？还有一种就是翻转了，即递归查看`g`与`t`，`reat`与`rgea`是否互为扰乱字符串？两种情况一种满足则返回`True`。都不满足则继续遍历下一个切割点`gr eat`。

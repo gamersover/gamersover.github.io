@@ -13,9 +13,11 @@ mathjax: true
 
 该题来自于[力扣第81题](https://leetcode.cn/problems/search-in-rotated-sorted-array-ii/)
 
+<!--more-->
+
 ## 分析
 
-与[力扣33题题解](TODO)几乎一模一样，不同点在于数组中的元素可能相同，其实遇到相同的值时，不需要二分，直接遍历就好了；具体如下：
+与[力扣33题题解](https://caoqinping.com/2022/05/14/leetcode%E9%A2%98%E8%A7%A333/)几乎一模一样，不同点在于数组中的元素可能相同，其实遇到相同的值时，不需要二分，直接遍历就好了；具体如下：
 1. 初始化左右端点`left=0, right=len(nums)`，只要`left < right`进入循环，否则退出
 2. 循环体：取`mid=(left+right)/2`，分三种情况
 3. 当`nums[mid]==nums[target]`时，直接返回

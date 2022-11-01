@@ -12,6 +12,8 @@ mathjax: true
 
 该题来自于[力扣第89题](https://leetcode.cn/problems/gray-code/)
 
+<!--more-->
+
 ## 分析
 
 首先假设长度为`2`的格雷码已经生成好了，为
