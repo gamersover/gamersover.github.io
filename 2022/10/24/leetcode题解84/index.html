@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="描述 该题来自于力扣第84题 分析 首先看看暴力的方法怎么做，对于每个高度h，当然是包含这个高度的范围即宽越大，面积越大，所以从看该高度左边和右边第一个小于h的在哪里，就确定了宽是多少。比如说[2,1,5,6,2,3]中，看包含高度5的最大宽是所少？从5向左遍历，1是第一个小于5的；从5向右看，2是第一个小于5的，所以包含5的最大范围是[5,6]，宽度为2，从而面积为10。所以暴力做法就是，对所有">
+  <meta name="description" content="描述 该题来自于力扣第84题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode题解84：柱状图中最大的矩形">
 <meta property="og:url" content="http://yoursite.com/2022/10/24/leetcode%E9%A2%98%E8%A7%A384/index.html">
 <meta property="og:site_name" content="尘雨尘风">
-<meta property="og:description" content="描述 该题来自于力扣第84题 分析 首先看看暴力的方法怎么做，对于每个高度h，当然是包含这个高度的范围即宽越大，面积越大，所以从看该高度左边和右边第一个小于h的在哪里，就确定了宽是多少。比如说[2,1,5,6,2,3]中，看包含高度5的最大宽是所少？从5向左遍历，1是第一个小于5的；从5向右看，2是第一个小于5的，所以包含5的最大范围是[5,6]，宽度为2，从而面积为10。所以暴力做法就是，对所有">
+<meta property="og:description" content="描述 该题来自于力扣第84题">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-24T03:43:10.000Z">
 <meta property="article:modified_time" content="2022-10-24T03:43:10.000Z">
@@ -269,6 +269,7 @@
         <h2 id="描述">描述</h2>
 <p>该题来自于<a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/largest-rectangle-in-histogram/">力扣第84题</a></p>
+<span id="more"></span>
 <h2 id="分析">分析</h2>
 <p>首先看看暴力的方法怎么做，对于每个高度<code>h</code>，当然是包含这个高度的范围即宽越大，面积越大，所以从看该高度左边和右边第一个小于<code>h</code>的在哪里，就确定了宽是多少。比如说<code>[2,1,5,6,2,3]</code>中，看包含高度<code>5</code>的最大宽是所少？从<code>5</code>向左遍历，<code>1</code>是第一个小于<code>5</code>的；从<code>5</code>向右看，<code>2</code>是第一个小于<code>5</code>的，所以包含<code>5</code>的最大范围是<code>[5,6]</code>，宽度为2，从而面积为10。所以暴力做法就是，对所有高度找到其最大宽，然后计算出包含该高度的最大面积，最终求出全局的最大面积就是结果。</p>
 <p>从暴力的做法来看，其根本就是找出在左边和右边的第一个小于当前值的位置。都学过数据结构单调栈，但是好像不知道单调栈的具体用处，该题就是其用处之一。先用上面的例子看看单调栈都做了什么。</p>

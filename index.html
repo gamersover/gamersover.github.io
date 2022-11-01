@@ -257,19 +257,14 @@
           <h2 id="描述">描述</h2>
 <p>该题来自于<a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/subsets-ii/">力扣第90题</a></p>
-<h2 id="分析">分析</h2>
-<p>和<a
-href="TODO">力扣第78题题解</a>几乎一样，多了一个重复元素的处理，模拟下生成过程，就知道重复元素如何处理了，以<code>[1,2,2]</code>为例，<br />
-1. 空集，<code>[]</code><br />
-2. 添加<code>1</code>，<code>[], [1]</code><br />
-3.
-<code>2</code>与<code>1</code>不同，继续添加<code>[], [1], [2], [1, 2]</code><br />
-4.
-最后一个<code>2</code>与前面<code>2</code>相同，这时如果依然在上一步中的每个子集都添加就重复了，因为<code>[], [1]</code>已经加过<code>2</code>了，所以只需要对上一步新生成的子集添加<code>2</code>就可以，即<code>[2,2], [1,2,2]</code></p>
-<p>从上面的过程可以看出，对于重复元素的添加区别仅在于，需要添加元素的子集的起点；新元素直接从<code>0</code>开始，如果是重复的元素，从上一步添加的新元素位置开始，即上上步的结束位置。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">subsetsWithDup</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]:</span><br><span class="line">        nums.sort()</span><br><span class="line">        res = [[]]</span><br><span class="line">        start = <span class="built_in">len</span>(res)</span><br><span class="line">        res.append(res[<span class="number">0</span>] + [nums[<span class="number">0</span>]])</span><br><span class="line">        end = <span class="built_in">len</span>(res)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">            s = start <span class="keyword">if</span> nums[i] == nums[i-<span class="number">1</span>] <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(s, end):</span><br><span class="line">                res.append(res[j] + [nums[i]])</span><br><span class="line">            start = end</span><br><span class="line">            end = <span class="built_in">len</span>(res)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/30/leetcode%E9%A2%98%E8%A7%A390/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -352,18 +347,14 @@ href="TODO">力扣第78题题解</a>几乎一样，多了一个重复元素的�
           <h2 id="描述">描述</h2>
 <p>该题来自于<a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/gray-code/">力扣第89题</a></p>
-<h2 id="分析">分析</h2>
-<p>首先假设长度为<code>2</code>的格雷码已经生成好了，为<br />
-<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">00 </span><span class="number">01</span> <span class="number">11</span> <span class="number">10</span></span><br></pre></td></tr></table></figure><br />
-现在要生成长度为<code>3</code>的格雷码，直接将长度为<code>2</code>的翻转并追加到后面，<br />
-<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">00 </span><span class="number">01</span> <span class="number">11</span> <span class="number">10</span> <span class="number">10</span> <span class="number">11</span> <span class="number">01</span> <span class="number">00</span></span><br></pre></td></tr></table></figure><br />
-可以此时每个字符相差不超过<code>1</code>，这时前半部分添加前缀<code>0</code>，后半部分添加前缀<code>1</code>，就好了<br />
-<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">000 </span><span class="number">001</span> <span class="number">011</span> <span class="number">010</span> <span class="number">110</span> <span class="number">111</span> <span class="number">101</span> <span class="number">100</span></span><br></pre></td></tr></table></figure></p>
-<p>用这种递归方法就可以生成任意长度的格雷码。</p>
-<p>还有一种方法直接使用公式生成，第<code>n</code>个格雷码为<code>n ^ (n &gt;&gt; 1)</code>。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">grayCode</span>(<span class="params">self, n: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="comment"># 递归方法</span></span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> [<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">        pre_code = self.grayCode(n-<span class="number">1</span>)</span><br><span class="line">        new_code = pre_code[:]</span><br><span class="line">        <span class="keyword">for</span> p <span class="keyword">in</span> pre_code[::-<span class="number">1</span>]:</span><br><span class="line">            new_code.append(p + (<span class="number">1</span> &lt;&lt; (n-<span class="number">1</span>)))</span><br><span class="line">        <span class="keyword">return</span> new_code</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">grayCode2</span>(<span class="params">self, n</span>):</span><br><span class="line">        <span class="comment"># 公式生成法</span></span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; n):</span><br><span class="line">            res.append(i ^ (i &gt;&gt; <span class="number">1</span>))</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/30/leetcode%E9%A2%98%E8%A7%A389/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -446,13 +437,14 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/gray-code/">�
           <h2 id="描述">描述</h2>
 <p>该题来自于<a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/scramble-string/">力扣第87题</a></p>
-<h2 id="分析">分析</h2>
-<p>没什么好的办法，直接递归暴力，遍历切割点，然后判断字符串的两边是否互为扰乱字符串就好。比如<code>great</code>和<code>rgeat</code>，如果切割点在<code>g reat</code>，那么递归查看<code>g</code>与<code>r</code>，<code>reat</code>与<code>geat</code>是否互为扰乱字符串？还有一种就是翻转了，即递归查看<code>g</code>与<code>t</code>，<code>reat</code>与<code>rgea</code>是否互为扰乱字符串？两种情况一种满足则返回<code>True</code>。都不满足则继续遍历下一个切割点<code>gr eat</code>。</p>
-<p>注意到两个字符串互为扰乱串，长度比如相同，所以可以使用三个入参的函数<code>bool func(i1,i2,length)</code>表示字符串<code>s1[i1:i1+length]</code>与字符串<code>s2[i2:i2+length]</code>是否互为扰乱串，然后递归调用<code>func</code>就好。</p>
-<p>该题如果直接递归的话会超时，需要一些小技巧，注意到在递归过程中，可能会涉及到重复计算，会重复判断两个字符串是否是扰乱字符串，所以可以将计算后的结果存储下来，最简单的方法使用一个多维数组记录递归的结果，对于<code>python</code>，可以使用<code>functools.cache</code>装饰器来缓存已经计算好的结果。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isScramble</span>(<span class="params">self, s1: <span class="built_in">str</span>, s2: <span class="built_in">str</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line"><span class="meta">        @cache</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">i1, i2, length</span>):</span><br><span class="line">            <span class="keyword">if</span> s1[i1:i1+length] == s2[i2:i2+length]:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">sorted</span>(s1[i1:i1+length]) != <span class="built_in">sorted</span>(s2[i2:i2+length]):</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, length):</span><br><span class="line">                <span class="keyword">if</span> dfs(i1, i2, i) <span class="keyword">and</span> dfs(i1+i, i2+i, length-i):</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">                <span class="keyword">if</span> dfs(i1, i2+length-i, i) <span class="keyword">and</span> dfs(i1+i, i2, length-i):</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">        ans = dfs(<span class="number">0</span>, <span class="number">0</span>, <span class="built_in">len</span>(s1))</span><br><span class="line">        dfs.cache_clear()</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/29/leetcode%E9%A2%98%E8%A7%A387/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -535,12 +527,14 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/scramble-strin
           <h2 id="描述">描述</h2>
 <p>该题来自于<a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximal-rectangle/">力扣第85题</a></p>
-<h2 id="分析">分析</h2>
-<p>有了<a
-href="TODO">力扣第84题题解</a>，该题简单很多，仔细想想，如果将<code>1</code>的个数作为高度，然后求出最大矩形不就可以了，注意每一行往上数连续<code>1</code>的个数作为高度，然后对每一行求出最大矩形，最后求出全局最大值即可。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maximalRectangle</span>(<span class="params">self, matrix: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">str</span>]]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        m, n = <span class="built_in">len</span>(matrix), <span class="built_in">len</span>(matrix[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            matrix[<span class="number">0</span>][j] = <span class="built_in">int</span>(matrix[<span class="number">0</span>][j])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, m):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                <span class="keyword">if</span> matrix[i][j] == <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">                    matrix[i][j] = <span class="built_in">int</span>(matrix[i-<span class="number">1</span>][j]) + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    matrix[i][j] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        max_ = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">            max_ = <span class="built_in">max</span>(self.largestRectangleArea(matrix[i]), max_)</span><br><span class="line">        <span class="keyword">return</span> max_</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">largestRectangleArea</span>(<span class="params">self, heights: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        stack = []</span><br><span class="line">        heights.append(-<span class="number">1</span>)</span><br><span class="line">        max_ = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(heights)):</span><br><span class="line">            <span class="keyword">while</span> <span class="built_in">len</span>(stack) &gt; <span class="number">0</span> <span class="keyword">and</span> heights[stack[-<span class="number">1</span>]] &gt; heights[i]:</span><br><span class="line">                j = stack.pop()</span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">len</span>(stack) == <span class="number">0</span>:</span><br><span class="line">                    w = i</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    w = i - stack[-<span class="number">1</span>] - <span class="number">1</span></span><br><span class="line">                max_ = <span class="built_in">max</span>(max_, w * heights[j])</span><br><span class="line"></span><br><span class="line">            stack.append(i)</span><br><span class="line">        <span class="keyword">return</span> max_</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/29/leetcode%E9%A2%98%E8%A7%A385/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -623,28 +617,14 @@ href="TODO">力扣第84题题解</a>，该题简单很多，仔细想想，如�
           <h2 id="描述">描述</h2>
 <p>该题来自于<a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/largest-rectangle-in-histogram/">力扣第84题</a></p>
-<h2 id="分析">分析</h2>
-<p>首先看看暴力的方法怎么做，对于每个高度<code>h</code>，当然是包含这个高度的范围即宽越大，面积越大，所以从看该高度左边和右边第一个小于<code>h</code>的在哪里，就确定了宽是多少。比如说<code>[2,1,5,6,2,3]</code>中，看包含高度<code>5</code>的最大宽是所少？从<code>5</code>向左遍历，<code>1</code>是第一个小于<code>5</code>的；从<code>5</code>向右看，<code>2</code>是第一个小于<code>5</code>的，所以包含<code>5</code>的最大范围是<code>[5,6]</code>，宽度为2，从而面积为10。所以暴力做法就是，对所有高度找到其最大宽，然后计算出包含该高度的最大面积，最终求出全局的最大面积就是结果。</p>
-<p>从暴力的做法来看，其根本就是找出在左边和右边的第一个小于当前值的位置。都学过数据结构单调栈，但是好像不知道单调栈的具体用处，该题就是其用处之一。先用上面的例子看看单调栈都做了什么。</p>
-<ol type="1">
-<li>首先<code>2</code>入栈，栈内元素<code>[2]</code></li>
-<li>这是待入栈元素<code>1</code>比栈顶元素<code>2</code>小，从而<code>2</code>出栈，<code>1</code>再入栈，栈内元素<code>[1]</code></li>
-<li><code>5</code>比栈顶元素<code>1</code>大，直接入栈，栈内元素<code>[1,5]</code></li>
-<li><code>6</code>比栈顶元素<code>5</code>大，直接入栈，栈内元素<code>[1,5,6]</code></li>
-<li><code>2</code>比栈顶元素<code>6</code>小，<code>6</code>出栈，栈内元素<code>[1,5]</code></li>
-<li><code>2</code>比栈顶元素<code>5</code>小，<code>5</code>出栈，栈内元素<code>[1]</code></li>
-<li><code>2</code>比栈顶元素<code>1</code>大，直接入栈，栈内元素<code>[1,2]</code></li>
-<li><code>3</code>比栈顶元素<code>2</code>大，直接入栈，栈内元素<code>[1,2,3]</code></li>
-<li>无元素继续入栈，直接栈顶元素<code>3</code>出栈，栈内元素<code>[1,2]</code></li>
-<li><code>2</code>出栈，然后<code>1</code>出栈</li>
-</ol>
-<p>在上述过程中，主要观察两点：<br />
-* 元素什么时候出栈？<br />
-* 元素出栈后，新的栈顶元素是什么？</p>
-<p>元素出栈时显然是下一个入栈元素为向右看第一个小于该元素的元素；出栈后，新的栈顶元素肯定是向左看第一个小于该元素的元素，原因在于栈内保持单调。这不就恰好是该题需要做的嘛，所以该题做法如下：使用单调栈模拟元素入栈出栈过程（注意栈内存储下标），当元素出栈时，记录下一个入栈元素的下标以及出栈后新的栈顶元素的下标，然后计算两个下标差，最后计算当前元素的最大面积，那么全局最大面积也就可以求出了。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">largestRectangleArea</span>(<span class="params">self, heights: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        stack = []</span><br><span class="line">        heights.append(-<span class="number">1</span>)</span><br><span class="line">        max_ = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(heights)):</span><br><span class="line">            <span class="keyword">while</span> <span class="built_in">len</span>(stack) &gt; <span class="number">0</span> <span class="keyword">and</span> heights[stack[-<span class="number">1</span>]] &gt; heights[i]:</span><br><span class="line">                j = stack.pop()</span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">len</span>(stack) == <span class="number">0</span>:</span><br><span class="line">                    w = i</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    w = i - stack[-<span class="number">1</span>] - <span class="number">1</span></span><br><span class="line">                max_ = <span class="built_in">max</span>(max_, w * heights[j])</span><br><span class="line"></span><br><span class="line">            stack.append(i)</span><br><span class="line">        <span class="keyword">return</span> max_</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/24/leetcode%E9%A2%98%E8%A7%A384/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -727,25 +707,14 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/largest-rectan
           <h2 id="描述">描述</h2>
 <p>该题来自于<a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/search-in-rotated-sorted-array-ii/">力扣第81题</a></p>
-<h2 id="分析">分析</h2>
-<p>与<a
-href="TODO">力扣33题题解</a>几乎一模一样，不同点在于数组中的元素可能相同，其实遇到相同的值时，不需要二分，直接遍历就好了；具体如下：<br />
-1.
-初始化左右端点<code>left=0, right=len(nums)</code>，只要<code>left &lt; right</code>进入循环，否则退出<br />
-2. 循环体：取<code>mid=(left+right)/2</code>，分三种情况<br />
-3. 当<code>nums[mid]==nums[target]</code>时，直接返回<br />
-4. 当<code>nums[mid]&gt;nums[target]</code>时，<br />
-4.1
-如果中间比右边小，表示后一部分一定递增，那么<code>nums[target]</code>肯定只能在左边了，所以更新右边<code>right=mid</code>，继续二分左边<br />
-4.2
-中间大于右边，表示是旋转点，即前后有两个递增段，而<code>nums[target]</code>是比<code>nums[mid]</code>小的，那么如果<code>nums[right-1] &lt; target</code>，表明右边的递增段已经不可能含有<code>nums[target]</code>，所以<code>right=mid</code>继续二分左边；如果<code>nums[right-1]&gt;=target</code>，那么可能是在右边，从而<code>left = mid + 1</code><br />
-4.3
-中间等于右边，这时候中间到右边的情况就不可知了，只知道右边不等于<code>nums[target]</code>，所以直接<code>right-=1</code>就好<br />
-5.
-当<code>nums[mid]&lt;nums[target]</code>时，类似第4点的分析就好，关键点在于判断确定的递增段在哪？</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], target: <span class="built_in">int</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        left, right = <span class="number">0</span>, <span class="built_in">len</span>(nums)</span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">if</span> nums[mid] == target:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">elif</span> nums[mid] &gt; target:</span><br><span class="line">                <span class="keyword">if</span> nums[mid] &lt; nums[right-<span class="number">1</span>]:</span><br><span class="line">                    right = mid</span><br><span class="line">                <span class="keyword">elif</span> nums[mid] &gt; nums[right-<span class="number">1</span>]:</span><br><span class="line">                    <span class="keyword">if</span> nums[right-<span class="number">1</span>] &lt; target:</span><br><span class="line">                        right = mid</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        left = mid + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    right -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> nums[mid] &gt; nums[left]:</span><br><span class="line">                    left = mid + <span class="number">1</span></span><br><span class="line">                <span class="keyword">elif</span> nums[mid] &lt; nums[left]:</span><br><span class="line">                    <span class="keyword">if</span> nums[left] &gt; target:</span><br><span class="line">                        left = mid + <span class="number">1</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        right = mid</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/24/leetcode%E9%A2%98%E8%A7%A381/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
