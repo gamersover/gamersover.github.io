@@ -272,7 +272,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/unique-binary-
 <span id="more"></span>
 <h2 id="分析">分析</h2>
 <p>与<a
-href="TODO">力扣第95题</a>不同之处在于只需要求个数，不需要求具体树结构，虽然可以直接用第95题题解，加个返回长度即可；但是只是求个数，其实可以用动态规划。</p>
+target="_blank" rel="noopener" href="https://caoqinping.com/2022/11/05/leetcode题解95/">力扣第95题</a>不同之处在于只需要求个数，不需要求具体树结构，虽然可以直接用第95题题解，加个返回长度即可；但是只是求个数，其实可以用动态规划。</p>
 <p>因为是大问题化解成小问题，可以发现树的构成个数之和输入数组长度有关，所以如果用<code>dp[i]</code>表示长度为<code>i</code>的数组构成的搜索二叉树的个数，那么一个长度为<code>n</code>的数组，选定一个根结点<code>k</code>时，左边还有<code>k-1</code>个数，右边还有<code>n-k</code>个数，从而左子树有<code>dp[k-1]</code>种，右子树有<code>dp[n-k]</code>种，从而<code>dp[k-1]*dp[n-k]</code>就是根节点为<code>k</code>时的所有树的个数。</p>
 <p>从而<code>dp[n]</code>依然于前面所有的状态，转移方程就是<br />
 <span class="math display">\[
