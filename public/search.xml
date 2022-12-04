@@ -4,6 +4,462 @@
   
     
     <entry>
+      <title>leetcode题解123：买卖股票的最佳时机 III</title>
+      <link href="/2022/12/04/leetcode%E9%A2%98%E8%A7%A3123/"/>
+      <url>/2022/12/04/leetcode%E9%A2%98%E8%A7%A3123/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/">力扣第123题</a></p><span id="more"></span><h2 id="分析">分析</h2><p><ahref="todo">力扣第122题题解</a>附录的通用解法的状态转移方程为：<br /><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][<span class="number">0</span>] = <span class="built_in">max</span>(dp[i-<span class="number">1</span>][k][<span class="number">0</span>], dp[i-<span class="number">1</span>][k][<span class="number">1</span>] + prices[i])</span><br><span class="line">dp[i][k][<span class="number">1</span>] = <span class="built_in">max</span>(dp[i-<span class="number">1</span>][k][<span class="number">1</span>], dp[i-<span class="number">1</span>][k-<span class="number">1</span>][<span class="number">0</span>] - prices[i])  <span class="comment"># 由于买入算交易依次，从而是k-1次不持有的状态</span></span><br></pre></td></tr></table></figure></p><p>该题中<code>k=2</code>，从而转移方程直接写出来，注意<code>dp[i-1][0][0]=0</code>因为不交易不持有当然是<code>0</code><br /><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dp[i][<span class="number">2</span>][<span class="number">0</span>] = <span class="built_in">max</span>(dp[i-<span class="number">1</span>][<span class="number">2</span>][<span class="number">0</span>], dp[i-<span class="number">1</span>][<span class="number">2</span>][<span class="number">1</span>] + prices[i])</span><br><span class="line">dp[i][<span class="number">2</span>][<span class="number">1</span>] = <span class="built_in">max</span>(dp[i-<span class="number">1</span>][<span class="number">2</span>][<span class="number">1</span>], dp[i-<span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>] - prices[i])</span><br><span class="line">dp[i][<span class="number">1</span>][<span class="number">0</span>] = <span class="built_in">max</span>(dp[i-<span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>], dp[i-<span class="number">1</span>][<span class="number">1</span>][<span class="number">1</span>] + prices[i])</span><br><span class="line">dp[i][<span class="number">1</span>][<span class="number">1</span>] = <span class="built_in">max</span>(dp[i-<span class="number">1</span>][<span class="number">1</span>][<span class="number">1</span>], -prices[i])</span><br></pre></td></tr></table></figure></p><p>状态只依赖前一次，所以空间可以优化，注意更新顺序（就按照上面的顺序从上万下更新，正好不会影响状态之间的依赖）<br /><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dp[<span class="number">2</span>][<span class="number">0</span>] = <span class="built_in">max</span>(dp[<span class="number">2</span>][<span class="number">0</span>], dp[<span class="number">2</span>][<span class="number">1</span>] + prices[i])</span><br><span class="line">dp[<span class="number">2</span>][<span class="number">1</span>] = <span class="built_in">max</span>(dp[<span class="number">2</span>][<span class="number">1</span>], dp[<span class="number">1</span>][<span class="number">0</span>] - prices[i])</span><br><span class="line">dp[<span class="number">1</span>][<span class="number">0</span>] = <span class="built_in">max</span>(dp[<span class="number">1</span>][<span class="number">0</span>], dp[<span class="number">1</span>][<span class="number">1</span>] + prices[i])</span><br><span class="line">dp[<span class="number">1</span>][<span class="number">1</span>] = <span class="built_in">max</span>(dp[<span class="number">1</span>][<span class="number">1</span>], -prices[i])</span><br></pre></td></tr></table></figure></p><p>甚至可以直接用四个变量来表示上面四个值，最终结果显示是<code>dp[2][0]</code>，交易了<code>2</code>次不持有股票的状态。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maxProfit</span>(<span class="params">self, prices: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        sell1, sell2 = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        buy1, buy2 = -prices[<span class="number">0</span>], -prices[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(prices)):</span><br><span class="line">            sell2 = <span class="built_in">max</span>(sell2, buy2 + prices[i])</span><br><span class="line">            buy2 = <span class="built_in">max</span>(buy2, sell1 - prices[i])</span><br><span class="line">            sell1 = <span class="built_in">max</span>(sell1, buy1 + prices[i])</span><br><span class="line">            buy1 = <span class="built_in">max</span>(buy1, -prices[i])</span><br><span class="line">        <span class="keyword">return</span> sell2</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解122：买卖股票的最佳时机 II</title>
+      <link href="/2022/12/04/leetcode%E9%A2%98%E8%A7%A3122/"/>
+      <url>/2022/12/04/leetcode%E9%A2%98%E8%A7%A3122/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/">力扣第122题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>股票问题有很多遍历，没有通用的解决思路的话确实有点难度，类似背包问题，考虑动态规划，状态是第<code>i</code>天是否持有股票的最大收益，如<code>dp[i][0]</code>表示第<code>i</code>天不持有股票的最大收益，<code>dp[i][1]</code>表示第<code>i</code>天持有股票的最大收益，接下来主要分析状态转移过程：</p><ol type="1"><li>第<code>i</code>天不持有，有两种情况：（a）第<code>i-1</code>天不持有，（b）第<code>i-1</code>天持有，表示第<code>i</code>天卖出股票，从而收益增加<code>prices[i]</code>；从而<code>dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])</code>；</li><li>第<code>i</code>天持有，也有两种情况：（a）第<code>i-1</code>天持有，（b）第<code>i-1</code>天不持有，表示第<code>i-1</code>天买入，从而收益减少<code>prices[i]</code>；从而<code>dp[i][1] = max(dp[i-1][1], dp[i-1][0] - prices[i])</code>；</li></ol><p>上述转移方程非常重要，是解所有这种类型题的关键，比如该题的解决方法，可以看到状态只依赖上次的状态，从而设<code>dp0</code>为当天不持有股票的最大收益，<code>dp1</code>为当天持有股票的最大收益，从而转移方程为<br /><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new_dp0 = <span class="built_in">max</span>(dp0, dp1 + prices[i])</span><br><span class="line">new_dp1 = <span class="built_in">max</span>(dp1, dp0 - prices[i])</span><br><span class="line">dp0, dp1 = new_dp0, new_dp1</span><br></pre></td></tr></table></figure></p><p>而边界条件可以直接考虑，第<code>0</code>天不持有显然收益为<code>0</code>，从而<code>dp0 = 0</code>，而持有收益显然为<code>-prices[0]</code>；最终结果显然是最后一天不持有股票的收益最大即<code>dp1</code>。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maxProfit</span>(<span class="params">self, prices: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        dp0 = <span class="number">0</span></span><br><span class="line">        dp1 = -prices[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(prices)):</span><br><span class="line">            new_dp0 = <span class="built_in">max</span>(dp0, dp1 + prices[i])</span><br><span class="line">            new_dp1 = <span class="built_in">max</span>(dp1, dp0 - prices[i])</span><br><span class="line">            dp0, dp1 = new_dp0, new_dp1</span><br><span class="line">        <span class="keyword">return</span> dp0</span><br></pre></td></tr></table></figure><h2 id="附录通用解法">附录：通用解法</h2><p>如果加上条件，最多只能交易<code>k</code>次，求最大收益，那么用<code>dp[i][k][0],dp[i][k][1]</code>分别表示在<code>i</code>天交易了<code>k</code>次不持有和持有的最大收益，由于最多只能持有一支股票，从而买入卖出操作必须一起，为了方便，将买入作为交易次数的记录，从而转移方程为<br /><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][<span class="number">0</span>] = <span class="built_in">max</span>(dp[i-<span class="number">1</span>][k][<span class="number">0</span>], dp[i-<span class="number">1</span>][k][<span class="number">1</span>] + prices[i])</span><br><span class="line">dp[i][k][<span class="number">1</span>] = <span class="built_in">max</span>(dp[i-<span class="number">1</span>][k][<span class="number">1</span>], dp[i-<span class="number">1</span>][k-<span class="number">1</span>][<span class="number">0</span>] - prices[i])  <span class="comment"># 由于买入算交易依次，从而是k-1次不持有的状态</span></span><br></pre></td></tr></table></figure></p><p>而这一题没有限制次数，从而<span class="math inline">\(k = +\infty\)</span>，转移方程就简化为<br /><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dp[i][<span class="number">0</span>] = <span class="built_in">max</span>(dp[i-<span class="number">1</span>][<span class="number">0</span>], dp[i-<span class="number">1</span>][<span class="number">1</span>] + prices[i])</span><br><span class="line">dp[i][<span class="number">1</span>] = <span class="built_in">max</span>(dp[i-<span class="number">1</span>][<span class="number">1</span>], dp[i-<span class="number">1</span>][<span class="number">0</span>] - prices[i])</span><br></pre></td></tr></table></figure></p><ul><li>至多<code>k</code>次和交易满<code>k</code>次结果是一样的，因为如果不满<code>k</code>次，可以在同一天买入卖出无限次，收益保持不变。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解120：三角形最小路径和</title>
+      <link href="/2022/11/24/leetcode%E9%A2%98%E8%A7%A3120/"/>
+      <url>/2022/11/24/leetcode%E9%A2%98%E8%A7%A3120/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/triangle/">力扣第120题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>有一种典型的动态规划问题，记<code>dp[i][j]</code>为从山顶到达第<code>i</code>行第<code>j</code>列的最短路径，那么能达到<code>(i, j)</code>这个位置的上一个位置只能是<code>(i-1, j-1)</code>和<code>(i-1, j)</code>，从而转移方程为<code>dp[i][j] = min(dp[i-1][j], dp[i-1][j-1]) + triangle[i][j]</code>；</p><p>看本题的要求是<code>O(n)</code>的额外空间，从而直接使用<code>triangle</code>作为状态存储，即<code>triangle[i][j] += min(triangle[i-1][j], triangle[i-1][j-1])</code>，注意下边界条件就好；最后取最终层的最小值就好。</p><p>一种等价但是代码更加简洁的方法就是从山底向山顶状态转移，这样最终结果就是算完后山顶的值。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">minimumTotal</span>(<span class="params">self, triangle: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        n = <span class="built_in">len</span>(triangle)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> <span class="number">0</span> &lt; j &lt; i:</span><br><span class="line">                    triangle[i][j] += <span class="built_in">min</span>(triangle[i-<span class="number">1</span>][j], triangle[i-<span class="number">1</span>][j-<span class="number">1</span>])</span><br><span class="line">                <span class="keyword">elif</span> j == <span class="number">0</span>:</span><br><span class="line">                    triangle[i][j] += triangle[i-<span class="number">1</span>][j]</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    triangle[i][j] += triangle[i-<span class="number">1</span>][j-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">min</span>(triangle[n-<span class="number">1</span>])</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解117：填充每个节点的下一个右侧节点指针 II</title>
+      <link href="/2022/11/24/leetcode%E9%A2%98%E8%A7%A3117/"/>
+      <url>/2022/11/24/leetcode%E9%A2%98%E8%A7%A3117/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/populating-next-right-pointers-in-each-node-ii/">力扣第117题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>对比<ahref="TODO">力扣第116题</a>的区别在于，该题不再是完美二叉树了，首先看下之前的做法：<br />1. <code>root.left.next = root.right</code><br />2. <code>root.right.next = root.next.left</code></p><p>对于第一步来说，如果<code>root</code>依然有左右节点，那么一模一样，否则不用连接；</p><p>对于第二步，本质是<code>A.next = B</code>，如果<code>root.right</code>存在，那么<code>A</code>就是<code>root.right</code>，否则看<code>root.left</code>是否存在，存在的话，就是<code>root.left</code>，要不然就不用连接，<code>B</code>的取值就要考虑一些情况，如果<code>root.next</code>没有<code>left,right</code>那么就找<code>root.next.next</code>，直到找到含有<code>left,right</code>的结点<code>node</code>，如果找到了这样的<code>node</code>，显然以<code>node.left</code>为最高优先级，即<code>node.left</code>存在，则<code>B = node.left</code>，否则<code>B = node.right</code>。找到了<code>A,B</code>，只需令<code>A.next = B</code>就好。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">connect</span>(<span class="params">self, root: <span class="string">&#x27;Node&#x27;</span></span>) -&gt; <span class="string">&#x27;Node&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">if</span> root.left <span class="keyword">and</span> root.right:</span><br><span class="line">            root.left.<span class="built_in">next</span> = root.right</span><br><span class="line">        <span class="keyword">if</span> root.<span class="built_in">next</span>:</span><br><span class="line">            left_ = root.right <span class="keyword">if</span> root.right <span class="keyword">else</span> root.left</span><br><span class="line">            node, right_ = root.<span class="built_in">next</span>, <span class="literal">None</span></span><br><span class="line">            <span class="keyword">while</span> node:</span><br><span class="line">                <span class="keyword">if</span> node.left:</span><br><span class="line">                    right_ = node.left</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">elif</span> node.right:</span><br><span class="line">                    right_ = node.right</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    node = node.<span class="built_in">next</span></span><br><span class="line">            <span class="keyword">if</span> left_ <span class="keyword">and</span> right_:</span><br><span class="line">                left_.<span class="built_in">next</span> = right_</span><br><span class="line">        self.connect(root.right)</span><br><span class="line">        self.connect(root.left)</span><br><span class="line">        <span class="keyword">return</span> root</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 递归 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解116：填充每个节点的下一个右侧节点指针</title>
+      <link href="/2022/11/24/leetcode%E9%A2%98%E8%A7%A3116/"/>
+      <url>/2022/11/24/leetcode%E9%A2%98%E8%A7%A3116/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/">力扣第116题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>最简单的思路就是层次遍历，然后每层连接就好了。这里介绍另一种方法。</p><p>树类问题一般是大问题化解小问题，该题也是如此，但是稍微有些不同，首先这么看，对于某个结点<code>root</code>，首先连接左右节点，即<code>root.left.next = root.right</code>，如果用这种思路递归的话，会少一些连线，如下图所示：<br /><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">      <span class="number">1</span></span><br><span class="line">    /   <span class="string">\</span></span><br><span class="line">  <span class="number">2</span> ----&gt; <span class="number">3</span></span><br><span class="line"> /  <span class="string">\</span>    /  <span class="string">\</span></span><br><span class="line"><span class="number">4</span> -&gt; <span class="number">5</span>  <span class="number">6</span> -&gt; <span class="number">7</span></span><br></pre></td></tr></table></figure></p><ol type="1"><li><code>1</code>作为<code>root</code>结点，将<code>2,3</code>连接；</li><li><code>2</code>作为<code>root</code>结点，将<code>4,5</code>连接</li><li><code>3</code>作为<code>root</code>结点，将<code>6,7</code>连接</li></ol><p>可以看到完成后，<code>5</code>和<code>6</code>之间少一个连线，这时回到以<code>2</code>作为<code>root</code>结点的情况，因为<code>2</code>有<code>next</code>，若将<code>root.right.next = root.next.left</code>，不就将<code>5,6</code>连起来了嘛。</p><p>所以递归时，做两件事：<br />1. <code>root.left.next = root.right</code><br />2. <code>root.right.next = root.next.left</code></p><p>再递归左右子树就行。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">connect</span>(<span class="params">self, root: <span class="string">&#x27;Optional[Node]&#x27;</span></span>) -&gt; <span class="string">&#x27;Optional[Node]&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">if</span> root.left <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            root.left.<span class="built_in">next</span> = root.right</span><br><span class="line">            <span class="keyword">if</span> root.<span class="built_in">next</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                root.right.<span class="built_in">next</span> = root.<span class="built_in">next</span>.left</span><br><span class="line">        self.connect(root.left)</span><br><span class="line">        self.connect(root.right)</span><br><span class="line">        <span class="keyword">return</span> root</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 递归 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解115：不同的子序列</title>
+      <link href="/2022/11/24/leetcode%E9%A2%98%E8%A7%A3115/"/>
+      <url>/2022/11/24/leetcode%E9%A2%98%E8%A7%A3115/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/distinct-subsequences/">力扣第115题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>这种问题应该首先想到动态规划是否可以解决，以<code>dp[i][j]</code>表示<code>s[:i]</code>的子序列中<code>t[:j]</code>出现的个数，然后看看转移方程是什么？</p><p>当<code>s[i-1] = t[j-1]</code>时，有两种情况：1.不算上<code>s[i-1]</code>，即<code>s[:i-1]</code>的子序列中<code>t[:j]</code>出现的个数<code>dp[i-1][j]</code>；2.算上<code>s[i-1]</code>，即<code>s[:i-1]</code>中的子序列中<code>t[:j-1]</code>出现的个数<code>dp[i-1][j-1]</code>；两种情况相加。</p><p>否则就是<code>s[:i-1]</code>的子序列中<code>t[:j]</code>出现的个数<code>dp[i-1][j]</code>。</p><p>所以转移方程为<br /><span class="math display">\[    dp[i][j] = \left\{        \begin{aligned}            &amp; dp[i-1][j] + dp[i-1][j-1] &amp; s[i-1]=t[j-1]\\            &amp; dp[i-1][j] &amp; others        \end{aligned}    \right.\]</span></p><p>可以看到<code>dp[i][?]</code>只与<code>dp[i-1][?]</code>状态有关，从而可以状态压缩，使用一维数组表示，所以<br /><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">dp</span>[k] = dp[k] + dp[k-<span class="number">1</span>] * (s[i-<span class="number">1</span>] == t[j-<span class="number">1</span>]) ? <span class="number">1</span> : <span class="number">0</span></span><br></pre></td></tr></table></figure><br />又由于<code>dp[k]</code>需要使用<code>dp[k-1]</code>的状态，所以<code>k</code>从后面开始更新，而初始状态<code>dp[0]=1</code>，其他设为<code>0</code>。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">numDistinct</span>(<span class="params">self, s: <span class="built_in">str</span>, t: <span class="built_in">str</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(s) &lt; <span class="built_in">len</span>(t):</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        dp = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(t)+<span class="number">1</span>)]</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(s)+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(t), <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> s[i-<span class="number">1</span>] == t[j-<span class="number">1</span>]:</span><br><span class="line">                    dp[j] += dp[j-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="built_in">len</span>(t)]</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解114：二叉树展开为链表</title>
+      <link href="/2022/11/08/leetcode%E9%A2%98%E8%A7%A3114/"/>
+      <url>/2022/11/08/leetcode%E9%A2%98%E8%A7%A3114/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/">力扣第114题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>用递归简单很多，假设已经有一个函数可以将以<code>root</code>为根结点的树转为链表，记该函数为<code>func(root)</code>，显然现处理左子树<code>func(root.left)</code>和右子树<code>func(root.right)</code>，这时左右子树已经变为链表了，然后就简单多了，模拟下过程，分为三步：<br />1. 将左子树的最右结点指向右子树的根结点<br />2. <code>root.right = root.left</code><br />3. <code>root.left = null</code></p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">flatten</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode]</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Do not return anything, modify root in-place instead.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            self.flatten(root.left)</span><br><span class="line">            self.flatten(root.right)</span><br><span class="line">            <span class="keyword">if</span> root.left:</span><br><span class="line">                left_last = root.left</span><br><span class="line">                <span class="keyword">while</span> left_last.right:</span><br><span class="line">                    left_last = left_last.right</span><br><span class="line">                left_last.right = root.right</span><br><span class="line">                root.right = root.left</span><br><span class="line">                root.left = <span class="literal">None</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 递归 </tag>
+            
+            <tag> 二叉树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解113：路径总和 II</title>
+      <link href="/2022/11/08/leetcode%E9%A2%98%E8%A7%A3113/"/>
+      <url>/2022/11/08/leetcode%E9%A2%98%E8%A7%A3113/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/path-sum-ii/">力扣第113题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>典型的dfs了，函数参数应该有当前结点，前面的路径以及剩下的和（总和减去前面路径的和）即<code>dfs(root, sum, path)</code>，接下来需要考虑什么是否路径正确，以及函数退出条件。</p><p>显然当<code>root</code>没有左右结点，且<code>root</code>的值等于<code>sum</code>时，表示路径总和等于给的总和，此时<code>path</code>添加<code>root</code>结点就是一条目标路径；</p><p>而当<code>root</code>有左节点或右节点时，显然继续递归，这时现将<code>path</code>路径添加上<code>root</code>结点，然后递归左子树<code>dfs(root.left, sum - root.val, path)</code>，右子树<code>dfs(root.left, sum - root.val, path)</code>；注意当左右子树都遍历完后，表示以<code>root</code>为结点的子树遍历完成了，此时<code>path</code>需要回溯到之前的状态，保证遍历<code>root</code>的兄弟结点时，<code>root</code>已经不在<code>path</code>中了。</p><p>最后递归结束条件即可。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pathSum</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode], targetSum: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]:</span><br><span class="line">        self.all_path = []</span><br><span class="line">        self.dfs(root, targetSum, [])</span><br><span class="line">        <span class="keyword">return</span> self.all_path</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">self, root, sum_, path</span>):</span><br><span class="line">        <span class="keyword">if</span> root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        path.append(root.val)</span><br><span class="line">        <span class="keyword">if</span> root.left <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">and</span> root.right <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">and</span> sum_ == root.val:</span><br><span class="line">            self.all_path.append(path[:])</span><br><span class="line"></span><br><span class="line">        self.dfs(root.left, sum_ - root.val, path)</span><br><span class="line">        self.dfs(root.right, sum_ - root.val, path)</span><br><span class="line">        path.pop()</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 递归 </tag>
+            
+            <tag> 深度优先遍历 </tag>
+            
+            <tag> 二叉树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解105：从前序与中序遍历序列构造二叉树</title>
+      <link href="/2022/11/06/leetcode%E9%A2%98%E8%A7%A3105/"/>
+      <url>/2022/11/06/leetcode%E9%A2%98%E8%A7%A3105/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">力扣第99题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>假设先序遍历是<code>3 9 20 15 7</code>，中序遍历是<code>9 3 15 20 7</code>，那么显然<code>3</code>是根结点，有了根结点看中序遍历知道<code>9</code>是左子树，<code>15 20 7</code>是右子树，从而左子树的先序遍历和中序遍历分别为<code>9</code>,<code>9</code>，而右子树的先序遍历和中序遍历分别为<code>20 15 7</code>，<code>15 20 7</code>；所以大问题又化解成了小问题，用递归就可以轻松解决。</p><p>具体步骤：<br />1.先将先序遍历中的第一个结点作为根结点，然后找出其在中序遍历中的位置，从而获取左子树的长度，右子树的长度<br />2.再从总的先序遍历和中序遍历中获得左子树和右子树的先序遍历和中序遍历，递归构建</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">buildTree</span>(<span class="params">self, preorder: <span class="type">List</span>[<span class="built_in">int</span>], inorder: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">Optional</span>[TreeNode]:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(preorder) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(preorder) == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> TreeNode(preorder[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">        len_ = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(inorder)):</span><br><span class="line">            <span class="keyword">if</span> inorder[i] == preorder[<span class="number">0</span>]:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            len_ += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        left = self.buildTree(preorder[<span class="number">1</span>:<span class="number">1</span>+len_], inorder[:len_])</span><br><span class="line">        right = self.buildTree(preorder[<span class="number">1</span>+len_:], inorder[<span class="number">1</span>+len_:])</span><br><span class="line">        <span class="keyword">return</span> TreeNode(preorder[<span class="number">0</span>], left, right)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 递归 </tag>
+            
+            <tag> 二叉树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解99：恢复二叉搜索树</title>
+      <link href="/2022/11/06/leetcode%E9%A2%98%E8%A7%A399/"/>
+      <url>/2022/11/06/leetcode%E9%A2%98%E8%A7%A399/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/recover-binary-search-tree/">力扣第99题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>二叉搜索树的中序遍历是递增的，所以如果有两个交换了，那么顺序就会发生变化；比如原序列为<code>1 2 3 4 5</code>，如果<code>2 4</code>交换，那么交换后的序列为<code>1 4 3 2 5</code>；那么怎么从变换后的序列中找出<code>2 4</code>呢？</p><p>遍历序列，如果第一次找到逆序对，则前面的数（即比较大的）记为第一个结点，后面的数（即比较小的）记为第二个结点，然后继续遍历，如果第二次遇到了逆序对，则将第二个结点更新为后面的数，也有可能只有一个逆序对，这时第二个结点就不需要更新了，因为此时一定是相邻的数交换了。</p><p>从而可以用中序遍历解决该问题，如果觉得递归写法有点难理解，可以将中序遍历和判断分开。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">recoverTree</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode]</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Do not return anything, modify root in-place instead.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        self.first = <span class="literal">None</span></span><br><span class="line">        self.second = <span class="literal">None</span></span><br><span class="line">        self.pred = TreeNode(<span class="built_in">float</span>(<span class="string">&quot;-inf&quot;</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">in_order</span>(<span class="params">root</span>):</span><br><span class="line">            <span class="keyword">if</span> root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            in_order(root.left)</span><br><span class="line">            <span class="keyword">if</span> self.pred.val &gt; root.val:</span><br><span class="line">                <span class="keyword">if</span> self.first <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                    self.first = self.pred</span><br><span class="line">                self.second = root</span><br><span class="line"></span><br><span class="line">            self.pred = root</span><br><span class="line">            in_order(root.right)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        in_order(root)</span><br><span class="line">        self.first.val, self.second.val = self.second.val, self.first.val</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 递归 </tag>
+            
+            <tag> 二叉树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解98：验证二叉搜索树</title>
+      <link href="/2022/11/06/leetcode%E9%A2%98%E8%A7%A398/"/>
+      <url>/2022/11/06/leetcode%E9%A2%98%E8%A7%A398/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/validate-binary-search-tree/">力扣第98题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>非常简单直接的方法，就是用中序遍历，然后判断是否是递增序列即可。</p><p>这里另一种方法，二叉搜索树的特点是：左子树的所有结点一定小于根结点，右子树的所有结点一定大于根节点，所以从根结点往左走，左子树的上界需要更新，往右走，右子树的下界需要更新；从而如果定义一个函数<code>f(root, lower, upper)</code>表示以<code>root</code>为根结点的树，其所有结点是否都在下界<code>lower</code>与<code>upper</code>之间，从而可以递归判断左子树<code>f(root.left, lower, root.val)</code>，只需更新上界，同理递归判断右子树<code>f(root.right, root.val, right)</code>，只需更新下界。</p><p>其他细节可以看代码。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isValidBST</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode]</span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        <span class="keyword">return</span> self.is_valid(root, -math.inf, math.inf)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_valid</span>(<span class="params">self, root, lower, upper</span>):</span><br><span class="line">        <span class="keyword">if</span> root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> root.val &lt;= lower <span class="keyword">or</span> root.val &gt;= upper:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.is_valid(root.left, lower, root.val):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.is_valid(root.right, root.val, upper):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 递归 </tag>
+            
+            <tag> 二叉树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解97：交错字符串</title>
+      <link href="/2022/11/05/leetcode%E9%A2%98%E8%A7%A397/"/>
+      <url>/2022/11/05/leetcode%E9%A2%98%E8%A7%A397/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/interleaving-string/">力扣第97题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>比如字符串<span class="math inline">\(s_1=a_1a_2..a_l\)</span>，<spanclass="math inline">\(s_2=b_1b_2..b_m\)</span>，<spanclass="math inline">\(s_3=c_1c_2...c_{l+m}\)</span>，要判断<spanclass="math inline">\(s_3\)</span>是否由<spanclass="math inline">\(s_1,s_2\)</span>交错生成，还是以化成小问题为目标，首先当<spanclass="math inline">\(a_l\)</span>与<spanclass="math inline">\(b_m\)</span>都不等于<spanclass="math inline">\(c_{l+m}\)</span>时，显然不可能是<spanclass="math inline">\(s_1,s_2\)</span>生成的；</p><p>从而先假设<span class="math inline">\(a_l =c_{l+m}\)</span>，那么不就是看<spanclass="math inline">\(a_1...a_{l-1}\)</span>与<spanclass="math inline">\(s_2\)</span>是否可以生成<spanclass="math inline">\(c_1...c_{l+m-1}\)</span>吗？这就化成了相似的小问题了。</p><p><span class="math inline">\(b_m =c_{l+m}\)</span>时，同理可得。所以该题可以用动态规划解决。记<code>dp[i][j]</code>表示<spanclass="math inline">\(a_1...a_i\)</span>与<spanclass="math inline">\(b_1...b_j\)</span>是否可生成<spanclass="math inline">\(c_1...c_{i+j}\)</span>，那么转移方程就是<br /><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp<span class="comment">[i]</span><span class="comment">[j]</span> = (dp<span class="comment">[i-1]</span><span class="comment">[j]</span> &amp; s1<span class="comment">[i]</span>==s3<span class="comment">[i+j]</span>) | (dp<span class="comment">[i]</span><span class="comment">[j-1]</span> &amp; s2<span class="comment">[j]</span>==s3<span class="comment">[i+j]</span>)</span><br></pre></td></tr></table></figure></p><p>最后注意边界条件即可。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isInterleave</span>(<span class="params">self, s1: <span class="built_in">str</span>, s2: <span class="built_in">str</span>, s3: <span class="built_in">str</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">len</span>(s1) + <span class="built_in">len</span>(s2)) != <span class="built_in">len</span>(s3):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">        dp = [[<span class="literal">False</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s2)+<span class="number">1</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s1)+<span class="number">1</span>)]</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(s1)+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(s2)+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> i &gt; <span class="number">0</span>:</span><br><span class="line">                    dp[i][j] = (s1[i-<span class="number">1</span>] == s3[i+j-<span class="number">1</span>]) <span class="keyword">and</span> dp[i-<span class="number">1</span>][j]</span><br><span class="line">                <span class="keyword">if</span> j &gt; <span class="number">0</span>:</span><br><span class="line">                    dp[i][j] |= (s2[j-<span class="number">1</span>] == s3[i+j-<span class="number">1</span>] <span class="keyword">and</span> dp[i][j-<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="built_in">len</span>(s1)][<span class="built_in">len</span>(s2)]</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 字符串 </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解96：不同的二叉搜索树</title>
+      <link href="/2022/11/05/leetcode%E9%A2%98%E8%A7%A396/"/>
+      <url>/2022/11/05/leetcode%E9%A2%98%E8%A7%A396/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/unique-binary-search-trees/">力扣第96题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>与<ahref="TODO">力扣第95题</a>不同之处在于只需要求个数，不需要求具体树结构，虽然可以直接用第95题题解，加个返回长度即可；但是只是求个数，其实可以用动态规划。</p><p>因为是大问题化解成小问题，可以发现树的构成个数之和输入数组长度有关，所以如果用<code>dp[i]</code>表示长度为<code>i</code>的数组构成的搜索二叉树的个数，那么一个长度为<code>n</code>的数组，选定一个根结点<code>k</code>时，左边还有<code>k-1</code>个数，右边还有<code>n-k</code>个数，从而左子树有<code>dp[k-1]</code>种，右子树有<code>dp[n-k]</code>种，从而<code>dp[k-1]*dp[n-k]</code>就是根节点为<code>k</code>时的所有树的个数。</p><p>从而<code>dp[n]</code>依然于前面所有的状态，转移方程就是<br /><span class="math display">\[    dp[n] = \sum_{i=1}^n dp[i-1]*dp[n-i]\]</span></p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">numTrees</span>(<span class="params">self, n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        dp = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n+<span class="number">1</span>)]</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, n+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">                dp[k] += dp[i]*dp[k-i-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> dp[n]</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 动态规划 </tag>
+            
+            <tag> 二叉树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解95：不同的二叉搜索树 II</title>
+      <link href="/2022/11/05/leetcode%E9%A2%98%E8%A7%A395/"/>
+      <url>/2022/11/05/leetcode%E9%A2%98%E8%A7%A395/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/unique-binary-search-trees-ii/">力扣第95题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>关于树的问题，基本上可以靠递归解决，即大问题转换为小问题。比如用<code>1 2 3 4 5</code>构建二叉搜索树，由于是搜索树，左子树结点都小于根结点，右子树结点都大于根结点，比如选<code>3</code>为根结点，则用<code>1 2</code>构建二叉搜索树作为左子树，<code>4 5</code>构建的二叉树作为右子树，这就是相似的“小问题”了。</p><p>所以使用递归，遍历所有结点作为根结点，然后左边的数用来构建左子树，右边的数用来构建右子树，所有可能的左子树与右子树结合即可。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">generateTrees</span>(<span class="params">self, n: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="type">Optional</span>[TreeNode]]:</span><br><span class="line">        <span class="keyword">return</span> self.generate(<span class="number">1</span>, n+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">generate</span>(<span class="params">self, start, end</span>):</span><br><span class="line">        <span class="keyword">if</span> start == end:</span><br><span class="line">            <span class="keyword">return</span> [<span class="literal">None</span>]</span><br><span class="line">        <span class="keyword">if</span> start == end - <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> [TreeNode(start)]</span><br><span class="line">        ans = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start, end):</span><br><span class="line">            left_trees = self.generate(start, i)</span><br><span class="line">            right_trees = self.generate(i+<span class="number">1</span>, end)</span><br><span class="line">            <span class="keyword">for</span> l <span class="keyword">in</span> left_trees:</span><br><span class="line">                <span class="keyword">for</span> r <span class="keyword">in</span> right_trees:</span><br><span class="line">                    head = TreeNode(i)</span><br><span class="line">                    head.left = l</span><br><span class="line">                    head.right = r</span><br><span class="line">                    ans.append(head)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 递归 </tag>
+            
+            <tag> 二叉树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解93：复原IP地址</title>
+      <link href="/2022/11/05/leetcode%E9%A2%98%E8%A7%A393/"/>
+      <url>/2022/11/05/leetcode%E9%A2%98%E8%A7%A393/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/restore-ip-addresses/">力扣第93题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>很明显可以看出又是一个大问题逐渐化解成相似的小问题的解法，要找出<code>3</code>个切割点，可以先找出第一个切割点，然后剩余的字符串中找出其他<code>2</code>个切割点，所以该题解法本质是深度优先遍历的递归解法。</p><p>具体方法：<br />1. 找出所有符合条件的第一个切割点；<br />2.遍历所有切割点，获取剩下的字符串，继续1直到字符串为空，表示切割完成；如果字符串不为空，表示切割失败。</p><p>理解了上述过程，其余部分就简单了，具体看代码。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">find_dots</span>(<span class="params">self, s</span>):</span><br><span class="line">        dots = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(s)+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> i == <span class="number">1</span>:</span><br><span class="line">                dots.append(i)</span><br><span class="line">            <span class="keyword">if</span> i == <span class="number">2</span> <span class="keyword">and</span> s[<span class="number">0</span>] != <span class="string">&#x27;0&#x27;</span>:</span><br><span class="line">                dots.append(i)</span><br><span class="line">            <span class="keyword">if</span> i == <span class="number">3</span> <span class="keyword">and</span> (<span class="string">&quot;100&quot;</span> &lt;= s[:<span class="number">3</span>] &lt;= <span class="string">&quot;255&quot;</span>):</span><br><span class="line">                dots.append(i)</span><br><span class="line">        <span class="keyword">return</span> dots</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">restore</span>(<span class="params">self, s, n</span>):</span><br><span class="line">        ans = []</span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(s) == <span class="number">0</span>:</span><br><span class="line">                ans.append(<span class="string">&quot;&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line">        dots = self.find_dots(s)</span><br><span class="line">        <span class="keyword">for</span> dot <span class="keyword">in</span> dots:</span><br><span class="line">            subans = self.restore(s[dot:], n-<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">for</span> sub <span class="keyword">in</span> subans:</span><br><span class="line">                <span class="keyword">if</span> sub == <span class="string">&quot;&quot;</span>:</span><br><span class="line">                    ans.append(s[:dot])</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    ans.append(s[:dot] + <span class="string">&quot;.&quot;</span> + sub)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">restoreIpAddresses</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">str</span>]:</span><br><span class="line">        <span class="keyword">return</span> self.restore(s, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 字符串 </tag>
+            
+            <tag> 递归 </tag>
+            
+            <tag> 深度优先遍历 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解91：解码方法</title>
+      <link href="/2022/11/05/leetcode%E9%A2%98%E8%A7%A391/"/>
+      <url>/2022/11/05/leetcode%E9%A2%98%E8%A7%A391/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/decode-ways/">力扣第91题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>假设<code>s</code>为<spanclass="math inline">\(a_0a_1...a_{n-2}a_{n-1}a_n\)</span>，由于每个字母最多转为2位的字符串，那么从后面往前看，一种是<spanclass="math inline">\(a_n\)</span>单独解码，一种是<spanclass="math inline">\(a_{n-1}a_n\)</span>一起解码，所以如果是<spanclass="math inline">\(a_n\)</span>单独解码，那么只需知道<spanclass="math inline">\(a_0a_1...a_{n-1}\)</span>有多少中解码方式；如果是<spanclass="math inline">\(a_{n-1}a_n\)</span>一起解码，那么只需知道<spanclass="math inline">\(a_0a_1...a_{n-2}\)</span>有多少中解码方式；最后这两种解码方式相加即可。</p><p>所以这是个动态规划问题，记<code>dp[i]</code>表示从<spanclass="math inline">\(a_0...a_i\)</span>的所有解码方式，<spanclass="math inline">\(a_i\)</span>可以单独解码的充分必要条件是<spanclass="math inline">\(a_i \ne0\)</span>，<code>0</code>字符串不能转码；而<spanclass="math inline">\(a_{i-1}a_i\)</span>可以转码的充分必要条件是<spanclass="math inline">\(10 \le a_{i-1}a_{i} \le26\)</span>，满足两个条件则<br /><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp<span class="comment">[i]</span> = dp<span class="comment">[i-1]</span> + dp<span class="comment">[i-2]</span></span><br></pre></td></tr></table></figure><br />只满足其中一个，另一个就不加到结果上即可，最后注意边界条件就好。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">numDecodings</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        dp = [<span class="number">0</span>]*<span class="built_in">len</span>(s)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">            <span class="keyword">if</span> s[i] != <span class="string">&#x27;0&#x27;</span>:</span><br><span class="line">                dp[i] += dp[i-<span class="number">1</span>] <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> <span class="string">&#x27;10&#x27;</span> &lt;= s[i-<span class="number">1</span>:i+<span class="number">1</span>] &lt;= <span class="string">&#x27;26&#x27;</span>:</span><br><span class="line">                dp[i] += dp[i-<span class="number">2</span>] <span class="keyword">if</span> i &gt; <span class="number">1</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> dp[<span class="built_in">len</span>(s)-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 字符串 </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode题解90：子集 II</title>
       <link href="/2022/10/30/leetcode%E9%A2%98%E8%A7%A390/"/>
       <url>/2022/10/30/leetcode%E9%A2%98%E8%A7%A390/</url>
@@ -686,7 +1142,7 @@
       <link href="/2022/07/24/leetcode%E9%A2%98%E8%A7%A353/"/>
       <url>/2022/07/24/leetcode%E9%A2%98%E8%A7%A353/</url>
       
-        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/maximum-subarray/">力扣第53题</a><br /><span id="more"></span></p><h2 id="分析">分析</h2><p>先说一种相对直观的思路：初始化当前和为0，遍历数组，求当前和，与全局最大和比较大小，并更新全局最大和；如果当前和小于0，则表示包含当前值得子数组的和一定不可能是最大值，所以当前和重置为0。</p><p>另一种等价的思路是动态规划，记<code>dp[i]</code>是以第<code>i</code>个数结尾的子数组的最大和，那么考虑以第<code>i+1</code>个数结尾的子数组的最大和，以第<code>i+1</code>个数结尾的子数组的最大和有两种情况，一种是<code>dp[i]+nums[i+1]</code>，一种是<code>nums[i+1]</code>；从而<code>dp[i+1]=max(nums[i], dp[i]+nums[i+1])</code>。然后再求<code>dp</code>数组的最大值就可以，这里也可以用全局最大来更新。这里可以看到<code>dp[i+1]</code>只与<code>dp[i]</code>有关，所以可以压缩数组，用一个数表示就好了。</p><h2 id="代码">代码</h2><details open><summary>python</summary><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maxSubArray</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        ans, curr = nums[<span class="number">0</span>], nums[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">            curr = <span class="built_in">max</span>(nums[i], curr+nums[i])</span><br><span class="line">            ans = <span class="built_in">max</span>(ans, curr)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/maximum-subarray/">力扣第53题</a><br /><span id="more"></span></p><h2 id="分析">分析</h2><p>先说一种相对直观的思路：初始化当前和为0，遍历数组，求当前和，与全局最大和比较大小，并更新全局最大和；如果当前和小于0，则表示包含当前值的子数组的和一定不可能是最大值，所以当前和重置为0。</p><p>另一种等价的思路是动态规划，记<code>dp[i]</code>是以第<code>i</code>个数结尾的子数组的最大和，那么考虑以第<code>i+1</code>个数结尾的子数组的最大和，以第<code>i+1</code>个数结尾的子数组的最大和有两种情况，一种是<code>dp[i]+nums[i+1]</code>，一种是<code>nums[i+1]</code>；从而<code>dp[i+1]=max(nums[i], dp[i]+nums[i+1])</code>。然后再求<code>dp</code>数组的最大值就可以，这里也可以用全局最大来更新。这里可以看到<code>dp[i+1]</code>只与<code>dp[i]</code>有关，所以可以压缩数组，用一个数表示就好了。</p><h2 id="代码">代码</h2><details open><summary>python</summary><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maxSubArray</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        ans, curr = nums[<span class="number">0</span>], nums[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">            curr = <span class="built_in">max</span>(nums[i], curr+nums[i])</span><br><span class="line">            ans = <span class="built_in">max</span>(ans, curr)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>

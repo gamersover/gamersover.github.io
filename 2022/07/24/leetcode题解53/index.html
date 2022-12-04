@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">73</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">74</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -139,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">118</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">134</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -271,7 +271,7 @@
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-subarray/">力扣第53题</a><br />
 <span id="more"></span></p>
 <h2 id="分析">分析</h2>
-<p>先说一种相对直观的思路：初始化当前和为0，遍历数组，求当前和，与全局最大和比较大小，并更新全局最大和；如果当前和小于0，则表示包含当前值得子数组的和一定不可能是最大值，所以当前和重置为0。</p>
+<p>先说一种相对直观的思路：初始化当前和为0，遍历数组，求当前和，与全局最大和比较大小，并更新全局最大和；如果当前和小于0，则表示包含当前值的子数组的和一定不可能是最大值，所以当前和重置为0。</p>
 <p>另一种等价的思路是动态规划，记<code>dp[i]</code>是以第<code>i</code>个数结尾的子数组的最大和，那么考虑以第<code>i+1</code>个数结尾的子数组的最大和，以第<code>i+1</code>个数结尾的子数组的最大和有两种情况，一种是<code>dp[i]+nums[i+1]</code>，一种是<code>nums[i+1]</code>；从而<code>dp[i+1]=max(nums[i], dp[i]+nums[i+1])</code>。然后再求<code>dp</code>数组的最大值就可以，这里也可以用全局最大来更新。这里可以看到<code>dp[i+1]</code>只与<code>dp[i]</code>有关，所以可以压缩数组，用一个数表示就好了。</p>
 <h2 id="代码">代码</h2>
 <details open>
@@ -402,7 +402,7 @@ python
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -415,7 +415,7 @@ python
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">73</span>
+        <span class="site-state-item-count">74</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -457,13 +457,13 @@ python
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">461k</span>
+    <span title="站点总字数">473k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:59</span>
+    <span title="站点阅读时长">7:10</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
