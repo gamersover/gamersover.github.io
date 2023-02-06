@@ -61,7 +61,7 @@ class Solution:
                         return False
             return True
 
-        solve = solve(board)
+        solve(board)
 
 ```
 </details>
