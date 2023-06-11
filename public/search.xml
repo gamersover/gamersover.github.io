@@ -4,11 +4,38 @@
   
     
     <entry>
+      <title>leetcode题解131：分割回文串</title>
+      <link href="/2023/06/11/leetcode%E9%A2%98%E8%A7%A3131/"/>
+      <url>/2023/06/11/leetcode%E9%A2%98%E8%A7%A3131/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/palindrome-partitioning/">力扣第131题</a></p><span id="more"></span><h2 id="分析">分析</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 字符串 </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode题解130：被围绕的区域</title>
       <link href="/2023/02/05/leetcode%E9%A2%98%E8%A7%A3130/"/>
       <url>/2023/02/05/leetcode%E9%A2%98%E8%A7%A3130/</url>
       
-        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/surrounded-regions/">力扣第130题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>要求的是被<code>X</code>围绕的区域，边界的不算。正面求解不好求，那就方面求解，即求出所有边界的<code>O</code>。</p><p>思路就很明了了，找出边界的<code>O</code>，然后从这些<code>O</code>开始深度优先遍历，找到所有相邻的<code>O</code>，可以标记下找出的<code>O</code>，那么最后将这些没有标记的<code>O</code>转为<code>X</code>就可以了。</p><p>深度优先遍历就很简单了，找出所有相邻的<code>O</code>，继续递归遍历即可。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">self, board: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">str</span>]]</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Do not return anything, modify board in-place instead.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        m, n = <span class="built_in">len</span>(board), <span class="built_in">len</span>(board[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">is_valid_pos</span>(<span class="params">x, y, m, n</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="number">0</span> &lt;= x &lt; m <span class="keyword">and</span> <span class="number">0</span> &lt;= y &lt; n <span class="keyword">and</span> board[x][y] == <span class="string">&#x27;O&#x27;</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">find_valid_pos</span>(<span class="params">x, y, m, n</span>):</span><br><span class="line">            all_pos = []</span><br><span class="line">            <span class="keyword">if</span> is_valid_pos(x-<span class="number">1</span>, y, m, n):</span><br><span class="line">                all_pos.append((x-<span class="number">1</span>, y))</span><br><span class="line">            <span class="keyword">if</span> is_valid_pos(x+<span class="number">1</span>, y, m, n):</span><br><span class="line">                all_pos.append((x+<span class="number">1</span>, y))</span><br><span class="line">            <span class="keyword">if</span> is_valid_pos(x, y-<span class="number">1</span>, m, n):</span><br><span class="line">                all_pos.append((x, y-<span class="number">1</span>))</span><br><span class="line">            <span class="keyword">if</span> is_valid_pos(x, y+<span class="number">1</span>, m, n):</span><br><span class="line">                all_pos.append((x, y+<span class="number">1</span>))</span><br><span class="line">            <span class="keyword">return</span> all_pos</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">board, x, y, m, n</span>):</span><br><span class="line">            board[x][y] = <span class="string">&#x27;|&#x27;</span></span><br><span class="line">            <span class="keyword">for</span> x, y <span class="keyword">in</span> find_valid_pos(x, y, m, n):</span><br><span class="line">                dfs(board, x, y, m, n)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">            <span class="keyword">if</span> board[i][<span class="number">0</span>] == <span class="string">&#x27;O&#x27;</span>:</span><br><span class="line">                dfs(board, i, <span class="number">0</span>, m, n)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">            <span class="keyword">if</span> board[i][n-<span class="number">1</span>] == <span class="string">&#x27;O&#x27;</span>:</span><br><span class="line">                dfs(board, i, n-<span class="number">1</span>, m, n)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> board[<span class="number">0</span>][j] == <span class="string">&#x27;O&#x27;</span>:</span><br><span class="line">                dfs(board, <span class="number">0</span>, j, m, n)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> board[m-<span class="number">1</span>][j] == <span class="string">&#x27;O&#x27;</span>:</span><br><span class="line">                dfs(board, m-<span class="number">1</span>, j, m, n)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                <span class="keyword">if</span> board[i][j] == <span class="string">&#x27;O&#x27;</span>:</span><br><span class="line">                    board[i][j] = <span class="string">&#x27;X&#x27;</span></span><br><span class="line">                <span class="keyword">elif</span> board[i][j] == <span class="string">&#x27;|&#x27;</span>:</span><br><span class="line">                    board[i][j] = <span class="string">&#x27;O&#x27;</span></span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/surrounded-regions/">力扣第130题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>要求的是被<code>X</code>围绕的区域，边界的不算。正面求解不好求，那就反面求解，即求出所有边界的<code>O</code>。</p><p>思路就很明了了，找出边界的<code>O</code>，然后从这些<code>O</code>开始深度优先遍历，找到所有相邻的<code>O</code>，可以标记下找出的<code>O</code>，那么最后将这些没有标记的<code>O</code>转为<code>X</code>就可以了。</p><p>深度优先遍历就很简单了，找出所有相邻的<code>O</code>，继续递归遍历即可。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">self, board: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">str</span>]]</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Do not return anything, modify board in-place instead.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        m, n = <span class="built_in">len</span>(board), <span class="built_in">len</span>(board[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">is_valid_pos</span>(<span class="params">x, y, m, n</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="number">0</span> &lt;= x &lt; m <span class="keyword">and</span> <span class="number">0</span> &lt;= y &lt; n <span class="keyword">and</span> board[x][y] == <span class="string">&#x27;O&#x27;</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">find_valid_pos</span>(<span class="params">x, y, m, n</span>):</span><br><span class="line">            all_pos = []</span><br><span class="line">            <span class="keyword">if</span> is_valid_pos(x-<span class="number">1</span>, y, m, n):</span><br><span class="line">                all_pos.append((x-<span class="number">1</span>, y))</span><br><span class="line">            <span class="keyword">if</span> is_valid_pos(x+<span class="number">1</span>, y, m, n):</span><br><span class="line">                all_pos.append((x+<span class="number">1</span>, y))</span><br><span class="line">            <span class="keyword">if</span> is_valid_pos(x, y-<span class="number">1</span>, m, n):</span><br><span class="line">                all_pos.append((x, y-<span class="number">1</span>))</span><br><span class="line">            <span class="keyword">if</span> is_valid_pos(x, y+<span class="number">1</span>, m, n):</span><br><span class="line">                all_pos.append((x, y+<span class="number">1</span>))</span><br><span class="line">            <span class="keyword">return</span> all_pos</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">board, x, y, m, n</span>):</span><br><span class="line">            board[x][y] = <span class="string">&#x27;|&#x27;</span></span><br><span class="line">            <span class="keyword">for</span> x, y <span class="keyword">in</span> find_valid_pos(x, y, m, n):</span><br><span class="line">                dfs(board, x, y, m, n)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">            <span class="keyword">if</span> board[i][<span class="number">0</span>] == <span class="string">&#x27;O&#x27;</span>:</span><br><span class="line">                dfs(board, i, <span class="number">0</span>, m, n)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">            <span class="keyword">if</span> board[i][n-<span class="number">1</span>] == <span class="string">&#x27;O&#x27;</span>:</span><br><span class="line">                dfs(board, i, n-<span class="number">1</span>, m, n)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> board[<span class="number">0</span>][j] == <span class="string">&#x27;O&#x27;</span>:</span><br><span class="line">                dfs(board, <span class="number">0</span>, j, m, n)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> board[m-<span class="number">1</span>][j] == <span class="string">&#x27;O&#x27;</span>:</span><br><span class="line">                dfs(board, m-<span class="number">1</span>, j, m, n)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                <span class="keyword">if</span> board[i][j] == <span class="string">&#x27;O&#x27;</span>:</span><br><span class="line">                    board[i][j] = <span class="string">&#x27;X&#x27;</span></span><br><span class="line">                <span class="keyword">elif</span> board[i][j] == <span class="string">&#x27;|&#x27;</span>:</span><br><span class="line">                    board[i][j] = <span class="string">&#x27;O&#x27;</span></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -22,11 +49,11 @@
             
             <tag> leetcode </tag>
             
+            <tag> 二叉树 </tag>
+            
             <tag> 递归 </tag>
             
             <tag> 深度优先遍历 </tag>
-            
-            <tag> 二叉树 </tag>
             
         </tags>
       
@@ -53,9 +80,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 递归 </tag>
-            
             <tag> 二叉树 </tag>
+            
+            <tag> 递归 </tag>
             
         </tags>
       
@@ -82,9 +109,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -97,7 +124,7 @@
       <link href="/2023/02/04/leetcode%E9%A2%98%E8%A7%A3127/"/>
       <url>/2023/02/04/leetcode%E9%A2%98%E8%A7%A3127/</url>
       
-        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/word-ladder/">力扣第127题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>有了<ahref="todo">第126题</a>的解法后，该题就简单多了，由于不需要记录具体路径，从而只需要记录最后一个节点即可。例子如下：</p><ol type="1"><li>初始为<code>paths = [beginWord]</code></li><li>取beginWord的所有相邻节点，添加到路径，假设结果为<code>paths=[node1, node2]</code></li><li>记录访问过的节点<code>node1, node2</code>，</li><li>在遍历下一层之间，注意从所有节点中去掉访问过的节点，</li><li>从上一次的结果<code>paths</code>遍历，得到新的相邻节点，假设新结果为<code>[node3, node4]</code></li><li>一直迭代下去，直到遇到结束节点退出。</li></ol><p>这里的<code>paths</code>只记录的当前层的节点，所以当遍历完上一层的<code>paths</code>时，层数更新即可。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">ladderLength</span>(<span class="params">self, beginWord: <span class="built_in">str</span>, endWord: <span class="built_in">str</span>, wordList: <span class="type">List</span>[<span class="built_in">str</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        alphabeta = [<span class="built_in">chr</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>), <span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>)+<span class="number">26</span>)]</span><br><span class="line">        word_list = <span class="built_in">set</span>(wordList)</span><br><span class="line">        level_arr = [beginWord]     <span class="comment"># 当前层节点</span></span><br><span class="line">        visited = <span class="built_in">set</span>([beginWord])  <span class="comment"># 访问过的结点</span></span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">len</span>(level_arr) &gt; <span class="number">0</span>:</span><br><span class="line">            res += <span class="number">1</span></span><br><span class="line">            level_len = <span class="built_in">len</span>(level_arr)</span><br><span class="line">            <span class="keyword">while</span> level_len &gt; <span class="number">0</span>:</span><br><span class="line">                s = level_arr.pop(<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">                    <span class="keyword">for</span> c <span class="keyword">in</span> alphabeta:</span><br><span class="line">                        new_s = s[:i] + c + s[i+<span class="number">1</span>:]</span><br><span class="line">                        <span class="keyword">if</span> new_s <span class="keyword">in</span> word_list <span class="keyword">and</span> new_s == endWord:</span><br><span class="line">                            <span class="keyword">return</span> res + <span class="number">1</span></span><br><span class="line">                        <span class="keyword">if</span> new_s <span class="keyword">not</span> <span class="keyword">in</span> word_list <span class="keyword">or</span> new_s <span class="keyword">in</span> visited:</span><br><span class="line">                            <span class="keyword">continue</span></span><br><span class="line">                        level_arr.append(new_s)</span><br><span class="line">                        visited.add(new_s)</span><br><span class="line">                level_len -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/word-ladder/">力扣第127题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>有了<ahref="https://caoqinping.com/2023/02/04/leetcode题解126/">第126题</a>的解法后，该题就简单多了，由于不需要记录具体路径，从而只需要记录最后一个节点即可。例子如下：</p><ol type="1"><li>初始为<code>paths = [beginWord]</code></li><li>取beginWord的所有相邻节点，添加到路径，假设结果为<code>paths=[node1, node2]</code></li><li>记录访问过的节点<code>node1, node2</code>，</li><li>在遍历下一层之间，注意从所有节点中去掉访问过的节点，</li><li>从上一次的结果<code>paths</code>遍历，得到新的相邻节点，假设新结果为<code>[node3, node4]</code></li><li>一直迭代下去，直到遇到结束节点退出。</li></ol><p>这里的<code>paths</code>只记录的当前层的节点，所以当遍历完上一层的<code>paths</code>时，层数更新即可。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">ladderLength</span>(<span class="params">self, beginWord: <span class="built_in">str</span>, endWord: <span class="built_in">str</span>, wordList: <span class="type">List</span>[<span class="built_in">str</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        alphabeta = [<span class="built_in">chr</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>), <span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>)+<span class="number">26</span>)]</span><br><span class="line">        word_list = <span class="built_in">set</span>(wordList)</span><br><span class="line">        level_arr = [beginWord]     <span class="comment"># 当前层节点</span></span><br><span class="line">        visited = <span class="built_in">set</span>([beginWord])  <span class="comment"># 访问过的结点</span></span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">len</span>(level_arr) &gt; <span class="number">0</span>:</span><br><span class="line">            res += <span class="number">1</span></span><br><span class="line">            level_len = <span class="built_in">len</span>(level_arr)</span><br><span class="line">            <span class="keyword">while</span> level_len &gt; <span class="number">0</span>:</span><br><span class="line">                s = level_arr.pop(<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">                    <span class="keyword">for</span> c <span class="keyword">in</span> alphabeta:</span><br><span class="line">                        new_s = s[:i] + c + s[i+<span class="number">1</span>:]</span><br><span class="line">                        <span class="keyword">if</span> new_s <span class="keyword">in</span> word_list <span class="keyword">and</span> new_s == endWord:</span><br><span class="line">                            <span class="keyword">return</span> res + <span class="number">1</span></span><br><span class="line">                        <span class="keyword">if</span> new_s <span class="keyword">not</span> <span class="keyword">in</span> word_list <span class="keyword">or</span> new_s <span class="keyword">in</span> visited:</span><br><span class="line">                            <span class="keyword">continue</span></span><br><span class="line">                        level_arr.append(new_s)</span><br><span class="line">                        visited.add(new_s)</span><br><span class="line">                level_len -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -173,9 +200,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 递归 </tag>
-            
             <tag> 二叉树 </tag>
+            
+            <tag> 递归 </tag>
             
         </tags>
       
@@ -227,9 +254,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       
@@ -256,9 +283,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       
@@ -312,9 +339,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 递归 </tag>
-            
             <tag> 二叉树 </tag>
+            
+            <tag> 递归 </tag>
             
         </tags>
       
@@ -341,9 +368,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 递归 </tag>
-            
             <tag> 二叉树 </tag>
+            
+            <tag> 递归 </tag>
             
         </tags>
       
@@ -399,9 +426,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 递归 </tag>
-            
             <tag> 二叉树 </tag>
+            
+            <tag> 递归 </tag>
             
         </tags>
       
@@ -428,11 +455,11 @@
             
             <tag> leetcode </tag>
             
+            <tag> 二叉树 </tag>
+            
             <tag> 递归 </tag>
             
             <tag> 深度优先遍历 </tag>
-            
-            <tag> 二叉树 </tag>
             
         </tags>
       
@@ -459,9 +486,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 递归 </tag>
-            
             <tag> 二叉树 </tag>
+            
+            <tag> 递归 </tag>
             
         </tags>
       
@@ -488,9 +515,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 递归 </tag>
-            
             <tag> 二叉树 </tag>
+            
+            <tag> 递归 </tag>
             
         </tags>
       
@@ -517,9 +544,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 递归 </tag>
-            
             <tag> 二叉树 </tag>
+            
+            <tag> 递归 </tag>
             
         </tags>
       
@@ -604,9 +631,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 递归 </tag>
-            
             <tag> 二叉树 </tag>
+            
+            <tag> 递归 </tag>
             
         </tags>
       
@@ -898,9 +925,9 @@
             
             <tag> 递归 </tag>
             
-            <tag> 回溯 </tag>
-            
             <tag> 深度优先遍历 </tag>
+            
+            <tag> 回溯 </tag>
             
         </tags>
       
@@ -1371,9 +1398,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       
@@ -1402,9 +1429,9 @@
             
             <tag> 递归 </tag>
             
-            <tag> 回溯 </tag>
-            
             <tag> 深度优先遍历 </tag>
+            
+            <tag> 回溯 </tag>
             
         </tags>
       
@@ -1433,9 +1460,9 @@
             
             <tag> 递归 </tag>
             
-            <tag> 回溯 </tag>
-            
             <tag> 深度优先遍历 </tag>
+            
+            <tag> 回溯 </tag>
             
         </tags>
       
@@ -1491,9 +1518,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> 字符串 </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -1740,9 +1767,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       
@@ -2882,9 +2909,9 @@
             
             <tag> 函数导数 </tag>
             
-            <tag> 逆映射 </tag>
-            
             <tag> 微分 </tag>
+            
+            <tag> 逆映射 </tag>
             
         </tags>
       
@@ -2969,11 +2996,11 @@
             
             <tag> 函数导数 </tag>
             
-            <tag> 微分 </tag>
-            
             <tag> 隐函数 </tag>
             
             <tag> 隐映射 </tag>
+            
+            <tag> 微分 </tag>
             
         </tags>
       
@@ -3808,9 +3835,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
