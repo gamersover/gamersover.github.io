@@ -33,6 +33,7 @@
 <meta property="article:author" content="陈华杰">
 <meta property="article:tag" content="字符串">
 <meta property="article:tag" content="动态规划">
+<meta property="article:tag" content="递归">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2023/06/11/leetcode%E9%A2%98%E8%A7%A3131/">
@@ -138,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">142</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">144</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -246,7 +247,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>16</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -270,6 +271,14 @@
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/palindrome-partitioning/">力扣第131题</a></p>
 <span id="more"></span>
 <h2 id="分析">分析</h2>
+<p>需要列举出所有分割方案，显然要用到递归了，先找出前缀回文串，然后分割后面的子串就好了，这样大问题又转为小问题了。</p>
+<p>假设原始字符串为<code>s</code>，求解该问题的函数是<code>f(s, start)</code>，显然返回值是一个二维数组；给出起始索引<code>start</code>，遍历索引<code>i</code>，那么如果<code>s[start:i+1]</code>是回文串，继续求解<code>f(s, i+1)</code>，得到的结果就是从<code>i</code>开始的子串的所有分割方案。从而遍历这个结果，并将前缀回文串<code>s[start:i+1]</code>添加到每个方案数组的头部就好了，伪代码如下：<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ans = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start, <span class="built_in">len</span>(s)):</span><br><span class="line">    pre = s[start:i+<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">if</span> pre <span class="keyword">is</span> 回文:</span><br><span class="line">        <span class="keyword">for</span> ans_ <span class="keyword">in</span> f(s, i+<span class="number">1</span>):</span><br><span class="line">            ans.append([pre] + ans_)</span><br></pre></td></tr></table></figure></p>
+<p>所以关键在于先求出<code>s[i:j]</code>是否是回文串，这要这个可以判断，那么上面的方法就可以实现。</p>
+<p>当然直接暴力求解没有问题，但是考虑到我们需要求解出所有<code>i &lt;= j</code>时<code>s[i:j]</code>是否为回文串的情况，暴力时间复杂度太高，而且显然可以用动态规划优化；如果我们知道<code>s[i:j]</code>，那么求解<code>s[i-1:j+1]</code>就很简单，判断<code>s[i-1]==s[j+1]</code>就好，根据这种思想，判断是否为回文串的伪代码如下：<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dp = [[<span class="literal">True</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s))] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s))]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(s)):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>):</span><br><span class="line">        dp[j][i] = (s[i] == s[j]) <span class="keyword">and</span> ((i - j &lt;= <span class="number">2</span>) <span class="keyword">or</span> dp[j+<span class="number">1</span>][i-<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">List</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">partition</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">str</span>]]:</span><br><span class="line"></span><br><span class="line">        dp = [[<span class="literal">True</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s))] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s))]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(s)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>):</span><br><span class="line">                dp[j][i] = (s[i] == s[j]) <span class="keyword">and</span> ((i - j &lt;= <span class="number">2</span>) <span class="keyword">or</span> dp[j+<span class="number">1</span>][i-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">split</span>(<span class="params">s, start</span>):</span><br><span class="line">            <span class="keyword">if</span> start == <span class="built_in">len</span>(s):</span><br><span class="line">                <span class="keyword">return</span> [[]]</span><br><span class="line">            ans = []</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start, <span class="built_in">len</span>(s)):</span><br><span class="line">                <span class="keyword">if</span> dp[start][i]:</span><br><span class="line">                    pre = [s[start:i+<span class="number">1</span>]]</span><br><span class="line">                    <span class="keyword">for</span> sub <span class="keyword">in</span> split(s, i+<span class="number">1</span>):</span><br><span class="line">                        ans.append(pre + sub)</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> split(s, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -286,13 +295,13 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/palindrome-par
       <div class="popular-posts-title"><a href="/2022/11/24/leetcode题解115/" rel="bookmark">leetcode题解115：不同的子序列</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2023/02/04/leetcode题解127/" rel="bookmark">leetcode题解127：单词接龙</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2022/07/10/leetcode题解44/" rel="bookmark">leetcode题解44：通配符匹配</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2020/11/21/leetcode题解5/" rel="bookmark">leetcode题解5：最长回文子串</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2022/11/05/leetcode题解97/" rel="bookmark">leetcode题解97：交错字符串</a></div>
     </li>
   </ul>
 
@@ -302,6 +311,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/palindrome-par
           <div class="post-tags">
               <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag"><i class="fa fa-tag"></i> 字符串</a>
               <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"><i class="fa fa-tag"></i> 动态规划</a>
+              <a href="/tags/%E9%80%92%E5%BD%92/" rel="tag"><i class="fa fa-tag"></i> 递归</a>
           </div>
 
         
@@ -313,7 +323,10 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/palindrome-par
     <a href="/2023/02/05/leetcode%E9%A2%98%E8%A7%A3130/" rel="prev" title="leetcode题解130：被围绕的区域">
       <i class="fa fa-chevron-left"></i> leetcode题解130：被围绕的区域
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2023/09/23/leetcode%E9%A2%98%E8%A7%A3132/" rel="next" title="leetcode题解132：分割回文串 II">
+      leetcode题解132：分割回文串 II <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -373,7 +386,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/palindrome-par
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -389,7 +402,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/palindrome-par
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">144</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -444,13 +457,13 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/palindrome-par
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">479k</span>
+    <span title="站点总字数">482k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:16</span>
+    <span title="站点阅读时长">7:18</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
