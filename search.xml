@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>leetcode题解135：分发糖果</title>
+      <link href="/2023/09/24/leetcode%E9%A2%98%E8%A7%A3135/"/>
+      <url>/2023/09/24/leetcode%E9%A2%98%E8%A7%A3135/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/candy">力扣第135题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>这题虽然是困难难度，其实很简单，评分有四种情况（简化后实际是2种），一一来看；<br />1. 递增，如 <code>3 5 7</code>，直接取 <code>1 2 3</code><br />2. 递减，如 <code>7 5 3</code>，反过来来看就是递增，一样处理<br />3.先递增后递减，<code>1 3 5 3 2 1</code>，这种情况关键在于转折点，分开看就是前两种情况，<code>1 3 5</code>和<code>5 3 2 1</code>，其中<code>5</code>是转折点，除了转折点不一样，其他都一样，先取为<code>1 2 x 3 2 1</code>，那转折点<code>x</code>应该取什么呢？显然取最大<code>4</code>；<br />4. 先递减后递增；其实反过来就是第3点，也是一样的处理方法。</p><p>总结下就是先从左往右处理递增取值，递减直接取1；然后从右往左递增取值，递减取1，最后取两个的最大值即可。代码优化时，其实只要转折点取两者最大，非转折点不必处理，</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">List</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">candy</span>(<span class="params">self, ratings: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        candy_arr = [<span class="number">1</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(ratings))]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(ratings)):</span><br><span class="line">            <span class="keyword">if</span> ratings[i] &gt; ratings[i-<span class="number">1</span>]:</span><br><span class="line">                candy_arr[i] = candy_arr[i-<span class="number">1</span>] + <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(ratings)-<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> ratings[i] &lt; ratings[i-<span class="number">1</span>] <span class="keyword">and</span> candy_arr[i] &gt;= candy_arr[i-<span class="number">1</span>]:</span><br><span class="line">                candy_arr[i-<span class="number">1</span>] = candy_arr[i] + <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sum</span>(candy_arr)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数组 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解134：加油站</title>
+      <link href="/2023/09/24/leetcode%E9%A2%98%E8%A7%A3134/"/>
+      <url>/2023/09/24/leetcode%E9%A2%98%E8%A7%A3134/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/gas-station">力扣第134题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>这题很有意思，一定要注意到题目说明：<strong>如果存在解，则保证它是唯一的。</strong>解只有一个。</p><p>首先我们可以计算出每一站相对消耗量，即<code>delta[i] = gas[i]-cost[i]</code>，我们可以主要观察<code>delta</code>数组.</p><ol type="1"><li><p>首先可以注意到，有解的必要条件是<code>delta</code>数组的和大于0；</p></li><li><p>然后我们可以对delta数组从索引<code>i</code>开始求和，如果<br /><span class="math display">\[\sum_{k=i}^j delta[k] &gt;= 0\]</span><br />表示从<code>i</code>到<code>j</code>汽油站都是安全的；一旦在某个<code>l</code>汽油站<strong>第一次</strong>出现<br /><span class="math display">\[\sum_{k=i}^l delta[k] &lt; 0\]</span><br />表示从<code>i</code>开始出发就不安全了，其实不仅从<code>i</code>开始，而是从<code>i</code>一直到<code>l</code>任何一个加油站<code>l_1</code>出发都不安全。因为<br /><span class="math display">\[\sum_{k=l_1}^l delta[k] = \sum_{k=i}^l delta[k] -  \sum_{k_i}^{l_1}delta[k] &lt; 0\]</span></p></li><li><p>注意到1可以让我们判断有没有解，2可以让我们排除非解，最后一个就是让我们知道解在哪里。那就是2的另一种情况，没有遇到小于0的汽油站，即从<code>i</code>开始的和<br /><span class="math display">\[\sum_{k=i}^{j} delta[i] &gt;= 0\]</span><br />其中<span class="math inline">\(i \le j \lelen(gas)\)</span>。那么最终结果一定是<code>i</code>，为什么？这就要用到解只有一个的假设了，我们用反证法，如果<spanclass="math inline">\(i+\delta\)</span>才是那个解，又由于<spanclass="math inline">\(i\)</span>到<spanclass="math inline">\(i+\delta\)</span>都是安全的，那么从<spanclass="math inline">\(i\)</span>开始更是安全的，所以<spanclass="math inline">\(i\)</span>也是那个解，从而有多解了，不符合题意。</p></li></ol><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">canCompleteCircuit</span>(<span class="params">self, gas, cost</span>):</span><br><span class="line">    start, total, curr = <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(gas)):</span><br><span class="line">        delta = gas[i] - cost[i]</span><br><span class="line">        total += delta</span><br><span class="line">        curr += delta</span><br><span class="line">        <span class="keyword">if</span> curr &lt; <span class="number">0</span>:</span><br><span class="line">            start = i + <span class="number">1</span></span><br><span class="line">            curr = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span> <span class="keyword">if</span> total &lt; <span class="number">0</span> <span class="keyword">else</span> start</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 双指针法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>诗篇：庆新婚</title>
       <link href="/2023/09/23/%E8%AF%97%E7%AF%87%EF%BC%9A%E5%BA%86%E6%96%B0%E5%A9%9A/"/>
       <url>/2023/09/23/%E8%AF%97%E7%AF%87%EF%BC%9A%E5%BA%86%E6%96%B0%E5%A9%9A/</url>
