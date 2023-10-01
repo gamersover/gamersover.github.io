@@ -4,6 +4,118 @@
   
     
     <entry>
+      <title>leetcode题解140：单词拆分II</title>
+      <link href="/2023/10/01/leetcode%E9%A2%98%E8%A7%A3140/"/>
+      <url>/2023/10/01/leetcode%E9%A2%98%E8%A7%A3140/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/word-break-ii/">力扣第140题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>这一题就是要求所有解的，所以我们使用递归。</p><p>假设要计算从<code>start</code>开始，到<code>end</code>结束的子串<code>s[start:end+1]</code>的所有解（大问题），先判断是否有前缀<code>s[start:start+n]</code>在<code>wordDict</code>中，如果在就继续递归剩下的的子串（小问题），并且返回子串分割的所有解，然后将前缀加入到每个解中，就是最终的解。</p><p>递归的解法还是大问题化解成小问题的解法，判断前缀的方法有两种：<br />1. 遍历n，然后判断是否在<code>wordDict</code>中；<br />2. 遍历<code>wordDict</code>，判断是否是某个前缀。</p><p>两种写法都可以，看题目的<code>wordDict</code>比<code>len(s)</code>大很多，所以第一种方法可能更好点。</p><p>这里的写法使用的第二种。然后就是递归的写法了，可以先返回子串分割的所有解，然后将前缀加入到每个解中；也可以在递归的过程中将前缀结果加到最终结果中，怎么写都可以，看习惯就行。</p><p>当然，在写的过程中会发现有些地方子串会重复计算，其中可以缓存下计算结果，也就是记忆化搜索，这里就不展开了。具体可以看官方题解。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wordBreak</span>(<span class="params">self, s: <span class="built_in">str</span>, wordDict: <span class="type">List</span>[<span class="built_in">str</span>]</span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        self.ans = []</span><br><span class="line">        self.search(s, wordDict, <span class="number">0</span>, [])</span><br><span class="line">        <span class="keyword">return</span> self.ans</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">self, s, wordDict, start, res</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(s) == start:</span><br><span class="line">            self.ans.append(<span class="string">&quot; &quot;</span>.join(res))</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">for</span> w <span class="keyword">in</span> wordDict:</span><br><span class="line">            n = <span class="built_in">len</span>(w)</span><br><span class="line">            <span class="keyword">if</span> start + n &lt;= <span class="built_in">len</span>(s) <span class="keyword">and</span> s[start:start+n]==w:</span><br><span class="line">                self.search(s, wordDict, start+n, res + [w])</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 字符串 </tag>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 递归 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解139：单词拆分</title>
+      <link href="/2023/10/01/leetcode%E9%A2%98%E8%A7%A3139/"/>
+      <url>/2023/10/01/leetcode%E9%A2%98%E8%A7%A3139/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/word-break">力扣第139题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>像这种不需要求所有分割点，所有解的，而是求存不存在或者最小最大值的一般用动态规划，否则就用递归。</p><p>定义状态<code>dp[i+1]</code>表示<code>s[0:i+1]</code>子串能不能拼接出来，如果<code>dp[i+1]=True</code>，那么一定存在一个<code>0 &lt; j &lt;= i</code>，使得<code>dp[j]=True</code>，而且<code>s[j:i+1]</code>一定在<code>wordDict</code>中。反之，如果不存在，那表示<code>s[0:i+1]</code>无法拼接出来，即<code>dp[i+1]=False</code>。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wordBreak</span>(<span class="params">self, s: <span class="built_in">str</span>, wordDict: <span class="type">List</span>[<span class="built_in">str</span>]</span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        dp = [<span class="literal">False</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)+<span class="number">1</span>)]</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="literal">True</span></span><br><span class="line">        word_set = <span class="built_in">set</span>(wordDict)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> dp[j] <span class="keyword">and</span> s[j:i+<span class="number">1</span>] <span class="keyword">in</span> word_set:</span><br><span class="line">                    dp[i+<span class="number">1</span>] = <span class="literal">True</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> dp[<span class="built_in">len</span>(s)]</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 字符串 </tag>
+            
+            <tag> 动态规划 </tag>
+            
+            <tag> 数组 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解138：随机链表的复制</title>
+      <link href="/2023/09/30/leetcode%E9%A2%98%E8%A7%A3138/"/>
+      <url>/2023/09/30/leetcode%E9%A2%98%E8%A7%A3138/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/copy-list-with-random-pointer">力扣第138题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>没有random指针的时候，非常简单，直接复制当前节点，然后复制next节点，并将当前节点的next指针指向新的next节点；由于random指针随机指定，所以无法在一次遍历的情况下将random指针确定。</p><p>我们知道在第一次遍历的情况下可以确定next指针的指向，那么下一遍历的时候想要确定random指针的指向，我们就必须建立起新节点和原始节点之间的关系，由于第一次遍历的时候原始节点的next指针已经确定了，所以原始节点next节点似乎没有信息了，那就先将原始节点的next指针指向新节点，然后看看会有什么问题？</p><p>将原始节点curr的next指针指向新节点后，执行<code>curr.next.random = curr.random.next</code>，就确定了新节点的random指针指向了。看起来没什么问题，但是如果我们继续遍历下一个节点呢？发现原始节点的下一个节点已经丢失了，原因就是next指针重新指向了新节点了，这时我们可以利用新节点的random指针，在第一次遍历的时候，让新节点<code>newCurr</code>的<code>random</code>指针指向<code>curr.next</code>，就可以知道原始节点的next指针是什么了。</p><p>具体来说就是，每次遍历到新节点curr执行以下步骤，第一次遍历<br /><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">newCurr.next = <span class="keyword">new</span> <span class="title class_">Node</span>(curr.next.val)</span><br><span class="line">newCurr.random = curr.next</span><br><span class="line">curr.next = <span class="type">newCurr</span></span><br><span class="line"><span class="variable">curr</span> <span class="operator">=</span> newCurr.<span class="type">random</span></span><br><span class="line"><span class="variable">newCurr</span> <span class="operator">=</span> newCurr.next</span><br></pre></td></tr></table></figure></p><p>第二次遍历<br /><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nextCurr = curr.next.random</span><br><span class="line">curr.next.random = curr.random.next</span><br><span class="line">curr.next = <span class="type">null</span></span><br><span class="line"><span class="variable">curr</span> <span class="operator">=</span> nextCurr</span><br></pre></td></tr></table></figure></p><p>处理头节点时，可以记录下newHead，然后返回newHead即可。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">copyRandomList</span>(<span class="params">self, head: <span class="string">&#x27;Optional[Node]&#x27;</span></span>) -&gt; <span class="string">&#x27;Optional[Node]&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> head <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        newHead = Node(head.val)</span><br><span class="line">        curr, newCurr = head, newHead</span><br><span class="line">        <span class="keyword">while</span> curr.<span class="built_in">next</span>:</span><br><span class="line">            newCurr.<span class="built_in">next</span> = Node(curr.<span class="built_in">next</span>.val)</span><br><span class="line">            newCurr.random = curr.<span class="built_in">next</span></span><br><span class="line">            curr.<span class="built_in">next</span> = newCurr</span><br><span class="line">            curr = newCurr.random</span><br><span class="line">            newCurr = newCurr.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">        curr.<span class="built_in">next</span> = newCurr</span><br><span class="line"></span><br><span class="line">        curr = head</span><br><span class="line">        <span class="keyword">while</span> curr <span class="keyword">and</span> curr.<span class="built_in">next</span>:</span><br><span class="line">            nextCurr = curr.<span class="built_in">next</span>.random</span><br><span class="line">            <span class="keyword">if</span> curr.random:</span><br><span class="line">                curr.<span class="built_in">next</span>.random = curr.random.<span class="built_in">next</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                curr.<span class="built_in">next</span>.random = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">            curr = nextCurr</span><br><span class="line">        <span class="keyword">return</span> newHead</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode题解137：只出现一次的数字 II</title>
+      <link href="/2023/09/30/leetcode%E9%A2%98%E8%A7%A3137/"/>
+      <url>/2023/09/30/leetcode%E9%A2%98%E8%A7%A3137/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述">描述</h2><p>该题来自于<ahref="https://leetcode.cn/problems/single-number-ii">力扣第137题</a></p><span id="more"></span><h2 id="分析">分析</h2><p>这题本身难度并不高，只不过是一种巧妙的解法难以想到。题目要求空间复杂度为常数级，所以哈希表的解法（不合题意）就不介绍了。</p><p>先介绍一个简单的解法，位运算。由于其它数字都出现三次，很容易想到mod3运算，将所有数字变为32位二进制，对于所有数字上的第<code>i</code>位上的二进制位求和，然后mod3就是最终结果的二进制表示的第<code>i</code>位，这种解法非常简单且容易理解。</p><p>上面的解法需要对32位进行遍历，求出每一位上的二进制结果。其实有一种一次同时求出32位上的二进制结果的方法，就是用有限状态机。我们首先看下某一位上的计算过程，已计算的结果用x表示，新来的数位用y表示，那么计算公式为<br /><span class="math display">\[    x = (x + y) \mod 3\]</span></p><p>状态变化过程：<br />| x | y | 新x |<br />| :-: | :-: | :-: |<br />| 0 | 0 | 0 |<br />| 0 | 1 | 1 |<br />| 1 | 0 | 1 |<br />| 1 | 1 | 2 |<br />| 2 | 0 | 2 |<br />| 2 | 1 | 0 |</p><p>由于x的取值为0,1,2，所以为了使用位运算计算将x拆分为两位，分别计算两位的状态，合起来就是最终结果，用(a,b)来表示x的高位和低位。状态变化更新为：</p><p>状态变化过程：<br />| (a,b) | y | 新(a,b) |<br />| :-: | :-: | :-: |<br />| (0,0) | 0 | (0,0) |<br />| (0,0) | 1 | (0,1) |<br />| (0,1) | 0 | (0,1) |<br />| (0,1) | 1 | (1,0) |<br />| (1,0) | 0 | (1,0) |<br />| (1,0) | 1 | (0,0) |</p><p>其实上面就是真值表（假定都学过数字电路），可以推出计算公式为<br /><span class="math display">\[    a_1 = \bar aby + a \bar b \bar y \\    b_1 = \bar a \bar b y + \bar a b \bar y \\    a = a_1 \\    b = b_1\]</span><br />不化简也可以。每次来一个y计算出新的(a,b)；会发现对于32位中的每一位同时按照这种方式计算，相当对上述运算开启并行度32，得到的结果就是每一位上的二进制结果。</p><p>这样写的代码其实已经是符合题意的了，但是公式可以继续简化，比如<br /><span class="math display">\[    b = \bar a \bar b y + \bar a b \bar y = \bar a (b \oplus y)\]</span><br />还可以继续，比如我们先计算出b_1，然后根据(a,b_1)计算出a_1，一样的先画真值表，然后推出公式：<br /><span class="math display">\[    b_1 = \bar a (b \oplus y) \\    a_1 = \bar b_1 (a \oplus y) \\    a = a_1 \\    b = b_1\]</span><br />由于(a1,b1)不是同时求出来的，所以写代码的时候可以简化<br /><span class="math display">\[    b = \bar a (b \oplus y) \\    a = \bar b (a \oplus y)\]</span></p><p>我们再来看看最终结果是什么，由于只有一个没有出现三次，所以最终结果只能是(0,0)=0,(0,1)=1，不可能出现(1,0)=2的情况，所以最终结果直接取b的值即可。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">singleNumber</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        a, b = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> nums:</span><br><span class="line">            b = ~a &amp; (b ^ x)</span><br><span class="line">            a = ~b &amp; (a ^ x)</span><br><span class="line">        <span class="keyword">return</span> b</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 有限状态机 </tag>
+            
+            <tag> 位运算 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode题解135：分发糖果</title>
       <link href="/2023/09/24/leetcode%E9%A2%98%E8%A7%A3135/"/>
       <url>/2023/09/24/leetcode%E9%A2%98%E8%A7%A3135/</url>
