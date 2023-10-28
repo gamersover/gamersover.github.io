@@ -139,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">151</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">153</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -247,7 +247,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>786</span>
+              <span>742</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -277,10 +277,10 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/word-break-ii/
 1. 遍历n，然后判断是否在<code>wordDict</code>中；<br />
 2. 遍历<code>wordDict</code>，判断是否是某个前缀。</p>
 <p>两种写法都可以，看题目的<code>wordDict</code>比<code>len(s)</code>大很多，所以第一种方法可能更好点。</p>
-<p>这里的写法使用的第二种。然后就是递归的写法了，可以先返回子串分割的所有解，然后将前缀加入到每个解中；也可以在递归的过程中将前缀结果加到最终结果中，怎么写都可以，看习惯就行。</p>
+<p>然后就是递归的写法了，可以先返回子串分割的所有解，然后将前缀加入到每个解中；也可以在递归的过程中将前缀结果加到最终结果中，怎么写都可以，看习惯就行。</p>
 <p>当然，在写的过程中会发现有些地方子串会重复计算，其中可以缓存下计算结果，也就是记忆化搜索，这里就不展开了。具体可以看官方题解。</p>
 <h2 id="代码">代码</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wordBreak</span>(<span class="params">self, s: <span class="built_in">str</span>, wordDict: <span class="type">List</span>[<span class="built_in">str</span>]</span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        self.ans = []</span><br><span class="line">        self.search(s, wordDict, <span class="number">0</span>, [])</span><br><span class="line">        <span class="keyword">return</span> self.ans</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">self, s, wordDict, start, res</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(s) == start:</span><br><span class="line">            self.ans.append(<span class="string">&quot; &quot;</span>.join(res))</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">for</span> w <span class="keyword">in</span> wordDict:</span><br><span class="line">            n = <span class="built_in">len</span>(w)</span><br><span class="line">            <span class="keyword">if</span> start + n &lt;= <span class="built_in">len</span>(s) <span class="keyword">and</span> s[start:start+n]==w:</span><br><span class="line">                self.search(s, wordDict, start+n, res + [w])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wordBreak</span>(<span class="params">self, s, wordDict</span>):</span><br><span class="line">        self.ans = []</span><br><span class="line">        self.search2(s, wordDict, <span class="number">0</span>, [])</span><br><span class="line">        <span class="keyword">return</span> self.ans</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">search2</span>(<span class="params">self, s, wordDict, start, res</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(s) == start:</span><br><span class="line">            self.ans.append(<span class="string">&quot; &quot;</span>.join(res))</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start+<span class="number">1</span>, <span class="built_in">len</span>(s)+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> s[start:i] <span class="keyword">in</span> wordDict:</span><br><span class="line">                self.search2(s, wordDict, i, res+[s[start:i]])</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -325,7 +325,10 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/word-break-ii/
     <a href="/2023/10/01/leetcode%E9%A2%98%E8%A7%A3139/" rel="prev" title="leetcode题解139：单词拆分">
       <i class="fa fa-chevron-left"></i> leetcode题解139：单词拆分
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2023/10/14/leetcode%E9%A2%98%E8%A7%A3142/" rel="next" title="leetcode题解142：环形链表 II">
+      leetcode题解142：环形链表 II <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -401,7 +404,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/word-break-ii/
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">151</span>
+          <span class="site-state-item-count">153</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -456,13 +459,13 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/word-break-ii/
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">487k</span>
+    <span title="站点总字数">490k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:23</span>
+    <span title="站点阅读时长">7:26</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
