@@ -27,7 +27,7 @@ mathjax: true
 
 两种写法都可以，看题目的`wordDict`比`len(s)`大很多，所以第一种方法可能更好点。
 
-这里的写法使用的第二种。然后就是递归的写法了，可以先返回子串分割的所有解，然后将前缀加入到每个解中；也可以在递归的过程中将前缀结果加到最终结果中，怎么写都可以，看习惯就行。
+然后就是递归的写法了，可以先返回子串分割的所有解，然后将前缀加入到每个解中；也可以在递归的过程中将前缀结果加到最终结果中，怎么写都可以，看习惯就行。
 
 当然，在写的过程中会发现有些地方子串会重复计算，其中可以缓存下计算结果，也就是记忆化搜索，这里就不展开了。具体可以看官方题解。
 
@@ -36,17 +36,16 @@ mathjax: true
 
 ```python
 class Solution:
-    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+    def wordBreak(self, s, wordDict):
         self.ans = []
-        self.search(s, wordDict, 0, [])
+        self.search2(s, wordDict, 0, [])
         return self.ans
 
-    def search(self, s, wordDict, start, res):
+    def search2(self, s, wordDict, start, res):
         if len(s) == start:
             self.ans.append(" ".join(res))
             return
-        for w in wordDict:
-            n = len(w)
-            if start + n <= len(s) and s[start:start+n]==w:
-                self.search(s, wordDict, start+n, res + [w])
+        for i in range(start+1, len(s)+1):
+            if s[start:i] in wordDict:
+                self.search2(s, wordDict, i, res+[s[start:i]])
 ```
