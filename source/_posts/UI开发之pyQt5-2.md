@@ -18,7 +18,7 @@ categories: 教程
 ### QLineEdit（单行文本编辑框）
 
 展示
-<img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No4.gif" width="25%">
+<img src="https://jsd.cdn.zzko.cn/gh/gamersover/hexo_blog_assets@main/pyqt教程/No4.gif" width="25%">
 
 该控件一般用来输入用户名或密码等简要内容，其写法如下：
 ```python
@@ -52,7 +52,7 @@ line_edit.setEchoMode(QLineEdit.EchoMode.Password)
 ### QTextEdit（多行文本编辑框）
 
 展示
-<img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No5.gif" width="25%">
+<img src="https://jsd.cdn.zzko.cn/gh/gamersover/hexo_blog_assets@main/pyqt教程/No5.gif" width="25%">
 
 该控件用来实现大量文本的输入与显示，写法如下：
 

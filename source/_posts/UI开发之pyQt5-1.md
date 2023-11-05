@@ -67,7 +67,7 @@ PyQt5控件布局的基本逻辑是：
 
 ### 主窗口写法
 界面展示：
-<img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No1.jpg" width="25%">
+<img src="https://jsd.cdn.zzko.cn/gh/gamersover/hexo_blog_assets@main/pyqt教程/No1.jpg" width="25%">
 代码如下：
 
 ```python
@@ -139,9 +139,9 @@ def init_ui(self):
 
 ### 控件的嵌套
 当需要实现复杂的UI界面时，控件之间嵌套必不可少，比如要实现下图中的界面：
-<img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No3.jpg" width="25%">
+<img src="https://jsd.cdn.zzko.cn/gh/gamersover/hexo_blog_assets@main/pyqt教程/No3.jpg" width="25%">
 可以先整理下该界面中的有哪些控件以及包含关系：
-<img src="https://raw.githubusercontent.com/gamersover/hexo_blog_assets/main/pyqt%E6%95%99%E7%A8%8B/No2.jpg" width="60%">
+<img src="https://jsd.cdn.zzko.cn/gh/gamersover/hexo_blog_assets@main/pyqt教程/No2.jpg" width="60%">
 其中主控件(`main_widget`)包含左右两个控件，而右边控件(`right_widget`)又包含两个控件，所以代码实现为：
 
 ```python
