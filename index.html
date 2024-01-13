@@ -124,7 +124,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">79</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">80</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -193,7 +193,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/01/05/LLM%E5%B7%A5%E5%85%B7/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/01/05/LLM%E5%B7%A5%E5%85%B7%E5%A4%A7%E5%85%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
@@ -207,7 +207,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/01/05/LLM%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">LLM工具</a>
+            <a href="/2024/01/05/LLM%E5%B7%A5%E5%85%B7%E5%A4%A7%E5%85%A8/" class="post-title-link" itemprop="url">LLM工具大全</a>
         </h2>
 
         <div class="post-meta">
@@ -250,201 +250,14 @@
 * 本地LLM部署<br />
 * LLM+RAG 工具<br />
 * Agent工具</p>
-<h2 id="本地llm部署">本地LLM部署</h2>
-<p>在本地LLM部署方面，有多个开源工具可供选择，以下是其中一些的对比：</p>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 7%" />
-<col style="width: 14%" />
-<col style="width: 21%" />
-<col style="width: 7%" />
-<col style="width: 10%" />
-<col style="width: 14%" />
-<col style="width: 13%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>工具</th>
-<th>部署难度</th>
-<th>GUFF量化模型支持</th>
-<th>兼容OpenAI的REST风格API</th>
-<th>模型微调</th>
-<th>函数调用工具</th>
-<th>文本嵌入模型支持</th>
-<th>Apple M芯片支持</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a target="_blank" rel="noopener" href="https://github.com/mudler/LocalAI">LocalAI</a></td>
-<td>⭐️⭐️⭐️⭐️</td>
-<td>✅</td>
-<td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr class="even">
-<td><a target="_blank" rel="noopener" href="https://github.com/jmorganca/ollama">Ollama</a></td>
-<td>⭐️</td>
-<td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr class="odd">
-<td><a target="_blank" rel="noopener" href="https://github.com/bentoml/OpenLLM">OpenLLM</a></td>
-<td>⭐️⭐️</td>
-<td>✅</td>
-<td>❌</td>
-<td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr class="even">
-<td><a target="_blank" rel="noopener" href="https://github.com/xorbitsai/inference">Xinference</a></td>
-<td>⭐️⭐️</td>
-<td>✅</td>
-<td>✅</td>
-<td>❌</td>
-<td>✅</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr class="odd">
-<td><a target="_blank" rel="noopener" href="https://github.com/lm-sys/FastChat">Fastchat</a></td>
-<td>⭐️⭐️</td>
-<td>❌</td>
-<td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-</tbody>
-</table>
-<h2 id="openai-api代理">OpenAI API代理</h2>
-<p>对于不兼容OpenAI的REST风格API的部署工具，可以使用以下代理服务：</p>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 66%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>代理服务</th>
-<th>支持工具</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a target="_blank" rel="noopener" href="https://github.com/BerriAI/litellm">liteLLM</a></td>
-<td>对于某些不兼容openai的REST风格API的部署工具，比如Ollama，可以使用liteLLM开启代理服务，从而间接支持</td>
-</tr>
-<tr class="even">
-<td><a target="_blank" rel="noopener" href="https://github.com/songquanpeng/one-api">oneapi</a></td>
-<td>统一接口管理和分发系统，整合多种开源模型的API</td>
-</tr>
-<tr class="odd">
-<td><a target="_blank" rel="noopener" href="https://github.com/Portkey-AI/gateway">AI gateway</a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="低代码工具开发">低代码工具开发</h2>
-<p>在低代码工具开发方面，有几个项目可供选择：</p>
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 9%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 9%" />
-<col style="width: 12%" />
-<col style="width: 14%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>工具</th>
-<th>部署难度</th>
-<th>易用度</th>
-<th>RAG支持</th>
-<th>多路召回</th>
-<th>rerank模型</th>
-<th>函数调用工具</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a target="_blank" rel="noopener" href="https://github.com/langgenius/dify">dify</a></td>
-<td>⭐️⭐️</td>
-<td>⭐️⭐️⭐️⭐️</td>
-<td>⭐️⭐️⭐️⭐️</td>
-<td>✅</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-<tr class="even">
-<td><a target="_blank" rel="noopener" href="https://github.com/labring/FastGPT">fastgpt</a></td>
-<td>⭐️⭐️⭐️⭐️</td>
-<td>⭐️⭐️</td>
-<td>⭐️⭐️⭐️⭐️</td>
-<td>✅</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr class="odd">
-<td><a target="_blank" rel="noopener" href="https://github.com/FlowiseAI/Flowise">flowise</a></td>
-<td>⭐️</td>
-<td>⭐️⭐️⭐️⭐️</td>
-<td>⭐️⭐️</td>
-<td>❌</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr class="even">
-<td><a target="_blank" rel="noopener" href="https://github.com/logspace-ai/langflow">langflow</a></td>
-<td>⭐️</td>
-<td>⭐️ ⭐️ ⭐️</td>
-<td>⭐️ ⭐️ ⭐️</td>
-<td>✅</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr class="odd">
-<td><a
-target="_blank" rel="noopener" href="https://github.com/bionic-gpt/bionic-gpt">bionic-gpt</a></td>
-<td>⭐️⭐️</td>
-<td>⭐️⭐️</td>
-<td>⭐️⭐️</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-</tbody>
-</table>
-<h2 id="agent工具">Agent工具</h2>
-<p>以下是一些Agent工具：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/microsoft/autogen">autogen</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/geekan/MetaGPT">metagpt</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/Significant-Gravitas/AutoGPT">autogpt</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/joaomdmoura/crewAI">crewAI</a></li>
-</ul>
-<h2 id="其他">其他</h2>
-<ul>
-<li>关于Hugging Face访问和下载慢的问题，可以更改镜像源，具体参考 <a
-target="_blank" rel="noopener" href="https://hf-mirror.com/">hf-mirror</a>。</li>
-<li>优秀prompt分享网站： <a target="_blank" rel="noopener" href="https://www.promptgenius.site/">Prompt
-Genius</a>。</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/01/05/LLM%E5%B7%A5%E5%85%B7%E5%A4%A7%E5%85%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1353,7 +1166,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/word-break">�
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">79</span>
+        <span class="site-state-item-count">80</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
