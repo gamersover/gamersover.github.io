@@ -124,7 +124,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">78</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">79</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">157</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">159</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -189,6 +189,366 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/01/05/LLM%E5%B7%A5%E5%85%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/01/05/LLM%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">LLM工具</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-01-05 20:29:28" itemprop="dateCreated datePublished" datetime="2024-01-05T20:29:28+08:00">2024-01-05</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>770</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="背景">背景</h2>
+<p>2023年是开源LLM爆发的一年，不仅包含非常多优秀的开源模型，还有大量结合LLM开发智能应用的工具，这篇文章主要整理相关内容，包括但不限于以下：<br />
+* 本地LLM部署<br />
+* LLM+RAG 工具<br />
+* Agent工具</p>
+<h2 id="本地llm部署">本地LLM部署</h2>
+<p>在本地LLM部署方面，有多个开源工具可供选择，以下是其中一些的对比：</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 7%" />
+<col style="width: 14%" />
+<col style="width: 21%" />
+<col style="width: 7%" />
+<col style="width: 10%" />
+<col style="width: 14%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>工具</th>
+<th>部署难度</th>
+<th>GUFF量化模型支持</th>
+<th>兼容OpenAI的REST风格API</th>
+<th>模型微调</th>
+<th>函数调用工具</th>
+<th>文本嵌入模型支持</th>
+<th>Apple M芯片支持</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a target="_blank" rel="noopener" href="https://github.com/mudler/LocalAI">LocalAI</a></td>
+<td>⭐️⭐️⭐️⭐️</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td><a target="_blank" rel="noopener" href="https://github.com/jmorganca/ollama">Ollama</a></td>
+<td>⭐️</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td><a target="_blank" rel="noopener" href="https://github.com/bentoml/OpenLLM">OpenLLM</a></td>
+<td>⭐️⭐️</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td><a target="_blank" rel="noopener" href="https://github.com/xorbitsai/inference">Xinference</a></td>
+<td>⭐️⭐️</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td><a target="_blank" rel="noopener" href="https://github.com/lm-sys/FastChat">Fastchat</a></td>
+<td>⭐️⭐️</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h2 id="openai-api代理">OpenAI API代理</h2>
+<p>对于不兼容OpenAI的REST风格API的部署工具，可以使用以下代理服务：</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>代理服务</th>
+<th>支持工具</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a target="_blank" rel="noopener" href="https://github.com/BerriAI/litellm">liteLLM</a></td>
+<td>对于某些不兼容openai的REST风格API的部署工具，比如Ollama，可以使用liteLLM开启代理服务，从而间接支持</td>
+</tr>
+<tr class="even">
+<td><a target="_blank" rel="noopener" href="https://github.com/songquanpeng/one-api">oneapi</a></td>
+<td>统一接口管理和分发系统，整合多种开源模型的API</td>
+</tr>
+<tr class="odd">
+<td><a target="_blank" rel="noopener" href="https://github.com/Portkey-AI/gateway">AI gateway</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="低代码工具开发">低代码工具开发</h2>
+<p>在低代码工具开发方面，有几个项目可供选择：</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 9%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 9%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>工具</th>
+<th>部署难度</th>
+<th>易用度</th>
+<th>RAG支持</th>
+<th>多路召回</th>
+<th>rerank模型</th>
+<th>函数调用工具</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a target="_blank" rel="noopener" href="https://github.com/langgenius/dify">dify</a></td>
+<td>⭐️⭐️</td>
+<td>⭐️⭐️⭐️⭐️</td>
+<td>⭐️⭐️⭐️⭐️</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td><a target="_blank" rel="noopener" href="https://github.com/labring/FastGPT">fastgpt</a></td>
+<td>⭐️⭐️⭐️⭐️</td>
+<td>⭐️⭐️</td>
+<td>⭐️⭐️⭐️⭐️</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td><a target="_blank" rel="noopener" href="https://github.com/FlowiseAI/Flowise">flowise</a></td>
+<td>⭐️</td>
+<td>⭐️⭐️⭐️⭐️</td>
+<td>⭐️⭐️</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td><a target="_blank" rel="noopener" href="https://github.com/logspace-ai/langflow">langflow</a></td>
+<td>⭐️</td>
+<td>⭐️ ⭐️ ⭐️</td>
+<td>⭐️ ⭐️ ⭐️</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://github.com/bionic-gpt/bionic-gpt">bionic-gpt</a></td>
+<td>⭐️⭐️</td>
+<td>⭐️⭐️</td>
+<td>⭐️⭐️</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<h2 id="agent工具">Agent工具</h2>
+<p>以下是一些Agent工具：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/microsoft/autogen">autogen</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/geekan/MetaGPT">metagpt</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Significant-Gravitas/AutoGPT">autogpt</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/joaomdmoura/crewAI">crewAI</a></li>
+</ul>
+<h2 id="其他">其他</h2>
+<ul>
+<li>关于Hugging Face访问和下载慢的问题，可以更改镜像源，具体参考 <a
+target="_blank" rel="noopener" href="https://hf-mirror.com/">hf-mirror</a>。</li>
+<li>优秀prompt分享网站： <a target="_blank" rel="noopener" href="https://www.promptgenius.site/">Prompt
+Genius</a>。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/11/26/leetcode%E9%A2%98%E8%A7%A3149/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
+      <meta itemprop="name" content="陈华杰">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘雨尘风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/11/26/leetcode%E9%A2%98%E8%A7%A3149/" class="post-title-link" itemprop="url">leetcode题解149：直线上最多的点数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-11-26 12:09:19" itemprop="dateCreated datePublished" datetime="2023-11-26T12:09:19+08:00">2023-11-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="描述">描述</h2>
+<p>该题来自于<a
+target="_blank" rel="noopener" href="https://leetcode.cn/problems/max-points-on-a-line/description/">力扣第149题</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/11/26/leetcode%E9%A2%98%E8%A7%A3149/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -909,186 +1269,6 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/word-break">�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/09/30/leetcode%E9%A2%98%E8%A7%A3138/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
-      <meta itemprop="name" content="陈华杰">
-      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="尘雨尘风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/09/30/leetcode%E9%A2%98%E8%A7%A3138/" class="post-title-link" itemprop="url">leetcode题解138：随机链表的复制</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-09-30 11:20:28" itemprop="dateCreated datePublished" datetime="2023-09-30T11:20:28+08:00">2023-09-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="描述">描述</h2>
-<p>该题来自于<a
-target="_blank" rel="noopener" href="https://leetcode.cn/problems/copy-list-with-random-pointer">力扣第138题</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/09/30/leetcode%E9%A2%98%E8%A7%A3138/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/09/30/leetcode%E9%A2%98%E8%A7%A3137/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/26238198?s=400&u=6fc887359a7fbb2f64ad0276cd01f79660fd28db&v=4">
-      <meta itemprop="name" content="陈华杰">
-      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="尘雨尘风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/09/30/leetcode%E9%A2%98%E8%A7%A3137/" class="post-title-link" itemprop="url">leetcode题解137：只出现一次的数字 II</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-09-30 10:23:22" itemprop="dateCreated datePublished" datetime="2023-09-30T10:23:22+08:00">2023-09-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="描述">描述</h2>
-<p>该题来自于<a
-target="_blank" rel="noopener" href="https://leetcode.cn/problems/single-number-ii">力扣第137题</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/09/30/leetcode%E9%A2%98%E8%A7%A3137/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1160,7 +1340,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/single-number-
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">159</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1173,7 +1353,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/single-number-
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1205,7 +1385,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/single-number-
 <div class="copyright">
   
   &copy; 2019 – 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1215,13 +1395,13 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/single-number-
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">494k</span>
+    <span title="站点总字数">496k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:29</span>
+    <span title="站点阅读时长">7:31</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
